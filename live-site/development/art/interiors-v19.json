@@ -1,0 +1,589 @@
+{
+  "schema": "ash-aether.interior-wall-art/1",
+  "release": "5.18.1",
+  "collection": "v19",
+  "generationMode": "built-in image_gen.imagegen",
+  "sourcePolicy": "Original generated PNG bytes archived unchanged. Runtime WebP delivery uses FFmpeg libwebp quality 95, compression level 6. Color encoding is lossy; all dimensions and alpha values are preserved exactly.",
+  "reviewedStyleReference": "development/art/source-v17/architecture-accents-v17.png",
+  "camera": "Elevated orthographic cutaway, approximately 35 degrees; principal wall faces horizontal and frontal, upper-left light.",
+  "cropMethod": "Eight main connected alpha>8 bodies per sheet, with four source pixels of padding. All alpha>32 pixels fall within the measured source crops. No neighboring main subjects enter a crop. No source pixel edits or alpha cleanup.",
+  "registration": "Bottom center of each measured crop. Runtime fitting preserves aspect ratio and remains within the existing 88-pixel back-wall face.",
+  "selectionPolicy": "Cached wall-only placements subtract existing furniture-18 windows, real doorway spans, hearth and specialist fixture overlap. Single-cell cutaway steps, side walls, south lips and partitions remain unchanged. All chapel walls retain their specialist drawing. At most sixteen details per room; absent or malformed optional images retain existing walls.",
+  "runtimeFiles": {
+    "environmentHomeWalls": "home-walls-v19.webp",
+    "environmentWorkshopWalls": "workshop-walls-v19.webp",
+    "environmentCivicWalls": "civic-walls-v19.webp"
+  },
+  "sourcePngCount": 3,
+  "wallPieceCount": 24,
+  "totalOriginalPngBytes": 4838479,
+  "totalDeliveryWebpBytes": 1257912,
+  "sheets": [
+    {
+      "family": "home",
+      "archivedSourcePath": "development/art/source-v19/home-walls-v19.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1560505,
+      "sha256": "d84aed0a1db0030373f356ac0de7e02848babb846f541896d536365190df4865",
+      "delivery": {
+        "file": "dist/game/engine2/art/home-walls-v19.webp",
+        "bytes": 411372,
+        "sha256": "8585dff127ecba5300e63bee55eedc7a94debb7ac656e3031e44706cae2bf663",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "losslessColor": false,
+        "maxAlphaError": 0
+      },
+      "id": "home-walls",
+      "assetKey": "environmentHomeWalls",
+      "file": "home-walls-v19.png",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-02315aad-fc24-4cbe-a4b5-e8e3f177db2d.png",
+      "mode": "RGBA",
+      "transparentPixels": 934798,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent interior-wall sprite atlas for the original painterly RPG Ash & Aether. Create ONE landscape 2:1 canvas, EXACTLY FOUR columns by TWO rows, exactly EIGHT independent, fully separated wall details. This is a coherent modest HOME room kit: warm patched limewash, dark repaired timber, muted ochre, a little faded indigo. Hand-painted weathered gouache and watercolor texture, refined but quiet, rounded worn edges. Match an elevated cutaway orthographic RPG camera looking down approximately 35 degrees; all main wall faces face the viewer squarely, long edges horizontal, tiny top ledges visible, upper-left light. These attach to existing 88-pixel-high back wall spans. Each subject is only a shallow wall surface detail, not a room or floor prop. Generous TRUE TRANSPARENT gutters of at least 10% of every cell, no connected shadows, nothing touching cell borders. Keep each entire piece and its soft edge within its cell; equal row heights.\n\nOrdered left-to-right top row:\n1. A broad low panel of patched cream limewash above a worn chestnut skirting strip, irregular plaster repairs and two tiny brass mending staples; width about twice height.\n2. A broad limewash bay with one restrained diagonal timber brace and visible old pegged join, horizontal top edge; no opening.\n3. A short LEFT inside-wall corner return: a pale plaster strip meeting a narrow dark wooden corner post, with a shallow short return plane, no floor; vertical compact piece.\n4. A matching RIGHT inside-wall corner return, independently lit from upper left, pale plaster and wooden post, no floor.\n\nBottom row:\n5. A small shallow RECTANGULAR closed-back linen wall recess with a single folded indigo cloth on its inset sill; solid pale back, unmistakably a small wall niche, no doorway or dark passage.\n6. A broad small kitchen wall tile inset, faded cream and sage glazed ceramic squares with subtle hand-painted leaf strokes, framed by worn lime plaster; no text.\n7. A broad softly weathered plaster repair with faint old smoke staining at the upper edge and a short repaired wood dado; no hearth, fire or fireplace.\n8. A long low carved wooden cornice repair strip with tiny pegged joints and a narrow pale plaster backing, width about three times its height; not a door lintel, no doorway frame.\n\nThe eight pieces form a consistent lived-in room family. No windows, doors, arches, floor patches, furniture, pots, crates, people, signage, symbols, labels, letters, numbers, watermarks, grids, cell frames or painted background. True alpha transparency outside the eight complete subjects. Keep texture restrained so the details stay legible at a final wall height of roughly 70 pixels. Do not create an isometric diamond base or rotate the main wall plane.",
+      "validation": {
+        "mainSubjectCount": 8,
+        "alphaAbove32OutsideCrops": 0,
+        "highOpacityRedEdgePixels": 0,
+        "sourceDimensionsPreserved": true,
+        "sourceBytesUnchanged": true,
+        "alphaPreservedExactly": true
+      },
+      "sprites": [
+        {
+          "id": "home-limewash-repair",
+          "label": "Mended limewash bay",
+          "family": "home",
+          "role": "panel",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            45,
+            128,
+            458,
+            263
+          ],
+          "anchor": [
+            274,
+            391
+          ]
+        },
+        {
+          "id": "home-timber-brace",
+          "label": "Pegged timber brace",
+          "family": "home",
+          "role": "panel",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            560,
+            128,
+            458,
+            264
+          ],
+          "anchor": [
+            789,
+            392
+          ]
+        },
+        {
+          "id": "home-corner-left",
+          "label": "Left plaster and timber return",
+          "family": "home",
+          "role": "corner-left",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            1130,
+            98,
+            157,
+            326
+          ],
+          "anchor": [
+            1208.5,
+            424
+          ]
+        },
+        {
+          "id": "home-corner-right",
+          "label": "Right plaster and timber return",
+          "family": "home",
+          "role": "corner-right",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            1480,
+            98,
+            161,
+            326
+          ],
+          "anchor": [
+            1560.5,
+            424
+          ]
+        },
+        {
+          "id": "home-linen-recess",
+          "label": "Closed-back linen recess",
+          "family": "home",
+          "role": "niche",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            89,
+            530,
+            267,
+            259
+          ],
+          "anchor": [
+            222.5,
+            789
+          ]
+        },
+        {
+          "id": "home-kitchen-tiles",
+          "label": "Worn leaf-pattern tiles",
+          "family": "home",
+          "role": "panel",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            446,
+            531,
+            360,
+            263
+          ],
+          "anchor": [
+            626,
+            794
+          ]
+        },
+        {
+          "id": "home-smoke-repair",
+          "label": "Smoke-worn plaster repair",
+          "family": "home",
+          "role": "panel",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            865,
+            511,
+            383,
+            274
+          ],
+          "anchor": [
+            1056.5,
+            785
+          ]
+        },
+        {
+          "id": "home-carved-cornice",
+          "label": "Carved cornice repair",
+          "family": "home",
+          "role": "cornice",
+          "asset": "environmentHomeWalls",
+          "crop": [
+            1287,
+            591,
+            444,
+            113
+          ],
+          "anchor": [
+            1509,
+            704
+          ]
+        }
+      ]
+    },
+    {
+      "family": "workshop",
+      "archivedSourcePath": "development/art/source-v19/workshop-walls-v19.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1756886,
+      "sha256": "f7e733e65234ab08b8e9155f779622d664db12c76521cfa5bb7c18aae5173263",
+      "delivery": {
+        "file": "dist/game/engine2/art/workshop-walls-v19.webp",
+        "bytes": 448230,
+        "sha256": "33f203428d2e4f7259811d75703b56716a4fe2ed1ee8d2852699cb7a0ccc41db",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "losslessColor": false,
+        "maxAlphaError": 0
+      },
+      "id": "workshop-walls",
+      "assetKey": "environmentWorkshopWalls",
+      "file": "workshop-walls-v19.png",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-1cbcd248-6a60-444e-afd0-b6912690f79e.png",
+      "mode": "RGBA",
+      "transparentPixels": 768958,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent interior-wall sprite atlas for the original painterly RPG Ash & Aether. Create ONE landscape 2:1 canvas, EXACTLY FOUR columns by TWO rows, exactly EIGHT independent fully separated shallow wall details. This coherent INSTRUMENT WORKSHOP room kit uses warm clay plaster, weathered dark timber, subdued chestnut, cool soot-grey masonry and sparing aged brass/copper. Hand-painted weathered gouache and watercolor, refined quiet material grain. Elevated cutaway orthographic camera looking down approximately 35 degrees; all principal wall faces face the viewer squarely, long edges horizontal, top ledges shallow and visible; consistent upper-left light. Intended to attach to existing 88-pixel-high back walls. Only wall surfaces, not a room or standing furniture. At least 10% true transparent gutter inside every cell, no touching subjects, complete silhouettes and shadows, no cropped edges. Equal row heights.\n\nOrdered left-to-right top row:\n1. A broad warm clay-plaster repair panel with a small understated exposure of old brick and a worn horizontal timber dado; width about twice height.\n2. A broad timber-framed workshop wall panel with one diagonal crossbrace and aged pegged joints on warm grey-brown plaster; no opening.\n3. A short LEFT inside-wall corner return, clay plaster meeting a battered wooden post with a restrained brass repair strap; shallow return plane, no floor.\n4. A matching RIGHT inside-wall corner return, independently lit upper-left, same clay and timber construction; no floor.\n\nBottom row:\n5. A small shallow rectangular closed-back tool recess in a plaster wall: one hand plane, two fine chisels hanging against its solid wooden back, narrow inset sill; no cabinet doors or passage.\n6. A small wall-mounted copper conduit repair: two slim curved pipes fastened to a quiet clay-plaster backing with simple brass clips, no gauge, lever, button or glowing machinery.\n7. A shallow broad acoustic lath panel of dark wooden ribs over a muted felt backing, worn and carefully mended; fine crafting detail but no instrument or furniture.\n8. A long low workshop cornice strip with scarf-jointed timber, subtle brass fastening and a narrow clay plaster backing; width about three times height, not a doorway lintel.\n\nNo doors, windows, arch openings, floor slabs, furniture, loose crates, potted plants, fireplaces, people, readable text, labels, watermarks, panel borders or background. TRUE alpha transparency outside the eight subjects. Keep visual detail restrained and readable at around 70-pixel runtime height. No isometric diamond bases and no diagonal rotation of the main wall face.",
+      "validation": {
+        "mainSubjectCount": 8,
+        "alphaAbove32OutsideCrops": 0,
+        "highOpacityRedEdgePixels": 0,
+        "sourceDimensionsPreserved": true,
+        "sourceBytesUnchanged": true,
+        "alphaPreservedExactly": true
+      },
+      "sprites": [
+        {
+          "id": "workshop-brick-repair",
+          "label": "Clay and brick repair bay",
+          "family": "workshop",
+          "role": "panel",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            32,
+            123,
+            541,
+            295
+          ],
+          "anchor": [
+            302.5,
+            418
+          ]
+        },
+        {
+          "id": "workshop-timber-brace",
+          "label": "Strapped workshop joinery",
+          "family": "workshop",
+          "role": "panel",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            604,
+            87,
+            508,
+            334
+          ],
+          "anchor": [
+            858,
+            421
+          ]
+        },
+        {
+          "id": "workshop-corner-left",
+          "label": "Left workshop return",
+          "family": "workshop",
+          "role": "corner-left",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            1173,
+            57,
+            198,
+            388
+          ],
+          "anchor": [
+            1272,
+            445
+          ]
+        },
+        {
+          "id": "workshop-corner-right",
+          "label": "Right workshop return",
+          "family": "workshop",
+          "role": "corner-right",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            1455,
+            57,
+            262,
+            409
+          ],
+          "anchor": [
+            1586,
+            466
+          ]
+        },
+        {
+          "id": "workshop-tool-recess",
+          "label": "Closed-back tool recess",
+          "family": "workshop",
+          "role": "niche",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            49,
+            517,
+            371,
+            285
+          ],
+          "anchor": [
+            234.5,
+            802
+          ]
+        },
+        {
+          "id": "workshop-copper-conduit",
+          "label": "Copper conduit repair",
+          "family": "workshop",
+          "role": "conduit",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            489,
+            516,
+            179,
+            281
+          ],
+          "anchor": [
+            578.5,
+            797
+          ]
+        },
+        {
+          "id": "workshop-acoustic-lath",
+          "label": "Mended acoustic lath",
+          "family": "workshop",
+          "role": "panel",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            725,
+            520,
+            408,
+            275
+          ],
+          "anchor": [
+            929,
+            795
+          ]
+        },
+        {
+          "id": "workshop-cornice",
+          "label": "Scarf-jointed cornice",
+          "family": "workshop",
+          "role": "cornice",
+          "asset": "environmentWorkshopWalls",
+          "crop": [
+            1166,
+            610,
+            571,
+            135
+          ],
+          "anchor": [
+            1451.5,
+            745
+          ]
+        }
+      ]
+    },
+    {
+      "family": "civic",
+      "archivedSourcePath": "development/art/source-v19/civic-walls-v19.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1521088,
+      "sha256": "a46f6d132c7a44459c48f9e1ebf85b1d2f566b5499e27de392444fc64aa98e65",
+      "delivery": {
+        "file": "dist/game/engine2/art/civic-walls-v19.webp",
+        "bytes": 398310,
+        "sha256": "67dd2ca08cd67be6f0b9b032fa5551717003d263b29529ab70dbf0bb970063de",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "losslessColor": false,
+        "maxAlphaError": 0
+      },
+      "id": "civic-walls",
+      "assetKey": "environmentCivicWalls",
+      "file": "civic-walls-v19.png",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-043bd9e7-0ba1-4ffc-93b9-1bdf8b18bbbf.png",
+      "mode": "RGBA",
+      "transparentPixels": 880529,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent interior-wall sprite atlas for the original painterly RPG Ash & Aether. ONE landscape 2:1 canvas, EXACTLY FOUR columns by TWO rows, eight complete separated wall details. A coherent CLINIC AND ARCHIVE civic interior family: cool pale lime plaster, desaturated blue-grey limestone, muted sage glazed ceramics, weathered pale timber and very small warm brass touches. Painterly gouache/watercolor with restrained surface grain and rounded age-worn edges. Elevated cutaway orthographic RPG camera looking down around 35 degrees; principal wall faces frontally square to viewer, long edges horizontal, top ledges slightly visible; soft upper-left illumination. The details mount on existing 88-pixel-high back walls. Only wall-mounted surfaces and shallow recesses, not a room or standing furniture. Pure alpha backdrop, generous transparent gutters >=10% per cell, all eight fully separated with complete silhouettes, no shadow or detail touching another cell. Equal row heights.\n\nOrdered left-to-right top row:\n1. A broad pale limewash repair panel above a low blue-grey limestone skirting course, carefully patched irregular edges and a tiny brass staple; width about twice height.\n2. A broad low civic wainscot inset made from muted sage and cream ceramic panels with subtle worn stone trim; no symbols or lettering.\n3. A short LEFT inside-wall corner return in pale plaster meeting a narrow rounded limestone pier, shallow return plane and no floor.\n4. A matching RIGHT inside-wall corner return in the same pale plaster and worn stone, upper-left light maintained, no floor.\n\nBottom row:\n5. A small shallow rectangular CLOSED-BACK herb niche, pale plaster surround, solid pale back, two tiny muted amber glass jars and a folded clean cloth on an inset sill, no labels; unmistakably a wall recess, not a door.\n6. A small shallow rectangular CLOSED-BACK archive recess holding three plain rolled papers and two closed muted cloth folios against a solid blue-grey back; no words, letters or symbols.\n7. A compact inset stone ventilation grille with six modest narrow slits and a worn pale limestone surround; the grille has a shallow dark back, never a doorway.\n8. A long low pale stone cornice repair strip with restrained stepped moulding and a narrow cool plaster backing, width about three times height; no arch and not a doorway lintel.\n\nNo windows, doors, arches, false passages, floor bases, new floor furniture, altars, large shelves, fireplaces, pots, plants, people, labels, text, numbers, watermark, border or background. Preserve real transparency around every piece. Keep the pieces quiet and legible at a final wall height of roughly 70 pixels. No diamond-shaped floor platforms or diagonally rotated principal wall faces.",
+      "validation": {
+        "mainSubjectCount": 8,
+        "alphaAbove32OutsideCrops": 0,
+        "highOpacityRedEdgePixels": 0,
+        "sourceDimensionsPreserved": true,
+        "sourceBytesUnchanged": true,
+        "alphaPreservedExactly": true
+      },
+      "sprites": [
+        {
+          "id": "civic-limewash-repair",
+          "label": "Pale limewash and stone bay",
+          "family": "civic",
+          "role": "panel",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            63,
+            151,
+            558,
+            270
+          ],
+          "anchor": [
+            342,
+            421
+          ]
+        },
+        {
+          "id": "civic-sage-wainscot",
+          "label": "Sage ceramic wainscot",
+          "family": "civic",
+          "role": "panel",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            658,
+            185,
+            473,
+            236
+          ],
+          "anchor": [
+            894.5,
+            421
+          ]
+        },
+        {
+          "id": "civic-corner-left",
+          "label": "Left limestone return",
+          "family": "civic",
+          "role": "corner-left",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            1172,
+            103,
+            224,
+            324
+          ],
+          "anchor": [
+            1284,
+            427
+          ]
+        },
+        {
+          "id": "civic-corner-right",
+          "label": "Right limestone return",
+          "family": "civic",
+          "role": "corner-right",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            1463,
+            103,
+            222,
+            324
+          ],
+          "anchor": [
+            1574,
+            427
+          ]
+        },
+        {
+          "id": "civic-herb-recess",
+          "label": "Closed-back clinic recess",
+          "family": "civic",
+          "role": "niche",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            86,
+            508,
+            317,
+            259
+          ],
+          "anchor": [
+            244.5,
+            767
+          ]
+        },
+        {
+          "id": "civic-archive-recess",
+          "label": "Closed-back archive recess",
+          "family": "civic",
+          "role": "niche",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            484,
+            509,
+            340,
+            256
+          ],
+          "anchor": [
+            654,
+            765
+          ]
+        },
+        {
+          "id": "civic-stone-vent",
+          "label": "Inset stone ventilation grille",
+          "family": "civic",
+          "role": "vent",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            889,
+            556,
+            299,
+            205
+          ],
+          "anchor": [
+            1038.5,
+            761
+          ]
+        },
+        {
+          "id": "civic-cornice",
+          "label": "Pale stone cornice repair",
+          "family": "civic",
+          "role": "cornice",
+          "asset": "environmentCivicWalls",
+          "crop": [
+            1222,
+            625,
+            505,
+            133
+          ],
+          "anchor": [
+            1474.5,
+            758
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "checkedAtUTC": "2026-10-29T06:29:10.777Z",
+    "command": "node dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+    "passed": 5,
+    "failed": 0,
+    "scope": "Original/delivery hashes and crop bounds; aspect-preserving anchor and canvas state; immutable room/journey data with window/door reservations; matching Standard/Compatibility positions and unchanged bake bounds; absent/malformed images, off-view culling and decoder failure."
+  },
+  "coverage": {
+    "meaning": "Potential wall-only placements before view culling, on the current prepared room geometry.",
+    "householdScenes": 64,
+    "roomsWithWallArt": 59,
+    "chapelRoomsRetainingSpecialistWalls": 5,
+    "placements": 432,
+    "maximumDetailsPerRoom": 16,
+    "selectedMotifs": 24,
+    "unselectedMotifs": [],
+    "countsByMotif": {
+      "workshop-copper-conduit": 24,
+      "workshop-cornice": 10,
+      "workshop-timber-brace": 21,
+      "workshop-brick-repair": 27,
+      "workshop-corner-left": 14,
+      "workshop-tool-recess": 17,
+      "workshop-acoustic-lath": 20,
+      "home-linen-recess": 7,
+      "home-timber-brace": 10,
+      "home-limewash-repair": 6,
+      "civic-limewash-repair": 50,
+      "civic-cornice": 23,
+      "civic-archive-recess": 29,
+      "civic-stone-vent": 44,
+      "civic-herb-recess": 7,
+      "civic-sage-wainscot": 40,
+      "civic-corner-left": 25,
+      "civic-corner-right": 17,
+      "home-corner-left": 10,
+      "home-corner-right": 8,
+      "home-smoke-repair": 10,
+      "home-carved-cornice": 4,
+      "workshop-corner-right": 7,
+      "home-kitchen-tiles": 2
+    }
+  },
+  "initialWorkingRelease": "5.20.0"
+}

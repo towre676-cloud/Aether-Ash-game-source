@@ -1,0 +1,185 @@
+{
+  "method": "Same-host Skia Canvas2D software painter microbenchmark on current complete native Adventure3DRenderer scene geometry, loaded native actor/material images, native services, current camera and state. 12 small moving frames per scene; 10 timed after 2 warmups. Compare HEAD painter to current painter on identical captured current inputs. HEAD painter does not implement current actor cutaway. This measures host painter CPU work, not browser or physical-phone frame rate; not a complete release-to-release renderer benchmark.",
+  "sourceStart": "3daf6ed6410d5c8b74f57fbaca81a336498d8714821f9a66850330795522a50b",
+  "sourceEnd": "3daf6ed6410d5c8b74f57fbaca81a336498d8714821f9a66850330795522a50b",
+  "sourceDrift": false,
+  "results": [
+    {
+      "scene": 5,
+      "key": "town",
+      "viewport": [
+        388,
+        842
+      ],
+      "geometryTriangles": 27809,
+      "sprites": 13,
+      "cutaway": true,
+      "cases": [
+        {
+          "name": "HEAD painter on current inputs",
+          "medianMs": 344.305,
+          "p95Ms": 488.042,
+          "minMs": 303.739,
+          "maxMs": 488.042,
+          "samples": [
+            348.521,
+            303.739,
+            304.482,
+            322.972,
+            488.042,
+            397.639,
+            325.658,
+            351.153,
+            340.088,
+            351.753
+          ],
+          "triangles": 3030,
+          "texturedTriangles": 775,
+          "submitted": 58689,
+          "cacheEntries": null
+        },
+        {
+          "name": "5.41 painter on current inputs",
+          "medianMs": 240.423,
+          "p95Ms": 276.133,
+          "minMs": 211.927,
+          "maxMs": 276.133,
+          "samples": [
+            244.505,
+            276.133,
+            245.2,
+            221.788,
+            227.674,
+            250.537,
+            211.927,
+            236.34,
+            233.447,
+            245.845
+          ],
+          "triangles": 3100,
+          "texturedTriangles": 808,
+          "submitted": 58945,
+          "cacheEntries": 64
+        }
+      ]
+    },
+    {
+      "scene": 145,
+      "key": "field",
+      "viewport": [
+        388,
+        842
+      ],
+      "geometryTriangles": 19491,
+      "sprites": 3,
+      "cutaway": true,
+      "cases": [
+        {
+          "name": "HEAD painter on current inputs",
+          "medianMs": 263.918,
+          "p95Ms": 345.126,
+          "minMs": 254.464,
+          "maxMs": 345.126,
+          "samples": [
+            345.126,
+            272.666,
+            275.574,
+            268.218,
+            254.464,
+            265.527,
+            258.712,
+            259.66,
+            262.31,
+            260.985
+          ],
+          "triangles": 2390,
+          "texturedTriangles": 863,
+          "submitted": 38020,
+          "cacheEntries": null
+        },
+        {
+          "name": "5.41 painter on current inputs",
+          "medianMs": 162.486,
+          "p95Ms": 169.522,
+          "minMs": 157.101,
+          "maxMs": 169.522,
+          "samples": [
+            161.854,
+            169.522,
+            168.274,
+            157.101,
+            163.322,
+            163.119,
+            160.808,
+            159.629,
+            163.519,
+            159.028
+          ],
+          "triangles": 2426,
+          "texturedTriangles": 880,
+          "submitted": 38276,
+          "cacheEntries": 63
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "key": "home",
+      "viewport": [
+        388,
+        842
+      ],
+      "geometryTriangles": 4356,
+      "sprites": 2,
+      "cutaway": true,
+      "cases": [
+        {
+          "name": "HEAD painter on current inputs",
+          "medianMs": 205.322,
+          "p95Ms": 278.845,
+          "minMs": 180.795,
+          "maxMs": 278.845,
+          "samples": [
+            211.692,
+            182.345,
+            180.795,
+            219.953,
+            239.747,
+            278.845,
+            228.358,
+            193.794,
+            184.553,
+            198.951
+          ],
+          "triangles": 1325,
+          "texturedTriangles": 463,
+          "submitted": 6332,
+          "cacheEntries": null
+        },
+        {
+          "name": "5.41 painter on current inputs",
+          "medianMs": 165.292,
+          "p95Ms": 185,
+          "minMs": 152.868,
+          "maxMs": 185,
+          "samples": [
+            173.224,
+            158.074,
+            158.363,
+            161.912,
+            168.94,
+            174.257,
+            185,
+            156.664,
+            168.672,
+            152.868
+          ],
+          "triangles": 1482,
+          "texturedTriangles": 583,
+          "submitted": 6332,
+          "cacheEntries": 64
+        }
+      ]
+    }
+  ]
+}

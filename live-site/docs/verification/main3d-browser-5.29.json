@@ -1,0 +1,29 @@
+{
+  "release": "5.29",
+  "entry": "normal /game/ traveller selector, no dev flags",
+  "backend": "software-3d (cloud WebGL unavailable)",
+  "verified": [
+    "Veyr enters regular 3D main adventure without opening dialogue",
+    "Receiver keyboard confirmation advances native origin step0 to step1 without blocking paragraph",
+    "Actual pointer conductor drag at visible source and grounding socket commits grounded:true",
+    "Actual held weather-vane control commits repair:0 and vaneRaised:true",
+    "Reload + traveller resume preserves receiver, grounded, vaneRaised and repair",
+    "Second-worksite spare-vane accessible confirmation commits diversion and exposes explicit future controls",
+    "Navigation stops at physical control choices; no implicit branch selection"
+  ],
+  "restored_devices": {
+    "receiver": true,
+    "grounded": true,
+    "vaneRaised": true,
+    "coilSeparated": false,
+    "diverted": true,
+    "choice": null,
+    "repair": 0
+  },
+  "screenshot": "veyr-main-3d-browser.jpg",
+  "limits": [
+    "Exact game GLSL tested natively; no device GPU frame-rate measurement",
+    "Browser exercised field controls and saves; combat framing covered by retained projection and scene checks",
+    "Two viewports observed; pointer actions and keyboard alternative exercised"
+  ]
+}

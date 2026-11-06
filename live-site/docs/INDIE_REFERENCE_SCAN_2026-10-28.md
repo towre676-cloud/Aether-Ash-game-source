@@ -1,0 +1,53 @@
+# Indie reference scan for Ash & Aether
+
+Research date: October 28, 2026 (America/New_York).
+
+This is a selected cross-section of fourteen relevant games, combining current Nintendo Indie World coverage, Steam Next Fest and demo activity, recent developer announcements, and recent releases with active audiences. It is not an exhaustive inventory of indie development or a ranking of everything currently trending. A current store page establishes availability and advertised design; it does not establish chart leadership, finished quality, or independently tested control feel.
+
+The lessons and proposed adaptations below are our design inferences. We use the principles to strengthen Ash & Aether's clay, water, music, material combat, and remembered timelines. No third-party artwork, characters, text, music, maps, or code is copied.
+
+## The selected references
+
+| Reference | Current evidence and status | Best transferable lesson | Ash & Aether application |
+| --- | --- | --- | --- |
+| **Witchbrook** | Official site announces January 28, 2027; featured in Nintendo's October 28 Indie World. The older Steam 2026 listing is stale. [1] | Build places around visible activities: study, cooking, gardening, trade and social life. Official gallery images show distinct bridges, classrooms, cottages and forest approaches. | Use coherent household work areas, recognizable approaches and NPC routines. The current release improves room materials, rugs, facades and scene composition; deeper weather-dependent routines remain a separate systems task. |
+| **Threads of Time** | In development; Nintendo's October 28 announcement specifies summer 2027. [2] | Distinct eras and companions should reinforce the same narrative rather than feeling like unrelated content packs. | Repeat a few recognizable landmarks across remembered lives and the present, with different wear, waterlines and civic use. Current opening palettes and landmark families establish the visual foundation; full causal landmark transformations are future work. |
+| **No Rest for the Wicked** | Early Access; official October 21 update reports 1.2 million showcase views. Class-system beta is planned for December; 1.0 for March 2027. [3] | Material and equipment choices deserve a visible identity. Official class-armour previews distinguish steel, frost, fortress and other themes. | The current release makes shell saturation, firing, charring, charge and fracture visible, alongside localized strikes and preparation markers. Broader persistent equipment silhouettes would extend this principle later. |
+| **Neverway** | In development for 2027, with a Prologue demo. A relevant current benchmark; no chart-ranking claim. [4] | Relationships can participate in action gameplay: the developers advertise combat abilities unlocked through friendship, with individual routines and stories. | Connect an existing NPC's teaching or rescue to a demonstrated technique and an understandable field use. Preserve the character's work and story in the reward. Full relationship-driven ability progression is not part of this visual release. |
+| **Mina the Hollower** | Released May 28, 2026; Steam shows an active recent-review audience. A recent-release benchmark. [5] | One signature verb can unify navigation and combat: burrowing interacts with hazards and enemies. | Give a small existing clay/water action the same animation, rules and material meaning in exploration and battle. This is a future mechanics prototype, not a claim that burrowing or a new traversal system has been added. |
+| **Moonlighter 2: The Endless Vault** | Left Early Access September 2, 2026. Official material connects expeditions, inventory synergies, shopkeeping and town growth. [6] | Loot becomes more satisfying when its next useful destination is immediately legible. | Make a return to town reveal a specific repair, vendor offer or craft use for what the crew found. Reuse item imagery across collection, crafting and trade. The current release improves physical scenery; this economy presentation loop is a follow-up. |
+| **Wyldheart** | Publisher describes the game as in Alpha, with Early Access planned; release remains Coming Soon. [7] | Flexible builds and lived-in towns can coexist with clear beginnings and bounded campaigns. The publisher advertises classless trees and villagers with schedules. | Keep each traveller's role understandable through the opening encounter, then let shared supplies and Mako support alternative approaches. Do not add a new class-selection layer merely to imitate the feature list. |
+| **Emberville** | Steam lists Coming Soon to Early Access and a demo; planned classes, trades and town rebuilding are described publicly. [8] | Rescuing people can restore practical town functions, connecting social content with adventure progression. | When a person returns, show their workstation, tools, stock or service changing in the world. Our current activity-based rooms support this direction; a full new rescue-and-rebuild campaign is future content. |
+| **Haunted Paws** | Developer announced May 2027 and a free demo. Its October 19 post reports one million Steam wishlists and Next Fest participation. [9] | Treat atmosphere and clarity as iterative production work. The developer explicitly revised sparse scenes, NPC personality, movement and cameras after playtest feedback. | Review ordinary gameplay screens, then fix a bounded list of visual defects. This release follows that process with grass repetition, floating props, camera distance, room floors and facades. No co-op system is implied. |
+| **ReBlade: The Death Spiral** | Steam lists To Be Announced and an available demo. The page emphasizes timing, reading behavior and combining weapons, chips and augments. [10] | Repeated attempts should teach readable enemy patterns and support build adaptation. | Use grounded wind-up marks, localized impact feedback and visible shell changes so a failed attempt teaches something concrete. Deeper encounter remixing can build on the existing timeline and New Game Plus systems later. |
+| **Frostrail** | Steam lists Q4 2026 and Coming Soon to Early Access. Its advertised core is operating and upgrading a steam-powered train during survival expeditions. [11] | An expedition's mobile home can make resources and preparation emotionally concrete. | Treat the crew's shared transport or refuge as a readable physical place for restocking, repairs and preparation. A new train simulation is outside this release's scope. |
+| **Abyssal Lapidary** | Coming Soon, with a free demo. Steam describes appraising ore, removing impurities, cutting facets and working for unusual clients. [12] | Crafting gains identity from the behavior of its materials and a visible sequence of decisions. | A later Mako or clay-work prototype should show the material changing through a few meaningful steps, with its resulting battle use visible. Current material-shell visuals establish part of that shared language. |
+| **Probably Stolen** | Steam lists an October 28, 2026 release. Its advertised shopkeeping connects trade, rising rent, product choices and faction reputation. [13] | Economy becomes narrative when a profitable transaction also changes access, obligations or relationships. | Let a few existing high-value trades have visible civic consequences and clearly stated costs. Avoid adding universal rent pressure or punishing chores to every player's journey. |
+| **Never Wither** | Coming Soon, with a demo. The store describes creature forms, companion work, rare traits and settlement roles. [14] | Creatures can have uses beyond damage numbers: traversal, gathering, shelter, construction or changes to terrain. | Extend selected creatures' existing environmental relationships into a small number of observable noncombat uses. Collection, creature transformation and multiplayer settlement simulation have not been added by this release. |
+
+## What the current release applies
+
+The present visual pass implements thirty-two opening-scene compositions across all seven travellers and the first shared chapter; original painted environmental props; more coherent floors, rugs, facades and camera framing; material-specific shielding and localized strikes; quieter painterly ground with the blanket of bright hatch marks removed; and Compatibility-mode presentation improvements. It preserves existing navigation geometry, doors, story identities and save semantics.
+
+World-space cues and the last interactive-scenery refinements are integrated. Validation and browser coverage are recorded in the release receipt. The table's future mechanics are research directions, not a list of features claimed to be built.
+
+The strongest next experiments are deliberately small: one landmark that visibly changes between two eras; one clay/water action usable in both field and battle; one rescued specialist whose workstation changes; and one expedition reward whose useful destination becomes obvious on return. Each should earn expansion through an actual playable result.
+
+## Primary sources
+
+1. [Witchbrook official site, gallery, routines and current release date](https://www.witchbrook.com/).
+2. [Nintendo official Indie World roundup, October 28, 2026](https://www.nintendo.com/us/whatsnew/new-indie-world-showcase-features-cozy-and-chaotic-fun-for-nintendo-switch-2-and-nintendo-switch/).
+3. [No Rest for the Wicked official news](https://norestforthewicked.com/news).
+4. [Neverway on Steam](https://store.steampowered.com/app/2318330/Neverway/?l=english).
+5. [Mina the Hollower on Steam](https://store.steampowered.com/app/1875580/Mina_the_Hollower/).
+6. [Moonlighter 2 on Steam](https://store.steampowered.com/app/2350790/Moonlighter_2_The_Endless_Vault/).
+7. [Wyldheart publisher page](https://curvegames.com/our-games/wyldheart/).
+8. [Emberville on Steam](https://store.steampowered.com/app/2295170/Emberville/).
+9. [Haunted Paws official developer news](https://steamcommunity.com/app/2861080/allnews/).
+10. [ReBlade: The Death Spiral on Steam](https://store.steampowered.com/app/3489340/ReBlade_The_Death_Spiral/).
+11. [Frostrail on Steam](https://store.steampowered.com/app/3517740/Frostrail).
+12. [Abyssal Lapidary on Steam](https://store.steampowered.com/app/3797790/Abyssal_Lapidary/).
+13. [Probably Stolen on Steam](https://store.steampowered.com/app/4348910/Probably_Stolen).
+14. [Never Wither on Steam](https://store.steampowered.com/app/3809080/).
+
+Store text and planned dates can change. This document records the evidence available on the research date, and distinguishes developer-reported attention from independently measured popularity.

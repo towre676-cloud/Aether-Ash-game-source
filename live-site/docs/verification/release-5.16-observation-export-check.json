@@ -1,0 +1,100 @@
+{
+  "schema": "ash-aether.playtest/1",
+  "release": "5.16.0",
+  "startedAt": "2026-10-29T04:37:20.403Z",
+  "fixture": {
+    "chapter": 4,
+    "stage": "arrival",
+    "focus": "chapel",
+    "party": [
+      0,
+      1,
+      2
+    ]
+  },
+  "events": [
+    {
+      "at": 0,
+      "type": "start"
+    },
+    {
+      "at": 0.4,
+      "type": "scene",
+      "scene": 292,
+      "chapter": 4
+    },
+    {
+      "at": 4,
+      "type": "guide",
+      "running": true,
+      "held": true
+    },
+    {
+      "at": 7.2,
+      "type": "interaction",
+      "scene": 292,
+      "method": "interact",
+      "kind": "patrol"
+    },
+    {
+      "at": 7.2,
+      "type": "battle-start",
+      "chapter": 4,
+      "kind": "patrol"
+    },
+    {
+      "at": 12.3,
+      "type": "enemy-cast",
+      "actor": "Moonveil Moth"
+    },
+    {
+      "at": 17.6,
+      "type": "enemy-cast",
+      "actor": "Vesper Bell Orchid"
+    },
+    {
+      "at": 17.7,
+      "type": "enemy-cast",
+      "actor": "Moonveil Moth"
+    },
+    {
+      "at": 22.5,
+      "type": "enemy-cast",
+      "actor": "Vesper Bell Orchid"
+    },
+    {
+      "at": 23,
+      "type": "enemy-cast",
+      "actor": "Moonveil Moth"
+    },
+    {
+      "at": 28.3,
+      "type": "enemy-cast",
+      "actor": "Moonveil Moth"
+    },
+    {
+      "at": 28.7,
+      "type": "dialog",
+      "scene": 292,
+      "pages": 1,
+      "choices": 0
+    },
+    {
+      "at": 33.4,
+      "type": "marker",
+      "kind": "delight"
+    }
+  ],
+  "elapsedSeconds": 34,
+  "droppedEvents": 0,
+  "counts": {
+    "start": 1,
+    "scene": 1,
+    "guide": 1,
+    "interaction": 1,
+    "battle-start": 1,
+    "enemy-cast": 6,
+    "dialog": 1,
+    "marker": 1
+  }
+}

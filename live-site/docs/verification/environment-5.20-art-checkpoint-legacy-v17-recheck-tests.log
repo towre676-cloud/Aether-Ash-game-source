@@ -1,0 +1,24 @@
+Targeted legacy v17 scope recheck
+HEAD: e491e9395428b39233316e1970bbae1fb364b9fc
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-art-v17.test.mjs
+
+✔ every registered motif has a complete source rectangle in its actual PNG (83.828877ms)
+✔ all sixteen v17 runtime WebP atlases preserve source dimensions and cutout alpha (12.954238ms)
+✔ scene art selection is deterministic, diverse and does not mutate the actual expanded world (530.761299ms)
+✔ mixed seed variation does not alias a placement rule and story openings retain their material (0.88464ms)
+✔ origin terrain and painted props share the actual river, furnace and storm identities (323.570946ms)
+✔ actual lava, crystal and river compositions keep regional materials and reduce nearby repeats (304.523341ms)
+✔ plan-local choice is bounded, cached and independent of the order sites are requested (13.523235ms)
+✔ painted art keeps its aspect ratio and local pixel anchor in either graphics mode (0.520342ms)
+✔ failed image draws restore shared context and preserve the established art fallback (0.476156ms)
+✔ occlusion uses the painted width and height, fading only scenery in front of a traveller (0.367803ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1278.308177
+
+Exit: 0

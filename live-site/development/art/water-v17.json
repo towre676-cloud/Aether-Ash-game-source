@@ -1,0 +1,95 @@
+{
+  "release": "5.18.0",
+  "asset": "environmentWater",
+  "file": "dist/game/engine2/art/environment-water-v17.png",
+  "source": "/workspace/scratch/7b00f669b5c3/generated_images/exec-4d4af5b1-5d09-4fbd-8f4c-1fbef2bae6e6.png",
+  "generator": "image_gen.imagegen",
+  "transparent_background": false,
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGB",
+  "bytes": 2423543,
+  "sha256": "72ac5d40efe0c103f86901ec462092f610fc26580f869a394774e91baf115301",
+  "prompt": "Paint an original production material atlas for the game Ash & Aether. Exactly FOUR water-surface swatches in a precise TWO BY TWO grid, edge-to-edge square cells, no gutters or lines, on a square canvas. Each cell is a flat orthographic view looking straight DOWN at a broad quiet natural water surface. All four are seamless-looking continuous materials without a horizon, shoreline, shore rocks, reeds, floating objects, fish, plants, lily pads, foam crests, specular sun disc, bubbles, text or labels. Opaque RGB texture; no transparency. The entire image is only the four textures.\n\nStyle is subtle hand-painted gouache and watercolor material, restrained elegant storybook fantasy realism, NOT a photo and NOT shiny 3D game water. Large relaxed washes and gentle current-like brush patterns, tiny barely visible ripples, low contrast and very low spatial frequency. Absolutely NO small tiled bright caustic lattice, no white crosshatch, no repeating diamonds, no sharp cell-like pattern. Very dark subdued underwater hints can imply depth but no identifiable large object. A travelling character and environment props will sit above this texture; the water must support them quietly. Think shaded water between riverbanks in a crafted RPG environment, not a decorative wallpaper pattern.\n\nTop LEFT: ALLUVIAL RIVER WATER — muted deep jade, willow green and grey teal, soft slightly cloudy river sediments with very faint wandering horizontal flow lines.\nTop RIGHT: MANGROVE TIDAL WATER — muted olive teal and dark bottle green, shaded muddy depths and subtle translucent ochre silt wisps, very quiet broad value shifts.\nBottom LEFT: CORAL SHOAL WATER — restrained luminous blue turquoise and softened pale sea-green, broad transparent shallows, slight cooler deep pools, without bright caustic geometry.\nBottom RIGHT: SALTGLASS LAGOON — desaturated pale mineral sage and grey aqua, broad milky mineral clouds suspended in calm water, thin very soft ripples.\n\nEach swatch keeps similar brightness at its left/right and top/bottom edges so alternate reflected repetitions join smoothly. No framing, no obvious material boundaries except the straight 2×2 divisions. High quality original painterly surfaces, four distinct regional color identities.\n",
+  "surfaces": [
+    {
+      "id": "alluvial-river",
+      "crop": [
+        20,
+        20,
+        587,
+        587
+      ],
+      "use": "runtime",
+      "camera": "orthographic overhead",
+      "role": "quiet water material"
+    },
+    {
+      "id": "mangrove-tide",
+      "crop": [
+        647,
+        20,
+        587,
+        587
+      ],
+      "use": "runtime",
+      "camera": "orthographic overhead",
+      "role": "quiet water material"
+    },
+    {
+      "id": "coral-shallows",
+      "crop": [
+        20,
+        647,
+        587,
+        587
+      ],
+      "use": "runtime",
+      "camera": "orthographic overhead",
+      "role": "quiet water material"
+    },
+    {
+      "id": "saltglass-lagoon",
+      "crop": [
+        647,
+        647,
+        587,
+        587
+      ],
+      "use": "runtime",
+      "camera": "orthographic overhead",
+      "role": "quiet water material"
+    }
+  ],
+  "integration": "Original PNG bytes unchanged. Each swatch is read as a measured central crop, with reflected repeats during the bounded scene-entry terrain bake. Existing water movement remains separate.",
+  "archivedSourcePath": "development/art/source-v17/environment-water-v17.png",
+  "originalProductionPath": "dist/game/engine2/art/environment-water-v17.png",
+  "delivery": {
+    "file": "dist/game/engine2/art/environment-water-v17.webp",
+    "format": "WebP",
+    "release": "5.18.0",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 390334,
+    "sha256": "f83df973416b018ca03dd1f71ac88e0109738194585e2a21defe19b0c611e098",
+    "sourceSha256": "72ac5d40efe0c103f86901ec462092f610fc26580f869a394774e91baf115301",
+    "encoding": {
+      "encoder": "FFmpeg libwebp",
+      "quality": 95,
+      "compressionLevel": 6,
+      "losslessColor": false,
+      "alpha": "exact original alpha channel",
+      "dimensions": "unchanged"
+    },
+    "maxAlphaError": 0,
+    "verificationReceipt": "development/art/delivery-v17.json"
+  },
+  "artCheckpointRelease": "5.17.0",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

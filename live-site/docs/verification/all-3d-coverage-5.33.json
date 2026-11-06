@@ -1,0 +1,4462 @@
+{
+  "schema": "ash-aether.all-3d-coverage/1",
+  "release": "5.33",
+  "checked_at_utc": "2026-10-30T21:13:10.469Z",
+  "method": "Real World with native ground, Atlas, trail, household/regional life and rival installs; real integrated Adventure3DRenderer including native spatial composition, ground routes and dungeon legibility, with a minimal software raster callback. Save state is warmed through native reads before taking exact before/after snapshots. Geometry is inspected rather than rasterized.",
+  "scenes": [
+    {
+      "scene": 230,
+      "key": "security",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 42264,
+        "dynamic": 3606,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 229,
+      "key": "console",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 24210,
+        "dynamic": 3456,
+        "shadows": 144,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 228,
+      "key": "workshop",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 28692,
+        "dynamic": 3894,
+        "shadows": 72,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 5,
+      "key": "town",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 59658,
+        "dynamic": 32856,
+        "shadows": 648,
+        "glow": 1152
+      },
+      "integrated": {
+        "native_spatial_routes": 6,
+        "native_social_clusters": 7,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 141
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2,
+      "key": "home",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "home",
+      "meshes": {
+        "static": 21984,
+        "dynamic": 1668,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4,
+      "key": "instrumentworks",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 22512,
+        "dynamic": 4224,
+        "shadows": 216,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 12,
+      "key": "inn",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "lodging",
+      "meshes": {
+        "static": 36414,
+        "dynamic": 1776,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 17,
+      "key": "market",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 21732,
+        "dynamic": 2424,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 16
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 13,
+      "key": "guild",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "guild",
+      "meshes": {
+        "static": 26430,
+        "dynamic": 1956,
+        "shadows": 144,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50,
+      "key": "clinic",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "clinic",
+      "meshes": {
+        "static": 28530,
+        "dynamic": 2820,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 61,
+      "key": "carpenter",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "carpenter",
+      "meshes": {
+        "static": 23766,
+        "dynamic": 2604,
+        "shadows": 144,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 135,
+      "key": "bridge",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 37044,
+        "dynamic": 3306,
+        "shadows": 288,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 93
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 214,
+      "key": "refuge",
+      "chapter": 2,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 59400,
+        "dynamic": 11508,
+        "shadows": 576,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 4,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 47,
+      "key": "passages",
+      "chapter": 3,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 70284,
+        "dynamic": 996,
+        "shadows": 216,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 49,
+      "key": "river",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 24972,
+        "dynamic": 2598,
+        "shadows": 432,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 3,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 129
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 48,
+      "key": "bypass",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 32460,
+        "dynamic": 888,
+        "shadows": 288,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 142
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 292,
+      "key": "chapel",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 28800,
+        "dynamic": 8868,
+        "shadows": 792,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 5,
+        "native_social_clusters": 4,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 5,
+        "native_dungeon_routes": 2,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 125,
+      "key": "bell_crypt",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 36930,
+        "dynamic": 2730,
+        "shadows": 72,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 4,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 212,
+      "key": "west",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 101076,
+        "dynamic": 36462,
+        "shadows": 504,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 213,
+      "key": "east",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 54378,
+        "dynamic": 3900,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 234,
+      "key": "unindexed",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 10158,
+        "dynamic": 1428,
+        "shadows": 216,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 28,
+      "key": "catwalk",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "foundry",
+      "meshes": {
+        "static": 13872,
+        "dynamic": 858,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 221
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 29,
+      "key": "office",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 29148,
+        "dynamic": 11694,
+        "shadows": 504,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 30,
+      "key": "hold",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 15174,
+        "dynamic": 2892,
+        "shadows": 216,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 19,
+      "key": "forest",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 50556,
+        "dynamic": 3354,
+        "shadows": 360,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 238
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 20,
+      "key": "grove",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 26196,
+        "dynamic": 2424,
+        "shadows": 144,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 31
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 42,
+      "key": "sanctuary",
+      "chapter": 7,
+      "dungeon": "roots",
+      "set": null,
+      "meshes": {
+        "static": 37692,
+        "dynamic": 21084,
+        "shadows": 576,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 3,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 294,
+      "key": "reactor",
+      "chapter": 8,
+      "dungeon": "reactor",
+      "set": null,
+      "meshes": {
+        "static": 67266,
+        "dynamic": 888,
+        "shadows": 504,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 5,
+        "native_dungeon_routes": 2,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 295,
+      "key": "summit",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 15984,
+        "dynamic": 7362,
+        "shadows": 360,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 47
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 112,
+      "key": "field",
+      "chapter": 9,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 36834,
+        "dynamic": 4578,
+        "shadows": 216,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 104
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 406,
+      "key": "lowbank_shelter",
+      "chapter": 9,
+      "dungeon": "shelter",
+      "set": null,
+      "meshes": {
+        "static": 66180,
+        "dynamic": 7398,
+        "shadows": 360,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 3,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 256,
+      "key": "field",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 31416,
+        "dynamic": 3870,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 195
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 225,
+      "key": "manifest_depot",
+      "chapter": 10,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 20388,
+        "dynamic": 8442,
+        "shadows": 288,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 68,
+      "key": "field",
+      "chapter": 11,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 20772,
+        "dynamic": 5670,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 99
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 160,
+      "key": "flood_spillway",
+      "chapter": 11,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 35706,
+        "dynamic": 41208,
+        "shadows": 288,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 4,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 70,
+      "key": "field",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 13710,
+        "dynamic": 3630,
+        "shadows": 360,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 48
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 66,
+      "key": "name_vault",
+      "chapter": 12,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 31908,
+        "dynamic": 10854,
+        "shadows": 288,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 73,
+      "key": "field",
+      "chapter": 13,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 18396,
+        "dynamic": 4542,
+        "shadows": 216,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 48
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 359,
+      "key": "letter_attic",
+      "chapter": 13,
+      "dungeon": "timber",
+      "set": null,
+      "meshes": {
+        "static": 26178,
+        "dynamic": 11106,
+        "shadows": 216,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 164,
+      "key": "field",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 22230,
+        "dynamic": 4518,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 146
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 172,
+      "key": "echo_chamber",
+      "chapter": 14,
+      "dungeon": "glass",
+      "set": null,
+      "meshes": {
+        "static": 21030,
+        "dynamic": 6972,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 145,
+      "key": "field",
+      "chapter": 15,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 35928,
+        "dynamic": 5058,
+        "shadows": 216,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 84
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 144,
+      "key": "refugee_gate",
+      "chapter": 15,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 48090,
+        "dynamic": 38940,
+        "shadows": 360,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 191
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 142,
+      "key": "field",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 31980,
+        "dynamic": 3468,
+        "shadows": 216,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 164
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 394,
+      "key": "resonance_gallery",
+      "chapter": 16,
+      "dungeon": "resonance",
+      "set": null,
+      "meshes": {
+        "static": 63678,
+        "dynamic": 5208,
+        "shadows": 288,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 2,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 143,
+      "key": "field",
+      "chapter": 17,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 26700,
+        "dynamic": 3906,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 169
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 313,
+      "key": "lens_workshop",
+      "chapter": 17,
+      "dungeon": "observatory",
+      "set": null,
+      "meshes": {
+        "static": 42792,
+        "dynamic": 3132,
+        "shadows": 72,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 146,
+      "key": "field",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 24762,
+        "dynamic": 1434,
+        "shadows": 216,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 123
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 315,
+      "key": "relief_store",
+      "chapter": 18,
+      "dungeon": "heat",
+      "set": null,
+      "meshes": {
+        "static": 26916,
+        "dynamic": 9852,
+        "shadows": 360,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 147,
+      "key": "field",
+      "chapter": 19,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 14550,
+        "dynamic": 4182,
+        "shadows": 216,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 67
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 149,
+      "key": "storm_anchorage",
+      "chapter": 19,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 19476,
+        "dynamic": 11352,
+        "shadows": 288,
+        "glow": 1032
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 68
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 438,
+      "key": "field",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 14160,
+        "dynamic": 5922,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 54
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 259,
+      "key": "witness_vault",
+      "chapter": 20,
+      "dungeon": "witness",
+      "set": null,
+      "meshes": {
+        "static": 17694,
+        "dynamic": 11322,
+        "shadows": 288,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 151,
+      "key": "field",
+      "chapter": 21,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 14724,
+        "dynamic": 1500,
+        "shadows": 216,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 59
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 303,
+      "key": "pottery_floor",
+      "chapter": 21,
+      "dungeon": "clay",
+      "set": null,
+      "meshes": {
+        "static": 93918,
+        "dynamic": 9192,
+        "shadows": 288,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 2,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 392,
+      "key": "field",
+      "chapter": 22,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 42306,
+        "dynamic": 4710,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 197
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 314,
+      "key": "vent_house",
+      "chapter": 22,
+      "dungeon": "vent",
+      "set": null,
+      "meshes": {
+        "static": 39984,
+        "dynamic": 7992,
+        "shadows": 360,
+        "glow": 576
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 393,
+      "key": "field",
+      "chapter": 23,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 27444,
+        "dynamic": 4422,
+        "shadows": 288,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 139
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 319,
+      "key": "common_assembly",
+      "chapter": 23,
+      "dungeon": "assembly",
+      "set": null,
+      "meshes": {
+        "static": 34758,
+        "dynamic": 9822,
+        "shadows": 216,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 2,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 251,
+      "key": "field",
+      "chapter": 24,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 22698,
+        "dynamic": 7698,
+        "shadows": 144,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "controls",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 54
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 404,
+      "key": "listening_chamber",
+      "chapter": 24,
+      "dungeon": "listening",
+      "set": null,
+      "meshes": {
+        "static": 38214,
+        "dynamic": 10710,
+        "shadows": 288,
+        "glow": 864
+      },
+      "integrated": {
+        "native_spatial_routes": 2,
+        "native_social_clusters": 1,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 1,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 226,
+      "key": "hub",
+      "chapter": null,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 26166,
+        "dynamic": 7188,
+        "shadows": 288,
+        "glow": 168
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 3,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 28
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 701,
+      "key": "secret_1",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 24564,
+        "dynamic": 4500,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 702,
+      "key": "secret_2",
+      "chapter": 2,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 35748,
+        "dynamic": 5016,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 703,
+      "key": "secret_3",
+      "chapter": 3,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 22602,
+        "dynamic": 5760,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 6,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 704,
+      "key": "secret_4",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 30354,
+        "dynamic": 6330,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 705,
+      "key": "secret_5",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 24996,
+        "dynamic": 5634,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 5,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 706,
+      "key": "secret_6",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 37392,
+        "dynamic": 6240,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 707,
+      "key": "secret_7",
+      "chapter": 7,
+      "dungeon": "roots",
+      "set": null,
+      "meshes": {
+        "static": 26712,
+        "dynamic": 5538,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 1,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 3,
+        "native_dungeon_routes": 5,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 708,
+      "key": "secret_8",
+      "chapter": 8,
+      "dungeon": "reactor",
+      "set": null,
+      "meshes": {
+        "static": 27426,
+        "dynamic": 4164,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 709,
+      "key": "secret_9",
+      "chapter": 9,
+      "dungeon": "shelter",
+      "set": null,
+      "meshes": {
+        "static": 33594,
+        "dynamic": 4188,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 710,
+      "key": "secret_10",
+      "chapter": 10,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 34998,
+        "dynamic": 5292,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 711,
+      "key": "secret_11",
+      "chapter": 11,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 23544,
+        "dynamic": 6468,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 712,
+      "key": "secret_12",
+      "chapter": 12,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 27546,
+        "dynamic": 5124,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 713,
+      "key": "secret_13",
+      "chapter": 13,
+      "dungeon": "timber",
+      "set": null,
+      "meshes": {
+        "static": 36078,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 714,
+      "key": "secret_14",
+      "chapter": 14,
+      "dungeon": "glass",
+      "set": null,
+      "meshes": {
+        "static": 23010,
+        "dynamic": 4452,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 715,
+      "key": "secret_15",
+      "chapter": 15,
+      "dungeon": "gate",
+      "set": null,
+      "meshes": {
+        "static": 20484,
+        "dynamic": 4656,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 716,
+      "key": "secret_16",
+      "chapter": 16,
+      "dungeon": "resonance",
+      "set": null,
+      "meshes": {
+        "static": 31002,
+        "dynamic": 5076,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 717,
+      "key": "secret_17",
+      "chapter": 17,
+      "dungeon": "observatory",
+      "set": null,
+      "meshes": {
+        "static": 21966,
+        "dynamic": 4176,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 718,
+      "key": "secret_18",
+      "chapter": 18,
+      "dungeon": "heat",
+      "set": null,
+      "meshes": {
+        "static": 33816,
+        "dynamic": 4512,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 719,
+      "key": "secret_19",
+      "chapter": 19,
+      "dungeon": "wind",
+      "set": null,
+      "meshes": {
+        "static": 21396,
+        "dynamic": 7248,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 720,
+      "key": "secret_20",
+      "chapter": 20,
+      "dungeon": "witness",
+      "set": null,
+      "meshes": {
+        "static": 26880,
+        "dynamic": 4836,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 721,
+      "key": "secret_21",
+      "chapter": 21,
+      "dungeon": "clay",
+      "set": null,
+      "meshes": {
+        "static": 21642,
+        "dynamic": 4266,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 722,
+      "key": "secret_22",
+      "chapter": 22,
+      "dungeon": "vent",
+      "set": null,
+      "meshes": {
+        "static": 24474,
+        "dynamic": 5244,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 723,
+      "key": "secret_23",
+      "chapter": 23,
+      "dungeon": "assembly",
+      "set": null,
+      "meshes": {
+        "static": 22830,
+        "dynamic": 3996,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 724,
+      "key": "secret_24",
+      "chapter": 24,
+      "dungeon": "listening",
+      "set": null,
+      "meshes": {
+        "static": 28722,
+        "dynamic": 5226,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "dungeon",
+        "native_mechanisms": 1,
+        "native_dungeon_routes": 0,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2000,
+      "key": "frontier_dunes_0",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 18864,
+        "dynamic": 5148,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2001,
+      "key": "frontier_dunes_1",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 18996,
+        "dynamic": 5148,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2002,
+      "key": "frontier_dunes_2",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 19086,
+        "dynamic": 3564,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2003,
+      "key": "frontier_dunes_3",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 19638,
+        "dynamic": 3420,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2004,
+      "key": "frontier_dunes_4",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 15384,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2005,
+      "key": "frontier_salt_0",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 13230,
+        "dynamic": 2964,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2006,
+      "key": "frontier_salt_1",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 13920,
+        "dynamic": 2100,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2007,
+      "key": "frontier_salt_2",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 13686,
+        "dynamic": 2388,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2008,
+      "key": "frontier_salt_3",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 13680,
+        "dynamic": 3252,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2009,
+      "key": "frontier_salt_4",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 9564,
+        "dynamic": 1812,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2010,
+      "key": "frontier_cactus_0",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 27390,
+        "dynamic": 6126,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2011,
+      "key": "frontier_cactus_1",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 27618,
+        "dynamic": 2676,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2012,
+      "key": "frontier_cactus_2",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 27654,
+        "dynamic": 4980,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2013,
+      "key": "frontier_cactus_3",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 27588,
+        "dynamic": 3684,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2014,
+      "key": "frontier_cactus_4",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 23394,
+        "dynamic": 4836,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2015,
+      "key": "frontier_caldera_0",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 13224,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2016,
+      "key": "frontier_caldera_1",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 14532,
+        "dynamic": 1356,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2017,
+      "key": "frontier_caldera_2",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 13974,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2018,
+      "key": "frontier_caldera_3",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 13992,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2019,
+      "key": "frontier_caldera_4",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 9570,
+        "dynamic": 1380,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2020,
+      "key": "frontier_coral_0",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 23994,
+        "dynamic": 5124,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2021,
+      "key": "frontier_coral_1",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 24252,
+        "dynamic": 3108,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2022,
+      "key": "frontier_coral_2",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 24258,
+        "dynamic": 3540,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2023,
+      "key": "frontier_coral_3",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 24426,
+        "dynamic": 4404,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2024,
+      "key": "frontier_coral_4",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 20064,
+        "dynamic": 4116,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2025,
+      "key": "frontier_mangrove_0",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 32532,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2026,
+      "key": "frontier_mangrove_1",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 33834,
+        "dynamic": 4260,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2027,
+      "key": "frontier_mangrove_2",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 34950,
+        "dynamic": 2820,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2028,
+      "key": "frontier_mangrove_3",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 34014,
+        "dynamic": 3540,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2029,
+      "key": "frontier_mangrove_4",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 28662,
+        "dynamic": 4116,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2030,
+      "key": "frontier_crystal_0",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 16260,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2031,
+      "key": "frontier_crystal_1",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 16770,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2032,
+      "key": "frontier_crystal_2",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 16326,
+        "dynamic": 2064,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2033,
+      "key": "frontier_crystal_3",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 16236,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2034,
+      "key": "frontier_crystal_4",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 12408,
+        "dynamic": 1380,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2035,
+      "key": "frontier_glacier_0",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 15360,
+        "dynamic": 4596,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2036,
+      "key": "frontier_glacier_1",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 15858,
+        "dynamic": 4164,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2037,
+      "key": "frontier_glacier_2",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 15858,
+        "dynamic": 2004,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2038,
+      "key": "frontier_glacier_3",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 15858,
+        "dynamic": 2580,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2039,
+      "key": "frontier_glacier_4",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 11724,
+        "dynamic": 1812,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2040,
+      "key": "frontier_aurora_0",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 15348,
+        "dynamic": 5460,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2041,
+      "key": "frontier_aurora_1",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 15876,
+        "dynamic": 4596,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2042,
+      "key": "frontier_aurora_2",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 15918,
+        "dynamic": 4452,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2043,
+      "key": "frontier_aurora_3",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 15846,
+        "dynamic": 5028,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2044,
+      "key": "frontier_aurora_4",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 11658,
+        "dynamic": 4260,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2045,
+      "key": "frontier_spore_0",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 28494,
+        "dynamic": 5448,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2046,
+      "key": "frontier_spore_1",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 28434,
+        "dynamic": 4296,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2047,
+      "key": "frontier_spore_2",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 28836,
+        "dynamic": 3288,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2048,
+      "key": "frontier_spore_3",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 28980,
+        "dynamic": 4296,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2049,
+      "key": "frontier_spore_4",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 24822,
+        "dynamic": 4692,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2050,
+      "key": "frontier_storm_0",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 22566,
+        "dynamic": 2028,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2051,
+      "key": "frontier_storm_1",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 24780,
+        "dynamic": 2172,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2052,
+      "key": "frontier_storm_2",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 23898,
+        "dynamic": 2172,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2053,
+      "key": "frontier_storm_3",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 25230,
+        "dynamic": 1884,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2054,
+      "key": "frontier_storm_4",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 19440,
+        "dynamic": 1668,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2055,
+      "key": "frontier_marble_0",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 16758,
+        "dynamic": 3708,
+        "shadows": 72,
+        "glow": 456
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 70
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2056,
+      "key": "frontier_marble_1",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 16602,
+        "dynamic": 4716,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2057,
+      "key": "frontier_marble_2",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 16080,
+        "dynamic": 5580,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2058,
+      "key": "frontier_marble_3",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 16656,
+        "dynamic": 4284,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 4,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 74
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2059,
+      "key": "frontier_marble_4",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 13698,
+        "dynamic": 3396,
+        "shadows": 72,
+        "glow": 744
+      },
+      "integrated": {
+        "native_spatial_routes": 3,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 19
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50000,
+      "key": "origin_sable-reed_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "home",
+      "meshes": {
+        "static": 25008,
+        "dynamic": 2592,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50001,
+      "key": "origin_sable-reed_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 39624,
+        "dynamic": 4248,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50002,
+      "key": "origin_iona-lowbank_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "lodging",
+      "meshes": {
+        "static": 68550,
+        "dynamic": 3060,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50003,
+      "key": "origin_iona-lowbank_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "clinic",
+      "meshes": {
+        "static": 60864,
+        "dynamic": 3222,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50004,
+      "key": "origin_rook-regulator_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "workshop",
+      "meshes": {
+        "static": 25578,
+        "dynamic": 2586,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50005,
+      "key": "origin_rook-regulator_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "foundry",
+      "meshes": {
+        "static": 25212,
+        "dynamic": 2640,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50006,
+      "key": "origin_brass-rail_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "railway",
+      "meshes": {
+        "static": 12174,
+        "dynamic": 1272,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50007,
+      "key": "origin_brass-rail_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "railway",
+      "meshes": {
+        "static": 15186,
+        "dynamic": 1452,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50008,
+      "key": "origin_riven-tide_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 21330,
+        "dynamic": 4464,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50009,
+      "key": "origin_riven-tide_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 14844,
+        "dynamic": 5016,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50010,
+      "key": "origin_mira-archive_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "archive",
+      "meshes": {
+        "static": 100032,
+        "dynamic": 3294,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50011,
+      "key": "origin_mira-archive_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "archive",
+      "meshes": {
+        "static": 53832,
+        "dynamic": 4344,
+        "shadows": 72,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 4,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50012,
+      "key": "origin_veyr-storm_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 16920,
+        "dynamic": 3072,
+        "shadows": 72,
+        "glow": 396
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 3,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50013,
+      "key": "origin_veyr-storm_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 17904,
+        "dynamic": 3468,
+        "shadows": 72,
+        "glow": 288
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": "origin",
+        "native_mechanisms": 2,
+        "native_dungeon_routes": 5,
+        "ground_active": false,
+        "ground_path_cells": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4700,
+      "key": "origin_storm",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 18180,
+        "dynamic": 1236,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4701,
+      "key": "origin_mangrove",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 26010,
+        "dynamic": 5484,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4702,
+      "key": "origin_caldera",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 6714,
+        "dynamic": 708,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4703,
+      "key": "origin_crystal",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 10752,
+        "dynamic": 1416,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4704,
+      "key": "origin_coral",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 16770,
+        "dynamic": 6348,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4705,
+      "key": "origin_spore",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 21762,
+        "dynamic": 6528,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4706,
+      "key": "origin_aurora",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 10044,
+        "dynamic": 3804,
+        "shadows": 216,
+        "glow": 0
+      },
+      "integrated": {
+        "native_spatial_routes": 0,
+        "native_social_clusters": 0,
+        "native_dungeon_scope": null,
+        "native_mechanisms": 0,
+        "native_dungeon_routes": 0,
+        "ground_active": true,
+        "ground_path_cells": 4
+      },
+      "save_unchanged": true
+    }
+  ],
+  "object_routes": {
+    "campaign-prop:phrase": 25,
+    "cache-body-and-lid": 35,
+    "campaign-prop:guardian": 24,
+    "portal-threshold": 298,
+    "illustrated-person-actor": 97,
+    "authored-furniture": 852,
+    "native-field-tool-or-apparatus": 666,
+    "campaign-prop:relay": 3,
+    "campaign-prop:archive": 32,
+    "content-model:artifact-source": 24,
+    "campaign-prop:waypost": 12,
+    "content-model:artifact-device": 24,
+    "campaign-prop:refuge": 23,
+    "living-model:stable": 92,
+    "living-model:dog": 11,
+    "living-model:cat": 11,
+    "living-model:cow": 3,
+    "living-model:plant": 60,
+    "living-model:craft:vent": 1,
+    "living-model:fauna:hen": 4,
+    "campaign-prop:camp": 80,
+    "campaign-prop:workbench": 8,
+    "campaign-prop:instrument": 26,
+    "campaign-prop:market": 2,
+    "campaign-prop:assembly": 4,
+    "illustrated-creature-actor": 54,
+    "campaign-prop:crank": 1,
+    "living-model:craft:cloth": 1,
+    "living-model:fauna:sparrow": 5,
+    "campaign-prop:valve": 6,
+    "living-model:craft:sieve": 1,
+    "living-model:fauna:duck": 3,
+    "campaign-prop:bell": 9,
+    "content-model:network-diverter": 3,
+    "living-model:craft:rope": 1,
+    "living-model:fauna:moth": 9,
+    "living-model:craft:paper": 1,
+    "campaign-prop:winch": 2,
+    "living-model:craft:splice": 1,
+    "campaign-prop:garden": 3,
+    "living-model:craft:seed": 1,
+    "living-model:fauna:goat": 2,
+    "campaign-prop:reactor": 3,
+    "content-model:network-reedbank": 1,
+    "content-model:network-bell": 2,
+    "living-model:craft:baffle": 1,
+    "campaign-prop:clinic": 4,
+    "living-model:craft:laundry": 1,
+    "campaign-prop:signal": 2,
+    "living-model:craft:trolley": 1,
+    "content-model:network-window": 2,
+    "living-model:craft:bank": 1,
+    "living-model:craft:cradle": 1,
+    "living-model:craft:patch": 1,
+    "campaign-prop:lens": 4,
+    "content-model:revealed-compartment": 1,
+    "living-model:craft:stool": 1,
+    "campaign-prop:gate": 2,
+    "living-model:craft:boots": 1,
+    "living-model:craft:reed": 1,
+    "living-model:craft:lens": 1,
+    "living-model:craft:tea": 1,
+    "living-model:craft:mooring": 1,
+    "living-model:craft:press": 1,
+    "living-model:craft:clay": 1,
+    "living-model:craft:gutter": 1,
+    "content-model:network-claybench": 1,
+    "living-model:craft:table": 1,
+    "living-model:craft:chairs": 1,
+    "living-model:fauna:firefly": 1,
+    "campaign-prop:board": 61,
+    "campaign-prop:lamp": 2,
+    "campaign-prop:heater": 1,
+    "campaign-prop:windlock": 1,
+    "campaign-prop:pottery": 1,
+    "campaign-prop:vent": 1,
+    "embodied-mechanism": 14
+  },
+  "uncovered": [],
+  "past_life_cases": [
+    {
+      "origin": "sable-reed",
+      "part": 0,
+      "scene": 50000,
+      "meshes": {
+        "static": 25008,
+        "dynamic": 3150,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "sable-reed",
+      "part": 1,
+      "scene": 50001,
+      "meshes": {
+        "static": 39744,
+        "dynamic": 4806,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "iona-lowbank",
+      "part": 0,
+      "scene": 50002,
+      "meshes": {
+        "static": 68550,
+        "dynamic": 3618,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "iona-lowbank",
+      "part": 1,
+      "scene": 50003,
+      "meshes": {
+        "static": 60984,
+        "dynamic": 3780,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "rook-regulator",
+      "part": 0,
+      "scene": 50004,
+      "meshes": {
+        "static": 25578,
+        "dynamic": 3144,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "rook-regulator",
+      "part": 1,
+      "scene": 50005,
+      "meshes": {
+        "static": 25332,
+        "dynamic": 3198,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "brass-rail",
+      "part": 0,
+      "scene": 50006,
+      "meshes": {
+        "static": 12174,
+        "dynamic": 1830,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "brass-rail",
+      "part": 1,
+      "scene": 50007,
+      "meshes": {
+        "static": 15306,
+        "dynamic": 2010,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "riven-tide",
+      "part": 0,
+      "scene": 50008,
+      "meshes": {
+        "static": 21330,
+        "dynamic": 5022,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "riven-tide",
+      "part": 1,
+      "scene": 50009,
+      "meshes": {
+        "static": 14964,
+        "dynamic": 5574,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "mira-archive",
+      "part": 0,
+      "scene": 50010,
+      "meshes": {
+        "static": 100032,
+        "dynamic": 3852,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "mira-archive",
+      "part": 1,
+      "scene": 50011,
+      "meshes": {
+        "static": 53952,
+        "dynamic": 4902,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "veyr-storm",
+      "part": 0,
+      "scene": 50012,
+      "meshes": {
+        "static": 16920,
+        "dynamic": 3858,
+        "shadows": 144,
+        "glow": 972
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "veyr-storm",
+      "part": 1,
+      "scene": 50013,
+      "meshes": {
+        "static": 18024,
+        "dynamic": 4566,
+        "shadows": 144,
+        "glow": 1152
+      },
+      "save_unchanged": true
+    }
+  ],
+  "physical_lore_cases": [
+    {
+      "id": "shelter-reed",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "brake-lantern",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "survey-float",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "wrapped-clapper",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "label-spindle",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "grounding-spool",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "graft-sleeve",
+      "mode": "grow",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "crown-shard",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "handprint-tile",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "brake-seal",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "river-measure",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "blank-nameplate",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "house-hinge",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "listening-shell",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "road-wedge",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "bell-fork",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "star-lens",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "heat-brick",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "sail-ring",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "witness-seal",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "clay-offcut",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "vent-vane",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "assembly-pebble",
+      "mode": "grow",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "empty-reed",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "network_cases": [
+    {
+      "work": "chapel-return",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "heat-independent",
+      "steps": 3,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "water-return",
+      "steps": 3,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "relays-distinct",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "assembly-return",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "expedition_cases": [
+    {
+      "scene": 5,
+      "refuge_region": 1,
+      "native_wins": 3,
+      "repaired_model_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "ground_cases": [
+    {
+      "core": "tide",
+      "field": "wet",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "flame",
+      "field": "heat",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "earth",
+      "field": "fracture",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "volt",
+      "field": "charge",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "aether",
+      "field": "phase",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "limits": [
+    "All-scene availability snapshot uses chapter24, original flags unset, arrival positions and all runtime services installed. Supplemental state cases use the actual public native action functions.",
+    "This verifies representation coverage, finite combined meshes and save immutability; it does not measure art quality, phone GPU performance, browser bounds or every authored dialogue branch.",
+    "Illustrated sprite decoding/rasterization is omitted. The actual sprite ownership paths are checked by native classification and by separate focused tests."
+  ],
+  "passed": true,
+  "source_hashes": {
+    "../../index.html": "1d2cb4081cc332a66a0a042ce6bd34c6c20940312f1dff8cfb6c614e4eb4177b",
+    "../adaptive-soundtrack.js": "ce92bc22ab24d0ac7cc3e165d60b095945d27227c77695953dbe9cfd0d567461",
+    "../index.html": "3ac3829be7f4992a4b44ad997eaf6ba7c4bf6e9f7fef83367fb558bca9bd1f6d",
+    "../soundtrack.js": "c9d42b9df647cf3ae62ba7478040a34842f80ec7905edf832389dda572146693",
+    "activity-sites.js": "895417490c8687430e7cb68b36b3d46546faeb3c980f500e4832b453b9322e45",
+    "adventure-3d-geometry.js": "d788a40fc77e29ef9e3216c1d273173e158f08b2bc451f2f008d10b9d1e9f750",
+    "adventure-3d-renderer.js": "5f94648d49a96e67e349941e75f7f0a60c8912445f60941d999254a8b6a96435",
+    "adventure-content-models.js": "b00f76e917471cb128f115d676dba752e5dc10c47908de195611d13f39cb24f0",
+    "adventure-dungeon-architecture.js": "0c1916dd57635efff3ebb4819e5038fad85c00d8442ec2d50b7dc9aa2f7551fa",
+    "adventure-encounter-content.js": "725735163a4f14372dae64f0af1c202ab976d315df519c14e50c5ccd685b9956",
+    "adventure-ground-composition.js": "a9da6956e9df544d76ec29265f85d163b0fb1fc407d298d67f2e737ddeefb76b",
+    "adventure-guidance-ui.js": "b067e634f54a579df3cae25fb5c3e01146fbc438af2e3528f688870dbc22513c",
+    "adventure-landscape.js": "4624125dcbf231c74a9a2dfe864d74ad9733acb62c95b283b3a4149ffac50da6",
+    "adventure-living-content.js": "767ad50aa66d3a92ad2a4eb9b7502efbb9f81ee9dcfd543573bb30c84725d279",
+    "adventure-origin-staging.js": "eae315aa2ae6e37d521cc6196d68d1763e4d1c8db5683e8b3fc404906f73a026",
+    "adventure-presentation.js": "eaf7b82c3704b4d41c192ce6f77050044355fb12c65274e8751e5c4079c570ee",
+    "adventure-set-dressing.js": "d40f7048757d4c43e802082e2143bf38fc03695bfc134f3a7c1a0c93389cb903",
+    "adventure-surface-states.js": "bc5c7e7344f400388b0e84b4870c547e97021dfb0e81fe32dc3a2503bceb8a8f",
+    "adventure-world-props.js": "dd2c032b8cfa210cd2525996036578c8cf7ac7d3ff54271c41c2d364e7b60eca",
+    "affordance-art.js": "4c88c947f11bf4f73056d78757a8a31ac6aeac875075a2812304cd020fb61285",
+    "authored-scenery.js": "779b38502e8c01f93f2922e1c8b6b9799d257b22349e0c95cf9c42d811e125f4",
+    "battle-flow.js": "b3d21633d68592f664a71eb2cb9b2e4a6a4abfc14dcdad647fd2a49339678f15",
+    "battle.js": "890657c3db5cbd300fc0ee834cade874f5bbaf9dc5e1c6cb89619449dc96473b",
+    "cinema-content.js": "243937cf79a43bce253103b4ff0642ed875a0bfc36cb026a4074107f716e728c",
+    "cinema-director.js": "b5bbe3e909d0409917c1dcd8f00b735fd033c74b2b36da2b90b5114c06da2813",
+    "combat-advice.js": "36f9c09d55040cdbcb076bfd89ebc6f18718bb65cb5c566b48217d2286330efd",
+    "combat-reactions.js": "97744586545f459520f881d608f8f388ff0a6abe2cce00d8e2176627e10363f8",
+    "combat-relics-ui.js": "10c7fd724415200c9584f1c28b0fa4e7a332da252a3d34717506530f91e9ee0d",
+    "crew-setup-ui.js": "4bd94273a8f7270d06d058d60b72e83ed5a58fb6807d4d27bd96f9ebe3fae47d",
+    "dev-portal.js": "e70f7230af2b5ab2fc2ddf43b80ed25b7160550eb07ca31cd3910ca3b005e5bb",
+    "dev-session.js": "7e34f905f66b5fe25fa94511550671f0d4cc6aa1b932e3e428ac42ee6d029f69",
+    "economy-ui.js": "1b5c34b95e852914958a307d25b90ca982685d9bceff789949aad0d2014b65bd",
+    "embodied-origins.js": "e48c8d3936b12d59abb9236f478af28fd29feaad7457f509d8ae3e447aa0167f",
+    "encounter-preview.js": "5d27d8345434733f93bd3c3602521e6421a2afaf8b03f37314d587b78e53ecd2",
+    "expansion-cinema-content.js": "9d05a526e592274eabe608d73017df342c7ffe27868d0f3434d0d9a4769c4d47",
+    "expansion-cinema.js": "869f912be7f10bfbf24044d3a32d2f77a06a59a8e3a130c232307b919a3bdd1f",
+    "exploration.js": "57e9a2989d6060352058db67c022032a830a9033ddcd44f0e81df29fa5438c5c",
+    "field-feedback.js": "93bc4f29673f128215c1718fd6683e3f3ea28a2fe85d524e101646acc21d6389",
+    "field-journey-director.js": "747e64c9c862c590cb3256d522ed38d464380488ad9c6633a40536edc7f67fa4",
+    "field-journey-model.js": "e05f21ec699d5ff4391c77dfa08d23e2b731534df29f605aa4189435b1a3f212",
+    "field-journey-ui.js": "a4e0a50ea6d29d58cb7b44af72c5ed8abdf92419af2fb17ccb2c5a59dbe5014a",
+    "field-origins.js": "f8db5d19bdaf9f7190e58a3ead4d5afdda1400743eb7a75c00a82f88ab87ea9d",
+    "field-patrols.js": "6216ce9b70c99681bfa3937250839dea386b94c98d2076e136ac66447c2363a5",
+    "field-reward-gear.js": "aa549fa9af27a8ad783a6db8f6cdee5adca69bb79127280d89d343e8cfa6e8e8",
+    "follower-motion.js": "ceca415df3e4d6e3f7ab2183b0add4490ca356f97f3bef1f819d9e92452f6337",
+    "frontiers.js": "d8ec1936c4286886ab2e0bf416085123efd64f71bce59587552b906793cf8aac",
+    "guided-objective.js": "fdcb245b37de822be38b33e9ebae0a21a1d21b35586fbb82368cb5cd6216968f",
+    "household-render.js": "2ea6bf3f763c1cdd0d1043f1c56bd9c299f617429219340e387a7a8af949757c",
+    "journey-memory.js": "5384035f811ba0af432fbb357f2279ec9340ff211eff465fa28c21806ebec071",
+    "living-armory/campaign-ui.js": "6b91c07b94ab12c9c2e3d7a525f9b7ad251225e5556920f60849e2e86263abb3",
+    "living-armory/campaign.js": "d6b729fa2cc22fa523b7ed0077f4b24849603ef017398a879abfb9c6ed469aaf",
+    "living-armory/frame.html": "5d2b89afe1dd9c84c92edbc6af7f5e4ab106631cc618e4121e18e6e332f4476f",
+    "living-armory/src/armory.css": "366b09a7eba4218a381838bbbf472c0ec5188a955b67d5bdc25ead17a2dad9e3",
+    "living-armory/src/armory.mjs": "588178374b5fdf65b395248a46f7598152cf4443ff01be3045cd5637f3e547be",
+    "living-armory/src/art.mjs": "9d3a4acad8a2f727dde04ed8b694cdab21db04279ea5b376c5a07c1701dadde0",
+    "living-armory/src/host-bridge.mjs": "d8f75318e5492d4fdef36e0164b69975ce248c4f004d64af9a0fca7e0e6b5e55",
+    "living-armory/src/ui.mjs": "ef58da210af80c5fcd17337236c6bb6476c8bb121664b8ca0ca7416d8a3af8f1",
+    "living-armory/src/weapon-showcase.mjs": "e53f56a5a31c4a0721363656ba1efac9efe2aa1db95ea64ce7b9d13bd93ece8a",
+    "living-atlas-layout.js": "e1041a49a3aaf1a644fb82e8187478c3a8f4a322f703b349a65612a135856c6c",
+    "living-atlas.js": "d1f7cbe5ba2eff04fafde43d2196b9ada8e99efc0e181c43ffb11a9078d9a80a",
+    "living-world-ui.js": "d1917051e33fd1a383bf1d8476c5d3579d0362ce9816133b92079ca1ad661355",
+    "main.js": "1ce2f698956decfb93795fd53db3907a9def7b43ce3b9e24d70d8f3fbc0e5735",
+    "monster-catalog.js": "c249f756624c895910eeb745cf3d6e297cd79ed4cd950d9383896f5f355c8724",
+    "monster-field-guide.js": "62b148fe2de480cf294012b04ada1e549392bd4acf4fb16b12821d3bdcf815a3",
+    "music-controls.js": "8c980906c76ad142ca716176f9cbd795da5396644b0da68d631041bb7a7b7dea",
+    "music-director.js": "f533299cb8f3739006aa6bff25e1b19df31371916e25b9a69798653f2e5303e7",
+    "native-dungeon-director.js": "25be8096c36c230bdbdd7daf85d140f86040bebf18d43e205374bd0472ae69bf",
+    "native-spatial-authoring.js": "5439f5549b428b2201204c6de627f5887e1cddf8f0d3054237b78d10bcec0850",
+    "npc-challenges.js": "ece4e2f516953f568352bf87d258e46fbc0e633d2050f0721191c31c783998cd",
+    "npc-routines.js": "a054784e113a12ada552441ff8fa72a36ea5bd1837e90aed5fcd9e752fcdf310",
+    "origins-ui.js": "03537bc29fec8d52a8f6a1fbc42f739848cd7085e7158b13ffa5b41ca9213d15",
+    "origins.js": "a988252a9bbc8875c8ee75ccac8b9ea53ef32068aea8a107c77bfc3abb88e182",
+    "patrol-formations.js": "0b176f50415601a4739d046efda45656f3189292223acea31a5cb1586dbac16c",
+    "presentation.js": "55d71e98187792f39d177a5659e291e6617710c640b2f60406f370f6306518c6",
+    "qa/battle-flow.html": "44abe88e951f843c2a27e86496a7b4113ca6fef6abe7a59c165a7c4ab0fa6923",
+    "qa/campaign-play.mjs": "8b48ad2b92d8529a12fcc366447d55715d68d572f5996525d21313bc33e65e05",
+    "qa/combat-reactions/index.html": "5cac2fbf1fe17e19091a17beab58f6361790158c0eb8f7ebb3b11b7f3dd9d946",
+    "qa/composition.html": "4efcfd7f45f487216f386d0fb1e5e1eb087890696a07a7b2460901bdb5795925",
+    "qa/composition.js": "2520b039e058e1a75f8c3fabf874215a13352a24545c2385f267f765ec5f06af",
+    "qa/economy/index.html": "2b9c7f7cab07d547cd9360fdc3d722038fa310fa2637f021e92b67692f57d33c",
+    "qa/guided-campaign.mjs": "9485d3478b446053e3a26ec5614f02e71c4c42a07e6ade343ab4810af5b5e0c2",
+    "qa/guided-scenarios.mjs": "5d69c6d083496de45000f96dd889dc9ca37bff35ddcace702f82fd813b34b730",
+    "qa/media.html": "5fd2022cf4fa27dffa5c75359224d2d05601599031f094d951edb9870938bdef",
+    "qa/motion.html": "44e603459dd81910595038f9596cc35d480c5aaf41d059fffc4b4363911b854e",
+    "qa/motion.js": "cf172fc4f1dfabdffec96fc4b1e736d7d8fd15f63b92a6d8a1e5b291a7830c7a",
+    "qa/phone.html": "47671bbcbaa9f2c884eeca37e2dd10588cf54c0fea9ad0b302b69016f3d0954c",
+    "qa/physical-lore/index.html": "2db9172524059f1c5b7b45704e2c4e60cf69f87bd0489da86542e2bf5ec78268",
+    "reconciled-acoustics.js": "39041b404c3526ab36fe7f0d1ba895436a3e859c0f9a8bfa7755cae8f2b56108",
+    "reconciled-ground.js": "f836b7a8cc961ec111ebcf64c8a5c5f9e1a0c20832165fb318db7db4d8bc1aa5",
+    "reconciled-preview.js": "3de224bb28724f956ba0d24984362d2b8843c86be0db47f3e895e8fa106733f8",
+    "reconciled-travel.js": "cee809193f860b8ad2680881fd077107f966b4bb5c0ded7b72d916230c04c925",
+    "regional-life.js": "ce620a2e8ee85629cb4b16f8bc19153ca8de9847dfac120ee8e34aa1dd2b3a5d",
+    "renderer.js": "4a637c3863c9f21e7514f795c684159111ce782f8c4a0165c9426a593720f6ba",
+    "repertoire.js": "bf31de4822de2104604af365a89f4562283e8701b807c431798017696918a567",
+    "save-validation.js": "f6e524683cee99106aaa3e6b14ca26c667b0d80f28ab436db71c92077f85ec6e",
+    "scene-camera.js": "6a894226c01a24975d91cf7ca2da16317eb5db499d73c1c1c3aab451a536da06",
+    "scene-craft.js": "d0e5a839577d9cce743d3efba76243f3e4d40a4a58ea68cbb6da40583c8e27db",
+    "townlife.js": "06fdaed965ede1656b7987542dc405b5c3c140d21942608248535e393b76e78a",
+    "wild-combat.js": "0529d2e26de4a6a60ee870c48b02329e52e1e0de49dd78c460de2c3a15024d15",
+    "world-controls.js": "277551205a479040028a0b390f97958cd85ddeef57a6d49a4c0b704d54645978",
+    "world.js": "584859d3b895efe47ee8752fd97da703b9d04486c1bc321b7dd391a4177edc6d"
+  },
+  "regional_coverage": {
+    "native_community_projects": 24,
+    "native_plant_beds": 24,
+    "chapter13_restored": true
+  },
+  "source_unchanged_during_check": true
+}

@@ -1,0 +1,22 @@
+✔ unavailable art and unsupported identities keep the established renderer (1.450841ms)
+✔ Sable locomotion remains tied to resolved travel at different frame rates (2.882142ms)
+✔ a single turn and brake settle without resetting the distance phase (0.178729ms)
+✔ a physical action plays anticipation, strike, follow-through and recovery once (0.927665ms)
+✔ impact interrupts the visual pose briefly; burn ticks do not make bodies flinch repeatedly (0.398649ms)
+✔ spell casting falls back without misrepresenting a spell as a sword attack (0.129254ms)
+✔ guardian telegraph, release and recovery survive multi-target damage events (0.238748ms)
+✔ fresh field snapshots keep the same guardian stride state by actor ID (0.355654ms)
+✔ Moonveil has real wingbeat, anticipation, release, recoil and defeat frames (0.275824ms)
+✔ reduced motion removes idle beat and transitional sways while retaining articulated strides (0.280803ms)
+✔ the motion cache is bounded and scene resets discard old actions (1.003929ms)
+✔ every shipped PNG matches its versioned atlas dimensions and source pieces stay inside it (3.581614ms)
+✔ a shared reference scale retains full poses and their registration without body stretching (0.654944ms)
+✔ prop fits are bottom-centered, preserve shape, and fail safely while loading (0.303647ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.591466

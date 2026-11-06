@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "generator": "image_gen built-in",
+  "source_prompt": "Eight isolated realistic painterly mature natural trees in a 4-column by 2-row transparent elevated orthographic sprite atlas: oak, birch, willow, copper beech, pine, fir, orchard, wetland alder. Upper-left light; detailed bark, roots and natural irregular foliage. No ground tiles, scenery, labels or grid.",
+  "atlas": "natural-trees-v8.webp",
+  "width": 2048,
+  "height": 1024,
+  "columns": 4,
+  "rows": 2,
+  "cellWidth": 512,
+  "cellHeight": 512,
+  "alpha": true,
+  "sha256": "0900cdc6c94f4bbe637b8024cd41b86cb0fd0659cee71deef7953bf3b3fb320a",
+  "sprites": [
+    {
+      "id": "oak",
+      "col": 0,
+      "row": 0,
+      "x": 24,
+      "y": 25,
+      "w": 441,
+      "h": 470,
+      "anchorX": 232.0,
+      "anchorY": 470,
+      "worldHeight": 192
+    },
+    {
+      "id": "birch",
+      "col": 1,
+      "row": 0,
+      "x": 618,
+      "y": 25,
+      "w": 287,
+      "h": 470,
+      "anchorX": 150.0,
+      "anchorY": 470,
+      "worldHeight": 214
+    },
+    {
+      "id": "willow",
+      "col": 2,
+      "row": 0,
+      "x": 1079,
+      "y": 25,
+      "w": 398,
+      "h": 470,
+      "anchorX": 201.0,
+      "anchorY": 470,
+      "worldHeight": 185
+    },
+    {
+      "id": "copper-beech",
+      "col": 3,
+      "row": 0,
+      "x": 1622,
+      "y": 25,
+      "w": 354,
+      "h": 470,
+      "anchorX": 170.0,
+      "anchorY": 470,
+      "worldHeight": 197
+    },
+    {
+      "id": "pine",
+      "col": 0,
+      "row": 1,
+      "x": 75,
+      "y": 537,
+      "w": 372,
+      "h": 470,
+      "anchorX": 181.0,
+      "anchorY": 470,
+      "worldHeight": 218
+    },
+    {
+      "id": "fir",
+      "col": 1,
+      "row": 1,
+      "x": 598,
+      "y": 537,
+      "w": 314,
+      "h": 470,
+      "anchorX": 170.0,
+      "anchorY": 470,
+      "worldHeight": 220
+    },
+    {
+      "id": "orchard",
+      "col": 2,
+      "row": 1,
+      "x": 1064,
+      "y": 537,
+      "w": 443,
+      "h": 470,
+      "anchorX": 216.0,
+      "anchorY": 470,
+      "worldHeight": 160
+    },
+    {
+      "id": "wetland-alder",
+      "col": 3,
+      "row": 1,
+      "x": 1598,
+      "y": 537,
+      "w": 344,
+      "h": 470,
+      "anchorX": 194.0,
+      "anchorY": 470,
+      "worldHeight": 194
+    }
+  ]
+}

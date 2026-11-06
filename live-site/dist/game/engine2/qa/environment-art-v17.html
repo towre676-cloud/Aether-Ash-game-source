@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Ash & Aether · Environment atelier</title><style>
+:root{--bg:#101b1d;--surface:#172629;--line:#526159;--gold:#d4bd86;--ink:#eee9d9;--muted:#a8b8ae}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(ellipse at 8% 0%,#304540aa,transparent 48%),var(--bg);font:15px/1.5 system-ui,sans-serif}header,main,footer{width:min(1380px,calc(100% - 48px));margin:auto}header{display:flex;align-items:center;gap:24px;padding:30px 0 22px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 5px}h1{font:clamp(25px,4vw,42px)/1.1 Georgia,serif;margin:0}header nav{display:flex;gap:17px;margin-left:auto;flex-wrap:wrap}a{color:#e2c890;text-underline-offset:4px}a:hover{color:#fff2c7}main{padding:26px 0}p{margin:0 0 12px}.intro{max-width:900px;color:#c1cbc1;font-size:16px}.summary{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.stat{padding:9px 14px;border:1px solid #5e716266;border-radius:5px;color:#bfcbbf;background:#15272a}.stat strong{color:#eee3c8}.controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 18px;border:1px solid var(--line);border-radius:8px;background:#15262a;position:sticky;top:0;z-index:5;box-shadow:0 7px 20px #07111277}label{display:flex;align-items:center;gap:8px;font-size:13px;color:#ccd3c7}select,input[type="search"]{background:#102025;color:var(--ink);border:1px solid #677a6b;border-radius:5px;padding:8px;min-height:38px;font:inherit}input[type="search"]{width:200px}input[type="range"]{width:130px;accent-color:var(--gold)}input[type="checkbox"]{accent-color:var(--gold);width:17px;height:17px}.status{margin:16px 0;color:var(--muted);font-size:13px}.collection{margin:34px 0 42px}.collection-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:16px}.collection h2{font:26px/1.2 Georgia,serif;margin:0 0 6px}.collection-head p{color:var(--muted);max-width:650px;font-size:13px;margin:0}.scenes{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 14px;max-width:420px;font-size:12px;padding-top:4px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:#17272b;border:1px solid #465d55;border-radius:9px;overflow:hidden;box-shadow:0 5px 16px #06100d33}.stage{height:238px;background:radial-gradient(ellipse at 50% 90%,#365049,transparent 60%),#1e3235}.stage canvas{display:block;width:100%;height:100%;object-fit:contain}.checker .stage{background-color:#88978c;background-image:linear-gradient(45deg,#d1d8c9 25%,transparent 25%),linear-gradient(-45deg,#d1d8c9 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d1d8c9 75%),linear-gradient(-45deg,transparent 75%,#d1d8c9 75%);background-size:28px 28px;background-position:0 0,0 14px,14px -14px,-14px 0}.caption{padding:12px 14px 14px;border-top:1px solid #53645977}.caption h3{font:17px Georgia,serif;margin:0 0 7px;color:#f0e2c2}.meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;font-size:11px;color:#a7b8ac}.role{color:#d3bb85}.empty,.warning{padding:15px;border:1px solid #8a794f;border-radius:7px;color:#e5cf99;background:#3e332466}.notes{border-top:1px solid var(--line);padding-top:24px;color:#adbcaf;font-size:13px;max-width:1040px}.notes h2{font:23px Georgia,serif;color:#e6ddc6;margin:0 0 12px}.notes p{margin:0 0 12px}footer{border-top:1px solid #4d64524d;padding:18px 0 28px;color:#8fa499;font-size:12px;display:flex;gap:14px;justify-content:space-between}.hidden{display:none!important}:focus-visible{outline:2px solid #f0d49c;outline-offset:4px}@media(max-width:680px){header,main,footer{width:calc(100% - 28px)}header{align-items:flex-start;flex-direction:column;gap:18px}header nav{margin:0;font-size:13px}.controls{position:static;padding:13px;gap:12px}.collection-head{flex-direction:column;gap:10px}.scenes{margin:0;justify-content:flex-start;max-width:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stage{height:190px}.caption{padding:10px}.caption h3{font-size:15px}.meta{font-size:10px}.intro{font-size:14px}footer{flex-direction:column}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+/* Ground surfaces have a separate review scale and never use the alpha checker. */
+.surface-section{margin:52px 0 40px;padding-top:32px;border-top:1px solid #7d8b7166}.surface-section h2{font:29px/1.2 Georgia,serif;margin:0 0 10px}.surface-intro{max-width:780px;color:#b9c9be}.surface-toolbar{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:18px 0 12px;padding:13px 16px;background:#16272a;border:1px solid #4e6459;border-radius:8px}.surface-toolbar button{padding:9px 14px;min-height:40px;background:#c9b57f;color:#172525;border:0;border-radius:5px;font:600 13px system-ui;cursor:pointer}.surface-toolbar button[aria-pressed="true"]{background:#e4d5a7}.surface-toolbar button:disabled{opacity:.55;cursor:wait}.surface-scale{display:flex;gap:10px;align-items:center;color:#a8b9ad;font-size:11px}.surface-scale i{display:block;width:48px;height:6px;border:1px solid #c6c5a0;border-top:0}.surface-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}.surface-card{border:1px solid #4b6559;background:#142427;border-radius:8px;overflow:hidden}.surface-card canvas{width:100%;height:auto;aspect-ratio:8/5;display:block;background:#233b3b}.surface-caption{padding:13px 15px;border-top:1px solid #53645977}.surface-caption h3{font:18px Georgia,serif;margin:0 0 7px;color:#eee0bf}.surface-caption p{font-size:12px;color:#aabbad;line-height:1.5;margin:0}.surface-note{font-size:12px;max-width:900px;color:#9eb4a6;margin-top:17px}.surface-badge{font-size:11px;color:#cdbb8c;margin-left:auto}@media(max-width:680px){.surface-grid{grid-template-columns:1fr}.surface-toolbar{gap:13px}.surface-badge{margin:0}}
+.canopy-section{margin:52px 0 40px;padding-top:32px;border-top:1px solid #7d8b7166}.canopy-section h2{font:29px/1.2 Georgia,serif;margin:0 0 10px}.canopy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}.canopy-stage{height:auto;aspect-ratio:4/3}.canopy-stage canvas{width:100%;height:auto;aspect-ratio:4/3}.canopy-switch{margin:18px 0 12px}.canopy-caption p{margin:7px 0 0;font-size:12px;color:#acbeaf}
+.accent-section{margin:52px 0 40px;padding-top:32px;border-top:1px solid #7d8b7166}.accent-section h2{font:29px/1.2 Georgia,serif;margin:0 0 10px}.accent-stage{height:auto;aspect-ratio:3/2}.accent-stage canvas{height:auto;aspect-ratio:3/2}
+section[id]{scroll-margin-top:130px}@media(max-width:680px){section[id]{scroll-margin-top:20px}}
+</style></head><body>
+<header><div><p class="eyebrow">Ash & Aether · Original environment art</p><h1>Environment atelier</h1></div><nav><a href="./environment-art-v19.html?v=5.41">Collection II</a><a href="#architecture">Facade details</a><a href="#canopies">Tree canopies</a><a href="#surfaces">Ground surfaces</a><a href="./composition.html?v=5.41">Walk the scenes</a><a href="../../?dev=1">Dev portal</a><a href="../../">Play A&A</a></nav></header>
+<main>
+<p class="intro">Explore the new scenery, tree canopies, craft furniture and regional surfaces. Every preview uses the game’s actual crop metadata, proportions and drawing helper. The scene links open the live renderer in an isolated review.</p>
+<div class="summary" id="summary" aria-label="Collection totals"></div>
+<div class="controls" aria-label="Artwork display controls">
+ <label>Collection <select id="collection"><option value="all">All collections</option></select></label>
+ <label>Find <input id="search" type="search" placeholder="Fungi, copper, frost…" aria-label="Find an environment motif"></label>
+ <label>Prop scale <input id="scale" type="range" min="70" max="210" step="10" value="170"><output id="scale-value" for="scale">170 px</output></label>
+ <label><input id="checker" type="checkbox">Alpha checker</label>
+ <label><input id="anchor" type="checkbox" checked>Ground anchor</label>
+</div>
+<p class="status" id="status" role="status" aria-live="polite">Loading the environment collection…</p>
+<div id="collections"></div><p id="empty" class="empty hidden">No motifs match this filter.</p>
+<section class="accent-section" id="architecture" aria-labelledby="architecture-title">
+ <p class="eyebrow">Craft at the scale of a building</p><h2 id="architecture-title">Windows, eaves and small signs of care</h2>
+ <p class="surface-intro">Painted windows, chimneys, a carved vent, climbing ivy and a wrought lantern fit the buildings’ existing detail positions. These enlarged previews expose the workmanship; in the world, each piece fits its actual window, roof or wall.</p>
+ <p class="status" id="architecture-status" role="status" aria-live="polite">Loading the architectural details…</p>
+ <div class="grid" id="architecture-grid"></div>
+ <p class="surface-note">The accents follow each building’s established outline and material. They preserve real doors and approaches. Larger authored facade views remain a separate next art batch.</p>
+</section>
+<section class="canopy-section" id="canopies" aria-labelledby="canopy-title">
+ <p class="eyebrow">The larger natural shapes</p><h2 id="canopy-title">Rooted canopies, regional silhouettes</h2>
+ <p class="surface-intro">These trees use their measured root anchors and normal game proportions. Sable stands beside each at a fixed 60-pixel reference height, making a broad crown, a bent upland tree and a low orchard canopy easy to compare.</p>
+ <label class="canopy-switch"><input type="checkbox" id="canopy-traveller" checked>Show Sable for scale</label>
+ <p class="status" id="canopy-status" role="status" aria-live="polite">Loading the canopy collection…</p>
+ <div id="canopy-grid" class="canopy-grid"></div>
+ <p class="surface-note">Tree selection uses the region’s existing safe scenic sites. The live renderer fades a foreground canopy when it covers a traveller; the gallery keeps each silhouette fully visible for inspection. The prop-scale slider above applies to the smaller object collections.</p>
+</section>
+<section class="surface-section" id="surfaces" aria-labelledby="surface-title">
+ <p class="eyebrow">The continuous ground layer</p><h2 id="surface-title">Materials under every step</h2>
+ <p class="surface-intro">Eight painted surfaces bring fine moss, mineral grains, frost and mycelium into each region. These previews use the same restrained blend and mirrored repeat as the game, over its regional ground colors.</p>
+ <div class="surface-toolbar" aria-label="Ground surface review controls">
+  <button type="button" id="surface-drift" aria-pressed="false" disabled>Drift across the material</button>
+  <label><input type="checkbox" id="surface-edges">Show repeat edges</label>
+  <span class="surface-scale"><i aria-hidden="true"></i>48 world px · one floor tile</span>
+  <span class="surface-badge" id="surface-blend"></span>
+ </div>
+ <p id="surface-status" class="status" role="status" aria-live="polite">Loading the painted material sheet…</p>
+ <div id="surface-grid" class="surface-grid"></div>
+ <h3 style="font:24px Georgia,serif;margin:30px 0 9px">Four quieter kinds of water</h3>
+ <p class="surface-intro">Alluvial rivers, root-darkened tides, coral shallows and pale saltglass water each have their own painted depth and color. These cards use the production water layer over its matching base.</p>
+ <p id="water-status" class="status" role="status" aria-live="polite">Loading the regional water sheet…</p>
+ <div id="water-grid" class="surface-grid"></div>
+ <p class="surface-note">The slow drift is an inspection aid; the game’s ground stays still as the camera moves. Reflected repeats keep adjacent image edges aligned. Surface grain stays subdued beneath the larger scenery, while water uses its own quiet regional treatment.</p>
+</section>
+<section class="notes"><h2>Reading the collection</h2><p><strong>Scenery variants</strong> occupy existing safe edge sites and use the district’s material and ecology. <strong>Furniture</strong> replaces matching existing household objects. <strong>Ground details</strong> stay beneath the characters. This gallery lists the complete kit; an individual location selects only the motifs appropriate to that place. A motif marked <strong>Staged</strong> is prepared for a future authored placement and is not scattered into ordinary scenes.</p><p>The cross marks the object’s bottom-center registration point. Painted shadows and irregular silhouettes retain the source image’s alpha channel. Adjust the scale or enable the checker to inspect their edges. Scenery props use the same painted sheets in Standard and Compatibility. Facade accents appear in Standard’s detailed building rendering.</p><p>Review pages do not read or write your journey saves. Scenery does not create new collision, exits or quests. Objects with an established story function keep their own artwork and interactions.</p></section>
+</main><footer><span>Clay, water, brass, roots and remembered places.</span><span>Original project art · measured crops · complete transparent sources</span></footer>
+<script type="module">
+import {ENVIRONMENT_COLLECTIONS,ENVIRONMENT_PROPS,ENVIRONMENT_ART_FILES,ENVIRONMENT_STAGED_IDS,environmentPropSpec,drawRegionalProp} from '../environment-art-v17.js?v=5.22.0';
+import {ENVIRONMENT_SURFACE_FILE,ENVIRONMENT_SURFACE_NAMES,ENVIRONMENT_SURFACE_TILE,ENVIRONMENT_SURFACE_ALPHA,paintEnvironmentSurface} from '../environment-materials-v17.js?v=5.18.0';
+import {TERRAIN_MATERIALS} from '../terrain-materials.js?v=4.0.0';
+import {ENVIRONMENT_CANOPY_FILE,ENVIRONMENT_CANOPIES,CANOPY_STYLE_POOLS,environmentCanopySpec,drawEnvironmentCanopy} from '../environment-canopies-v17.js?v=5.18.0';
+import {AUTHORED_ART_FILES,drawAuthoredMotion} from '../authored-art.js?v=5.21.0';
+import {ENVIRONMENT_WATER_FILE,ENVIRONMENT_WATER_MATERIALS,paintEnvironmentWaterSurface} from '../environment-water-v17.js?v=5.18.0';
+import {ARCHITECTURE_ACCENT_FILE,ARCHITECTURE_ACCENTS,architectureAccentSpec,drawArchitectureAccent} from '../environment-architecture-v17.js?v=5.18.0';
+const $=id=>document.getElementById(id),assets={},cards=[],sections=[];
+const roleNames={scenery:'Scenery variant',furniture:'Interior furniture',ground:'Ground detail',utility:'Existing interaction'};
+const title=id=>id.split('-').map(word=>word[0].toUpperCase()+word.slice(1)).join(' ');
+for(const [value,label] of [[ENVIRONMENT_PROPS.length,'painted objects'],[ARCHITECTURE_ACCENTS.length,'facade accents'],[ENVIRONMENT_CANOPIES.length,'tree canopies'],[ENVIRONMENT_SURFACE_NAMES.length,'ground surfaces'],[ENVIRONMENT_WATER_MATERIALS.length,'water surfaces'],[ENVIRONMENT_COLLECTIONS.length,'object collections'],[ENVIRONMENT_PROPS.length-ENVIRONMENT_STAGED_IDS.length,'runtime object motifs'],[ENVIRONMENT_STAGED_IDS.length,'staged for an authored place']]){
+ const stat=document.createElement('span');stat.className='stat';const strong=document.createElement('strong');strong.textContent=value;stat.append(strong,' '+label);$('summary').append(stat);
+}
+for(const collection of ENVIRONMENT_COLLECTIONS){
+ const option=document.createElement('option');option.value=collection.id;option.textContent=collection.title;$('collection').append(option);
+ const section=document.createElement('section');section.className='collection';section.dataset.collection=collection.id;
+ const heading=document.createElement('div');heading.className='collection-head';const copy=document.createElement('div'),h2=document.createElement('h2'),description=document.createElement('p');
+ const props=ENVIRONMENT_PROPS.filter(p=>p.collection===collection.id);h2.textContent=collection.title+' · '+props.length;description.textContent=collection.description;copy.append(h2,description);heading.append(copy);
+ const scenes=document.createElement('nav');scenes.className='scenes';scenes.setAttribute('aria-label','Review '+collection.title+' in scenes');
+ for(const scene of collection.scenes){const link=document.createElement('a');link.href='./composition.html?v=5.41'+scene.id;link.textContent=scene.name;link.title='Inspect scene '+scene.id+' using the real game renderer';scenes.append(link);}
+ heading.append(scenes);section.append(heading);const grid=document.createElement('div');grid.className='grid';section.append(grid);
+ for(const prop of props){
+  const article=document.createElement('article');article.className='card';article.dataset.id=prop.id;
+  const stage=document.createElement('div');stage.className='stage';const canvas=document.createElement('canvas');canvas.width=360;canvas.height=270;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',title(prop.id)+' transparent painted '+(roleNames[prop.role||collection.role]||'Painted motif').toLowerCase());stage.append(canvas);
+  const caption=document.createElement('div');caption.className='caption';const h3=document.createElement('h3');h3.textContent=title(prop.id);const meta=document.createElement('div');meta.className='meta';const role=document.createElement('span');role.className='role';role.textContent=prop.use==='staged'?'Staged · authored placement':(roleNames[prop.role||collection.role]||'Painted motif');const crop=document.createElement('span');crop.textContent=prop.crop[2]+' × '+prop.crop[3]+' source';meta.append(role,crop);caption.append(h3,meta);if(prop.stagingReason){const note=document.createElement('p');note.style.cssText='font-size:11px;color:#b6c0af;margin:8px 0 0';note.textContent=prop.stagingReason;caption.append(note);}article.append(stage,caption);grid.append(article);cards.push({article,canvas,prop,collection});
+ }
+ sections.push({section,collection});$('collections').append(section);
+}
+const accentCards=[],accentImage=new Image(),accentRoles={'timber-flower-window':'Home and inn windows','clinic-herb-window':'Clinic windows','archive-leaded-window':'Stone civic windows','carved-gable-vent':'Existing gable vent','brick-chimney':'Domestic chimney','copper-stovepipe':'Workshop roof exhaust','wrought-lantern':'Existing entrance light','ivy-corner':'Exterior wall edge'};
+for(const accent of ARCHITECTURE_ACCENTS){const card=document.createElement('article');card.className='card';const stage=document.createElement('div');stage.className='stage accent-stage';const canvas=document.createElement('canvas');canvas.width=360;canvas.height=240;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',accent.label+' enlarged architectural detail');stage.append(canvas);const caption=document.createElement('div');caption.className='caption';const heading=document.createElement('h3');heading.textContent=accent.label;const meta=document.createElement('div');meta.className='meta';meta.textContent='Enlarged detail · '+(accentRoles[accent.id]||'Existing building fixture');caption.append(heading,meta);card.append(stage,caption);$('architecture-grid').append(card);accentCards.push({accent,canvas});}
+function renderArchitecture(){for(const {accent,canvas} of accentCards){const c=canvas.getContext('2d'),x=180,y=212;c.clearRect(0,0,canvas.width,canvas.height);if($('anchor').checked){c.save();c.strokeStyle=$('checker').checked?'#1e454c88':'#b8b78a77';c.beginPath();c.moveTo(x-10,y);c.lineTo(x+10,y);c.moveTo(x,y-4);c.lineTo(x,y+4);c.stroke();c.restore();}const spec=architectureAccentSpec(accent.id,{width:132,height:166});if(!drawArchitectureAccent(c,accentImage,spec,x,y)){c.save();c.fillStyle='#b8c9b9';c.font='12px system-ui';c.textAlign='center';c.fillText('Loading detail…',x,120);c.restore();}}}
+accentImage.onload=()=>{$('architecture-status').textContent=ARCHITECTURE_ACCENTS.length+' painted accents loaded with the production fitting helper.';renderArchitecture();};accentImage.onerror=()=>{$('architecture-status').textContent='The architectural detail sheet could not load.';$('architecture-status').classList.add('warning');};accentImage.src=new URL('../art/'+ARCHITECTURE_ACCENT_FILE,import.meta.url).href;renderArchitecture();
+
+const canopyCards=[],canopyImage=new Image(),scaleHeroImage=new Image();
+for(const canopy of ENVIRONMENT_CANOPIES){
+ const card=document.createElement('article');card.className='card';const stage=document.createElement('div');stage.className='stage canopy-stage';const canvas=document.createElement('canvas');canvas.width=400;canvas.height=300;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',title(canopy.id)+' rooted tree canopy beside Sable at game scale');stage.append(canvas);
+ const caption=document.createElement('div');caption.className='caption canopy-caption';const heading=document.createElement('h3');heading.textContent=title(canopy.id);const description=document.createElement('p');const regions=Object.entries(CANOPY_STYLE_POOLS).filter(([,ids])=>ids.includes(canopy.id)).map(([style])=>title(style));description.textContent=regions.join(' · ');caption.append(heading,description);card.append(stage,caption);$('canopy-grid').append(card);canopyCards.push({canopy,canvas});
+}
+function renderCanopies(){
+ for(const {canopy,canvas} of canopyCards){const c=canvas.getContext('2d'),x=160,y=264;c.clearRect(0,0,canvas.width,canvas.height);
+  if($('anchor').checked){c.save();c.strokeStyle=$('checker').checked?'#1e454c88':'#b8b78a77';c.lineWidth=1;c.beginPath();c.moveTo(25,y);c.lineTo(375,y);c.moveTo(x,y-5);c.lineTo(x,y+5);c.stroke();c.restore();}
+  const spec=environmentCanopySpec(canopy.id);if(!drawEnvironmentCanopy(c,canopyImage,spec,x,y,1)){c.save();c.font='12px system-ui';c.fillStyle='#bcc9ba';c.textAlign='center';c.fillText('Loading canopy…',x,140);c.restore();}
+  if($('canopy-traveller').checked){const drawn=drawAuthoredMotion(c,{sableMotion:scaleHeroImage},{atlas:'sable',frame:0},345,y,60);c.save();c.font='11px system-ui';c.fillStyle=$('checker').checked?'#183936':'#b7c9b6';c.textAlign='center';c.fillText(drawn?'Sable · 60 px':'Scale figure loading',337,285);c.restore();}
+ }
+}
+$('canopy-traveller').addEventListener('change',renderCanopies);
+canopyImage.onload=()=>{$('canopy-status').textContent=ENVIRONMENT_CANOPIES.length+' original canopies loaded with measured root anchors.';renderCanopies();};
+canopyImage.onerror=()=>{$('canopy-status').textContent='The canopy sheet could not load.';$('canopy-status').classList.add('warning');};
+scaleHeroImage.onload=renderCanopies;scaleHeroImage.onerror=()=>{$('canopy-status').textContent+=' The optional Sable scale figure could not load.';};
+canopyImage.src=new URL('../art/'+ENVIRONMENT_CANOPY_FILE,import.meta.url).href;scaleHeroImage.src=new URL('../art/'+AUTHORED_ART_FILES.sableMotion,import.meta.url).href;renderCanopies();
+
+const surfaceDescriptions=[
+ ['grass','Meadow and woodland','Low moss and tiny clover soften the ordinary green ground.'],
+ ['soil','Riverbanks and mangroves','Water-darkened mud and rounded grains give wet banks a heavier surface.'],
+ ['sand','Dunes and drylands','Warm ochre grains and shallow wind ripples hold a quiet walking plane.'],
+ ['storm','Highlands, slate and crystal country','Cool blue mineral rubble brings weight to exposed stone.'],
+ ['ice','Glacier and aurora country','Fine frost and compressed snow spread light across cold ground.'],
+ ['spore','Spore country','Pale mycelium threads run through muted violet soil.'],
+ ['lava','Foundry and caldera','Cooling clinker and rusty mineral grains ground the industrial palette.'],
+ ['marble','Marble, salt and coral country','Dust softens small pale limestone and marble fragments.']
+];
+const surfaceCards=[],surfaceBakes=[],surfaceImage=new Image(),waterCards=[],waterBakes=[],waterImage=new Image();let driftActive=false,driftOffset=0,driftFrame=0,lastDriftTime=0;
+$('surface-blend').textContent='Ground: '+Math.round(ENVIRONMENT_SURFACE_ALPHA*100)+'% blend · '+ENVIRONMENT_SURFACE_TILE+' px repeat';
+surfaceDescriptions.forEach(([kind,places,description],index)=>{
+ const article=document.createElement('article');article.className='surface-card';const canvas=document.createElement('canvas');canvas.width=384;canvas.height=240;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',title(ENVIRONMENT_SURFACE_NAMES[index])+' mirrored ground texture at game blend');
+ const caption=document.createElement('div');caption.className='surface-caption';const h3=document.createElement('h3');h3.textContent=title(ENVIRONMENT_SURFACE_NAMES[index]);const p=document.createElement('p');p.textContent=places+' · '+description;caption.append(h3,p);article.append(canvas,caption);$('surface-grid').append(article);surfaceCards.push({canvas,kind});
+});
+const waterDescriptions={'alluvial-river':'Muted green water and fine alluvial detail.','mangrove-tide':'Dark, restrained shallows around the rooted banks.','coral-shallows':'Clear turquoise color with soft mineral detail.','saltglass-lagoon':'Pale, still-looking water with low-contrast light.'};
+for(const material of ENVIRONMENT_WATER_MATERIALS){const article=document.createElement('article');article.className='surface-card';const canvas=document.createElement('canvas');canvas.width=384;canvas.height=240;canvas.setAttribute('role','img');canvas.setAttribute('aria-label',material.name+' repeating water material at game blend');const caption=document.createElement('div');caption.className='surface-caption';const heading=document.createElement('h3');heading.textContent=material.name;const p=document.createElement('p');p.textContent=waterDescriptions[material.id]||'Regional water material';caption.append(heading,p);article.append(canvas,caption);$('water-grid').append(article);waterCards.push({canvas,material});}
+function buildSurfacePatterns(){
+ surfaceBakes.length=0;
+ for(const {canvas,kind} of surfaceCards){const bake=document.createElement('canvas');bake.width=bake.height=768;const g=bake.getContext('2d');g.fillStyle='rgb('+TERRAIN_MATERIALS[kind].base.join(',')+')';g.fillRect(0,0,768,768);if(!paintEnvironmentSurface(g,surfaceImage,kind,768))return false;surfaceBakes.push(canvas.getContext('2d').createPattern(bake,'repeat'));}
+ return true;
+}
+function buildWaterPatterns(){waterBakes.length=0;for(const {canvas,material} of waterCards){const bake=document.createElement('canvas');bake.width=bake.height=768;const c=bake.getContext('2d');c.fillStyle=material.base;c.fillRect(0,0,768,768);if(!paintEnvironmentWaterSurface(c,waterImage,material.style,768))return false;waterBakes.push(canvas.getContext('2d').createPattern(bake,'repeat'));}return true;}
+function renderSurfaces(){
+ const edge=$('surface-edges').checked,ox=ENVIRONMENT_SURFACE_TILE/2+driftOffset,oy=ENVIRONMENT_SURFACE_TILE/2+driftOffset*.5;
+ function drawTextureWindow(canvas,pattern,base){const c=canvas.getContext('2d');c.clearRect(0,0,canvas.width,canvas.height);c.save();
+  if(pattern){c.fillStyle=pattern;c.translate(-ox,-oy);c.fillRect(ox,oy,canvas.width,canvas.height);}else{c.fillStyle=base;c.fillRect(0,0,canvas.width,canvas.height);}c.restore();
+  if(edge){c.save();c.strokeStyle='#f6e6b688';c.lineWidth=1;c.setLineDash([5,5]);c.beginPath();for(let x=-(ox%ENVIRONMENT_SURFACE_TILE);x<canvas.width;x+=ENVIRONMENT_SURFACE_TILE){c.moveTo(x,0);c.lineTo(x,canvas.height);}for(let y=-(oy%ENVIRONMENT_SURFACE_TILE);y<canvas.height;y+=ENVIRONMENT_SURFACE_TILE){c.moveTo(0,y);c.lineTo(canvas.width,y);}c.stroke();c.restore();}
+ }
+ surfaceCards.forEach(({canvas,kind},index)=>drawTextureWindow(canvas,surfaceBakes[index],'rgb('+TERRAIN_MATERIALS[kind].base.join(',')+')'));
+ waterCards.forEach(({canvas,material},index)=>drawTextureWindow(canvas,waterBakes[index],material.base));
+}
+function updateSurfaceScale(){const width=surfaceCards[0]?.canvas.clientWidth;if(width)document.querySelector('.surface-scale i').style.width=(48*width/384)+'px';}
+window.addEventListener('resize',updateSurfaceScale);updateSurfaceScale();
+function stopSurfaceDrift(){driftActive=false;lastDriftTime=0;cancelAnimationFrame(driftFrame);$('surface-drift').setAttribute('aria-pressed','false');$('surface-drift').textContent='Drift across the material';}
+function animateSurfaces(time){if(!driftActive)return;if(lastDriftTime){const dt=Math.min((time-lastDriftTime)/1000,.1);driftOffset=(driftOffset+dt*12)%1536;}lastDriftTime=time;renderSurfaces();driftFrame=requestAnimationFrame(animateSurfaces);}
+$('surface-drift').addEventListener('click',()=>{if(driftActive)stopSurfaceDrift();else{driftActive=true;lastDriftTime=0;$('surface-drift').setAttribute('aria-pressed','true');$('surface-drift').textContent='Pause material drift';driftFrame=requestAnimationFrame(animateSurfaces);}});
+$('surface-edges').addEventListener('change',renderSurfaces);document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSurfaceDrift();});
+surfaceImage.onload=()=>{const ok=buildSurfacePatterns();$('surface-status').textContent=ok?'All eight ground materials loaded. Drift across a tile edge or mark the repeat boundaries to inspect continuity.':'The material sheet loaded, but its drawing contract could not be used.';$('surface-drift').disabled=!ok;if(!ok)$('surface-status').classList.add('warning');renderSurfaces();};
+surfaceImage.onerror=()=>{$('surface-status').textContent='The painted material sheet could not load. The regional base colors remain visible.';$('surface-status').classList.add('warning');};
+waterImage.onload=()=>{const ok=buildWaterPatterns();$('water-status').textContent=ok?ENVIRONMENT_WATER_MATERIALS.length+' regional water surfaces loaded. The drift and repeat-edge controls apply here too.':'The water sheet loaded, but its drawing contract could not be used.';if(!ok)$('water-status').classList.add('warning');renderSurfaces();};
+waterImage.onerror=()=>{$('water-status').textContent='The regional water sheet could not load. Matching base colors remain visible.';$('water-status').classList.add('warning');};
+surfaceImage.src=new URL('../art/'+ENVIRONMENT_SURFACE_FILE,import.meta.url).href;waterImage.src=new URL('../art/'+ENVIRONMENT_WATER_FILE,import.meta.url).href;renderSurfaces();
+
+function render(){
+ const scale=Number($('scale').value),showAnchor=$('anchor').checked;$('scale-value').textContent=scale+' px';
+ for(const {canvas,prop,collection} of cards){
+  const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);const x=canvas.width/2,y=canvas.height-27;
+  if(showAnchor){ctx.save();ctx.strokeStyle=$('checker').checked?'#1e454c88':'#b8b78a77';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x-11,y);ctx.lineTo(x+11,y);ctx.moveTo(x,y-5);ctx.lineTo(x,y+5);ctx.stroke();ctx.restore();}
+  const spec=environmentPropSpec(prop.id,{height:collection.role==='ground'?scale*.42:scale,width:canvas.width-38});
+  if(!drawRegionalProp({ctx,assets},spec,x,y)){ctx.save();ctx.font='12px system-ui';ctx.fillStyle=$('checker').checked?'#253a39':'#b8c9b9';ctx.textAlign='center';ctx.fillText(assets[prop.asset]?'Source crop unavailable':'Loading artwork…',x,canvas.height/2);ctx.restore();}
+ }
+ renderArchitecture();renderCanopies();
+}
+function filter(){const selected=$('collection').value,needle=$('search').value.trim().toLowerCase();let visible=0;for(const card of cards){const show=(selected==='all'||card.collection.id===selected)&&(!needle||[card.prop.id,card.collection.title,card.collection.description].join(' ').toLowerCase().includes(needle));card.article.classList.toggle('hidden',!show);if(show)visible++;}for(const {section} of sections)section.classList.toggle('hidden',!section.querySelector('.card:not(.hidden)'));$('empty').classList.toggle('hidden',visible>0);}
+$('scale').addEventListener('input',render);$('anchor').addEventListener('change',render);$('checker').addEventListener('change',()=>{document.body.classList.toggle('checker',$('checker').checked);render();});$('collection').addEventListener('change',filter);$('search').addEventListener('input',filter);
+render();
+const loaded=await Promise.allSettled(Object.entries(ENVIRONMENT_ART_FILES).map(([name,file])=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{assets[name]=image;render();resolve(name);};image.onerror=()=>reject(new Error(file));image.src=new URL('../art/'+file,import.meta.url).href;})));
+const failures=loaded.filter(r=>r.status==='rejected');$('status').textContent=failures.length?'Some original sheets could not load: '+failures.map(r=>r.reason.message).join(', ')+'. Other previews remain available.':ENVIRONMENT_PROPS.length+' motifs loaded from '+loaded.length+' original transparent sheets. Choose a scene link to inspect placement.';if(failures.length)$('status').classList.add('warning');
+filter();
+</script></body></html>

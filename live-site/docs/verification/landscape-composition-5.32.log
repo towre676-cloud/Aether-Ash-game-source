@@ -1,0 +1,18 @@
+✔ all167 authored scenes gain contiguous closed terrain without changing native state or the walk mask (6313.006551ms)
+✔ closed shade inside outdoor bounds is a connected landscape and not only a perimeter decoration (433.172188ms)
+✔ all12 frontier biomes have their own contour palette and native water shores form actual surfaces (582.257632ms)
+✔ native building foundations and exact original-device work bays remain unburied (423.255944ms)
+✔ landscape vegetation keeps grounded 3D trunks and emitted bank tops without floating bitmap cutouts (408.325395ms)
+✔ opening an actual new floor cell invalidates the terrain plan and keeps it clear (395.632654ms)
+✔ interior maze voids become contiguous masonry without taking structural floors, furniture or partitions (370.094935ms)
+✔ Veyr station headlands use a continuous cliff and lower sea with no boulder ring or flying painted rocks (492.565976ms)
+✔ rock country uses connected landforms rather than a ring of independent boulders or painted pebbles (457.319206ms)
+✔ every planned non-water terrace has an emitted upward surface, including interior caps and coastal ledges (517.190427ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10657.538716

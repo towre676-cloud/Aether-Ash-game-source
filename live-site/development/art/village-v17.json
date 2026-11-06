@@ -1,0 +1,243 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "styleReference": "development/art/source-legacy-delivery/scene-props-v11.png",
+  "selectionGuidance": "Sparse contextual domestic or profession scenery at village edges, lower frequency than ecology. These are decorative art replacements at existing safe sites, never colliders or implied new interactions. Covered-well has sealed wooden cover; bread-oven opening is a firebox, not a navigable doorway.",
+  "cropMethod": "Measured connected component alpha > 8 bounds, expanded by 3 source pixels; actual source layout does not match equal nominal cells.",
+  "sheets": [
+    {
+      "id": "village",
+      "file": "village-craft-v17.png",
+      "assetKey": "environmentVillage",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-1e7948c4-0c38-4542-808e-c9bcb95f241c.png",
+      "sha256": "cd2b0c9b821748f671394b79635c82dd84f6fafc653b6783bdc7308927c5b171",
+      "bytes": 2496750,
+      "width": 1774,
+      "height": 887,
+      "transparentPixels": 685727,
+      "prompt": "Use case: stylized-concept. Asset type: transparent production sprite atlas for the original RPG Ash & Aether. Create ONE wide landscape PNG, aspect ratio 2:1, with EXACTLY FOUR columns and TWO rows of EIGHT separate complete outdoor village-craft props. At least 8 percent empty transparent padding on EVERY edge of each equal cell; each complete object, base, cloth, smoke-free hood, tool and contact shadow remains within its own cell, separated by clear transparent gutters. Input image is a STYLE REFERENCE ONLY, not an edit target: match the richly detailed hand-painted fantasy craftsmanship, 35-degree elevated orthographic camera, restrained upper-left light, aged brass, rounded weathered clay and stone, believable timber and softly worn textiles. Organic silhouettes and beautiful but functional craftsmanship. Exact order TOP ROW left to right: 1) low wash-stone trough with wrung blue linen cloth draped over one side and small wooden bucket, one compact connected arrangement; 2) small potter's wheel/workstand with one unfinished clay bowl, a few hand tools and a modest clay lump, clearly readable circular wheel; 3) modest compact produce stall made of weathered timber with a pale blue fabric awning, vegetables sorted in integrated shallow shelves, no signage; 4) short carved limestone well with CLOSED wooden cover and small aged brass crank, visibly sealed top rather than a hole or doorway. BOTTOM ROW left to right: 5) short low dry-stone garden wall with flowering rosemary at its base and seams; 6) woodcarver's outdoor workbench with curved wood carvings, several curled shavings and hand tools, one compact workspace; 7) short pair of wooden clothesline posts with neatly hung indigo and ochre cloth being mended, visible patch stitches, compact single grouping; 8) small communal rounded clay bread oven with timber rain hood, tiny fire opening and a tidy split-firewood niche. Every prop is a convincing single functional arrangement with a grounded low base, readable at 80–150 game pixels tall. No people, animals, signs, lettering, numerals, doors, grid lines, frames, backdrop scenery, extra random crates or potted plants. No pixel art, no plastic shine. True RGBA transparency behind and between all props, never white/black/checkerboard imagery. Preserve exact eight-object order, clear separate silhouettes and intact edges.",
+      "sprites": [
+        {
+          "id": "wash-trough",
+          "crop": [
+            20,
+            194,
+            452,
+            276
+          ],
+          "height": 76
+        },
+        {
+          "id": "potters-wheel",
+          "crop": [
+            486,
+            118,
+            401,
+            351
+          ],
+          "height": 86
+        },
+        {
+          "id": "produce-stall",
+          "crop": [
+            905,
+            17,
+            429,
+            459
+          ],
+          "height": 128
+        },
+        {
+          "id": "covered-well",
+          "crop": [
+            1354,
+            95,
+            390,
+            370
+          ],
+          "height": 97
+        },
+        {
+          "id": "rosemary-wall",
+          "crop": [
+            8,
+            540,
+            458,
+            330
+          ],
+          "height": 70
+        },
+        {
+          "id": "carvers-bench",
+          "crop": [
+            463,
+            530,
+            429,
+            331
+          ],
+          "height": 83
+        },
+        {
+          "id": "mending-line",
+          "crop": [
+            896,
+            499,
+            442,
+            367
+          ],
+          "height": 105
+        },
+        {
+          "id": "bread-oven",
+          "crop": [
+            1342,
+            466,
+            429,
+            399
+          ],
+          "height": 114
+        }
+      ],
+      "archivedSourcePath": "development/art/source-v17/village-craft-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/village-craft-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/village-craft-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 746930,
+        "sha256": "c05761dbf33a19b0416398b7e4586d0ac1cb230dfe024ce40e7f54d80dd02289",
+        "sourceSha256": "cd2b0c9b821748f671394b79635c82dd84f6fafc653b6783bdc7308927c5b171",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "village-craft-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "checks": [
+        {
+          "id": "wash-trough",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 30,
+              "included": 83921,
+              "total": 83921,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "potters-wheel",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 7,
+              "included": 86500,
+              "total": 86500,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "produce-stall",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 132135,
+              "total": 132135,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "covered-well",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 6,
+              "included": 96547,
+              "total": 96547,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "rosemary-wall",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 59,
+              "included": 89099,
+              "total": 89099,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "carvers-bench",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 54,
+              "included": 104215,
+              "total": 104215,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "mending-line",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 53,
+              "included": 100957,
+              "total": 100957,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "bread-oven",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 52,
+              "included": 119688,
+              "total": 119688,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "originalStyleReference": "dist/game/engine2/art/scene-props-v11.png"
+}

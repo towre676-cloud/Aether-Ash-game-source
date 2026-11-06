@@ -1,0 +1,11 @@
+Mode: built-in image_gen.imagegen (not CLI/API fallback)
+Output: dist/game/art/ui/armory-sanctum-5.34.webp
+Generated source: /workspace/scratch/069bdc7b547d/generated_images/exec-44b3022d-aec3-4971-8ba8-0a5dc19a9ac0.png
+
+Use case: stylized-concept
+Asset type: production painted environmental backdrop behind an interactive weapon showcase in Ash & Aether, a dark fantasy roleplaying game; this is artwork only, not a UI mockup.
+Primary request: a lovingly hand-painted armory sanctum with a tall empty architectural display niche centered under an aged carved stone arch. The central 45 percent is a quiet near-black charcoal recess, deliberately empty and low contrast so a separate luminous weapon illustration can be overlaid there. Show detailed hand-worked bronze filigree on the stone arch, fine engraved alchemical circles and diagram scratches only around the side edges, two hanging chains near the sides, a worn stone display ledge low in the frame. A subtle ember furnace glow from low right, a cold teal moon light from left, old bronze catching tiny warm highlights.
+Style/medium: richly textured painterly CRPG environment concept art with expressive brushwork, atmospheric oil-painted realism, artisanal details and believable weathered materials. Sophisticated dark fantasy, antique magical workshop, not glossy mobile game art.
+Composition/framing: landscape 3:2, frontal and near symmetrical architectural composition, full bleed. The niche is vertically tall but the entire backdrop is landscape. Art clustered at the outer edges and bottom; central dark empty space must stay readable. Detail should reward inspection without clutter. No large foreground objects obscuring the center.
+Color palette: charcoal black stone, aged brown bronze, restrained oxidized teal and muted ember orange; retain enough material detail in shadow.
+Constraints: NO weapons, NO people, NO letters, NO text, NO numbers, NO logos, NO interface panels, NO buttons, NO watermark, NO labeled frame. No neon, no purple gradients, no flat vector art, no dashboard aesthetic.

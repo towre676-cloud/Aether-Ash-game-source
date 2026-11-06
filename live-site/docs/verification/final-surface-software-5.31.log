@@ -1,0 +1,17 @@
+✔ accepted native ground impacts leave distinct visible wet, hot, fractured, charged and phase surfaces (31.636791ms)
+✔ sampling is local, bounded, cached and skips exact blocked tiles (40.346144ms)
+✔ native vegetation scorch and flattening reduce the visible living cover (34.013173ms)
+✔ vegetation moisture alone never paints a grid of surface puddles (0.380871ms)
+✔ missing simulations and nonfinite optional state do not fabricate terrain changes (0.212153ms)
+✔ large triangles are clipped to all six view planes before the perspective divide (2.084331ms)
+✔ adventure ground clips buried ridgelines and interpolates crossing faces without hiding their visible summit (0.34622ms)
+✔ software floor bands paint complete rugs above their floor, with historical dungeon depth ordering retained (1.073903ms)
+✔ opaque flat triangles close their antialias seams without expanding translucent, textured, glow or shadow faces (0.533576ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 279.262589

@@ -1,0 +1,57 @@
+{
+  "method": "Real game in constrained iframe viewports; not mobile hardware emulation",
+  "checks": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "panelEdges": [
+        12,
+        397.75,
+        370,
+        752.21875
+      ],
+      "hudZ": 7,
+      "touchZ": 6,
+      "mainVersion": "5.17.3",
+      "cssVersion": "5.17.3"
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "documentWidth": 844,
+      "panelEdges": [
+        14,
+        14,
+        374,
+        376
+      ],
+      "panelClientHeight": 360,
+      "panelScrollHeight": 691,
+      "hudZ": 7,
+      "touchZ": 6,
+      "mainVersion": "5.17.3",
+      "cssVersion": "5.17.3"
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "documentWidth": 1280,
+      "panelEdges": [
+        14,
+        14,
+        374,
+        706
+      ],
+      "mainVersion": "5.17.3",
+      "cssVersion": "5.17.4"
+    }
+  ],
+  "note": "Values transcribed from the direct read-only browser geometry checks. Final CSS revision extends the verified fixed landscape panel to laptop heights; portrait and landscape geometry are unchanged by that last media-breakpoint adjustment. Attached screenshots record the actual Mira chapter24 purpose and earned sources before the final responsive-only CSS adjustment; final captured screenshot was not synchronized from the browser."
+}

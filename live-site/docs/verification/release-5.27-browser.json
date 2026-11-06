@@ -1,0 +1,60 @@
+{
+  "schema": "aa-browser-verification/1",
+  "game_version": "5.27.0",
+  "recorded_at_utc": "2026-10-29T22:17:07.689988+00:00",
+  "url": "http://terminal.local:4173/game/?dev=1",
+  "browser": "Chrome cloud browser via documented CUA native actions",
+  "method": "Visible accessibility controls, native keyboard, slider manipulation, screenshots, and read-only DOM camera attributes. No application-state mutation or injected input.",
+  "observed_canvas_sizes_css_px": [
+    [
+      500,
+      824
+    ],
+    [
+      1363,
+      936
+    ]
+  ],
+  "checks": [
+    {
+      "scenario": "Initial automatic camera and settings",
+      "result": "World zoom showed 116 percent and automatic status; reset disabled."
+    },
+    {
+      "scenario": "Manual zoom selection",
+      "result": "Native slider changed to 200 percent; status Manual zoom · 200%; actual #screen camera mode manual, zoom 2."
+    },
+    {
+      "scenario": "Field movement",
+      "result": "After Down movement in Cinderfall Commons, #screen position 24.50,43.68 and manual zoom 2."
+    },
+    {
+      "scenario": "Scene change",
+      "result": "Dev portal selected chapter 2 Explore. Bridge rendered at manual zoom 2; #screen position 4.83,9.50."
+    },
+    {
+      "scenario": "Reload persistence",
+      "result": "Reloaded the page and started chapter 1 guardian practice. Security rendered at manual zoom 2; #screen position 12.35,36.50."
+    },
+    {
+      "scenario": "Battle camera",
+      "result": "Entered Sentinel encounter using X, then opened Mako action picker. Battle UI active; #screen remained manual zoom 2 at 1363×936 CSS pixels."
+    },
+    {
+      "scenario": "Settings reflect persisted value",
+      "result": "After reload, scene changes and combat, Display & motion still showed Manual zoom · 200%, slider 200 and enabled Use automatic zoom button."
+    },
+    {
+      "scenario": "Explicit automatic reset",
+      "result": "Clicked Use automatic zoom. Status changed to Automatic zoom follows the scene and reset disabled. After Return to game, #screen mode automatic, observed easing value 1.3833."
+    }
+  ],
+  "limitations": [
+    "The available browser control API exposes no native two-contact touchscreen gesture; physical pinch interaction on iOS/Android was not claimed. The 15 automated gesture cases exercise two-contact pointer sequences, lifting order, cancellation, clamp reversal, and separation from taps. Eight camera cases cover persistence, anchor invariance, scene changes, battle focus and automatic reset.",
+    "Production publication is established separately by the native Sites deployment receipt; this receipt covers the managed preview."
+  ],
+  "proof_files": [
+    "docs/verification/browser/aa-battle-zoom-5.27.jpg",
+    "docs/verification/browser/aa-zoom-controls-5.27.jpg"
+  ]
+}

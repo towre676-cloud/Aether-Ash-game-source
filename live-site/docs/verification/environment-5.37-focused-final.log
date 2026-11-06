@@ -1,0 +1,22 @@
+✔ the real inlet, relief and grate sequence changes flowing water into retained water, a narrow flow, then an exposed drain (907.465385ms)
+✔ the shallow channel uses only connected native service cells and disappears where the real floor closes (489.128117ms)
+✔ an already solved legacy pump room stays dry and other dungeon chapters receive no drainage channel (432.203769ms)
+✔ Veyr maintenance art articulates actual closed service covers with broad sloping louvers (828.660724ms)
+✔ native building details respect full parcel bodies and leave actual thresholds untouched (604.728941ms)
+✔ all 167 native places emit bounded finite deterministic visual additions without mutating game truth (4491.626845ms)
+✔ battery art reduces only ornament count and invalid or absent native inputs create no scenery (340.294805ms)
+✔ limited static detail selects the nearest real cover and repeats exactly at the same native or explicit focus (385.698719ms)
+✔ native finishes use real scene identity and preserve all167 scene/save inputs (679.277714ms)
+✔ native repeat tiles join at exact opposite edges without mutating upstream albedo (1.720337ms)
+✔ the shared finish synthesizes bounded opaque course texture once and reuses it across scenes (106.987488ms)
+✔ atlas finishing targets only floor/substrate quadrants and restores native canvas state (64.964237ms)
+✔ actual town circulation overlays expose finish maps instead of covering them with matte panels (760.913046ms)
+✔ native observatory service routes and shaped terrain retain textured upper faces (650.077706ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6974.060271

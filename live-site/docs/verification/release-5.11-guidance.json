@@ -1,0 +1,121 @@
+{
+  "schema": "ash-aether.guidance-verification/1",
+  "release": "5.11",
+  "tested_at_utc": "2026-10-29T01:13:28.411050+00:00",
+  "base_commit": "eb3402c78cc7a407acf8a31280548ea94a9719a2",
+  "working_tree_changes_included": true,
+  "merged_authored_floor_commit": "eb3402c",
+  "scope": "Deterministic engine-level task resolution and guide walking; no browser, real device, controller, rendering or sustained performance claim.",
+  "campaign_scope": "Two complete canonical home-start campaign traversals; all seven recorded decisions take branch0 in one run and branch1 in the other. This is not all128 mixed combinations. Battles use the real Battle engine with a deterministic scripted strategy and baseline encounterEnemies; this is not a full frontend/environmental combat playthrough.",
+  "scenario_scope": "Fourteen origin walks cover all7 origins on paired repair/destiny branches, including diversion and scripted battle outcomes. Frontier unlock chapter24 is an explicit fixture; all240 jobs traverse survey, repair, encounter and report through the guide, with authored answers and World.winBattle scripted outcomes. No claim of combat balance or unlock progression from this frontier fixture.",
+  "runs": [
+    {
+      "command": [
+        "node",
+        "dist/game/engine2/qa/guided-campaign.mjs",
+        "0"
+      ],
+      "exit_code": 0,
+      "result": {
+        "result": "pass",
+        "scope": "real objective resolver and walked guide, explicit choices, simulated battles; not browser/controller proof",
+        "branch": 0,
+        "fights": 32,
+        "rooms": 50,
+        "steps": 176,
+        "moves": 13205,
+        "starts": 1,
+        "choices": {
+          "ash.choice.train_priority": 0,
+          "ash.choice.river_repair": 0,
+          "ash.choice.names": 0,
+          "ash.choice.echo": 0,
+          "ash.choice.road": 0,
+          "ash.choice.lens": 0,
+          "ash.choice.testimony": 0
+        }
+      }
+    },
+    {
+      "command": [
+        "node",
+        "dist/game/engine2/qa/guided-campaign.mjs",
+        "1"
+      ],
+      "exit_code": 0,
+      "result": {
+        "result": "pass",
+        "scope": "real objective resolver and walked guide, explicit choices, simulated battles; not browser/controller proof",
+        "branch": 1,
+        "fights": 32,
+        "rooms": 50,
+        "steps": 176,
+        "moves": 13205,
+        "starts": 1,
+        "choices": {
+          "ash.choice.train_priority": 1,
+          "ash.choice.river_repair": 1,
+          "ash.choice.names": 1,
+          "ash.choice.echo": 1,
+          "ash.choice.road": 1,
+          "ash.choice.lens": 1,
+          "ash.choice.testimony": 1
+        }
+      }
+    },
+    {
+      "command": [
+        "node",
+        "dist/game/engine2/qa/guided-scenarios.mjs"
+      ],
+      "exit_code": 0,
+      "result": {
+        "result": "pass",
+        "scope": "guided walking with explicit authored answers and simulated encounter outcomes; frontier unlock chapter24 is a fixture; no browser/device claim",
+        "originRuns": 14,
+        "originMoves": 4374,
+        "commissions": 240,
+        "frontierMoves": 79280,
+        "frontierEncounters": 240
+      }
+    }
+  ],
+  "targeted_tests": {
+    "command": [
+      "node",
+      "--test",
+      "dist/game/engine2/tests/guided-objective.test.mjs",
+      "dist/game/engine2/tests/adventure-guidance.test.mjs"
+    ],
+    "passed": 16,
+    "failed": 0,
+    "covers": [
+      "chapter1 prerequisite resolution",
+      "frontier patrol coordinates",
+      "wrong-area and wrong-region commission continuation",
+      "Commons transport to tracked seam without manual movement",
+      "relocated bell witness target",
+      "known-room-only vendor transport routing",
+      "explicit regional portal destination",
+      "postgame final delivery through transport and actual Mara interaction"
+    ]
+  },
+  "source_sha256": {
+    "guided-objective.js": "b9b2dff7693689c997cb7ca0033faf7b20b418df47d778bb29de9863f3e7a5bc",
+    "objective-routing.js": "2780ec0a6171446d20ab322c02d8dccc47de9081f654389419c688ff58041b5a",
+    "campaign-content.js": "d2d601aafbbe1328ee9a8204e81387cfc8842187819bc6a55a187f9eb4c03ded",
+    "presentation.js": "eedb9cdf7811d73e7b3fdb7c89371b1b61b7982a132932e31ba57532137c6308",
+    "opening.js": "e7b9f56a708bd7cdb6c6e2adc75e27476bfb8ac6d58d0448d9e79162130d5250",
+    "wayglass-model.js": "a14504c78cc90f69cc267c6f80ce97f14f02484c469733e8593b29ed815533fa",
+    "bell-witness-arc.js": "05267a4fb214580ed30998819e6d64a5bdbbfd76dda47bf89643d5f246ace61c",
+    "adventure-guidance.js": "c662c791f2065430eea3d72b300891887c3f3c10f2d7733a33b0b3a6aac5233b",
+    "quest-navigation.js": "fc02013c8a2ed3b3b294908daae9dab1ff7557c3d7ed19c578010e8a971bc141"
+  },
+  "remaining_verification": [
+    "Browser walkthrough of final integrated UI",
+    "Physical Android and hardware controller playtesting",
+    "All128 mixed story-choice combinations",
+    "Full campaign combat with every main frontend context and party build"
+  ],
+  "source_hash_note": "Final source hashes refreshed after import cache revisions; gameplay bodies match the recorded successful runs."
+}

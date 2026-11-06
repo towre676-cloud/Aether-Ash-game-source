@@ -1,0 +1,25 @@
+{"chapter":1,"level":2,"fights":3,"rooms":11,"steps":16,"moves":2950}
+{"chapter":2,"level":3,"fights":6,"rooms":14,"steps":23,"moves":4695}
+{"chapter":3,"level":4,"fights":10,"rooms":18,"steps":33,"moves":6560}
+{"chapter":4,"level":5,"fights":13,"rooms":21,"steps":43,"moves":7525}
+{"chapter":5,"level":6,"fights":17,"rooms":25,"steps":52,"moves":10390}
+{"chapter":6,"level":7,"fights":21,"rooms":29,"steps":61,"moves":10950}
+{"chapter":7,"level":8,"fights":25,"rooms":33,"steps":70,"moves":14410}
+{"chapter":8,"level":10,"fights":30,"rooms":36,"steps":80,"moves":15970}
+{"chapter":9,"level":10,"fights":32,"rooms":39,"steps":88,"moves":18085}
+{"chapter":10,"level":11,"fights":35,"rooms":42,"steps":94,"moves":18260}
+{"chapter":11,"level":12,"fights":37,"rooms":45,"steps":101,"moves":18815}
+{"chapter":12,"level":13,"fights":40,"rooms":48,"steps":107,"moves":19595}
+{"chapter":13,"level":14,"fights":42,"rooms":51,"steps":115,"moves":20120}
+{"chapter":14,"level":15,"fights":44,"rooms":54,"steps":122,"moves":20990}
+{"chapter":15,"level":16,"fights":47,"rooms":57,"steps":128,"moves":22230}
+{"chapter":16,"level":17,"fights":49,"rooms":60,"steps":136,"moves":23935}
+{"chapter":17,"level":18,"fights":51,"rooms":63,"steps":143,"moves":25295}
+{"chapter":18,"level":19,"fights":53,"rooms":66,"steps":148,"moves":25560}
+{"chapter":19,"level":20,"fights":55,"rooms":69,"steps":157,"moves":26075}
+{"chapter":20,"level":21,"fights":58,"rooms":72,"steps":163,"moves":26465}
+{"chapter":21,"level":23,"fights":60,"rooms":75,"steps":172,"moves":28325}
+{"chapter":22,"level":24,"fights":63,"rooms":78,"steps":182,"moves":31095}
+{"chapter":23,"level":25,"fights":65,"rooms":81,"steps":188,"moves":32125}
+{"chapter":24,"level":26,"fights":66,"rooms":84,"steps":197,"moves":33575}
+{"result":"pass","scope":"engine-level actions, not browser/controller proof","branch":0,"fights":66,"rooms":84,"steps":197,"moves":33575,"choices":{"ash.choice.train_priority":0,"ash.choice.river_repair":0,"ash.choice.names":0,"ash.choice.echo":0,"ash.choice.road":0,"ash.choice.lens":0,"ash.choice.testimony":0}}

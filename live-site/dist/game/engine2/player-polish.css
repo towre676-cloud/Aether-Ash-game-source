@@ -1,0 +1,18 @@
+.player-comfort{border-top:1px solid #9eb4a14a;padding-top:14px;margin-top:16px}.player-comfort>summary{cursor:pointer;min-height:44px;padding:12px 0;color:#e3ce9f;font:14px system-ui}.player-comfort .setting{font-size:14px}.player-comfort input[type=checkbox]{width:24px;height:24px;accent-color:#cbb581}.player-comfort input[type=range]{min-height:44px;accent-color:#cbb581}#game.battle-on #touch #joystick{width:96px!important;height:96px!important;top:auto!important;bottom:calc(18px + env(safe-area-inset-bottom,0px))!important}.player-comfort label:focus-within{outline:1px solid #dbc38a;outline-offset:4px}@media(min-width:600px) and (max-height:540px){#game.touch-on #dialog{width:calc(100% - 330px);max-width:620px}#game.touch-on #field-prompt{max-width:calc(100% - 340px)}}
+
+/* Keep device cutouts out of the pause menu and preserve deliberate touch targets. */
+#game.touch-on .veil{padding:calc(12px + env(safe-area-inset-top,0px)) calc(12px + env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px))}
+#game.touch-on .menu-card{max-height:calc(100dvh - 24px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));scroll-padding:16px;overscroll-behavior:contain}
+#game.touch-on .menu-card button,#game.touch-on .menu-card select,#game.touch-on .file-button,#game.touch-on #dialog button{min-height:44px}
+#game.touch-on .menu-card input[type=checkbox]{width:24px;height:24px;flex:none}
+#game.touch-on #dialog{scroll-padding:12px;overscroll-behavior:contain}
+@media(max-width:420px){.player-comfort .setting,.touch-layout-setting{flex-wrap:wrap;gap:9px}.touch-layout-setting select{max-width:100%;width:100%}.player-comfort .setting input[type=range]{width:100%}}
+/* Dialogue uses the band above the two primary actions. Crew shortcuts have no
+   dialogue action and are hidden so their old column does not waste the view. */
+@media(orientation:landscape) and (max-height:540px){
+ #game.touch-on.dialog-open #touch [data-button=x]{visibility:hidden;pointer-events:none}
+ #game.touch-on #dialog{left:var(--touch-left-clearance,130px);right:calc(12px + env(safe-area-inset-right,0px));transform:none;width:auto;max-width:760px;bottom:calc(86px + env(safe-area-inset-bottom,0px));max-height:min(52dvh,calc(100dvh - 186px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)))}
+ #game.touch-on #dialog-portrait{flex-basis:42px;width:42px;height:54px}
+ #game.touch-on #dialog-text{font-size:14px;line-height:1.45}
+}
+@media(prefers-reduced-motion:reduce){#game *,#game *:before,#game *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}

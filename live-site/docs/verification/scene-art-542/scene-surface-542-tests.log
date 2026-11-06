@@ -1,0 +1,14 @@
+✔ all165 native World scenes retain their identities and data, including protected Veyr (626.458886ms)
+✔ the actual painted atlases carry forty accurate small-face averages without runtime readback (1203.843713ms)
+✔ actual grass, volcanic ground and timber retain physical grain while clinic floors remain quiet (174.732532ms)
+✔ cold mineral routes stay lighter than closed rock and quieter than a hot aggregate field (71.078054ms)
+✔ three-atlas LRU retains live surfaces, invalidates changed images and never touches the 541 cached canvas (90.902603ms)
+✔ missing optional art or drawing surface delegates to the existing host fallback (1.94015ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2702.809146

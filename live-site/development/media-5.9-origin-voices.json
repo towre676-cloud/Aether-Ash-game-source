@@ -1,0 +1,426 @@
+{
+  "schema": "ash-aether.origin-voice-plan/1",
+  "provider": "Runway",
+  "status": "Preparation only; recording and integration are tracked by the voice manifest.",
+  "source": "Current exact dialoguePages output from ORIGINS; existing recordings and unknown/unmapped speakers excluded.",
+  "credit_estimate_rule": "Sum of ceil(text.length / 50) for each unique spoken turn.",
+  "line_count": 23,
+  "text_characters": 1440,
+  "estimated_credits": 39,
+  "lines": [
+    {
+      "id": "origin-d5f84f5ef636ea989831",
+      "speaker": "Mara",
+      "voice": "Miriam",
+      "text": "Your mother promised Rook a reed. She also promised she would rest. Help me keep at least one of those promises.",
+      "audio": "origin-d5f84f5ef636ea989831.mp3",
+      "estimated_credits": 3,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "sable-reed",
+          "hero": 0,
+          "title": "Before the Last Delivery",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-ec298473883d8d014915",
+      "speaker": "Sable",
+      "voice": "Brodie",
+      "text": "Which one am I delivering?",
+      "audio": "origin-ec298473883d8d014915.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "sable-reed",
+          "hero": 0,
+          "title": "Before the Last Delivery",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-dd9330490f0d19928577",
+      "speaker": "Mara",
+      "voice": "Miriam",
+      "text": "Ask her before you decide.",
+      "audio": "origin-dd9330490f0d19928577.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "sable-reed",
+          "hero": 0,
+          "title": "Before the Last Delivery",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-96c2a042d8531607a494",
+      "speaker": "Mara",
+      "voice": "Miriam",
+      "text": "You asked her what she wanted. I remember. Whatever happens today, keep asking.",
+      "audio": "origin-96c2a042d8531607a494.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "sable-reed",
+          "hero": 0,
+          "title": "Before the Last Delivery",
+          "field": "present",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-d4a2a5d765712c16a5aa",
+      "speaker": "Dara",
+      "voice": "Sandra",
+      "text": "The district office calls it a seasonal rise.",
+      "audio": "origin-d4a2a5d765712c16a5aa.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "iona-lowbank",
+          "hero": 1,
+          "title": "The Waterline",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-779827c617cff91da8c2",
+      "speaker": "Iona",
+      "voice": "Ella",
+      "text": "Then they can come down and explain that to the beds. Help me move them upstairs.",
+      "audio": "origin-779827c617cff91da8c2.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "iona-lowbank",
+          "hero": 1,
+          "title": "The Waterline",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-976dfb6086191589dc61",
+      "speaker": "Dara",
+      "voice": "Sandra",
+      "text": "We can keep the medical stores here, or send them upriver with the next boat. Neither place has enough.",
+      "audio": "origin-976dfb6086191589dc61.mp3",
+      "estimated_credits": 3,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "iona-lowbank",
+          "hero": 1,
+          "title": "The Waterline",
+          "field": "dilemma",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-9b421b40648416c29ac7",
+      "speaker": "Dara",
+      "voice": "Sandra",
+      "text": "The water took the old sign. We kept the key. There is still a place here for anyone who needs to lie down.",
+      "audio": "origin-9b421b40648416c29ac7.mp3",
+      "estimated_credits": 3,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "iona-lowbank",
+          "hero": 1,
+          "title": "The Waterline",
+          "field": "present",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-7492158bba37bec6ddb8",
+      "speaker": "Rook",
+      "voice": "Elliot",
+      "text": "Why does a heater need a voice plate?",
+      "audio": "origin-7492158bba37bec6ddb8.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "rook-regulator",
+          "hero": 2,
+          "title": "A Machine for Winter",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-2f3b67d30e6e08adbd7a",
+      "speaker": "Foreman",
+      "voice": "Kirk",
+      "text": "So the night shift can send instructions.",
+      "audio": "origin-2f3b67d30e6e08adbd7a.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "rook-regulator",
+          "hero": 2,
+          "title": "A Machine for Winter",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-756f90f8fbd5c195d238",
+      "speaker": "Rook",
+      "voice": "Elliot",
+      "text": "Then why is the microphone on the intake side?",
+      "audio": "origin-756f90f8fbd5c195d238.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "rook-regulator",
+          "hero": 2,
+          "title": "A Machine for Winter",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-cb372f4d910c9868c0aa",
+      "speaker": "Rook",
+      "voice": "Elliot",
+      "text": "I left a way into that casing. I wish I had asked harder questions before it left the bench.",
+      "audio": "origin-cb372f4d910c9868c0aa.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "rook-regulator",
+          "hero": 2,
+          "title": "A Machine for Winter",
+          "field": "present",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-3c3b61752b0a91a0f750",
+      "speaker": "Brass",
+      "voice": "Bernard",
+      "text": "Bring the tools. I will hold the gate.",
+      "audio": "origin-3c3b61752b0a91a0f750.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "brass-rail",
+          "hero": 3,
+          "title": "The Unfinished Platform",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-12a780803a3fe65b0123",
+      "speaker": "Keeper",
+      "voice": "Leslie",
+      "text": "They release our share at high tide. It runs backwards.",
+      "audio": "origin-12a780803a3fe65b0123.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "riven-tide",
+          "hero": 4,
+          "title": "The Third Tide Mark",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-5dc950176ae5ba9cba9c",
+      "speaker": "Riven",
+      "voice": "Kirk",
+      "text": "That is not a share. That is a signature on an empty page.",
+      "audio": "origin-5dc950176ae5ba9cba9c.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "riven-tide",
+          "hero": 4,
+          "title": "The Third Tide Mark",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-c8820fceab46cfa02ca8",
+      "speaker": "Keeper",
+      "voice": "Leslie",
+      "text": "The charter needs one keeper. The water needs more than one pair of eyes.",
+      "audio": "origin-c8820fceab46cfa02ca8.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "riven-tide",
+          "hero": 4,
+          "title": "The Third Tide Mark",
+          "field": "dilemma",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-b8ec956028f893b8aafa",
+      "speaker": "Keeper",
+      "voice": "Leslie",
+      "text": "Same tide, two keys. If one bank goes quiet, the other checks the gate.",
+      "audio": "origin-b8ec956028f893b8aafa.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "riven-tide",
+          "hero": 4,
+          "title": "The Third Tide Mark",
+          "field": "present",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-3d433a316a2408891e25",
+      "speaker": "Clerk",
+      "voice": "Leslie",
+      "text": "A corrected entry has to overwrite the original.",
+      "audio": "origin-3d433a316a2408891e25.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "mira-archive",
+          "hero": 5,
+          "title": "Names in the Margin",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-9e325d6642854fab780a",
+      "speaker": "Mira",
+      "voice": "Maya",
+      "text": "Then how do you prove it was corrected?",
+      "audio": "origin-9e325d6642854fab780a.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "mira-archive",
+          "hero": 5,
+          "title": "Names in the Margin",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-ca87868b9799d4d2cd6c",
+      "speaker": "Clerk",
+      "voice": "Leslie",
+      "text": "You do not. That is why I kept the scraps.",
+      "audio": "origin-ca87868b9799d4d2cd6c.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "mira-archive",
+          "hero": 5,
+          "title": "Names in the Margin",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-45c93e85bd9d7d808798",
+      "speaker": "Clerk",
+      "voice": "Leslie",
+      "text": "If every name is public, the collectors can find the families. If none are, the families cannot find each other.",
+      "audio": "origin-45c93e85bd9d7d808798.mp3",
+      "estimated_credits": 3,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "mira-archive",
+          "hero": 5,
+          "title": "Names in the Margin",
+          "field": "dilemma",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-c6d917f4a1753262ca6d",
+      "speaker": "Clerk",
+      "voice": "Leslie",
+      "text": "We still ask before opening a family’s copy. That has made the catalogue slower. Good.",
+      "audio": "origin-c6d917f4a1753262ca6d.mp3",
+      "estimated_credits": 2,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "mira-archive",
+          "hero": 5,
+          "title": "Names in the Margin",
+          "field": "present",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "id": "origin-20aaf76c90eaff7065d6",
+      "speaker": "Veyr",
+      "voice": "Benjamin",
+      "text": "And the other stations?",
+      "audio": "origin-20aaf76c90eaff7065d6.mp3",
+      "estimated_credits": 1,
+      "source_records": [
+        {
+          "file": "dist/game/engine2/origin-content.js",
+          "origin_id": "veyr-storm",
+          "hero": 6,
+          "title": "The Mast That Listened",
+          "field": "witness",
+          "index": 0
+        }
+      ]
+    }
+  ]
+}

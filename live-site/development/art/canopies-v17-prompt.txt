@@ -1,0 +1,18 @@
+Create an original production game-art atlas for Ash & Aether, a handcrafted fantasy world of clay, water, weathered brass and inhabited woodland. Output ONE transparent PNG, wide 2:1 aspect ratio, precisely FOUR columns by TWO rows of EIGHT fully isolated tree or tree-like canopy silhouettes. Each square cell contains a different whole specimen, ROOTS to TOP, centered with ample clear alpha margins on every side. No contact with neighboring cells, no touching canvas edge. There must be no backdrop, no sky, no opaque terrain patches, no display bases, no vignette, no text, no labels, no grid. Soft very modest contact shadow confined immediately under roots; mostly actual alpha around the entire specimen.
+
+Art direction: exquisitely painted restrained storybook realism, fine gouache and watercolor texture, natural layered foliage masses, weathered bark, deliberate distinctive silhouettes with clean readable edges. Same elevated three-quarter game camera for all eight, looking downward around 40 degrees so we can see the top of foliage and roots on a horizontal ground plane. Camera parallel, not fisheye, not front-on botanical chart. Light from upper left. Muted olive, willow green, sage, ochre, clay, slate and pale cream, with occasional tiny flowers. High craft and detailed textures, but avoid extreme contrast, shiny plastic, saturated cyan or neon. Trunks mostly concealed by branching, canopy must be substantial; these are full living trees rather than poles with leaves. Height and mass should occupy about 80% of each cell, with consistent root baseline near its lower edge. All trees have their own subtle asymmetry, no mirrored botanical symmetry.
+
+Eight exact subjects, reading left to right:
+TOP ROW
+1. OLD ORCHARD APPLE: wide gently bowed boughs, muted sage leaves, scattered cream blossoms, a few tiny ochre apples, thick twisted bark and exposed fine roots. Welcoming inhabited village character.
+2. HAZEL COPPICE: several irregular stems growing from a single old stump, layered olive and umber foliage, a small fern at the roots; irregular full rounded silhouette distinct from apple.
+3. RIVER ALDER: leaning grey-barked trunk, open spreading crown of small silver-green leaves, roots curling outward at the waterline, tiny dark seed catkins, no water background.
+4. MANGROVE CYPRESS: knotted buttress roots and several small cypress knees, crooked trunk splitting low, loose green and warm golden drooping boughs, rich but not spherical canopy. No rock platform, no visible water.
+
+BOTTOM ROW
+5. FROST SPRUCE: slender natural conifer with layered irregular blue-green boughs, restrained patches of clean powder snow, exposed lower roots and small pinecones; tapered crown with complete uncut top.
+6. STORM JUNIPER: mature squat tree leaning from years of wind, layered windswept crown flowing clearly right, deep dull olive foliage, silver weathered bark and twisting grip roots, completely UNSNOWED.
+7. DRYLAND ACACIA: elegant flat spreading umbrella canopy, fine grey-green leaves, crooked reddish bark, dry branching roots; naturally sparse delicate tree, absolutely no snow, no cactus, no sand backing.
+8. SPORE GROVE CANOPY: a restrained fantastical tree of pale branching mycelial wood, layered broad shelf-like leaf clusters and small cream/lavender fungal cups, muted dusky green foliage, extremely subtle points of warm light, fully organic and natural in shape, NOT a giant neon mushroom and no orb or magical effects.
+
+A usable atlas of EIGHT original environment canopy assets, each complete and separated by transparent gutters, NOT a landscape illustration. Preserve every root and twig within its cell.

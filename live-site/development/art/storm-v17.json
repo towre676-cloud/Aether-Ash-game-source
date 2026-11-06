@@ -1,0 +1,243 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "styleReference": "development/art/source-legacy-delivery/scene-props-v11.png",
+  "cropMethod": "Measured separated connected alpha>4 bodies expanded by four pixels, then audited against all alpha>32 subject bodies and detached detail. Alpha0..4 includes faint distant matte residue and is not used to define a subject.",
+  "sheets": [
+    {
+      "id": "storm",
+      "file": "stormworks-v17.png",
+      "assetKey": "environmentStorm",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-9a2eed6d-0f04-4c7f-a3de-57a77a38dc9b.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: finished production transparent environment sprite atlas for the original top-down painterly RPG Ash & Aether, unsnowed storm coast and windy upland kit. Generate ONE landscape 2:1 PNG with EXACTLY FOUR COLUMNS and TWO ROWS, EIGHT completely separate props in the exact order below. Each entire object, every rope, leaf, chain and shadow, remains inside the CENTRAL 78 PERCENT of its equal cell; leave wide truly transparent gutters. Actual RGBA transparency, no background color, no checkerboard, no grid, no borders, no labels. Consistent 35-degree elevated orthographic view with fronts and tops visible; sophisticated hand-painted fantasy material detail, rounded organic silhouettes, readable shapes at 80–120 pixels in-game. Restrained upper-left light, short soft contact shadow, dark wet blue slate, aged bronze and verdigris copper, muted straw and silver-green grasses, weathered oak, natural rain-polished surfaces, restrained wet highlights. Exact top row left to right: 1 compact wind-eroded layered blue-slate crag, elegant rounded strata and dark mineral veins, a few tiny moss patches; 2 a broad low tuft of silver-green grasses bent together by prevailing wind, rooted in dark rock, clear sweeping organic silhouette; 3 copper lightning-grounding coil on squat ceramic insulators, several tightly coiled copper loops with thick grounding connection disappearing into a small stone plinth, believable engineered apparatus, NO lightning or sparks; 4 a shallow stone rainwater catch basin with a short sloped verdigris copper channel feeding into it, teal water surface confined inside basin. Exact bottom row left to right: 5 one weathered stone mooring bollard with thick neatly looped wet rope and a few pebbles, no boat; 6 weather-beaten bronze signal vane on a LOW sturdy timber tripod, curved pointer and small wind cups, no text, no compass letters, no snow; 7 a short old anchorage chain wrapped around a rusted compact anchor leaning against a LOW dark stone support, complete chain contained in cell; 8 exposed twisting upland roots with low purple heather and pale wind-tousled grasses, no tall tree. These are compact grounded props, NOT landscapes. Absolutely NO snow, NO frost, NO ice, NO dramatic glow, NO rain streaks, NO lightning drawn across any sprite. No people, animals, text, numbers, disconnected floating elements, rectangular diorama platforms or scenery background. All eight objects separated with generous transparent space and usable as complete sprite crops.",
+      "sprites": [
+        {
+          "id": "storm-crag",
+          "crop": [
+            26,
+            57,
+            399,
+            347
+          ],
+          "height": 92
+        },
+        {
+          "id": "wind-grasses",
+          "crop": [
+            464,
+            86,
+            429,
+            325
+          ],
+          "height": 72
+        },
+        {
+          "id": "grounding-coil",
+          "crop": [
+            925,
+            63,
+            347,
+            359
+          ],
+          "height": 98
+        },
+        {
+          "id": "rain-catch",
+          "crop": [
+            1350,
+            78,
+            406,
+            344
+          ],
+          "height": 84
+        },
+        {
+          "id": "mooring-bollard",
+          "crop": [
+            40,
+            508,
+            397,
+            317
+          ],
+          "height": 68
+        },
+        {
+          "id": "bronze-vane",
+          "crop": [
+            498,
+            443,
+            344,
+            415
+          ],
+          "height": 111
+        },
+        {
+          "id": "anchorage-chain",
+          "crop": [
+            911,
+            491,
+            373,
+            338
+          ],
+          "height": 84
+        },
+        {
+          "id": "upland-roots",
+          "crop": [
+            1321,
+            490,
+            429,
+            343
+          ],
+          "height": 77
+        }
+      ],
+      "sha256": "0927b8a7b8a2734d7bc9479e533111b8536a2c613c496f0ae10170fef71958e5",
+      "bytes": 2270200,
+      "transparentPixels": 818511,
+      "archivedSourcePath": "development/art/source-v17/stormworks-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/stormworks-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/stormworks-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 688498,
+        "sha256": "f5a8a22e00a6681a09469090d11f1d97e6bc251228800fc8fc7a850db3b11dfd",
+        "sourceSha256": "0927b8a7b8a2734d7bc9479e533111b8536a2c613c496f0ae10170fef71958e5",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "stormworks-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "alphaAbove32OutsideAllCrops": 0,
+      "checks": [
+        {
+          "id": "storm-crag",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 91144,
+              "total": 91144,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "wind-grasses",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 4,
+              "included": 84496,
+              "total": 84496,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "grounding-coil",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 67132,
+              "total": 67132,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "rain-catch",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 85605,
+              "total": 85605,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "mooring-bollard",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 77,
+              "included": 69262,
+              "total": 69262,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "bronze-vane",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 72,
+              "included": 57986,
+              "total": 57986,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "anchorage-chain",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 74,
+              "included": 77520,
+              "total": 77520,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "upland-roots",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 73,
+              "included": 95752,
+              "total": 95752,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "originalStyleReference": "dist/game/engine2/art/scene-props-v11.png"
+}

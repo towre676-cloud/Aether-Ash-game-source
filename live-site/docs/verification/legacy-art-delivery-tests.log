@@ -1,0 +1,207 @@
+COMMAND: node dist/game/engine2/tests/legacy-art-delivery.test.mjs
+✔ three legacy originals retain their exact PNG bytes, dimensions and existing source crops (10.229501ms)
+✔ WebP delivery headers and hash-bound full-image alpha verification match every original (3.009926ms)
+✖ existing required asset keys resolve to the validated delivery files without changing their source identities (1.221517ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20.745333
+
+✖ failing tests:
+
+test at dist/game/engine2/tests/legacy-art-delivery.test.mjs:50:1
+✖ existing required asset keys resolve to the validated delivery files without changing their source identities (1.221517ms)
+  AssertionError [ERR_ASSERTION]: original PNG is archived outside dist
+      at TestContext.<anonymous> (file:///workspace/scratch/7b00f669b5c3/ash-aether-art/dist/game/engine2/tests/legacy-art-delivery.test.mjs:56:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+
+COMMAND: node dist/game/engine2/tests/scene-craft.test.mjs
+✔ composition stays in blocked banks and protects arrivals, doors and interactions (8.226028ms)
+✔ invalid authored decorations cannot move into walking cells or create non-finite draw sites (1.034756ms)
+✔ every authored life and first chapter composition keeps the original collision data (574.743722ms)
+✔ interior decoration uses room work rather than outdoor rocks and reeds (0.486121ms)
+✔ visible sites and particles are bounded and actors in front stay opaque (0.582516ms)
+✔ painted props use source rectangles within the unchanged archived transparent PNG (0.710439ms)
+✔ painted bank boulders replace vector stones only in natural habitats at existing scale (413.277252ms)
+✔ compatibility draws original atlas crops directly and all passes restore canvas state (4.902141ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1017.557324
+
+
+COMMAND: node dist/game/engine2/tests/scene-prop-repertoire.test.mjs
+✔ the eight original companion props retain the inspected source bytes and complete nonoverlapping crops (6.034433ms)
+✔ site variants add context-specific frost, crystal and stump art while omitting every interior (0.72529ms)
+✔ actual mechanisms use narrative identities without changing their positions or story data (0.499641ms)
+✔ both graphics modes draw measured source crops directly and restore canvas alpha (0.749687ms)
+✔ occlusion fades a mechanism only when it lies in front of a traveller (0.251118ms)
+✔ bad or unavailable images and invalid IDs safely preserve the existing renderer fallback (0.131928ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.316205
+
+
+COMMAND: node dist/game/engine2/tests/room-realism.test.mjs
+✔ occupied workstations have real collision, clear reachable approaches and valid atlas cells (54.314524ms)
+✔ generic decorative planters and loose chests are restricted to appropriate rooms and retained stock (1.246545ms)
+✔ room work determines the kit; food storage is not used as the medical cabinet (0.217106ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.083715
+
+
+COMMAND: node dist/game/engine2/tests/households.test.mjs
+✔ every furnished interior has reachable, individually selectable objects and wall-aligned ordinary exits (652.966629ms)
+✔ shared supply compartments pay once, survive a save roundtrip and never write quest flags (395.524794ms)
+✔ older saves inside newly occupied furniture recover on walkable ground without changing crew or supplies (305.88872ms)
+✔ room programs do not turn hidden ventilation works into bedrooms or galleries into repair shops (267.21564ms)
+✔ old obstacle rectangles become floor rather than rows of identical workbenches (275.860305ms)
+✔ furnishing maker marks refer to physical objects actually bound to the same room (264.98075ms)
+✔ past-era rooms inherit useful layouts without present-day portable-lore stamps or clues (268.537308ms)
+✔ every hidden room uses its authored purpose and keeps bedrooms out of stores, workshops and waiting rooms (252.903831ms)
+✔ the original communal stock stays claimed after an old save enters a recomposed room (336.344309ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3034.647374
+
+
+COMMAND: node dist/game/engine2/tests/asset-loader.test.mjs
+✔ required art resolves under its original keys and reports named completed progress (1.985135ms)
+✔ a transient atlas error gets exactly one fresh image attempt without double-counting progress (0.460322ms)
+✔ persistent failure names the missing atlas and releases every other pending image (0.808997ms)
+✔ a hung request times out, retries once, and cannot hang startup indefinitely (10.885878ms)
+✔ invalid manifests fail before requests and a broken progress display does not discard loaded art (0.755336ms)
+✖ only the sixteen new environment atlases are optional (2.556214ms)
+✔ optional failure retries once then omits only that image and completes honest progress (0.509796ms)
+✔ optional timeout is bounded while optional success retains its real image key (11.26299ms)
+✔ an optional asset never masks a required failure or keeps other requests alive (0.614775ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36.840415
+
+✖ failing tests:
+
+test at dist/game/engine2/tests/asset-loader.test.mjs:43:1
+✖ only the sixteen new environment atlases are optional (2.556214ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'environmentArchitecture',
+      'environmentArtisans',
+      'environmentCanopies',
+  +   'environmentCanopyVariations',
+      'environmentDrylandsV17',
+      'environmentGround',
+      'environmentHighlandsV17',
+      'environmentIndustryV17',
+      'environmentMinerals',
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/7b00f669b5c3/ash-aether-art/dist/game/engine2/tests/asset-loader.test.mjs:46:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+
+COMMAND: node dist/game/engine2/tests/media-delivery.test.mjs
+✔ all deployed orchestral bytes match their manifest and complete-file decoded duration receipt (14.719502ms)
+✔ listening room shares current audio assets rather than downloading duplicate embedded tracks (0.481384ms)
+✔ configured static output stays within the hosting expanded-size limit (16.114259ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37.101026
+
+
+RERUN: node dist/game/engine2/tests/legacy-art-delivery.test.mjs
+✔ three legacy originals retain their exact PNG bytes, dimensions and existing source crops (11.312751ms)
+✔ WebP delivery headers and hash-bound full-image alpha verification match every original (2.990777ms)
+✔ existing required asset keys resolve to the validated delivery files without changing their source identities (0.758551ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.086116
+
+
+RERUN: node dist/game/engine2/tests/asset-loader.test.mjs
+✔ required art resolves under its original keys and reports named completed progress (2.405537ms)
+✔ a transient atlas error gets exactly one fresh image attempt without double-counting progress (0.300121ms)
+✔ persistent failure names the missing atlas and releases every other pending image (0.74457ms)
+✔ a hung request times out, retries once, and cannot hang startup indefinitely (10.491355ms)
+✔ invalid manifests fail before requests and a broken progress display does not discard loaded art (0.639792ms)
+✔ all twenty-two environment atlases are optional while the core art stays required (0.71869ms)
+✔ optional failure retries once then omits only that image and completes honest progress (0.529817ms)
+✔ optional timeout is bounded while optional success retains its real image key (11.003455ms)
+✔ an optional asset never masks a required failure or keeps other requests alive (0.494954ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.81358
+
+
+INTERMEDIATE INTEGRATION ATTEMPT (before successful final reruns): node dist/game/engine2/tests/legacy-art-delivery.test.mjs
+Exited 1 before any tests started: ERR_MODULE_NOT_FOUND, environment-interiors-v19.js?v=5.20.0 imported by art-definitions.js. Its concurrent owner subsequently completed the module, and the final rerun above passed all 3 tests. This attempt is counted separately from the 9 timed Node executions.

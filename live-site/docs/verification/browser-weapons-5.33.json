@@ -1,0 +1,130 @@
+{
+  "release": "5.33",
+  "method": "Native UI actions in managed preview. Actual campaign Gear iframe; existing explicitly isolated combined-content practice fixture. No injected browser game state.",
+  "ordinary_view": {
+    "origin": "veyr-storm",
+    "step": 4,
+    "armory_empty": true,
+    "observation": "Opening ordinary Gear without a recovered mainhand correctly displays No recovered weapon yet; no invented artifact or material is granted."
+  },
+  "desktop": {
+    "item": "Harmonic Moonwater Pillar of the Moonlit Choir",
+    "fixture": {
+      "credits": 650,
+      "scrap": 35,
+      "essence": 10,
+      "starshards": 3
+    },
+    "actions": [
+      {
+        "action": "Equip",
+        "result": "In hand",
+        "cost": 0
+      },
+      {
+        "action": "Temper to +1",
+        "power": [
+          168,
+          182
+        ],
+        "scrap": [
+          35,
+          27
+        ]
+      },
+      {
+        "action": "Bind Star Conduit",
+        "power": [
+          182,
+          191
+        ],
+        "focus": [
+          12,
+          15
+        ],
+        "aether": [
+          0,
+          2
+        ],
+        "essence": [
+          10,
+          7
+        ]
+      },
+      {
+        "action": "Attune Focus",
+        "power": [
+          191,
+          194
+        ],
+        "focus": [
+          15,
+          23
+        ],
+        "scrap": [
+          27,
+          15
+        ],
+        "essence": [
+          7,
+          3
+        ]
+      },
+      {
+        "action": "Preview Retune Precision",
+        "focus": [
+          23,
+          15
+        ],
+        "precision": [
+          0,
+          8
+        ],
+        "cost": {
+          "scrap": 21,
+          "essence": 6
+        },
+        "available": {
+          "scrap": 15,
+          "essence": 3
+        },
+        "enabled": false,
+        "explanation": "Need6more scrap,3more essence.",
+        "spent": false
+      }
+    ],
+    "inspection": {
+      "tilt_right_yaw_degrees": 8,
+      "reset_yaw": 0,
+      "magnify_zoom": 1.2
+    },
+    "campaign_bonus_text": "Magic+5 \u00b7 MP+2",
+    "screenshot": "weapon-showcase-5.33.jpg"
+  },
+  "phone": {
+    "outer_fixture": [
+      390,
+      844
+    ],
+    "armory_viewport_width": 378,
+    "document_scroll_width": 363,
+    "panel_bounds": {
+      "left": 9,
+      "right": 354,
+      "width": 345
+    },
+    "horizontal_overflow": false,
+    "actions": [
+      "Equip through actual phone button",
+      "Temper to +1: power168\u2192182, scrap35\u219227",
+      "Switch Inventory\u2192Weapon: same equipped +1 retained"
+    ],
+    "screenshot": "weapon-phone-5.33.jpg"
+  },
+  "limits": [
+    "The test fixture deliberately supplies ten gear pieces and materials only within a developer session; ordinary journey slots are untouched.",
+    "The art is a native vector illustration with bounded inspection transforms; it is not a fully modeled3D weapon.",
+    "Save/restore and first real victory behavior are covered by native state tests; the isolated browser fixture deliberately does not save its practice progress.",
+    "A phone-sized iframe verifies CSS and real controls, not physical Android hardware."
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated RGB PNG copied unchanged",
+  "file": "environment-surfaces-v17.png",
+  "assetKey": "environmentSurfaces",
+  "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-4709054c-3684-4cae-92ba-ae7347717eb6.png",
+  "width": 1774,
+  "height": 887,
+  "mode": "RGB",
+  "bytes": 4101512,
+  "sha256": "7090099ac88a64485c7454fc0f835f36cb3e88ddda2e0d223288daf12e1cee18",
+  "opaquePixels": 1573538,
+  "prompt": "Use case: stylized-concept. Asset type: OPAQUE ground-material texture atlas for original painterly fantasy RPG Ash & Aether. Create ONE wide landscape image in EXACT 2:1 aspect ratio, arranged as FOUR columns by TWO rows of EIGHT flat square material samples. Each square is filled edge-to-edge with continuous fine material texture: NO gutters, borders, frames, labels, words, numbering or empty space. Camera is straight overhead, FLAT material reference with zero horizon and no depth perspective. These are small-scale natural ground SURFACES, NOT objects or scenery. Medium: restrained finely hand-painted material art, softly varied color, realistic tiny grains and fibers, low contrast, diffuse even lighting, extremely minimal shadows. Every square has broadly uniform brightness across its full surface; NO central spotlight, vignette, dark corners, big decorative motifs or dramatic highlights. Materials in exact order TOP ROW left-to-right: 1) dense natural green moss and tiny clover with hints of short crushed meadow grass, fine ground-level botanical texture; 2) water-dark alluvial mud with tiny rounded pebbles, muted petrol grey-green, occasional shallow damp sheen but no puddle outline; 3) warm ochre sand with very fine soft wind ripples and faint scattered grains, smooth and calm; 4) desaturated blue-slate gravel/rubble ground with small mineral grains and low pale lichen, no large boulders. BOTTOM ROW left-to-right: 5) pale blue-slate frost and fine snow crust, subtle crystalline mottling, diffuse and soft, no giant ice crystals; 6) muted violet-blue fungal soil with a delicate low pale mycelium network, fine subtle filaments, no mushrooms or tall plants; 7) cooling charcoal volcanic clinker ground in warm grey and restrained rust, tiny porous grains, NO glowing lava; 8) worn pale limestone/marble mosaic ground with very small irregular fragments and pale dust in seams, soft low-contrast mineral texture, no large regular geometric pattern. Every sample is a natural repeatable fine texture at a believable human ground scale, suitable as a subtle 0.4-alpha overlay behind game characters. Exact 4x2 equal grid and eight distinct materials; do not blend materials across boundaries. No people, buildings, props, roots, animals, text, symbols, apparent shadows from objects, photo collage borders or transparency.",
+  "cropMethod": "Central explicit 404×404 source crops trim about 20 source pixels from every swatch edge; source PNG remains unchanged. Four equal columns/two rows visually verified. Mirrored runtime tiles join matching source edge pixels.",
+  "rendering": {
+    "helper": "dist/game/engine2/environment-materials-v17.js",
+    "function": "paintEnvironmentSurface(c,image,kind,size=768)",
+    "alpha": 0.24,
+    "tilePixels": 384,
+    "maxSize": 4096,
+    "water": "returns false; use existing scenic water fallback",
+    "context": "save/restore including exception paths; current path unchanged; partial edge tile crop keeps all drawing within requested square; no pixel readback or filters",
+    "visualRevision": "Browser scene review found visible quilting at 192px/.42 opacity. Repeat widened to 384px and overlay reduced to .24, retaining an even 2x2 repeat within the 768px material cache."
+  },
+  "surfaces": [
+    {
+      "id": "meadow-moss",
+      "crop": [
+        20,
+        20,
+        404,
+        404
+      ],
+      "kinds": [
+        "grass",
+        "woodland",
+        "village"
+      ]
+    },
+    {
+      "id": "alluvial-mud",
+      "crop": [
+        464,
+        20,
+        404,
+        404
+      ],
+      "kinds": [
+        "soil",
+        "mangrove",
+        "riverbank"
+      ]
+    },
+    {
+      "id": "ochre-sand",
+      "crop": [
+        907,
+        20,
+        404,
+        404
+      ],
+      "kinds": [
+        "sand",
+        "cactus",
+        "dunes"
+      ]
+    },
+    {
+      "id": "blue-slate",
+      "crop": [
+        1351,
+        20,
+        404,
+        404
+      ],
+      "kinds": [
+        "stone",
+        "ruins",
+        "highland",
+        "storm",
+        "crystal"
+      ]
+    },
+    {
+      "id": "frost-crust",
+      "crop": [
+        20,
+        464,
+        404,
+        404
+      ],
+      "kinds": [
+        "ice",
+        "aurora",
+        "glacier"
+      ]
+    },
+    {
+      "id": "mycelium-soil",
+      "crop": [
+        464,
+        464,
+        404,
+        404
+      ],
+      "kinds": [
+        "spore"
+      ]
+    },
+    {
+      "id": "volcanic-clinker",
+      "crop": [
+        907,
+        464,
+        404,
+        404
+      ],
+      "kinds": [
+        "foundry",
+        "lava",
+        "caldera"
+      ]
+    },
+    {
+      "id": "limestone-fragments",
+      "crop": [
+        1351,
+        464,
+        404,
+        404
+      ],
+      "kinds": [
+        "marble",
+        "salt",
+        "coral"
+      ]
+    }
+  ],
+  "archivedSourcePath": "development/art/source-v17/environment-surfaces-v17.png",
+  "originalProductionPath": "dist/game/engine2/art/environment-surfaces-v17.png",
+  "delivery": {
+    "file": "dist/game/engine2/art/environment-surfaces-v17.webp",
+    "format": "WebP",
+    "release": "5.18.0",
+    "width": 1774,
+    "height": 887,
+    "bytes": 946536,
+    "sha256": "c368d50db583a90d9a6323a497e768ae610a5106f6b6617675c862c25e9f98f3",
+    "sourceSha256": "7090099ac88a64485c7454fc0f835f36cb3e88ddda2e0d223288daf12e1cee18",
+    "encoding": {
+      "encoder": "FFmpeg libwebp",
+      "quality": 95,
+      "compressionLevel": 6,
+      "losslessColor": false,
+      "alpha": "exact original alpha channel",
+      "dimensions": "unchanged"
+    },
+    "maxAlphaError": 0,
+    "verificationReceipt": "development/art/delivery-v17.json"
+  },
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

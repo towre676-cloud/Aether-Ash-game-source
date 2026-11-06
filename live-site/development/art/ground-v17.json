@@ -1,0 +1,147 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "Selected generated PNG copied unchanged; previous material-island variants rejected.",
+  "cropMethod": "Read-only alpha bounds measured independently within separated nominal cells, with four-pixel padding.",
+  "sheets": [
+    {
+      "id": "ground",
+      "file": "ground-details-v17.png",
+      "assetKey": "environmentGround",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-76e7b329-a492-4d9b-ae97-0420be87a2d3.png",
+      "prompt": "Use case: stylized-concept. Create a SPARSE TRANSPARENT GAME DECAL ATLAS, not little terrain islands. Eight airy small scatter arrangements in a 4-column by 2-row landscape2:1 image. TRUE TRANSPARENT ALPHA. Each equal cell contains just FIVE TO SEVEN SMALL SEPARATE OBJECTS scattered in an irregular loose diagonal across its central70% area. At least70% of each cell is EMPTY TRANSPARENT SPACE, including the spaces INSIDE each arrangement. There is absolutely NO underlying dirt, soil, sand, ground, puddle, painted patch, circle, disk, platform, vignette or unified shadow connecting the objects. It must look like individual cut-out pieces lying on invisible air. Upper row1: five dried olive/ochre leaves, one tiny twig;2: seven small smooth grey river pebbles of different sizes;3: five separate worn terracotta shards, one tiny pale clay chip;4: three small shells and four tiny salt crystals. Lower row1: three blue-grey slate chips and four delicate frost crystals;2: three small separate violet moss tufts and three tiny mushroom buttons;3: four separate charcoal splinters and three tiny brass filings;4: one small broken cluster of nine cream/teal mosaic tesserae and four separated individual tesserae, an uneven zigzag composition not a circle. Draw each object with beautiful original painterly fantasygame texture,35-degree elevated orthographic view, muted colors, gentle upperleftlight. Scatterpiecesmostlylowflat. Objects must be separated by broad transparent gaps. Do not place any ground under the objects. No text, labels, grid, borders, characters, animals, largeplants, scenery, decorationsoutsidecells. Every cell separated by at least10% transparent gutters. Lowcontrastsuitablefordecoratingexistinggrassandstonewithoutlookinglikeapastedterrainpatch.",
+      "sprites": [
+        {
+          "id": "leaf-litter",
+          "height": 35,
+          "crop": [
+            57,
+            78,
+            363,
+            314
+          ]
+        },
+        {
+          "id": "river-pebbles",
+          "height": 35,
+          "crop": [
+            532,
+            86,
+            283,
+            277
+          ]
+        },
+        {
+          "id": "clay-shards",
+          "height": 35,
+          "crop": [
+            938,
+            78,
+            313,
+            317
+          ]
+        },
+        {
+          "id": "salt-scatter",
+          "height": 35,
+          "crop": [
+            1418,
+            96,
+            296,
+            278
+          ]
+        },
+        {
+          "id": "frost-scatter",
+          "height": 35,
+          "crop": [
+            61,
+            503,
+            366,
+            321
+          ]
+        },
+        {
+          "id": "spore-carpet",
+          "height": 35,
+          "crop": [
+            539,
+            510,
+            272,
+            308
+          ]
+        },
+        {
+          "id": "charcoal-scatter",
+          "height": 35,
+          "crop": [
+            955,
+            509,
+            305,
+            312
+          ]
+        },
+        {
+          "id": "worn-mosaic",
+          "height": 35,
+          "crop": [
+            1381,
+            503,
+            325,
+            322
+          ]
+        }
+      ],
+      "width": 1774,
+      "height": 887,
+      "bytes": 909354,
+      "sha256": "e87ed93884bfe699a9198f475ca0937ee46e2d0084478e76f1a3715bb503bca4",
+      "transparentPixels": 1244887,
+      "validation": {
+        "opaquePixelsOutsideCrops": 0,
+        "emptyGutters": true,
+        "alphaPreserved": true
+      },
+      "archivedSourcePath": "development/art/source-v17/ground-details-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/ground-details-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/ground-details-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 324042,
+        "sha256": "04d15387c05bcd83b82e2b23be2ecd91b58f20cb2fbf79cf2161cf72f74e02c8",
+        "sourceSha256": "e87ed93884bfe699a9198f475ca0937ee46e2d0084478e76f1a3715bb503bca4",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-767eefe8-197e-4428-bbd2-1fdf00251a84.png",
+      "prompt": "Use case: stylized-concept. Production ground-detail decal sprite atlas for the original fantasy RPG Ash & Aether. ONE wide 2:1 landscape transparent image containing exactly eight entirely separate low flat patches in four columns and two rows. Each patch centered within the middle 70% of its equal cell; generous empty transparent gutters. Elevated orthographic 35-degree downwards view, flat elliptical footprint, no tall object. Premium hand-painted game art, soft natural irregular edges, readable detailed painterly texture, muted organic hues and restrained contrast so a walking character stays readable. UPPER ROW left to right: 1 naturally scattered autumn and olive leaves with tiny twigs and soft moss, 2 a sparse river pebble scatter with a little wet dark sand and two thin reed fragments, 3 a few worn terracotta pottery shards and clay dust showing ancient curved grooves, 4 a small salt-crystal and shell scatter on an almost invisible pale irregular sandy stain. LOWER ROW left to right: 5 delicate frost dust, a few slate chips and tiny ice needles, 6 a low carpet of violet-blue moss and little soft bioluminescent mushroom buttons, 7 cooled charcoal fragments with sparse rust-coloured grit and tiny brass filings, 8 a fragmentary ancient worn cream-and-teal mosaic set into scattered stones with an organic broken edge, no rectangular framing. Transparent gaps throughout the natural scatter. Truly transparent background, no scenery behind, no solid oval/rectangle base, no visible grid, no borders, no text, no labels, no people, no other objects, no dramatic glow. Every fragment must be fully within its cell, no clipping or overlapping. Gentle upper-left diffuse light. Preserve rich handcrafted texture while keeping each decal flat and quiet.",
+      "reason": "Circular opaque dirt backings would resemble pasted terrain islands."
+    },
+    {
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-115ba862-6245-4bd4-be29-b230b6c39855.png",
+      "prompt": "Edit target: the attached eight-cell ground decal atlas. Make one precise production correction: REMOVE THE SOLID GROUND/BACKING underneath all eight arrangements so these become true sparse scatter overlays that can sit on any existing game terrain. Keep the same 4 columns by 2 rows, subject order, color families, elevated camera and hand-painted style. Preserve individual leaves, twigs, pebbles, pottery shards, salt crystals and shells, ice needles, small moss/mushroom fragments, charcoal pieces, and broken mosaic stones. The material between individual objects must be FULLY TRANSPARENT. No brown dirt or sand islands. No circular/coaster shapes. The empty gaps should make up at least half of every arrangement; separate each group into 5–10 small fragments with clean transparent air gaps. Flatten the overall projected shape into a shallow natural scatter, no raised mounds. Keep generous transparent outer gutters so no speck overlaps another cell. Top row leaf scatter, river stones, terracotta shards, salt and shells; bottom row frost/slate scatter, small violet moss/fungi fragments, charcoal/brass scatter, mosaic fragments. For the mosaic preserve one central irregular interlocking patch with detached small fragments, with no dirt backing and no circle silhouette. Every group should fade visually through sparse placement, not a fuzzy painted alpha halo. No text, no labels, no frames, no new objects. Request genuine RGBA transparent background.",
+      "reason": "More transparent holes, but backing still overly connected; replaced with truly separated pieces."
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

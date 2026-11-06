@@ -1,0 +1,1385 @@
+{
+  "method": "Each .test.mjs module executed in a separate Node process; up to four processes concurrently.",
+  "files": 137,
+  "elapsed_seconds": 156.23,
+  "failures": [],
+  "totals": {
+    "tests": 1004,
+    "pass": 1004,
+    "fail": 0,
+    "skipped": 0
+  },
+  "missing_count_summaries": [],
+  "results": [
+    {
+      "file": "dist/game/animation-expansion/player/timeline.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/actor-atlas.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/adaptive-audio.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/adventure-guidance.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/affordance-art.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/answering-network.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/architectural-program.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/architecture.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/atlas-fallback.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-motion.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-openings.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-flow.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-layout.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield-integration.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-gear.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-guidance.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-patterns.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-strategy.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/building-craft.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/building-geometry.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/camera-window.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-purpose.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/character-motion.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/character-showcase.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/cinema.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer-battle.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-advice.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-command-safety.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-instruments.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-position.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-reactions.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/compatibility-ground.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/constellation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/creature-ecology.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 21,
+        "pass": 21,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/crew-setup.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/dev-session.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/direction-latch.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/earned-progression.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/economy.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-objectives.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-depth.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-shells.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration-investigations.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-encounters.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-feedback.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-director.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-model.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-origins.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-patrols.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumor-art.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumors.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/follower-motion.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/frontiers.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/functional-anatomy.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/graphics-health.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/ground-contact.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-rules.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/guided-objective.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/hero-legacy.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/households.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/interior-craft.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-cinema.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-memory.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-roster.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/kakeya.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/label-layout.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-integration.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 16,
+        "pass": 16,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-ui.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/lore.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/material-craft.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/monster-catalog.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-media.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-realism.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/network-audio.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/new-game-plus.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/npc-routines.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-context.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-integration.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-ui.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/organic-ground.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-guidance.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-payoffs.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/origins.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/pause-navigation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/personal-signatures.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/physical-lore.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/player-comfort.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/player-locomotion.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/playtest-recorder.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/presentation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-assistance.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-navigation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 29,
+        "pass": 29,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/regional-work.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/renderer-recovery.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/room-realism.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/runtime.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/save-feedback.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/save-validation.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-camera.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-dressing.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-identity.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-lighting.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/selected-lead-text.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/soundscape.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/sprite-cutout.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/subterranean-art.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-icons.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-preview.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/terrain-materials.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/touch-controls.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/tree-visibility.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/village-art.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/voice-assets.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/wayfinding.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/wild-combat.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/world-affordances.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

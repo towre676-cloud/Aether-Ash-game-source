@@ -1,0 +1,20 @@
+✔ all 399 recordings bind to exact speaker and text in isolated beats (283.901088ms)
+✔ turn boundaries switch at the exact next recorded cue (0.304358ms)
+✔ missing voices and receipts stay silent and visible (0.264678ms)
+✔ linear volume maps to native decibels and exact mute (1.855119ms)
+✔ touch/button repeats and pause release cannot leave a stuck key (5.524938ms)
+✔ independent touch pointers preserve another pointer holding the same button (0.345109ms)
+✔ loading a state clears wrapper holds so the same touch can press again (0.795616ms)
+✔ WRAM reads use SNES bus map and preserve unsigned bytes (0.855957ms)
+✔ failed memory response cannot become a fabricated cue (0.4458ms)
+✔ memory writes encode bytes and validate native acknowledgement (4.771034ms)
+✔ state export/import preserves Blob bytes (0.542846ms)
+✔ native fatal log latches error rather than leaving a running claim (6.548581ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 458.514569

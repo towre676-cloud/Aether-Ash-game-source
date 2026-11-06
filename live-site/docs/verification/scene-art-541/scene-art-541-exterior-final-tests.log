@@ -1,0 +1,11 @@
+✔ all 95 native exterior places receive bounded authored geometry while native state and floors stay unchanged (3707.46349ms)
+✔ new low solid faces stay in real closed ground and all landmark replacements come from the existing bank composition (3863.720248ms)
+✔ the real exterior model families differ and time-driven attached cloth and vanes never own world consequences (841.390792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8624.22946

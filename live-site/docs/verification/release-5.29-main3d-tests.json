@@ -1,0 +1,2265 @@
+{
+  "schema": "ash-aether.release-verification/1",
+  "release": "5.29",
+  "modules": 187,
+  "totals": {
+    "tests": 1476,
+    "pass": 1476,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "execution": "Actual Node spec-reporter output per module. The full runner recorded186 modules; dev-session completed separately. Latest12-test embodied run replaces earlier11-test result.",
+  "evidence_sha256": {
+    "release-5.29-main3d-tests.log": "9baeabd47ed78783483f521b4998163bead895c67659c6a111e3e21f40372059",
+    "dev-session-5.29.log": "766f501e66ccc5ba2fc0e479c4af1218a646cb4df33e0ca24a2c847d065130ee",
+    "embodied-5.29-final.log": "987f8443b73dd6f192b37011784ac233053165e23638abef8c552ec18d2ec7a7"
+  },
+  "results": [
+    {
+      "file": "dist/game/animation-expansion/player/timeline.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory-v2.test.mjs",
+      "counts": {
+        "tests": 19,
+        "pass": 19,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory-v3.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory.test.mjs",
+      "counts": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/host-bridge.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/activity-sites.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/actor-atlas.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/adaptive-audio.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/adventure-dialogue.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/adventure-guidance.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/affordance-art.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/answering-network.test.mjs",
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/architectural-program.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/architecture.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/atlas-fallback.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-lossless-delivery.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-motion.test.mjs",
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-openings.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-flow.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-layout.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield-integration.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield.test.mjs",
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-gear.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-guidance.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-patterns.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-strategy.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/building-craft.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/building-geometry.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/camera-window.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/camera-zoom.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-purpose.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/character-motion.test.mjs",
+      "counts": {
+        "tests": 17,
+        "pass": 17,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/character-showcase.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/cinema.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/cistern-campaign.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/cistern-model.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer-battle.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-advice.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-command-safety.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-engagement.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-instruments.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-order.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-position.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-reactions.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/compatibility-ground.test.mjs",
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/constellation.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/creature-ecology.test.mjs",
+      "counts": {
+        "tests": 21,
+        "pass": 21,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/crew-setup.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/dev-session.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "evidence": "dev-session-5.29.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/direction-latch.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/earned-progression.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/economy.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/embodied-origins.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "evidence": "embodied-5.29-final.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-objectives.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-preview.test.mjs",
+      "counts": {
+        "tests": 25,
+        "pass": 25,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-tempo.test.mjs",
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-art-v17.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v17.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v19.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-depth.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-materials-v17.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-shells.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-staging.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-water-v17.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/environmental-grounding.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration-investigations.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-encounters.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-feedback.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-director.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-model.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-ui.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-labels.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-origins.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-patrols.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-reward-gear.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumor-art.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumors.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/follower-motion.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/frontier-art-v17.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/frontiers.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/functional-anatomy.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/graphics-health.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/ground-contact.test.mjs",
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-rules.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/guided-objective.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/hero-legacy.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/households.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/interior-craft.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-cinema.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-memory.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-roster.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/kakeya.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/label-layout.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/living-armory.test.mjs",
+      "counts": {
+        "tests": 18,
+        "pass": 18,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/living-atlas-ui.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/living-atlas.test.mjs",
+      "counts": {
+        "tests": 16,
+        "pass": 16,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-integration.test.mjs",
+      "counts": {
+        "tests": 16,
+        "pass": 16,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-ui.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/lore.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/material-craft.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/monster-catalog.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-media.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-realism.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/music-controls.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/music-director.test.mjs",
+      "counts": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/music-program.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/music-transport.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/network-audio.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/new-game-plus.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/npc-routines.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-context.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-integration.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-ui.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/organic-ground.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-guidance.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-payoffs.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/origins.test.mjs",
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/outdoor-layout.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/patrol-formations.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/pause-navigation.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/personal-signatures.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/physical-lore.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/player-comfort.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/player-locomotion.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/playtest-recorder.test.mjs",
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/presentation.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-assistance.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-navigation.test.mjs",
+      "counts": {
+        "tests": 30,
+        "pass": 30,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-acoustics.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-campaign.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-ground.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-travel.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/regional-life-art.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/regional-work.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/renderer-recovery.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/room-realism.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/runtime.test.mjs",
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/save-feedback.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/save-validation.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-camera.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-dressing.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-identity.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-lighting.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/selected-lead-text.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/soundscape.test.mjs",
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/sprite-cutout.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/starter-home-composition.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/subterranean-art.test.mjs",
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-icons.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-preview.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/terrain-materials.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/touch-controls.test.mjs",
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/tree-visibility.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/village-art.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/vista-combat-feedback.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/vista-scene.test.mjs",
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/voice-assets.test.mjs",
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/wayfinding.test.mjs",
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass.test.mjs",
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/wild-combat.test.mjs",
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/world-affordance-layout.test.mjs",
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/world-affordances.test.mjs",
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    },
+    {
+      "file": "dist/game/engine2/tests/world-gestures.test.mjs",
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "evidence": "release-5.29-main3d-tests.log"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+/* Latest in the cascade: no invisible expanded hit areas and no overlapping targets. */
+#touch .face{inset:0;width:auto;height:auto;pointer-events:none}
+#touch .face button{pointer-events:auto;box-sizing:border-box;min-width:52px;min-height:52px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;border-radius:50%;padding:4px;font:600 16px/1.1 system-ui;box-shadow:0 2px 9px #0003}
+#touch .face [data-button="y"]{border-radius:14px;border-color:#bbbd9f88;background:#183341ee;font-size:15px}
+#touch .face [data-button="a"]{font-size:20px;background:#27483de8}
+#touch .face small{font-size:9px;line-height:1.1;margin-top:4px;letter-spacing:0}
+#game.touch-on{--control-zone:var(--touch-reserve,228px)}
+#touch .shoulders{left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(166px + env(safe-area-inset-bottom,0px));pointer-events:none}
+#touch .shoulders button{pointer-events:auto;min-width:52px;min-height:44px;padding:8px 14px;font-size:12px}
+#touch #joystick{touch-action:none}
+#touch .face button:focus-visible{outline:2px solid #e3ca8b;outline-offset:4px}
+#touch .face button.pressed{border-color:#f3d99d;box-shadow:0 0 0 2px #f3d99d55,0 2px 9px #0003}
+.dialog-open #touch .face [data-button="y"]{visibility:hidden;pointer-events:none}
+.touch-layout-setting select{min-height:48px;max-width:58%;font-size:13px}
+@media(min-width:600px) and (max-height:540px){#touch .shoulders{bottom:calc(172px + env(safe-area-inset-bottom,0px))}}
+/* A native browser zoom/pan cannot push the pad outside the visible viewport. */
+#game #hud{touch-action:pan-y;overscroll-behavior:none}
+#game #touch{touch-action:none;overscroll-behavior:none}
+#game .veil,#game #dialog,#game .traveller-veil{touch-action:pan-y}
+#touch .touch-view-reset{position:absolute;pointer-events:auto;touch-action:none;box-sizing:border-box;min-width:0;min-height:0;padding:3px 5px;border-radius:14px;border:1px solid #91afa66b;background:#102c35cb;color:#d8e7da;font:10px/1.1 system-ui,sans-serif;white-space:nowrap;z-index:2}
+#touch .touch-view-reset:focus-visible{outline:2px solid #e3ca8b;outline-offset:3px}

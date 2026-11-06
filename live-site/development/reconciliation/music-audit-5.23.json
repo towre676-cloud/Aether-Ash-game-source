@@ -1,0 +1,2125 @@
+{
+  "schema": "ash-aether.music-audit/1",
+  "date": "2026-10-29",
+  "method": "ffprobe codec/container duration; full ffmpeg decode with ebur128=peak=true; SHA256 of delivered bytes and decoded interleaved float32 PCM at native sample rate/channels. RPG loop seam measured at manifest endpoints. No assets rewritten.",
+  "target_lufs": -22,
+  "gain_formula": "min(1, 10 ** ((-22 - integrated_lufs) / 20))",
+  "files": [
+    {
+      "file": "game/music/action/battle_0.ogg",
+      "bytes": 410581,
+      "sha256": "6092b7b397a6a35fecb413716f2a3495b1a54d7f812cc7766439a028b1e36452",
+      "duration_s": 25.945938,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.3,
+      "lra_lu": 1.3,
+      "true_peak_dbtp": -3.3,
+      "decoded": true,
+      "pcm_sha256": "0126ee38f0017bd094fe6a6cd637e9b8bfff199eb461a0c62fcb189bba2a06f8",
+      "decoded_frames": 830270,
+      "decoded_seconds": 25.9459375
+    },
+    {
+      "file": "game/music/action/battle_1.ogg",
+      "bytes": 398881,
+      "sha256": "045f914a2e8d548dd9e10a85aa32a088a135c34d791f2b93ad65a6edc3f065c8",
+      "duration_s": 24.615375,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.7,
+      "lra_lu": 1.2,
+      "true_peak_dbtp": -3.0,
+      "decoded": true,
+      "pcm_sha256": "31adbd4cd9af7616f04d1fcbe5b7bd6a55ec68289fdb1c9a3ed249f08d02b6a4",
+      "decoded_frames": 787692,
+      "decoded_seconds": 24.615375
+    },
+    {
+      "file": "game/music/action/battle_2.ogg",
+      "bytes": 434052,
+      "sha256": "6bfc9fc40cfe10a44ee225d03f631053117d3f7771efd3b07a88f17209f29649",
+      "duration_s": 27.428563,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.4,
+      "lra_lu": 1.5,
+      "true_peak_dbtp": -3.3,
+      "decoded": true,
+      "pcm_sha256": "052acbb46911faa7712ebbe4ead2a225045b183398c05ba315a89561732cdc89",
+      "decoded_frames": 877714,
+      "decoded_seconds": 27.4285625
+    },
+    {
+      "file": "game/music/action/battle_3.ogg",
+      "bytes": 381126,
+      "sha256": "8836843bd6c477f4a4465605821a6bc8aa89e291a703394edb24d139ceecc747",
+      "duration_s": 24.0,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.0,
+      "lra_lu": 0.9,
+      "true_peak_dbtp": -3.6,
+      "decoded": true,
+      "pcm_sha256": "2c980e17c033a699c40efbe99b6803c216aca1a595d90a39811c055f661246d7",
+      "decoded_frames": 768000,
+      "decoded_seconds": 24.0
+    },
+    {
+      "file": "game/music/action/boss_0.ogg",
+      "bytes": 408257,
+      "sha256": "7fb1a5cf70a6d2bf2e2a36e1c23a8eb29946e43855043ba4429c41826da4d8b8",
+      "duration_s": 25.263156,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.3,
+      "lra_lu": 1.2,
+      "true_peak_dbtp": -2.3,
+      "decoded": true,
+      "pcm_sha256": "9cd755b7a46a3120c7b60630bcb874ca604253fb5964637c182c2eb6c3b89c01",
+      "decoded_frames": 808421,
+      "decoded_seconds": 25.26315625
+    },
+    {
+      "file": "game/music/action/boss_1.ogg",
+      "bytes": 358819,
+      "sha256": "b5951e0d946f46979434c55f107303b04699aac3820d81e7b43509cdeb7ca2f3",
+      "duration_s": 22.857125,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.8,
+      "lra_lu": 1.1,
+      "true_peak_dbtp": -2.9,
+      "decoded": true,
+      "pcm_sha256": "f834e55b38de59965e66d9fb7b4c9d4e2f410eeb2bcbf3ee798b1b18ef529b99",
+      "decoded_frames": 731428,
+      "decoded_seconds": 22.857125
+    },
+    {
+      "file": "game/music/action/boss_2.ogg",
+      "bytes": 423392,
+      "sha256": "76dcd8a119be74b9d8a7457ee79950a14e18dbf123c825065838f82982f7d096",
+      "duration_s": 26.666656,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.4,
+      "lra_lu": 0.9,
+      "true_peak_dbtp": -2.8,
+      "decoded": true,
+      "pcm_sha256": "d76c9e49728f2c6c4c37be712b8d9b80012b17e91b2a6abddc355fd30cea1fdb",
+      "decoded_frames": 853333,
+      "decoded_seconds": 26.66665625
+    },
+    {
+      "file": "game/music/action/boss_3.ogg",
+      "bytes": 369141,
+      "sha256": "23dcb92e2f2237f50f8326717575f2517573af76357492178f74db897c9ae14d",
+      "duration_s": 23.414625,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.0,
+      "lra_lu": 1.0,
+      "true_peak_dbtp": -2.7,
+      "decoded": true,
+      "pcm_sha256": "7fad64e303fa903f9d490986ed67811f78a1af684156c3bb31a91ab441ed87d6",
+      "decoded_frames": 749268,
+      "decoded_seconds": 23.414625
+    },
+    {
+      "file": "game/music/cues/aerial_colossus.ogg",
+      "bytes": 301514,
+      "sha256": "1473738aa668556573d231ae8a3f90f1efc1706dfdf22cc262bccb83da1f76c0",
+      "duration_s": 27.10625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.0,
+      "lra_lu": 4.4,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "16960ce8c104002a5a5dd03520d1b6aa6e2828eac231ab5a3075110c7a2003c5",
+      "decoded_frames": 1300788,
+      "decoded_seconds": 27.09975
+    },
+    {
+      "file": "game/music/cues/against_the_ages.ogg",
+      "bytes": 326028,
+      "sha256": "602f37b3300af951b42bab2ecff381640be0d4cf91f1b5635f210f46fe5f6d9a",
+      "duration_s": 29.111333,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.7,
+      "lra_lu": 3.2,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "fdb214e39c21550ec0cd16c0de0dafbbaa08d66598c4a5c5c2d1b0d7a8631565",
+      "decoded_frames": 1397032,
+      "decoded_seconds": 29.104833333333332
+    },
+    {
+      "file": "game/music/cues/ascent_to_daybreak.ogg",
+      "bytes": 354485,
+      "sha256": "99359a1fd1bbcbd567e7f201c2ae0bae310e4717e316e412ac182735d563557d",
+      "duration_s": 31.03475,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.2,
+      "lra_lu": 4.5,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "82340e08bb3111d61338fdd00f54f32c5a82b55024e5202c1695f33be25711ee",
+      "decoded_frames": 1489356,
+      "decoded_seconds": 31.02825
+    },
+    {
+      "file": "game/music/cues/beneath_the_well.ogg",
+      "bytes": 302912,
+      "sha256": "21cbcae7e7e3b2d82747fc3a4f355f858bc3571cc0b61d08000cfd1adcf15c9c",
+      "duration_s": 24.407875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -10.7,
+      "lra_lu": 3.4,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "1f252319b0619afa960d6797f197295bbe62cf0490a5af09be4d278d2315cd0a",
+      "decoded_frames": 1171266,
+      "decoded_seconds": 24.401375
+    },
+    {
+      "file": "game/music/cues/black_wind.ogg",
+      "bytes": 229406,
+      "sha256": "e3df8db140c187ee756ac00eea899a06f8ddc45638fabe30ab713efe586dff28",
+      "duration_s": 20.997625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.8,
+      "lra_lu": 2.6,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "56837a267361398b5a1a9cab71b08d5b06ea060d0c6df9054dcb76150aa69e22",
+      "decoded_frames": 1007574,
+      "decoded_seconds": 20.991125
+    },
+    {
+      "file": "game/music/cues/cargo_train_run.ogg",
+      "bytes": 212109,
+      "sha256": "75cda492bafecd20779fb05e34c9d9711f6ba64b7cb9100b97a93bcce9cb0da1",
+      "duration_s": 19.772,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.5,
+      "lra_lu": 2.8,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "1d8d3387fd2475623784a83d116e9e14bb6eea415ad6446af4e892787921640e",
+      "decoded_frames": 948744,
+      "decoded_seconds": 19.7655
+    },
+    {
+      "file": "game/music/cues/chapel_of_rain.ogg",
+      "bytes": 375172,
+      "sha256": "3859932e6bd490e4273dab6c6853727188fec7a9d87d288aba0cf2a4037a2338",
+      "duration_s": 30.739583,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.4,
+      "lra_lu": 1.9,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "376c3b0bc93c18aad1f55552987aa3a4674e2667878316b1a21a6494be83b351",
+      "decoded_frames": 1475188,
+      "decoded_seconds": 30.733083333333333
+    },
+    {
+      "file": "game/music/cues/cinder_return.ogg",
+      "bytes": 184977,
+      "sha256": "218be527752dfeb5396ab0977175f21f279e6b00e09d09d1c73f4d12a383a3a5",
+      "duration_s": 16.865375,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.0,
+      "lra_lu": 4.6,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "2beb83f09ec696b49491ac59949685fa6d39ed48faef241a97fb7cdf9acdb3ea",
+      "decoded_frames": 809226,
+      "decoded_seconds": 16.858875
+    },
+    {
+      "file": "game/music/cues/corporate_spire.ogg",
+      "bytes": 292635,
+      "sha256": "001a35029369991cd4990edbdfd6789bec87a4095c299caa20173ae5e562d226",
+      "duration_s": 25.46,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.1,
+      "lra_lu": 1.6,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "49f9a5b0d82e384598a13f85f9c64e6f57a49fff7fb93d430bb0aa7c352c516e",
+      "decoded_frames": 1221768,
+      "decoded_seconds": 25.4535
+    },
+    {
+      "file": "game/music/cues/engines_above_clouds.ogg",
+      "bytes": 256102,
+      "sha256": "e59cb43c861fef05522430fc2ac6573786fb6db34e92d3aff6f5da80af6853b4",
+      "duration_s": 22.79825,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.8,
+      "lra_lu": 3.7,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "6aab499aa36d9b60f8f3767958f6f4e08a7117b0e7fb0508e8c492ceed037246",
+      "decoded_frames": 1094004,
+      "decoded_seconds": 22.79175
+    },
+    {
+      "file": "game/music/cues/epoch_of_clay.ogg",
+      "bytes": 310296,
+      "sha256": "dcb6f880388efcd72c4e05e5b6c2ea7ab7f88455a391fa74d6c5fda3222611ce",
+      "duration_s": 26.8765,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.0,
+      "lra_lu": 2.9,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "bdfba4536fa534eb2c1e50d1070d4eb8595b244937789e7a4fea6d26a1128cc2",
+      "decoded_frames": 1289760,
+      "decoded_seconds": 26.87
+    },
+    {
+      "file": "game/music/cues/escape_from_sector.ogg",
+      "bytes": 309931,
+      "sha256": "945ee201d138e19823a2a02ed6d7534f7fd27704162b2db08b161aec3c945b6f",
+      "duration_s": 28.03975,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.8,
+      "lra_lu": 5.0,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "5118dedaeb01a87c2bdf38f41fa3a0b0a847350be1644ee719f68a707fe91e6c",
+      "decoded_frames": 1345596,
+      "decoded_seconds": 28.03325
+    },
+    {
+      "file": "game/music/cues/falling_platform.ogg",
+      "bytes": 212975,
+      "sha256": "07545de9e8348bba00caf02fcb910b45eca87f4eb7992ba4b7a9980dd20e837a",
+      "duration_s": 19.124,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.1,
+      "lra_lu": 3.1,
+      "true_peak_dbtp": -1.6,
+      "decoded": true,
+      "pcm_sha256": "fc83a2dbc3ec535305922b1dc49001cd929e0fa9698642a3a159bb3ff477ddac",
+      "decoded_frames": 917640,
+      "decoded_seconds": 19.1175
+    },
+    {
+      "file": "game/music/cues/glass_memory.ogg",
+      "bytes": 376787,
+      "sha256": "05f1fa29ce8740cd70f076e4d53be6ff194cba65163b2be673791d0cd5ad0982",
+      "duration_s": 31.851083,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -10.7,
+      "lra_lu": 3.1,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "cc5765360ca4336ca7f8e12286bcc5cc5316aabfef2c1383cea1cbe62ca77fe3",
+      "decoded_frames": 1528540,
+      "decoded_seconds": 31.844583333333333
+    },
+    {
+      "file": "game/music/cues/halls_beneath_water.ogg",
+      "bytes": 300389,
+      "sha256": "7872461bac698c242c4864235438b5e3172246f0bd9793df2119a879a4daa67a",
+      "duration_s": 27.152458,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.3,
+      "lra_lu": 3.1,
+      "true_peak_dbtp": -1.1,
+      "decoded": true,
+      "pcm_sha256": "e56870345fb70529a0aeeb20b5a4ffbcb882219ec4874ad7bd92086119672523",
+      "decoded_frames": 1303006,
+      "decoded_seconds": 27.145958333333333
+    },
+    {
+      "file": "game/music/cues/hidden_assembly.ogg",
+      "bytes": 324856,
+      "sha256": "9738dc4a296dfd3cc8aeeec58baae4d39908274e2c9a22bc193f95cd089b6017",
+      "duration_s": 27.733458,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.0,
+      "lra_lu": 3.0,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "664d573de9494cb67e86c5e4561f23001d8232f682bc310b8c22d37711a5b877",
+      "decoded_frames": 1330894,
+      "decoded_seconds": 27.726958333333332
+    },
+    {
+      "file": "game/music/cues/hometown_before_dawn.ogg",
+      "bytes": 357510,
+      "sha256": "40c56d6531682a9ec37904744f815cba9cdf4349f5b4a90b13643e705054898a",
+      "duration_s": 29.155208,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.6,
+      "lra_lu": 2.9,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "2b0e019dad378986148b31656f2786cecbe6cc6361368ba048495ed6e7f2e10d",
+      "decoded_frames": 1399138,
+      "decoded_seconds": 29.14870833333333
+    },
+    {
+      "file": "game/music/cues/horizon_engine.ogg",
+      "bytes": 281681,
+      "sha256": "03def84189d0de7a82d08eb87bb195f07c8cfdfb5170b22b3ae6dd4ff2959375",
+      "duration_s": 24.953875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.0,
+      "lra_lu": 2.4,
+      "true_peak_dbtp": -1.8,
+      "decoded": true,
+      "pcm_sha256": "fa1e3359b9bb0aea8d189a6adda474c2dfe0bf91eb4126d42a647e73a5c55233",
+      "decoded_frames": 1197474,
+      "decoded_seconds": 24.947375
+    },
+    {
+      "file": "game/music/cues/iron_sentinel.ogg",
+      "bytes": 301407,
+      "sha256": "7db79c144764fdf45fffce3a025cc5cb782d15a3483fd586925da591ede5f958",
+      "duration_s": 26.485,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.4,
+      "lra_lu": 4.2,
+      "true_peak_dbtp": -1.7,
+      "decoded": true,
+      "pcm_sha256": "c1e71d860dcb0dff1d5679345ea1606e4d63055178fe7bccd040305ec352384e",
+      "decoded_frames": 1270968,
+      "decoded_seconds": 26.4785
+    },
+    {
+      "file": "game/music/cues/last_horizon.ogg",
+      "bytes": 516547,
+      "sha256": "11ef4f91f430c60adec2f24379a81767e432a98ed36f9dd5139c88cd5683c77c",
+      "duration_s": 44.701833,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.0,
+      "lra_lu": 3.4,
+      "true_peak_dbtp": -1.0,
+      "decoded": true,
+      "pcm_sha256": "5ce33de6756feaec1b3534cbbca4d744f89febfcce17e6e5d7888ad1fcad5823",
+      "decoded_frames": 2145376,
+      "decoded_seconds": 44.69533333333333
+    },
+    {
+      "file": "game/music/cues/last_reactor.ogg",
+      "bytes": 318643,
+      "sha256": "77323a40befcf922fa3de4660fcbfd29d025c21f1ccbf48df05cadd04d3e69cb",
+      "duration_s": 28.38625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.3,
+      "lra_lu": 3.9,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "d6d706a9360acff1691521c2514a6b0e2a1ceba794c64a8c0ed0660001be7366",
+      "decoded_frames": 1362228,
+      "decoded_seconds": 28.37975
+    },
+    {
+      "file": "game/music/cues/letters_never_sent.ogg",
+      "bytes": 387628,
+      "sha256": "facf11b48f7b995e429f9a09ff7395fb1417be89acad72c6527d6183a4628d9d",
+      "duration_s": 32.419,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.0,
+      "lra_lu": 3.3,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "d1eda651f1829991f08530ca9020ceca7a39b23098087f437e433cd4563ac681",
+      "decoded_frames": 1555800,
+      "decoded_seconds": 32.4125
+    },
+    {
+      "file": "game/music/cues/light_returns.ogg",
+      "bytes": 194273,
+      "sha256": "539fcf1a9ccf252ca8a873934d3426906d4f70769335657872ae41f9590d2719",
+      "duration_s": 17.310333,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.2,
+      "lra_lu": 5.5,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "4026b123fa31915b61396bd9f74edf6f42300bb45ec977b5fce98c632b73c082",
+      "decoded_frames": 830584,
+      "decoded_seconds": 17.303833333333333
+    },
+    {
+      "file": "game/music/cues/millennial_morning.ogg",
+      "bytes": 359100,
+      "sha256": "5693191fa54c963a48a8aafaee958bef0ac1ce6690d8170ae69c4496ae24a814",
+      "duration_s": 29.629625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -10.2,
+      "lra_lu": 2.8,
+      "true_peak_dbtp": -1.1,
+      "decoded": true,
+      "pcm_sha256": "d38dadffa058af09ed3d0ecfbfd1476f9e1da050523fe64920dc4315ddd87fd8",
+      "decoded_frames": 1421910,
+      "decoded_seconds": 29.623125
+    },
+    {
+      "file": "game/music/cues/names_in_snow.ogg",
+      "bytes": 282568,
+      "sha256": "697e63a4c50f7e51e4ab204bd1a8dd66bcfc52a3a901bce7b659229462fb1b9d",
+      "duration_s": 23.458333,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.0,
+      "lra_lu": 2.5,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "494f0e87ffd4dc0a7f2eeeba885f02fd4ae2b9c391acf101458e84624ea2ea02",
+      "decoded_frames": 1125688,
+      "decoded_seconds": 23.451833333333333
+    },
+    {
+      "file": "game/music/cues/night_flower.ogg",
+      "bytes": 324496,
+      "sha256": "6ead164955df7985fc59627647d03aa3f46b24af73870fe175d827c93bb529ba",
+      "duration_s": 27.82425,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.0,
+      "lra_lu": 4.1,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "99f50ec4117286faf57cbb3118f09aedc642030dcedf98be85bcf8837a1d860b",
+      "decoded_frames": 1335252,
+      "decoded_seconds": 27.81775
+    },
+    {
+      "file": "game/music/cues/oath_of_cinders.ogg",
+      "bytes": 257182,
+      "sha256": "5e22b6320f0c9cda3552179c508b4bedcc35b03ff43433055ed0045840d78c24",
+      "duration_s": 23.073625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.4,
+      "lra_lu": 2.8,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "c7389082f81cb6b57bd947034d07e9bc8b756bd897c052a242ca41115898d8c1",
+      "decoded_frames": 1107222,
+      "decoded_seconds": 23.067125
+    },
+    {
+      "file": "game/music/cues/orchard_after_fire.ogg",
+      "bytes": 308613,
+      "sha256": "71cdc507fd22027fee4fc395def96e535c0235185f139f4245ab51f937497c8f",
+      "duration_s": 25.971,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.1,
+      "lra_lu": 3.1,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "d92dc0132fd6ff658063136ebc836d873fc83209ce6c78e3500a32436e7e3c44",
+      "decoded_frames": 1246296,
+      "decoded_seconds": 25.9645
+    },
+    {
+      "file": "game/music/cues/pendant_of_embers.ogg",
+      "bytes": 352926,
+      "sha256": "1c5bb147e5b15b67043b3832624a00f32c8f0624aadb3322fc15ef17c20582af",
+      "duration_s": 31.57625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.5,
+      "lra_lu": 2.3,
+      "true_peak_dbtp": -0.9,
+      "decoded": true,
+      "pcm_sha256": "4b42216c7e04c857465fc05499a68a30e3678f53b5a205ccce1d6bfb9953486e",
+      "decoded_frames": 1515348,
+      "decoded_seconds": 31.56975
+    },
+    {
+      "file": "game/music/cues/planet_beneath_us.ogg",
+      "bytes": 293349,
+      "sha256": "6810e3f6ddede3a877be887369b35a4f12c9c61e8957771e2961729ca8ddfd53",
+      "duration_s": 26.549958,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.8,
+      "lra_lu": 2.4,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "de23a5598ecca4223a4323d21d87fbb826dc4ca2558df266b3f13a6aaa08dd66",
+      "decoded_frames": 1274086,
+      "decoded_seconds": 26.543458333333334
+    },
+    {
+      "file": "game/music/cues/pressure_valves.ogg",
+      "bytes": 254792,
+      "sha256": "b72cf8591893ad85be2667d023d8cb4787bb6dfb71d0c3efc312f13cb7c63af9",
+      "duration_s": 22.65625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.8,
+      "lra_lu": 2.1,
+      "true_peak_dbtp": -0.8,
+      "decoded": true,
+      "pcm_sha256": "4e4115e91c386ff8eee68ad86d3d7abe657095fd24bf6c46eae34af24acc1495",
+      "decoded_frames": 1087188,
+      "decoded_seconds": 22.64975
+    },
+    {
+      "file": "game/music/cues/promise_in_green.ogg",
+      "bytes": 320264,
+      "sha256": "7ab581a68d66ebc92502487fb409b535879f186ddcadcfc65450022856c5d76a",
+      "duration_s": 28.45625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.8,
+      "lra_lu": 1.9,
+      "true_peak_dbtp": -1.0,
+      "decoded": true,
+      "pcm_sha256": "c8d07ce3971aae6722d18194e85b5bb4aa6bab3db869855e9ec41bf25560cbd5",
+      "decoded_frames": 1365588,
+      "decoded_seconds": 28.44975
+    },
+    {
+      "file": "game/music/cues/reactor_lattice.ogg",
+      "bytes": 268904,
+      "sha256": "7897abb60440fcc84aaa5592703c7d4b4fd70e7554392f2654dd293b1c40ccc8",
+      "duration_s": 21.991625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -14.1,
+      "lra_lu": 1.8,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "403b1861b691237d81af5f2b5ef3ea666016ffcec6272000e896b148d891f74a",
+      "decoded_frames": 1055286,
+      "decoded_seconds": 21.985125
+    },
+    {
+      "file": "game/music/cues/rescue_signal.ogg",
+      "bytes": 255720,
+      "sha256": "f13b345c7c911fea18d751e9bc33a1565914e149c30f8481a4a6ea499ba8583b",
+      "duration_s": 22.675083,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.9,
+      "lra_lu": 3.5,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "46effa26c8959e8c8beb3255e387cdd77760c6c1900ee8b6987084b61d51b07e",
+      "decoded_frames": 1088092,
+      "decoded_seconds": 22.668583333333334
+    },
+    {
+      "file": "game/music/cues/rest_by_the_gate.ogg",
+      "bytes": 400130,
+      "sha256": "706cd357bfe3c6c7952bf09b1c33475d4e285acd0a1732d33b5f971a12dc7e0f",
+      "duration_s": 35.509583,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.2,
+      "lra_lu": 2.2,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "996bd83d00c5fb669d958f64b92946241740b980d986b720edb537887d70f6a7",
+      "decoded_frames": 1704148,
+      "decoded_seconds": 35.503083333333336
+    },
+    {
+      "file": "game/music/cues/reunion_of_waters.ogg",
+      "bytes": 348313,
+      "sha256": "264ab3454078d22841ebe920b7bbe14d9bf76f82c9595c567620faef3167e701",
+      "duration_s": 28.838125,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -10.7,
+      "lra_lu": 3.2,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "78a48c1ce9ebc2301fd1f53cc3fa8f527ad069451c0df5572a51dbe28000f328",
+      "decoded_frames": 1383918,
+      "decoded_seconds": 28.831625
+    },
+    {
+      "file": "game/music/cues/river_road.ogg",
+      "bytes": 418119,
+      "sha256": "c15beb6105f5baddb039ff030e31bf4ae285ec5934d3877532914d8345b40f49",
+      "duration_s": 37.151125,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.4,
+      "lra_lu": 3.3,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "d90f2eff2b1ce212230c337cb022c1eeed24ab429b8c676e96ae813f29ea2f30",
+      "decoded_frames": 1782942,
+      "decoded_seconds": 37.144625
+    },
+    {
+      "file": "game/music/cues/ruined_sea.ogg",
+      "bytes": 530065,
+      "sha256": "e67ae55058db5dad574321aef53cc83239fb8e4f819c37a34f21633a0eb85ea3",
+      "duration_s": 46.684375,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.8,
+      "lra_lu": 2.3,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "8853e362b5ab9de1684025eab017ded6d36ab79396c570d5e796cfda5c24369d",
+      "decoded_frames": 2240538,
+      "decoded_seconds": 46.677875
+    },
+    {
+      "file": "game/music/cues/signal_before_dawn.ogg",
+      "bytes": 365685,
+      "sha256": "fd4720db0c052783b43e5e8836042e8cd7819520908aa21cb9ff949021a22b22",
+      "duration_s": 32.805875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.9,
+      "lra_lu": 4.0,
+      "true_peak_dbtp": -1.5,
+      "decoded": true,
+      "pcm_sha256": "9b2e4b285ab1eb7e5bcd75f88d7dabbf1e5410332dddf9e12f21b86c59d92696",
+      "decoded_frames": 1574370,
+      "decoded_seconds": 32.799375
+    },
+    {
+      "file": "game/music/cues/silent_orbit.ogg",
+      "bytes": 342139,
+      "sha256": "eb00c997ae69f2cafa30d6e47947f4a6630bde7e07a23e9caa28d2bd4eb1e559",
+      "duration_s": 29.962375,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.4,
+      "lra_lu": 2.0,
+      "true_peak_dbtp": -1.4,
+      "decoded": true,
+      "pcm_sha256": "4f1a4d315f89ed6955b20588bfac0c0cbe6413198e1d170315ce13ebcf560738",
+      "decoded_frames": 1437882,
+      "decoded_seconds": 29.955875
+    },
+    {
+      "file": "game/music/cues/sirens_on_bridge.ogg",
+      "bytes": 228321,
+      "sha256": "9434fa72bdc44d193bfb43558bd57b7d140f7d8be7847f647cf39f012c817202",
+      "duration_s": 20.617875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.7,
+      "lra_lu": 2.2,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "cb7ae55cca8249c93655d68b08b3ce88e913898f519db97f1f7081b8befb5459",
+      "decoded_frames": 989346,
+      "decoded_seconds": 20.611375
+    },
+    {
+      "file": "game/music/cues/small_courtyard.ogg",
+      "bytes": 310997,
+      "sha256": "dc7705757b5de104a14cfcc3d7a4e3e820bbcbb55ba6152954bd7d028c58d3d7",
+      "duration_s": 26.478125,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -11.1,
+      "lra_lu": 2.8,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "017d751222705e4c01c8ac74d65e8344bb89fe04b9c6a07b651ee928b264b9c4",
+      "decoded_frames": 1270638,
+      "decoded_seconds": 26.471625
+    },
+    {
+      "file": "game/music/cues/station_under_ash.ogg",
+      "bytes": 272540,
+      "sha256": "39d0ded51b080ca238a8e750812df40e500ca84025a6ea1fac889b3c5d3eefe6",
+      "duration_s": 23.090375,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.7,
+      "lra_lu": 3.2,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "c4ff087105a99736fa944bfd6fac553802b95cb25c9b5a7787d30e997e1c966c",
+      "decoded_frames": 1108026,
+      "decoded_seconds": 23.083875
+    },
+    {
+      "file": "game/music/cues/steel_procession.ogg",
+      "bytes": 314874,
+      "sha256": "2a5372a2b554746aaac513b6dbac9836adea4817bf9ea095e6e70f7c69be7ac0",
+      "duration_s": 27.718625,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.0,
+      "lra_lu": 5.6,
+      "true_peak_dbtp": -1.1,
+      "decoded": true,
+      "pcm_sha256": "667a4f64f9a2951fed0eb5d0a0e92c444ff184eaa3373bba7e99a752eb8ee685",
+      "decoded_frames": 1330182,
+      "decoded_seconds": 27.712125
+    },
+    {
+      "file": "game/music/cues/tomorrow_unwritten.ogg",
+      "bytes": 417783,
+      "sha256": "d76f17386b46b13ae89d2e969fe0e95ad00599def4e2cd75d45e709d52a32df3",
+      "duration_s": 36.534458,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -15.2,
+      "lra_lu": 3.6,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "3e425ea955deacfc20ed5ba0321e26ca2310ae0bb46e2fa3d3b8568bf13fae04",
+      "decoded_frames": 1753342,
+      "decoded_seconds": 36.52795833333333
+    },
+    {
+      "file": "game/music/cues/undercity_lanterns.ogg",
+      "bytes": 336708,
+      "sha256": "3cd4a359347521bb1e56d62bdf41ea6b0a88f90dd0eba3a549f7340e47db8b27",
+      "duration_s": 29.132,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -12.3,
+      "lra_lu": 3.8,
+      "true_peak_dbtp": -1.3,
+      "decoded": true,
+      "pcm_sha256": "da963c23e559ff1cd2229b12ad6dbd58e3dd882865fef3d5acb2776b36fdfe5e",
+      "decoded_frames": 1398024,
+      "decoded_seconds": 29.1255
+    },
+    {
+      "file": "game/music/cues/unexpected_friend.ogg",
+      "bytes": 296303,
+      "sha256": "2728a5b55f1472f47f000dfa8dbbf0087b30fa2a0d4b303d8004be5a9af3373b",
+      "duration_s": 25.342458,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -10.8,
+      "lra_lu": 3.0,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "0a0b88ffe482258f6452548446ebc1417b44946937425589afcbd5eb3e22d57e",
+      "decoded_frames": 1216126,
+      "decoded_seconds": 25.335958333333334
+    },
+    {
+      "file": "game/music/cues/wings_over_slag.ogg",
+      "bytes": 368533,
+      "sha256": "fd1e3c97eee1f0dfd49efb80f635b9e92699ecbf0baebfcb08ad89ffc6eff89a",
+      "duration_s": 32.37,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.1,
+      "lra_lu": 3.7,
+      "true_peak_dbtp": -1.2,
+      "decoded": true,
+      "pcm_sha256": "c7dfb96a644438bd8888d2d4bb3e0ae00f3d85f2e0a92b30a564229fa8bc697d",
+      "decoded_frames": 1553448,
+      "decoded_seconds": 32.3635
+    },
+    {
+      "file": "game/music/dyletsky/voices_keep_their_names.ogg",
+      "bytes": 659123,
+      "sha256": "e53e94f5b894c4e23ac11413f89129f3f31b365dbb18c12761c340bb8c4f2bdd",
+      "duration_s": 58.216875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -13.8,
+      "lra_lu": 2.3,
+      "true_peak_dbtp": -1.1,
+      "decoded": true,
+      "pcm_sha256": "d2fdd0e0703042dcbb8503aaceb495e82a76d0d9c90dffc741c59519bcdc6f60",
+      "decoded_frames": 2794098,
+      "decoded_seconds": 58.210375
+    },
+    {
+      "file": "game/music/instrument/dyletsky_archive.ogg",
+      "bytes": 646580,
+      "sha256": "1de271b0da985b85008b18f258a1bac8ae0c438a8cf51d7b79fe4ae1895af739",
+      "duration_s": 45.1065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.6,
+      "lra_lu": 4.7,
+      "true_peak_dbtp": -5.3,
+      "decoded": true,
+      "pcm_sha256": "415b10014cf58e86cefdc0e2ed76d946cc726b21df82ec3dd705b4792a5a63dc",
+      "decoded_frames": 2162400,
+      "decoded_seconds": 45.05
+    },
+    {
+      "file": "game/music/instrument/dyletsky_chapel.ogg",
+      "bytes": 700577,
+      "sha256": "bfb54ad915102ea41c84cbdf29a0d3f91f0c3fa35cd39bdef6328a2846ae2c1a",
+      "duration_s": 50.9065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.8,
+      "lra_lu": 9.2,
+      "true_peak_dbtp": -4.9,
+      "decoded": true,
+      "pcm_sha256": "7ebb6f4ad31d8aad9b9d62f4b8bb00ecaea05469b80add35b2f0da83fd32b2b8",
+      "decoded_frames": 2443200,
+      "decoded_seconds": 50.9
+    },
+    {
+      "file": "game/music/instrument/dyletsky_home.ogg",
+      "bytes": 916440,
+      "sha256": "919873ce5b4cfb5963769e2d2847375f768bafabc4507b1e127b4e834f0500c8",
+      "duration_s": 65.0065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.5,
+      "lra_lu": 5.7,
+      "true_peak_dbtp": -4.8,
+      "decoded": true,
+      "pcm_sha256": "97da37114c426380fec6a70a10da469f4d169d7ecea7c0f89ec209d798e8bac9",
+      "decoded_frames": 3118695,
+      "decoded_seconds": 64.9728125
+    },
+    {
+      "file": "game/music/instrument/dyletsky_sky.ogg",
+      "bytes": 774404,
+      "sha256": "d028bf20de8ff4b2465f641be0998218bc507b077596d6931a7f98c79efd5d7a",
+      "duration_s": 54.4065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.1,
+      "lra_lu": 4.5,
+      "true_peak_dbtp": -5.3,
+      "decoded": true,
+      "pcm_sha256": "a8e93674e6cd1e074378b3310e28fe600679b18377f2396b1788a8bfa65460c9",
+      "decoded_frames": 2607666,
+      "decoded_seconds": 54.326375
+    },
+    {
+      "file": "game/music/instrument/dyletsky_tide.ogg",
+      "bytes": 823456,
+      "sha256": "c81c7d59a6313f4e53e447e33b683cdd0ad1d702343101746c2d261470f698d7",
+      "duration_s": 59.706521,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.3,
+      "lra_lu": 5.5,
+      "true_peak_dbtp": -4.7,
+      "decoded": true,
+      "pcm_sha256": "9e5d68e36e083c3242943f844d271436a719e7f8b686ed130ade0d5a78f947e1",
+      "decoded_frames": 2863865,
+      "decoded_seconds": 59.66385416666667
+    },
+    {
+      "file": "game/music/instrument/dyletsky_workshop.ogg",
+      "bytes": 894735,
+      "sha256": "6bc378823d42a272308f5f1842a18f549341f83374fcf22ffa1cf579a2e1f6d9",
+      "duration_s": 63.7065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.6,
+      "lra_lu": 7.0,
+      "true_peak_dbtp": -3.9,
+      "decoded": true,
+      "pcm_sha256": "f2b6fc4d73375a45b3771e7e43e2c6501a7964d54bc93f1b73f26c5ced587536",
+      "decoded_frames": 3056073,
+      "decoded_seconds": 63.6681875
+    },
+    {
+      "file": "game/music/instrument/game_reference_01.ogg",
+      "bytes": 812217,
+      "sha256": "7a8195d105fa8e693b5d4c2869c9b09d5089ceec47aaa3c80e4ffb2ad58edf4c",
+      "duration_s": 71.516667,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.7,
+      "lra_lu": 2.9,
+      "true_peak_dbtp": -4.2,
+      "decoded": true,
+      "pcm_sha256": "34a8f7eac2edd6abe1cb4dd0d11075a0782530b727fb0588a07399cffe6ba1ae",
+      "decoded_frames": 3431490,
+      "decoded_seconds": 71.489375
+    },
+    {
+      "file": "game/music/instrument/game_reference_02.ogg",
+      "bytes": 967744,
+      "sha256": "710369241652b23fb3c4e1a887c5702956bb0817f9962cc64b1243555d8e2958",
+      "duration_s": 88.7065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.3,
+      "lra_lu": 3.0,
+      "true_peak_dbtp": -3.7,
+      "decoded": true,
+      "pcm_sha256": "acbdcc5dc70de85c48026af14ed8690f9b8f84ca9d097349a1f130f4e2bd5749",
+      "decoded_frames": 4253539,
+      "decoded_seconds": 88.61539583333334
+    },
+    {
+      "file": "game/music/instrument/game_reference_03.ogg",
+      "bytes": 603922,
+      "sha256": "76be940424215df050f3184256ba048877c2d4ff46f8fc76bbe31a59fe854bd5",
+      "duration_s": 60.0065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.8,
+      "lra_lu": 2.0,
+      "true_peak_dbtp": -5.5,
+      "decoded": true,
+      "pcm_sha256": "c1c6b6f9d6a049c950784c5338cf0a281cfa5862bbe0b3e62a5c24431f60248c",
+      "decoded_frames": 2880000,
+      "decoded_seconds": 60.0
+    },
+    {
+      "file": "game/music/instrument/game_reference_04.ogg",
+      "bytes": 1028592,
+      "sha256": "5487bc0859577fa5dc0f9d63490e2725909de9579053e4350a027f94abc1da52",
+      "duration_s": 93.0065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.9,
+      "lra_lu": 1.0,
+      "true_peak_dbtp": -4.5,
+      "decoded": true,
+      "pcm_sha256": "88b31c292ecd115f6eb3a436c74eb7159a16d85eeeceabd2d70e81bcccd99569",
+      "decoded_frames": 4459356,
+      "decoded_seconds": 92.90325
+    },
+    {
+      "file": "game/music/instrument/game_reference_05.ogg",
+      "bytes": 1080190,
+      "sha256": "736abf97e7a0ad54c2049475d867ce3fe5ece15dfc6543937edca0b14ceb8597",
+      "duration_s": 92.1065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.6,
+      "lra_lu": 4.0,
+      "true_peak_dbtp": -3.1,
+      "decoded": true,
+      "pcm_sha256": "3f0bbdc74b6e3f8c181abf4141c3950115c638323133706529e47c01f42fb8f9",
+      "decoded_frames": 4416001,
+      "decoded_seconds": 92.00002083333334
+    },
+    {
+      "file": "game/music/instrument/game_reference_06.ogg",
+      "bytes": 579687,
+      "sha256": "f86ca9b50cfab8194bd970cf278ac4745bbb5011410f8c05fa2455c8728703ca",
+      "duration_s": 53.4065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.4,
+      "lra_lu": 3.9,
+      "true_peak_dbtp": -1.8,
+      "decoded": true,
+      "pcm_sha256": "4f28e2c19c8e44d37b5ce84dc1c31a53140cf3d4abf684d673f62b8a3ee5b324",
+      "decoded_frames": 2560001,
+      "decoded_seconds": 53.333354166666666
+    },
+    {
+      "file": "game/music/instrument/game_reference_07.ogg",
+      "bytes": 454809,
+      "sha256": "5a4c9bbe48ba9048f74faff34b1fab8cc2f3d1e56d33ad3966e508a7e494692b",
+      "duration_s": 41.2065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.7,
+      "lra_lu": 0.9,
+      "true_peak_dbtp": -4.5,
+      "decoded": true,
+      "pcm_sha256": "f43a349fcdf9fadc293b0c9e7cf09f6220956ce8f66eb6c77a875832f993375d",
+      "decoded_frames": 1974858,
+      "decoded_seconds": 41.142875
+    },
+    {
+      "file": "game/music/instrument/game_reference_08.ogg",
+      "bytes": 608085,
+      "sha256": "6ee78ec5faf69c9dbff5342af4390a388290dae118e35069bb0b3adaf02349f4",
+      "duration_s": 56.2065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.9,
+      "lra_lu": 0.6,
+      "true_peak_dbtp": -5.3,
+      "decoded": true,
+      "pcm_sha256": "5d8f03958a1a85da5e5f33575115f4b8a08d63548518149bf85fab5d87e03c35",
+      "decoded_frames": 2692987,
+      "decoded_seconds": 56.10389583333333
+    },
+    {
+      "file": "game/music/instrument/game_reference_09.ogg",
+      "bytes": 748743,
+      "sha256": "89645c8ebe4dc834f5497b3c8dbc179f17800e1a5e439649204427197dbea68f",
+      "duration_s": 71.8065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.7,
+      "lra_lu": 1.8,
+      "true_peak_dbtp": -4.1,
+      "decoded": true,
+      "pcm_sha256": "4ac6657a3fd32aee3cf090073621270e0cd66f703baba931a51a0d128a43e99b",
+      "decoded_frames": 3442759,
+      "decoded_seconds": 71.72414583333334
+    },
+    {
+      "file": "game/music/instrument/game_reference_10.ogg",
+      "bytes": 290817,
+      "sha256": "83ad53a6bfc7c0d2d6cae7da8895b744d0a7f6a74b650aefeba0e475b6fb5254",
+      "duration_s": 21.4065,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.8,
+      "lra_lu": 1.1,
+      "true_peak_dbtp": -3.6,
+      "decoded": true,
+      "pcm_sha256": "0401b25fb9777692d34d732ae771bdacb83ceb0cf45a8ad4e71b0441ff7484dc",
+      "decoded_frames": 1024001,
+      "decoded_seconds": 21.333354166666666
+    },
+    {
+      "file": "game/music/rpg/archive.ogg",
+      "bytes": 464204,
+      "sha256": "48bd4f4f8ec1566d13096eef79a354e3094c967dad624d44828b0f2cdbeafa75",
+      "duration_s": 29.7,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 5.3,
+      "true_peak_dbtp": -6.7,
+      "decoded": true,
+      "pcm_sha256": "2d6193ea2a47a20d846ac1f4c3fad5f2346b5677d29a9f323279380861b484d1",
+      "decoded_frames": 948148,
+      "decoded_seconds": 29.629625,
+      "loop_end": 29.629625,
+      "seam_jump": 2.5809854378167074e-06,
+      "loop_duration_s": 29.629625
+    },
+    {
+      "file": "game/music/rpg/battle.ogg",
+      "bytes": 318808,
+      "sha256": "55e1cd2de1493f7a4c347a49e68c2d3f261794dfc7eacdb0197cf1176e14a92d",
+      "duration_s": 16.6,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 1.1,
+      "true_peak_dbtp": -4.4,
+      "decoded": true,
+      "pcm_sha256": "d2281542eb03b04e25ef4cb5a2b95384ad17da149ec1573e99b00ef042893df5",
+      "decoded_frames": 528926,
+      "decoded_seconds": 16.5289375,
+      "loop_end": 16.5289375,
+      "seam_jump": 0.00010394403943791986,
+      "loop_duration_s": 16.5289375
+    },
+    {
+      "file": "game/music/rpg/battle_late.ogg",
+      "bytes": 297502,
+      "sha256": "addeef6022e03c97f30e5ed2d82589347eaf803fb7856b17e1bc7c2f35d2a55b",
+      "duration_s": 15.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.2,
+      "lra_lu": 1.4,
+      "true_peak_dbtp": -5.8,
+      "decoded": true,
+      "pcm_sha256": "f84679cc49a953fc2f1b8639f64e19dfa476cde6e9bab37b1154c7e5adc2d806",
+      "decoded_frames": 491677,
+      "decoded_seconds": 15.36490625,
+      "loop_end": 15.36490625,
+      "seam_jump": 0.00015317976067308336,
+      "loop_duration_s": 15.36490625
+    },
+    {
+      "file": "game/music/rpg/boss.ogg",
+      "bytes": 344487,
+      "sha256": "cc36d4368212b8a4fc385f2228e8d94f6db88ecbf4fb14a5197770e976b10ff0",
+      "duration_s": 17.9,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.2,
+      "lra_lu": 1.6,
+      "true_peak_dbtp": -4.6,
+      "decoded": true,
+      "pcm_sha256": "005ebf564618cc5fc1532f7663e740883fbc846a53adb0787ac032d2155de07b",
+      "decoded_frames": 572280,
+      "decoded_seconds": 17.88375,
+      "loop_end": 17.88375,
+      "seam_jump": 4.031024582218379e-05,
+      "loop_duration_s": 17.88375
+    },
+    {
+      "file": "game/music/rpg/chapel.ogg",
+      "bytes": 404729,
+      "sha256": "c4969c3c4ef1fe798c120d6d86ba9e049c602d9855138737131f50e148547d0f",
+      "duration_s": 30.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.8,
+      "lra_lu": 3.1,
+      "true_peak_dbtp": -8.8,
+      "decoded": true,
+      "pcm_sha256": "cecfc972d4687599f9412e4fb6a4ea94c31cd92768dcbca2183e4fd36ad0ea31",
+      "decoded_frames": 969697,
+      "decoded_seconds": 30.30303125,
+      "loop_end": 30.30303125,
+      "seam_jump": 2.3810266611690167e-06,
+      "loop_duration_s": 30.30303125
+    },
+    {
+      "file": "game/music/rpg/cinema_finale.ogg",
+      "bytes": 548098,
+      "sha256": "dae5c3fbe78e39317754dbd99318f6ac04dcba6191730913d6786235ff551f87",
+      "duration_s": 30.0,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.5,
+      "lra_lu": 2.9,
+      "true_peak_dbtp": -3.6,
+      "decoded": true,
+      "pcm_sha256": "dbc9e83e17938132e0158a1b284ebad631c7672d195e132959a76449c7b1a6cc",
+      "decoded_frames": 957118,
+      "decoded_seconds": 29.9099375
+    },
+    {
+      "file": "game/music/rpg/cinema_loss.ogg",
+      "bytes": 415989,
+      "sha256": "3c3434e27ebc247f70dae363c5bb3bb48903190c5504dc5d2fb949a857265406",
+      "duration_s": 22.5,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 3.3,
+      "true_peak_dbtp": -8.0,
+      "decoded": true,
+      "pcm_sha256": "c2bdbc7462e89d6ce1e9775d1059505d4897fe4b0b096219729e365c02b52f85",
+      "decoded_frames": 716905,
+      "decoded_seconds": 22.40328125
+    },
+    {
+      "file": "game/music/rpg/cinema_reveal.ogg",
+      "bytes": 403947,
+      "sha256": "d5f0e09ee820b01e94de1846b1149aa9e355de716a9ec7913afb980493dea9a3",
+      "duration_s": 22.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.6,
+      "lra_lu": 3.0,
+      "true_peak_dbtp": -4.7,
+      "decoded": true,
+      "pcm_sha256": "d2e90257696076e662e56d5a2928a9b9e122ae4e7a720966a34810741f2b674d",
+      "decoded_frames": 715926,
+      "decoded_seconds": 22.3726875
+    },
+    {
+      "file": "game/music/rpg/credits.ogg",
+      "bytes": 574849,
+      "sha256": "d599ef811bfae751b5855452ebfd3877846fff476512ce7e88c2d67373678e07",
+      "duration_s": 31.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 4.2,
+      "true_peak_dbtp": -4.0,
+      "decoded": true,
+      "pcm_sha256": "cda3bf3bb6e89f0855a09003403180f0651d1606b902651023bb9eba50336f14",
+      "decoded_frames": 1002117,
+      "decoded_seconds": 31.31615625
+    },
+    {
+      "file": "game/music/rpg/danger.ogg",
+      "bytes": 305003,
+      "sha256": "95e457cdccb8fb77e436556379f55ab99c497df82d2c7865bd9af58ce67c0874",
+      "duration_s": 20.3,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.0,
+      "lra_lu": 4.7,
+      "true_peak_dbtp": -6.8,
+      "decoded": true,
+      "pcm_sha256": "9a3ed090624c5b4bde516a48e7da818591d24934a2a5e93470de5256e300f730",
+      "decoded_frames": 646465,
+      "decoded_seconds": 20.20203125,
+      "loop_end": 20.20203125,
+      "seam_jump": 3.7642346342181554e-06,
+      "loop_duration_s": 20.20203125
+    },
+    {
+      "file": "game/music/rpg/discovery.ogg",
+      "bytes": 116575,
+      "sha256": "18ba39acd20b094bb49cd5234d5911d588217db05088b1ddb34af850f8dfd2ce",
+      "duration_s": 6.9,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.4,
+      "lra_lu": 8.6,
+      "true_peak_dbtp": -8.2,
+      "decoded": true,
+      "pcm_sha256": "1021c99aa001b41cb20d77365c42f4185181a3f4b5749f95e15815781f3e39e1",
+      "decoded_frames": 220381,
+      "decoded_seconds": 6.88690625
+    },
+    {
+      "file": "game/music/rpg/dungeon.ogg",
+      "bytes": 390618,
+      "sha256": "a47f2364b76c9c1ede9f1728e3a1b46fb73cfb3114c003734c7b77d862351c0b",
+      "duration_s": 24.7,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.1,
+      "lra_lu": 3.4,
+      "true_peak_dbtp": -7.0,
+      "decoded": true,
+      "pcm_sha256": "52c2c076c0468d4acbe86f9d230c051f4c32ea6306042a85ae84fc50f8ed7039",
+      "decoded_frames": 790123,
+      "decoded_seconds": 24.69134375,
+      "loop_end": 24.69134375,
+      "seam_jump": 2.6323066322220257e-06,
+      "loop_duration_s": 24.69134375
+    },
+    {
+      "file": "game/music/rpg/explore.ogg",
+      "bytes": 467210,
+      "sha256": "e0d7117fadabbac0aea10396ac5a8a1607f833a72bde6bdab1ff7f86e038b5a0",
+      "duration_s": 25.2,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.6,
+      "lra_lu": 3.3,
+      "true_peak_dbtp": -3.4,
+      "decoded": true,
+      "pcm_sha256": "55ceb18a520168ca0fcfe57af641c5f88979d0d0cec2e1080d8b745297c7c12c",
+      "decoded_frames": 805594,
+      "decoded_seconds": 25.1748125,
+      "loop_end": 25.1748125,
+      "seam_jump": 0.0001176350997411646,
+      "loop_duration_s": 25.1748125
+    },
+    {
+      "file": "game/music/rpg/garden.ogg",
+      "bytes": 436807,
+      "sha256": "b6c47fe9f7e9d21986994a261b49e9ada4436d81bed295a9639cea3f0a01e66f",
+      "duration_s": 26.7,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 1.8,
+      "true_peak_dbtp": -8.8,
+      "decoded": true,
+      "pcm_sha256": "ee42b0caa3443755807238e46e32d83f8e2387df4a1e90600f240129c1e630e2",
+      "decoded_frames": 851441,
+      "decoded_seconds": 26.60753125,
+      "loop_end": 26.60753125,
+      "seam_jump": 0.0001884149678517133,
+      "loop_duration_s": 26.60753125
+    },
+    {
+      "file": "game/music/rpg/home.ogg",
+      "bytes": 448771,
+      "sha256": "fcacb431a9304e1712a09ddd1998ac626703dfe9c34ba55fd3d0351568da7d77",
+      "duration_s": 26.7,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 2.6,
+      "true_peak_dbtp": -8.8,
+      "decoded": true,
+      "pcm_sha256": "32551a69932f340f6bae2963af6b7460a6fbef7987e24234f1694f2ac4f6bcc0",
+      "decoded_frames": 853333,
+      "decoded_seconds": 26.66665625,
+      "loop_end": 26.66665625,
+      "seam_jump": 1.9116414478048682e-06,
+      "loop_duration_s": 26.66665625
+    },
+    {
+      "file": "game/music/rpg/iona.ogg",
+      "bytes": 261861,
+      "sha256": "ea48752cbe312a45c46c03ceb3557561df76372d3b30c05920596228b8c13d30",
+      "duration_s": 15.9,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 1.4,
+      "true_peak_dbtp": -9.5,
+      "decoded": true,
+      "pcm_sha256": "9955dcb96a3eb48a6c35e60844fc2c8a2649997a5b1baf0ba15876e29a6437ef",
+      "decoded_frames": 505929,
+      "decoded_seconds": 15.81028125,
+      "loop_end": 15.81028125,
+      "seam_jump": 0.00022227471345104277,
+      "loop_duration_s": 15.81028125
+    },
+    {
+      "file": "game/music/rpg/iona_reunion.ogg",
+      "bytes": 321591,
+      "sha256": "d8e7230597c941fd26d0588fd8c1243a8768c6e9cea752e10ebc2445e1a7ade5",
+      "duration_s": 17.1,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.8,
+      "lra_lu": 2.6,
+      "true_peak_dbtp": -4.7,
+      "decoded": true,
+      "pcm_sha256": "af89e161236c62919ac3957dd540c98d33c9bfa402ac051368577298e96a5e65",
+      "decoded_frames": 547009,
+      "decoded_seconds": 17.09403125,
+      "loop_end": 17.09403125,
+      "seam_jump": 1.96043802134227e-05,
+      "loop_duration_s": 17.09403125
+    },
+    {
+      "file": "game/music/rpg/market.ogg",
+      "bytes": 330835,
+      "sha256": "d9d5a83579ff4c04b4f759cbdc39383f314cf3b7a1a4ce85aa95a1be09d0b5a1",
+      "duration_s": 20.3,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.6,
+      "lra_lu": 1.5,
+      "true_peak_dbtp": -9.4,
+      "decoded": true,
+      "pcm_sha256": "72c8178872a84511771e8a262d606735e535af39b446a0ba9aaf3e8e665f28b7",
+      "decoded_frames": 646465,
+      "decoded_seconds": 20.20203125,
+      "loop_end": 20.20203125,
+      "seam_jump": 9.02033116290113e-06,
+      "loop_duration_s": 20.20203125
+    },
+    {
+      "file": "game/music/rpg/rook.ogg",
+      "bytes": 237995,
+      "sha256": "6eba3d6c91883292182ea2af0d0fb610200b6d2c9cb9ae9a109c437065cb7470",
+      "duration_s": 14.6,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.8,
+      "lra_lu": 1.6,
+      "true_peak_dbtp": -8.9,
+      "decoded": true,
+      "pcm_sha256": "61b9a8a0e55a5a5dc4d8dd98cd2fb1556218db7725bce9cfb3c0982f4ab5653c",
+      "decoded_frames": 465455,
+      "decoded_seconds": 14.54546875,
+      "loop_end": 14.54546875,
+      "seam_jump": 0.0003907662467099726,
+      "loop_duration_s": 14.54546875
+    },
+    {
+      "file": "game/music/rpg/rook_awakened.ogg",
+      "bytes": 303206,
+      "sha256": "67c1fb8ef060a38d950e7655cfdb2ff4daef6981080181d6d4c61be9aaf8d12e",
+      "duration_s": 16.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.7,
+      "lra_lu": 4.8,
+      "true_peak_dbtp": -3.0,
+      "decoded": true,
+      "pcm_sha256": "be620861399034e11ad18e7c96da0b4354523ae100ad9184c2cf07c062111743",
+      "decoded_frames": 522805,
+      "decoded_seconds": 16.33765625,
+      "loop_end": 16.33765625,
+      "seam_jump": 0.00040557424654252827,
+      "loop_duration_s": 16.33765625
+    },
+    {
+      "file": "game/music/rpg/sable.ogg",
+      "bytes": 435285,
+      "sha256": "d0ca8ec0b305f7895ca4932100254cf7db587ff89fd15f2cbc4657ad3e309eb6",
+      "duration_s": 25.9,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 2.7,
+      "true_peak_dbtp": -9.5,
+      "decoded": true,
+      "pcm_sha256": "be92b9c9ef2b3dd418656b35b3342e56170488a16c1c3e7cbe77125fdae8170a",
+      "decoded_frames": 828479,
+      "decoded_seconds": 25.88996875,
+      "loop_end": 25.88996875,
+      "seam_jump": 1.0867919627344236e-05,
+      "loop_duration_s": 25.88996875
+    },
+    {
+      "file": "game/music/rpg/sable_resolve.ogg",
+      "bytes": 336902,
+      "sha256": "452dfe715b107c635e10a290a7c985d57c911f703d157d0c2f1de7095668e935",
+      "duration_s": 18.0,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.7,
+      "lra_lu": 1.0,
+      "true_peak_dbtp": -7.8,
+      "decoded": true,
+      "pcm_sha256": "4739278b366718f0f729a09f675337b14428cc2f9ac68c1093584a04acec38d4",
+      "decoded_frames": 573562,
+      "decoded_seconds": 17.9238125,
+      "loop_end": 17.9238125,
+      "seam_jump": 6.497372669400647e-05,
+      "loop_duration_s": 17.9238125
+    },
+    {
+      "file": "game/music/rpg/stinger.ogg",
+      "bytes": 79550,
+      "sha256": "6ad4e0ee5973a53cefe8e745898b7cc108e0e75612d3dd714e0b6c8552684d6e",
+      "duration_s": 4.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -17.1,
+      "lra_lu": 8.4,
+      "true_peak_dbtp": -3.5,
+      "decoded": true,
+      "pcm_sha256": "7e6e9850a757edb4d6706affca40679fe1a6934759aa6d993d2c9d6e800a55d4",
+      "decoded_frames": 139473,
+      "decoded_seconds": 4.35853125
+    },
+    {
+      "file": "game/music/rpg/town.ogg",
+      "bytes": 493817,
+      "sha256": "f492fa22deddbf4736f4e44b9edbaca1c78ea9ff63f97cd7b38996d588baf033",
+      "duration_s": 26.4,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.4,
+      "lra_lu": 1.6,
+      "true_peak_dbtp": -5.8,
+      "decoded": true,
+      "pcm_sha256": "28f610a7b2d48abe8da585e4d079f062e9522225f6adfeed28b2827e9eae7459",
+      "decoded_frames": 843956,
+      "decoded_seconds": 26.373625,
+      "loop_end": 26.373625,
+      "seam_jump": 0.0002906097215600312,
+      "loop_duration_s": 26.373625
+    },
+    {
+      "file": "game/music/rpg/transition.ogg",
+      "bytes": 73024,
+      "sha256": "7c29356fdeef88b4bf24d394c5ccd111b2b5369a11654a7ca25dd42995460032",
+      "duration_s": 4.5,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -16.8,
+      "lra_lu": 9.3,
+      "true_peak_dbtp": -7.1,
+      "decoded": true,
+      "pcm_sha256": "47d1cd9eaef625eedcda92666395f0f9ba6c2131cb19ca1b8e550b1a022ffb79",
+      "decoded_frames": 142546,
+      "decoded_seconds": 4.4545625
+    },
+    {
+      "file": "game/music/rpg/victory.ogg",
+      "bytes": 180663,
+      "sha256": "1c439eb4cc9aaa6e4ee681307127d5f40fe845760e3753f8c350c20bdcf7c6de",
+      "duration_s": 10.2,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.3,
+      "lra_lu": 5.6,
+      "true_peak_dbtp": -7.3,
+      "decoded": true,
+      "pcm_sha256": "be29c6ab06cd4b9e6c7cd69912310e223a95e532b035e216f8abb2e2cb7ebe4d",
+      "decoded_frames": 324536,
+      "decoded_seconds": 10.14175
+    },
+    {
+      "file": "game/music/rpg/water_cavern.ogg",
+      "bytes": 428334,
+      "sha256": "8f052956c890d7bed558071626cce93b83958d2fcb51f40fbe41120f2bb3be43",
+      "duration_s": 24.3,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.7,
+      "lra_lu": 1.6,
+      "true_peak_dbtp": -6.5,
+      "decoded": true,
+      "pcm_sha256": "3d90959ce37b93a84e65e5202df763f2b0a0a8951e9b5849eb9893b69dffc13e",
+      "decoded_frames": 775758,
+      "decoded_seconds": 24.2424375,
+      "loop_end": 24.2424375,
+      "seam_jump": 0.00023167092876974493,
+      "loop_duration_s": 24.2424375
+    },
+    {
+      "file": "game/music/rpg/workshop.ogg",
+      "bytes": 387610,
+      "sha256": "3f7540b73e46d8dc057333308c8b2710c208c70df415f222d7702ead0cdacef7",
+      "duration_s": 23.0,
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "sample_rate": "32000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.9,
+      "lra_lu": 2.5,
+      "true_peak_dbtp": -9.0,
+      "decoded": true,
+      "pcm_sha256": "1d8c452fe5cc80f33380191870ca917b9478336744badfeb4f636a266cda2440",
+      "decoded_frames": 735632,
+      "decoded_seconds": 22.9885,
+      "loop_end": 22.9885,
+      "seam_jump": 1.3959295756649226e-05,
+      "loop_duration_s": 22.9885
+    },
+    {
+      "file": "music/clay_and_water/performance.ogg",
+      "bytes": 4164829,
+      "sha256": "3e7f0b34843f6b9cdf25e0bbf3377a2e10b39f1f19437d180b8dc173cdd58104",
+      "duration_s": 360.412875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -19.2,
+      "lra_lu": 6.4,
+      "true_peak_dbtp": -0.9,
+      "pcm_sha256": "73f8a6f1ffbc7660bfb305f04810466870880b0101868ff726e235d45c191756",
+      "decoded_seconds": 360.406375
+    },
+    {
+      "file": "music/the_water_remembers/performance.ogg",
+      "bytes": 2133456,
+      "sha256": "473e1f7e8e7287c9f8fd0a59005903511fad43a918d4a456a6495712f7c6239f",
+      "duration_s": 183.987875,
+      "streams": [
+        {
+          "codec_name": "opus",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "integrated_lufs": -18.2,
+      "lra_lu": 6.7,
+      "true_peak_dbtp": -1.1,
+      "pcm_sha256": "a75e4ddbfbd4a7607b42028b702318c6de4fdc50100f4e4d9e608d247738b2ae",
+      "decoded_seconds": 183.981375
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+✔ desktop-to-phone baseline recomposition clears inherited pan and restores the actual mast silhouette (1836.423723ms)
+✔ a manual lens retains its established pan when the viewport changes (641.57091ms)
+✔ an active baseline pinch anchor survives the resize and lands at its requested portrait pixel (626.968884ms)
+✔ the actual receiver is a bounded handcrafted instrument carried above the closed native mast (1087.517568ms)
+✔ native receiver, grounding, repair and reply states have distinct visible shapes and previews (402.961291ms)
+✔ the real ceramic bowl has front-facing winding and remains visible to the east/front game camera (356.089712ms)
+✔ the iris and reply shutters clear the entire tall mast silhouette in the actual camera projection (365.623977ms)
+✔ all 512 original runtime files have their manifest hashes and every v4 event cue ships (22.818421ms)
+✔ actual scene, material and object mappings use known acoustic names (1.402738ms)
+✔ no playback before gesture and visible boss cues use real actor names (1.786908ms)
+✔ host combat casts map all elements to actual files and replayed callback objects play once (7.20249ms)
+✔ menu/hidden gating cancels active cues and does not schedule gain changes every frame (0.662702ms)
+✔ device cues require actual accepted interactions and listening grants no invented rewards (4.557872ms)
+✔ caption parity and mute never mutate world or combat state (1.821838ms)
+✔ ambience-only pacing stops optional score stems while keeping world and Hydrophone sound (2.704796ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3401.170767

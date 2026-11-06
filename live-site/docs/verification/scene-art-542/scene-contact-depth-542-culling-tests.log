@@ -1,0 +1,13 @@
+✔ all 165 ordinary World scenes gain bounded structural contact without changing floor, native inputs or saved state (3250.620691ms)
+✔ closed authored roots produce short opposing-key casts and exclude actual water, control and blocker receivers (12.542385ms)
+✔ floor and blocker edits invalidate only the contact plan and long walls stay connected instead of tracing an internal checkerboard (15.511989ms)
+✔ live lead culling reuses cached bounds, softly fades distant receivers and restores identical shadows on re-entry (15.385512ms)
+✔ actual phone software painting darkens the connected structure contact while native input floor stays unchanged (30.858845ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3867.083006

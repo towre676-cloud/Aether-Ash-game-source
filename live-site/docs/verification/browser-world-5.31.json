@@ -1,0 +1,121 @@
+{
+  "schema": "ash-aether.browser-world-review/1",
+  "release": "5.31",
+  "checked_at_utc": "2026-10-30T19:51:07.549672+00:00",
+  "backend": "software-3d",
+  "viewport": [
+    1363,
+    936
+  ],
+  "source_hashes": {
+    "main.js": "088455c9794b1a23a4924a83af44a6af2fd034aa48d6712412ad429e39f4cac7",
+    "adventure-3d-renderer.js": "60117731c22f601cde8aed515423ac3c5580c675a4caa95e66b20f716a0e5abe",
+    "adventure-3d-geometry.js": "8dd60a98e9b2aae638a8d19d8e35ddabb9a2a515ca4b255f1495b75c16138359",
+    "adventure-dungeon-architecture.js": "0c1916dd57635efff3ebb4819e5038fad85c00d8442ec2d50b7dc9aa2f7551fa",
+    "adventure-set-dressing.js": "d40f7048757d4c43e802082e2143bf38fc03695bfc134f3a7c1a0c93389cb903",
+    "adventure-content-models.js": "b00f76e917471cb128f115d676dba752e5dc10c47908de195611d13f39cb24f0",
+    "adventure-living-content.js": "767ad50aa66d3a92ad2a4eb9b7502efbb9f81ee9dcfd543573bb30c84725d279",
+    "adventure-encounter-content.js": "725735163a4f14372dae64f0af1c202ab976d315df519c14e50c5ccd685b9956",
+    "adventure-surface-states.js": "bc5c7e7344f400388b0e84b4870c547e97021dfb0e81fe32dc3a2503bceb8a8f",
+    "living-world-ui.js": "4a9b1cae83f3d62cbe51e97f5c2d477ecbaa41831d1199e1b910af7b9dc7812d",
+    "living-world-ui.css": "2bb3a47979b84f861ec3e3a60669f9f1024aeb2d5f955b40c4f473fc0c59a65f",
+    "campaign-actuators.js": "6c6ab5c33f6df644731ada59480964db97ef37955b192aef5bc5c4776cebe08d",
+    "regional-life.js": "6fd80bfcff64a7709fc5c31f30f04dcf85eacbbae33f5b34d174235e1b817fc5",
+    "cistern-software.js": "2a1613115fe4891c155c23c2e46c56c32d4a231b7e247e937eb76a75d5147cdf"
+  },
+  "checks": [
+    {
+      "case": "ordinary Sable house",
+      "scene": 50000,
+      "position": [
+        21.5,
+        9.68
+      ],
+      "reset_view_and_controls": {
+        "zoom": 1.35,
+        "mode": "automatic",
+        "dpad_and_face_controls_visible": true
+      },
+      "screenshot": "house-full-world-5.31.jpg"
+    },
+    {
+      "case": "isolated environment studio",
+      "scene": 703,
+      "title": "The Dry Pump Room",
+      "full_3d_renderer": true,
+      "floor_moisture_not_rendered_as_grid_of_puddles": true,
+      "opaque_triangle_seams_visually_closed": true
+    },
+    {
+      "case": "isolated environment studio",
+      "scene": 2032,
+      "title": "Crystal Caverns \u00b7 Hollow",
+      "native_arrow_movement_observed": true
+    },
+    {
+      "case": "regular campaign chapter4 practice",
+      "scene_transition": [
+        292,
+        47
+      ],
+      "three_crew_members_visible": true,
+      "dungeon_control_after_transition": true
+    },
+    {
+      "case": "regular chapter3 practice battle",
+      "scene": 47,
+      "native_battle_commands_and_enemy_health_visible": true,
+      "native_hero_health_change_observed": true,
+      "outcome": "not completed; left through isolated developer portal"
+    },
+    {
+      "case": "regular chapter13 practice direct salvage pickup",
+      "world_use_presses": 1,
+      "notice": "Salvage hook added to the travel kit.",
+      "workbench_panel_opened": false,
+      "followup_kit_action": "Pack Salvage hook for the next contact",
+      "followup_cost": "Moves 1 \u2192 next encounter",
+      "screenshot": "direct-pickup-5.31.jpg"
+    },
+    {
+      "case": "explicit field kit choice tray",
+      "rect": {
+        "x": 361.5,
+        "y": 475,
+        "width": 640,
+        "height": 224
+      },
+      "details_open": false,
+      "hud_and_touch_controls_visible": true,
+      "done_returns_to_field": true,
+      "screenshot": "compact-field-tray-5.31.jpg"
+    }
+  ],
+  "verification": {
+    "full_regression": {
+      "modules": 196,
+      "reported_tests": 1537,
+      "passed": 1537,
+      "failed": 0,
+      "report": "release-5.31-world-tests.json"
+    },
+    "final_input_surface_supplement": {
+      "tests": 41,
+      "passed": 41,
+      "report": "final-input-surface-5.31.log"
+    },
+    "native_ui_supplement": {
+      "tests": 32,
+      "passed": 32,
+      "report": "field-action-ui-5.31.log"
+    },
+    "complete_scene_coverage": "all-3d-coverage-5.31.json"
+  },
+  "limits": [
+    "The cloud browser cannot measure device WebGL/GPU performance.",
+    "Physical Android two-finger input was not generated; camera/viewport math and actual reset were checked separately.",
+    "The browser review samples representative scenes and interactions; it is not a full manual playthrough of every chapter or choice.",
+    "Character and pet artwork remains the original illustrated sprites in the 3D environment."
+  ],
+  "passed": true
+}

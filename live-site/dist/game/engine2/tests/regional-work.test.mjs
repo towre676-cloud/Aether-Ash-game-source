@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {earnOpening} from './opening-flow.mjs';
+import {REGIONS} from '../regional-content.js';
+import {regionalWorkMenu,regionalWorkView,validateRegionalWork} from '../regional-life.js';
+test('each region has its own observed condition and a persistent preparation before completion',()=>{assert.equal(new Set(REGIONS.map(p=>p.work.observation)).size,24);const h=earnOpening(),w=h.w;w.state.chapter=24;let dialog;w.callbacks.onDialog=d=>dialog=d;for(const p of REGIONS){const choose=label=>{const option=dialog.choices.find(c=>c.label===label);assert.ok(option,label);option.action();dialog?.after?.();};regionalWorkMenu(w,p);choose(p.work.finish);assert.equal(regionalWorkView(w.state,p.chapter).phase,0);regionalWorkMenu(w,p);choose(p.work.prepare);assert.equal(regionalWorkView(w.state,p.chapter).phase,1);if(p.chapter===4){const saved=w.save();w.restore(saved);assert.equal(regionalWorkView(w.state,4).phase,1);}regionalWorkMenu(w,p);choose(p.work.finish);assert.equal(regionalWorkView(w.state,p.chapter).phase,2);const items={...w.state.items};regionalWorkMenu(w,p);assert.deepEqual(w.state.items,items);}});
+test('regional work validation accepts existing saves and rejects invalid steps',()=>{validateRegionalWork({});validateRegionalWork({regionalLife:{work:{4:1,24:2}}});for(const work of [{25:1},{4:3},{4:NaN},[]])assert.throws(()=>validateRegionalWork({regionalLife:{work}}),/regional work/);});

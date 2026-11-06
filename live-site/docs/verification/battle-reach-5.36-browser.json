@@ -1,0 +1,109 @@
+{
+  "release": "5.36 \u00b7 Battle controls",
+  "full_regression": {
+    "tests": 1644,
+    "passed": 1644,
+    "failed": 0,
+    "log": "battle-reach-5.36-tests.log"
+  },
+  "phone": {
+    "outer_viewport": [
+      390,
+      844
+    ],
+    "game_viewport": [
+      388,
+      842
+    ],
+    "native_guardian_practice": true,
+    "document_scroll_height": 842,
+    "document_client_height": 842,
+    "standard_stick": {
+      "x": 12,
+      "y": 712,
+      "width": 112,
+      "height": 112,
+      "right": 124
+    },
+    "standard_crew": {
+      "x": 132,
+      "y": 648,
+      "width": 244,
+      "height": 48
+    },
+    "picker": {
+      "x": 132,
+      "y": 699,
+      "width": 244,
+      "height": 87,
+      "scroll_height": 87,
+      "client_height": 87
+    },
+    "close": {
+      "x": 298,
+      "y": 789,
+      "width": 72,
+      "height": 44
+    },
+    "larger_controls": {
+      "stick_right": 132,
+      "crew_left": 140,
+      "reserve_px": 128,
+      "document_scroll_height": 842
+    },
+    "verified_native_actions": [
+      "Mako single page Close",
+      "Supply last page",
+      "Iona actor selection and Renewal Lance",
+      "Tactics picker",
+      "bottom Battle options Pause",
+      "bottom Return to game",
+      "Crew setup",
+      "Characters",
+      "Supply bag",
+      "Armory Satchel \u2192 Inspect selected",
+      "Armory bottom bearer cycle Sable \u2192 Rook",
+      "Armory Return to prior pause context"
+    ]
+  },
+  "compact_goal_fixture": {
+    "viewport": [
+      568,
+      320
+    ],
+    "game_viewport": [
+      566,
+      318
+    ],
+    "document_scroll_height": 318,
+    "document_client_height": 318,
+    "objective_status": {
+      "x": 14,
+      "y": 7,
+      "height": 20
+    },
+    "replay_selects_height": 44,
+    "close_height": 44,
+    "replay_result": "Native instrument/replay accepted; cutting line; north; decoy at 3.5,1.5; uses 1",
+    "controlled_time_zero": true,
+    "journey_save_access": false
+  },
+  "visual_review": [
+    "Actual phone guardian battle and single-action picker",
+    "Compact illustrated menu and character details",
+    "Native Armory weapon, Satchel, Inspect and Bearer",
+    "Ordinary Veyr journey resumed; visible stone/roof grain and reduced fog"
+  ],
+  "limitations": [
+    "Browser phone-size viewport, not physical Android hardware or GPU performance measurement",
+    "Goal fixture checks native controls with simulation time held at zero; it does not prove encounter progression",
+    "Material and service-cover refinements do not constitute a complete environment art replacement"
+  ],
+  "independent_audit": {
+    "production_js_syntax": 26,
+    "css_files": 4,
+    "versioned_references": 51,
+    "missing_dependencies": 0,
+    "diff_check": "clean"
+  }
+}

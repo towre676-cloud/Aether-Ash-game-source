@@ -1,0 +1,31 @@
+{
+  "method": "WebP quality96, original dimensions, opaque RGB only; no asset or playable content removed. Original pixel comparisons performed before replacement.",
+  "assets": [
+    {
+      "file": "dist/game/engine2/art/world-materials-v3.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "before_bytes": 2963504,
+      "after_bytes": 1055604,
+      "psnr_db": 35.17812502339803,
+      "quality": 96,
+      "sha256": "67f5f87d6d31a21bbd333ce71afe18d870010477b2c342deec530fccde48d8d0",
+      "original_sha256": "ae4815484bcd307e854d23a22cd3759a9e267d3ea689e82ff10962092a2ce5d2"
+    },
+    {
+      "file": "dist/game/engine2/art/cistern/material-atlas-v2.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "before_bytes": 2634030,
+      "after_bytes": 988230,
+      "psnr_db": 38.72858783072133,
+      "quality": 96,
+      "sha256": "107360c9b52ce17d7e8c5439601a65f685cfbf63583e6452e667d60324fb6a1d",
+      "original_sha256": "5214e81fd0cb5f8c4358c6380ecf0dc0db4392ef7f2c69ca68eea80815c8d510"
+    }
+  ]
+}

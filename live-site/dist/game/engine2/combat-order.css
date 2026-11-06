@@ -1,0 +1,6 @@
+#combat-order{display:flex;align-items:center;gap:.55rem;padding:.5rem .65rem;border:1px solid #cdb77666;border-radius:6px;background:#1a2833;color:#f3dfaa;font-size:.78rem;line-height:1.4;margin:.35rem 0}#combat-order[hidden]{display:none}#combat-order span{flex:1;min-width:0}#combat-order button{flex:0 0 auto;padding:.35rem .6rem;min-height:36px;font-size:.75rem}#combat-order[data-phase=approaching]{border-color:#e7bc61}#combat-order[data-phase=charging]{border-color:#86c5cb}
+
+#combat-order button[hidden]{display:none}#combat-order[data-phase=idle]{padding:.32rem .55rem;border-color:transparent;background:#13252d;color:#c6d6ca}
+
+/* Keep command targets still when an order gains or loses its Cancel button. */
+#combat-order,#combat-order[data-phase=idle]{box-sizing:border-box;min-height:52px;padding:.5rem .65rem}

@@ -1,0 +1,454 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "cropMethod": "Eight main silhouettes identified at alpha > 8. Five single crops and three sets of horizontal source strips isolate overlapping crown bounding boxes. Source strips preserve original pixel offsets against one trunk-root anchor and do not manipulate generated pixels. No canopy requires more than five draw calls. Source envelopes supply shared draw and occlusion geometry.",
+  "rootAnchorMethod": "Manual visual registration at the root-ground contact. Off-center leaning alder and juniper use their actual root positions rather than bounding-box centers.",
+  "sitePolicy": "52% deterministic selection of existing safe scenic-tree sites; no new sites or collision. Snow spruce restricted to ice/glacier/aurora, acacia to dry regions, storm juniper in unsnowed highland/storm. Legacy atlas remains fallback when optional image is unavailable or not the original dimensions.",
+  "sheets": [
+    {
+      "id": "canopies",
+      "file": "environment-canopies-v17.png",
+      "assetKey": "environmentCanopies",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-4c807efe-dec7-4d57-a51c-533b80a9ce85.png",
+      "sha256": "a9dee896e62b1e2d11688cc687c0540e60d54bad91dc5f71dbbade5abaa793ec",
+      "bytes": 3146499,
+      "width": 1774,
+      "height": 887,
+      "transparentPixels": 486361,
+      "prompt": "Create an original production game-art atlas for Ash & Aether, a handcrafted fantasy world of clay, water, weathered brass and inhabited woodland. Output ONE transparent PNG, wide 2:1 aspect ratio, precisely FOUR columns by TWO rows of EIGHT fully isolated tree or tree-like canopy silhouettes. Each square cell contains a different whole specimen, ROOTS to TOP, centered with ample clear alpha margins on every side. No contact with neighboring cells, no touching canvas edge. There must be no backdrop, no sky, no opaque terrain patches, no display bases, no vignette, no text, no labels, no grid. Soft very modest contact shadow confined immediately under roots; mostly actual alpha around the entire specimen.\n\nArt direction: exquisitely painted restrained storybook realism, fine gouache and watercolor texture, natural layered foliage masses, weathered bark, deliberate distinctive silhouettes with clean readable edges. Same elevated three-quarter game camera for all eight, looking downward around 40 degrees so we can see the top of foliage and roots on a horizontal ground plane. Camera parallel, not fisheye, not front-on botanical chart. Light from upper left. Muted olive, willow green, sage, ochre, clay, slate and pale cream, with occasional tiny flowers. High craft and detailed textures, but avoid extreme contrast, shiny plastic, saturated cyan or neon. Trunks mostly concealed by branching, canopy must be substantial; these are full living trees rather than poles with leaves. Height and mass should occupy about 80% of each cell, with consistent root baseline near its lower edge. All trees have their own subtle asymmetry, no mirrored botanical symmetry.\n\nEight exact subjects, reading left to right:\nTOP ROW\n1. OLD ORCHARD APPLE: wide gently bowed boughs, muted sage leaves, scattered cream blossoms, a few tiny ochre apples, thick twisted bark and exposed fine roots. Welcoming inhabited village character.\n2. HAZEL COPPICE: several irregular stems growing from a single old stump, layered olive and umber foliage, a small fern at the roots; irregular full rounded silhouette distinct from apple.\n3. RIVER ALDER: leaning grey-barked trunk, open spreading crown of small silver-green leaves, roots curling outward at the waterline, tiny dark seed catkins, no water background.\n4. MANGROVE CYPRESS: knotted buttress roots and several small cypress knees, crooked trunk splitting low, loose green and warm golden drooping boughs, rich but not spherical canopy. No rock platform, no visible water.\n\nBOTTOM ROW\n5. FROST SPRUCE: slender natural conifer with layered irregular blue-green boughs, restrained patches of clean powder snow, exposed lower roots and small pinecones; tapered crown with complete uncut top.\n6. STORM JUNIPER: mature squat tree leaning from years of wind, layered windswept crown flowing clearly right, deep dull olive foliage, silver weathered bark and twisting grip roots, completely UNSNOWED.\n7. DRYLAND ACACIA: elegant flat spreading umbrella canopy, fine grey-green leaves, crooked reddish bark, dry branching roots; naturally sparse delicate tree, absolutely no snow, no cactus, no sand backing.\n8. SPORE GROVE CANOPY: a restrained fantastical tree of pale branching mycelial wood, layered broad shelf-like leaf clusters and small cream/lavender fungal cups, muted dusky green foliage, extremely subtle points of warm light, fully organic and natural in shape, NOT a giant neon mushroom and no orb or magical effects.\n\nA usable atlas of EIGHT original environment canopy assets, each complete and separated by transparent gutters, NOT a landscape illustration. Preserve every root and twig within its cell.\n",
+      "sprites": [
+        {
+          "id": "orchard-apple",
+          "label": "Orchard apple",
+          "crop": [
+            0,
+            11,
+            452,
+            423
+          ],
+          "opaque": [
+            0,
+            15,
+            448,
+            415
+          ],
+          "anchor": [
+            230,
+            420
+          ],
+          "height": 174,
+          "parts": [
+            [
+              0,
+              11,
+              452,
+              423
+            ]
+          ]
+        },
+        {
+          "id": "hazel-coppice",
+          "label": "Hazel coppice",
+          "crop": [
+            454,
+            4,
+            424,
+            431
+          ],
+          "opaque": [
+            458,
+            8,
+            416,
+            423
+          ],
+          "anchor": [
+            650,
+            420
+          ],
+          "height": 181,
+          "parts": [
+            [
+              454,
+              4,
+              424,
+              431
+            ]
+          ]
+        },
+        {
+          "id": "river-alder",
+          "label": "River alder",
+          "crop": [
+            893,
+            12,
+            430,
+            425
+          ],
+          "opaque": [
+            897,
+            16,
+            422,
+            417
+          ],
+          "anchor": [
+            1038,
+            424
+          ],
+          "height": 195,
+          "parts": [
+            [
+              893,
+              12,
+              430,
+              425
+            ]
+          ]
+        },
+        {
+          "id": "mangrove-cypress",
+          "label": "Mangrove cypress",
+          "crop": [
+            1334,
+            13,
+            440,
+            424
+          ],
+          "opaque": [
+            1338,
+            17,
+            436,
+            416
+          ],
+          "anchor": [
+            1555,
+            424
+          ],
+          "height": 202,
+          "parts": [
+            [
+              1334,
+              13,
+              440,
+              424
+            ]
+          ]
+        },
+        {
+          "id": "snow-spruce",
+          "label": "Snow spruce",
+          "crop": [
+            30,
+            437,
+            359,
+            436
+          ],
+          "opaque": [
+            34,
+            441,
+            351,
+            428
+          ],
+          "anchor": [
+            210,
+            859
+          ],
+          "height": 214,
+          "parts": [
+            [
+              30,
+              437,
+              359,
+              436
+            ]
+          ]
+        },
+        {
+          "id": "storm-juniper",
+          "label": "Storm juniper",
+          "crop": [
+            416,
+            457,
+            519,
+            406
+          ],
+          "opaque": [
+            420,
+            461,
+            511,
+            398
+          ],
+          "anchor": [
+            615,
+            849
+          ],
+          "height": 185,
+          "parts": [
+            [
+              416,
+              457,
+              477,
+              95
+            ],
+            [
+              416,
+              552,
+              454,
+              39
+            ],
+            [
+              416,
+              591,
+              476,
+              47
+            ],
+            [
+              416,
+              638,
+              519,
+              225
+            ]
+          ]
+        },
+        {
+          "id": "desert-acacia",
+          "label": "Desert acacia",
+          "crop": [
+            869,
+            462,
+            499,
+            405
+          ],
+          "opaque": [
+            873,
+            466,
+            491,
+            397
+          ],
+          "anchor": [
+            1135,
+            851
+          ],
+          "height": 181,
+          "parts": [
+            [
+              893,
+              462,
+              475,
+              90
+            ],
+            [
+              870,
+              552,
+              498,
+              31
+            ],
+            [
+              870,
+              583,
+              457,
+              8
+            ],
+            [
+              892,
+              591,
+              435,
+              47
+            ],
+            [
+              937,
+              638,
+              390,
+              229
+            ]
+          ]
+        },
+        {
+          "id": "spore-canopy",
+          "label": "Spore fungal canopy",
+          "crop": [
+            1330,
+            452,
+            436,
+            419
+          ],
+          "opaque": [
+            1334,
+            456,
+            428,
+            411
+          ],
+          "anchor": [
+            1582,
+            858
+          ],
+          "height": 201,
+          "parts": [
+            [
+              1368,
+              452,
+              398,
+              131
+            ],
+            [
+              1330,
+              583,
+              436,
+              288
+            ]
+          ]
+        }
+      ],
+      "archivedSourcePath": "development/art/source-v17/environment-canopies-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/environment-canopies-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/environment-canopies-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1093120,
+        "sha256": "31b47226dd12a9a680203c7525548c377129a936616db7c00a0620688fa42943",
+        "sourceSha256": "a9dee896e62b1e2d11688cc687c0540e60d54bad91dc5f71dbbade5abaa793ec",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "environment-canopies-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "alphaAbove32OutsideAllParts": 0,
+      "alphaAbove32RetainedPixels": 835390,
+      "alphaAbove32TotalPixels": 835390,
+      "alphaAbove32TouchesAtlasEdges": false,
+      "checks": [
+        {
+          "id": "orchard-apple",
+          "passed": true,
+          "sourceParts": 1,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 114180,
+              "total": 114180,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "hazel-coppice",
+          "passed": true,
+          "sourceParts": 1,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 111783,
+              "total": 111783,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "river-alder",
+          "passed": true,
+          "sourceParts": 1,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 101726,
+              "total": 101726,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "mangrove-cypress",
+          "passed": true,
+          "sourceParts": 1,
+          "largeComponents": [
+            {
+              "component": 4,
+              "included": 109964,
+              "total": 109964,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "snow-spruce",
+          "passed": true,
+          "sourceParts": 1,
+          "largeComponents": [
+            {
+              "component": 41,
+              "included": 80352,
+              "total": 80352,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "storm-juniper",
+          "passed": true,
+          "sourceParts": 4,
+          "largeComponents": [
+            {
+              "component": 43,
+              "included": 116336,
+              "total": 116336,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "desert-acacia",
+          "passed": true,
+          "sourceParts": 5,
+          "largeComponents": [
+            {
+              "component": 44,
+              "included": 83979,
+              "total": 83979,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "spore-canopy",
+          "passed": true,
+          "sourceParts": 2,
+          "largeComponents": [
+            {
+              "component": 42,
+              "included": 116932,
+              "total": 116932,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

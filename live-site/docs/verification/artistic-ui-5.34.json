@@ -1,0 +1,74 @@
+{
+  "release": "5.34 \u00b7 Bronze & vellum",
+  "scope": "Presentation: entrance, title, traveller folio, play HUD, dialogue, pause/crew/supply/battle surfaces, campaign Armory",
+  "tests": {
+    "passed": 65,
+    "failed": 0,
+    "log": "artistic-ui-5.34-tests.log"
+  },
+  "browser": {
+    "desktop_game": [
+      1363,
+      936
+    ],
+    "desktop_armory_harness": [
+      1440,
+      900
+    ],
+    "phone_harness": [
+      390,
+      844
+    ],
+    "phone_game_client_width": 388,
+    "phone_armory_client_width": 363,
+    "phone_armory_scroll_width": 363,
+    "phone_tabs_height": 48,
+    "phone_music_button": [
+      44,
+      44
+    ],
+    "phone_dpad": {
+      "left": 12,
+      "top": 713,
+      "width": 112,
+      "height": 112,
+      "bottom": 825
+    },
+    "reset_control_verified": true,
+    "sticky_return_top_after_upgrade": 0
+  },
+  "native_practice_transactions": [
+    {
+      "action": "equip",
+      "power": 168,
+      "scrap": 35
+    },
+    {
+      "action": "desktop_temper_1",
+      "power": 182,
+      "scrap": 27
+    },
+    {
+      "action": "phone_temper_2",
+      "power": 196,
+      "scrap": 12
+    }
+  ],
+  "art": {
+    "path": "dist/game/art/ui/armory-sanctum-5.34.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 282870,
+    "mode": "built-in image generation",
+    "prompt": "ui-art-prompt-5.34.txt"
+  },
+  "screenshots": [
+    "weapon-desktop-5.34.jpg",
+    "weapon-phone-5.34.jpg"
+  ],
+  "limits": [
+    "Browser checks use software 3D fallback, not Android GPU performance measurements.",
+    "Weapon view remains the native vector illustration with bounded tilt and magnification.",
+    "Practice equipment screenshots use an isolated session; ordinary journey inventory is untouched."
+  ]
+}

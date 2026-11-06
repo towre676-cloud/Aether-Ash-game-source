@@ -1,0 +1,1227 @@
+{
+  "schema": "ash-aether.architecture-art/2",
+  "collection": "v19",
+  "creation": "built-in image_gen; originals unchanged",
+  "placementContract": "Purpose-specific single window bays fit existing source window centers, actual exposed wall bounds, neighboring bays and doorway clearance. Roofcraft stays on the actual roof or wall projection; no new doors, floors, stairs or interactions. Existing v17/procedural art is retained as missing-image or narrow-frontage fallback.",
+  "sheets": [
+    {
+      "id": "facade-bays-v19",
+      "assetKey": "environmentFacades",
+      "originalGenerationPath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-0ac67143-68fd-4faf-bcb4-faf74b30fadc.png",
+      "sourceFile": "development/art/source-v19/facade-bays-v19.png",
+      "sourceSha256": "2793db0c974778d3da0051c1be4678458a21823f6df64ac1abf8134d75ab351e",
+      "sourceBytes": 2452310,
+      "runtimeFile": "dist/game/engine2/art/facade-bays-v19.webp",
+      "deliverySha256": "37f09cf56320e717aa36d488a35b0040f6ec2a65932b4f34826bfc1e3a95dc5c",
+      "deliveryBytes": 672872,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "prompt": "Use case: stylized-concept. Asset type: original transparent production sprite atlas for the hand-painted Ash & Aether RPG, landscape 4 columns by 2 rows, EIGHT isolated architecture WINDOW BAYS. Each is a modest single wall bay with one clear window opening, supporting plaster/stone/timber, a shallow eave or lintel and integrated sill. These are NOT entire houses and NEVER doors. They will be fitted into actual 64-pixel-tall building walls at 38–54 pixels high, so use bold coherent material masses and restrained details that survive small size. STYLE reference: existing A&A gouache construction details, warm clay plaster, weathered deep-brown timber, cool limestone, muted blue/verdigris, gentle upper-left daylight. Painterly watercolor/gouache edges and physical weathering, rounded irregular silhouette, low specularity, no photorealism. Camera: orthographic front-facing elevation with a slight elevated view showing the tops of sills/eaves; wall face square to camera, no left/right yaw or trapezoid perspective. Top row left to right: 1 HOME: bowed dark timber frame surrounding patched warm limewash, a small amber double casement, a thin terracotta tiled eave and a compact rose/thyme sill box; 2 CLINIC: cool chalk-white and pale sage plaster, a broad airy pale blue glazed casement, herb drying slats and a simple pale stone sill, tiny sage sprigs, clinical cleanliness without modern signs; 3 INSTRUMENTWORKS: honey-brown timber and ochre clay infill, an arched blue glass fanlight over a small window, carved abstract sound-wave/lyre-like timber ribs, a brass resonator disk integrated in the lintel, handmade music workshop identity; 4 INN/KITCHEN: warm weathered brick and limewash bay with a small dark serving window, muted indigo half-shutter, rounded tiled hood, a tiny bread crock on the broad sill, hospitable but not a shop counter extending into ground. Bottom row left to right: 5 GUILD/ARCHIVE: cool limestone surround with two narrow indigo leaded panes within one bay, horizontal carved lintel, restrained brass corner fittings, two abstract sealed tablets integrated below the sill with NO legible writing; 6 CARPENTER/WORKSHOP: stout repaired timber-framed limewash bay, small open slatted shutter window, visible pegged joinery and a thin closed wall tool rack with one plane and wood pegs, compact sawtooth eave; 7 CHAPEL: pale weathered limestone single arched window bay with muted dusty-blue and honey glass, a small curved stone moulding and worn abstract three-lobed relief above, contemplative without symbols or signage; 8 CISTERN: blue-green weathered glazed brick bay with a small round barred inspection window, a restrained copper water-level vessel integrated at the side and a damp limestone sill, no running water. All wall bases stop at their sill/plinth, no floor, no ground, no courtyard paving, no steps, no entry holes large enough for people, no figures, no text/labels/numbers/watermark. True transparent alpha background. Every sprite must be fully complete and entirely separated from neighbors by wide transparent gutters at least 10% of each cell; leave a substantial transparent outside margin. Exactly 8 distinct objects in exact 4×2 ordering, no extra items between cells. Every prop fits safely inside its own nominal cell including its shadow and foliage. No checkerboard baked into pixels.",
+      "encoding": {
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "alpha": "exact original alpha",
+        "dimensions": "unchanged"
+      },
+      "cropAudit": {
+        "alphaRetentionByThreshold": {
+          "4": {
+            "retained": 925888,
+            "omitted": 0
+          },
+          "8": {
+            "retained": 921596,
+            "omitted": 0
+          },
+          "16": {
+            "retained": 919593,
+            "omitted": 0
+          },
+          "32": {
+            "retained": 917410,
+            "omitted": 0
+          }
+        },
+        "opaqueImageEdgePixels": 0,
+        "measuredCropPolicy": "main alpha>4 body plus3px padding; no neighboring bodies included",
+        "layoutNote": "Facades follow4x2 nominal grid. Roofcraft lower row uses measured widths: broad truss is700px; its crop remains separated from stone medallion by1px. No grid-assumed cropping."
+      },
+      "sprites": [
+        {
+          "id": "home-window-bay",
+          "crop": [
+            36,
+            31,
+            386,
+            382
+          ],
+          "alphaPixelsAbove32": 115086,
+          "windowAnchor": [
+            252,
+            232
+          ],
+          "label": "Patched domestic timber bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 3
+        },
+        {
+          "id": "clinic-herb-bay",
+          "crop": [
+            501,
+            52,
+            351,
+            355
+          ],
+          "alphaPixelsAbove32": 111528,
+          "windowAnchor": [
+            665,
+            239
+          ],
+          "label": "Pale clinic herb bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 7
+        },
+        {
+          "id": "instrumentworks-sound-bay",
+          "crop": [
+            929,
+            41,
+            362,
+            370
+          ],
+          "alphaPixelsAbove32": 115082,
+          "windowAnchor": [
+            1109,
+            234
+          ],
+          "label": "Instrumentworks sound bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 7
+        },
+        {
+          "id": "inn-kitchen-bay",
+          "crop": [
+            1370,
+            48,
+            371,
+            360
+          ],
+          "alphaPixelsAbove32": 112855,
+          "windowAnchor": [
+            1564,
+            245
+          ],
+          "label": "Warm kitchen serving bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 1
+        },
+        {
+          "id": "archive-leaded-bay",
+          "crop": [
+            59,
+            467,
+            352,
+            373
+          ],
+          "alphaPixelsAbove32": 115454,
+          "windowAnchor": [
+            230,
+            632
+          ],
+          "label": "Leaded archive and guild bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 17
+        },
+        {
+          "id": "carpenter-shutter-bay",
+          "crop": [
+            494,
+            472,
+            385,
+            373
+          ],
+          "alphaPixelsAbove32": 121241,
+          "windowAnchor": [
+            651,
+            660
+          ],
+          "label": "Pegged carpenter shutter bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 9
+        },
+        {
+          "id": "chapel-stone-bay",
+          "crop": [
+            941,
+            458,
+            338,
+            393
+          ],
+          "alphaPixelsAbove32": 106485,
+          "windowAnchor": [
+            1114,
+            674
+          ],
+          "label": "Carved chapel window bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 1
+        },
+        {
+          "id": "cistern-inspection-bay",
+          "crop": [
+            1360,
+            465,
+            362,
+            377
+          ],
+          "alphaPixelsAbove32": 119679,
+          "windowAnchor": [
+            1542,
+            642
+          ],
+          "label": "Glazed cistern inspection bay",
+          "assetKey": "environmentFacades",
+          "role": "window-bay",
+          "defaultReviewHeight": 48,
+          "runtimePlacementCount": 4
+        }
+      ]
+    },
+    {
+      "id": "roofcraft-v19",
+      "assetKey": "environmentRoofcraft",
+      "originalGenerationPath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-4a1c8cb9-7a88-4e4f-92db-60ee689d2609.png",
+      "sourceFile": "development/art/source-v19/roofcraft-v19.png",
+      "sourceSha256": "e151dc3e435aaa1adc480ef678f13855499bccae7c4e5fe44519cef22702e188",
+      "sourceBytes": 1778447,
+      "runtimeFile": "dist/game/engine2/art/roofcraft-v19.webp",
+      "deliverySha256": "ae09700df1c8c750dde8629a315d320c260b54046dd9b4474a0dae70117f6e0d",
+      "deliveryBytes": 517294,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "prompt": "Use case: stylized-concept. Asset type: original transparent production architecture-craft sprite atlas for the Ash & Aether painted RPG. Create EXACTLY EIGHT complete distinct modular building details in a 4-column by 2-row landscape grid. They will be mounted only to existing roofs, gables, wallposts and courtyard returns, at 18–46 world pixels high. Strong simple silhouettes and large coherent material masses must stay readable at that size. Match weathered hand-painted gouache / watercolor A&A art: warm clay and deep-brown timber, cool blue stone, muted sage, restrained aged copper/brass, gentle upper-left light, restrained integrated contact shadow. Elevated orthographic camera roughly30–35 degrees showing roofs/vent caps, no dramatic perspective; wall-mounted pieces face straight forward without sideways yaw. NO ground plates, whole houses, doors, stairs, paving, people, symbols, lettering, smoke or exterior scenic backgrounds. Top row left to right: 1 DOMESTIC CHIMNEY: compact slightly bowed terracotta-brick chimney stack with a broad pale limestone cap and two short dark clay pots of unequal height, weathered ochre mortar, a little low moss at its base; 2 INSTRUMENTWORKS ROOF VENT: squat dark-timber rooftop sound vent with a curved verdigris copper hood and three visible brass resonator reeds/slats, a small square roof mounting base, finely handmade but structurally bold; 3 CLINIC ROOF VENT: compact pale sage ceramic air ventilator with four large slats, low rounded cream hood, glazed weathering and simple lead flashing at its narrow base, restful clean silhouette; 4 ARCHIVE/GUILD RIDGE VENT: low blue-slate gabled rooftop ventilator with a prominent single round honey-brass grille and dark timber framing, small grey flashing at its base, no flag or arrow. Bottom row left to right: 5 CARPENTER GABLE TRUSS: broad triangular dark-timber gable ornament, open negative spaces between five heavy curved braces, pegged carved joinery, shallow warm ochre fascia edge; a complete wall-mounted triangle approximately twice as wide as tall, NO roof of a whole house; 6 CHAPEL STONE MEDALLION: simple worn rounded limestone carved relief with an abstract triple-lobed recess and three restrained dusty-blue glazed inlays, deeply weathered edges, no cross, no letters, no enclosing wall plate; 7 CISTERN RAIN HOPPER: a vertical aged-copper rain hopper with wide rounded vessel top, short bent downpipe with two clear mounting brackets, muted verdigris, complete closed bottom, NO flowing water; 8 COURTYARD RETURN: narrow squat weathered limestone pilaster section with a rounded cap and irregular sculptural ivy, a single small terracotta herb pot nestled against its base; a wall-attached construction detail, NOT a freestanding gateway, NO doorway, NO pavement. True transparent alpha. Each of8objects must fit entirely inside its own nominal cell including all foliage, braces and contact shade. Wide clear gutters of at least10% cellsize plus transparent outside margins. Do not let caps, thin pipes or ivy touch any neighbor or image edge. No checkerboard pattern in pixels, no cast shadows extending across cells, no glow.",
+      "encoding": {
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "alpha": "exact original alpha",
+        "dimensions": "unchanged"
+      },
+      "cropAudit": {
+        "alphaRetentionByThreshold": {
+          "4": {
+            "retained": 612097,
+            "omitted": 0
+          },
+          "8": {
+            "retained": 606097,
+            "omitted": 0
+          },
+          "16": {
+            "retained": 603153,
+            "omitted": 0
+          },
+          "32": {
+            "retained": 600611,
+            "omitted": 0
+          }
+        },
+        "opaqueImageEdgePixels": 0,
+        "measuredCropPolicy": "main alpha>4 body plus3px padding; no neighboring bodies included",
+        "layoutNote": "Facades follow4x2 nominal grid. Roofcraft lower row uses measured widths: broad truss is700px; its crop remains separated from stone medallion by1px. No grid-assumed cropping."
+      },
+      "sprites": [
+        {
+          "id": "domestic-chimney",
+          "crop": [
+            94,
+            22,
+            279,
+            411
+          ],
+          "alphaPixelsAbove32": 77149,
+          "label": "Twin-pot domestic chimney",
+          "assetKey": "environmentRoofcraft",
+          "role": "roof",
+          "defaultReviewHeight": 44,
+          "runtimePlacementCount": 4
+        },
+        {
+          "id": "sound-roof-vent",
+          "crop": [
+            508,
+            88,
+            325,
+            310
+          ],
+          "alphaPixelsAbove32": 76598,
+          "label": "Copper sound vent",
+          "assetKey": "environmentRoofcraft",
+          "role": "roof",
+          "defaultReviewHeight": 34,
+          "runtimePlacementCount": 3
+        },
+        {
+          "id": "clinic-air-vent",
+          "crop": [
+            968,
+            71,
+            274,
+            329
+          ],
+          "alphaPixelsAbove32": 60268,
+          "label": "Ceramic clinic air vent",
+          "assetKey": "environmentRoofcraft",
+          "role": "roof",
+          "defaultReviewHeight": 36,
+          "runtimePlacementCount": 1
+        },
+        {
+          "id": "archive-ridge-vent",
+          "crop": [
+            1336,
+            75,
+            390,
+            323
+          ],
+          "alphaPixelsAbove32": 73767,
+          "label": "Slate archive ridge vent",
+          "assetKey": "environmentRoofcraft",
+          "role": "roof",
+          "defaultReviewHeight": 32,
+          "runtimePlacementCount": 6
+        },
+        {
+          "id": "carpenter-gable-truss",
+          "crop": [
+            33,
+            476,
+            710,
+            344
+          ],
+          "alphaPixelsAbove32": 118033,
+          "label": "Carved carpenter gable truss",
+          "assetKey": "environmentRoofcraft",
+          "role": "gable",
+          "defaultReviewHeight": 28,
+          "runtimePlacementCount": 1
+        },
+        {
+          "id": "chapel-stone-medallion",
+          "crop": [
+            744,
+            498,
+            326,
+            330
+          ],
+          "alphaPixelsAbove32": 81641,
+          "label": "Chapel stone medallion",
+          "assetKey": "environmentRoofcraft",
+          "role": "wall",
+          "defaultReviewHeight": 20,
+          "runtimePlacementCount": 2
+        },
+        {
+          "id": "cistern-rain-hopper",
+          "crop": [
+            1129,
+            444,
+            203,
+            416
+          ],
+          "alphaPixelsAbove32": 44146,
+          "label": "Copper rain hopper",
+          "assetKey": "environmentRoofcraft",
+          "role": "wall",
+          "defaultReviewHeight": 44,
+          "runtimePlacementCount": 3
+        },
+        {
+          "id": "ivy-courtyard-pilaster",
+          "crop": [
+            1415,
+            443,
+            266,
+            418
+          ],
+          "alphaPixelsAbove32": 69009,
+          "label": "Ivy courtyard pilaster",
+          "assetKey": "environmentRoofcraft",
+          "role": "wall",
+          "defaultReviewHeight": 42,
+          "runtimePlacementCount": 5
+        }
+      ]
+    }
+  ],
+  "runtimeIntegration": {
+    "module": "dist/game/engine2/environment-architecture-v19.js",
+    "consumer": "dist/game/engine2/building-art.js",
+    "filesExport": "ARCHITECTURE_V19_FILES",
+    "galleryApi": {
+      "registries": [
+        "FACADE_BAYS",
+        "ROOFCRAFT_DETAILS"
+      ],
+      "fit": "architecturePieceSpec(id, {width, height})",
+      "draw": "drawArchitecturePiece(ctx, assets, spec, x, y, alpha=1)",
+      "registration": "Bottom center for gallery; explicit measured source window center for production facade bays"
+    },
+    "optionalAssets": true,
+    "mode": "Normal graphics cached building bakes; Compatibility retains existing simplified facade renderer",
+    "fallback": "A missing, incomplete or incorrectly sized atlas returns false from the draw helper; the existing v17 accents and procedural details remain available independently for each asset family.",
+    "fitting": {
+      "facades": "Uniform scale. The measured source window center is registered to the existing planned window center. The complete crop must stay within its actual wall, neighbor midpoint separation, and ±27-pixel doorway exclusion. Fits under 28 pixels wide or 30 pixels tall keep legacy details.",
+      "roofcraft": "Complete image rectangles must remain over the actual occupied roof cells, including concave outlines. Wall fittings remain in existing exposed frontage runs and avoid doors and windows. Carpenter truss uses only the existing gable.",
+      "occlusion": "The established building bounds and fade levels (0.32 inside, 0.66 near, 1 otherwise) now consider the traveller and companions. Only the traveller activates the real entrance label."
+    },
+    "snapshot": {
+      "exteriorPlans": 37,
+      "existingWindows": 78,
+      "paintedWindowBays": 49,
+      "legacyWindowFallbacks": 29,
+      "motifPlacementCounts": {
+        "domestic-chimney": 4,
+        "home-window-bay": 3,
+        "ivy-courtyard-pilaster": 5,
+        "sound-roof-vent": 3,
+        "instrumentworks-sound-bay": 7,
+        "archive-ridge-vent": 6,
+        "archive-leaded-bay": 17,
+        "inn-kitchen-bay": 1,
+        "clinic-air-vent": 1,
+        "clinic-herb-bay": 7,
+        "carpenter-shutter-bay": 9,
+        "carpenter-gable-truss": 1,
+        "cistern-inspection-bay": 4,
+        "cistern-rain-hopper": 3,
+        "chapel-stone-medallion": 2,
+        "chapel-stone-bay": 1
+      },
+      "buildingFamilies": {
+        "home": 3,
+        "instrumentworks": 3,
+        "guild": 1,
+        "inn": 1,
+        "clinic": 2,
+        "carpenter": 1,
+        "workshop": 7,
+        "cistern": 3,
+        "archive": 5,
+        "garden": 2,
+        "quarters": 2,
+        "chapel": 2,
+        "store": 2,
+        "tailor": 2,
+        "assembly": 1
+      },
+      "placements": [
+        {
+          "material": "home",
+          "outside": [
+            24,
+            47
+          ],
+          "motifs": [
+            {
+              "id": "domestic-chimney",
+              "width": 29.869,
+              "height": 44,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "home-window-bay",
+              "width": 38.6,
+              "height": 38.2,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "ivy-courtyard-pilaster",
+              "width": 24,
+              "height": 37.714,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "instrumentworks",
+          "outside": [
+            25,
+            20
+          ],
+          "motifs": [
+            {
+              "id": "sound-roof-vent",
+              "width": 35.645,
+              "height": 34,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 29.362,
+              "height": 30.011,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "guild",
+          "outside": [
+            43,
+            29
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 33.23,
+              "height": 35.212,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 33.23,
+              "height": 35.212,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 33.23,
+              "height": 35.212,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 35.173,
+              "height": 37.272,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "inn",
+          "outside": [
+            8,
+            31
+          ],
+          "motifs": [
+            {
+              "id": "domestic-chimney",
+              "width": 29.869,
+              "height": 44,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "inn-kitchen-bay",
+              "width": 46.14,
+              "height": 44.772,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "clinic",
+          "outside": [
+            40,
+            35
+          ],
+          "motifs": [
+            {
+              "id": "clinic-air-vent",
+              "width": 29.982,
+              "height": 36,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 32.792,
+              "height": 33.165,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 37.39,
+              "height": 37.816,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "ivy-courtyard-pilaster",
+              "width": 24,
+              "height": 37.714,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "carpenter",
+          "outside": [
+            9,
+            38
+          ],
+          "motifs": [
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 36.783,
+              "height": 35.637,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "carpenter-gable-truss",
+              "width": 51.599,
+              "height": 25,
+              "registration": "existing-gable"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            0,
+            10
+          ],
+          "motifs": []
+        },
+        {
+          "material": "clinic",
+          "outside": [
+            7,
+            9
+          ],
+          "motifs": [
+            {
+              "id": "ivy-courtyard-pilaster",
+              "width": 24,
+              "height": 37.714,
+              "registration": "existing-wall-post"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 45.987,
+              "height": 46.511,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 45.799,
+              "height": 46.321,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 37.54,
+              "height": 37.968,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 45.799,
+              "height": 46.321,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "clinic-herb-bay",
+              "width": 45.987,
+              "height": 46.511,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "cistern",
+          "outside": [
+            39,
+            34
+          ],
+          "motifs": [
+            {
+              "id": "cistern-inspection-bay",
+              "width": 47.05,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "cistern-inspection-bay",
+              "width": 47.05,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "cistern-rain-hopper",
+              "width": 20,
+              "height": 40.985,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "archive",
+          "outside": [
+            45,
+            9
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "garden",
+          "outside": [
+            40,
+            19
+          ],
+          "motifs": []
+        },
+        {
+          "material": "archive",
+          "outside": [
+            19,
+            42
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 40.755,
+              "height": 43.187,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            13,
+            43
+          ],
+          "motifs": []
+        },
+        {
+          "material": "garden",
+          "outside": [
+            13,
+            6
+          ],
+          "motifs": []
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            5,
+            31
+          ],
+          "motifs": []
+        },
+        {
+          "material": "cistern",
+          "outside": [
+            9,
+            5
+          ],
+          "motifs": [
+            {
+              "id": "cistern-inspection-bay",
+              "width": 47.05,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "cistern-inspection-bay",
+              "width": 47.05,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "cistern-rain-hopper",
+              "width": 20,
+              "height": 40.985,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "quarters",
+          "outside": [
+            14,
+            15
+          ],
+          "motifs": []
+        },
+        {
+          "material": "archive",
+          "outside": [
+            20,
+            30
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 28.393,
+              "height": 30.087,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 30.054,
+              "height": 31.847,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "cistern",
+          "outside": [
+            55,
+            23
+          ],
+          "motifs": [
+            {
+              "id": "cistern-rain-hopper",
+              "width": 20,
+              "height": 40.985,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "archive",
+          "outside": [
+            22,
+            53
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 46.241,
+              "height": 49,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "quarters",
+          "outside": [
+            37,
+            46
+          ],
+          "motifs": []
+        },
+        {
+          "material": "chapel",
+          "outside": [
+            19,
+            8
+          ],
+          "motifs": [
+            {
+              "id": "chapel-stone-medallion",
+              "width": 19.758,
+              "height": 20,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "store",
+          "outside": [
+            27,
+            26
+          ],
+          "motifs": []
+        },
+        {
+          "material": "tailor",
+          "outside": [
+            45,
+            60
+          ],
+          "motifs": []
+        },
+        {
+          "material": "chapel",
+          "outside": [
+            3,
+            24
+          ],
+          "motifs": [
+            {
+              "id": "chapel-stone-medallion",
+              "width": 19.758,
+              "height": 20,
+              "registration": "existing-wall-post"
+            },
+            {
+              "id": "chapel-stone-bay",
+              "width": 38.338,
+              "height": 44.576,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "instrumentworks",
+          "outside": [
+            14,
+            24
+          ],
+          "motifs": [
+            {
+              "id": "sound-roof-vent",
+              "width": 35.645,
+              "height": 34,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 39.78,
+              "height": 40.659,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 39.78,
+              "height": 40.659,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 31.54,
+              "height": 32.237,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 31.89,
+              "height": 32.595,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 31.54,
+              "height": 32.237,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "instrumentworks-sound-bay",
+              "width": 31.89,
+              "height": 32.595,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "store",
+          "outside": [
+            24,
+            21
+          ],
+          "motifs": []
+        },
+        {
+          "material": "tailor",
+          "outside": [
+            53,
+            28
+          ],
+          "motifs": []
+        },
+        {
+          "material": "archive",
+          "outside": [
+            6,
+            1
+          ],
+          "motifs": [
+            {
+              "id": "archive-ridge-vent",
+              "width": 38,
+              "height": 31.472,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 30.838,
+              "height": 32.678,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 30.838,
+              "height": 32.678,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 30.838,
+              "height": 32.678,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "archive-leaded-bay",
+              "width": 32.642,
+              "height": 34.589,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            4,
+            26
+          ],
+          "motifs": [
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 34.933,
+              "height": 33.844,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 45.381,
+              "height": 43.967,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            53,
+            36
+          ],
+          "motifs": [
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 34.774,
+              "height": 33.69,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 34.774,
+              "height": 33.69,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "assembly",
+          "outside": [
+            4,
+            27
+          ],
+          "motifs": []
+        },
+        {
+          "material": "instrumentworks",
+          "outside": [
+            20,
+            30
+          ],
+          "motifs": [
+            {
+              "id": "sound-roof-vent",
+              "width": 35.645,
+              "height": 34,
+              "registration": "existing-roof-cells"
+            }
+          ]
+        },
+        {
+          "material": "home",
+          "outside": [
+            18,
+            36
+          ],
+          "motifs": [
+            {
+              "id": "domestic-chimney",
+              "width": 29.869,
+              "height": 44,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "home-window-bay",
+              "width": 38.6,
+              "height": 38.2,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "ivy-courtyard-pilaster",
+              "width": 24,
+              "height": 37.714,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "home",
+          "outside": [
+            30,
+            37
+          ],
+          "motifs": [
+            {
+              "id": "domestic-chimney",
+              "width": 29.869,
+              "height": 44,
+              "registration": "existing-roof-cells"
+            },
+            {
+              "id": "home-window-bay",
+              "width": 31.652,
+              "height": 31.324,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "ivy-courtyard-pilaster",
+              "width": 24,
+              "height": 37.714,
+              "registration": "existing-wall-post"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            18,
+            36
+          ],
+          "motifs": [
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 48,
+              "height": 46.504,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 48,
+              "height": 46.504,
+              "registration": "existing-window-center"
+            }
+          ]
+        },
+        {
+          "material": "workshop",
+          "outside": [
+            30,
+            37
+          ],
+          "motifs": [
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 48,
+              "height": 46.504,
+              "registration": "existing-window-center"
+            },
+            {
+              "id": "carpenter-shutter-bay",
+              "width": 48,
+              "height": 46.504,
+              "registration": "existing-window-center"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "verification": {
+    "focusedTestModules": [
+      "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+      "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+      "dist/game/engine2/tests/building-craft.test.mjs"
+    ],
+    "result": "All three module runs passed",
+    "coverage": [
+      "Source/delivery hashes and crop metadata",
+      "Aspect-preserving fits and balanced canvas context state",
+      "Actual window registration, wall bounds, neighbor separation and door clearance",
+      "Real roof cell containment including concave footprints",
+      "Baked canvas dimensions and world plan/state unchanged",
+      "All sixteen motifs used in production plans",
+      "Missing and partially loaded optional atlas fallback",
+      "Foreground companion fade without companion-driven entrance labels"
+    ],
+    "visualEvidence": "Original PNGs inspected at full sheet scale; root performs actual production scene review after loader and renderer integration."
+  }
+}

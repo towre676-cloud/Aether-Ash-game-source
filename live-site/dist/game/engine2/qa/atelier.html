@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ash &amp; Aether · Interface review</title>
+<style>*{box-sizing:border-box}html,body{margin:0;background:#171410;color:#dfd0b2;font:13px Georgia}header{display:flex;align-items:center;gap:14px;padding:12px;width:min(1440px,100vw);flex-wrap:wrap}button{min-height:44px;padding:10px 16px;background:#30271d;color:inherit;border:1px solid #9e8052;font:inherit}iframe{display:block;width:1440px;height:900px;border:1px solid #9e8052;margin:0 0 16px}p{margin:0}</style>
+<header><button data-size="1440,900">Desktop 1440 × 900</button><button data-size="390,844">Phone 390 × 844</button><button data-size="740,360">Landscape 740 × 360</button><button data-size="568,320">Compact 568 × 320</button><p>Temporary practice equipment · no journey saves</p></header><iframe id="atelier" title="Interface practice session" src="../../?dev=1" allow="autoplay; fullscreen"></iframe>
+<script>for(const b of document.querySelectorAll('[data-size]'))b.onclick=()=>{const [w,h]=b.dataset.size.split(',');const frame=document.getElementById('atelier');frame.style.width=w+'px';frame.style.height=h+'px';};</script>
+</html>

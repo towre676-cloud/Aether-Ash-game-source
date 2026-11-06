@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-29",
+  "baseline": "68e6673a8bc7d72ea44e3ae2edef436054e550cf",
+  "packages": [
+    {
+      "filename": "Ash_Aether_Living_Armory_v3_Complete.zip",
+      "bytes": 14358746,
+      "sha256": "ac13f0a5d80b2b4b4dd065562113e628fc6a69d70bcc9698dd1397113ce41fef"
+    },
+    {
+      "filename": "Ash_Aether_Living_Atlas_v8_Spatial_Encounters.zip",
+      "bytes": 20743391,
+      "sha256": "7ca255512314adf06a98965ec46adf11d982407a4adab9a24523ce0f4121d39c"
+    },
+    {
+      "filename": "ash-aether-living-grass-v6-three-integration.zip",
+      "bytes": 150278,
+      "sha256": "ad0b7d78cd1e26ed5b5c51e0c085433c765c46f1c138a8d7f43c5740cd51a3d5"
+    },
+    {
+      "filename": "AA_Acoustic_World_v4.zip",
+      "bytes": 14029283,
+      "sha256": "f03321a1b3181494bfcd5a5bd3e64ba9d06aa60129ad34f2f0611e66df48044f"
+    },
+    {
+      "filename": "Ash_Aether_Ground_Production_Merge_Physical_QA_2026-10-29.zip",
+      "bytes": 7228254,
+      "sha256": "cdf94ee554ebf907113528b8edbf2a01c586aade3c988b79bf269f250fda7fdc"
+    }
+  ],
+  "bellrun_source": "Original 5.19 working commits were referenced in historical notes but not recoverable from the available repository or saved artifacts. Trail features were rebuilt against this baseline."
+}

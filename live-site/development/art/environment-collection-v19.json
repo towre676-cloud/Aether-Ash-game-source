@@ -1,0 +1,2318 @@
+{
+  "schema": "ash-aether.environment-collection/2",
+  "collection": "v19",
+  "title": "Environment collection II: rooms, roofs and old trees",
+  "release": "5.18.1",
+  "releaseContext": "Additive art release on the published 5.18 campaign. The stable v19 collection and asset suffix is independent of the application release number.",
+  "referenceConventions": {
+    "files": "All file paths are relative to the repository root.",
+    "jsonPointer": "References into provenance and audit records use RFC 6901 JSON Pointers.",
+    "rectangles": "crop, opaque and parts rectangles are source-pixel [x,y,width,height]. Source PNG and delivery WebP dimensions match.",
+    "anchors": "anchor and windowAnchor are absolute source-pixel coordinates. Interior anchors are the crop bottom center; canopy anchors are measured roots; facade windowAnchor registers the existing window center.",
+    "canopyParts": "Draw the listed disjoint parts, using their original source offsets and measured root. Do not draw the full rectangular envelope for low-juniper or split-birch."
+  },
+  "sourcePolicy": "The six built-in ImageGen originals remain unchanged in source-v19. This index references the complete original prompts, generation output history and crop audits in their existing provenance records.",
+  "deliveryPolicy": {
+    "format": "WebP",
+    "encoder": "FFmpeg libwebp",
+    "quality": 95,
+    "compressionLevel": 6,
+    "losslessColor": false,
+    "dimensions": "unchanged",
+    "alpha": "exact original alpha",
+    "maxAlphaError": 0,
+    "originalsOutsideRuntimeDist": true
+  },
+  "counts": {
+    "families": 6,
+    "totalMotifs": 48,
+    "runtimeEligibleMotifs": 48,
+    "selectedMotifs": 48,
+    "stagedMotifs": 0,
+    "originalPngs": 6,
+    "deliveryWebps": 6,
+    "interiorWallPieces": 24,
+    "facadeBays": 8,
+    "roofAndWallDetails": 8,
+    "canopyVariations": 8
+  },
+  "bytes": {
+    "originalPngs": 11476926,
+    "deliveryWebps": 3330790
+  },
+  "previousCollection": {
+    "file": "development/art/environment-collection-v17.json"
+  },
+  "combinedCollections": {
+    "collections": [
+      "v17",
+      "v19"
+    ],
+    "priorMotifs": 124,
+    "newMotifs": 48,
+    "totalMotifs": 172,
+    "runtimeEligibleMotifs": 170,
+    "stagedMotifs": 2,
+    "stagedIds": [
+      "river-stairs",
+      "rope-trail-gate"
+    ],
+    "stagedReason": "The two v17 props remain reserved for authored placement; they are not enabled by this collection.",
+    "stagedEvidence": {
+      "file": "docs/verification/environment-5.18.1-world.json",
+      "jsonPointer": "/inventory/stagedIds"
+    },
+    "originalPngs": 22,
+    "deliveryWebps": 22,
+    "originalPngBytes": 47612664,
+    "deliveryWebpBytes": 13905842,
+    "legacyDeliveryOptimization": {
+      "record": {
+        "file": "development/art/legacy-delivery.json"
+      },
+      "includedInNewMotifCount": false,
+      "includedInNewSheetCount": false
+    }
+  },
+  "production": {
+    "optionalAssets": true,
+    "assetDefinitions": {
+      "file": "dist/game/engine2/art-definitions.js"
+    },
+    "interiorWalls": {
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES"
+      },
+      "filesExport": "INTERIOR_ART_FILES",
+      "fit": "interiorWallPieceSpec",
+      "draw": "drawInteriorWallPiece",
+      "plan": "interiorWallPlan",
+      "paint": "paintInteriorWallDetails",
+      "consumer": {
+        "file": "dist/game/engine2/household-render.js"
+      },
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "constraints": "Cached wall-only placement preserves actual windows, doorways, hearths, specialist fixtures, irregular floors and chapel walls. Missing images retain existing walls."
+    },
+    "architecture": {
+      "registries": [
+        {
+          "file": "dist/game/engine2/environment-architecture-v19.js",
+          "export": "FACADE_BAYS"
+        },
+        {
+          "file": "dist/game/engine2/environment-architecture-v19.js",
+          "export": "ROOFCRAFT_DETAILS"
+        }
+      ],
+      "filesExport": "ARCHITECTURE_V19_FILES",
+      "fit": "architecturePieceSpec",
+      "draw": "drawArchitecturePiece",
+      "placementFunctions": [
+        "facadeBayPlacement",
+        "roofCraftPlacement",
+        "gableCraftPlacement",
+        "wallCraftPlacement"
+      ],
+      "consumer": {
+        "file": "dist/game/engine2/building-art.js"
+      },
+      "newArtworkModes": [
+        "Standard"
+      ],
+      "compatibility": "Existing simplified facade fallback.",
+      "constraints": "Aspect-preserving complete crops fit actual wall and roof geometry; true doors, window centers, building silhouettes and occupied roof cells are retained."
+    },
+    "canopies": {
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS"
+      },
+      "assetExport": "CANOPY_VARIATION_ASSET",
+      "fileExport": "CANOPY_VARIATION_FILE",
+      "fit": "canopyVariationSpec",
+      "geometry": "canopyVariationGeometry",
+      "draw": "drawCanopyVariation",
+      "consumers": [
+        {
+          "file": "dist/game/engine2/scenic-trees.js"
+        },
+        {
+          "file": "dist/game/engine2/renderer.js"
+        }
+      ],
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "constraints": "Existing root registration and visible-tree cohort are preserved. Wind-pruned variants retain direction; other forms may reflect about their root. Missing artwork retains the existing tree fallback."
+    }
+  },
+  "families": [
+    {
+      "id": "home",
+      "label": "Home walls",
+      "asset": "environmentHomeWalls",
+      "sheet": "home-walls-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES"
+      },
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "placement": "Cached north back-wall details in home and domestic room families.",
+      "pieceCount": 8,
+      "worldSelections": 57
+    },
+    {
+      "id": "workshop",
+      "label": "Workshop walls",
+      "asset": "environmentWorkshopWalls",
+      "sheet": "workshop-walls-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES"
+      },
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "placement": "Cached north back-wall details in workshop and instrument room families.",
+      "pieceCount": 8,
+      "worldSelections": 140
+    },
+    {
+      "id": "civic",
+      "label": "Civic walls",
+      "asset": "environmentCivicWalls",
+      "sheet": "civic-walls-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES"
+      },
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "placement": "Cached north back-wall details in clinic, archive and other civic room families.",
+      "pieceCount": 8,
+      "worldSelections": 235
+    },
+    {
+      "id": "facades",
+      "label": "Building bays",
+      "asset": "environmentFacades",
+      "sheet": "facade-bays-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS"
+      },
+      "newArtworkModes": [
+        "Standard"
+      ],
+      "placement": "Complete measured bays fitted to existing window centers and actual exposed wall runs.",
+      "compatibilityFallback": "Existing simplified facade renderer; no new bay drawings in this path.",
+      "pieceCount": 8,
+      "worldSelections": 49
+    },
+    {
+      "id": "roofcraft",
+      "label": "Roof and wall craft",
+      "asset": "environmentRoofcraft",
+      "sheet": "roofcraft-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS"
+      },
+      "newArtworkModes": [
+        "Standard"
+      ],
+      "placement": "Existing occupied roof cells, gables and clear wall posts.",
+      "compatibilityFallback": "Existing simplified facade renderer; no new roofcraft drawings in this path.",
+      "pieceCount": 8,
+      "worldSelections": 25
+    },
+    {
+      "id": "canopies",
+      "label": "Canopy variations",
+      "asset": "environmentCanopyVariations",
+      "sheet": "environment-canopy-variations-v19",
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS"
+      },
+      "newArtworkModes": [
+        "Standard",
+        "Compatibility"
+      ],
+      "placement": "Deterministic variants at existing visible tree roots; root sites and visible density are unchanged.",
+      "pieceCount": 8,
+      "worldSelections": 445
+    }
+  ],
+  "sheets": [
+    {
+      "id": "home-walls-v19",
+      "family": "home",
+      "asset": "environmentHomeWalls",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/home-walls-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1560505,
+        "sha256": "d84aed0a1db0030373f356ac0de7e02848babb846f541896d536365190df4865"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/home-walls-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 411372,
+        "sha256": "8585dff127ecba5300e63bee55eedc7a94debb7ac656e3031e44706cae2bf663",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0"
+      },
+      "prompt": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sourcePath"
+      },
+      "cropVerification": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/validation"
+      }
+    },
+    {
+      "id": "workshop-walls-v19",
+      "family": "workshop",
+      "asset": "environmentWorkshopWalls",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/workshop-walls-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1756886,
+        "sha256": "f7e733e65234ab08b8e9155f779622d664db12c76521cfa5bb7c18aae5173263"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/workshop-walls-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 448230,
+        "sha256": "33f203428d2e4f7259811d75703b56716a4fe2ed1ee8d2852699cb7a0ccc41db",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1"
+      },
+      "prompt": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sourcePath"
+      },
+      "cropVerification": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/validation"
+      }
+    },
+    {
+      "id": "civic-walls-v19",
+      "family": "civic",
+      "asset": "environmentCivicWalls",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/civic-walls-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1521088,
+        "sha256": "a46f6d132c7a44459c48f9e1ebf85b1d2f566b5499e27de392444fc64aa98e65"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/civic-walls-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 398310,
+        "sha256": "67dd2ca08cd67be6f0b9b032fa5551717003d263b29529ab70dbf0bb970063de",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2"
+      },
+      "prompt": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sourcePath"
+      },
+      "cropVerification": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/validation"
+      }
+    },
+    {
+      "id": "facade-bays-v19",
+      "family": "facades",
+      "asset": "environmentFacades",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/facade-bays-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 2452310,
+        "sha256": "2793db0c974778d3da0051c1be4678458a21823f6df64ac1abf8134d75ab351e"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/facade-bays-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 672872,
+        "sha256": "37f09cf56320e717aa36d488a35b0040f6ec2a65932b4f34826bfc1e3a95dc5c",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0"
+      },
+      "prompt": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/originalGenerationPath"
+      },
+      "cropVerification": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/cropAudit"
+      }
+    },
+    {
+      "id": "roofcraft-v19",
+      "family": "roofcraft",
+      "asset": "environmentRoofcraft",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/roofcraft-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1778447,
+        "sha256": "e151dc3e435aaa1adc480ef678f13855499bccae7c4e5fe44519cef22702e188"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/roofcraft-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 517294,
+        "sha256": "ae09700df1c8c750dde8629a315d320c260b54046dd9b4474a0dae70117f6e0d",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1"
+      },
+      "prompt": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/originalGenerationPath"
+      },
+      "cropVerification": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/cropAudit"
+      }
+    },
+    {
+      "id": "environment-canopy-variations-v19",
+      "family": "canopies",
+      "asset": "environmentCanopyVariations",
+      "pieceCount": 8,
+      "source": {
+        "file": "development/art/source-v19/environment-canopy-variations-v19.png",
+        "format": "PNG",
+        "mode": "RGBA",
+        "width": 1774,
+        "height": 887,
+        "bytes": 2407690,
+        "sha256": "bbaa2332199d6ef27e976fe71fe5797553c62aabf8bd254951baf33e0f600cb8"
+      },
+      "delivery": {
+        "file": "dist/game/engine2/art/environment-canopy-variations-v19.webp",
+        "format": "WebP",
+        "width": 1774,
+        "height": 887,
+        "bytes": 882712,
+        "sha256": "59c88e8456853d71885c6600c9f6a2c590abaa5a758796ae8593c36a467f605e",
+        "maxAlphaError": 0
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json"
+      },
+      "prompt": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/prompt"
+      },
+      "originalOutput": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/generatedSource"
+      },
+      "cropVerification": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/cropVerification"
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "id": "home-limewash-repair",
+      "label": "Mended limewash bay",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "panel",
+      "crop": [
+        45,
+        128,
+        458,
+        263
+      ],
+      "anchor": [
+        274,
+        391
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 6,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-limewash-repair"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-limewash-repair"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/0"
+      }
+    },
+    {
+      "id": "home-timber-brace",
+      "label": "Pegged timber brace",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "panel",
+      "crop": [
+        560,
+        128,
+        458,
+        264
+      ],
+      "anchor": [
+        789,
+        392
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 10,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-timber-brace"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-timber-brace"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/1"
+      }
+    },
+    {
+      "id": "home-corner-left",
+      "label": "Left plaster and timber return",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "corner-left",
+      "crop": [
+        1130,
+        98,
+        157,
+        326
+      ],
+      "anchor": [
+        1208.5,
+        424
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 10,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-corner-left"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-corner-left"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/2"
+      }
+    },
+    {
+      "id": "home-corner-right",
+      "label": "Right plaster and timber return",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "corner-right",
+      "crop": [
+        1480,
+        98,
+        161,
+        326
+      ],
+      "anchor": [
+        1560.5,
+        424
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 8,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-corner-right"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-corner-right"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/3"
+      }
+    },
+    {
+      "id": "home-linen-recess",
+      "label": "Closed-back linen recess",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "niche",
+      "crop": [
+        89,
+        530,
+        267,
+        259
+      ],
+      "anchor": [
+        222.5,
+        789
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 7,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-linen-recess"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-linen-recess"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/4"
+      }
+    },
+    {
+      "id": "home-kitchen-tiles",
+      "label": "Worn leaf-pattern tiles",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "panel",
+      "crop": [
+        446,
+        531,
+        360,
+        263
+      ],
+      "anchor": [
+        626,
+        794
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 2,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-kitchen-tiles"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-kitchen-tiles"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/5"
+      }
+    },
+    {
+      "id": "home-smoke-repair",
+      "label": "Smoke-worn plaster repair",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "panel",
+      "crop": [
+        865,
+        511,
+        383,
+        274
+      ],
+      "anchor": [
+        1056.5,
+        785
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 10,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-smoke-repair"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-smoke-repair"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/6"
+      }
+    },
+    {
+      "id": "home-carved-cornice",
+      "label": "Carved cornice repair",
+      "family": "home",
+      "sheet": "home-walls-v19",
+      "asset": "environmentHomeWalls",
+      "role": "cornice",
+      "crop": [
+        1287,
+        591,
+        444,
+        113
+      ],
+      "anchor": [
+        1509,
+        704
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 4,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/home-carved-cornice"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "home-carved-cornice"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/0/sprites/7"
+      }
+    },
+    {
+      "id": "workshop-brick-repair",
+      "label": "Clay and brick repair bay",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "panel",
+      "crop": [
+        32,
+        123,
+        541,
+        295
+      ],
+      "anchor": [
+        302.5,
+        418
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 27,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-brick-repair"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-brick-repair"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/0"
+      }
+    },
+    {
+      "id": "workshop-timber-brace",
+      "label": "Strapped workshop joinery",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "panel",
+      "crop": [
+        604,
+        87,
+        508,
+        334
+      ],
+      "anchor": [
+        858,
+        421
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 21,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-timber-brace"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-timber-brace"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/1"
+      }
+    },
+    {
+      "id": "workshop-corner-left",
+      "label": "Left workshop return",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "corner-left",
+      "crop": [
+        1173,
+        57,
+        198,
+        388
+      ],
+      "anchor": [
+        1272,
+        445
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 14,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-corner-left"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-corner-left"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/2"
+      }
+    },
+    {
+      "id": "workshop-corner-right",
+      "label": "Right workshop return",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "corner-right",
+      "crop": [
+        1455,
+        57,
+        262,
+        409
+      ],
+      "anchor": [
+        1586,
+        466
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 7,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-corner-right"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-corner-right"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/3"
+      }
+    },
+    {
+      "id": "workshop-tool-recess",
+      "label": "Closed-back tool recess",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "niche",
+      "crop": [
+        49,
+        517,
+        371,
+        285
+      ],
+      "anchor": [
+        234.5,
+        802
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 17,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-tool-recess"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-tool-recess"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/4"
+      }
+    },
+    {
+      "id": "workshop-copper-conduit",
+      "label": "Copper conduit repair",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "conduit",
+      "crop": [
+        489,
+        516,
+        179,
+        281
+      ],
+      "anchor": [
+        578.5,
+        797
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 24,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-copper-conduit"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-copper-conduit"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/5"
+      }
+    },
+    {
+      "id": "workshop-acoustic-lath",
+      "label": "Mended acoustic lath",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "panel",
+      "crop": [
+        725,
+        520,
+        408,
+        275
+      ],
+      "anchor": [
+        929,
+        795
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 20,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-acoustic-lath"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-acoustic-lath"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/6"
+      }
+    },
+    {
+      "id": "workshop-cornice",
+      "label": "Scarf-jointed cornice",
+      "family": "workshop",
+      "sheet": "workshop-walls-v19",
+      "asset": "environmentWorkshopWalls",
+      "role": "cornice",
+      "crop": [
+        1166,
+        610,
+        571,
+        135
+      ],
+      "anchor": [
+        1451.5,
+        745
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 10,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/workshop-cornice"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "workshop-cornice"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/1/sprites/7"
+      }
+    },
+    {
+      "id": "civic-limewash-repair",
+      "label": "Pale limewash and stone bay",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "panel",
+      "crop": [
+        63,
+        151,
+        558,
+        270
+      ],
+      "anchor": [
+        342,
+        421
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 50,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-limewash-repair"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-limewash-repair"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/0"
+      }
+    },
+    {
+      "id": "civic-sage-wainscot",
+      "label": "Sage ceramic wainscot",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "panel",
+      "crop": [
+        658,
+        185,
+        473,
+        236
+      ],
+      "anchor": [
+        894.5,
+        421
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 40,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-sage-wainscot"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-sage-wainscot"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/1"
+      }
+    },
+    {
+      "id": "civic-corner-left",
+      "label": "Left limestone return",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "corner-left",
+      "crop": [
+        1172,
+        103,
+        224,
+        324
+      ],
+      "anchor": [
+        1284,
+        427
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 25,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-corner-left"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-corner-left"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/2"
+      }
+    },
+    {
+      "id": "civic-corner-right",
+      "label": "Right limestone return",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "corner-right",
+      "crop": [
+        1463,
+        103,
+        222,
+        324
+      ],
+      "anchor": [
+        1574,
+        427
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 17,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-corner-right"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-corner-right"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/3"
+      }
+    },
+    {
+      "id": "civic-herb-recess",
+      "label": "Closed-back clinic recess",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "niche",
+      "crop": [
+        86,
+        508,
+        317,
+        259
+      ],
+      "anchor": [
+        244.5,
+        767
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 7,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-herb-recess"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-herb-recess"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/4"
+      }
+    },
+    {
+      "id": "civic-archive-recess",
+      "label": "Closed-back archive recess",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "niche",
+      "crop": [
+        484,
+        509,
+        340,
+        256
+      ],
+      "anchor": [
+        654,
+        765
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 29,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-archive-recess"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-archive-recess"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/5"
+      }
+    },
+    {
+      "id": "civic-stone-vent",
+      "label": "Inset stone ventilation grille",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "vent",
+      "crop": [
+        889,
+        556,
+        299,
+        205
+      ],
+      "anchor": [
+        1038.5,
+        761
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 44,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-stone-vent"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-stone-vent"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/6"
+      }
+    },
+    {
+      "id": "civic-cornice",
+      "label": "Pale stone cornice repair",
+      "family": "civic",
+      "sheet": "civic-walls-v19",
+      "asset": "environmentCivicWalls",
+      "role": "cornice",
+      "crop": [
+        1222,
+        625,
+        505,
+        133
+      ],
+      "anchor": [
+        1474.5,
+        758
+      ],
+      "runtimeEligible": true,
+      "worldSelectionCount": 23,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/walls/civic-cornice"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-interiors-v19.js",
+        "export": "INTERIOR_WALL_PIECES",
+        "id": "civic-cornice"
+      },
+      "provenance": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/sheets/2/sprites/7"
+      }
+    },
+    {
+      "id": "home-window-bay",
+      "label": "Patched domestic timber bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        36,
+        31,
+        386,
+        382
+      ],
+      "windowAnchor": [
+        252,
+        232
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 3,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/home-window-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "home-window-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/0"
+      }
+    },
+    {
+      "id": "clinic-herb-bay",
+      "label": "Pale clinic herb bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        501,
+        52,
+        351,
+        355
+      ],
+      "windowAnchor": [
+        665,
+        239
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 7,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/clinic-herb-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "clinic-herb-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/1"
+      }
+    },
+    {
+      "id": "instrumentworks-sound-bay",
+      "label": "Instrumentworks sound bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        929,
+        41,
+        362,
+        370
+      ],
+      "windowAnchor": [
+        1109,
+        234
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 7,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/instrumentworks-sound-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "instrumentworks-sound-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/2"
+      }
+    },
+    {
+      "id": "inn-kitchen-bay",
+      "label": "Warm kitchen serving bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        1370,
+        48,
+        371,
+        360
+      ],
+      "windowAnchor": [
+        1564,
+        245
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 1,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/inn-kitchen-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "inn-kitchen-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/3"
+      }
+    },
+    {
+      "id": "archive-leaded-bay",
+      "label": "Leaded archive and guild bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        59,
+        467,
+        352,
+        373
+      ],
+      "windowAnchor": [
+        230,
+        632
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 17,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/archive-leaded-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "archive-leaded-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/4"
+      }
+    },
+    {
+      "id": "carpenter-shutter-bay",
+      "label": "Pegged carpenter shutter bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        494,
+        472,
+        385,
+        373
+      ],
+      "windowAnchor": [
+        651,
+        660
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 9,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/carpenter-shutter-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "carpenter-shutter-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/5"
+      }
+    },
+    {
+      "id": "chapel-stone-bay",
+      "label": "Carved chapel window bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        941,
+        458,
+        338,
+        393
+      ],
+      "windowAnchor": [
+        1114,
+        674
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 1,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/chapel-stone-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "chapel-stone-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/6"
+      }
+    },
+    {
+      "id": "cistern-inspection-bay",
+      "label": "Glazed cistern inspection bay",
+      "family": "facades",
+      "sheet": "facade-bays-v19",
+      "asset": "environmentFacades",
+      "role": "window-bay",
+      "crop": [
+        1360,
+        465,
+        362,
+        377
+      ],
+      "windowAnchor": [
+        1542,
+        642
+      ],
+      "defaultPaintedHeight": 48,
+      "runtimeEligible": true,
+      "worldSelectionCount": 4,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/cistern-inspection-bay"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "FACADE_BAYS",
+        "id": "cistern-inspection-bay"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/0/sprites/7"
+      }
+    },
+    {
+      "id": "domestic-chimney",
+      "label": "Twin-pot domestic chimney",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "roof",
+      "crop": [
+        94,
+        22,
+        279,
+        411
+      ],
+      "defaultPaintedHeight": 44,
+      "runtimeEligible": true,
+      "worldSelectionCount": 4,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/domestic-chimney"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "domestic-chimney"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/0"
+      }
+    },
+    {
+      "id": "sound-roof-vent",
+      "label": "Copper sound vent",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "roof",
+      "crop": [
+        508,
+        88,
+        325,
+        310
+      ],
+      "defaultPaintedHeight": 34,
+      "runtimeEligible": true,
+      "worldSelectionCount": 3,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/sound-roof-vent"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "sound-roof-vent"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/1"
+      }
+    },
+    {
+      "id": "clinic-air-vent",
+      "label": "Ceramic clinic air vent",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "roof",
+      "crop": [
+        968,
+        71,
+        274,
+        329
+      ],
+      "defaultPaintedHeight": 36,
+      "runtimeEligible": true,
+      "worldSelectionCount": 1,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/clinic-air-vent"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "clinic-air-vent"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/2"
+      }
+    },
+    {
+      "id": "archive-ridge-vent",
+      "label": "Slate archive ridge vent",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "roof",
+      "crop": [
+        1336,
+        75,
+        390,
+        323
+      ],
+      "defaultPaintedHeight": 32,
+      "runtimeEligible": true,
+      "worldSelectionCount": 6,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/archive-ridge-vent"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "archive-ridge-vent"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/3"
+      }
+    },
+    {
+      "id": "carpenter-gable-truss",
+      "label": "Carved carpenter gable truss",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "gable",
+      "crop": [
+        33,
+        476,
+        710,
+        344
+      ],
+      "defaultPaintedHeight": 28,
+      "runtimeEligible": true,
+      "worldSelectionCount": 1,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/carpenter-gable-truss"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "carpenter-gable-truss"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/4"
+      }
+    },
+    {
+      "id": "chapel-stone-medallion",
+      "label": "Chapel stone medallion",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "wall",
+      "crop": [
+        744,
+        498,
+        326,
+        330
+      ],
+      "defaultPaintedHeight": 20,
+      "runtimeEligible": true,
+      "worldSelectionCount": 2,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/chapel-stone-medallion"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "chapel-stone-medallion"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/5"
+      }
+    },
+    {
+      "id": "cistern-rain-hopper",
+      "label": "Copper rain hopper",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "wall",
+      "crop": [
+        1129,
+        444,
+        203,
+        416
+      ],
+      "defaultPaintedHeight": 44,
+      "runtimeEligible": true,
+      "worldSelectionCount": 3,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/cistern-rain-hopper"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "cistern-rain-hopper"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/6"
+      }
+    },
+    {
+      "id": "ivy-courtyard-pilaster",
+      "label": "Ivy courtyard pilaster",
+      "family": "roofcraft",
+      "sheet": "roofcraft-v19",
+      "asset": "environmentRoofcraft",
+      "role": "wall",
+      "crop": [
+        1415,
+        443,
+        266,
+        418
+      ],
+      "defaultPaintedHeight": 42,
+      "runtimeEligible": true,
+      "worldSelectionCount": 5,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/facades/ivy-courtyard-pilaster"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-architecture-v19.js",
+        "export": "ROOFCRAFT_DETAILS",
+        "id": "ivy-courtyard-pilaster"
+      },
+      "provenance": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/sheets/1/sprites/7"
+      }
+    },
+    {
+      "id": "elder-orchard",
+      "label": "Hollow orchard elder",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        15,
+        30,
+        429,
+        385
+      ],
+      "anchor": [
+        229,
+        402
+      ],
+      "opaque": [
+        19,
+        34,
+        421,
+        377
+      ],
+      "parts": [
+        [
+          15,
+          30,
+          429,
+          385
+        ]
+      ],
+      "defaultPaintedHeight": 178,
+      "runtimeEligible": true,
+      "worldSelectionCount": 43,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/elder-orchard"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "elder-orchard"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/0"
+      }
+    },
+    {
+      "id": "open-coppice",
+      "label": "Open-crowned coppice",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        454,
+        25,
+        470,
+        401
+      ],
+      "anchor": [
+        674,
+        411
+      ],
+      "opaque": [
+        458,
+        29,
+        462,
+        393
+      ],
+      "parts": [
+        [
+          454,
+          25,
+          470,
+          401
+        ]
+      ],
+      "defaultPaintedHeight": 184,
+      "runtimeEligible": true,
+      "worldSelectionCount": 41,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/open-coppice"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "open-coppice"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/1"
+      }
+    },
+    {
+      "id": "leaning-alder",
+      "label": "Leaning river alder",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        981,
+        6,
+        331,
+        445
+      ],
+      "anchor": [
+        1192,
+        435
+      ],
+      "opaque": [
+        985,
+        10,
+        323,
+        437
+      ],
+      "parts": [
+        [
+          981,
+          6,
+          331,
+          445
+        ]
+      ],
+      "defaultPaintedHeight": 202,
+      "runtimeEligible": true,
+      "worldSelectionCount": 23,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/leaning-alder"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "leaning-alder"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/2"
+      }
+    },
+    {
+      "id": "stilt-mangrove",
+      "label": "Young stilt-root mangrove",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        1386,
+        34,
+        347,
+        388
+      ],
+      "anchor": [
+        1565,
+        408
+      ],
+      "opaque": [
+        1390,
+        38,
+        339,
+        380
+      ],
+      "parts": [
+        [
+          1386,
+          34,
+          347,
+          388
+        ]
+      ],
+      "defaultPaintedHeight": 186,
+      "runtimeEligible": true,
+      "worldSelectionCount": 60,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/stilt-mangrove"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "stilt-mangrove"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/3"
+      }
+    },
+    {
+      "id": "broken-spruce",
+      "label": "Broken-top alpine spruce",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        60,
+        430,
+        333,
+        439
+      ],
+      "anchor": [
+        216,
+        852
+      ],
+      "opaque": [
+        64,
+        434,
+        325,
+        431
+      ],
+      "parts": [
+        [
+          60,
+          430,
+          333,
+          439
+        ]
+      ],
+      "defaultPaintedHeight": 216,
+      "runtimeEligible": true,
+      "worldSelectionCount": 81,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/broken-spruce"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "broken-spruce"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/4"
+      }
+    },
+    {
+      "id": "open-larch",
+      "label": "Open winter larch",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        503,
+        431,
+        339,
+        442
+      ],
+      "anchor": [
+        679,
+        855
+      ],
+      "opaque": [
+        507,
+        435,
+        331,
+        434
+      ],
+      "parts": [
+        [
+          503,
+          431,
+          339,
+          442
+        ]
+      ],
+      "defaultPaintedHeight": 207,
+      "runtimeEligible": true,
+      "worldSelectionCount": 46,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/open-larch"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "open-larch"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/5"
+      }
+    },
+    {
+      "id": "low-juniper",
+      "label": "Low wind-pruned juniper",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        911,
+        526,
+        483,
+        316
+      ],
+      "anchor": [
+        1060,
+        826
+      ],
+      "opaque": [
+        915,
+        530,
+        475,
+        308
+      ],
+      "parts": [
+        [
+          911,
+          526,
+          483,
+          238
+        ],
+        [
+          911,
+          764,
+          417,
+          78
+        ]
+      ],
+      "defaultPaintedHeight": 177,
+      "fixedWindDirection": true,
+      "runtimeEligible": true,
+      "worldSelectionCount": 83,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/low-juniper"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "low-juniper"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/6"
+      }
+    },
+    {
+      "id": "split-birch",
+      "label": "Wind-split upland birch",
+      "family": "canopies",
+      "sheet": "environment-canopy-variations-v19",
+      "asset": "environmentCanopyVariations",
+      "role": "canopy",
+      "crop": [
+        1369,
+        450,
+        393,
+        406
+      ],
+      "anchor": [
+        1503,
+        839
+      ],
+      "opaque": [
+        1373,
+        454,
+        385,
+        398
+      ],
+      "parts": [
+        [
+          1395,
+          450,
+          367,
+          314
+        ],
+        [
+          1369,
+          764,
+          393,
+          92
+        ]
+      ],
+      "defaultPaintedHeight": 195,
+      "fixedWindDirection": true,
+      "runtimeEligible": true,
+      "worldSelectionCount": 68,
+      "worldSelection": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/countsByMotif/canopiesV19/split-birch"
+      },
+      "registry": {
+        "file": "dist/game/engine2/environment-canopies-v19.js",
+        "export": "CANOPY_VARIATIONS",
+        "id": "split-birch"
+      },
+      "provenance": {
+        "file": "development/art/canopies-v19.json",
+        "jsonPointer": "/motifs/7"
+      }
+    }
+  ],
+  "worldCoverage": {
+    "receipt": {
+      "file": "docs/verification/environment-5.18.1-world.json"
+    },
+    "scope": "Potential placements over the complete prepared world before camera culling and scene visibility; these are not simultaneous on-screen counts.",
+    "receiptLifecycle": "The linked world receipt is regenerated at release freeze. Placement values here are copied from its art checkpoint and are checked against that receipt; final revision and release verification remain authoritative in the linked records.",
+    "world": {
+      "scenes": 167,
+      "outdoorScenes": 103,
+      "interiorScenes": 64,
+      "evidence": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/world"
+      }
+    },
+    "walls": {
+      "placements": 432,
+      "rooms": 59,
+      "maximumPerRoom": 16,
+      "householdRooms": 64,
+      "specialistChapelRoomsPreserved": 5,
+      "standardDraws": 432,
+      "compatibilityDraws": 432,
+      "evidence": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/walls"
+      },
+      "chapelCountEvidence": {
+        "file": "development/art/interiors-v19.json",
+        "jsonPointer": "/coverage/chapelRoomsRetainingSpecialistWalls"
+      }
+    },
+    "architecture": {
+      "placements": 74,
+      "buildingsWithNewArt": 25,
+      "eligibleExteriorPlans": 37,
+      "existingWindowPositions": 78,
+      "newWindowBays": 49,
+      "retainedWindowFallbacks": 29,
+      "evidence": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/facades"
+      },
+      "windowCountEvidence": {
+        "file": "development/art/architecture-v19.json",
+        "jsonPointer": "/runtimeIntegration/snapshot"
+      }
+    },
+    "canopies": {
+      "newSelections": 445,
+      "visibleBefore": 1451,
+      "visibleAfter": 1451,
+      "addedSites": 0,
+      "removedSites": 0,
+      "evidence": {
+        "file": "docs/verification/environment-5.18.1-world.json",
+        "jsonPointer": "/canopies"
+      }
+    },
+    "selectedNewMotifs": 48,
+    "unusedNewMotifs": [],
+    "allNewSelections": 951
+  },
+  "continuation": {
+    "briefs": {
+      "file": "development/art/NEXT-ART-BRIEFS.md"
+    },
+    "reconciliation": {
+      "file": "docs/SESSION_RECONCILIATION_5.18.1.md"
+    },
+    "releaseNote": {
+      "file": "docs/ENVIRONMENT_ART_5.18.1.md"
+    },
+    "releaseVerification": {
+      "file": "docs/verification/release-5.18.1.md"
+    },
+    "gallery": {
+      "file": "dist/game/engine2/qa/environment-art-v19.html"
+    },
+    "environmentStudio": {
+      "file": "dist/game/engine2/qa/composition.html",
+      "navigation": "New detail",
+      "comparison": "New art"
+    },
+    "nextPriorities": [
+      "Author real river-landing geometry and a traversable elevation transition before activating staged stairs.",
+      "Extend remaining room partitions and corners while preserving actual doorway and fixture clearances.",
+      "Develop truthful mechanism states after their integrated state IDs, transitions and saves are stable."
+    ],
+    "remainingScope": "Whole building facades and an authored river landing are not delivered by this collection. Ground, grass and audio research remain separate workstreams; see the briefs and reconciliation note."
+  },
+  "verification": {
+    "checkedAtUTC": "2026-10-29T06:50:42.138Z",
+    "scope": "Manifest/file/registry validation only; gameplay, rendering and final release results remain in their linked receipts.",
+    "requiredFilesExist": true,
+    "jsonPointerReferencesResolve": true,
+    "sourceAndDeliverySha256Match": true,
+    "sourceAndDeliveryByteCountsMatch": true,
+    "dimensionsMatch": true,
+    "allInventoryIdsUnique": true,
+    "allCropsWithinSheetBounds": true,
+    "registryAndProvenanceAgree": true,
+    "all48MotifsHaveWorldSelections": true,
+    "alphaComparison": {
+      "method": "Read-only Pillow decode of all six PNG/WebP pairs; ImageChops difference of every decoded alpha byte.",
+      "sheets": 6,
+      "comparedAlphaPixels": 9441228,
+      "maxAlphaError": 0,
+      "filesBoundBy": "Per-sheet source and delivery SHA-256 values in this manifest."
+    },
+    "resolvedFileReferences": 211,
+    "resolvedJsonPointers": 126,
+    "matchedRegistryEntries": 48
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "aa-runtime-freeze/1",
+  "game_version": "5.25.0",
+  "captured_at_utc": "2026-10-29T19:17:48.404438+00:00",
+  "revision": "7424016cf051d24c88abca541e734a37490384f9",
+  "files": 2130,
+  "expanded_bytes": 262135872,
+  "tree_sha256": "dcfee6afd48ba37e5143acc4f8d635ca8bb3e4d844340fef2060b65982a632a3",
+  "capture_context": "Captured shortly after the complete 5.25 regression gate finished. The release owner confirmed runtime bytes remained unchanged since gate launch. No dist changes made by the reporting agent.",
+  "gate": "docs/verification/release-5.25-tests.json"
+}

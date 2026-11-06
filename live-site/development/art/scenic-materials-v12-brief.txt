@@ -1,0 +1,13 @@
+Original art: Ash & Aether scenic ground materials, release 5.12
+Generator: built-in image_gen (no Runway credits)
+Generated source: scenic-materials-v12-source.png, 1254 x 1254 pixels
+Delivery: ../../dist/game/engine2/art/scenic-materials-v12.webp, 1254 x 1254 pixels, WebP quality 92, method 6
+Grid: exact 2 columns x 2 rows, no gutters; source cells 627 x 627 pixels.
+Order: row 0 mossy meadow / worn ochre earth; row 1 cool grey weathered stone / deep teal water.
+PNG SHA256: dd8a8dc4f6ad096cdaf40163e9ab37e5b05951e8ad866bb8334527f4bfc8e059
+WebP SHA256: b4d9dd10766ed57e0bb1da619074475720f64abf6feded2a449d2f46c6c01528
+
+Exact prompt:
+Use case: stylized-concept. Asset type: production RPG ground material texture atlas, original art for Ash & Aether. Generate one square image, an EXACT 2 by 2 grid of equal square material cells, edge to edge, no gutters or borders. All materials strictly straight-down orthographic with even diffuse lighting; no horizon, perspective, cast objects, labels, text, watermark or vignette. Top-left quadrant: subtle mossy meadow, dense short fine olive and sage grass, tiny leaf grain, calm low contrast, no flowers or trees. Top-right quadrant: worn ochre earthen footpath, compact clay soil with tiny embedded warm gravel, delicate variation, no large rocks. Bottom-left quadrant: weathered cool grey stone paving, naturally worn irregular broad flagstones, very subtle narrow cracks and sparse moss in joints, readable flat surface. Bottom-right quadrant: clear deep teal water, fine soft caustic ripple texture, calm and translucent, no foam, no shore, no objects. Each quadrant must be independently seamless and tileable at its own four edges, consistent fine scale and even density across it. Style: exquisitely hand-painted fantasy RPG material art, fine pixel-painted brushwork, rich tactile natural surfaces, painterly rather than photographic, restrained harmonious palette. The textures sit under small character sprites and combat warning shapes: keep all four calm, low contrast, with no focal objects, no chunky graphic blobs, no high contrast glints and no directional spotlight. Quality should suit close camera views and detailed painted tree/building sprites.
+
+Visual inspection: correct quadrant ordering, no labels or border, strictly overhead, no characters or large props. Calm grass/earth materials and detailed stone/water generated as requested. Tileability is a generation target rather than a claim of mathematically exact periodic edge continuity; runtime may soften/tint repeats as needed.

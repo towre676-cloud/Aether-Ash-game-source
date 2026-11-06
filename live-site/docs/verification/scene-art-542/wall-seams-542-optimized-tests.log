@@ -1,0 +1,22 @@
+✔ the real padded lead billboard remains visible through a bounded foreground window while outside masonry stays opaque (122.154478ms)
+✔ floor, low bed rail, actor feet and contact shadow pixels retain exact opacity and registration (42.989196ms)
+✔ walls behind the lead plane retain their opaque raster even inside the screen window (51.624438ms)
+✔ disabling interior scope preserves exact legacy output for outdoor adventure and the native Cistern (90.698529ms)
+✔ real textured floor subdivision has no bright or dark triangle cracks under constant illumination and fog (1040.426824ms)
+✔ single textured coverage preserves translucent water alpha and the real external silhouette (33.316373ms)
+✔ shadow triangles keep their original opacity and do not receive opaque edge coverage (0.807174ms)
+✔ moving-light misses reuse sixty-four actual tile canvases within four MiB and reset prior fog opacity (145.02369ms)
+✔ opaque vertical and slanted native wall subdivisions have no diagonal raster hairlines (3314.750725ms)
+✔ native perspective phone walls keep smooth interiors after either authored diagonal (2745.6122ms)
+✔ door holes and external silhouettes remain empty while unrelated planes retain their own order (35.945999ms)
+✔ an isolated textured wall triangle keeps its single native raster fill (7.157042ms)
+✔ the real software pass keeps only the distant static station inside the authored backdrop bounds (15.006131ms)
+✔ actual subpixel textured faces consume copied observatory colors and return to legacy colors when the atlas changes (3.093929ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6523.748811

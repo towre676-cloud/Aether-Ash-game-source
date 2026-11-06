@@ -1,0 +1,136 @@
+{
+  "schema": "ash-aether.cistern-shader-validation/1",
+  "checked_at_utc": "2026-10-30T18:25:13.143297+00:00",
+  "source": "dist/game/engine2/cistern-renderer.js",
+  "source_sha256": "736088f412436ae469a4ecdc7586d4a631dbe1e1e5349cc43194d9d8a42a4774",
+  "method": "Existing Mesa EGL surfaceless pbuffer; OpenGL ES context; exact shader source compile/link/validate and 64x64 offscreen triangle draws via Python ctypes.",
+  "limits": [
+    "Native OpenGL ES validation, not a browser WebGL or ANGLE execution.",
+    "Offscreen native scene and shader smoke draws do not establish real-device hardware performance."
+  ],
+  "shaders": {
+    "VS": {
+      "sha256": "492eb5b983c821d37a073825d7230a18113486a1875586c346378cf588d856c0",
+      "compiled": true,
+      "log": ""
+    },
+    "FS": {
+      "sha256": "3b45b2ac4d378c5eaa23e3ff2d9be36841f1f322d16848de64d51410744dc53c",
+      "compiled": true,
+      "log": ""
+    },
+    "SHADOW_VS": {
+      "sha256": "003ede3e2557c5a74265ee2c6437d7555f014a5e657e7bfac0280669b9fb69b8",
+      "compiled": true,
+      "log": ""
+    },
+    "SHADOW_FS": {
+      "sha256": "7a3932a2fa1304f4f8c75887702a1738d6bbf86abc7a8d03eb4611e23b69a3cb",
+      "compiled": true,
+      "log": ""
+    },
+    "SPRITE_VS": {
+      "sha256": "2351863319da16256293337daff2b412b06576c38347e2930572c9edc7cea97e",
+      "compiled": true,
+      "log": ""
+    },
+    "SPRITE_FS": {
+      "sha256": "d9d8e9c1e332d6e05c92876fc0565030132d74fae82b013cba8a923a2abff6f3",
+      "compiled": true,
+      "log": ""
+    }
+  },
+  "programs": {
+    "main": {
+      "linked": true,
+      "link_log": "",
+      "validated": true,
+      "smoke_center_rgba": [
+        228,
+        153,
+        117,
+        255
+      ],
+      "gl_error": "0x0",
+      "draw_changed_pixel": true
+    },
+    "shadow": {
+      "linked": true,
+      "link_log": "",
+      "validated": true,
+      "smoke_center_rgba": [
+        0,
+        0,
+        0,
+        128
+      ],
+      "gl_error": "0x0",
+      "draw_changed_pixel": true
+    },
+    "sprite": {
+      "linked": true,
+      "link_log": "",
+      "validated": true,
+      "smoke_center_rgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "gl_error": "0x0",
+      "draw_changed_pixel": true
+    }
+  },
+  "passed": true,
+  "egl": {
+    "version": "1.5",
+    "vendor": "Mesa Project",
+    "client_apis": "OpenGL OpenGL_ES ",
+    "library": "libEGL.so.1"
+  },
+  "driver": {
+    "vendor": "Mesa",
+    "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+    "version": "OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2",
+    "glsl_version": "OpenGL ES GLSL ES 3.20"
+  },
+  "authored_scene": {
+    "path": "docs/verification/cistern-gpu-entry.png",
+    "width": 1024,
+    "height": 768,
+    "meshes": {
+      "static": {
+        "vertices": 132996,
+        "triangles": 44332
+      },
+      "dynamic": {
+        "vertices": 6156,
+        "triangles": 2052
+      },
+      "shadows": {
+        "vertices": 504,
+        "triangles": 168
+      },
+      "glow": {
+        "vertices": 576,
+        "triangles": 192
+      }
+    },
+    "shadow_framebuffer_complete": true,
+    "gl_error": "0x0",
+    "sha256": "1e89c077bd2f085127c37f9fe859148f2be74eb076005bc99f28bf748772200f",
+    "material": {
+      "path": "dist/game/engine2/art/cistern/material-atlas-v2.webp",
+      "sha256": "5214e81fd0cb5f8c4358c6380ecf0dc0db4392ef7f2c69ca68eea80815c8d510",
+      "source_width": 1254,
+      "source_height": 1254,
+      "storage_width": 1024,
+      "storage_height": 1024,
+      "min_filter": "LINEAR_MIPMAP_LINEAR",
+      "resize_limit": "Pillow bilinear resampling approximates the browser canvas upload; browser-specific resampling and optional anisotropy are not reproduced."
+    },
+    "architecture_sha256": "7349aa4a5600ced5c488a43cca50f14b68d7255498eb0c6150985cdabcea66c7",
+    "description": "Actual renderer architecture, dynamic mechanisms, shadow/glow meshes and GPU-path uniform values captured from CisternRenderer.render; generated atlas resampled into 1024x1024 power-of-two storage and mipmapped as in the browser material upload; primary and shadow passes drawn through existing EGL GLES context.",
+    "actor_limit": "Illustrated actor textures are prepared by the browser and absent from this native environment capture. Sprite program is independently compiled/linked/validated and smoke-tested above."
+  }
+}

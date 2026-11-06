@@ -1,0 +1,2577 @@
+{
+  "schema": "ash-aether.environment-collection/1",
+  "release": "5.18.0",
+  "createdAt": "2026-10-29T05:25:53.973Z",
+  "sourcePolicy": "The 16 original generated PNG files are preserved byte-for-byte in development/art/source-v17/. Runtime uses 16 quality-95 WebP delivery copies with exact original alpha and unchanged dimensions, measured crops, disjoint source parts and anchors. Color delivery encoding is lossy; original PNG pixels remain available in the archive.",
+  "counts": {
+    "propMotifs": 96,
+    "propCollections": 12,
+    "treeCanopies": 8,
+    "groundSurfaces": 8,
+    "waterSurfaces": 4,
+    "facadeAccents": 8,
+    "stagedProps": 2,
+    "totalMotifs": 124,
+    "runtimeEligibleMotifs": 122
+  },
+  "imageCount": 16,
+  "totalPngBytes": 36135738,
+  "images": [
+    {
+      "asset": "environmentWoodland",
+      "file": "development/art/source-v17/woodland-v17.png",
+      "sha256": "1d99b7de16f09dc0d4300628668419f762fe9771a3264bc92ce874c16d0e1296",
+      "bytes": 2498117,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/woodland-v17.png",
+      "archivedSourcePath": "development/art/source-v17/woodland-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/woodland-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 795772,
+        "sha256": "1ff451ba0356eead844ac84235084192cc3bfbfe16b3ad9ca1a12ee9ee974c32",
+        "sourceSha256": "1d99b7de16f09dc0d4300628668419f762fe9771a3264bc92ce874c16d0e1296",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentWaterside",
+      "file": "development/art/source-v17/waterside-v17.png",
+      "sha256": "0f0a6045e74d981034c470bf9e59cf10ba6f0f9524837a740fa0790a1099b467",
+      "bytes": 2638627,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/waterside-v17.png",
+      "archivedSourcePath": "development/art/source-v17/waterside-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/waterside-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 847892,
+        "sha256": "bf81b7ca71454eda8cc1b3c90a5af8e4072a576169760bee707b73961bbd8cfd",
+        "sourceSha256": "0f0a6045e74d981034c470bf9e59cf10ba6f0f9524837a740fa0790a1099b467",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentIndustryV17",
+      "file": "development/art/source-v17/industry-v17.png",
+      "sha256": "42ca885e62746bee11217278d75fda58f8a27cba0d80e72e529d30c98db4a0d9",
+      "bytes": 1766607,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/industry-v17.png",
+      "archivedSourcePath": "development/art/source-v17/industry-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/industry-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 518318,
+        "sha256": "4e8e748c2bb92dbad59e7f4b4eeafec8861d5cebed53ec249a6015278fe5ad95",
+        "sourceSha256": "42ca885e62746bee11217278d75fda58f8a27cba0d80e72e529d30c98db4a0d9",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentHighlandsV17",
+      "file": "development/art/source-v17/highlands-v17.png",
+      "sha256": "4a73bb06ec980bbe6996ea6ea26165e6e1c15e0e31e9c7962cf4b7405cf7abbf",
+      "bytes": 2125397,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/highlands-v17.png",
+      "archivedSourcePath": "development/art/source-v17/highlands-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/highlands-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 669604,
+        "sha256": "71c1d6c3fdf717c3025150246505b37f3e9e5ea56e39e62a6de2c443b548e53b",
+        "sourceSha256": "4a73bb06ec980bbe6996ea6ea26165e6e1c15e0e31e9c7962cf4b7405cf7abbf",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentDrylandsV17",
+      "file": "development/art/source-v17/drylands-v17.png",
+      "sha256": "9b73e26a7718df7744657373026059a777b2e4ecbf3551ed3f8482a0bbc9f4c5",
+      "bytes": 2159678,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/drylands-v17.png",
+      "archivedSourcePath": "development/art/source-v17/drylands-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/drylands-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 696572,
+        "sha256": "ce9f01c49c6e33f7467dec301c7d25f98a807cdc80371e31f7d42c0de4a66ac9",
+        "sourceSha256": "9b73e26a7718df7744657373026059a777b2e4ecbf3551ed3f8482a0bbc9f4c5",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentMinerals",
+      "file": "development/art/source-v17/mineral-garden-v17.png",
+      "sha256": "c4553fe96c81c3183df54ef08e986ff91e0dfd2d875f41a09f34d04feef75897",
+      "bytes": 2311379,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/mineral-garden-v17.png",
+      "archivedSourcePath": "development/art/source-v17/mineral-garden-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/mineral-garden-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 679190,
+        "sha256": "77e3e2de2c6d9212d2888bf79b53a465a8b7617f7cde8a493c58db8d3cb2894d",
+        "sourceSha256": "c4553fe96c81c3183df54ef08e986ff91e0dfd2d875f41a09f34d04feef75897",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentStorm",
+      "file": "development/art/source-v17/stormworks-v17.png",
+      "sha256": "0927b8a7b8a2734d7bc9479e533111b8536a2c613c496f0ae10170fef71958e5",
+      "bytes": 2270200,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/stormworks-v17.png",
+      "archivedSourcePath": "development/art/source-v17/stormworks-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/stormworks-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 688498,
+        "sha256": "f5a8a22e00a6681a09469090d11f1d97e6bc251228800fc8fc7a850db3b11dfd",
+        "sourceSha256": "0927b8a7b8a2734d7bc9479e533111b8536a2c613c496f0ae10170fef71958e5",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentVillage",
+      "file": "development/art/source-v17/village-craft-v17.png",
+      "sha256": "cd2b0c9b821748f671394b79635c82dd84f6fafc653b6783bdc7308927c5b171",
+      "bytes": 2496750,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/village-craft-v17.png",
+      "archivedSourcePath": "development/art/source-v17/village-craft-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/village-craft-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 746930,
+        "sha256": "c05761dbf33a19b0416398b7e4586d0ac1cb230dfe024ce40e7f54d80dd02289",
+        "sourceSha256": "cd2b0c9b821748f671394b79635c82dd84f6fafc653b6783bdc7308927c5b171",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentArtisans",
+      "file": "development/art/source-v17/artisans-v17.png",
+      "sha256": "116be3b4107158e0af55af233d545dc621f214635e53738638f292214359e4d4",
+      "bytes": 2567273,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/artisans-v17.png",
+      "archivedSourcePath": "development/art/source-v17/artisans-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/artisans-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 780498,
+        "sha256": "1d597ddee5fa219b014ca40dac76f08d50c9c6e62c7b2097140224a59c350def",
+        "sourceSha256": "116be3b4107158e0af55af233d545dc621f214635e53738638f292214359e4d4",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentGround",
+      "file": "development/art/source-v17/ground-details-v17.png",
+      "sha256": "e87ed93884bfe699a9198f475ca0937ee46e2d0084478e76f1a3715bb503bca4",
+      "bytes": 909354,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/ground-details-v17.png",
+      "archivedSourcePath": "development/art/source-v17/ground-details-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/ground-details-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 324042,
+        "sha256": "04d15387c05bcd83b82e2b23be2ecd91b58f20cb2fbf79cf2161cf72f74e02c8",
+        "sourceSha256": "e87ed93884bfe699a9198f475ca0937ee46e2d0084478e76f1a3715bb503bca4",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentWayfinding",
+      "file": "development/art/source-v17/wayfinding-v17.png",
+      "sha256": "19e6c886bd4b24ae569d967d2b1166f72fa6e0098f71b96eb9b21d1501c32bb8",
+      "bytes": 1532119,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/wayfinding-v17.png",
+      "archivedSourcePath": "development/art/source-v17/wayfinding-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/wayfinding-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 450068,
+        "sha256": "419466b273318948f8e768e3d05074c17e6411e725b6566777360fc67d028afb",
+        "sourceSha256": "19e6c886bd4b24ae569d967d2b1166f72fa6e0098f71b96eb9b21d1501c32bb8",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentShelters",
+      "file": "development/art/source-v17/shelters-v17.png",
+      "sha256": "28dc3dfe550c7c412183a396d646bef95a907dfaaf4fb5288e91a430c013cffc",
+      "bytes": 1486814,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/shelters-v17.png",
+      "archivedSourcePath": "development/art/source-v17/shelters-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/shelters-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 432608,
+        "sha256": "354046060bdd718bc2c3390a489ed885de0079aaa68ec48e9f346937588aee77",
+        "sourceSha256": "28dc3dfe550c7c412183a396d646bef95a907dfaaf4fb5288e91a430c013cffc",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentSurfaces",
+      "file": "development/art/source-v17/environment-surfaces-v17.png",
+      "sha256": "7090099ac88a64485c7454fc0f835f36cb3e88ddda2e0d223288daf12e1cee18",
+      "bytes": 4101512,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "originalProductionPath": "dist/game/engine2/art/environment-surfaces-v17.png",
+      "archivedSourcePath": "development/art/source-v17/environment-surfaces-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/environment-surfaces-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 946536,
+        "sha256": "c368d50db583a90d9a6323a497e768ae610a5106f6b6617675c862c25e9f98f3",
+        "sourceSha256": "7090099ac88a64485c7454fc0f835f36cb3e88ddda2e0d223288daf12e1cee18",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentWater",
+      "file": "development/art/source-v17/environment-water-v17.png",
+      "sha256": "72ac5d40efe0c103f86901ec462092f610fc26580f869a394774e91baf115301",
+      "bytes": 2423543,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "originalProductionPath": "dist/game/engine2/art/environment-water-v17.png",
+      "archivedSourcePath": "development/art/source-v17/environment-water-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/environment-water-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1254,
+        "height": 1254,
+        "bytes": 390334,
+        "sha256": "f83df973416b018ca03dd1f71ac88e0109738194585e2a21defe19b0c611e098",
+        "sourceSha256": "72ac5d40efe0c103f86901ec462092f610fc26580f869a394774e91baf115301",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentCanopies",
+      "file": "development/art/source-v17/environment-canopies-v17.png",
+      "sha256": "a9dee896e62b1e2d11688cc687c0540e60d54bad91dc5f71dbbade5abaa793ec",
+      "bytes": 3146499,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/environment-canopies-v17.png",
+      "archivedSourcePath": "development/art/source-v17/environment-canopies-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/environment-canopies-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 1093120,
+        "sha256": "31b47226dd12a9a680203c7525548c377129a936616db7c00a0620688fa42943",
+        "sourceSha256": "a9dee896e62b1e2d11688cc687c0540e60d54bad91dc5f71dbbade5abaa793ec",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "asset": "environmentArchitecture",
+      "file": "development/art/source-v17/architecture-accents-v17.png",
+      "sha256": "15632f12c04b7b56823bde9f96c927eeafce1d07c28362cc88bcb0622eca00b2",
+      "bytes": 1701869,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "originalProductionPath": "dist/game/engine2/art/architecture-accents-v17.png",
+      "archivedSourcePath": "development/art/source-v17/architecture-accents-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/architecture-accents-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 515070,
+        "sha256": "079485c38c19c97a60605deefaa6363f3d7f582b119aeec4c2245abf6b732ce2",
+        "sourceSha256": "15632f12c04b7b56823bde9f96c927eeafce1d07c28362cc88bcb0622eca00b2",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "collections": [
+    {
+      "id": "woodland",
+      "title": "Woodland undergrowth",
+      "asset": "environmentWoodland",
+      "file": "woodland-v17.webp",
+      "role": "scenery",
+      "description": "Roots, fungi, flowers and shrubs with distinct natural silhouettes.",
+      "scenes": [
+        {
+          "id": 50001,
+          "name": "Sable’s reed road"
+        },
+        {
+          "id": 19,
+          "name": "The forest"
+        },
+        {
+          "id": 2045,
+          "name": "Spore frontier"
+        }
+      ]
+    },
+    {
+      "id": "waterside",
+      "title": "Banks and waterfronts",
+      "asset": "environmentWaterside",
+      "file": "waterside-v17.webp",
+      "role": "scenery",
+      "description": "Tidal stone, rooted banks and the materials of working water.",
+      "scenes": [
+        {
+          "id": 49,
+          "name": "The river"
+        },
+        {
+          "id": 2020,
+          "name": "Coral frontier"
+        },
+        {
+          "id": 2025,
+          "name": "Mangrove frontier"
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "title": "Clay, copper and industry",
+      "asset": "environmentIndustryV17",
+      "file": "industry-v17.webp",
+      "role": "scenery",
+      "description": "Craft and maintenance objects grounded in the district’s materials.",
+      "scenes": [
+        {
+          "id": 28,
+          "name": "The catwalk"
+        },
+        {
+          "id": 50005,
+          "name": "Rook’s furnace road"
+        },
+        {
+          "id": 2015,
+          "name": "Caldera frontier"
+        }
+      ]
+    },
+    {
+      "id": "highlands",
+      "title": "Glacier and northern country",
+      "asset": "environmentHighlandsV17",
+      "file": "highlands-v17.webp",
+      "role": "scenery",
+      "description": "Frosted stone, hardy northern growth and weathered survey traces for cold regions.",
+      "scenes": [
+        {
+          "id": 2035,
+          "name": "Glacier frontier"
+        },
+        {
+          "id": 2040,
+          "name": "Aurora frontier"
+        },
+        {
+          "id": 2039,
+          "name": "Glacier sanctuary"
+        }
+      ]
+    },
+    {
+      "id": "drylands",
+      "title": "Drylands and old stone",
+      "asset": "environmentDrylandsV17",
+      "file": "drylands-v17.webp",
+      "role": "scenery",
+      "description": "Dryland plants and the traces of weather and earlier craft.",
+      "scenes": [
+        {
+          "id": 2000,
+          "name": "Dune frontier"
+        },
+        {
+          "id": 2010,
+          "name": "Cactus frontier"
+        },
+        {
+          "id": 2055,
+          "name": "Marble frontier"
+        }
+      ]
+    },
+    {
+      "id": "minerals",
+      "title": "Mineral gardens and pale growth",
+      "asset": "environmentMinerals",
+      "file": "mineral-garden-v17.webp",
+      "role": "scenery",
+      "description": "Faceted minerals, luminous fungal growth and shell-worn stone.",
+      "scenes": [
+        {
+          "id": 2030,
+          "name": "Crystal frontier"
+        },
+        {
+          "id": 2045,
+          "name": "Spore frontier"
+        },
+        {
+          "id": 2020,
+          "name": "Coral frontier"
+        }
+      ]
+    },
+    {
+      "id": "storm",
+      "title": "Rain, wind and exposed country",
+      "asset": "environmentStorm",
+      "file": "stormworks-v17.webp",
+      "role": "scenery",
+      "description": "Rain-darkened slate, upland roots and grounded copper craft without snow.",
+      "scenes": [
+        {
+          "id": 2050,
+          "name": "Storm frontier"
+        },
+        {
+          "id": 295,
+          "name": "The summit"
+        },
+        {
+          "id": 149,
+          "name": "Storm anchorage"
+        }
+      ]
+    },
+    {
+      "id": "village",
+      "title": "A village at work",
+      "asset": "environmentVillage",
+      "file": "village-craft-v17.webp",
+      "role": "scenery",
+      "description": "Sparse civic and craft details near existing homes and workplaces.",
+      "scenes": [
+        {
+          "id": 5,
+          "name": "Cinderfall"
+        },
+        {
+          "id": 17,
+          "name": "The market"
+        },
+        {
+          "id": 50001,
+          "name": "Sable’s reed road"
+        }
+      ]
+    },
+    {
+      "id": "artisans",
+      "title": "Rooms with a purpose",
+      "asset": "environmentArtisans",
+      "file": "artisans-v17.webp",
+      "role": "furniture",
+      "description": "Household and craft furniture for matching existing room footprints.",
+      "scenes": [
+        {
+          "id": 2,
+          "name": "The family home"
+        },
+        {
+          "id": 4,
+          "name": "Instrumentworks"
+        },
+        {
+          "id": 50,
+          "name": "The clinic"
+        }
+      ]
+    },
+    {
+      "id": "ground",
+      "title": "The ground underfoot",
+      "asset": "environmentGround",
+      "file": "ground-details-v17.webp",
+      "role": "ground",
+      "description": "Low, irregular material details that sit beneath travellers.",
+      "scenes": [
+        {
+          "id": 5,
+          "name": "Cinderfall"
+        },
+        {
+          "id": 2005,
+          "name": "Salt frontier"
+        },
+        {
+          "id": 2045,
+          "name": "Spore frontier"
+        }
+      ]
+    },
+    {
+      "id": "wayfinding",
+      "title": "Signs, surveys and travelling supplies",
+      "asset": "environmentWayfinding",
+      "file": "wayfinding-v17.webp",
+      "role": "scenery",
+      "description": "Painted replacements for existing dispatch boards, survey instruments, travel markers and supplies.",
+      "scenes": [
+        {
+          "id": 226,
+          "name": "The Commons dispatch"
+        },
+        {
+          "id": 2000,
+          "name": "Dune trailhead"
+        },
+        {
+          "id": 2050,
+          "name": "Storm worksite"
+        }
+      ]
+    },
+    {
+      "id": "shelters",
+      "title": "Places to rest",
+      "asset": "environmentShelters",
+      "file": "shelters-v17.webp",
+      "role": "scenery",
+      "description": "Human-scale regional shelters at existing outdoor rest points, with open fronts and simple travelling supplies.",
+      "scenes": [
+        {
+          "id": 2000,
+          "name": "Dune shelter"
+        },
+        {
+          "id": 2035,
+          "name": "Glacier windbreak"
+        },
+        {
+          "id": 2045,
+          "name": "Sporewood refuge"
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "mangrove-root",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        23,
+        36,
+        400,
+        389
+      ],
+      "height": 102,
+      "use": "runtime"
+    },
+    {
+      "id": "tidepool-ledge",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        454,
+        83,
+        418,
+        339
+      ],
+      "height": 78,
+      "use": "runtime"
+    },
+    {
+      "id": "fishing-skiff",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        902,
+        116,
+        422,
+        313
+      ],
+      "height": 92,
+      "use": "runtime"
+    },
+    {
+      "id": "cattail-bank",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        1354,
+        34,
+        398,
+        401
+      ],
+      "height": 92,
+      "use": "runtime"
+    },
+    {
+      "id": "river-stairs",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        25,
+        448,
+        402,
+        415
+      ],
+      "height": 116,
+      "use": "staged",
+      "stagingReason": "Reserved for a future authored landing with matching elevation and a real route."
+    },
+    {
+      "id": "coral-fan",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        463,
+        465,
+        399,
+        394
+      ],
+      "height": 94,
+      "use": "runtime"
+    },
+    {
+      "id": "reed-traps",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        899,
+        480,
+        425,
+        377
+      ],
+      "height": 80,
+      "use": "runtime"
+    },
+    {
+      "id": "willow-bank",
+      "collection": "waterside",
+      "asset": "environmentWaterside",
+      "crop": [
+        1350,
+        457,
+        400,
+        407
+      ],
+      "height": 113,
+      "use": "runtime"
+    },
+    {
+      "id": "hollow-root",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        16,
+        40,
+        456,
+        412
+      ],
+      "height": 107,
+      "use": "runtime"
+    },
+    {
+      "id": "shelf-fungi-log",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        476,
+        97,
+        463,
+        302
+      ],
+      "height": 74,
+      "use": "runtime"
+    },
+    {
+      "id": "birch-stump",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        964,
+        84,
+        345,
+        353
+      ],
+      "height": 84,
+      "use": "runtime"
+    },
+    {
+      "id": "violet-fungi",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        1368,
+        80,
+        375,
+        356
+      ],
+      "height": 97,
+      "use": "runtime"
+    },
+    {
+      "id": "bluebell-log",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        17,
+        508,
+        444,
+        335
+      ],
+      "height": 77,
+      "use": "runtime"
+    },
+    {
+      "id": "amber-resin-plant",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        486,
+        458,
+        375,
+        396
+      ],
+      "height": 101,
+      "use": "runtime"
+    },
+    {
+      "id": "mushroom-root-arch",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        876,
+        534,
+        458,
+        279
+      ],
+      "height": 79,
+      "use": "runtime"
+    },
+    {
+      "id": "meadow-shrubs",
+      "collection": "woodland",
+      "asset": "environmentWoodland",
+      "crop": [
+        1348,
+        484,
+        411,
+        359
+      ],
+      "height": 78,
+      "use": "runtime"
+    },
+    {
+      "id": "clay-kiln",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        23,
+        31,
+        400,
+        394
+      ],
+      "height": 122,
+      "use": "runtime"
+    },
+    {
+      "id": "casting-basin",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        470,
+        94,
+        398,
+        339
+      ],
+      "height": 84,
+      "use": "runtime"
+    },
+    {
+      "id": "bellows-workstand",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        904,
+        51,
+        406,
+        391
+      ],
+      "height": 104,
+      "use": "runtime"
+    },
+    {
+      "id": "rail-buffer",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        1336,
+        90,
+        415,
+        337
+      ],
+      "height": 86,
+      "use": "runtime"
+    },
+    {
+      "id": "copper-valve",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        19,
+        460,
+        431,
+        385
+      ],
+      "height": 98,
+      "use": "runtime"
+    },
+    {
+      "id": "ember-basalt",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        457,
+        463,
+        432,
+        383
+      ],
+      "height": 91,
+      "use": "runtime"
+    },
+    {
+      "id": "ore-cart",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        919,
+        513,
+        394,
+        330
+      ],
+      "height": 88,
+      "use": "runtime"
+    },
+    {
+      "id": "slag-vent",
+      "collection": "industry",
+      "asset": "environmentIndustryV17",
+      "crop": [
+        1348,
+        448,
+        409,
+        409
+      ],
+      "height": 109,
+      "use": "runtime"
+    },
+    {
+      "id": "ice-standing-stones",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        35,
+        60,
+        392,
+        370
+      ],
+      "height": 102,
+      "use": "runtime"
+    },
+    {
+      "id": "frost-pines",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        495,
+        43,
+        351,
+        385
+      ],
+      "height": 118,
+      "use": "runtime"
+    },
+    {
+      "id": "frost-driftwood",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        908,
+        89,
+        419,
+        357
+      ],
+      "height": 84,
+      "use": "runtime"
+    },
+    {
+      "id": "aurora-cairn",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        1368,
+        59,
+        362,
+        394
+      ],
+      "height": 102,
+      "use": "runtime"
+    },
+    {
+      "id": "heather-crag",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        33,
+        481,
+        463,
+        362
+      ],
+      "height": 80,
+      "use": "runtime"
+    },
+    {
+      "id": "weather-vane",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        543,
+        430,
+        290,
+        418
+      ],
+      "height": 125,
+      "use": "runtime"
+    },
+    {
+      "id": "snow-fence",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        900,
+        533,
+        441,
+        314
+      ],
+      "height": 80,
+      "use": "runtime"
+    },
+    {
+      "id": "glacial-ledge",
+      "collection": "highlands",
+      "asset": "environmentHighlandsV17",
+      "crop": [
+        1352,
+        528,
+        400,
+        322
+      ],
+      "height": 91,
+      "use": "runtime"
+    },
+    {
+      "id": "sandstone-shelf",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        9,
+        23,
+        422,
+        389
+      ],
+      "height": 101,
+      "use": "runtime"
+    },
+    {
+      "id": "agave-ocotillo",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        464,
+        13,
+        385,
+        420
+      ],
+      "height": 98,
+      "use": "runtime"
+    },
+    {
+      "id": "salt-outcrop",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        882,
+        35,
+        433,
+        394
+      ],
+      "height": 92,
+      "use": "runtime"
+    },
+    {
+      "id": "stone-rill",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        1340,
+        57,
+        420,
+        348
+      ],
+      "height": 82,
+      "use": "runtime"
+    },
+    {
+      "id": "marble-column",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        12,
+        455,
+        406,
+        402
+      ],
+      "height": 126,
+      "use": "runtime"
+    },
+    {
+      "id": "fresco-wall",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        459,
+        448,
+        416,
+        396
+      ],
+      "height": 105,
+      "use": "runtime"
+    },
+    {
+      "id": "wind-shrine",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        896,
+        461,
+        418,
+        387
+      ],
+      "height": 112,
+      "use": "runtime"
+    },
+    {
+      "id": "flowering-cactus",
+      "collection": "drylands",
+      "asset": "environmentDrylandsV17",
+      "crop": [
+        1358,
+        440,
+        388,
+        425
+      ],
+      "height": 107,
+      "use": "runtime"
+    },
+    {
+      "id": "wash-trough",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        20,
+        194,
+        452,
+        276
+      ],
+      "height": 76,
+      "use": "runtime"
+    },
+    {
+      "id": "potters-wheel",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        486,
+        118,
+        401,
+        351
+      ],
+      "height": 86,
+      "use": "runtime"
+    },
+    {
+      "id": "produce-stall",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        905,
+        17,
+        429,
+        459
+      ],
+      "height": 128,
+      "use": "runtime"
+    },
+    {
+      "id": "covered-well",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        1354,
+        95,
+        390,
+        370
+      ],
+      "height": 97,
+      "use": "runtime"
+    },
+    {
+      "id": "rosemary-wall",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        8,
+        540,
+        458,
+        330
+      ],
+      "height": 70,
+      "use": "runtime"
+    },
+    {
+      "id": "carvers-bench",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        463,
+        530,
+        429,
+        331
+      ],
+      "height": 83,
+      "use": "runtime"
+    },
+    {
+      "id": "mending-line",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        896,
+        499,
+        442,
+        367
+      ],
+      "height": 105,
+      "use": "runtime"
+    },
+    {
+      "id": "bread-oven",
+      "collection": "village",
+      "asset": "environmentVillage",
+      "crop": [
+        1342,
+        466,
+        429,
+        399
+      ],
+      "height": 114,
+      "use": "runtime"
+    },
+    {
+      "id": "mineral-geode",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        23,
+        19,
+        400,
+        406
+      ],
+      "height": 92,
+      "use": "runtime"
+    },
+    {
+      "id": "aragonite-fan",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        446,
+        14,
+        433,
+        415
+      ],
+      "height": 96,
+      "use": "runtime"
+    },
+    {
+      "id": "aquamarine-shelf",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        894,
+        90,
+        439,
+        313
+      ],
+      "height": 74,
+      "use": "runtime"
+    },
+    {
+      "id": "star-slate-cairn",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        1376,
+        17,
+        369,
+        410
+      ],
+      "height": 96,
+      "use": "runtime"
+    },
+    {
+      "id": "pale-root",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        27,
+        447,
+        411,
+        416
+      ],
+      "height": 91,
+      "use": "runtime"
+    },
+    {
+      "id": "amber-shelf-fungi",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        458,
+        445,
+        430,
+        416
+      ],
+      "height": 82,
+      "use": "runtime"
+    },
+    {
+      "id": "pearl-fungal-sapling",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        929,
+        434,
+        365,
+        430
+      ],
+      "height": 112,
+      "use": "runtime"
+    },
+    {
+      "id": "shell-basin",
+      "collection": "minerals",
+      "asset": "environmentMinerals",
+      "crop": [
+        1337,
+        478,
+        427,
+        365
+      ],
+      "height": 79,
+      "use": "runtime"
+    },
+    {
+      "id": "storm-crag",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        26,
+        57,
+        399,
+        347
+      ],
+      "height": 92,
+      "use": "runtime"
+    },
+    {
+      "id": "wind-grasses",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        464,
+        86,
+        429,
+        325
+      ],
+      "height": 72,
+      "use": "runtime"
+    },
+    {
+      "id": "grounding-coil",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        925,
+        63,
+        347,
+        359
+      ],
+      "height": 98,
+      "use": "runtime"
+    },
+    {
+      "id": "rain-catch",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        1350,
+        78,
+        406,
+        344
+      ],
+      "height": 84,
+      "use": "runtime"
+    },
+    {
+      "id": "mooring-bollard",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        40,
+        508,
+        397,
+        317
+      ],
+      "height": 68,
+      "use": "runtime"
+    },
+    {
+      "id": "bronze-vane",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        498,
+        443,
+        344,
+        415
+      ],
+      "height": 111,
+      "use": "runtime"
+    },
+    {
+      "id": "anchorage-chain",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        911,
+        491,
+        373,
+        338
+      ],
+      "height": 84,
+      "use": "runtime"
+    },
+    {
+      "id": "upland-roots",
+      "collection": "storm",
+      "asset": "environmentStorm",
+      "crop": [
+        1321,
+        490,
+        429,
+        343
+      ],
+      "height": 77,
+      "use": "runtime"
+    },
+    {
+      "id": "apothecary-table",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        15,
+        16,
+        429,
+        419
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "indigo-loom",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        454,
+        8,
+        447,
+        419
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "bakers-counter",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        902,
+        49,
+        434,
+        379
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "luthier-bench",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        1342,
+        31,
+        430,
+        405
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "archive-cabinet",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        28,
+        446,
+        423,
+        381
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "herb-drying-rack",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        461,
+        428,
+        436,
+        431
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "supper-table",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        918,
+        446,
+        363,
+        420
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "quilt-bed",
+      "collection": "artisans",
+      "asset": "environmentArtisans",
+      "crop": [
+        1343,
+        438,
+        427,
+        417
+      ],
+      "height": 100,
+      "use": "runtime"
+    },
+    {
+      "id": "leaf-litter",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        57,
+        78,
+        363,
+        314
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "river-pebbles",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        532,
+        86,
+        283,
+        277
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "clay-shards",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        938,
+        78,
+        313,
+        317
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "salt-scatter",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        1418,
+        96,
+        296,
+        278
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "frost-scatter",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        61,
+        503,
+        366,
+        321
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "spore-carpet",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        539,
+        510,
+        272,
+        308
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "charcoal-scatter",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        955,
+        509,
+        305,
+        312
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "worn-mosaic",
+      "collection": "ground",
+      "asset": "environmentGround",
+      "crop": [
+        1381,
+        503,
+        325,
+        322
+      ],
+      "height": 35,
+      "use": "runtime"
+    },
+    {
+      "id": "frontier-noticeboard",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        44,
+        76,
+        396,
+        355
+      ],
+      "height": 100,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "trail-fingerpost",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        561,
+        43,
+        281,
+        388
+      ],
+      "height": 100,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "travel-waystone",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        964,
+        104,
+        334,
+        334
+      ],
+      "height": 87,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "carved-standing-stone",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        1426,
+        17,
+        310,
+        427
+      ],
+      "height": 109,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "refuge-cache",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        40,
+        496,
+        432,
+        352
+      ],
+      "height": 75,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "rope-trail-gate",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        505,
+        492,
+        433,
+        333
+      ],
+      "height": 85,
+      "role": "utility",
+      "use": "staged",
+      "stagingReason": "Reserved for a future explicitly authored trail gate; the open rope must never suggest an invented route."
+    },
+    {
+      "id": "weather-beacon",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        1009,
+        464,
+        286,
+        377
+      ],
+      "height": 97,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "survey-marker",
+      "collection": "wayfinding",
+      "asset": "environmentWayfinding",
+      "crop": [
+        1395,
+        485,
+        345,
+        347
+      ],
+      "height": 80,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "woodland-leanto",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        90,
+        95,
+        342,
+        319
+      ],
+      "height": 100,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "desert-awning",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        496,
+        103,
+        354,
+        313
+      ],
+      "height": 100,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "frost-windbreak",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        932,
+        144,
+        383,
+        270
+      ],
+      "height": 93,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "marsh-reed-shelter",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        1385,
+        86,
+        327,
+        343
+      ],
+      "height": 104,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "basalt-refuge",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        50,
+        512,
+        393,
+        272
+      ],
+      "height": 92,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "stormcloth-shelter",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        500,
+        534,
+        385,
+        249
+      ],
+      "height": 90,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "spore-root-shelter",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        920,
+        511,
+        394,
+        285
+      ],
+      "height": 96,
+      "role": "utility",
+      "use": "runtime"
+    },
+    {
+      "id": "marble-alcove",
+      "collection": "shelters",
+      "asset": "environmentShelters",
+      "crop": [
+        1362,
+        511,
+        362,
+        287
+      ],
+      "height": 100,
+      "role": "utility",
+      "use": "runtime"
+    }
+  ],
+  "canopies": [
+    {
+      "id": "orchard-apple",
+      "label": "Orchard apple",
+      "crop": [
+        0,
+        11,
+        452,
+        423
+      ],
+      "opaque": [
+        0,
+        15,
+        448,
+        415
+      ],
+      "anchor": [
+        230,
+        420
+      ],
+      "height": 174,
+      "parts": [
+        [
+          0,
+          11,
+          452,
+          423
+        ]
+      ]
+    },
+    {
+      "id": "hazel-coppice",
+      "label": "Hazel coppice",
+      "crop": [
+        454,
+        4,
+        424,
+        431
+      ],
+      "opaque": [
+        458,
+        8,
+        416,
+        423
+      ],
+      "anchor": [
+        650,
+        420
+      ],
+      "height": 181,
+      "parts": [
+        [
+          454,
+          4,
+          424,
+          431
+        ]
+      ]
+    },
+    {
+      "id": "river-alder",
+      "label": "River alder",
+      "crop": [
+        893,
+        12,
+        430,
+        425
+      ],
+      "opaque": [
+        897,
+        16,
+        422,
+        417
+      ],
+      "anchor": [
+        1038,
+        424
+      ],
+      "height": 195,
+      "parts": [
+        [
+          893,
+          12,
+          430,
+          425
+        ]
+      ]
+    },
+    {
+      "id": "mangrove-cypress",
+      "label": "Mangrove cypress",
+      "crop": [
+        1334,
+        13,
+        440,
+        424
+      ],
+      "opaque": [
+        1338,
+        17,
+        436,
+        416
+      ],
+      "anchor": [
+        1555,
+        424
+      ],
+      "height": 202,
+      "parts": [
+        [
+          1334,
+          13,
+          440,
+          424
+        ]
+      ]
+    },
+    {
+      "id": "snow-spruce",
+      "label": "Snow spruce",
+      "crop": [
+        30,
+        437,
+        359,
+        436
+      ],
+      "opaque": [
+        34,
+        441,
+        351,
+        428
+      ],
+      "anchor": [
+        210,
+        859
+      ],
+      "height": 214,
+      "parts": [
+        [
+          30,
+          437,
+          359,
+          436
+        ]
+      ]
+    },
+    {
+      "id": "storm-juniper",
+      "label": "Storm juniper",
+      "crop": [
+        416,
+        457,
+        519,
+        406
+      ],
+      "opaque": [
+        420,
+        461,
+        511,
+        398
+      ],
+      "anchor": [
+        615,
+        849
+      ],
+      "height": 185,
+      "parts": [
+        [
+          416,
+          457,
+          477,
+          95
+        ],
+        [
+          416,
+          552,
+          454,
+          39
+        ],
+        [
+          416,
+          591,
+          476,
+          47
+        ],
+        [
+          416,
+          638,
+          519,
+          225
+        ]
+      ]
+    },
+    {
+      "id": "desert-acacia",
+      "label": "Desert acacia",
+      "crop": [
+        869,
+        462,
+        499,
+        405
+      ],
+      "opaque": [
+        873,
+        466,
+        491,
+        397
+      ],
+      "anchor": [
+        1135,
+        851
+      ],
+      "height": 181,
+      "parts": [
+        [
+          893,
+          462,
+          475,
+          90
+        ],
+        [
+          870,
+          552,
+          498,
+          31
+        ],
+        [
+          870,
+          583,
+          457,
+          8
+        ],
+        [
+          892,
+          591,
+          435,
+          47
+        ],
+        [
+          937,
+          638,
+          390,
+          229
+        ]
+      ]
+    },
+    {
+      "id": "spore-canopy",
+      "label": "Spore fungal canopy",
+      "crop": [
+        1330,
+        452,
+        436,
+        419
+      ],
+      "opaque": [
+        1334,
+        456,
+        428,
+        411
+      ],
+      "anchor": [
+        1582,
+        858
+      ],
+      "height": 201,
+      "parts": [
+        [
+          1368,
+          452,
+          398,
+          131
+        ],
+        [
+          1330,
+          583,
+          436,
+          288
+        ]
+      ]
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "meadow-moss",
+      "crop": [
+        20,
+        20,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "alluvial-mud",
+      "crop": [
+        464,
+        20,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "ochre-sand",
+      "crop": [
+        907,
+        20,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "blue-slate",
+      "crop": [
+        1351,
+        20,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "frost-crust",
+      "crop": [
+        20,
+        464,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "mycelium-soil",
+      "crop": [
+        464,
+        464,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "volcanic-clinker",
+      "crop": [
+        907,
+        464,
+        404,
+        404
+      ]
+    },
+    {
+      "id": "limestone-fragments",
+      "crop": [
+        1351,
+        464,
+        404,
+        404
+      ]
+    }
+  ],
+  "water": [
+    {
+      "id": "alluvial-river",
+      "style": "riverbank",
+      "name": "Alluvial river",
+      "crop": [
+        20,
+        20,
+        587,
+        587
+      ],
+      "base": "#285a51",
+      "deep": "#173b3a"
+    },
+    {
+      "id": "mangrove-tide",
+      "style": "mangrove",
+      "name": "Mangrove tide",
+      "crop": [
+        647,
+        20,
+        587,
+        587
+      ],
+      "base": "#2d5145",
+      "deep": "#183a34"
+    },
+    {
+      "id": "coral-shallows",
+      "style": "coral",
+      "name": "Coral shallows",
+      "crop": [
+        20,
+        647,
+        587,
+        587
+      ],
+      "base": "#347d83",
+      "deep": "#245563"
+    },
+    {
+      "id": "saltglass-lagoon",
+      "style": "salt",
+      "name": "Saltglass lagoon",
+      "crop": [
+        647,
+        647,
+        587,
+        587
+      ],
+      "base": "#6e9990",
+      "deep": "#355e62"
+    }
+  ],
+  "architecture": [
+    {
+      "id": "timber-flower-window",
+      "label": "Timber flowerbox window",
+      "crop": [
+        61,
+        54,
+        397,
+        355
+      ],
+      "height": 104
+    },
+    {
+      "id": "clinic-herb-window",
+      "label": "Clinic herb window",
+      "crop": [
+        526,
+        39,
+        412,
+        388
+      ],
+      "height": 104
+    },
+    {
+      "id": "archive-leaded-window",
+      "label": "Archive leaded window",
+      "crop": [
+        1038,
+        10,
+        225,
+        432
+      ],
+      "height": 104
+    },
+    {
+      "id": "carved-gable-vent",
+      "label": "Carved gable vent",
+      "crop": [
+        1367,
+        41,
+        381,
+        377
+      ],
+      "height": 104
+    },
+    {
+      "id": "brick-chimney",
+      "label": "Weathered brick chimney",
+      "crop": [
+        106,
+        466,
+        319,
+        394
+      ],
+      "height": 104
+    },
+    {
+      "id": "copper-stovepipe",
+      "label": "Copper stovepipe",
+      "crop": [
+        588,
+        444,
+        288,
+        431
+      ],
+      "height": 104
+    },
+    {
+      "id": "wrought-lantern",
+      "label": "Wrought wall lantern",
+      "crop": [
+        1007,
+        469,
+        273,
+        389
+      ],
+      "height": 104
+    },
+    {
+      "id": "ivy-corner",
+      "label": "Climbing ivy corner",
+      "crop": [
+        1449,
+        429,
+        290,
+        458
+      ],
+      "height": 104
+    }
+  ],
+  "compatibility": {
+    "props": "Direct WebP delivery rendering from archived original PNG sources",
+    "canopies": "Direct WebP delivery rendering from archived original PNG sources",
+    "ground": "Bounded scene-entry material cache",
+    "water": "Bounded scene-entry material cache",
+    "architecture": "Standard baked buildings; Compatibility retains its established facade fallback"
+  },
+  "preparedForMore": "development/art/NEXT-ART-BRIEFS.md",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "deliveryImageCount": 16,
+  "totalDeliveryWebpBytes": 10575052,
+  "deliveryEncoding": {
+    "encoder": "FFmpeg libwebp",
+    "quality": 95,
+    "compressionLevel": 6,
+    "losslessColor": false,
+    "alpha": "exact original alpha channel",
+    "dimensions": "unchanged"
+  },
+  "deliveryReceipt": "development/art/delivery-v17.json",
+  "releaseNote": "docs/ENVIRONMENT_ART_5.18.md",
+  "worldCoverageReceipt": "docs/verification/environment-5.18-world.json"
+}

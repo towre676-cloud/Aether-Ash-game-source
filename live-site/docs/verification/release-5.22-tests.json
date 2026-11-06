@@ -1,0 +1,6 @@
+{
+  "schema": "ash-aether.interrupted-verification/1",
+  "status": "interrupted",
+  "reason": "Stopped for the final visual-review corrections to affordance depiction and indoor labels. This is not a release pass. The final gate is recorded separately.",
+  "combined_log": "docs/verification/release-5.22-tests.log"
+}

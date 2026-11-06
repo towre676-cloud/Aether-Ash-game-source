@@ -1,0 +1,2086 @@
+Release regression
+HEAD: e491e9395428b39233316e1970bbae1fb364b9fc
+Node: v24.22.1
+Started: 2026-10-29T06:37:58.169Z
+Discovery: recursive dist/game/**/*.test.mjs, excluding dependency directories and symlinks
+Modules: 147; concurrency: 4; per-module timeout: 300000 ms
+
+===== dist/game/engine2/tests/adaptive-audio.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/adaptive-audio.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/actor-atlas.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/actor-atlas.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.074s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/affordance-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/affordance-art.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.113s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/animation-expansion/player/timeline.test.mjs =====
+Command: node --test-reporter=spec dist/game/animation-expansion/player/timeline.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.348s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/architectural-program.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/architectural-program.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.821s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/asset-loader.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/asset-loader.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.098s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/atlas-fallback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/atlas-fallback.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.094s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/architecture.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/architecture.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.923s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/authored-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/authored-motion.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.097s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/adventure-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/adventure-guidance.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.796s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/battle-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-layout.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.13s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/battle-picker-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-picker-ui.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.083s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/battle-flow.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-flow.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.824s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/battlefield.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battlefield.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.147s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/authored-openings.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/authored-openings.test.mjs
+
+Exit: 0; signal: none; elapsed: 2.56s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/battlefield-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battlefield-integration.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.555s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/boss-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-guidance.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.125s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/boss-patterns.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-patterns.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.112s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/boss-gear.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-gear.test.mjs
+
+Exit: 0; signal: none; elapsed: 2.185s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/boss-strategy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-strategy.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.623s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/building-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/building-craft.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.829s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/camera-window.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/camera-window.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.102s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/bell-witness-arc.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/bell-witness-arc.test.mjs
+
+Exit: 0; signal: none; elapsed: 4.741s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/campaign-purpose.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/campaign-purpose.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.062s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/character-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/character-motion.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.089s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/character-showcase.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/character-showcase.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.069s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/cinema.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/cinema.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.163s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/building-geometry.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/building-geometry.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.965s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/city-answer.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/city-answer.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.069s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/city-answer-battle.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/city-answer-battle.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.134s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/combat-command-safety.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-command-safety.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.092s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/combat-instruments.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-instruments.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.108s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/combat-position.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-position.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.069s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/combat-advice.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-advice.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.788s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/compatibility-ground.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/compatibility-ground.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.066s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/combat-reactions.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-reactions.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.695s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/creature-ecology.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/creature-ecology.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.138s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/crew-setup.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/crew-setup.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.083s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/constellation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/constellation.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.81s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/dialogue-presentation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/dialogue-presentation.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.066s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/direction-latch.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/direction-latch.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.07s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/earned-progression.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/earned-progression.test.mjs
+
+Exit: 0; signal: none; elapsed: 4.237s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/economy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/economy.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.614s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/encounter-objectives.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/encounter-objectives.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.066s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/campaign-homecoming.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/campaign-homecoming.test.mjs
+
+Exit: 0; signal: none; elapsed: 8.886s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-architecture-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-architecture-v17.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.907s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-architecture-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-architecture-v19.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.962s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-canopies-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-canopies-v17.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.657s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-art-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-art-v17.test.mjs
+
+Exit: 1; signal: none; elapsed: 1.65s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: exit code 1; missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-canopies-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-canopies-v19.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.644s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-depth.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-depth.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.656s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-materials-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-materials-v17.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.064s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-shells.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-shells.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.132s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-water-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-water-v17.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.057s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/environment-interiors-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-interiors-v19.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.975s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/answering-network.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/answering-network.test.mjs
+
+Exit: 0; signal: none; elapsed: 20.601s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/exploration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/exploration.test.mjs
+
+Exit: 0; signal: none; elapsed: 2.222s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-encounters.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-encounters.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.693s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/exploration-investigations.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/exploration-investigations.test.mjs
+
+Exit: 0; signal: none; elapsed: 2.723s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-expeditions.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-expeditions.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.079s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-journey-director.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-journey-director.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.073s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-journey-model.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-journey-model.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.081s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-feedback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-feedback.test.mjs
+
+Exit: 0; signal: none; elapsed: 2.809s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-expeditions-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-expeditions-integration.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.414s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-rumor-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-rumor-art.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.055s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-rumors.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-rumors.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.083s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/follower-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/follower-motion.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.118s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-patrols.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-patrols.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.858s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/frontier-art-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/frontier-art-v17.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.19s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/functional-anatomy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/functional-anatomy.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.09s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/graphics-health.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/graphics-health.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/ground-contact.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/ground-contact.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.08s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/guardian-reward-rules.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guardian-reward-rules.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.113s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/guardian-rules.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guardian-rules.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.159s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/frontiers.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/frontiers.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.553s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/hero-legacy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/hero-legacy.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.071s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/field-origins.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-origins.test.mjs
+
+Exit: 0; signal: none; elapsed: 7.602s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/interior-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/interior-craft.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.648s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/journey-cinema.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-cinema.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.082s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/guided-objective.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guided-objective.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.298s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/journey-memory.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-memory.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.802s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/kakeya.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/kakeya.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.739s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/label-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/label-layout.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.054s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/legacy-art-delivery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/legacy-art-delivery.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.116s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/households.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/households.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.549s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/living-world-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-world-ui.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.137s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/lore.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/lore.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.052s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/material-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/material-craft.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.064s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/media-delivery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/media-delivery.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.098s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/monster-catalog.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/monster-catalog.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.144s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/motion-media.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/motion-media.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.108s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/motion-realism.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/motion-realism.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.069s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/network-audio.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/network-audio.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.066s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/journey-roster.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-roster.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.577s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/new-game-plus.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/new-game-plus.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.915s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/npc-routines.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/npc-routines.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.379s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/objective-context.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-context.test.mjs
+
+Exit: 0; signal: none; elapsed: 3.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/objective-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-ui.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.094s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/living-world-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-world-integration.test.mjs
+
+Exit: 0; signal: none; elapsed: 6.503s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/organic-ground.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/organic-ground.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.69s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/objective-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-integration.test.mjs
+
+Exit: 0; signal: none; elapsed: 4.255s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/origin-goal-feasibility.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-goal-feasibility.test.mjs
+
+Exit: 0; signal: none; elapsed: 7.521s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/origin-voice-coverage.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-voice-coverage.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.089s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/origin-payoffs.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-payoffs.test.mjs
+
+Exit: 0; signal: none; elapsed: 8.627s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/pause-navigation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/pause-navigation.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.058s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/peaceful-shipments.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/peaceful-shipments.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.125s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/personal-signatures.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/personal-signatures.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.116s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/origin-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-guidance.test.mjs
+
+Exit: 0; signal: none; elapsed: 28.036s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/player-comfort.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/player-comfort.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/player-locomotion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/player-locomotion.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.146s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/playtest-recorder.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/playtest-recorder.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/physical-lore.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/physical-lore.test.mjs
+
+Exit: 0; signal: none; elapsed: 19.599s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/presentation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/presentation.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.114s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/quest-navigation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/quest-navigation.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.469s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/regional-work.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/regional-work.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.823s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/renderer-recovery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/renderer-recovery.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.152s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/repertoire-expansion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/repertoire-expansion.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.123s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/repertoire.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/repertoire.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.111s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/room-realism.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/room-realism.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.765s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/quest-assistance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/quest-assistance.test.mjs
+
+Exit: 0; signal: none; elapsed: 5.001s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/save-feedback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/save-feedback.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.093s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/runtime.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/runtime.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.302s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-camera.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-camera.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.131s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-craft.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.208s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-dressing.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-dressing.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.074s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-identity.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-identity.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.602s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-lighting.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-lighting.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.06s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/scene-prop-repertoire.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-prop-repertoire.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.063s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/selected-lead-text.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/selected-lead-text.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.06s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/soundscape.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/soundscape.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.056s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/sprite-cutout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/sprite-cutout.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.051s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/subterranean-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/subterranean-art.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.049s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/technique-icons.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/technique-icons.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.052s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/technique-preview.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/technique-preview.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.145s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/terrain-materials.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/terrain-materials.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.05s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/touch-controls.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/touch-controls.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.067s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/tree-visibility.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/tree-visibility.test.mjs
+
+Exit: 0; signal: none; elapsed: 1.215s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/village-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/village-art.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.049s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/voice-assets.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/voice-assets.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.142s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/wayfinding.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayfinding.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.067s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/wayglass-puzzle.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayglass-puzzle.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.066s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/wayglass.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayglass.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.684s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/wild-combat.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wild-combat.test.mjs
+
+Exit: 0; signal: none; elapsed: 4.618s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/world-affordances.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/world-affordances.test.mjs
+
+Exit: 0; signal: none; elapsed: 0.154s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/save-validation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/save-validation.test.mjs
+
+Exit: 0; signal: none; elapsed: 10.649s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/origins.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origins.test.mjs
+
+Exit: 0; signal: none; elapsed: 40.632s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== dist/game/engine2/tests/dev-session.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/dev-session.test.mjs
+
+Exit: 0; signal: none; elapsed: 157.044s; timed out: false
+Counts: {"tests":null,"pass":null,"fail":null,"skipped":null,"cancelled":null,"todo":null}
+FAIL: missing Node counts: tests, pass, fail, skipped, cancelled, todo
+
+===== TOTAL =====
+{
+  "revision": "e491e9395428b39233316e1970bbae1fb364b9fc",
+  "head_at_finish": "e491e9395428b39233316e1970bbae1fb364b9fc",
+  "files": 147,
+  "elapsed_seconds": 165.767,
+  "totals": {
+    "tests": 0,
+    "pass": 0,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "failures": [
+    {
+      "file": "dist/game/animation-expansion/player/timeline.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/actor-atlas.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/adaptive-audio.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/adventure-guidance.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/affordance-art.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/answering-network.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/architectural-program.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/architecture.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/atlas-fallback.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-motion.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-openings.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-flow.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-layout.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield-integration.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-gear.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-guidance.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-patterns.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-strategy.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/building-craft.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/building-geometry.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/camera-window.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-purpose.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/character-motion.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/character-showcase.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/cinema.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer-battle.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-advice.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-command-safety.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-instruments.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-position.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-reactions.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/compatibility-ground.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/constellation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/creature-ecology.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/crew-setup.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/dev-session.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/direction-latch.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/earned-progression.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/economy.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-objectives.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-art-v17.test.mjs",
+      "reasons": [
+        "exit code 1",
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v17.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v19.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-depth.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-materials-v17.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-shells.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-water-v17.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration-investigations.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-encounters.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-feedback.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-director.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-model.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-origins.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-patrols.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumor-art.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumors.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/follower-motion.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/frontier-art-v17.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/frontiers.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/functional-anatomy.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/graphics-health.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/ground-contact.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-rules.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/guided-objective.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/hero-legacy.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/households.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/interior-craft.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-cinema.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-memory.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-roster.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/kakeya.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/label-layout.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-integration.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-ui.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/lore.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/material-craft.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/monster-catalog.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-media.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-realism.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/network-audio.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/new-game-plus.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/npc-routines.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-context.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-integration.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-ui.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/organic-ground.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-guidance.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-payoffs.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/origins.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/pause-navigation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/personal-signatures.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/physical-lore.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/player-comfort.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/player-locomotion.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/playtest-recorder.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/presentation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-assistance.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-navigation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/regional-work.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/renderer-recovery.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/room-realism.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/runtime.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/save-feedback.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/save-validation.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-camera.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-dressing.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-identity.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-lighting.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/selected-lead-text.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/soundscape.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/sprite-cutout.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/subterranean-art.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-icons.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-preview.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/terrain-materials.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/touch-controls.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/tree-visibility.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/village-art.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/voice-assets.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/wayfinding.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/wild-combat.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    },
+    {
+      "file": "dist/game/engine2/tests/world-affordances.test.mjs",
+      "reasons": [
+        "missing Node counts: tests, pass, fail, skipped, cancelled, todo"
+      ]
+    }
+  ],
+  "missing_count_summaries": [
+    "dist/game/animation-expansion/player/timeline.test.mjs",
+    "dist/game/engine2/tests/actor-atlas.test.mjs",
+    "dist/game/engine2/tests/adaptive-audio.test.mjs",
+    "dist/game/engine2/tests/adventure-guidance.test.mjs",
+    "dist/game/engine2/tests/affordance-art.test.mjs",
+    "dist/game/engine2/tests/answering-network.test.mjs",
+    "dist/game/engine2/tests/architectural-program.test.mjs",
+    "dist/game/engine2/tests/architecture.test.mjs",
+    "dist/game/engine2/tests/asset-loader.test.mjs",
+    "dist/game/engine2/tests/atlas-fallback.test.mjs",
+    "dist/game/engine2/tests/authored-motion.test.mjs",
+    "dist/game/engine2/tests/authored-openings.test.mjs",
+    "dist/game/engine2/tests/battle-flow.test.mjs",
+    "dist/game/engine2/tests/battle-layout.test.mjs",
+    "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+    "dist/game/engine2/tests/battlefield-integration.test.mjs",
+    "dist/game/engine2/tests/battlefield.test.mjs",
+    "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+    "dist/game/engine2/tests/boss-gear.test.mjs",
+    "dist/game/engine2/tests/boss-guidance.test.mjs",
+    "dist/game/engine2/tests/boss-patterns.test.mjs",
+    "dist/game/engine2/tests/boss-strategy.test.mjs",
+    "dist/game/engine2/tests/building-craft.test.mjs",
+    "dist/game/engine2/tests/building-geometry.test.mjs",
+    "dist/game/engine2/tests/camera-window.test.mjs",
+    "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+    "dist/game/engine2/tests/campaign-purpose.test.mjs",
+    "dist/game/engine2/tests/character-motion.test.mjs",
+    "dist/game/engine2/tests/character-showcase.test.mjs",
+    "dist/game/engine2/tests/cinema.test.mjs",
+    "dist/game/engine2/tests/city-answer-battle.test.mjs",
+    "dist/game/engine2/tests/city-answer.test.mjs",
+    "dist/game/engine2/tests/combat-advice.test.mjs",
+    "dist/game/engine2/tests/combat-command-safety.test.mjs",
+    "dist/game/engine2/tests/combat-instruments.test.mjs",
+    "dist/game/engine2/tests/combat-position.test.mjs",
+    "dist/game/engine2/tests/combat-reactions.test.mjs",
+    "dist/game/engine2/tests/compatibility-ground.test.mjs",
+    "dist/game/engine2/tests/constellation.test.mjs",
+    "dist/game/engine2/tests/creature-ecology.test.mjs",
+    "dist/game/engine2/tests/crew-setup.test.mjs",
+    "dist/game/engine2/tests/dev-session.test.mjs",
+    "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+    "dist/game/engine2/tests/direction-latch.test.mjs",
+    "dist/game/engine2/tests/earned-progression.test.mjs",
+    "dist/game/engine2/tests/economy.test.mjs",
+    "dist/game/engine2/tests/encounter-objectives.test.mjs",
+    "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+    "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+    "dist/game/engine2/tests/environment-art-v17.test.mjs",
+    "dist/game/engine2/tests/environment-canopies-v17.test.mjs",
+    "dist/game/engine2/tests/environment-canopies-v19.test.mjs",
+    "dist/game/engine2/tests/environment-depth.test.mjs",
+    "dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+    "dist/game/engine2/tests/environment-materials-v17.test.mjs",
+    "dist/game/engine2/tests/environment-shells.test.mjs",
+    "dist/game/engine2/tests/environment-water-v17.test.mjs",
+    "dist/game/engine2/tests/exploration-investigations.test.mjs",
+    "dist/game/engine2/tests/exploration.test.mjs",
+    "dist/game/engine2/tests/field-encounters.test.mjs",
+    "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+    "dist/game/engine2/tests/field-expeditions.test.mjs",
+    "dist/game/engine2/tests/field-feedback.test.mjs",
+    "dist/game/engine2/tests/field-journey-director.test.mjs",
+    "dist/game/engine2/tests/field-journey-model.test.mjs",
+    "dist/game/engine2/tests/field-origins.test.mjs",
+    "dist/game/engine2/tests/field-patrols.test.mjs",
+    "dist/game/engine2/tests/field-rumor-art.test.mjs",
+    "dist/game/engine2/tests/field-rumors.test.mjs",
+    "dist/game/engine2/tests/follower-motion.test.mjs",
+    "dist/game/engine2/tests/frontier-art-v17.test.mjs",
+    "dist/game/engine2/tests/frontiers.test.mjs",
+    "dist/game/engine2/tests/functional-anatomy.test.mjs",
+    "dist/game/engine2/tests/graphics-health.test.mjs",
+    "dist/game/engine2/tests/ground-contact.test.mjs",
+    "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+    "dist/game/engine2/tests/guardian-rules.test.mjs",
+    "dist/game/engine2/tests/guided-objective.test.mjs",
+    "dist/game/engine2/tests/hero-legacy.test.mjs",
+    "dist/game/engine2/tests/households.test.mjs",
+    "dist/game/engine2/tests/interior-craft.test.mjs",
+    "dist/game/engine2/tests/journey-cinema.test.mjs",
+    "dist/game/engine2/tests/journey-memory.test.mjs",
+    "dist/game/engine2/tests/journey-roster.test.mjs",
+    "dist/game/engine2/tests/kakeya.test.mjs",
+    "dist/game/engine2/tests/label-layout.test.mjs",
+    "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+    "dist/game/engine2/tests/living-world-integration.test.mjs",
+    "dist/game/engine2/tests/living-world-ui.test.mjs",
+    "dist/game/engine2/tests/lore.test.mjs",
+    "dist/game/engine2/tests/material-craft.test.mjs",
+    "dist/game/engine2/tests/media-delivery.test.mjs",
+    "dist/game/engine2/tests/monster-catalog.test.mjs",
+    "dist/game/engine2/tests/motion-media.test.mjs",
+    "dist/game/engine2/tests/motion-realism.test.mjs",
+    "dist/game/engine2/tests/network-audio.test.mjs",
+    "dist/game/engine2/tests/new-game-plus.test.mjs",
+    "dist/game/engine2/tests/npc-routines.test.mjs",
+    "dist/game/engine2/tests/objective-context.test.mjs",
+    "dist/game/engine2/tests/objective-integration.test.mjs",
+    "dist/game/engine2/tests/objective-ui.test.mjs",
+    "dist/game/engine2/tests/organic-ground.test.mjs",
+    "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+    "dist/game/engine2/tests/origin-guidance.test.mjs",
+    "dist/game/engine2/tests/origin-payoffs.test.mjs",
+    "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+    "dist/game/engine2/tests/origins.test.mjs",
+    "dist/game/engine2/tests/pause-navigation.test.mjs",
+    "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+    "dist/game/engine2/tests/personal-signatures.test.mjs",
+    "dist/game/engine2/tests/physical-lore.test.mjs",
+    "dist/game/engine2/tests/player-comfort.test.mjs",
+    "dist/game/engine2/tests/player-locomotion.test.mjs",
+    "dist/game/engine2/tests/playtest-recorder.test.mjs",
+    "dist/game/engine2/tests/presentation.test.mjs",
+    "dist/game/engine2/tests/quest-assistance.test.mjs",
+    "dist/game/engine2/tests/quest-navigation.test.mjs",
+    "dist/game/engine2/tests/regional-work.test.mjs",
+    "dist/game/engine2/tests/renderer-recovery.test.mjs",
+    "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+    "dist/game/engine2/tests/repertoire.test.mjs",
+    "dist/game/engine2/tests/room-realism.test.mjs",
+    "dist/game/engine2/tests/runtime.test.mjs",
+    "dist/game/engine2/tests/save-feedback.test.mjs",
+    "dist/game/engine2/tests/save-validation.test.mjs",
+    "dist/game/engine2/tests/scene-camera.test.mjs",
+    "dist/game/engine2/tests/scene-craft.test.mjs",
+    "dist/game/engine2/tests/scene-dressing.test.mjs",
+    "dist/game/engine2/tests/scene-identity.test.mjs",
+    "dist/game/engine2/tests/scene-lighting.test.mjs",
+    "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+    "dist/game/engine2/tests/selected-lead-text.test.mjs",
+    "dist/game/engine2/tests/soundscape.test.mjs",
+    "dist/game/engine2/tests/sprite-cutout.test.mjs",
+    "dist/game/engine2/tests/subterranean-art.test.mjs",
+    "dist/game/engine2/tests/technique-icons.test.mjs",
+    "dist/game/engine2/tests/technique-preview.test.mjs",
+    "dist/game/engine2/tests/terrain-materials.test.mjs",
+    "dist/game/engine2/tests/touch-controls.test.mjs",
+    "dist/game/engine2/tests/tree-visibility.test.mjs",
+    "dist/game/engine2/tests/village-art.test.mjs",
+    "dist/game/engine2/tests/voice-assets.test.mjs",
+    "dist/game/engine2/tests/wayfinding.test.mjs",
+    "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+    "dist/game/engine2/tests/wayglass.test.mjs",
+    "dist/game/engine2/tests/wild-combat.test.mjs",
+    "dist/game/engine2/tests/world-affordances.test.mjs"
+  ],
+  "interrupted": null
+}

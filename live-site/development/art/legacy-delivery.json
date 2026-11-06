@@ -1,0 +1,110 @@
+{
+  "schema": "ash-aether.legacy-art-delivery/1",
+  "checkedAtUTC": "2026-10-29T06:22:44.084103+00:00",
+  "scope": "Technical delivery encoding of exactly three existing art sheets; original artwork, dimensions, alpha, crops, object semantics and gameplay remain unchanged.",
+  "encoding": {
+    "encoder": "FFmpeg libwebp",
+    "quality": 95,
+    "compressionLevel": 6,
+    "losslessColor": false,
+    "pixelFormat": "bgra",
+    "alpha": "exact original alpha channel",
+    "dimensions": "unchanged"
+  },
+  "verification": {
+    "decoder": "Pillow WebP RGBA decoder",
+    "alphaComparison": "Every decoded delivery alpha byte compared against the original PNG alpha byte, with signed integer difference.",
+    "archiveComparison": "SHA-256 before encoding equals SHA-256 after moving the original PNG into its source archive.",
+    "rejectedAttempt": {
+      "pixelFormat": "yuva420p",
+      "assetKey": "roomLife",
+      "maxAlphaError": 1,
+      "differentAlphaPixels": 886670,
+      "action": "Discarded and re-encoded from the unchanged original through BGRA before moving any PNG."
+    },
+    "restoredDuplicateRemoved": {
+      "path": "dist/game/engine2/art/scene-props-v11.png",
+      "archivedSource": "development/art/source-legacy-delivery/scene-props-v11.png",
+      "sha256": "3ba1e7fe5df715f0fba67f14361f7545fd46cf2cef77f1835275bd542830cc7e",
+      "checkedAtUTC": "2026-10-29T06:25:00.577896+00:00",
+      "reason": "An exact restored duplicate reappeared during concurrent work; removed only after re-verifying the unchanged archive and coordinating ownership."
+    },
+    "focusedTests": {
+      "receipt": "docs/verification/legacy-art-delivery-tests.json",
+      "modules": 7,
+      "tests": 41,
+      "passed": 41,
+      "failed": 0,
+      "skipped": 0,
+      "verifiedAtUTC": "2026-10-29T06:25:31.645119+00:00"
+    }
+  },
+  "originalBytes": 7499213,
+  "deliveryBytes": 2204074,
+  "savedBytes": 5295139,
+  "files": [
+    {
+      "assetKey": "roomLife",
+      "originalProductionPath": "dist/game/engine2/art/occupied-workstations-v6.png",
+      "original": "development/art/source-legacy-delivery/occupied-workstations-v6.png",
+      "delivery": "dist/game/engine2/art/occupied-workstations-v6.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "originalMode": "RGBA",
+      "deliveryMode": "RGBA",
+      "originalBytes": 3066867,
+      "deliveryBytes": 777212,
+      "savedBytes": 2289655,
+      "originalSha256": "15f62c279cbae5e0197609b1bd2e8823f24868f4221ef9791cfad33a4ed866c9",
+      "deliverySha256": "0f7cad3f5d82842567fa47a034fadd92540c564f4dcda43eb55a9ff79811323e",
+      "maxAlphaError": 0,
+      "differentAlphaPixels": 0,
+      "comparedAlphaPixels": 1572864,
+      "alphaExact": true
+    },
+    {
+      "assetKey": "sceneProps",
+      "originalProductionPath": "dist/game/engine2/art/scene-props-v10.png",
+      "original": "development/art/source-legacy-delivery/scene-props-v10.png",
+      "delivery": "dist/game/engine2/art/scene-props-v10.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalMode": "RGBA",
+      "deliveryMode": "RGBA",
+      "originalBytes": 2159156,
+      "deliveryBytes": 714328,
+      "savedBytes": 1444828,
+      "originalSha256": "058be38f04612bb56c46bf17bab87b30ad75b31c0c499079326e54b3686ee674",
+      "deliverySha256": "cef393ae2e99c10531590bf0af49954d11b1666c6db34085432e0a7495948eb8",
+      "maxAlphaError": 0,
+      "differentAlphaPixels": 0,
+      "comparedAlphaPixels": 1573538,
+      "alphaExact": true
+    },
+    {
+      "assetKey": "scenePropsExtra",
+      "originalProductionPath": "dist/game/engine2/art/scene-props-v11.png",
+      "original": "development/art/source-legacy-delivery/scene-props-v11.png",
+      "delivery": "dist/game/engine2/art/scene-props-v11.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalMode": "RGBA",
+      "deliveryMode": "RGBA",
+      "originalBytes": 2273190,
+      "deliveryBytes": 712534,
+      "savedBytes": 1560656,
+      "originalSha256": "3ba1e7fe5df715f0fba67f14361f7545fd46cf2cef77f1835275bd542830cc7e",
+      "deliverySha256": "b494da88dc161da9ccfc689f18e61f5945e35b9553bdee7e8de3bded7d65bad1",
+      "maxAlphaError": 0,
+      "differentAlphaPixels": 0,
+      "comparedAlphaPixels": 1573538,
+      "alphaExact": true
+    }
+  ]
+}

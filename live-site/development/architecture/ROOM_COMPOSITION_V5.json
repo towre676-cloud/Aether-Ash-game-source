@@ -1,0 +1,670 @@
+{
+  "baselineCommit": "3c022b67f3d7d398dd8e54223897c1c05bd3e233",
+  "version": 5,
+  "rooms": 56,
+  "beforeFurniture": 1765,
+  "afterFurniture": 747,
+  "retainedSupplyCompartments": [
+    {
+      "room": 29,
+      "id": "room:29:7",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 13,
+        "y": 25,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 29,
+      "id": "room:29:16",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 6,
+        "y": 10,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 47,
+      "id": "room:47:25",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 60,
+        "y": 54,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 66,
+      "id": "room:66:6",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 10,
+        "y": 23,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 160,
+      "id": "room:160:29",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 26,
+        "y": 25,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 172,
+      "id": "room:172:8",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 7,
+        "y": 44,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 229,
+      "id": "room:229:14",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 33,
+        "y": 6,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 234,
+      "id": "room:234:0",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 39,
+        "y": 45,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 294,
+      "id": "room:294:3",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 28,
+        "y": 57,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 303,
+      "id": "room:303:3",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 54,
+        "y": 26,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 314,
+      "id": "room:314:19",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 37,
+        "y": 20,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 319,
+      "id": "room:319:14",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 60,
+        "y": 58,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 406,
+      "id": "room:406:17",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 20,
+        "y": 17,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 701,
+      "id": "room:701:10",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 16,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 701,
+      "id": "room:701:19",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 14,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 701,
+      "id": "room:701:28",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 12,
+        "y": 15,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 702,
+      "id": "room:702:27",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 2,
+        "y": 9,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 702,
+      "id": "room:702:36",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 2,
+        "y": 7,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 705,
+      "id": "room:705:15",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 20,
+        "y": 14,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 706,
+      "id": "room:706:23",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 8,
+        "y": 4,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 706,
+      "id": "room:706:32",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 9,
+        "y": 2,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 710,
+      "id": "room:710:10",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 16,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 710,
+      "id": "room:710:19",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 14,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 710,
+      "id": "room:710:28",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 12,
+        "y": 15,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 712,
+      "id": "room:712:26",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 10,
+        "y": 3,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 717,
+      "id": "room:717:21",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 9,
+        "y": 3,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 719,
+      "id": "room:719:10",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 16,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 719,
+      "id": "room:719:19",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 14,
+        "y": 13,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 719,
+      "id": "room:719:28",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 12,
+        "y": 15,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 720,
+      "id": "room:720:27",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 20,
+        "y": 12,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 723,
+      "id": "room:723:15",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 20,
+        "y": 14,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "room": 724,
+      "id": "room:724:14",
+      "item": "mossWrap",
+      "footprint": {
+        "x": 9,
+        "y": 4,
+        "w": 1,
+        "h": 1
+      }
+    }
+  ],
+  "scope": "Purposeful room programs, spacing, physical stock persistence; origin clones inherit their source room.",
+  "pastRoomCopies": 5,
+  "makerMarks": 21,
+  "programs": [
+    {
+      "key": "security",
+      "program": "workshop",
+      "props": 14
+    },
+    {
+      "key": "console",
+      "program": "workshop",
+      "props": 13
+    },
+    {
+      "key": "workshop",
+      "program": "workshop",
+      "props": 12
+    },
+    {
+      "key": "home",
+      "program": "home",
+      "props": 17
+    },
+    {
+      "key": "instrumentworks",
+      "program": "instrumentworks",
+      "props": 15
+    },
+    {
+      "key": "inn",
+      "program": "inn",
+      "props": 20
+    },
+    {
+      "key": "guild",
+      "program": "guild",
+      "props": 15
+    },
+    {
+      "key": "clinic",
+      "program": "clinic",
+      "props": 16
+    },
+    {
+      "key": "carpenter",
+      "program": "carpenter",
+      "props": 15
+    },
+    {
+      "key": "refuge",
+      "program": "clinic",
+      "props": 13
+    },
+    {
+      "key": "passages",
+      "program": "cistern",
+      "props": 11
+    },
+    {
+      "key": "chapel",
+      "program": "chapel",
+      "props": 12
+    },
+    {
+      "key": "bell_crypt",
+      "program": "chapel",
+      "props": 12
+    },
+    {
+      "key": "unindexed",
+      "program": "archive",
+      "props": 4
+    },
+    {
+      "key": "office",
+      "program": "archive",
+      "props": 13
+    },
+    {
+      "key": "hold",
+      "program": "cargo",
+      "props": 11
+    },
+    {
+      "key": "sanctuary",
+      "program": "garden",
+      "props": 12
+    },
+    {
+      "key": "reactor",
+      "program": "workshop",
+      "props": 13
+    },
+    {
+      "key": "lowbank_shelter",
+      "program": "quarters",
+      "props": 13
+    },
+    {
+      "key": "manifest_depot",
+      "program": "archive",
+      "props": 11
+    },
+    {
+      "key": "flood_spillway",
+      "program": "cistern",
+      "props": 11
+    },
+    {
+      "key": "name_vault",
+      "program": "archive",
+      "props": 13
+    },
+    {
+      "key": "letter_attic",
+      "program": "quarters",
+      "props": 12
+    },
+    {
+      "key": "echo_chamber",
+      "program": "chapel",
+      "props": 11
+    },
+    {
+      "key": "resonance_gallery",
+      "program": "chapel",
+      "props": 11
+    },
+    {
+      "key": "lens_workshop",
+      "program": "instrumentworks",
+      "props": 12
+    },
+    {
+      "key": "relief_store",
+      "program": "store",
+      "props": 14
+    },
+    {
+      "key": "witness_vault",
+      "program": "archive",
+      "props": 11
+    },
+    {
+      "key": "pottery_floor",
+      "program": "workshop",
+      "props": 12
+    },
+    {
+      "key": "vent_house",
+      "program": "workshop",
+      "props": 12
+    },
+    {
+      "key": "common_assembly",
+      "program": "assembly",
+      "props": 12
+    },
+    {
+      "key": "listening_chamber",
+      "program": "instrumentworks",
+      "props": 13
+    },
+    {
+      "key": "secret_1",
+      "title": "Cinderfall Repair Loft",
+      "program": "workshop",
+      "props": 17
+    },
+    {
+      "key": "secret_2",
+      "title": "Brakekeeper’s Bunk",
+      "program": "quarters",
+      "props": 16
+    },
+    {
+      "key": "secret_3",
+      "title": "The Dry Pump Room",
+      "program": "cistern",
+      "props": 13
+    },
+    {
+      "key": "secret_4",
+      "title": "Rainbell Vestry",
+      "program": "chapel",
+      "props": 14
+    },
+    {
+      "key": "secret_5",
+      "title": "The Bookbinder’s Stair",
+      "program": "archive",
+      "props": 15
+    },
+    {
+      "key": "secret_6",
+      "title": "Cloudwright’s Mess",
+      "program": "mess",
+      "props": 16
+    },
+    {
+      "key": "secret_7",
+      "title": "Seedkeeper’s Bothy",
+      "program": "garden",
+      "props": 13
+    },
+    {
+      "key": "secret_8",
+      "title": "Cooling Tower Annex",
+      "program": "cistern",
+      "props": 13
+    },
+    {
+      "key": "secret_9",
+      "title": "Lowbank Pantry",
+      "program": "store",
+      "props": 15
+    },
+    {
+      "key": "secret_10",
+      "title": "Signalman’s Cabin",
+      "program": "quarters",
+      "props": 17
+    },
+    {
+      "key": "secret_11",
+      "title": "The Ferryman’s Shed",
+      "program": "cargo",
+      "props": 13
+    },
+    {
+      "key": "secret_12",
+      "title": "The Registrar’s Kitchen",
+      "program": "kitchen",
+      "props": 14
+    },
+    {
+      "key": "secret_13",
+      "title": "The Unfinished Nursery",
+      "program": "nursery",
+      "props": 13
+    },
+    {
+      "key": "secret_14",
+      "title": "Glassmaker’s Washroom",
+      "program": "washroom",
+      "props": 12
+    },
+    {
+      "key": "secret_15",
+      "title": "The Tailor’s Back Room",
+      "program": "tailor",
+      "props": 15
+    },
+    {
+      "key": "secret_16",
+      "title": "Mountain Listener’s Hut",
+      "program": "listening",
+      "props": 12
+    },
+    {
+      "key": "secret_17",
+      "title": "The Lens Polisher’s Studio",
+      "program": "optics",
+      "props": 14
+    },
+    {
+      "key": "secret_18",
+      "title": "The Boilerkeeper’s Nook",
+      "program": "workshop",
+      "props": 14
+    },
+    {
+      "key": "secret_19",
+      "title": "The Sailmender’s Loft",
+      "program": "tailor",
+      "props": 18
+    },
+    {
+      "key": "secret_20",
+      "title": "The Witness Waiting Room",
+      "program": "waiting",
+      "props": 14
+    },
+    {
+      "key": "secret_21",
+      "title": "The Potter’s Drying Shed",
+      "program": "pottery",
+      "props": 13
+    },
+    {
+      "key": "secret_22",
+      "title": "The Choir’s Greenroom",
+      "program": "listening",
+      "props": 12
+    },
+    {
+      "key": "secret_23",
+      "title": "The Assembly Print Shop",
+      "program": "printshop",
+      "props": 15
+    },
+    {
+      "key": "secret_24",
+      "title": "The Unlocked Music Room",
+      "program": "music",
+      "props": 13
+    }
+  ]
+}

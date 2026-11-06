@@ -1,0 +1,23 @@
+# 5.31 — The living world
+
+The complete prepared world now has a defined 3D environment treatment: 53 campaign and exploration dungeon interiors, and 114 towns, homes, landscapes, and origin scenes. This spans all 24 chapters, all 24 secret interiors, all 60 frontier areas, and all seven travellers. The Remembering Cistern retains its separate, textured 3D renderer and native progression.
+
+Dungeon architecture uses chapter-specific masonry, ironwork, waterworks, archives, rootworks, cooling galleries, observatory fittings, wind machinery, kilns, and listening apparatus. Native floor masks and doors remain authoritative. Raised fixtures use checked blocked footprints. Service conduits follow reachable floor; low control plates stay at the exact native interaction positions.
+
+The four authored investigations have physical partial-state models: pump isolation, relief and lowering water; rain bowls, test bells, phrase progress and return cradle; the carrier cart's three positions and uncovered tray; seedpod, reed mat, shelter and moth custody. All 24 secret-room compartments open from their actual saved latch state. Unfound rewards retain their native visibility.
+
+The ordinary world adds biome-specific scenery and lighting across all twelve frontier biomes, detailed household furniture, usable community machinery, local plants and animals, stables and Mossback riding, Bellrun target hardware, nine answering-network instruments, 24 portable artifact chains and their receivers, and eight rare relics. Original illustrated characters and pets are retained. Chapter 13's previously omitted community work, plant and wildlife are restored as compact fixtures on reachable clear floor; all 24 community works are now available.
+
+Loose finite repair stock is collected by one explicit field action. Taking it removes the world object and updates the carried kit without opening a workbench. Material payments, assembly, packing and repairs retain explicit choices in a shallow field tray; resource costs and physical effects stay visible, with longer instructions under Details.
+
+Physical previews now cover native investigation actions, frontier surveys and repairs, answering-network connections, plant care, and community work, alongside existing mechanisms. The native interaction still owns every completed outcome and every explicit choice. Preview motion never spends resources or advances a branch. One-shot choice tokens reject stale scenes, range, resources and discrete state while tolerating continuously advancing clocks.
+
+The 3D view now reads actual Ground Forge and Living Atlas state. Wet patches, heat, fractures, charge, phase marks, scorched growth and flattened vegetation appear at the affected places. Native battle objectives now have visible patients, supply bundles, regulators, signal apparatus, progress, integrity and routes. Guard lines, safe nodes and decoys use their real encounter state. Sparring opponents use their original character art.
+
+Software rendering now clips large surfaces to the full camera frustum, hides buried landscape faces behind the adventure ground, and orders flat floor layers by height. This removes the triangular landscape wedges and partially erased rugs observed during browser review. The GPU rendering path keeps its existing shaders. Indoor zoom and visible-viewport controls retain the 5.30 recovery fixes.
+
+The existing isolated environment studio now uses the full 3D game renderer, so every one of the 167 prepared places can be reviewed with the same materials, scenery, native runtime life and ground simulation as the regular game. It does not read or write journey slots.
+
+Verification reports in verification/ record the exact source hashes, complete scene union, native runtime object representation, all 1,200 commission stage visibility cases, actual state-driven geometry changes, saves and collision, projection and zoom, and focused native progression parity. Browser checks establish visible appearance separately from geometry assertions. The cloud browser uses the software fallback; Android GPU performance and physical two-finger gestures are not measured here. Full campaign branches are preserved by native parity tests rather than a claim that every branch was manually played.
+
+The full regression runner passed 196 modules and 1,537 reported tests. Final surface and software changes passed a nine-test supplement; the final pickup/tray changes have their own focused native guard and UI tests. These supplements were run after the full suite and are retained as separate evidence rather than silently replacing its recorded results.

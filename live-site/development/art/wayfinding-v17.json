@@ -1,0 +1,283 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "styleReference": "development/art/source-legacy-delivery/scene-props-v11.png",
+  "cropMethod": "Measured alpha>0 main bodies with four source pixels of padding; rope-trail-gate intentionally contains two separate post silhouettes and retains the empty passage. Audit verifies all full connected bodies at alpha>32 and excludes neighbors.",
+  "semanticPolicy": "These utility motifs must replace actual matching objects. They must never be scattered as scenery that falsely implies a path, gate, rest point or travel destination. The rope gate remains prepared art until an authored gate use exists.",
+  "sheets": [
+    {
+      "id": "wayfinding",
+      "file": "wayfinding-v17.png",
+      "assetKey": "environmentWayfinding",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-440454f3-dde2-4dc2-b4a5-55b90f9b39ce.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent environment sprite atlas, eight functional wayfinding and utility props for the original top-down RPG Ash & Aether. Create ONE landscape 2:1 PNG with EXACTLY FOUR columns and TWO rows. Each prop is complete and wholly contained inside the central 76 percent of its own equal cell with wide genuinely transparent gutters. No piece, rope, parchment, shadow or vegetation overlaps another cell. Consistent elevated 35-degree orthographic camera, fronts and tops visible. Cohesive sophisticated painterly gouache and watercolor fantasy craftsmanship, subtle brushwork over richly weathered wood, warm pale stone, clay, aged bronze, restrained verdigris and muted indigo cloth. Readable shapes at 70–120 px tall in-game, gentle upper-left light, rounded natural forms, restrained small contact shadows, no glossy plastic or photoreal rendering. Actual RGBA transparency. EXACT TOP ROW LEFT TO RIGHT: 1 a frontier noticeboard on two short wooden posts with a little sloping wooden rain cap, three completely BLANK parchment notices pinned neatly to the board, no writing or squiggles; 2 a weathered wooden trail fingerpost with ONE simple blank arrow board pointing RIGHT, small blue cloth strip tied below, a few stones around its foot, no multiple arrows; 3 a compact rounded travel waystone of dark blue slate, a recessed bronze ring with a quiet pale turquoise inlay and a simple abstract carved wave at base, no dramatic glow or doorway; 4 an old carved standing stone, asymmetrical warm gray monolith with eroded spiral and flowing wave reliefs, small patches of moss, no runes or letters. EXACT BOTTOM ROW LEFT TO RIGHT: 5 a compact refuge supply arrangement: two rolled wool blankets, a folded indigo tarp, leather satchel, earthen water flask and small shielded brass lamp on a low stone slab, NO treasure chest; 6 an OPEN rope trail gate: two squat rough timber stakes with unobstructed empty space between them, rope unfastened and tied aside on the LEFT post with a small coil at its foot, no rope across the passage, no bar overhead, no door panel; 7 a compact bronze weather beacon, small protected amber glass lens over a rain-gauge cylinder on a sturdy low tripod, weathered fittings, quiet non-glowing glass, no lightning; 8 a small survey marker: square low stone pedestal bearing a bronze sighting compass with a short sighting arm and one blank ivory survey tablet leaning on its side, no readable numerals, no map text. Props imply their actual purpose, no invented scenery. No people, animals, text, numbers, readable symbols, grid lines, borders, backgrounds, checkerboards, landscape bases, doors, stairs, huge platforms, dramatic magic effects or floating particles. Exact eight-object order. Genuine transparency and wide gutters.",
+      "sprites": [
+        {
+          "id": "frontier-noticeboard",
+          "crop": [
+            44,
+            76,
+            396,
+            355
+          ],
+          "height": 100,
+          "allowedObjectRoles": [
+            "frontier-board"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "trail-fingerpost",
+          "crop": [
+            561,
+            43,
+            281,
+            388
+          ],
+          "height": 100,
+          "allowedObjectRoles": [
+            "existing outdoor portal only; point toward actual destination"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "travel-waystone",
+          "crop": [
+            964,
+            104,
+            334,
+            334
+          ],
+          "height": 87,
+          "allowedObjectRoles": [
+            "existing outdoor portal only; no invented travel link"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "carved-standing-stone",
+          "crop": [
+            1426,
+            17,
+            310,
+            427
+          ],
+          "height": 109,
+          "allowedObjectRoles": [
+            "frontier-landmark with frontierStep 0"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "refuge-cache",
+          "crop": [
+            40,
+            496,
+            432,
+            352
+          ],
+          "height": 75,
+          "allowedObjectRoles": [
+            "existing cache object only; not a substitute for campfire/rest marker"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "rope-trail-gate",
+          "crop": [
+            505,
+            492,
+            433,
+            333
+          ],
+          "height": 85,
+          "allowedObjectRoles": [
+            "reserved; only a future explicitly authored actual trail gate"
+          ],
+          "expectedMainComponents": 2
+        },
+        {
+          "id": "weather-beacon",
+          "crop": [
+            1009,
+            464,
+            286,
+            377
+          ],
+          "height": 97,
+          "allowedObjectRoles": [
+            "frontier-landmark with frontierStep 1 in storm/aurora contexts"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "survey-marker",
+          "crop": [
+            1395,
+            485,
+            345,
+            347
+          ],
+          "height": 80,
+          "allowedObjectRoles": [
+            "frontier-landmark with frontierStep 0"
+          ],
+          "expectedMainComponents": 1
+        }
+      ],
+      "sha256": "19e6c886bd4b24ae569d967d2b1166f72fa6e0098f71b96eb9b21d1501c32bb8",
+      "bytes": 1532119,
+      "transparentPixels": 1005937,
+      "archivedSourcePath": "development/art/source-v17/wayfinding-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/wayfinding-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/wayfinding-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 450068,
+        "sha256": "419466b273318948f8e768e3d05074c17e6411e725b6566777360fc67d028afb",
+        "sourceSha256": "19e6c886bd4b24ae569d967d2b1166f72fa6e0098f71b96eb9b21d1501c32bb8",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "wayfinding-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "logicalSpriteCount": 8,
+      "mainConnectedBodyCount": 9,
+      "allEightCropsContainWholeSubjects": true,
+      "alphaAbove32OutsideAllCrops": 0,
+      "checks": [
+        {
+          "id": "frontier-noticeboard",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 85212,
+              "total": 85212,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "trail-fingerpost",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 41005,
+              "total": 41005,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "travel-waystone",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 4,
+              "included": 58150,
+              "total": 58150,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "carved-standing-stone",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 72863,
+              "total": 72863,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "refuge-cache",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 17,
+              "included": 105302,
+              "total": 105302,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "rope-trail-gate",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 16,
+              "included": 21079,
+              "total": 21079,
+              "full": true
+            },
+            {
+              "component": 18,
+              "included": 27057,
+              "total": 27057,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "weather-beacon",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 14,
+              "included": 34874,
+              "total": 34874,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "survey-marker",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 15,
+              "included": 61660,
+              "total": 61660,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "originalStyleReference": "dist/game/engine2/art/scene-props-v11.png"
+}

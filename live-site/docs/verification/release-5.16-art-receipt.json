@@ -1,0 +1,758 @@
+{
+  "release": "5.16.0",
+  "analysis": "Read-only RGBA and connected-component inspection; alpha threshold >32",
+  "alphaThreshold": 32,
+  "images": [
+    {
+      "name": "sableMotion",
+      "file": "dist/game/engine2/art/sable-motion-v16.png",
+      "sha256": "b94a66fba9874b4902d753f7b332a8347230df72996893a4b1ed350537ee5042",
+      "bytes": 1675726,
+      "dimensions": [
+        1341,
+        1173
+      ],
+      "mode": "RGBA",
+      "fullyTransparentPixels": 990599,
+      "mostlyOpaquePixels": 461104,
+      "frames": [
+        {
+          "name": "idle",
+          "source": [
+            68,
+            31,
+            199,
+            263
+          ],
+          "parts": null,
+          "mainSubjectPixels": 29099,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "breathe",
+          "source": [
+            379,
+            30,
+            198,
+            263
+          ],
+          "parts": null,
+          "mainSubjectPixels": 28843,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-contact",
+          "source": [
+            661,
+            48,
+            289,
+            247
+          ],
+          "parts": null,
+          "mainSubjectPixels": 32384,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-pass",
+          "source": [
+            1015,
+            47,
+            273,
+            248
+          ],
+          "parts": null,
+          "mainSubjectPixels": 27595,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-opposite",
+          "source": [
+            17,
+            337,
+            289,
+            241
+          ],
+          "parts": null,
+          "mainSubjectPixels": 29118,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-return",
+          "source": [
+            352,
+            338,
+            269,
+            240
+          ],
+          "parts": null,
+          "mainSubjectPixels": 27114,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "brake",
+          "source": [
+            712,
+            332,
+            263,
+            246
+          ],
+          "parts": null,
+          "mainSubjectPixels": 33149,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "turn",
+          "source": [
+            1048,
+            337,
+            272,
+            244
+          ],
+          "parts": null,
+          "mainSubjectPixels": 31119,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "anticipate",
+          "source": [
+            33,
+            613,
+            261,
+            237
+          ],
+          "parts": null,
+          "mainSubjectPixels": 29405,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "swing",
+          "source": [
+            366,
+            594,
+            252,
+            256
+          ],
+          "parts": null,
+          "mainSubjectPixels": 27973,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "strike",
+          "source": [
+            669,
+            626,
+            405,
+            224
+          ],
+          "parts": [
+            [
+              669,
+              626,
+              336,
+              224
+            ],
+            [
+              1005,
+              672,
+              69,
+              37
+            ]
+          ],
+          "mainSubjectPixels": 32884,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "follow-through",
+          "source": [
+            1048,
+            639,
+            281,
+            210
+          ],
+          "parts": [
+            [
+              1076,
+              639,
+              253,
+              210
+            ],
+            [
+              1048,
+              711,
+              28,
+              138
+            ]
+          ],
+          "mainSubjectPixels": 26352,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "recover",
+          "source": [
+            48,
+            868,
+            233,
+            261
+          ],
+          "parts": null,
+          "mainSubjectPixels": 30823,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "hurt",
+          "source": [
+            408,
+            885,
+            220,
+            244
+          ],
+          "parts": null,
+          "mainSubjectPixels": 29870,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "guard",
+          "source": [
+            704,
+            875,
+            251,
+            254
+          ],
+          "parts": null,
+          "mainSubjectPixels": 32482,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "down",
+          "source": [
+            1033,
+            923,
+            292,
+            202
+          ],
+          "parts": null,
+          "mainSubjectPixels": 28113,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "heraldMotion",
+      "file": "dist/game/engine2/art/ash-herald-motion-v16.png",
+      "sha256": "bd7bb714865aa1ded3c5d41eaf595384c09e6ea5e0ca8b112b9e799e3c830293",
+      "bytes": 2052365,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "fullyTransparentPixels": 878851,
+      "mostlyOpaquePixels": 499183,
+      "frames": [
+        {
+          "name": "idle",
+          "source": [
+            27,
+            43,
+            318,
+            291
+          ],
+          "parts": null,
+          "mainSubjectPixels": 46810,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 5
+        },
+        {
+          "name": "breathe",
+          "source": [
+            392,
+            47,
+            311,
+            288
+          ],
+          "parts": null,
+          "mainSubjectPixels": 46087,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "stride-contact",
+          "source": [
+            739,
+            40,
+            351,
+            301
+          ],
+          "parts": null,
+          "mainSubjectPixels": 45474,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-pass",
+          "source": [
+            1129,
+            42,
+            300,
+            297
+          ],
+          "parts": null,
+          "mainSubjectPixels": 43754,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "stride-opposite",
+          "source": [
+            26,
+            402,
+            323,
+            285
+          ],
+          "parts": null,
+          "mainSubjectPixels": 44495,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "stride-return",
+          "source": [
+            380,
+            398,
+            348,
+            293
+          ],
+          "parts": null,
+          "mainSubjectPixels": 45474,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "anticipate",
+          "source": [
+            744,
+            427,
+            347,
+            266
+          ],
+          "parts": null,
+          "mainSubjectPixels": 42219,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "strike",
+          "source": [
+            1115,
+            395,
+            317,
+            299
+          ],
+          "parts": null,
+          "mainSubjectPixels": 40818,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "slam",
+          "source": [
+            17,
+            810,
+            354,
+            220
+          ],
+          "parts": null,
+          "mainSubjectPixels": 39256,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "recover",
+          "source": [
+            390,
+            729,
+            333,
+            305
+          ],
+          "parts": null,
+          "mainSubjectPixels": 46178,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "hurt",
+          "source": [
+            752,
+            737,
+            308,
+            293
+          ],
+          "parts": null,
+          "mainSubjectPixels": 45915,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "down",
+          "source": [
+            1106,
+            825,
+            323,
+            212
+          ],
+          "parts": null,
+          "mainSubjectPixels": 33546,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "moonveilMotion",
+      "file": "dist/game/engine2/art/moonveil-motion-v16.png",
+      "sha256": "5e0e331104c53ad7284c0d464ba4678e066123a0597200df9e153ec1ef334153",
+      "bytes": 2357969,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "fullyTransparentPixels": 892923,
+      "mostlyOpaquePixels": 398553,
+      "frames": [
+        {
+          "name": "hover",
+          "source": [
+            71,
+            56,
+            394,
+            270
+          ],
+          "parts": null,
+          "mainSubjectPixels": 46232,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "upstroke",
+          "source": [
+            649,
+            7,
+            217,
+            328
+          ],
+          "parts": null,
+          "mainSubjectPixels": 38602,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "downstroke",
+          "source": [
+            1035,
+            60,
+            434,
+            281
+          ],
+          "parts": null,
+          "mainSubjectPixels": 62997,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "return",
+          "source": [
+            94,
+            386,
+            366,
+            260
+          ],
+          "parts": null,
+          "mainSubjectPixels": 43569,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "anticipate",
+          "source": [
+            584,
+            388,
+            342,
+            266
+          ],
+          "parts": null,
+          "mainSubjectPixels": 47902,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "release",
+          "source": [
+            1029,
+            413,
+            469,
+            245
+          ],
+          "parts": null,
+          "mainSubjectPixels": 44082,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "recover",
+          "source": [
+            114,
+            695,
+            335,
+            274
+          ],
+          "parts": null,
+          "mainSubjectPixels": 47931,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "hurt",
+          "source": [
+            625,
+            702,
+            293,
+            279
+          ],
+          "parts": null,
+          "mainSubjectPixels": 46584,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "down",
+          "source": [
+            1109,
+            716,
+            317,
+            254
+          ],
+          "parts": null,
+          "mainSubjectPixels": 37171,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "authoredProps",
+      "file": "dist/game/engine2/art/authored-props-v16.png",
+      "sha256": "4f8ae55605e31cb14628af9ff95a5322cbf96f1df71f0cc6acde7f4ecd1212f1",
+      "bytes": 2653977,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "fullyTransparentPixels": 631591,
+      "mostlyOpaquePixels": 831575,
+      "frames": [
+        {
+          "name": "arch",
+          "source": [
+            29,
+            7,
+            424,
+            442
+          ],
+          "parts": null,
+          "mainSubjectPixels": 112960,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "bell",
+          "source": [
+            485,
+            15,
+            376,
+            433
+          ],
+          "parts": [
+            [
+              485,
+              15,
+              376,
+              428
+            ],
+            [
+              620,
+              443,
+              90,
+              5
+            ]
+          ],
+          "mainSubjectPixels": 107604,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "bench",
+          "source": [
+            904,
+            84,
+            433,
+            375
+          ],
+          "parts": null,
+          "mainSubjectPixels": 84562,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "diverter",
+          "source": [
+            1357,
+            134,
+            394,
+            309
+          ],
+          "parts": null,
+          "mainSubjectPixels": 80469,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 2
+        },
+        {
+          "name": "claybench",
+          "source": [
+            32,
+            475,
+            428,
+            381
+          ],
+          "parts": null,
+          "mainSubjectPixels": 102737,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        },
+        {
+          "name": "hearth",
+          "source": [
+            477,
+            443,
+            421,
+            420
+          ],
+          "parts": [
+            [
+              477,
+              448,
+              421,
+              415
+            ],
+            [
+              715,
+              443,
+              100,
+              5
+            ]
+          ],
+          "mainSubjectPixels": 121962,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 1
+        },
+        {
+          "name": "reedbank",
+          "source": [
+            915,
+            482,
+            452,
+            394
+          ],
+          "parts": null,
+          "mainSubjectPixels": 120673,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 15
+        },
+        {
+          "name": "window",
+          "source": [
+            1392,
+            443,
+            356,
+            432
+          ],
+          "parts": null,
+          "mainSubjectPixels": 116584,
+          "missingMainSubjectPixels": 0,
+          "neighboringSubjectPixels": 0,
+          "detachedDetailPixels": 0
+        }
+      ]
+    }
+  ],
+  "testCommand": "node dist/game/engine2/tests/authored-motion.test.mjs",
+  "testsPassed": 14,
+  "summary": {
+    "motionFrames": 37,
+    "props": 8,
+    "allMainSubjectsComplete": true,
+    "noNeighboringSubjectPixels": true,
+    "allFilesHaveGenuineAlpha": true
+  }
+}

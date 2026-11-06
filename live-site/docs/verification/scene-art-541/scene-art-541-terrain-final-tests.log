@@ -1,0 +1,23 @@
+✔ all167 places retain their native terrain owner without changing state or the walk mask (5357.959914ms)
+✔ closed shade inside outdoor bounds is a connected landscape and not only a perimeter decoration (405.1073ms)
+✔ all12 frontier biomes have their own contour palette and native water shores form actual surfaces (583.941134ms)
+✔ native building foundations and exact original-device work bays remain unburied (408.310725ms)
+✔ landscape vegetation keeps grounded 3D trunks and emitted bank tops without floating bitmap cutouts (346.833538ms)
+✔ opening an actual new floor cell invalidates the terrain plan and keeps it clear (321.494249ms)
+✔ interior maze voids become contiguous masonry without taking structural floors, furniture or partitions (402.427492ms)
+✔ authored Veyr headlands retain connected rock descent, lower sea and exclusive native scene assembly (521.771642ms)
+✔ rock country uses connected landforms rather than a ring of independent boulders or painted pebbles (367.928547ms)
+✔ every planned non-water terrace has an emitted upward surface, including interior caps and coastal ledges (488.784349ms)
+✔ every outdoor frontier and every original or refuge origin has an explicit set family (542.971199ms)
+✔ raised scenery cannot claim walkable floor across all prepared scenes (981.715693ms)
+✔ room details and biome architecture preserve exact native saves and deterministic meshes (515.841149ms)
+✔ thin blocked islands retain their own spore, crystal and marble silhouettes (417.449513ms)
+✔ newly opened floor invalidates scenery anchors rather than leaving visual blockers (334.899573ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9484.732281

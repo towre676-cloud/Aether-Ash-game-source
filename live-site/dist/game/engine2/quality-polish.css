@@ -1,0 +1,106 @@
+/* The story, the world and the next useful action get the first attention. */
+.traveller-optional{margin:12px 0;border:1px solid #91a99c35;border-radius:10px;background:#10252b75}
+.traveller-optional>summary{cursor:pointer;padding:14px 16px;font:600 12px/1.5 system-ui;color:#d6c7a7;min-height:46px;list-style-position:inside}
+.traveller-optional[open]>summary{border-bottom:1px solid #91a99c25;color:#f2dcaf}
+.traveller-optional>.traveller-body-history,.traveller-optional>.traveller-weave{margin:0;padding:16px;border:0;background:transparent}
+.traveller-optional>.traveller-connections{padding:0 16px 16px}
+.traveller-optional .traveller-route{margin-top:14px}
+.traveller-optional:focus-within{border-color:#c3b28280}
+.traveller-optional>summary:focus-visible{outline:2px solid #e3cc96;outline-offset:3px}
+.traveller-opening{margin:16px 0 22px;padding-left:16px}
+.traveller-opening h4{font-size:20px;margin:6px 0}
+.traveller-opening p{font-size:13px;line-height:1.6}
+.traveller-name{font-size:clamp(36px,4vw,52px);margin-bottom:12px}
+.traveller-bio{font-size:17px;line-height:1.55;margin-bottom:15px}
+.traveller-actions{margin:18px 0 22px}
+.traveller-header h2{margin-bottom:8px}
+.traveller-stage{height:560px}
+.traveller-model{height:470px}
+.traveller-plinth{bottom:86px}
+.traveller-card{min-height:72px}
+.traveller-footer{font-size:12px}
+
+/* Context stays close to the objective, with full help one action away. */
+.journey-help{position:absolute;top:100%;left:0;margin-top:6px;display:flex;align-items:center;gap:6px;pointer-events:auto}
+#game .journey-help>button{min-height:38px;padding:7px 12px;font:12px/1.3 system-ui;border-radius:8px;background:#0c232ccc;border:1px solid #90b1a34d;color:#dce3cd}
+.journey-help>button[aria-expanded=true]{border-color:#d4bb7b;color:#f5e0ac}
+.journey-help-panel{position:absolute;top:calc(100% + 49px);left:0;width:min(360px,calc(100vw - 32px));max-height:50dvh;overflow:auto;padding:17px;background:#10282bf5;border:1px solid #b5b68d80;border-radius:12px;box-shadow:0 12px 35px #0006;pointer-events:auto;color:#dbe2d2}
+.journey-help-panel[hidden]{display:none}
+#game.journey-guidance-open #hud{z-index:7}
+.journey-help-panel h3{font:21px/1.2 Georgia;margin:0 0 9px;color:#eedeb9}
+.journey-help-panel p{font:13px/1.6 system-ui;margin:8px 0 13px}
+.journey-help-panel .hint-actions{display:flex;flex-wrap:wrap;gap:7px}
+#game .journey-help-panel button{min-height:44px;padding:9px 12px;font:12px/1.3 system-ui}
+.journey-help-panel .hint-stages{font:10px/1.4 system-ui;letter-spacing:.08em;text-transform:uppercase;color:#aebca8}
+.journey-help-panel label{display:block;font:12px/1.5 system-ui;margin:14px 0 3px}
+.journey-help-panel select{display:block;max-width:100%;width:100%;min-height:44px;background:#16333a;color:#e3e8d6;border:1px solid #90a68b77;border-radius:7px;padding:8px}
+.journey-help-panel .help-note{font-size:11px;color:#b6c8be}
+.journey-help-panel .journey-purpose{margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid #a5bd9e38}
+.journey-help-panel .journey-purpose h3{font-size:19px;margin-top:4px}
+.journey-help-panel .journey-promise{font-size:12px;color:#c5c5a6;margin-bottom:0}
+.journey-city-answers{margin-top:16px;padding-top:11px;border-top:1px solid #a5bd9e38}
+.journey-city-answers summary{cursor:pointer;font:600 13px/1.5 system-ui;color:#e6d5aa;padding:7px 0;min-height:36px}
+.journey-city-answers ul{padding-left:18px;margin:9px 0}
+.journey-city-answers li{font:12px/1.55 system-ui;margin:10px 0}
+.journey-city-answers strong,.journey-city-answers span{display:block}
+.journey-city-answers span{color:#bacfc3}
+#game:not(.battle-on):not(.dialog-open) #story-goal[data-purpose]{display:block;color:#cbd7bd;font:11px/1.45 system-ui;max-width:56ch;margin:5px 0 0}
+@media(max-height:520px){
+ #game:not(.battle-on):not(.dialog-open) #story-goal[data-purpose]{max-width:min(55vw,62ch);font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+}
+@media(max-height:800px){
+ #game .journey-help-panel{position:fixed;top:14px;bottom:14px;left:14px;max-height:calc(100dvh - 28px);width:min(360px,calc(100vw - 28px))}
+}
+.battle-on .journey-help,.battle-on .journey-help-panel,.dialog-on .journey-help,.dialog-on .journey-help-panel{display:none}
+
+/* A shallow command shelf gives the arena a broad, uninterrupted view. */
+.battle-on:not(.battle-console-side) #commands{width:min(1000px,calc(100% - 30px));padding:9px 12px;box-shadow:0 7px 28px #020b1390}
+.battle-on.touch-on:not(.battle-console-side) #commands{width:min(1000px,calc(100% - 126px))}
+.battle-on:not(.battle-console-side) #commands .command-grid{gap:6px;margin-bottom:6px}
+.battle-on:not(.battle-console-side) #commands .command-grid button{min-height:44px;font-size:12px}
+.battle-on:not(.battle-console-side) #quick-techniques{margin-top:5px;padding-top:5px}
+.battle-on:not(.battle-console-side) #battle-flow .enemy-list button{min-height:48px;max-height:57px}
+.battle-on:not(.battle-console-side) #commands #spell-menu{max-height:25dvh}
+.battle-on #hud header>div{max-width:55vw}
+.battle-on #party{max-width:470px}
+.battle-on .party-card{min-width:0}
+#game:not(.battle-on) #hud header>div>small{font-size:9px;letter-spacing:.18em;color:#b8c9bd}
+#game:not(.battle-on) #party{gap:6px;max-width:420px}
+#game:not(.battle-on) .party-card{background:#102b2ccc;border-color:#9bb6a45c}
+#game:not(.battle-on) #story-goal{color:#aabdaf;font-size:10px;max-width:42ch}
+#game:not(.battle-on) #notice{font-size:12px;max-width:min(520px,80vw);background:#10282beb;box-shadow:0 5px 15px #00101844}
+
+.playtest-tools{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:10px 0;font:11px/1.5 system-ui;color:#afc6b6}
+#game .playtest-tools button,#dev-portal .playtest-tools button{min-height:38px;padding:8px 11px;font-size:11px}
+.playtest-tools [role=status]{max-width:300px}
+
+@media(max-width:800px){
+ .traveller-stage{height:300px}.traveller-model{height:280px}.traveller-plinth{bottom:53px;height:56px}.traveller-art-note{font-size:8px!important}.traveller-turnbar{margin-top:-18px}
+ .traveller-layout{gap:8px;padding-top:15px}.traveller-roster{padding-bottom:9px}.traveller-card{min-height:66px}.traveller-name{font-size:36px}.traveller-bio{font-size:16px}.traveller-header p{max-width:34ch}
+ .journey-help{gap:5px}.journey-help-panel{max-height:42dvh}
+ .battle-on:not(.battle-console-side) #commands{padding:7px 8px;width:calc(100% - 16px)}
+ .battle-on.touch-on:not(.battle-console-side) #commands{width:calc(100% - 112px)}
+ .battle-on:not(.battle-console-side) #commands .command-grid button{min-height:48px;font-size:10px}
+}
+@media(max-width:480px){
+ .traveller-sheet{padding-top:17px}.traveller-header h2{font-size:26px}.traveller-stage{height:245px}.traveller-model{height:235px}.traveller-plinth{bottom:40px}.traveller-turnbar{gap:10px}.traveller-turnbar button{min-height:38px;min-width:42px}.traveller-art-note{display:none}
+ .traveller-history p{font-size:12px}.traveller-actions button{min-height:50px}
+ #game:not(.battle-on) #party{max-width:330px}
+}
+@media(prefers-reduced-motion:reduce){.journey-help-panel{scroll-behavior:auto}}
+
+.journey-objective{position:relative;max-width:min(560px,100%)}
+.journey-help{position:relative;top:auto;left:auto}
+.journey-help-panel{top:calc(100% + 6px)}
+.journey-help-blocked .journey-help,.journey-help-blocked .journey-help-panel,.dialog-open .journey-help,.dialog-open .journey-help-panel{display:none}
+.playtest-tools-panel{pointer-events:auto;flex-basis:100%;margin-top:3px}
+.playtest-tools-panel>summary{cursor:pointer;color:#a8c5b5;font:11px/1.4 system-ui;padding:5px}
+.playtest-tools-panel .playtest-tools{margin:5px 0}
+#dev-session-badge{flex-wrap:wrap}
+
+#guardian-rule-cue{margin:4px 0 6px;padding:6px 9px;border-left:2px solid #d0b87b;background:#d7cf9a0b;color:#e6d5b0;font:11px/1.4 system-ui;max-width:100%;overflow-wrap:anywhere}
+#guardian-rule-cue[hidden]{display:none}
+.guardian-rule{border-left:2px solid var(--guardian-color);padding-left:10px;color:#e0d9ad}
+.battle-on #dev-session-badge{padding:4px 8px;margin:2px 0;max-width:420px}
+.battle-on #dev-session-badge>span{font-size:9px}
+.battle-on .playtest-tools-panel{display:none}

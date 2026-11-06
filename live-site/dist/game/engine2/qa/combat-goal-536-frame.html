@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Controlled Goal fixture · no journey saves</title>
+  <link rel="stylesheet" href="../style.css?v=2.10.0">
+  <link rel="stylesheet" href="../character-screen.css?v=1">
+  <link rel="stylesheet" href="../cinema.css?story=1&amp;v=2.8.2">
+  <link rel="stylesheet" href="../kakeya.css?v=wayglass-patterns-3.2.1">
+  <link rel="stylesheet" href="../lore.css?v=1">
+  <link rel="stylesheet" href="../skill-grid.css?v=2">
+  <link rel="stylesheet" href="../physical-lore.css?v=1">
+  <link rel="stylesheet" href="../constellation.css?v=3.0.0">
+  <link rel="stylesheet" href="../adventure-guidance.css?v=1">
+  <link rel="stylesheet" href="../combat-relics.css?v=1">
+  <link rel="stylesheet" href="../boss-gear.css">
+  <link rel="stylesheet" href="../crew-setup.css?v=1">
+  <link rel="stylesheet" href="../origins.css?v=1">
+  <link rel="stylesheet" href="../field-feedback.css?v=1">
+  <link rel="stylesheet" href="../economy.css?v=1">
+  <link rel="stylesheet" href="../../title-cinema.css?v=5.35.0">
+  <link rel="stylesheet" href="../traveller-entry.css?v=5.34.0">
+  <link rel="stylesheet" href="../touch-controls.css?v=5.30.0">
+  <link rel="stylesheet" href="../player-polish.css?v=5.6.0">
+  <link rel="stylesheet" href="../encounters.css?v=5.2.0">
+  <link rel="stylesheet" href="../battlefield.css?v=5.3.0">
+  <link rel="stylesheet" href="../objective-ui.css?v=5.12.0">
+  <link rel="stylesheet" href="../living-world-ui.css?v=5.31.1">
+  <link rel="stylesheet" href="../pause-navigation.css?v=5.8.0">
+  <link rel="stylesheet" href="../decision-polish.css?v=5.8.0">
+  <link rel="stylesheet" href="../dev-portal.css?v=5.11.0">
+  <link rel="stylesheet" href="../battle-layout.css?v=5.36.0">
+  <link rel="stylesheet" href="../battle-quick.css?v=5.36.0">
+  <link rel="stylesheet" href="../quality-polish.css?v=5.18.0">
+  <link rel="stylesheet" href="../reconciled-content.css?v=5.21.0">
+  <link rel="stylesheet" href="../embodied-feedback.css?v=5.30.0">
+  <link rel="stylesheet" href="../artistic-interface.css?v=5.34.0">
+  <link rel="stylesheet" href="../immersive-interface.css?v=5.35.0">
+  <link rel="stylesheet" href="../field-folio.css?v=5.36.0">
+  <link rel="stylesheet" href="../combat-thumb.css?v=5.36.0">
+  <link rel="stylesheet" href="../field-prompts.css?v=5.36.0">
+</head><body>
+  <main id="game" class="battle-on touch-on">
+    <canvas id="screen" aria-label="No scene rendering in this controlled UI fixture"></canvas>
+    <div id="hud">
+      <header><div><small>CONTROLLED UI FIXTURE</small><h1 id="chapter-title">Controlled Goal · no saves</h1><span id="area-name">Time held at zero</span></div><button id="menu-button" type="button" aria-label="Reset controlled fixture">Reset fixture</button></header>
+      <section id="party" aria-label="Controlled fixture actor"></section>
+    </div>
+    <output id="fixture-receipt" class="sr-only" role="status" aria-live="polite"></output>
+    <div id="notice" role="status" hidden></div>
+    <section id="commands">
+      <div id="ready-name"></div><strong id="target-name"></strong>
+      <div class="command-grid">
+        <button id="cmd-attack" type="button">Attack</button>
+        <button id="cmd-mako" type="button" disabled title="Outside this controlled Goal fixture">Mako</button>
+        <button id="cmd-personal" type="button" disabled title="Outside this controlled Goal fixture">Personal</button>
+        <button id="cmd-guard" type="button">Guard</button>
+        <button id="cmd-item" type="button" disabled title="Outside this controlled Goal fixture">Supply</button>
+        <button id="cmd-retreat" type="button" disabled title="Outside this controlled Goal fixture">Retreat</button>
+        <button id="cmd-field" type="button" disabled title="Outside this controlled Goal fixture">Tactics</button>
+      </div><small id="supply-count"></small>
+    </section>
+    <section id="spell-menu" hidden></section>
+    <div id="touch" class="enabled"><div id="joystick" role="application" aria-label="Native stick footprint; movement is held in this UI fixture"><span class="joystick-ring"></span><span class="joystick-knob"></span></div></div>
+  </main>
+  <script type="module" src="./combat-goal-536.mjs?v=5.38"></script>
+</body></html>

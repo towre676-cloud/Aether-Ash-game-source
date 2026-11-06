@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Controlled Goal fixture · no journey saves</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;background:#101713;color:#e6dec9;font:14px/1.45 system-ui,sans-serif}main{padding:14px;min-width:0}h1{font:22px Georgia,serif;margin:0 0 8px}p{margin:6px 0;max-width:85ch}nav{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}button,a{min-height:44px;padding:10px 14px;border:1px solid #8b805f;background:#253126;color:#efe2bf;font:14px system-ui}a{display:inline-flex;align-items:center}button{cursor:pointer}button[aria-pressed=true]{background:#b6a272;color:#131c16}#fixture-state{display:block;min-height:44px;margin:8px 0;padding:8px;border-left:2px solid #b6a272;white-space:pre-line}#viewport{overflow:auto;padding:2px 0 16px}iframe{display:block;width:390px;height:844px;border:1px solid #8b805f;background:#08131b}small{display:block;color:#b9c1ad}
+  </style>
+</head>
+<body><main>
+  <h1>Controlled Goal fixture · no journey saves</h1>
+  <p>Native battle controls with one ready actor, a regulator, two retained clay patterns and two marked angles. Simulation time is held at zero. This isolated UI fixture does not load or write a journey save.</p>
+  <small>This checks Goal controls and their layout. It does not demonstrate ordinary encounter progression or scene art.</small>
+  <nav aria-label="Fixture viewport">
+    <button type="button" data-width="390" data-height="844" aria-pressed="true">Portrait 390 × 844</button>
+    <button type="button" data-width="568" data-height="320" aria-pressed="false">Compact 568 × 320</button>
+    <button type="button" id="reset-fixture">Reset controlled fixture</button>
+    <a href="../../">Regular game</a>
+  </nav>
+  <p>Open <strong>Goal</strong>, use its bottom page arrows to reach <strong>Replay retained pattern</strong>, choose a clay pattern and marked angle, then invoke the native action. <strong>Close</strong> spends no readiness. Reset restores the controlled starting state.</p>
+  <output id="fixture-state" role="status" aria-live="polite">Loading the controlled fixture…</output>
+  <div id="viewport"><iframe id="goal-fixture" title="Controlled Goal fixture, no journey saves" src="./combat-goal-536-frame.html?v=5.38"></iframe></div>
+</main>
+<script>
+  const frame=document.querySelector('#goal-fixture'),state=document.querySelector('#fixture-state');
+  for(const button of document.querySelectorAll('[data-width]'))button.addEventListener('click',()=>{
+    frame.style.width=button.dataset.width+'px';frame.style.height=button.dataset.height+'px';
+    for(const option of document.querySelectorAll('[data-width]'))option.setAttribute('aria-pressed',String(option===button));
+  });
+  document.querySelector('#reset-fixture').addEventListener('click',()=>{state.textContent='Resetting the controlled fixture…';frame.src='./combat-goal-536-frame.html?v=5.38';});
+  window.addEventListener('message',event=>{if(event.source!==frame.contentWindow||event.origin!==location.origin||event.data?.type!=='controlled-goal-536')return;state.textContent=event.data.text;});
+</script>
+</body></html>

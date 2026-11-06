@@ -1,0 +1,2867 @@
+{
+  "schema": "ash-aether.all-3d-coverage/1",
+  "release": "5.31",
+  "checked_at_utc": "2026-10-30T19:46:31.424Z",
+  "method": "Real World with native ground, Atlas, trail, household/regional life and rival installs; real Adventure3DRenderer with a minimal software raster callback. Save state is warmed through native reads before taking exact before/after snapshots. Geometry is inspected rather than rasterized.",
+  "scenes": [
+    {
+      "scene": 230,
+      "key": "security",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 38352,
+        "dynamic": 3588,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 229,
+      "key": "console",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 25224,
+        "dynamic": 3456,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 228,
+      "key": "workshop",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 28368,
+        "dynamic": 3888,
+        "shadows": 72,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 5,
+      "key": "town",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 95592,
+        "dynamic": 36954,
+        "shadows": 648,
+        "glow": 1152
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2,
+      "key": "home",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "home",
+      "meshes": {
+        "static": 16242,
+        "dynamic": 1668,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4,
+      "key": "instrumentworks",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 24324,
+        "dynamic": 4224,
+        "shadows": 216,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 12,
+      "key": "inn",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "lodging",
+      "meshes": {
+        "static": 26496,
+        "dynamic": 1776,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 17,
+      "key": "market",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 23802,
+        "dynamic": 2424,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 13,
+      "key": "guild",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "guild",
+      "meshes": {
+        "static": 17106,
+        "dynamic": 1956,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50,
+      "key": "clinic",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "clinic",
+      "meshes": {
+        "static": 18636,
+        "dynamic": 2820,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 61,
+      "key": "carpenter",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "carpenter",
+      "meshes": {
+        "static": 16896,
+        "dynamic": 2604,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 135,
+      "key": "bridge",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 66186,
+        "dynamic": 3306,
+        "shadows": 288,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 214,
+      "key": "refuge",
+      "chapter": 2,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 40518,
+        "dynamic": 29904,
+        "shadows": 576,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 47,
+      "key": "passages",
+      "chapter": 3,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 58062,
+        "dynamic": 996,
+        "shadows": 216,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 49,
+      "key": "river",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 54036,
+        "dynamic": 7866,
+        "shadows": 504,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 48,
+      "key": "bypass",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 68034,
+        "dynamic": 1032,
+        "shadows": 288,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 292,
+      "key": "chapel",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 29952,
+        "dynamic": 10290,
+        "shadows": 792,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 125,
+      "key": "bell_crypt",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 35562,
+        "dynamic": 2664,
+        "shadows": 72,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 212,
+      "key": "west",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 84576,
+        "dynamic": 17478,
+        "shadows": 504,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 213,
+      "key": "east",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 48204,
+        "dynamic": 3900,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 234,
+      "key": "unindexed",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 12444,
+        "dynamic": 1428,
+        "shadows": 216,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 28,
+      "key": "catwalk",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "foundry",
+      "meshes": {
+        "static": 95202,
+        "dynamic": 858,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 29,
+      "key": "office",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 28500,
+        "dynamic": 11688,
+        "shadows": 504,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 30,
+      "key": "hold",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 17028,
+        "dynamic": 2892,
+        "shadows": 216,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 19,
+      "key": "forest",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 119592,
+        "dynamic": 3354,
+        "shadows": 360,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 20,
+      "key": "grove",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 22464,
+        "dynamic": 2424,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 42,
+      "key": "sanctuary",
+      "chapter": 7,
+      "dungeon": "roots",
+      "set": null,
+      "meshes": {
+        "static": 34950,
+        "dynamic": 39156,
+        "shadows": 576,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 294,
+      "key": "reactor",
+      "chapter": 8,
+      "dungeon": "reactor",
+      "set": null,
+      "meshes": {
+        "static": 58590,
+        "dynamic": 888,
+        "shadows": 504,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 295,
+      "key": "summit",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 26838,
+        "dynamic": 7362,
+        "shadows": 360,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 112,
+      "key": "field",
+      "chapter": 9,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 71766,
+        "dynamic": 4578,
+        "shadows": 216,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 406,
+      "key": "lowbank_shelter",
+      "chapter": 9,
+      "dungeon": "shelter",
+      "set": null,
+      "meshes": {
+        "static": 44754,
+        "dynamic": 6360,
+        "shadows": 288,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 256,
+      "key": "field",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 89388,
+        "dynamic": 3870,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 225,
+      "key": "manifest_depot",
+      "chapter": 10,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 20880,
+        "dynamic": 8418,
+        "shadows": 288,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 68,
+      "key": "field",
+      "chapter": 11,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 42348,
+        "dynamic": 5670,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 160,
+      "key": "flood_spillway",
+      "chapter": 11,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 32820,
+        "dynamic": 41130,
+        "shadows": 288,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 70,
+      "key": "field",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 21570,
+        "dynamic": 3630,
+        "shadows": 360,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 66,
+      "key": "name_vault",
+      "chapter": 12,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 30450,
+        "dynamic": 10854,
+        "shadows": 288,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 73,
+      "key": "field",
+      "chapter": 13,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 29532,
+        "dynamic": 4542,
+        "shadows": 216,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 359,
+      "key": "letter_attic",
+      "chapter": 13,
+      "dungeon": "timber",
+      "set": null,
+      "meshes": {
+        "static": 23112,
+        "dynamic": 11094,
+        "shadows": 216,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 164,
+      "key": "field",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 49092,
+        "dynamic": 4518,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 172,
+      "key": "echo_chamber",
+      "chapter": 14,
+      "dungeon": "glass",
+      "set": null,
+      "meshes": {
+        "static": 20436,
+        "dynamic": 7272,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 145,
+      "key": "field",
+      "chapter": 15,
+      "dungeon": null,
+      "set": "woodland",
+      "meshes": {
+        "static": 53934,
+        "dynamic": 5058,
+        "shadows": 216,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 144,
+      "key": "refugee_gate",
+      "chapter": 15,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 110202,
+        "dynamic": 38940,
+        "shadows": 360,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 142,
+      "key": "field",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 80766,
+        "dynamic": 3468,
+        "shadows": 216,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 394,
+      "key": "resonance_gallery",
+      "chapter": 16,
+      "dungeon": "resonance",
+      "set": null,
+      "meshes": {
+        "static": 57060,
+        "dynamic": 8922,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 143,
+      "key": "field",
+      "chapter": 17,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 49344,
+        "dynamic": 3906,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 313,
+      "key": "lens_workshop",
+      "chapter": 17,
+      "dungeon": "observatory",
+      "set": null,
+      "meshes": {
+        "static": 37542,
+        "dynamic": 8292,
+        "shadows": 288,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 146,
+      "key": "field",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 47292,
+        "dynamic": 1434,
+        "shadows": 216,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 315,
+      "key": "relief_store",
+      "chapter": 18,
+      "dungeon": "heat",
+      "set": null,
+      "meshes": {
+        "static": 25980,
+        "dynamic": 9726,
+        "shadows": 360,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 147,
+      "key": "field",
+      "chapter": 19,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 29442,
+        "dynamic": 4182,
+        "shadows": 216,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 149,
+      "key": "storm_anchorage",
+      "chapter": 19,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 38514,
+        "dynamic": 11352,
+        "shadows": 288,
+        "glow": 1032
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 438,
+      "key": "field",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 23178,
+        "dynamic": 5922,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 259,
+      "key": "witness_vault",
+      "chapter": 20,
+      "dungeon": "witness",
+      "set": null,
+      "meshes": {
+        "static": 19464,
+        "dynamic": 11322,
+        "shadows": 288,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 151,
+      "key": "field",
+      "chapter": 21,
+      "dungeon": null,
+      "set": "ruins",
+      "meshes": {
+        "static": 24732,
+        "dynamic": 1500,
+        "shadows": 216,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 303,
+      "key": "pottery_floor",
+      "chapter": 21,
+      "dungeon": "clay",
+      "set": null,
+      "meshes": {
+        "static": 75384,
+        "dynamic": 8988,
+        "shadows": 288,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 392,
+      "key": "field",
+      "chapter": 22,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 118344,
+        "dynamic": 4710,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 314,
+      "key": "vent_house",
+      "chapter": 22,
+      "dungeon": "vent",
+      "set": null,
+      "meshes": {
+        "static": 35418,
+        "dynamic": 7734,
+        "shadows": 216,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 393,
+      "key": "field",
+      "chapter": 23,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 67860,
+        "dynamic": 4422,
+        "shadows": 288,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 319,
+      "key": "common_assembly",
+      "chapter": 23,
+      "dungeon": "assembly",
+      "set": null,
+      "meshes": {
+        "static": 31848,
+        "dynamic": 9672,
+        "shadows": 216,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 251,
+      "key": "field",
+      "chapter": 24,
+      "dungeon": null,
+      "set": "highland",
+      "meshes": {
+        "static": 62748,
+        "dynamic": 7698,
+        "shadows": 144,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 404,
+      "key": "listening_chamber",
+      "chapter": 24,
+      "dungeon": "listening",
+      "set": null,
+      "meshes": {
+        "static": 36318,
+        "dynamic": 10692,
+        "shadows": 288,
+        "glow": 864
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 226,
+      "key": "hub",
+      "chapter": null,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 31236,
+        "dynamic": 7188,
+        "shadows": 288,
+        "glow": 168
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 701,
+      "key": "secret_1",
+      "chapter": 1,
+      "dungeon": "relay",
+      "set": null,
+      "meshes": {
+        "static": 25626,
+        "dynamic": 4500,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 702,
+      "key": "secret_2",
+      "chapter": 2,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 24762,
+        "dynamic": 5016,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 703,
+      "key": "secret_3",
+      "chapter": 3,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 23664,
+        "dynamic": 5658,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 704,
+      "key": "secret_4",
+      "chapter": 4,
+      "dungeon": "chapel",
+      "set": null,
+      "meshes": {
+        "static": 30714,
+        "dynamic": 6144,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 705,
+      "key": "secret_5",
+      "chapter": 5,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 25926,
+        "dynamic": 5508,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 706,
+      "key": "secret_6",
+      "chapter": 6,
+      "dungeon": "mooring",
+      "set": null,
+      "meshes": {
+        "static": 27030,
+        "dynamic": 6240,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 707,
+      "key": "secret_7",
+      "chapter": 7,
+      "dungeon": "roots",
+      "set": null,
+      "meshes": {
+        "static": 27588,
+        "dynamic": 5394,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 708,
+      "key": "secret_8",
+      "chapter": 8,
+      "dungeon": "reactor",
+      "set": null,
+      "meshes": {
+        "static": 28374,
+        "dynamic": 4164,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 709,
+      "key": "secret_9",
+      "chapter": 9,
+      "dungeon": "shelter",
+      "set": null,
+      "meshes": {
+        "static": 22650,
+        "dynamic": 4188,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 710,
+      "key": "secret_10",
+      "chapter": 10,
+      "dungeon": "rail",
+      "set": null,
+      "meshes": {
+        "static": 23706,
+        "dynamic": 5292,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 711,
+      "key": "secret_11",
+      "chapter": 11,
+      "dungeon": "sluice",
+      "set": null,
+      "meshes": {
+        "static": 24510,
+        "dynamic": 6468,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 712,
+      "key": "secret_12",
+      "chapter": 12,
+      "dungeon": "archive",
+      "set": null,
+      "meshes": {
+        "static": 28290,
+        "dynamic": 5124,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 713,
+      "key": "secret_13",
+      "chapter": 13,
+      "dungeon": "timber",
+      "set": null,
+      "meshes": {
+        "static": 25080,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 714,
+      "key": "secret_14",
+      "chapter": 14,
+      "dungeon": "glass",
+      "set": null,
+      "meshes": {
+        "static": 23946,
+        "dynamic": 4452,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 715,
+      "key": "secret_15",
+      "chapter": 15,
+      "dungeon": "gate",
+      "set": null,
+      "meshes": {
+        "static": 21594,
+        "dynamic": 4656,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 716,
+      "key": "secret_16",
+      "chapter": 16,
+      "dungeon": "resonance",
+      "set": null,
+      "meshes": {
+        "static": 31200,
+        "dynamic": 5076,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 717,
+      "key": "secret_17",
+      "chapter": 17,
+      "dungeon": "observatory",
+      "set": null,
+      "meshes": {
+        "static": 22626,
+        "dynamic": 4176,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 718,
+      "key": "secret_18",
+      "chapter": 18,
+      "dungeon": "heat",
+      "set": null,
+      "meshes": {
+        "static": 22770,
+        "dynamic": 4512,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 719,
+      "key": "secret_19",
+      "chapter": 19,
+      "dungeon": "wind",
+      "set": null,
+      "meshes": {
+        "static": 22506,
+        "dynamic": 7248,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 720,
+      "key": "secret_20",
+      "chapter": 20,
+      "dungeon": "witness",
+      "set": null,
+      "meshes": {
+        "static": 27540,
+        "dynamic": 4836,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 721,
+      "key": "secret_21",
+      "chapter": 21,
+      "dungeon": "clay",
+      "set": null,
+      "meshes": {
+        "static": 22326,
+        "dynamic": 4266,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 722,
+      "key": "secret_22",
+      "chapter": 22,
+      "dungeon": "vent",
+      "set": null,
+      "meshes": {
+        "static": 24672,
+        "dynamic": 5244,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 723,
+      "key": "secret_23",
+      "chapter": 23,
+      "dungeon": "assembly",
+      "set": null,
+      "meshes": {
+        "static": 23538,
+        "dynamic": 3996,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 724,
+      "key": "secret_24",
+      "chapter": 24,
+      "dungeon": "listening",
+      "set": null,
+      "meshes": {
+        "static": 28920,
+        "dynamic": 5226,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2000,
+      "key": "frontier_dunes_0",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 24984,
+        "dynamic": 5148,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2001,
+      "key": "frontier_dunes_1",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 28734,
+        "dynamic": 5148,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2002,
+      "key": "frontier_dunes_2",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 28974,
+        "dynamic": 3564,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2003,
+      "key": "frontier_dunes_3",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 29946,
+        "dynamic": 3420,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2004,
+      "key": "frontier_dunes_4",
+      "chapter": 2,
+      "dungeon": null,
+      "set": "dunes",
+      "meshes": {
+        "static": 27078,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2005,
+      "key": "frontier_salt_0",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 32970,
+        "dynamic": 2964,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2006,
+      "key": "frontier_salt_1",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 31782,
+        "dynamic": 2100,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2007,
+      "key": "frontier_salt_2",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 27978,
+        "dynamic": 2388,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2008,
+      "key": "frontier_salt_3",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 31854,
+        "dynamic": 3252,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2009,
+      "key": "frontier_salt_4",
+      "chapter": 3,
+      "dungeon": null,
+      "set": "salt",
+      "meshes": {
+        "static": 30534,
+        "dynamic": 1812,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2010,
+      "key": "frontier_cactus_0",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 33444,
+        "dynamic": 6126,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2011,
+      "key": "frontier_cactus_1",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 32400,
+        "dynamic": 2676,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2012,
+      "key": "frontier_cactus_2",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 27768,
+        "dynamic": 4980,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2013,
+      "key": "frontier_cactus_3",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 37692,
+        "dynamic": 3684,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2014,
+      "key": "frontier_cactus_4",
+      "chapter": 4,
+      "dungeon": null,
+      "set": "cactus",
+      "meshes": {
+        "static": 38964,
+        "dynamic": 4836,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2015,
+      "key": "frontier_caldera_0",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 36828,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2016,
+      "key": "frontier_caldera_1",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 29940,
+        "dynamic": 1356,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2017,
+      "key": "frontier_caldera_2",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 32802,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2018,
+      "key": "frontier_caldera_3",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 31074,
+        "dynamic": 1068,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2019,
+      "key": "frontier_caldera_4",
+      "chapter": 6,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 30636,
+        "dynamic": 1380,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2020,
+      "key": "frontier_coral_0",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 46800,
+        "dynamic": 5124,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2021,
+      "key": "frontier_coral_1",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 44244,
+        "dynamic": 3108,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2022,
+      "key": "frontier_coral_2",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 39834,
+        "dynamic": 3540,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2023,
+      "key": "frontier_coral_3",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 47376,
+        "dynamic": 4404,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2024,
+      "key": "frontier_coral_4",
+      "chapter": 7,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 47778,
+        "dynamic": 4116,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2025,
+      "key": "frontier_mangrove_0",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 40110,
+        "dynamic": 3972,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2026,
+      "key": "frontier_mangrove_1",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 31410,
+        "dynamic": 4260,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2027,
+      "key": "frontier_mangrove_2",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 41796,
+        "dynamic": 2820,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2028,
+      "key": "frontier_mangrove_3",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 34116,
+        "dynamic": 3540,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2029,
+      "key": "frontier_mangrove_4",
+      "chapter": 8,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 35034,
+        "dynamic": 4116,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2030,
+      "key": "frontier_crystal_0",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 27468,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2031,
+      "key": "frontier_crystal_1",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 32460,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2032,
+      "key": "frontier_crystal_2",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 29868,
+        "dynamic": 2064,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2033,
+      "key": "frontier_crystal_3",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 29484,
+        "dynamic": 1776,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2034,
+      "key": "frontier_crystal_4",
+      "chapter": 10,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 30930,
+        "dynamic": 1380,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2035,
+      "key": "frontier_glacier_0",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 31656,
+        "dynamic": 4596,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2036,
+      "key": "frontier_glacier_1",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 32676,
+        "dynamic": 4164,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2037,
+      "key": "frontier_glacier_2",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 29340,
+        "dynamic": 2004,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2038,
+      "key": "frontier_glacier_3",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 29628,
+        "dynamic": 2580,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2039,
+      "key": "frontier_glacier_4",
+      "chapter": 12,
+      "dungeon": null,
+      "set": "glacier",
+      "meshes": {
+        "static": 27252,
+        "dynamic": 1812,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2040,
+      "key": "frontier_aurora_0",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 27684,
+        "dynamic": 5460,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2041,
+      "key": "frontier_aurora_1",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 30780,
+        "dynamic": 4596,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2042,
+      "key": "frontier_aurora_2",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 36096,
+        "dynamic": 4452,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2043,
+      "key": "frontier_aurora_3",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 28572,
+        "dynamic": 5028,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2044,
+      "key": "frontier_aurora_4",
+      "chapter": 14,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 30396,
+        "dynamic": 4260,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2045,
+      "key": "frontier_spore_0",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 39990,
+        "dynamic": 5448,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2046,
+      "key": "frontier_spore_1",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 40128,
+        "dynamic": 4296,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2047,
+      "key": "frontier_spore_2",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 38286,
+        "dynamic": 3288,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2048,
+      "key": "frontier_spore_3",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 47916,
+        "dynamic": 4296,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2049,
+      "key": "frontier_spore_4",
+      "chapter": 16,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 44184,
+        "dynamic": 4692,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2050,
+      "key": "frontier_storm_0",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 30396,
+        "dynamic": 3648,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2051,
+      "key": "frontier_storm_1",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 33666,
+        "dynamic": 3468,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2052,
+      "key": "frontier_storm_2",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 36468,
+        "dynamic": 3468,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2053,
+      "key": "frontier_storm_3",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 32880,
+        "dynamic": 3504,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2054,
+      "key": "frontier_storm_4",
+      "chapter": 18,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 32712,
+        "dynamic": 3288,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2055,
+      "key": "frontier_marble_0",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 30462,
+        "dynamic": 3708,
+        "shadows": 72,
+        "glow": 456
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2056,
+      "key": "frontier_marble_1",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 28980,
+        "dynamic": 4716,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2057,
+      "key": "frontier_marble_2",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 32064,
+        "dynamic": 5580,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2058,
+      "key": "frontier_marble_3",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 31962,
+        "dynamic": 4284,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 2059,
+      "key": "frontier_marble_4",
+      "chapter": 20,
+      "dungeon": null,
+      "set": "marble",
+      "meshes": {
+        "static": 27600,
+        "dynamic": 3396,
+        "shadows": 72,
+        "glow": 744
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50000,
+      "key": "origin_sable-reed_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "home",
+      "meshes": {
+        "static": 15846,
+        "dynamic": 2244,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50001,
+      "key": "origin_sable-reed_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "village",
+      "meshes": {
+        "static": 88626,
+        "dynamic": 3324,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50002,
+      "key": "origin_iona-lowbank_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "lodging",
+      "meshes": {
+        "static": 41070,
+        "dynamic": 1956,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50003,
+      "key": "origin_iona-lowbank_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "clinic",
+      "meshes": {
+        "static": 37194,
+        "dynamic": 1956,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50004,
+      "key": "origin_rook-regulator_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "workshop",
+      "meshes": {
+        "static": 20784,
+        "dynamic": 2100,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50005,
+      "key": "origin_rook-regulator_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "foundry",
+      "meshes": {
+        "static": 53172,
+        "dynamic": 1236,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50006,
+      "key": "origin_brass-rail_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "railway",
+      "meshes": {
+        "static": 36756,
+        "dynamic": 2652,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50007,
+      "key": "origin_brass-rail_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "railway",
+      "meshes": {
+        "static": 40614,
+        "dynamic": 2652,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50008,
+      "key": "origin_riven-tide_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 60846,
+        "dynamic": 3324,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50009,
+      "key": "origin_riven-tide_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "waterfront",
+      "meshes": {
+        "static": 48198,
+        "dynamic": 3756,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50010,
+      "key": "origin_mira-archive_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "archive",
+      "meshes": {
+        "static": 76800,
+        "dynamic": 2772,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50011,
+      "key": "origin_mira-archive_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "archive",
+      "meshes": {
+        "static": 38256,
+        "dynamic": 3492,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50012,
+      "key": "origin_veyr-storm_0",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 32634,
+        "dynamic": 4764,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 50013,
+      "key": "origin_veyr-storm_1",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 27306,
+        "dynamic": 3000,
+        "shadows": 72,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4700,
+      "key": "origin_storm",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "storm",
+      "meshes": {
+        "static": 33624,
+        "dynamic": 3504,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4701,
+      "key": "origin_mangrove",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "mangrove",
+      "meshes": {
+        "static": 35118,
+        "dynamic": 5484,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4702,
+      "key": "origin_caldera",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "caldera",
+      "meshes": {
+        "static": 24972,
+        "dynamic": 708,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4703,
+      "key": "origin_crystal",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "crystal",
+      "meshes": {
+        "static": 33384,
+        "dynamic": 1416,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4704,
+      "key": "origin_coral",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "coral",
+      "meshes": {
+        "static": 45468,
+        "dynamic": 6348,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4705,
+      "key": "origin_spore",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "spore",
+      "meshes": {
+        "static": 39978,
+        "dynamic": 6528,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    },
+    {
+      "scene": 4706,
+      "key": "origin_aurora",
+      "chapter": 1,
+      "dungeon": null,
+      "set": "aurora",
+      "meshes": {
+        "static": 27204,
+        "dynamic": 3804,
+        "shadows": 216,
+        "glow": 0
+      },
+      "save_unchanged": true
+    }
+  ],
+  "object_routes": {
+    "campaign-prop:phrase": 25,
+    "cache-body-and-lid": 35,
+    "campaign-prop:guardian": 24,
+    "portal-threshold": 298,
+    "illustrated-person-actor": 97,
+    "authored-furniture": 852,
+    "native-field-tool-or-apparatus": 666,
+    "campaign-prop:relay": 3,
+    "campaign-prop:archive": 32,
+    "content-model:artifact-source": 24,
+    "campaign-prop:waypost": 12,
+    "content-model:artifact-device": 24,
+    "campaign-prop:refuge": 23,
+    "living-model:stable": 109,
+    "living-model:dog": 11,
+    "living-model:cat": 11,
+    "living-model:cow": 3,
+    "living-model:plant": 60,
+    "living-model:craft:vent": 1,
+    "living-model:fauna:hen": 4,
+    "campaign-prop:camp": 80,
+    "campaign-prop:workbench": 8,
+    "campaign-prop:instrument": 26,
+    "campaign-prop:market": 2,
+    "campaign-prop:assembly": 4,
+    "illustrated-creature-actor": 54,
+    "campaign-prop:crank": 1,
+    "living-model:craft:cloth": 1,
+    "living-model:fauna:sparrow": 5,
+    "campaign-prop:valve": 6,
+    "living-model:craft:sieve": 1,
+    "living-model:fauna:duck": 3,
+    "campaign-prop:bell": 9,
+    "content-model:network-diverter": 3,
+    "living-model:craft:rope": 1,
+    "living-model:fauna:moth": 9,
+    "living-model:craft:paper": 1,
+    "campaign-prop:winch": 2,
+    "living-model:craft:splice": 1,
+    "campaign-prop:garden": 3,
+    "living-model:craft:seed": 1,
+    "living-model:fauna:goat": 2,
+    "campaign-prop:reactor": 3,
+    "content-model:network-reedbank": 1,
+    "content-model:network-bell": 2,
+    "living-model:craft:baffle": 1,
+    "campaign-prop:clinic": 4,
+    "living-model:craft:laundry": 1,
+    "campaign-prop:signal": 2,
+    "living-model:craft:trolley": 1,
+    "content-model:network-window": 2,
+    "living-model:craft:bank": 1,
+    "living-model:craft:cradle": 1,
+    "living-model:craft:patch": 1,
+    "campaign-prop:lens": 4,
+    "content-model:revealed-compartment": 1,
+    "living-model:craft:stool": 1,
+    "campaign-prop:gate": 2,
+    "living-model:craft:boots": 1,
+    "living-model:craft:reed": 1,
+    "living-model:craft:lens": 1,
+    "living-model:craft:tea": 1,
+    "living-model:craft:mooring": 1,
+    "living-model:craft:press": 1,
+    "living-model:craft:clay": 1,
+    "living-model:craft:gutter": 1,
+    "content-model:network-claybench": 1,
+    "living-model:craft:table": 1,
+    "living-model:craft:chairs": 1,
+    "living-model:fauna:firefly": 1,
+    "campaign-prop:board": 61,
+    "campaign-prop:lamp": 2,
+    "campaign-prop:heater": 1,
+    "campaign-prop:windlock": 1,
+    "campaign-prop:pottery": 1,
+    "campaign-prop:vent": 1,
+    "embodied-mechanism": 14
+  },
+  "uncovered": [],
+  "past_life_cases": [
+    {
+      "origin": "sable-reed",
+      "part": 0,
+      "scene": 50000,
+      "meshes": {
+        "static": 15846,
+        "dynamic": 2694,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "sable-reed",
+      "part": 1,
+      "scene": 50001,
+      "meshes": {
+        "static": 88746,
+        "dynamic": 3774,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "iona-lowbank",
+      "part": 0,
+      "scene": 50002,
+      "meshes": {
+        "static": 41070,
+        "dynamic": 2406,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "iona-lowbank",
+      "part": 1,
+      "scene": 50003,
+      "meshes": {
+        "static": 37314,
+        "dynamic": 2406,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "rook-regulator",
+      "part": 0,
+      "scene": 50004,
+      "meshes": {
+        "static": 20784,
+        "dynamic": 2550,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "rook-regulator",
+      "part": 1,
+      "scene": 50005,
+      "meshes": {
+        "static": 53292,
+        "dynamic": 1686,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "brass-rail",
+      "part": 0,
+      "scene": 50006,
+      "meshes": {
+        "static": 36756,
+        "dynamic": 3102,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "brass-rail",
+      "part": 1,
+      "scene": 50007,
+      "meshes": {
+        "static": 40734,
+        "dynamic": 3102,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "riven-tide",
+      "part": 0,
+      "scene": 50008,
+      "meshes": {
+        "static": 60846,
+        "dynamic": 3774,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "riven-tide",
+      "part": 1,
+      "scene": 50009,
+      "meshes": {
+        "static": 48318,
+        "dynamic": 4206,
+        "shadows": 144,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "mira-archive",
+      "part": 0,
+      "scene": 50010,
+      "meshes": {
+        "static": 76800,
+        "dynamic": 3222,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "mira-archive",
+      "part": 1,
+      "scene": 50011,
+      "meshes": {
+        "static": 38376,
+        "dynamic": 3942,
+        "shadows": 144,
+        "glow": 288
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "veyr-storm",
+      "part": 0,
+      "scene": 50012,
+      "meshes": {
+        "static": 32634,
+        "dynamic": 5430,
+        "shadows": 72,
+        "glow": 576
+      },
+      "save_unchanged": true
+    },
+    {
+      "origin": "veyr-storm",
+      "part": 1,
+      "scene": 50013,
+      "meshes": {
+        "static": 27426,
+        "dynamic": 4026,
+        "shadows": 144,
+        "glow": 864
+      },
+      "save_unchanged": true
+    }
+  ],
+  "physical_lore_cases": [
+    {
+      "id": "shelter-reed",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "brake-lantern",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "survey-float",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "wrapped-clapper",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "label-spindle",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "grounding-spool",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "graft-sleeve",
+      "mode": "grow",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "crown-shard",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "handprint-tile",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "brake-seal",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "river-measure",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "blank-nameplate",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "house-hinge",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "listening-shell",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "road-wedge",
+      "mode": "fit",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": false,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "bell-fork",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "star-lens",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "heat-brick",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "sail-ring",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "witness-seal",
+      "mode": "pump",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "clay-offcut",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "vent-vane",
+      "mode": "turn",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "assembly-pebble",
+      "mode": "grow",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "id": "empty-reed",
+      "mode": "listen",
+      "fitted_mesh_changed": true,
+      "partial_action_mesh_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "network_cases": [
+    {
+      "work": "chapel-return",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "heat-independent",
+      "steps": 3,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "water-return",
+      "steps": 3,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "relays-distinct",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "work": "assembly-return",
+      "steps": 2,
+      "completed_native_work": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "expedition_cases": [
+    {
+      "scene": 5,
+      "refuge_region": 1,
+      "native_wins": 3,
+      "repaired_model_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "ground_cases": [
+    {
+      "core": "tide",
+      "field": "wet",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "flame",
+      "field": "heat",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "earth",
+      "field": "fracture",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "volt",
+      "field": "charge",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    },
+    {
+      "core": "aether",
+      "field": "phase",
+      "actual_native_impact": true,
+      "visible_mesh_changed": true,
+      "save_unchanged_on_render": true
+    }
+  ],
+  "limits": [
+    "All-scene availability snapshot uses chapter24, original flags unset, arrival positions and all runtime services installed. Supplemental state cases use the actual public native action functions.",
+    "This verifies representation coverage, finite combined meshes and save immutability; it does not measure art quality, phone GPU performance, browser bounds or every authored dialogue branch.",
+    "Illustrated sprite decoding/rasterization is omitted. The actual sprite ownership paths are checked by native classification and by separate focused tests."
+  ],
+  "passed": true,
+  "source_hashes": {
+    "adventure-3d-renderer.js": "60117731c22f601cde8aed515423ac3c5580c675a4caa95e66b20f716a0e5abe",
+    "adventure-3d-geometry.js": "8dd60a98e9b2aae638a8d19d8e35ddabb9a2a515ca4b255f1495b75c16138359",
+    "adventure-world-props.js": "9b64403b61de3a5db334aefda83449f683d2ea79bf3a4954b793ce1a25f22c7c",
+    "adventure-content-models.js": "b00f76e917471cb128f115d676dba752e5dc10c47908de195611d13f39cb24f0",
+    "adventure-living-content.js": "767ad50aa66d3a92ad2a4eb9b7502efbb9f81ee9dcfd543573bb30c84725d279",
+    "adventure-surface-states.js": "bc5c7e7344f400388b0e84b4870c547e97021dfb0e81fe32dc3a2503bceb8a8f",
+    "adventure-encounter-content.js": "725735163a4f14372dae64f0af1c202ab976d315df519c14e50c5ccd685b9956",
+    "adventure-dungeon-architecture.js": "0c1916dd57635efff3ebb4819e5038fad85c00d8442ec2d50b7dc9aa2f7551fa",
+    "adventure-set-dressing.js": "d40f7048757d4c43e802082e2143bf38fc03695bfc134f3a7c1a0c93389cb903"
+  },
+  "regional_coverage": {
+    "native_community_projects": 24,
+    "native_plant_beds": 24,
+    "chapter13_restored": true
+  },
+  "source_unchanged_during_check": true
+}

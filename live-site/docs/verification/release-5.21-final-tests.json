@@ -1,0 +1,4149 @@
+{
+  "schema": "ash-aether.release-tests/1",
+  "revision": "68e6673a8bc7d72ea44e3ae2edef436054e550cf",
+  "head_at_finish": "68e6673a8bc7d72ea44e3ae2edef436054e550cf",
+  "revision_changed": false,
+  "working_tree_status": [
+    "M dist/game/animation-expansion/motion/build_previews.py",
+    " D dist/game/animation-expansion/motion/crew-actions-secondary-v1.webp",
+    " D dist/game/animation-expansion/motion/crew-actions-v1.webp",
+    " D dist/game/animation-expansion/motion/monster-actions-v1.webp",
+    " M dist/game/animation-expansion/motion/motion-manifest.json",
+    " M dist/game/animation-expansion/player/player.js",
+    " M dist/game/architecture-polish-v4.html",
+    " M dist/game/architecture-walkthrough.html",
+    " M dist/game/cinema/expanded/atlas.js",
+    " M dist/game/engine2/README.md",
+    " M dist/game/engine2/adventure-guidance-ui.js",
+    " M dist/game/engine2/affordance-art.js",
+    " M dist/game/engine2/art-definitions.js",
+    " D dist/game/engine2/art/ash-herald-motion-v16.png",
+    " D dist/game/engine2/art/authored-props-v16.png",
+    " D dist/game/engine2/art/moonveil-motion-v16.png",
+    " D dist/game/engine2/art/sable-motion-v16.png",
+    " M dist/game/engine2/authored-art.js",
+    " M dist/game/engine2/authored-scenery.js",
+    " M dist/game/engine2/battle-flow.js",
+    " M dist/game/engine2/battle.js",
+    " M dist/game/engine2/cinema-content.js",
+    " M dist/game/engine2/cinema-director.js",
+    " M dist/game/engine2/combat-advice.js",
+    " M dist/game/engine2/combat-reactions.js",
+    " M dist/game/engine2/combat-relics-ui.js",
+    " M dist/game/engine2/crew-setup-ui.js",
+    " M dist/game/engine2/dev-portal.js",
+    " M dist/game/engine2/dev-session.js",
+    " M dist/game/engine2/economy-ui.js",
+    " M dist/game/engine2/expansion-cinema-content.js",
+    " M dist/game/engine2/expansion-cinema.js",
+    " M dist/game/engine2/exploration.js",
+    " M dist/game/engine2/field-encounters.js",
+    " M dist/game/engine2/field-expeditions.js",
+    " M dist/game/engine2/field-feedback.js",
+    " M dist/game/engine2/field-journey-director.js",
+    " M dist/game/engine2/field-journey-model.js",
+    " M dist/game/engine2/field-origins.js",
+    " M dist/game/engine2/field-patrols.js",
+    " M dist/game/engine2/follower-motion.js",
+    " M dist/game/engine2/frontiers.js",
+    " M dist/game/engine2/guided-objective.js",
+    " M dist/game/engine2/household-render.js",
+    " M dist/game/engine2/journey-memory.js",
+    " M dist/game/engine2/living-world-ui.js",
+    " M dist/game/engine2/living-world.js",
+    " M dist/game/engine2/main.js",
+    " M dist/game/engine2/monster-catalog.js",
+    " M dist/game/engine2/monster-field-guide.js",
+    " M dist/game/engine2/network-render.js",
+    " M dist/game/engine2/npc-challenges.js",
+    " M dist/game/engine2/origins-ui.js",
+    " M dist/game/engine2/origins.js",
+    " M dist/game/engine2/pause-navigation.js",
+    " M dist/game/engine2/presentation.js",
+    " M dist/game/engine2/qa/authored-motion.html",
+    " M dist/game/engine2/qa/authored-motion.js",
+    " M dist/game/engine2/qa/battle-flow.html",
+    " M dist/game/engine2/qa/campaign-play.mjs",
+    " M dist/game/engine2/qa/combat-reactions/index.html",
+    " M dist/game/engine2/qa/composition.html",
+    " M dist/game/engine2/qa/composition.js",
+    " M dist/game/engine2/qa/economy/index.html",
+    " M dist/game/engine2/qa/environment-art-v17.html",
+    " M dist/game/engine2/qa/environment-art-v19.html",
+    " M dist/game/engine2/qa/environment-art-v19.js",
+    " M dist/game/engine2/qa/guided-campaign.mjs",
+    " M dist/game/engine2/qa/guided-scenarios.mjs",
+    " M dist/game/engine2/qa/media.html",
+    " M dist/game/engine2/qa/motion.html",
+    " M dist/game/engine2/qa/motion.js",
+    " M dist/game/engine2/qa/physical-lore/index.html",
+    " M dist/game/engine2/quest-navigation.js",
+    " M dist/game/engine2/regional-life.js",
+    " M dist/game/engine2/renderer.js",
+    " M dist/game/engine2/repertoire.js",
+    " M dist/game/engine2/save-validation.js",
+    " M dist/game/engine2/scene-camera.js",
+    " M dist/game/engine2/scene-craft.js",
+    " M dist/game/engine2/tests/authored-motion.test.mjs",
+    " M dist/game/engine2/tests/quest-navigation.test.mjs",
+    " M dist/game/engine2/wild-combat.js",
+    " M dist/game/engine2/world-affordances.js",
+    " M dist/game/engine2/world.js",
+    " M dist/game/field-guide/guide.js",
+    " M dist/game/index.html",
+    " M dist/game/room-architecture.html",
+    " M dist/game/room-composition-v5.html",
+    " M dist/game/visual-overhaul.html",
+    " M dist/index.html",
+    " M docs/AUTHORED_ART_V16.md",
+    "?? development/art/delivery-v16-lossless-5.21.json",
+    "?? development/art/source-v16/",
+    "?? development/art/verify-v16-delivery.py",
+    "?? development/publication-originals/",
+    "?? development/reconciliation/",
+    "?? dist/game/engine2/addons/",
+    "?? dist/game/engine2/art/ash-herald-motion-v16.webp",
+    "?? dist/game/engine2/art/authored-props-v16.webp",
+    "?? dist/game/engine2/art/moonveil-motion-v16.webp",
+    "?? dist/game/engine2/art/sable-motion-v16.webp",
+    "?? dist/game/engine2/living-armory/",
+    "?? dist/game/engine2/living-atlas-art.js",
+    "?? dist/game/engine2/living-atlas-ecology.js",
+    "?? dist/game/engine2/living-atlas-kernel.js",
+    "?? dist/game/engine2/living-atlas-layout.js",
+    "?? dist/game/engine2/living-atlas.js",
+    "?? dist/game/engine2/reconciled-acoustics.js",
+    "?? dist/game/engine2/reconciled-content.css",
+    "?? dist/game/engine2/reconciled-content/",
+    "?? dist/game/engine2/reconciled-ground.js",
+    "?? dist/game/engine2/reconciled-preview.js",
+    "?? dist/game/engine2/reconciled-travel.js",
+    "?? dist/game/engine2/tests/authored-lossless-delivery.test.mjs",
+    "?? dist/game/engine2/tests/living-armory.test.mjs",
+    "?? dist/game/engine2/tests/living-atlas.test.mjs",
+    "?? dist/game/engine2/tests/reconciled-acoustics.test.mjs",
+    "?? dist/game/engine2/tests/reconciled-campaign.test.mjs",
+    "?? dist/game/engine2/tests/reconciled-ground.test.mjs",
+    "?? dist/game/engine2/tests/reconciled-travel.test.mjs",
+    "?? docs/SESSION_RECONCILIATION_5.21.md",
+    "?? docs/verification/integration-5.21-preflight-tests.json",
+    "?? docs/verification/integration-5.21-preflight-tests.log"
+  ],
+  "node_version": "v24.22.1",
+  "method": "Every discovered dist/game/**/*.test.mjs module executed directly as a separate Node process; up to four concurrently. Actual final per-module Node summary parsed.",
+  "launch_method": "Python subprocess pipe bridge; one actual Node process per module; stdout/stderr combined before relay",
+  "invocation_diagnosis": "On this execution host direct Node-to-Node pipe children suppress JavaScript stdout, including console.log; --version alone does not detect the issue. A Python-owned subprocess pipe capture and relay preserves the actual test output. No aggregate --test module counts are used.",
+  "discovery": {
+    "root": "dist/game",
+    "suffix": ".test.mjs",
+    "excluded_directories": [
+      "node_modules",
+      "vendor",
+      ".git",
+      ".cache",
+      ".venv",
+      "venv",
+      "coverage"
+    ],
+    "follow_symlinks": false
+  },
+  "files": 159,
+  "discovered_files": [
+    "dist/game/animation-expansion/player/timeline.test.mjs",
+    "dist/game/engine2/living-armory/tests/armory-v2.test.mjs",
+    "dist/game/engine2/living-armory/tests/armory-v3.test.mjs",
+    "dist/game/engine2/living-armory/tests/armory.test.mjs",
+    "dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs",
+    "dist/game/engine2/living-armory/tests/host-bridge.test.mjs",
+    "dist/game/engine2/tests/actor-atlas.test.mjs",
+    "dist/game/engine2/tests/adaptive-audio.test.mjs",
+    "dist/game/engine2/tests/adventure-guidance.test.mjs",
+    "dist/game/engine2/tests/affordance-art.test.mjs",
+    "dist/game/engine2/tests/answering-network.test.mjs",
+    "dist/game/engine2/tests/architectural-program.test.mjs",
+    "dist/game/engine2/tests/architecture.test.mjs",
+    "dist/game/engine2/tests/asset-loader.test.mjs",
+    "dist/game/engine2/tests/atlas-fallback.test.mjs",
+    "dist/game/engine2/tests/authored-lossless-delivery.test.mjs",
+    "dist/game/engine2/tests/authored-motion.test.mjs",
+    "dist/game/engine2/tests/authored-openings.test.mjs",
+    "dist/game/engine2/tests/battle-flow.test.mjs",
+    "dist/game/engine2/tests/battle-layout.test.mjs",
+    "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+    "dist/game/engine2/tests/battlefield-integration.test.mjs",
+    "dist/game/engine2/tests/battlefield.test.mjs",
+    "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+    "dist/game/engine2/tests/boss-gear.test.mjs",
+    "dist/game/engine2/tests/boss-guidance.test.mjs",
+    "dist/game/engine2/tests/boss-patterns.test.mjs",
+    "dist/game/engine2/tests/boss-strategy.test.mjs",
+    "dist/game/engine2/tests/building-craft.test.mjs",
+    "dist/game/engine2/tests/building-geometry.test.mjs",
+    "dist/game/engine2/tests/camera-window.test.mjs",
+    "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+    "dist/game/engine2/tests/campaign-purpose.test.mjs",
+    "dist/game/engine2/tests/character-motion.test.mjs",
+    "dist/game/engine2/tests/character-showcase.test.mjs",
+    "dist/game/engine2/tests/cinema.test.mjs",
+    "dist/game/engine2/tests/city-answer-battle.test.mjs",
+    "dist/game/engine2/tests/city-answer.test.mjs",
+    "dist/game/engine2/tests/combat-advice.test.mjs",
+    "dist/game/engine2/tests/combat-command-safety.test.mjs",
+    "dist/game/engine2/tests/combat-instruments.test.mjs",
+    "dist/game/engine2/tests/combat-position.test.mjs",
+    "dist/game/engine2/tests/combat-reactions.test.mjs",
+    "dist/game/engine2/tests/compatibility-ground.test.mjs",
+    "dist/game/engine2/tests/constellation.test.mjs",
+    "dist/game/engine2/tests/creature-ecology.test.mjs",
+    "dist/game/engine2/tests/crew-setup.test.mjs",
+    "dist/game/engine2/tests/dev-session.test.mjs",
+    "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+    "dist/game/engine2/tests/direction-latch.test.mjs",
+    "dist/game/engine2/tests/earned-progression.test.mjs",
+    "dist/game/engine2/tests/economy.test.mjs",
+    "dist/game/engine2/tests/encounter-objectives.test.mjs",
+    "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+    "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+    "dist/game/engine2/tests/environment-art-v17.test.mjs",
+    "dist/game/engine2/tests/environment-canopies-v17.test.mjs",
+    "dist/game/engine2/tests/environment-canopies-v19.test.mjs",
+    "dist/game/engine2/tests/environment-depth.test.mjs",
+    "dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+    "dist/game/engine2/tests/environment-materials-v17.test.mjs",
+    "dist/game/engine2/tests/environment-shells.test.mjs",
+    "dist/game/engine2/tests/environment-water-v17.test.mjs",
+    "dist/game/engine2/tests/exploration-investigations.test.mjs",
+    "dist/game/engine2/tests/exploration.test.mjs",
+    "dist/game/engine2/tests/field-encounters.test.mjs",
+    "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+    "dist/game/engine2/tests/field-expeditions.test.mjs",
+    "dist/game/engine2/tests/field-feedback.test.mjs",
+    "dist/game/engine2/tests/field-journey-director.test.mjs",
+    "dist/game/engine2/tests/field-journey-model.test.mjs",
+    "dist/game/engine2/tests/field-origins.test.mjs",
+    "dist/game/engine2/tests/field-patrols.test.mjs",
+    "dist/game/engine2/tests/field-rumor-art.test.mjs",
+    "dist/game/engine2/tests/field-rumors.test.mjs",
+    "dist/game/engine2/tests/follower-motion.test.mjs",
+    "dist/game/engine2/tests/frontier-art-v17.test.mjs",
+    "dist/game/engine2/tests/frontiers.test.mjs",
+    "dist/game/engine2/tests/functional-anatomy.test.mjs",
+    "dist/game/engine2/tests/graphics-health.test.mjs",
+    "dist/game/engine2/tests/ground-contact.test.mjs",
+    "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+    "dist/game/engine2/tests/guardian-rules.test.mjs",
+    "dist/game/engine2/tests/guided-objective.test.mjs",
+    "dist/game/engine2/tests/hero-legacy.test.mjs",
+    "dist/game/engine2/tests/households.test.mjs",
+    "dist/game/engine2/tests/interior-craft.test.mjs",
+    "dist/game/engine2/tests/journey-cinema.test.mjs",
+    "dist/game/engine2/tests/journey-memory.test.mjs",
+    "dist/game/engine2/tests/journey-roster.test.mjs",
+    "dist/game/engine2/tests/kakeya.test.mjs",
+    "dist/game/engine2/tests/label-layout.test.mjs",
+    "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+    "dist/game/engine2/tests/living-armory.test.mjs",
+    "dist/game/engine2/tests/living-atlas.test.mjs",
+    "dist/game/engine2/tests/living-world-integration.test.mjs",
+    "dist/game/engine2/tests/living-world-ui.test.mjs",
+    "dist/game/engine2/tests/lore.test.mjs",
+    "dist/game/engine2/tests/material-craft.test.mjs",
+    "dist/game/engine2/tests/media-delivery.test.mjs",
+    "dist/game/engine2/tests/monster-catalog.test.mjs",
+    "dist/game/engine2/tests/motion-media.test.mjs",
+    "dist/game/engine2/tests/motion-realism.test.mjs",
+    "dist/game/engine2/tests/network-audio.test.mjs",
+    "dist/game/engine2/tests/new-game-plus.test.mjs",
+    "dist/game/engine2/tests/npc-routines.test.mjs",
+    "dist/game/engine2/tests/objective-context.test.mjs",
+    "dist/game/engine2/tests/objective-integration.test.mjs",
+    "dist/game/engine2/tests/objective-ui.test.mjs",
+    "dist/game/engine2/tests/organic-ground.test.mjs",
+    "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+    "dist/game/engine2/tests/origin-guidance.test.mjs",
+    "dist/game/engine2/tests/origin-payoffs.test.mjs",
+    "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+    "dist/game/engine2/tests/origins.test.mjs",
+    "dist/game/engine2/tests/pause-navigation.test.mjs",
+    "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+    "dist/game/engine2/tests/personal-signatures.test.mjs",
+    "dist/game/engine2/tests/physical-lore.test.mjs",
+    "dist/game/engine2/tests/player-comfort.test.mjs",
+    "dist/game/engine2/tests/player-locomotion.test.mjs",
+    "dist/game/engine2/tests/playtest-recorder.test.mjs",
+    "dist/game/engine2/tests/presentation.test.mjs",
+    "dist/game/engine2/tests/quest-assistance.test.mjs",
+    "dist/game/engine2/tests/quest-navigation.test.mjs",
+    "dist/game/engine2/tests/reconciled-acoustics.test.mjs",
+    "dist/game/engine2/tests/reconciled-campaign.test.mjs",
+    "dist/game/engine2/tests/reconciled-ground.test.mjs",
+    "dist/game/engine2/tests/reconciled-travel.test.mjs",
+    "dist/game/engine2/tests/regional-work.test.mjs",
+    "dist/game/engine2/tests/renderer-recovery.test.mjs",
+    "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+    "dist/game/engine2/tests/repertoire.test.mjs",
+    "dist/game/engine2/tests/room-realism.test.mjs",
+    "dist/game/engine2/tests/runtime.test.mjs",
+    "dist/game/engine2/tests/save-feedback.test.mjs",
+    "dist/game/engine2/tests/save-validation.test.mjs",
+    "dist/game/engine2/tests/scene-camera.test.mjs",
+    "dist/game/engine2/tests/scene-craft.test.mjs",
+    "dist/game/engine2/tests/scene-dressing.test.mjs",
+    "dist/game/engine2/tests/scene-identity.test.mjs",
+    "dist/game/engine2/tests/scene-lighting.test.mjs",
+    "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+    "dist/game/engine2/tests/selected-lead-text.test.mjs",
+    "dist/game/engine2/tests/soundscape.test.mjs",
+    "dist/game/engine2/tests/sprite-cutout.test.mjs",
+    "dist/game/engine2/tests/subterranean-art.test.mjs",
+    "dist/game/engine2/tests/technique-icons.test.mjs",
+    "dist/game/engine2/tests/technique-preview.test.mjs",
+    "dist/game/engine2/tests/terrain-materials.test.mjs",
+    "dist/game/engine2/tests/touch-controls.test.mjs",
+    "dist/game/engine2/tests/tree-visibility.test.mjs",
+    "dist/game/engine2/tests/village-art.test.mjs",
+    "dist/game/engine2/tests/voice-assets.test.mjs",
+    "dist/game/engine2/tests/wayfinding.test.mjs",
+    "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+    "dist/game/engine2/tests/wayglass.test.mjs",
+    "dist/game/engine2/tests/wild-combat.test.mjs",
+    "dist/game/engine2/tests/world-affordances.test.mjs"
+  ],
+  "concurrency": 4,
+  "module_timeout_ms": 300000,
+  "started_at_utc": "2026-10-29T16:16:03.928Z",
+  "finished_at_utc": "2026-10-29T16:19:14.366Z",
+  "elapsed_seconds": 190.445,
+  "interrupted": null,
+  "failures": [],
+  "totals": {
+    "tests": 1208,
+    "pass": 1208,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "missing_count_summaries": [],
+  "inconsistent_count_summaries": [],
+  "results": [
+    {
+      "file": "dist/game/animation-expansion/player/timeline.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/animation-expansion/player/timeline.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.312,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory-v2.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/living-armory/tests/armory-v2.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.118,
+      "timed_out": false,
+      "counts": {
+        "tests": 19,
+        "pass": 19,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory-v3.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/living-armory/tests/armory-v3.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.102,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/armory.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/living-armory/tests/armory.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.181,
+      "timed_out": false,
+      "counts": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.104,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/living-armory/tests/host-bridge.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/living-armory/tests/host-bridge.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.107,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/actor-atlas.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/actor-atlas.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.093,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/adaptive-audio.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/adaptive-audio.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.091,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/adventure-guidance.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/adventure-guidance.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.751,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/affordance-art.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/affordance-art.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.148,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/answering-network.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/answering-network.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 26.041,
+      "timed_out": false,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/architectural-program.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/architectural-program.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.851,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/architecture.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/architecture.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.963,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/asset-loader.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.135,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/atlas-fallback.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/atlas-fallback.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.099,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-lossless-delivery.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/authored-lossless-delivery.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.124,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-motion.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/authored-motion.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.099,
+      "timed_out": false,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/authored-openings.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/authored-openings.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.835,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-flow.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/battle-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.879,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-layout.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/battle-layout.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.152,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/battle-picker-ui.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/battle-picker-ui.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.125,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield-integration.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/battlefield-integration.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.742,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/battlefield.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/battlefield.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.189,
+      "timed_out": false,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/bell-witness-arc.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/bell-witness-arc.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 4.884,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-gear.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/boss-gear.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.25,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-guidance.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/boss-guidance.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.152,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-patterns.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/boss-patterns.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.144,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/boss-strategy.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/boss-strategy.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.548,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/building-craft.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/building-craft.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.973,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/building-geometry.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/building-geometry.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.072,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/camera-window.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/camera-window.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.158,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-homecoming.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/campaign-homecoming.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 11.351,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/campaign-purpose.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/campaign-purpose.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.102,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/character-motion.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/character-motion.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.108,
+      "timed_out": false,
+      "counts": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/character-showcase.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/character-showcase.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.097,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/cinema.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/cinema.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.195,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer-battle.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/city-answer-battle.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.191,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/city-answer.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/city-answer.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.102,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-advice.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/combat-advice.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.891,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-command-safety.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/combat-command-safety.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.17,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-instruments.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/combat-instruments.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.145,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-position.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/combat-position.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.114,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/combat-reactions.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/combat-reactions.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.841,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/compatibility-ground.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/compatibility-ground.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.095,
+      "timed_out": false,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/constellation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/constellation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.934,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/creature-ecology.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/creature-ecology.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.195,
+      "timed_out": false,
+      "counts": {
+        "tests": 21,
+        "pass": 21,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/crew-setup.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/crew-setup.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.132,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/dev-session.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/dev-session.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 180.622,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/dialogue-presentation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/dialogue-presentation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.102,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/direction-latch.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/direction-latch.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.11,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/earned-progression.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/earned-progression.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 5.568,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/economy.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.391,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/encounter-objectives.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/encounter-objectives.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.147,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-architecture-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.23,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-architecture-v19.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-architecture-v19.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.33,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-art-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-art-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.467,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-canopies-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.97,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-canopies-v19.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-canopies-v19.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.267,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-depth.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-depth.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.019,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-interiors-v19.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-interiors-v19.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.339,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-materials-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-materials-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.118,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-shells.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-shells.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.181,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/environment-water-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-water-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.13,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration-investigations.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/exploration-investigations.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.925,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/exploration.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/exploration.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.063,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-encounters.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-encounters.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.821,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions-integration.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-expeditions-integration.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 4.215,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-expeditions.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-expeditions.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.152,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-feedback.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-feedback.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.297,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-director.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-journey-director.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.119,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-journey-model.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-journey-model.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.144,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-origins.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-origins.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 8.663,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-patrols.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-patrols.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.208,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumor-art.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-rumor-art.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.11,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/field-rumors.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/field-rumors.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.119,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/follower-motion.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/follower-motion.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.178,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/frontier-art-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/frontier-art-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.436,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/frontiers.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/frontiers.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.984,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/functional-anatomy.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/functional-anatomy.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.169,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/graphics-health.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/graphics-health.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.097,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/ground-contact.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/ground-contact.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.127,
+      "timed_out": false,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-reward-rules.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/guardian-reward-rules.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.123,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/guardian-rules.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/guardian-rules.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.253,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/guided-objective.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/guided-objective.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.774,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/hero-legacy.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/hero-legacy.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.116,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/households.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/households.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 4.404,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/interior-craft.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/interior-craft.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.013,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-cinema.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/journey-cinema.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.167,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-memory.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/journey-memory.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.992,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/journey-roster.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/journey-roster.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 4.215,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/kakeya.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/kakeya.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.823,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/label-layout.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/label-layout.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.096,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/legacy-art-delivery.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.18,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/living-armory.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/living-armory.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 3.533,
+      "timed_out": false,
+      "counts": {
+        "tests": 17,
+        "pass": 17,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/living-atlas.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/living-atlas.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.887,
+      "timed_out": false,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-integration.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/living-world-integration.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 9.028,
+      "timed_out": false,
+      "counts": {
+        "tests": 16,
+        "pass": 16,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/living-world-ui.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/living-world-ui.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.232,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/lore.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/lore.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.14,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/material-craft.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/material-craft.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.118,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/media-delivery.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.159,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/monster-catalog.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/monster-catalog.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.187,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-media.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/motion-media.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.162,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/motion-realism.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/motion-realism.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.109,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/network-audio.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/network-audio.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.103,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/new-game-plus.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/new-game-plus.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.208,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/npc-routines.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/npc-routines.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.649,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-context.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/objective-context.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 4.023,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-integration.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/objective-integration.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 5.528,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/objective-ui.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/objective-ui.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.143,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/organic-ground.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/organic-ground.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.981,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-goal-feasibility.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/origin-goal-feasibility.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 10,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-guidance.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/origin-guidance.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 35.054,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-payoffs.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/origin-payoffs.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 11.08,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/origin-voice-coverage.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/origin-voice-coverage.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.109,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/origins.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/origins.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 49.132,
+      "timed_out": false,
+      "counts": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/pause-navigation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/pause-navigation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.101,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/peaceful-shipments.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/peaceful-shipments.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.157,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/personal-signatures.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/personal-signatures.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.146,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/physical-lore.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/physical-lore.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 24.519,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/player-comfort.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/player-comfort.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.098,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/player-locomotion.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/player-locomotion.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.201,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/playtest-recorder.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/playtest-recorder.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.085,
+      "timed_out": false,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/presentation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/presentation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.38,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-assistance.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/quest-assistance.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 5.438,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/quest-navigation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/quest-navigation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.567,
+      "timed_out": false,
+      "counts": {
+        "tests": 30,
+        "pass": 30,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-acoustics.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/reconciled-acoustics.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.16,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-campaign.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/reconciled-campaign.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 2.826,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-ground.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/reconciled-ground.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.481,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/reconciled-travel.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/reconciled-travel.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.141,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/regional-work.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/regional-work.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.996,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/renderer-recovery.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/renderer-recovery.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.307,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire-expansion.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/repertoire-expansion.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.174,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/repertoire.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/repertoire.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.178,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/room-realism.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/room-realism.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.163,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/runtime.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/runtime.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.854,
+      "timed_out": false,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/save-feedback.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/save-feedback.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.13,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/save-validation.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/save-validation.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 13.852,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-camera.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-camera.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.2,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-craft.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.563,
+      "timed_out": false,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-dressing.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-dressing.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.152,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-identity.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-identity.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.727,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-lighting.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-lighting.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.103,
+      "timed_out": false,
+      "counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/scene-prop-repertoire.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.111,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/selected-lead-text.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/selected-lead-text.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.095,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/soundscape.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/soundscape.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.102,
+      "timed_out": false,
+      "counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/sprite-cutout.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/sprite-cutout.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.077,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/subterranean-art.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/subterranean-art.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.087,
+      "timed_out": false,
+      "counts": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-icons.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/technique-icons.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.114,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/technique-preview.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/technique-preview.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.174,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/terrain-materials.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/terrain-materials.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.105,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/touch-controls.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/touch-controls.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.112,
+      "timed_out": false,
+      "counts": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/tree-visibility.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/tree-visibility.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 1.269,
+      "timed_out": false,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/village-art.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/village-art.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.108,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/voice-assets.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/voice-assets.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.166,
+      "timed_out": false,
+      "counts": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/wayfinding.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/wayfinding.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.117,
+      "timed_out": false,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass-puzzle.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/wayglass-puzzle.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.122,
+      "timed_out": false,
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/wayglass.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/wayglass.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.954,
+      "timed_out": false,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/wild-combat.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/wild-combat.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 5.944,
+      "timed_out": false,
+      "counts": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    },
+    {
+      "file": "dist/game/engine2/tests/world-affordances.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/world-affordances.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "elapsed_seconds": 0.237,
+      "timed_out": false,
+      "counts": {
+        "tests": 13,
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      },
+      "missing_count_fields": [],
+      "summary_blocks": 1,
+      "inconsistent_counts": false,
+      "failure_reasons": []
+    }
+  ],
+  "combined_log": "docs/verification/release-5.21-final-tests.log",
+  "passed": true
+}

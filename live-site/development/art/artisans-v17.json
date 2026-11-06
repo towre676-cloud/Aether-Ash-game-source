@@ -1,0 +1,243 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "styleReference": "development/art/source-legacy-delivery/scene-props-v11.png",
+  "cropMethod": "Separated connected bodies at alpha > 4 with bounded padding; audited at alpha > 32. Faint shadows below alpha 4 connect nominal cells; exact measured rectangles preserve every physical subject and exclude its neighbors. No pixel manipulation or background removal.",
+  "sheets": [
+    {
+      "id": "artisans",
+      "file": "artisans-v17.png",
+      "assetKey": "environmentArtisans",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-3b1e5ec0-6f83-4e56-8988-c54454818449.png",
+      "sha256": "116be3b4107158e0af55af233d545dc621f214635e53738638f292214359e4d4",
+      "bytes": 2567273,
+      "width": 1774,
+      "height": 887,
+      "transparentPixels": 591016,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent environment sprite atlas for the original painterly RPG Ash & Aether, artisan interiors collection. Create one wide 2:1 landscape image with EXACTLY four equal columns and two equal rows of eight separate, fully contained, complete props. Each object fits inside the central 78% of its cell with generous genuinely transparent gutters, including every tool and shadow. Consistent elevated orthographic camera looking down 35 degrees; fronts and tops visible. Rich original hand-painted fantasy craftsmanship, rounded natural silhouettes, readable fine material texture, weathered ochre clay, warm timber, petrol-blue cloth, aged brass and restrained verdigris; gentle upper-left light with a short soft contact shadow under each object. Every scene object is a single plausible functional arrangement. TOP ROW left to right: 1 a compact apothecary worktable with mortar, herbs, amber glass bottles and folded linen; 2 a small handloom with indigo woven cloth, wooden shuttle and folded yarn; 3 a rounded stone baker's counter with woven bread basket, earthen mixing bowl and flour cloth; 4 a luthier's bench with an unfinished small lute, neatly arranged curved wood parts and brass hand tools. BOTTOM ROW left to right: 5 a low curved archive cabinet with parchment scroll cubbies, clay tablets and one open book; 6 a freestanding drying rack of herbs, flowers and garlic bunches hung from a rough wooden crossbar; 7 a small lived-in round dining table with two ceramic cups, a loaf, one folded blue cloth and a low stool tucked underneath; 8 a narrow timber bed with carved rounded headboard, faded teal quilt, ochre pillow and a small bedside clay lamp. Style cohesive with an atmospheric storybook fantasy action RPG; sophisticated painterly surface detail rather than chunky cartoon shapes. No people, no characters, no text, no labels, no grids, no background wall or floor, no boxed backdrop, no checkerboard; alpha background truly transparent. Clear separate silhouettes with no overlap across cells. Request high-detail wide original artwork.\n",
+      "sprites": [
+        {
+          "id": "apothecary-table",
+          "crop": [
+            15,
+            16,
+            429,
+            419
+          ],
+          "height": 100
+        },
+        {
+          "id": "indigo-loom",
+          "crop": [
+            454,
+            8,
+            447,
+            419
+          ],
+          "height": 100
+        },
+        {
+          "id": "bakers-counter",
+          "crop": [
+            902,
+            49,
+            434,
+            379
+          ],
+          "height": 100
+        },
+        {
+          "id": "luthier-bench",
+          "crop": [
+            1342,
+            31,
+            430,
+            405
+          ],
+          "height": 100
+        },
+        {
+          "id": "archive-cabinet",
+          "crop": [
+            28,
+            446,
+            423,
+            381
+          ],
+          "height": 100
+        },
+        {
+          "id": "herb-drying-rack",
+          "crop": [
+            461,
+            428,
+            436,
+            431
+          ],
+          "height": 100
+        },
+        {
+          "id": "supper-table",
+          "crop": [
+            918,
+            446,
+            363,
+            420
+          ],
+          "height": 100
+        },
+        {
+          "id": "quilt-bed",
+          "crop": [
+            1343,
+            438,
+            427,
+            417
+          ],
+          "height": 100
+        }
+      ],
+      "archivedSourcePath": "development/art/source-v17/artisans-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/artisans-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/artisans-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 780498,
+        "sha256": "1d597ddee5fa219b014ca40dac76f08d50c9c6e62c7b2097140224a59c350def",
+        "sourceSha256": "116be3b4107158e0af55af233d545dc621f214635e53738638f292214359e4d4",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "artisans-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "alphaAbove32OutsideAllCrops": 0,
+      "checks": [
+        {
+          "id": "apothecary-table",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 104222,
+              "total": 104222,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "indigo-loom",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 109912,
+              "total": 109912,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "bakers-counter",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 5,
+              "included": 108524,
+              "total": 108524,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "luthier-bench",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 100412,
+              "total": 100412,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "archive-cabinet",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 9,
+              "included": 106747,
+              "total": 106747,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "herb-drying-rack",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 7,
+              "included": 91928,
+              "total": 91928,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "supper-table",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 10,
+              "included": 88782,
+              "total": 88782,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "quilt-bed",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 8,
+              "included": 101957,
+              "total": 101957,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "originalStyleReference": "dist/game/engine2/art/scene-props-v11.png"
+}

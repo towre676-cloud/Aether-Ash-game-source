@@ -1,0 +1,251 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "cropMethod": "Eight main connected alpha>0 silhouettes plus four-pixel padding, bounded by the PNG edge. Main silhouettes validated at alpha>32; no high-opacity pixels touch any atlas edge.",
+  "semanticPolicy": "Facade accents replace existing buildingDetailPlan window/gable/lantern/chimney visuals or decorate an existing wallpost clipped to the same wall run. Building outlines, roofs, doors, floors, interactions and projections remain untouched. Applied only in normal baked-building renderer; compatibility preserves its existing fallback.",
+  "sheets": [
+    {
+      "id": "architecture",
+      "file": "architecture-accents-v17.png",
+      "assetKey": "environmentArchitecture",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-54833ab8-009c-4881-b3c7-0fe4051beed4.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent architectural accent sprite atlas for Ash & Aether, an original hand-painted fantasy RPG. Generate ONE wide 2:1 PNG with EXACTLY FOUR columns and TWO rows and EIGHT fully separate architectural parts, one per cell in the exact order below. Everything fits inside central 76 percent of its own equal cell with generous fully transparent gutters. These are small individual facade accents to place onto existing walls and roofs, NOT buildings or complete facades. Rich refined painterly gouache texture, sophisticated weathered material craftsmanship, soft upper-left daylight, warm timber and ochre clay, cool pale stone, verdigris copper and subdued indigo accents; gentle shading, readable edges at small game scale. Consistent orthographic camera looking slightly down at the front, minimal side perspective suitable for applying to a flat vertical RPG wall. Genuine RGBA transparency. TOP ROW left to right: 1 warm timber-framed rectangular cottage window with two small amber glass panes and a compact wooden flowerbox holding white and pale pink flowers, whole frame isolated, NO surrounding wall; 2 pale worn stone-framed rectangular clinic window with two clear muted turquoise panes and a shallow herb ledge of sage and small lavender sprigs, NO medical cross, NO surrounding wall; 3 tall compact blue leaded archive window in a slim aged brass and dark timber frame, elegant diamond panes with two modest amber highlights, NO readable symbols, NO surrounding wall; 4 a small circular carved timber gable vent with a radial slatted center and subtly scalloped worn outer ring, no extra wall. BOTTOM ROW left to right: 5 a short weathered brick chimney segment with three staggered courses, an overhanging stone cap and visible dark flue, complete isolated form and NO smoke; 6 a slim copper stovepipe with elbow and small rain hood, rivets and verdigris, a modest round mounting collar, complete isolated form, NO smoke; 7 a small wrought-iron wall lantern with curved bracket and quiet amber glass, finely hand-forged but visually simple, NO large glow or cast background; 8 an elegant narrow climbing ivy corner sprig, fine stems and sparse layered leaves trailing vertically then bending slightly at the top, no pot, no masonry, no building, no broad bush. No people, text, numbers, labels, grid lines, borders, backgrounds, ground bases, rooftops, doors, steps, complete buildings or scenery. Exactly eight usable decorative construction parts, genuinely transparent background, no clipping at any edge, generous isolation.",
+      "sprites": [
+        {
+          "id": "timber-flower-window",
+          "label": "Timber flowerbox window",
+          "crop": [
+            61,
+            54,
+            397,
+            355
+          ],
+          "height": 104
+        },
+        {
+          "id": "clinic-herb-window",
+          "label": "Clinic herb window",
+          "crop": [
+            526,
+            39,
+            412,
+            388
+          ],
+          "height": 104
+        },
+        {
+          "id": "archive-leaded-window",
+          "label": "Archive leaded window",
+          "crop": [
+            1038,
+            10,
+            225,
+            432
+          ],
+          "height": 104
+        },
+        {
+          "id": "carved-gable-vent",
+          "label": "Carved gable vent",
+          "crop": [
+            1367,
+            41,
+            381,
+            377
+          ],
+          "height": 104
+        },
+        {
+          "id": "brick-chimney",
+          "label": "Weathered brick chimney",
+          "crop": [
+            106,
+            466,
+            319,
+            394
+          ],
+          "height": 104
+        },
+        {
+          "id": "copper-stovepipe",
+          "label": "Copper stovepipe",
+          "crop": [
+            588,
+            444,
+            288,
+            431
+          ],
+          "height": 104
+        },
+        {
+          "id": "wrought-lantern",
+          "label": "Wrought wall lantern",
+          "crop": [
+            1007,
+            469,
+            273,
+            389
+          ],
+          "height": 104
+        },
+        {
+          "id": "ivy-corner",
+          "label": "Climbing ivy corner",
+          "crop": [
+            1449,
+            429,
+            290,
+            458
+          ],
+          "height": 104
+        }
+      ],
+      "sha256": "15632f12c04b7b56823bde9f96c927eeafce1d07c28362cc88bcb0622eca00b2",
+      "bytes": 1701869,
+      "transparentPixels": 925738,
+      "archivedSourcePath": "development/art/source-v17/architecture-accents-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/architecture-accents-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/architecture-accents-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 515070,
+        "sha256": "079485c38c19c97a60605deefaa6363f3d7f582b119aeec4c2245abf6b732ce2",
+        "sourceSha256": "15632f12c04b7b56823bde9f96c927eeafce1d07c28362cc88bcb0622eca00b2",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "architecture-accents-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "alphaAbove32OutsideAllCrops": 0,
+      "alphaAbove32TouchesAtlasEdges": false,
+      "checks": [
+        {
+          "id": "timber-flower-window",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 4,
+              "included": 101941,
+              "total": 101941,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "clinic-herb-window",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 121109,
+              "total": 121109,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "archive-leaded-window",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 69335,
+              "total": 69335,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "carved-gable-vent",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 76876,
+              "total": 76876,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "brick-chimney",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 10,
+              "included": 83081,
+              "total": 83081,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "copper-stovepipe",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 6,
+              "included": 46700,
+              "total": 46700,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "wrought-lantern",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 11,
+              "included": 41433,
+              "total": 41433,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "ivy-corner",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 5,
+              "included": 34168,
+              "total": 34168,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

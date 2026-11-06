@@ -1,0 +1,27 @@
+/** Optional world lore: no dialogue, camera, reward, input or quest gates. */
+export function eligibleLore(data,state){
+ const chapter=Math.min(24,state.chapter||1),seen=new Set(state.lore?.visited||[]),result=[];
+ for(const group of ['kingdoms','towns','peoples','weapons','myths','monsters','plot'])for(const e of data[group])if(e.chapter<=chapter&&(group!=='plot'||e.chapter<chapter||state.complete)&&(group!=='monsters'||!e.id.startsWith('boss-')||(state.bosses||[]).includes(e.chapter)))result.push({...e,group,text:e.text+(e.truth&&(e.revealChapter<chapter||state.complete)?'\n\nWhat you learned: '+e.truth:'')+(e.owner?'\n\nCarried by '+e.owner+'.':'')});
+ for(const e of data.places)if(seen.has(e.location)&&e.chapter<=chapter)result.push({...e,group:'places'});
+ return result;
+}
+export function rememberPlace(data,world){
+ const state=world.state;state.lore??={visited:[]};state.lore.visited=Array.isArray(state.lore.visited)?state.lore.visited.filter(Number.isInteger):[];
+ const place=data.places.find(p=>p.location===world.scene.location)||data.places.find(p=>p.key===world.scene.anchor);
+ if(place&&!state.lore.visited.includes(place.location))state.lore.visited.push(place.location);
+ return place;
+}
+export const loreReady=typeof document==='undefined'?Promise.resolve(null):fetch(new URL('./lore-content.json',import.meta.url)).then(r=>{if(!r.ok)throw Error('Lore unavailable');return r.json();}).catch(()=>null);
+export function appendWeaponLore(parent,owner){loreReady.then(data=>{const entry=data?.weapons.find(e=>e.owner===owner);if(!entry||!parent.isConnected)return;const details=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');details.className='weapon-lore';summary.textContent='Weapon tradition · '+entry.name;p.textContent=entry.text;details.append(summary,p);parent.append(details);});}
+export class WorldLore{
+ constructor(){this.data=null;this.last='';this.world=null;this.timer=null;this.enabled=false;try{this.enabled=localStorage.getItem('ash-lore-captions')==='on';}catch{}this.ready=loreReady.then(d=>{this.data=d;return d;});}
+ update(world,visible){if(!this.data||!world)return;this.world=world;const key=world.state.scene+':'+world.state.chapter+':'+(world.state.lore?.visited?.length??0);if(this.last!==key){this.last=key;const place=rememberPlace(this.data,world);if(place&&this.enabled)this.caption(place.ambient);}const el=document.querySelector('#world-caption');if(el)el.hidden=!visible||!this.enabled||!el.dataset.active;}
+ caption(text){let el=document.querySelector('#world-caption');if(!el){el=document.createElement('aside');el.id='world-caption';el.setAttribute('aria-label','Optional surroundings');document.querySelector('#game').append(el);}el.textContent=text;el.dataset.active='1';clearTimeout(this.timer);this.timer=setTimeout(()=>{delete el.dataset.active;el.hidden=true;},7500);}
+ async open(world,panel,onBack){await this.ready;panel.replaceChildren();const h=document.createElement('h3');h.textContent='The world along your road';panel.append(h);if(!this.data){const p=document.createElement('p');p.textContent='The world journal could not load. You can keep playing and try again later.';panel.append(p);}else{
+ rememberPlace(this.data,world);const intro=document.createElement('p');intro.textContent='Places you have visited and accounts available at this point in the journey. Read as much or as little as you like.';panel.append(intro);
+ const label=document.createElement('label');label.className='lore-caption-setting';const toggle=document.createElement('input');toggle.type='checkbox';toggle.checked=this.enabled;toggle.onchange=()=>{this.enabled=toggle.checked;try{localStorage.setItem('ash-lore-captions',this.enabled?'on':'off');}catch{}if(!this.enabled){const c=document.querySelector('#world-caption');if(c)c.hidden=true;}};label.append(toggle,document.createTextNode(' Show short surroundings captions while walking'));panel.append(label);
+ const input=document.createElement('input');input.type='search';input.placeholder='Find a place, creature, weapon or story';input.setAttribute('aria-label','Search discovered world lore');panel.append(input);const list=document.createElement('div');list.className='world-lore-list';panel.append(list);const entries=eligibleLore(this.data,world.state);
+ const render=()=>{list.replaceChildren();const q=input.value.trim().toLowerCase();for(const group of ['places','towns','kingdoms','peoples','weapons','myths','monsters','plot']){const matches=entries.filter(e=>e.group===group&&(!q||(e.name+' '+e.text).toLowerCase().includes(q)));if(!matches.length)continue;const heading=document.createElement('h4');heading.textContent=({places:'Visited places',towns:'Towns',kingdoms:'Kingdoms and covenants',peoples:'People and traditions',weapons:'Tools carried into danger',myths:'Myths and their changing meanings',monsters:'Creatures and adversaries',plot:'The rising Choir'})[group];list.append(heading);for(const e of matches){const details=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');summary.textContent=(group==='plot'?'Chapter '+e.chapter+' · ':'')+e.name;p.textContent=e.text;details.append(summary,p);list.append(details);}}if(!list.children.length){const p=document.createElement('p');p.textContent='No discovered account matches that search.';list.append(p);}};input.oninput=render;render();}
+ const back=document.createElement('button');back.textContent='Back to pause';back.onclick=onBack;panel.append(back);
+ }
+}

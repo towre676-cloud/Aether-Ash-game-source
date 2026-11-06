@@ -1,0 +1,331 @@
+{
+  "collection": "environment-canopy-variations-v19",
+  "tool": "image_gen.imagegen (built-in)",
+  "useCase": "stylized-concept",
+  "prompt": "Use case: stylized-concept. Asset type: production transparent sprite atlas for Ash & Aether, a hand-painted fantasy exploration game. Create EIGHT DISTINCT COMPLETE TREES in a strict four-column, two-row grid on a fully transparent wide 2:1 canvas. Each tree entirely contained in its own equal cell with clear empty gutters: leave at least 7 percent blank margin on every side of each cell. No branch, root, shadow or leaf may touch a neighboring tree or the canvas edge.\n\nStyle: sophisticated weathered gouache and watercolor, finely articulated natural bark and branching, controlled painted leaf masses, tactile earthy materials, soft light from upper left, subtle contact shadow under the roots only. Elevated three-quarter game camera looking down about 32 degrees. Full free-standing trees with believable root collars, no landscape, no frame, no labels or text. Trees must remain readable at 190 pixels tall in game. Natural asymmetry and large transparent sky gaps through crowns matter more than minute leaf noise.\n\nRow1 left-to-right:\n1. A very old orchard apple with a low hollow trunk, crooked open branches, sparse sage-green crown and a few small pale blossoms, visibly much older and more open than a dense young orchard tree.\n2. Mature coppiced oak with three strong separated trunks, open olive-green crown split into distinct clumps, exposed twisted roots, a small broken branch.\n3. River alder with a narrow leaning grey trunk, a tall irregular cool-green crown, exposed bank-side roots and a few dangling branches; upright asymmetry, not a broad round ball.\n4. Mangrove with widely spaced stilt roots forming open arches, a younger slim crown, wet dark bark, cool turquoise-green leaves. No water plane.\n\nRow2 left-to-right:\n5. Ancient alpine spruce with a broken top, one bare branch side, irregular blue-green boughs and a few restrained pockets of snow; narrow, skeletal silhouette.\n6. A young larch with a slender orange-grey trunk, fine separated tiered branches, blue-grey needles, asymmetrical snow clumps, much more open than a dense Christmas tree.\n7. A wind-pruned upland juniper bent strongly toward the RIGHT, low sparse layered dark green crown, bleached exposed branches and roots gripping a small grey stone base.\n8. A wind-split upland birch with two pale dark-scarred trunks, one shorter broken stem, small grey-green foliage clumps swept toward the RIGHT, wet dark roots, no snow.\n\nMatch scale and illumination across all eight. Keep the complete uncut silhouette and grounded roots of EVERY tree. TRANSPARENT BACKGROUND, no paper rectangle, no scenic background, no extra objects, no glow, no characters, no UI, no realism photograph. The intentionally generous gutters are essential for game sprite extraction.",
+  "generatedSource": "/workspace/scratch/7b00f669b5c3/generated_images/exec-95aa304f-b8c2-4384-b307-ad26d669b0fa.png",
+  "archivePath": "development/art/source-v19/environment-canopy-variations-v19.png",
+  "runtimePath": "dist/game/engine2/art/environment-canopy-variations-v19.webp",
+  "encoding": {
+    "codec": "libwebp",
+    "quality": 95,
+    "compressionLevel": 6,
+    "dimensions": "unchanged",
+    "alpha": "exact"
+  },
+  "cropMethod": "Measured alpha>32 bodies with four-pixel fringe. Disjoint source strips for low-juniper and split-birch. No source-image edits.",
+  "placement": "About 32 percent of existing visible scenic-tree sites, deterministic region-specific palettes. Storm variants sample only the previously visible v17 cohort, preserving sparse-upland density. No new tree sites or world-state changes.",
+  "wind": "Both upland variants always face right; other forms may reflect about their measured root.",
+  "registry": "dist/game/engine2/environment-canopies-v19.js",
+  "motifs": [
+    {
+      "id": "elder-orchard",
+      "label": "Hollow orchard elder",
+      "crop": [
+        15,
+        30,
+        429,
+        385
+      ],
+      "opaque": [
+        19,
+        34,
+        421,
+        377
+      ],
+      "anchor": [
+        229,
+        402
+      ],
+      "height": 178,
+      "parts": [
+        [
+          15,
+          30,
+          429,
+          385
+        ]
+      ]
+    },
+    {
+      "id": "open-coppice",
+      "label": "Open-crowned coppice",
+      "crop": [
+        454,
+        25,
+        470,
+        401
+      ],
+      "opaque": [
+        458,
+        29,
+        462,
+        393
+      ],
+      "anchor": [
+        674,
+        411
+      ],
+      "height": 184,
+      "parts": [
+        [
+          454,
+          25,
+          470,
+          401
+        ]
+      ]
+    },
+    {
+      "id": "leaning-alder",
+      "label": "Leaning river alder",
+      "crop": [
+        981,
+        6,
+        331,
+        445
+      ],
+      "opaque": [
+        985,
+        10,
+        323,
+        437
+      ],
+      "anchor": [
+        1192,
+        435
+      ],
+      "height": 202,
+      "parts": [
+        [
+          981,
+          6,
+          331,
+          445
+        ]
+      ]
+    },
+    {
+      "id": "stilt-mangrove",
+      "label": "Young stilt-root mangrove",
+      "crop": [
+        1386,
+        34,
+        347,
+        388
+      ],
+      "opaque": [
+        1390,
+        38,
+        339,
+        380
+      ],
+      "anchor": [
+        1565,
+        408
+      ],
+      "height": 186,
+      "parts": [
+        [
+          1386,
+          34,
+          347,
+          388
+        ]
+      ]
+    },
+    {
+      "id": "broken-spruce",
+      "label": "Broken-top alpine spruce",
+      "crop": [
+        60,
+        430,
+        333,
+        439
+      ],
+      "opaque": [
+        64,
+        434,
+        325,
+        431
+      ],
+      "anchor": [
+        216,
+        852
+      ],
+      "height": 216,
+      "parts": [
+        [
+          60,
+          430,
+          333,
+          439
+        ]
+      ]
+    },
+    {
+      "id": "open-larch",
+      "label": "Open winter larch",
+      "crop": [
+        503,
+        431,
+        339,
+        442
+      ],
+      "opaque": [
+        507,
+        435,
+        331,
+        434
+      ],
+      "anchor": [
+        679,
+        855
+      ],
+      "height": 207,
+      "parts": [
+        [
+          503,
+          431,
+          339,
+          442
+        ]
+      ]
+    },
+    {
+      "id": "low-juniper",
+      "label": "Low wind-pruned juniper",
+      "crop": [
+        911,
+        526,
+        483,
+        316
+      ],
+      "opaque": [
+        915,
+        530,
+        475,
+        308
+      ],
+      "anchor": [
+        1060,
+        826
+      ],
+      "height": 177,
+      "wind": true,
+      "parts": [
+        [
+          911,
+          526,
+          483,
+          238
+        ],
+        [
+          911,
+          764,
+          417,
+          78
+        ]
+      ]
+    },
+    {
+      "id": "split-birch",
+      "label": "Wind-split upland birch",
+      "crop": [
+        1369,
+        450,
+        393,
+        406
+      ],
+      "opaque": [
+        1373,
+        454,
+        385,
+        398
+      ],
+      "anchor": [
+        1503,
+        839
+      ],
+      "height": 195,
+      "wind": true,
+      "parts": [
+        [
+          1395,
+          450,
+          367,
+          314
+        ],
+        [
+          1369,
+          764,
+          393,
+          92
+        ]
+      ]
+    }
+  ],
+  "stylePools": {
+    "village": [
+      "elder-orchard",
+      "open-coppice"
+    ],
+    "woodland": [
+      "open-coppice",
+      "elder-orchard"
+    ],
+    "riverbank": [
+      "leaning-alder"
+    ],
+    "river": [
+      "leaning-alder"
+    ],
+    "mangrove": [
+      "stilt-mangrove"
+    ],
+    "ice": [
+      "broken-spruce",
+      "open-larch"
+    ],
+    "glacier": [
+      "broken-spruce",
+      "open-larch"
+    ],
+    "aurora": [
+      "broken-spruce",
+      "open-larch"
+    ],
+    "highland": [
+      "low-juniper",
+      "split-birch"
+    ],
+    "storm": [
+      "low-juniper",
+      "split-birch"
+    ]
+  },
+  "source": {
+    "bytes": 2407690,
+    "sha256": "bbaa2332199d6ef27e976fe71fe5797553c62aabf8bd254951baf33e0f600cb8",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "mode": "RGBA"
+  },
+  "delivery": {
+    "bytes": 882712,
+    "sha256": "59c88e8456853d71885c6600c9f6a2c590abaa5a758796ae8593c36a467f605e",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "alphaMaxError": 0
+  },
+  "cropVerification": {
+    "opaqueThreshold": 32,
+    "opaquePixels": 535719,
+    "unassignedOpaquePixels": 0,
+    "multiplyAssignedOpaquePixels": 0
+  }
+}

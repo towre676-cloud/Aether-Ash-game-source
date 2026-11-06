@@ -1,0 +1,277 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "cropMethod": "Measured alpha>8 silhouettes with three source pixels of padding; complete alpha>32 bodies and absence of neighboring bodies verified.",
+  "semanticPolicy": "Only replaces an existing outdoor camp/rest object. Indoor services, authored story objects, physical objects and specialized refuges retain their current art. Shelters do not create paths, doors, collisions or interactions.",
+  "sheets": [
+    {
+      "id": "shelters",
+      "file": "shelters-v17.png",
+      "assetKey": "environmentShelters",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-476cb0e1-0020-4f7e-9864-a4e235135a22.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent environment sprite atlas for the original top-down RPG Ash & Aether. Primary request: ONE landscape 2:1 RGBA PNG containing exactly EIGHT different small regional rest shelters in FOUR columns and TWO rows, exact order below. These are compact existing traveller rest points, not temples, altars, buildings, gates or portals. Consistent elevated 35-degree orthographic view, fronts and roof tops visible, human-scale shelters readable at 90–108 pixels tall in-game. Sophisticated painterly gouache and watercolor fantasy craftsmanship with natural, quiet proportions, softly weathered materials, restrained brushwork, muted sage, clay, warm wool, slate and aged wood, soft upper-left light, small subtle contact shadows. Every complete shelter must fit in the central 76 percent of its own equal square cell, with wide truly transparent empty gutters. No peg, rope, roof, loose reed or shadow may touch another cell. TOP ROW LEFT TO RIGHT: 1 WOODLAND LEAN-TO: two rough hazel supports, low sloping muted sage canvas roof, exposed open front and short stick back wall, one folded wool blanket and small earthen cup under the roof; 2 DESERT SHADE AWNING: low ochre linen shade stretched between three short weathered acacia posts, one small woven sleeping mat and a closed clay water jug, no walls, no cactus scenery; 3 FROST WINDBREAK: compact low curved dry-stone windbreak supporting a thick warm-gray wool roof, small restrained snow dusting on upper stone edges, one russet folded blanket under cover, open front; 4 MARSH REED SHELTER: short low raised dark-wood sleeping deck with a small pale reed-thatched lean-to roof, compact supporting stakes beneath, one tightly rolled blanket, no extension, ramp, stair, bridge or trail from the deck. BOTTOM ROW LEFT TO RIGHT: 5 VOLCANIC REFUGE: squat basalt back and side windbreak, soot-gray canvas lean-to roof, one warm rust wool bedroll and small closed kettle, no lava or fire; 6 STORMCLOTH SHELTER: a low weather-beaten indigo-gray stormcloth lean-to anchored with taut short ropes to small pegs kept closely inside its footprint, one sand-colored rolled blanket, shelter looks secure and weatherproof, no weather effects; 7 SPORE ROOT SHELTER: pale branching roots form a low natural open shelter with a muted ivory woven fungal-fiber canopy, a small tan sleeping mat and sealed clay flask underneath, a few tiny amber shelf fungi integrated into the root supports, no glow; 8 MARBLE REST ALCOVE: low plain worn pale-marble back and side walls with a simple faded blue cloth cover above, one low stone seat and folded warm wool blanket, modest restful human construction, no columned arch, doorway, shrine or ornament. Composition: each rest shelter isolated, entire roof/supports/contents visible, compact bottom-centered silhouette, scale consistent across all eight subjects. Actual clean alpha transparency around and through each shelter, not a white or checkerboard background. Avoid people, animals, text, lettering, signs, symbols, icons, borders, grid lines, pathways, landscape islands, broad circular dirt bases, floating particles, magic, dramatic glow, glossy plastic, pixel art, photorealism, ornate temples, altars, doors, thresholds, gates and invented travel destinations.",
+      "sprites": [
+        {
+          "id": "woodland-leanto",
+          "crop": [
+            90,
+            95,
+            342,
+            319
+          ],
+          "height": 100,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "desert-awning",
+          "crop": [
+            496,
+            103,
+            354,
+            313
+          ],
+          "height": 100,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "frost-windbreak",
+          "crop": [
+            932,
+            144,
+            383,
+            270
+          ],
+          "height": 93,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "marsh-reed-shelter",
+          "crop": [
+            1385,
+            86,
+            327,
+            343
+          ],
+          "height": 104,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "basalt-refuge",
+          "crop": [
+            50,
+            512,
+            393,
+            272
+          ],
+          "height": 92,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "stormcloth-shelter",
+          "crop": [
+            500,
+            534,
+            385,
+            249
+          ],
+          "height": 90,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "spore-root-shelter",
+          "crop": [
+            920,
+            511,
+            394,
+            285
+          ],
+          "height": 96,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        },
+        {
+          "id": "marble-alcove",
+          "crop": [
+            1362,
+            511,
+            362,
+            287
+          ],
+          "height": 100,
+          "allowedObjectRoles": [
+            "existing outdoor camp/rest object"
+          ],
+          "expectedMainComponents": 1
+        }
+      ],
+      "sha256": "28dc3dfe550c7c412183a396d646bef95a907dfaaf4fb5288e91a430c013cffc",
+      "bytes": 1486814,
+      "transparentPixels": 1042986,
+      "archivedSourcePath": "development/art/source-v17/shelters-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/shelters-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/shelters-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 432608,
+        "sha256": "354046060bdd718bc2c3390a489ed885de0079aaa68ec48e9f346937588aee77",
+        "sourceSha256": "28dc3dfe550c7c412183a396d646bef95a907dfaaf4fb5288e91a430c013cffc",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "shelters-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "logicalSpriteCount": 8,
+      "mainConnectedBodyCount": 8,
+      "allEightCropsContainWholeSubjects": true,
+      "alphaAbove32OutsideAllCrops": 0,
+      "highSaturationRedEdgePixelsAboveAlpha32": 0,
+      "originalGeneratedBytesUnchanged": true,
+      "checks": [
+        {
+          "id": "woodland-leanto",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 53796,
+              "total": 53796,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "desert-awning",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 3,
+              "included": 47712,
+              "total": 47712,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "frost-windbreak",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 4,
+              "included": 62586,
+              "total": 62586,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "marsh-reed-shelter",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 55292,
+              "total": 55292,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "basalt-refuge",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 7,
+              "included": 66198,
+              "total": 66198,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "stormcloth-shelter",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 9,
+              "included": 44623,
+              "total": 44623,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "spore-root-shelter",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 8,
+              "included": 59497,
+              "total": 59497,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "marble-alcove",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 6,
+              "included": 67772,
+              "total": 67772,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

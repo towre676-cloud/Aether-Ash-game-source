@@ -1,0 +1,705 @@
+{
+  "baselineCommit": "7424016cf051d24c88abca541e734a37490384f9",
+  "integrationVersion": "5.25.0",
+  "stepSeconds": 0.05,
+  "methodology": "All cases earn the actual opening party, equipment and loadout through earnOpening(), then use the canonical enemy, context, floor and combat-order driver. No HP, damage, rewards or gear are added. The only independent variable in matched controls is the fresh encounterTempo version marker. The first-threat policy redirects the queued earned Earth at the announced damaging strike. Guard responds once with the first threatened ready hero. Dodge is an idealized 50ms geometry-aware per-hero movement policy, not a human playtest. Menus, cinematic pauses, pointer input, Ground Forge and Living Atlas modifiers are outside this simulation.",
+  "rows": [
+    {
+      "name": "5.24 control / Attack",
+      "tempo": false,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 3.5,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "field-take",
+          "windup": 1.8,
+          "label": "Reaching for Signal bell"
+        }
+      ],
+      "resolutions": [],
+      "heroDamage": 0,
+      "actions": 4,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 4.45,
+      "remainingHP": [
+        180,
+        180,
+        180
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.24 control / earned Earth",
+      "tempo": false,
+      "policy": "earned",
+      "targeting": "caller",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [],
+      "resolutions": [],
+      "heroDamage": 0,
+      "actions": 3,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 2.9,
+      "remainingHP": [
+        180,
+        180,
+        180
+      ],
+      "remainingMP": [
+        32,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / Attack caller",
+      "tempo": true,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 2.2,
+          "actor": "Porcelain Mender",
+          "kind": "strike",
+          "sourceId": "e1",
+          "targets": [
+            "Sable",
+            "Rook",
+            "Iona"
+          ],
+          "damage": 78
+        }
+      ],
+      "heroDamage": 78,
+      "actions": 4,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 4.45,
+      "remainingHP": [
+        154,
+        154,
+        154
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / earned Earth caller",
+      "tempo": true,
+      "policy": "earned",
+      "targeting": "caller",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 2.2,
+          "actor": "Porcelain Mender",
+          "kind": "strike",
+          "sourceId": "e1",
+          "targets": [
+            "Sable",
+            "Rook"
+          ],
+          "damage": 52
+        }
+      ],
+      "heroDamage": 52,
+      "actions": 3,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 2.25,
+      "remainingHP": [
+        154,
+        154,
+        180
+      ],
+      "remainingMP": [
+        32,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / answer first strike with earned Earth",
+      "tempo": true,
+      "policy": "earned",
+      "targeting": "first-threat",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        }
+      ],
+      "resolutions": [],
+      "heroDamage": 0,
+      "actions": 3,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 2.15,
+      "remainingHP": [
+        180,
+        180,
+        180
+      ],
+      "remainingMP": [
+        32,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / Guard once, then Attack caller",
+      "tempo": true,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "guard",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 2.2,
+          "actor": "Porcelain Mender",
+          "kind": "strike",
+          "sourceId": "e1",
+          "targets": [
+            "Sable",
+            "Rook",
+            "Iona"
+          ],
+          "damage": 62
+        }
+      ],
+      "heroDamage": 62,
+      "actions": 5,
+      "interrupts": 0,
+      "responses": {
+        "guard": 1,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 16,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 5.15,
+      "remainingHP": [
+        170,
+        154,
+        154
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / move clear, then Attack caller",
+      "tempo": true,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "dodge",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": 2.9,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 2.2,
+          "actor": "Porcelain Mender",
+          "kind": "strike",
+          "sourceId": "e1",
+          "targets": [],
+          "damage": 0
+        }
+      ],
+      "heroDamage": 0,
+      "actions": 4,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 1,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 5.6,
+      "remainingHP": [
+        180,
+        180,
+        180
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "5.25 / idle through the opening",
+      "tempo": true,
+      "policy": "idle",
+      "targeting": "caller",
+      "response": "none",
+      "boss": false,
+      "initialEnemyHP": 116,
+      "firstAction": null,
+      "warnings": [
+        {
+          "at": 0.55,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.65,
+          "label": "Porcelain pulse"
+        },
+        {
+          "at": 1.05,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "alarm",
+          "windup": 2.4,
+          "label": "Calling reinforcements"
+        },
+        {
+          "at": 3.85,
+          "actor": "Night Raptor",
+          "role": "predator",
+          "kind": "field-take",
+          "windup": 1.8,
+          "label": "Reaching for Grounding coil"
+        },
+        {
+          "at": 5.9,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "field-take",
+          "windup": 1.8,
+          "label": "Reaching for Signal bell"
+        },
+        {
+          "at": 6,
+          "actor": "Night Raptor",
+          "role": "predator",
+          "kind": "strike",
+          "windup": 1.2,
+          "label": "Grounding coil · Flanking pounce"
+        },
+        {
+          "at": 7.55,
+          "actor": "Alarmwing",
+          "role": "scout",
+          "kind": "field-take",
+          "windup": 1.8,
+          "label": "Reaching for Signal bell"
+        },
+        {
+          "at": 7.55,
+          "actor": "Night Raptor",
+          "role": "predator",
+          "kind": "strike",
+          "windup": 1.2,
+          "label": "Grounding coil · Flanking pounce"
+        },
+        {
+          "at": 9.1,
+          "actor": "Night Raptor",
+          "role": "predator",
+          "kind": "field-take",
+          "windup": 1.8,
+          "label": "Reaching for Loose brace"
+        },
+        {
+          "at": 11.25,
+          "actor": "Night Raptor",
+          "role": "predator",
+          "kind": "strike",
+          "windup": 1.55,
+          "label": "Loose brace · Flanking pounce"
+        },
+        {
+          "at": 11.4,
+          "actor": "Porcelain Mender",
+          "role": "mender",
+          "kind": "strike",
+          "windup": 1.2,
+          "label": "Signal bell · Flanking pounce"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 2.2,
+          "actor": "Porcelain Mender",
+          "kind": "strike",
+          "sourceId": "e1",
+          "targets": [
+            "Sable"
+          ],
+          "damage": 26
+        },
+        {
+          "at": 7.2,
+          "actor": "Night Raptor",
+          "kind": "strike",
+          "sourceId": "e100",
+          "targets": [
+            "Sable"
+          ],
+          "damage": 26
+        },
+        {
+          "at": 8.75,
+          "actor": "Night Raptor",
+          "kind": "strike",
+          "sourceId": "e100",
+          "targets": [
+            "Sable"
+          ],
+          "damage": 26
+        }
+      ],
+      "heroDamage": 78,
+      "actions": 0,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "timeout",
+      "seconds": 12,
+      "remainingHP": [
+        102,
+        180,
+        180
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 1,
+      "enemyRemaining": [
+        58,
+        58,
+        58
+      ]
+    },
+    {
+      "name": "guardian unchanged / control",
+      "tempo": false,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "none",
+      "boss": true,
+      "initialEnemyHP": 418,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 3.35,
+          "actor": "",
+          "role": "boss",
+          "kind": "strike",
+          "windup": 2.3,
+          "label": "Relay lance · First movement · step sideways from the lane"
+        },
+        {
+          "at": 11,
+          "actor": "",
+          "role": "boss",
+          "kind": "strike",
+          "windup": 2.3,
+          "label": "Grounding ring · Unbound · close into the calm center or move out"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 5.65,
+          "actor": "",
+          "kind": "strike",
+          "sourceId": "e0",
+          "targets": [
+            "Sable",
+            "Iona"
+          ],
+          "damage": 38
+        },
+        {
+          "at": 13.3,
+          "actor": "",
+          "kind": "strike",
+          "sourceId": "e0",
+          "targets": [
+            "Sable",
+            "Rook"
+          ],
+          "damage": 40
+        }
+      ],
+      "heroDamage": 78,
+      "actions": 17,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 17.3,
+      "remainingHP": [
+        141,
+        160,
+        161
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    },
+    {
+      "name": "guardian unchanged / opted in",
+      "tempo": true,
+      "policy": "attack",
+      "targeting": "caller",
+      "response": "none",
+      "boss": true,
+      "initialEnemyHP": 418,
+      "firstAction": 1.75,
+      "warnings": [
+        {
+          "at": 3.35,
+          "actor": "",
+          "role": "boss",
+          "kind": "strike",
+          "windup": 2.3,
+          "label": "Relay lance · First movement · step sideways from the lane"
+        },
+        {
+          "at": 11,
+          "actor": "",
+          "role": "boss",
+          "kind": "strike",
+          "windup": 2.3,
+          "label": "Grounding ring · Unbound · close into the calm center or move out"
+        }
+      ],
+      "resolutions": [
+        {
+          "at": 5.65,
+          "actor": "",
+          "kind": "strike",
+          "sourceId": "e0",
+          "targets": [
+            "Sable",
+            "Iona"
+          ],
+          "damage": 38
+        },
+        {
+          "at": 13.3,
+          "actor": "",
+          "kind": "strike",
+          "sourceId": "e0",
+          "targets": [
+            "Sable",
+            "Rook"
+          ],
+          "damage": 40
+        }
+      ],
+      "heroDamage": 78,
+      "actions": 17,
+      "interrupts": 0,
+      "responses": {
+        "guard": 0,
+        "evade": 0,
+        "armor-break": 0
+      },
+      "guardPrevented": 0,
+      "blockedNotices": [],
+      "result": "win",
+      "seconds": 17.3,
+      "remainingHP": [
+        141,
+        160,
+        161
+      ],
+      "remainingMP": [
+        38,
+        0,
+        38
+      ],
+      "reinforcements": 0,
+      "enemyRemaining": []
+    }
+  ]
+}
