@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {catalog24,guardianPlan} from '../src/boss-catalog.mjs';
+test('24 guardians receive repeating families with increasing variants',()=>{const c=catalog24();assert.equal(c.length,24);assert.equal(new Set(c.slice(0,8).map(x=>x.family)).size,8);assert.ok(guardianPlan(9).beats[0].intensity>guardianPlan(1).beats[0].intensity);});

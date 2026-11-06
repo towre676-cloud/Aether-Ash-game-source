@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {buildEncounter} from '../src/encounter-director.mjs';
+test('encounters attach identity and avoid immediate objective repetition',()=>{const a=buildEncounter({id:'x',actors:[{id:'r',archetype:'raptor'}]});const b=buildEncounter({id:'x',actors:[{id:'r',archetype:'raptor'}],history:[a,a]});assert.equal(a.actors[0].identity.behavior,'sound_hunter');assert.notEqual(a.objective,b.objective);});

@@ -1,0 +1,303 @@
+{
+  "verified": true,
+  "regions": 9,
+  "species": 54,
+  "completedQuests": 10,
+  "firstEpoch": {
+    "age": 10,
+    "region": "basalt_rift",
+    "quests": [
+      "rain_recovery",
+      "bridge_accord",
+      "roots_singing",
+      "underwater_road",
+      "moon_mirror",
+      "fruit_of_years",
+      "furnace_names",
+      "machine_of_days",
+      "walls_remember",
+      "unfinished_crown"
+    ],
+    "finalBattle": {
+      "ok": true,
+      "species": "Stonegrown Crownless Watcher",
+      "morph": "stonegrown",
+      "damage": 2.6124,
+      "incoming": 0,
+      "hp": 22.7378,
+      "remainingHp": 0,
+      "maxHp": 4.392,
+      "round": 2,
+      "victorious": true,
+      "loot": {
+        "material": "basalt",
+        "amount": 2,
+        "adaptedMaterial": "basalt"
+      },
+      "reaction": "Material response",
+      "environment": 0.669,
+      "elementalResistance": 1,
+      "defense": 0.2685,
+      "ground": "ash-fire-mosaic",
+      "groundEffects": []
+    },
+    "bossRounds": [
+      {
+        "ok": true,
+        "species": "Stonegrown Crownless Watcher",
+        "morph": "stonegrown",
+        "damage": 2.2219,
+        "incoming": 1.2622,
+        "hp": 22.7378,
+        "remainingHp": 2.1701,
+        "maxHp": 4.392,
+        "round": 1,
+        "victorious": false,
+        "loot": null,
+        "reaction": "Material response",
+        "environment": 0.669,
+        "elementalResistance": 1,
+        "defense": 0.267,
+        "ground": "ash-fire-mosaic",
+        "groundEffects": []
+      },
+      {
+        "ok": true,
+        "species": "Stonegrown Crownless Watcher",
+        "morph": "stonegrown",
+        "damage": 2.6124,
+        "incoming": 0,
+        "hp": 22.7378,
+        "remainingHp": 0,
+        "maxHp": 4.392,
+        "round": 2,
+        "victorious": true,
+        "loot": {
+          "material": "basalt",
+          "amount": 2,
+          "adaptedMaterial": "basalt"
+        },
+        "reaction": "Material response",
+        "environment": 0.669,
+        "elementalResistance": 1,
+        "defense": 0.2685,
+        "ground": "ash-fire-mosaic",
+        "groundEffects": []
+      }
+    ],
+    "reputation": 41,
+    "biology": {
+      "day": 10,
+      "sky": "clear",
+      "sluiceOpen": false,
+      "bridgeRepaired": false,
+      "canopy": 0.142,
+      "water": 619.3,
+      "resonance": 0,
+      "ash": 0.131,
+      "encounters": 0.051,
+      "orchardMoisture": 0,
+      "supplies": {
+        "timber": 3,
+        "stone": 3,
+        "ore": 1
+      }
+    },
+    "journey": [
+      {
+        "step": 1,
+        "kind": "quest",
+        "id": "rain_recovery",
+        "age": 0,
+        "region": "hearthland"
+      },
+      {
+        "step": 2,
+        "kind": "quest",
+        "id": "bridge_accord",
+        "age": 0,
+        "region": "hearthland"
+      },
+      {
+        "step": 3,
+        "kind": "travel",
+        "id": "mosswake",
+        "age": 1,
+        "region": "mosswake"
+      },
+      {
+        "step": 4,
+        "kind": "quest",
+        "id": "roots_singing",
+        "age": 1,
+        "region": "mosswake"
+      },
+      {
+        "step": 5,
+        "kind": "travel",
+        "id": "clay_basin",
+        "age": 2,
+        "region": "clay_basin"
+      },
+      {
+        "step": 6,
+        "kind": "travel",
+        "id": "silt_delta",
+        "age": 3,
+        "region": "silt_delta"
+      },
+      {
+        "step": 7,
+        "kind": "quest",
+        "id": "underwater_road",
+        "age": 3,
+        "region": "silt_delta"
+      },
+      {
+        "step": 8,
+        "kind": "travel",
+        "id": "glass_coast",
+        "age": 4,
+        "region": "glass_coast"
+      },
+      {
+        "step": 9,
+        "kind": "quest",
+        "id": "moon_mirror",
+        "age": 4,
+        "region": "glass_coast"
+      },
+      {
+        "step": 10,
+        "kind": "travel",
+        "id": "glass_orchard",
+        "age": 5,
+        "region": "glass_orchard"
+      },
+      {
+        "step": 11,
+        "kind": "quest",
+        "id": "fruit_of_years",
+        "age": 5,
+        "region": "glass_orchard"
+      },
+      {
+        "step": 12,
+        "kind": "travel",
+        "id": "ashfall",
+        "age": 6,
+        "region": "ashfall"
+      },
+      {
+        "step": 13,
+        "kind": "quest",
+        "id": "furnace_names",
+        "age": 6,
+        "region": "ashfall"
+      },
+      {
+        "step": 14,
+        "kind": "travel",
+        "id": "sky_engine",
+        "age": 7,
+        "region": "sky_engine"
+      },
+      {
+        "step": 15,
+        "kind": "quest",
+        "id": "machine_of_days",
+        "age": 7,
+        "region": "sky_engine"
+      },
+      {
+        "step": 16,
+        "kind": "travel",
+        "id": "basalt_rift",
+        "age": 8,
+        "region": "basalt_rift"
+      },
+      {
+        "step": 17,
+        "kind": "travel",
+        "id": "clay_basin",
+        "age": 9,
+        "region": "clay_basin"
+      },
+      {
+        "step": 18,
+        "kind": "quest",
+        "id": "walls_remember",
+        "age": 9,
+        "region": "clay_basin"
+      },
+      {
+        "step": 19,
+        "kind": "travel",
+        "id": "basalt_rift",
+        "age": 10,
+        "region": "basalt_rift"
+      },
+      {
+        "step": 20,
+        "kind": "quest",
+        "id": "unfinished_crown",
+        "age": 10,
+        "region": "basalt_rift"
+      }
+    ]
+  },
+  "secondEpoch": {
+    "epoch": 1,
+    "resetQuestCount": 0,
+    "inheritance": {
+      "groves": 0.2936666666666667,
+      "scars": 0.035333333333333335,
+      "harmonic": 0.5,
+      "bridges": 1,
+      "surface": {
+        "mosswake": {
+          "phase": 0.0003,
+          "wear": 0,
+          "scars": 0
+        },
+        "silt_delta": {
+          "phase": 0.0003,
+          "wear": 0,
+          "scars": 0
+        },
+        "glass_coast": {
+          "phase": 0.0004,
+          "wear": 0,
+          "scars": 0
+        },
+        "glass_orchard": {
+          "phase": 0,
+          "wear": 0,
+          "scars": 0
+        },
+        "ashfall": {
+          "phase": 0.0004,
+          "wear": 0,
+          "scars": 0
+        },
+        "sky_engine": {
+          "phase": 0.0007,
+          "wear": 0,
+          "scars": 0
+        },
+        "clay_basin": {
+          "phase": 0,
+          "wear": 0,
+          "scars": 0
+        },
+        "basalt_rift": {
+          "phase": 0,
+          "wear": 0,
+          "scars": 0
+        }
+      }
+    },
+    "newWorldCanopy": 0.432
+  },
+  "saveVersion": 3
+}

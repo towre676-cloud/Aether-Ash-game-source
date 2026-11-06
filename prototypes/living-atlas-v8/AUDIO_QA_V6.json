@@ -1,0 +1,17 @@
+{
+  "audio_probe": "244/244 passed",
+  "categories": {
+    "ambience": 16,
+    "clues": 12,
+    "creatures": 30,
+    "footsteps": 30,
+    "hazards": 16,
+    "interaction": 34,
+    "material": 24,
+    "score": 24,
+    "spots": 48,
+    "ui": 10
+  },
+  "preview": "38.448000",
+  "errors": {}
+}
