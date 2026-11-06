@@ -1,0 +1,16 @@
+{
+  "artifact": "A&A Living Atlas v8",
+  "status": "local_tested_not_published",
+  "node_tests": 299,
+  "node_pass": 299,
+  "node_fail": 0,
+  "stager_tests_pass": 5,
+  "campaign_verified": true,
+  "campaign_quests": 10,
+  "site_project_id": "appgprj_6adf63724e5c8191bd55637b8ecd8d9a",
+  "last_seen_library_source_version": 22,
+  "site_deployed": false,
+  "browser_gpu_tested": false,
+  "files_hashed": 859,
+  "patch_sha256": "9c59f4035823942c990026c3f1376bf64f1e8bbbf9851ae7b3d651a32097a03a"
+}

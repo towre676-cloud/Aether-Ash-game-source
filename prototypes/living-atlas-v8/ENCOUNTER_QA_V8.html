@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A&A — Living Encounter QA v8</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Segoe UI,sans-serif;background:#0b1516;color:#e6efe5}*{box-sizing:border-box}body{margin:0}main{max-width:1220px;margin:auto;padding:16px}h1{margin:5px 0;font-size:clamp(22px,4vw,39px)}.kicker{color:#b0cdbb;letter-spacing:.14em;font-size:11px}.wrap{display:grid;grid-template-columns:minmax(330px,1fr) minmax(300px,340px);gap:17px;margin-top:14px}.board{background:linear-gradient(150deg,#244241,#132628);padding:9px;border:1px solid #53695d;border-radius:15px;position:relative}canvas{width:100%;aspect-ratio:1;touch-action:manipulation;display:block;border-radius:9px;cursor:crosshair}.hint{font-size:12px;color:#c6d3c5;margin:10px}.controls{background:#1b2b2b;border-radius:14px;padding:16px;max-height:800px;overflow:auto;border:1px solid #526253}button,select{background:#2b4946;color:#edf4eb;border:1px solid #77937f;border-radius:8px;padding:11px 12px;min-height:42px;font:inherit}button{cursor:pointer}button:hover{background:#426659}button:disabled{opacity:.5;cursor:default}.primary{background:#a9cda6;color:#163026;font-weight:650}.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.info{padding:10px;background:#223735;border-radius:8px;font-size:13px;line-height:1.55}#message{min-height:72px;border-left:3px solid #cce0a3;padding:7px 10px;background:#263d36;border-radius:3px;font-size:13px}label{display:block;margin:10px 0 5px;color:#cce0cd;font-size:12px}.badge{color:#bee3ca;font-size:11px}small{color:#adbdad}.help{margin:14px 0;color:#b7c6bf;font-size:13px}#save-file{display:none}@media(max-width:790px){.wrap{grid-template-columns:1fr}.controls{max-height:none}main{padding:9px}}
+</style></head>
+<body><main><div class="kicker">ASH & AETHER · LIVING ATLAS · LOCAL GAMEPLAY AUDIT</div><h1>The World is the Encounter</h1><p class="help">This is an offline interactive QA map, not the released game or the Three.js cinematic viewer. It exercises the same real v8 numerical game logic. A creature is fightable only from its own physical position.</p><div class="wrap"><div class="board"><canvas id="map" width="720" height="720" aria-label="Interactive map, tap a creature to choose it"></canvas><div class="hint">Tap an animal to target it. Amber ring = selected creature · pale ring = party · red mark = blocked crossing. Your footsteps leave disturbances and change wildlife.</div></div><section class="controls"><div class="info"><b id="region-title">Hearthland</b><div id="metrics"></div></div><label for="region">Connected region</label><select id="region"></select><label for="resident">Actual visible creature</label><select id="resident"></select><div class="info" id="resident-info">Select a visible creature.</div><div class="actions"><button id="approach" class="primary">Approach safely</button><button id="study">Study wildlife</button><button id="engage" class="primary">Engage creature</button><button id="retreat">Retreat</button></div><label for="element">Battle element</label><select id="element"><option>water</option><option>fire</option><option>earth</option><option>aether</option></select><div class="actions"><button id="attack" class="primary">Attack engaged creature</button><button id="advance">Advance 7 days</button><button id="rest">Rest in town</button><button id="export">Export game save</button><button id="import">Import save</button><button id="reset">New world</button></div><input id="save-file" type="file" accept=".json,application/json"><div id="message" role="status" aria-live="polite">Move close to the first Guardian, observe it, then engage in a real battle.</div><p class="help">Invariants: no loot from observation, no remote challenges, no movement through blocked crossings, and no simulation mutations in animation frames.</p></section></div></main>
+<script type="module">
+import {AtlasWorld} from './src/adventure.mjs';
+const canvas=document.getElementById('map'),ctx=canvas.getContext('2d');const $=id=>document.getElementById(id);
+let atlas=new AtlasWorld(2301),chosen=null,ground=null,roster=[];const S=720;
+function xy(x,z){return {x:(x+32)/64*S,y:(z+32)/64*S}};
+function unxy(x,y){return {x:x/S*64-32,z:y/S*64-32}};
+function announce(s){$('message').textContent=s;}
+function rebuild(){const w=atlas.world;roster=atlas.residents();if(!roster.some(r=>r.id===chosen))chosen=roster[0]?.id||null;
+  const select=$('resident');select.replaceChildren();for(const r of roster){const o=document.createElement('option');o.value=r.id;o.textContent=`${r.name} • ${Math.hypot(r.x-atlas.characters[0].position.x,r.z-atlas.characters[0].position.z).toFixed(1)} m`;select.append(o);}select.value=chosen||'';
+  const region=$('region');region.replaceChildren();for(const r of atlas.listRegions()){const o=document.createElement('option');o.value=r.id;o.textContent=r.name;o.disabled=!r.unlocked;region.append(o);}region.value=atlas.activeRegion;
+  const image=document.createElement('canvas');image.width=65;image.height=65;const context=image.getContext('2d'),data=context.createImageData(65,65);
+  for(let z=0;z<65;z++)for(let x=0;x<65;x++){const p=w.sample(x-32,z-32),e=w.evaluate(x-32,z-32),i=(z*65+x)*4;
+    const ash=p.ash,wet=Math.min(1,p.moisture+p.water),plants=p.biomass;
+    data.data[i]=Math.round(88+58*(1-wet)-28*plants+54*ash);
+    data.data[i+1]=Math.round(85+83*plants+20*wet-49*ash);
+    data.data[i+2]=Math.round(72+46*wet+18*p.aether-10*ash);
+    data.data[i+3]=255;}
+  context.putImageData(data,0,0);ground=image;
+  const p=atlas.characters[0],s=atlas.summary();$('region-title').textContent=atlas.region.name;
+  $('metrics').textContent=`Epoch ${atlas.epoch+1} · Day ${atlas.age} · ${p.name} ${p.hp.toFixed(1)} HP · ${roster.length} visible creatures · ${atlas.fieldGuide.length} field notes · ${s.quests}/10 quests · ${s.crowns} crowns`;
+  const r=roster.find(r=>r.id===chosen);$('resident-info').textContent=r?`${r.name} · ${r.kind} / ${r.behavior} · ${Math.hypot(r.x-p.position.x,r.z-p.position.z).toFixed(1)} m from party · ${r.census.toFixed(1)} cohort · alert ${Math.round(r.alert*100)}%`:'No creature in the visible registry';
+  const active=atlas.activeEncounter;$('attack').disabled=!active;$('retreat').disabled=!active;
+  if(active)$('resident-info').textContent+=` · BATTLE ${active.hp.toFixed(2)}/${active.maxHp} HP · round ${active.round}`;
+}
+function render(){if(!ground)return;ctx.clearRect(0,0,S,S);ctx.imageSmoothingEnabled=true;ctx.drawImage(ground,0,0,S,S);
+  // Terrain crossing is physical; no marker can make a route legal.
+  ctx.strokeStyle='rgba(61,148,169,.82)';ctx.lineWidth=60;ctx.beginPath();for(let j=0;j<=200;j++){const z=-32+j*64/200;const x=-2+4*Math.sin(z*.082)+1.5*Math.sin(z*.19+.8),p=xy(x,z);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);}ctx.stroke();
+  ctx.strokeStyle=atlas.world.bridgeRepaired?'#e9b977':'#874a42';ctx.lineWidth=8;let p=xy(-7,5),q=xy(7,5);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+  const party=atlas.characters[0].position,ppt=xy(party.x,party.z);
+  for(const r of roster){const loc=xy(r.x,r.z),selected=r.id===chosen;
+    ctx.fillStyle=r.kind==='chanter'?'#bedcf1':r.kind==='grazer'?'#a9e4a6':r.kind==='sentry'?'#eacaa9':r.kind==='stalker'?'#ef9b8f':'#e4ca8b';
+    ctx.beginPath();ctx.arc(loc.x,loc.y,selected?9:7,0,2*Math.PI);ctx.fill();
+    if(selected){ctx.lineWidth=3;ctx.strokeStyle='#ffeaa4';ctx.beginPath();ctx.arc(loc.x,loc.y,14,0,2*Math.PI);ctx.stroke();}
+    if(r.alert>.55){ctx.fillStyle='#e97467';ctx.fillRect(loc.x-2,loc.y-17,4,5);}
+  }
+  ctx.lineWidth=3;ctx.strokeStyle='#f7f3cd';ctx.beginPath();ctx.arc(ppt.x,ppt.y,12,0,2*Math.PI);ctx.stroke();ctx.fillStyle='#e3fff0';ctx.beginPath();ctx.arc(ppt.x,ppt.y,6,0,2*Math.PI);ctx.fill();
+}
+function perform(callback){try{const r=callback();rebuild();render();return r;}catch(e){announce('Action stopped: '+e.message);return null;}}
+function selected(){return chosen;}
+$('resident').addEventListener('change',e=>{chosen=e.target.value;rebuild();render();});
+$('region').addEventListener('change',e=>perform(()=>{const r=atlas.travel(e.target.value);announce(r.ok?`Arrived in ${r.region}. Existing ecology and other lands continue evolving.`:r.reason);chosen=null;}));
+$('approach').addEventListener('click',()=>perform(()=>{const r=atlas.approachResident(selected(),6);announce(r.ok?`${r.steps.length} legitimate footfalls; ${r.near?'you are in encounter range.':'approach again if needed.'}`:r.reason);}));
+$('study').addEventListener('click',()=>perform(()=>{const r=atlas.inspectResident(selected());announce(r.ok?`Recorded ${r.name}: ${Math.round(r.confidence*100)}% evidence. No loot created.`:r.reason);}));
+$('engage').addEventListener('click',()=>perform(()=>{const r=atlas.engageResident(selected());announce(r.ok?`Engaged ${r.name} at ${r.distance} m. The battle reads real terrain, shielding, and equipment.`:r.reason);}));
+$('attack').addEventListener('click',()=>perform(()=>{const p=atlas.characters[0].position,c=atlas.activeEncounter;if(!c){announce('No encounter.');return;}
+ const r=atlas.fight(p.x,p.z,c.species,$('element').value,3);announce(r.ok?`${r.species}: ${r.damage.toFixed(2)} damage · retaliation ${r.incoming.toFixed(2)} · ${r.victorious?'victory and real loot awarded.':'enemy HP '+r.remainingHp+'.'}`:r.reason);}));
+$('retreat').addEventListener('click',()=>perform(()=>{const r=atlas.abandonEncounter();announce(r.reason);}));
+$('advance').addEventListener('click',()=>perform(()=>{atlas.passDays(7);announce('Seven days passed: environmental recovery and wildlife carrying capacity recalculated.');}));
+$('rest').addEventListener('click',()=>perform(()=>{const r=atlas.rest();announce(r.ok?`Rested: +${r.heal} HP.`:r.reason);}));
+$('reset').addEventListener('click',()=>{if(!confirm('Discard this local laboratory run?'))return;atlas=new AtlasWorld(2301);chosen=null;rebuild();render();announce('New laboratory world.');});
+$('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(atlas.snapshot())],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.download='aa-atlas-v8-save.json';a.href=url;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);announce('Save exported.');});
+$('import').addEventListener('click',()=>$('save-file').click());
+$('save-file').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const restored=AtlasWorld.restore(JSON.parse(await f.text()));atlas=restored;chosen=null;rebuild();render();announce('V8-compatible save verified and restored.');}catch(error){announce('Import refused: '+error.message);}e.target.value='';});
+canvas.addEventListener('click',e=>{const r=canvas.getBoundingClientRect(),p=unxy((e.clientX-r.left)/r.width*S,(e.clientY-r.top)/r.height*S);const closest=roster.reduce((best,item)=>{const distance=Math.hypot(item.x-p.x,item.z-p.z);return distance<best.distance?{item,distance}:best;},{item:null,distance:Infinity});if(closest.distance<2.5){chosen=closest.item.id;rebuild();render();announce(`Selected ${closest.item.name}. Use approach or observe.`);}});
+rebuild();render();
+</script></body></html>

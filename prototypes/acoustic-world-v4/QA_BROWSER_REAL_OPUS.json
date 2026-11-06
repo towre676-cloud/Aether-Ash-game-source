@@ -1,0 +1,26 @@
+{
+  "browser": "Chromium Web Audio decoding actual packaged Opus bytes, all fetches in-memory, no mocked WAV",
+  "startup": {
+    "audio": "SPATIAL SOUND ON",
+    "context": "running",
+    "decoded": 6,
+    "scene": "marsh"
+  },
+  "after": {
+    "context": "running",
+    "decoded": 11,
+    "boss": {
+      "type": "impact",
+      "boss": "clayback_warden",
+      "attackId": "clayback-3",
+      "guarded": true,
+      "sequence": 1
+    },
+    "weather": "storm",
+    "requested": 11,
+    "absent": []
+  },
+  "source_opus_files_embedded_for_test": 17,
+  "js_errors": [],
+  "limits": "Headless Chromium test of sampled original assets; not full 512 files or physical Windows Edge/Android testing."
+}

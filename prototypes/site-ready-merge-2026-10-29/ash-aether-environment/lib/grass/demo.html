@@ -1,0 +1,151 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><title>Ash & Aether — Living Meadow Studio</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#f3efe2;background:#111e19}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}canvas{display:block;touch-action:none}#frame{position:fixed;inset:0}#veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,19,14,.35),transparent 28%,transparent 75%,rgba(2,10,9,.37))}header{position:absolute;left:clamp(16px,3vw,38px);top:clamp(18px,3vw,40px);pointer-events:none;text-shadow:0 2px 17px #0a1612}header .eyebrow{font-size:10px;letter-spacing:.3em;font-weight:700;color:#e4d49f;text-transform:uppercase}h1{font-family:Georgia,serif;font-size:clamp(27px,3.5vw,48px);font-weight:400;letter-spacing:-.025em;margin:10px 0 6px}header p{font-size:12px;letter-spacing:.06em;color:#ede8d6;margin:0;max-width:440px;line-height:1.6}.panel{position:absolute;right:clamp(12px,2.5vw,35px);top:clamp(16px,2.5vw,35px);width:min(325px,calc(100vw - 24px));background:rgba(14,28,24,.83);border:1px solid #a3c1a134;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:16px;padding:19px;box-shadow:0 20px 50px #06120d40}.panel .buttons button{background:#253e30;border:1px solid #7590756b;color:#e7efdc;padding:9px 5px;border-radius:8px;cursor:pointer;font-size:11px}.panel .buttons button:hover{background:#48624d}.panel h2{font-family:Georgia,serif;font-weight:400;font-size:22px;margin:0 0 13px}.control{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:12px 0}.control label{font-size:12px;color:#b9c6b5;min-width:80px}.control select,.control input{accent-color:#d6c08d}.control select{width:150px;background:#253c31;color:#fbf7e9;border:1px solid #506851;border-radius:7px;padding:7px}.control input{width:150px}#stats{border-top:1px solid #80947a44;margin-top:12px;padding-top:11px;color:#c6d6c8;font-size:11px;line-height:1.7;font-variant-numeric:tabular-nums}.foot{position:absolute;left:clamp(16px,3vw,38px);bottom:22px;pointer-events:none;line-height:1.6;color:#e3e9db;font-size:11px;text-shadow:0 2px 7px #17271a}.foot strong{color:#f2e0ac}.badge{display:inline-block;font-size:10px;border:1px solid #d1dbb058;padding:6px 11px;border-radius:99px;margin-top:13px;color:#cfd3be;letter-spacing:.06em}.hide{display:none}.toggle{position:absolute;right:14px;bottom:20px;background:#193125d9;color:#f1e9cd;border:1px solid #adb89e7a;border-radius:99px;padding:12px 16px;font-weight:600;cursor:pointer;display:none}#error{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:550px;padding:30px;border-radius:18px;background:#14221ded;color:#f9dfc0;display:none;line-height:1.6}
+@media(max-width:720px){.panel{top:auto;bottom:15px;right:12px;left:12px;width:auto;max-height:45vh;overflow:auto;padding:13px;border-radius:12px}.panel h2{font-size:17px;margin-bottom:5px}.control{margin:5px 0}.control label{font-size:11px}.control select{padding:5px}.control input{width:150px}.foot{bottom:auto;top:126px;left:16px;max-width:220px;font-size:10px}header p{max-width:250px}.panel.closed{display:none}.toggle{display:block}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head><body><div id="frame"></div><div id="veil"></div><header><div class="eyebrow">ASH & AETHER / TERRAIN RESEARCH</div><h1>The living meadow</h1><p>Grass should reveal where the water runs, where travelers walked, and what the land remembers.</p><span class="badge">PROCEDURAL • DETERMINISTIC • INTERACTIVE</span></header>
+<div class="panel" id="panel"><h2>Landscape atelier</h2>
+<div class="control"><label for="biome">Region</label><select id="biome"><option value="journey">The unfinished world</option><option value="meadow">Sunlit meadow</option><option value="orchard">Old orchard</option><option value="marsh">Water & reeds</option><option value="highlands">Mountain grasses</option><option value="savanna">Dry grasslands</option><option value="tundra">Frost barrens</option><option value="ashlands">Ash & cinder</option><option value="aether">Aether bloom</option><option value="woodland">Fern wood</option><option value="riverbank">Riverbank reeds</option><option value="moor">Heather moor</option><option value="alpine">Alpine meadow</option><option value="ruins">Overgrown ruins</option><option value="farmlands">Wild wheat</option><option value="bog">Moss bog</option></select></div>
+<div class="control"><label for="quality">Detail</label><select id="quality"><option value="low">Mobile / low</option><option value="medium" selected>Balanced</option><option value="high">High density</option><option value="ultra">Ultra / desktop</option></select></div>
+<div class="control"><label for="wind">Wind</label><input id="wind" type="range" min="0" max="100" value="33"/></div>
+<div class="control"><label for="hour">Sun & time</label><input id="hour" type="range" min="0" max="100" value="58"/></div>
+<div class="control"><label for="rain">Rain</label><input id="rain" type="range" min="0" max="100" value="0"/></div>
+<div id="stats">Preparing landscape…</div><div class="buttons" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px"><button id="burn" type="button">Fire scar</button><button id="waterPatch" type="button">Water</button><button id="harvest" type="button">Forage</button><button id="regrow" type="button">Grow 30 days</button></div></div><button class="toggle" id="toggle">Hide / show controls</button>
+<div class="foot"><strong>Explore:</strong> drag to orbit · scroll/pinch to zoom · WASD/arrows to move the traveler<br/>The grasses part and remember the footsteps; the trail, wetlands and ashlands have distinct growth patterns.</div><div id="error"></div>
+<script type="module">
+try{
+  const THREE=await import('three');
+  const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+  const {createLivingLandscape}=await import('./living-landscape.mjs');
+  const {createEcology,fractal,clamp,smooth,valueNoise}=await import('./grass-ecology.mjs');
+  const frame=document.querySelector('#frame'),stats=document.querySelector('#stats');
+  const mobile=matchMedia('(max-width:720px)').matches;
+  if(mobile)document.querySelector('#quality').value='low';
+  const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,mobile?1.35:1.7));
+  renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.20;
+  frame.appendChild(renderer.domElement);
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#b7c5a4');scene.fog=new THREE.FogExp2('#b7c5a4',.008);
+  const camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.08,300);
+  camera.position.set(8,8,17);
+  const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.07;
+  controls.target.set(0,.8,0);controls.maxPolarAngle=Math.PI*.49;controls.minDistance=2.5;controls.maxDistance=56;
+  const ambient=new THREE.HemisphereLight('#fff3ce','#54654e',2.0);scene.add(ambient);
+  const sun=new THREE.DirectionalLight('#fff0c4',3.5);sun.position.set(-38,55,30);scene.add(sun);
+  // Two independent scales: terrain undulation is not grass density noise.
+  const groundH=(x,z)=>.26*Math.sin(x*.045+Math.sin(z*.08))+.26*Math.cos(z*.075)+(.6*(fractal(x*1.15,z*1.15,173)-.5));
+  const trackCenter=x=>2.6*Math.sin(x*.081)+1.15*Math.sin(x*.17+1.2);
+  const track=(x,z)=>1-smooth((Math.abs(z-trackCenter(x))-.7)/2.2);
+  const obstacle=(x,z)=>false;
+  const regionAt=(x,z)=>{
+    const selected=document.querySelector('#biome').value;
+    if(selected!=='journey')return selected;
+    if(z>19)return 'marsh';if(x>26 && z<3)return 'ashlands';if(x>21 && z<22)return 'aether';
+    if(x< -19)return 'orchard';if(z< -25)return 'highlands';return 'meadow';
+  };
+  let field;
+  function buildGrass(){
+    field?.dispose();
+    field=createLivingLandscape(THREE,scene,{seed:8675309,biomeAt:regionAt,terrainHeight:groundH,trailAt:track,
+      obstacleAt:obstacle,quality:document.querySelector('#quality').value,
+      wind:+document.querySelector('#wind').value/100*.91,fogColor:'#b7c5a4',fogNear:40,fogFar:115,
+      origin:{x:traveler.position.x,z:traveler.position.z}});
+  }
+  // Fine textured soil/moss layer, continuous under tall vegetation. Not tiled cubes.
+  const textureSize=mobile?256:512,side=122;
+  function paintGround(){
+    const c=document.createElement('canvas');c.width=c.height=textureSize;
+    const ctx=c.getContext('2d'),d=ctx.createImageData(textureSize,textureSize);
+    for(let j=0;j<textureSize;j++)for(let i=0;i<textureSize;i++){
+      const x=(i/(textureSize-1)-.5)*side,z=(j/(textureSize-1)-.5)*side;
+      const r=regionAt(x,z),m=fractal(x,z,8675309),v=valueNoise(x*2.2,z*2.2,5);
+      const path=track(x,z);
+      let c=r==='marsh'?[55,77,59]:r==='ashlands'?[83,73,60]:r==='aether'?[48,91,84]:r==='savanna'?[118,111,70]:r==='tundra'?[97,105,95]:r==='highlands'?[74,91,70]:[64,92,60];
+      let n=(m-.5)*76+(v-.5)*17;
+      const moss=clamp((m-.4)*2);
+      const p=i+j*textureSize,k=p*4;
+      d.data[k]=clamp((c[0]+n+12*moss)*(1-path)+path*(110+n*.5),0,255);
+      d.data[k+1]=clamp((c[1]+n+8*moss)*(1-path)+path*(99+n*.5),0,255);
+      d.data[k+2]=clamp((c[2]+n+3*moss)*(1-path)+path*(75+n*.45),0,255);
+      d.data[k+3]=255;
+    }
+    ctx.putImageData(d,0,0);
+    const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
+    texture.wrapS=texture.wrapT=THREE.ClampToEdgeWrapping;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
+    const geometry=new THREE.PlaneGeometry(side,side,mobile?125:240,mobile?125:240);geometry.rotateX(-Math.PI/2);
+    const p=geometry.attributes.position;
+    for(let i=0;i<p.count;i++)p.setY(i,groundH(p.getX(i),p.getZ(i))-.04);
+    geometry.computeVertexNormals();
+    const mesh=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({map:texture,roughness:.98,metalness:0}));
+    mesh.name='Continuous soil, not a repeating grass tile';scene.add(mesh);
+    return {mesh,texture};
+  }
+  let ground=paintGround();
+  // A small unobtrusive traveler anchors the human-scale detail and collision bend.
+  const traveler=new THREE.Group();scene.add(traveler);
+  const coat=new THREE.Mesh(new THREE.ConeGeometry(.24,.85,9),new THREE.MeshStandardMaterial({color:'#304b4f',roughness:.85}));coat.position.y=.68;traveler.add(coat);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.14,12,10),new THREE.MeshStandardMaterial({color:'#c3a281',roughness:.78}));head.position.y=1.26;traveler.add(head);
+  const satchel=new THREE.Mesh(new THREE.SphereGeometry(.16,10,8),new THREE.MeshStandardMaterial({color:'#6f4939',roughness:.95}));satchel.scale.set(.7,1,.7);satchel.position.set(-.19,.76,.04);traveler.add(satchel);
+  traveler.position.y=groundH(0,0);buildGrass();
+  // Small naturally scattered river stones: no identical box props or plant-pot rows.
+  const stoneGeo=new THREE.DodecahedronGeometry(1,0);
+  const stoneMat=new THREE.MeshStandardMaterial({vertexColors:false,color:'#898c74',roughness:1});
+  const stones=new THREE.InstancedMesh(stoneGeo,stoneMat,450);const dummy=new THREE.Object3D();let count=0;
+  for(let ix=-53;ix<53;ix+=1.3)for(let iz=-53;iz<53;iz+=1.3){
+    if(count>=450)break;
+    const x=ix+valueNoise(ix,iz,19),z=iz+valueNoise(ix,iz,27);
+    if(valueNoise(x*.7,z*.7,119)>.027 || track(x,z)>.62)continue;
+    const radius=.08+.19*valueNoise(x,z,44);
+    dummy.position.set(x,groundH(x,z)-.01,z);dummy.rotation.set(0,valueNoise(x,z,33)*Math.PI*2,0);
+    dummy.scale.set(radius*1.4,radius*.35,radius);dummy.updateMatrix();stones.setMatrixAt(count++,dummy.matrix);
+  }
+  stones.count=count;scene.add(stones);
+  const biome=document.querySelector('#biome'),quality=document.querySelector('#quality'),wind=document.querySelector('#wind'),hour=document.querySelector('#hour'),rain=document.querySelector('#rain');
+  function refresh(){buildGrass();if(ground){scene.remove(ground.mesh);ground.mesh.geometry.dispose();ground.mesh.material.dispose();ground.texture.dispose();}ground=paintGround();}
+  biome.addEventListener('change',refresh);quality.addEventListener('change',refresh);
+  const patch=()=>({x:traveler.position.x,z:traveler.position.z});
+  document.querySelector('#burn').addEventListener('click',()=>{const p=patch();field.ignite(p.x,p.z,{radius:3.6});});
+  document.querySelector('#waterPatch').addEventListener('click',()=>{const p=patch();field.water(p.x,p.z,{radius:3.5});});
+  document.querySelector('#harvest').addEventListener('click',()=>{const p=patch();const result=field.harvest(p.x,p.z,{radius:2.0});stats.textContent=`Gathered ${result.quantity} × ${result.kind}. Vegetation will recover with time.`;});
+  document.querySelector('#regrow').addEventListener('click',()=>field.advanceDays(30));
+  const keys=new Set();addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(document.activeElement?.tagName))return;keys.add(e.key.toLowerCase());});
+  addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+  const clock=new THREE.Clock();let cumulative=0,frameIndex=0,fps=60,walk=0;
+  function tick(){
+    requestAnimationFrame(tick);
+    const dt=Math.min(.06,clock.getDelta()),time=clock.elapsedTime;
+    const vx=(keys.has('d')||keys.has('arrowright')?1:0)-(keys.has('a')||keys.has('arrowleft')?1:0);
+    const vz=(keys.has('s')||keys.has('arrowdown')?1:0)-(keys.has('w')||keys.has('arrowup')?1:0);
+    const dx=vx*dt*4,dz=vz*dt*4;
+    if(dx||dz){traveler.position.x=clamp(traveler.position.x+dx,-49,49);traveler.position.z=clamp(traveler.position.z+dz,-49,49);
+      traveler.position.y=groundH(traveler.position.x,traveler.position.z);
+      traveler.rotation.y=Math.atan2(dx,dz);
+      controls.target.set(traveler.position.x,traveler.position.y+.8,traveler.position.z);
+      camera.position.x+=dx;camera.position.z+=dz;
+      walk+=Math.hypot(dx,dz);
+      if(walk>.50){field.step(traveler.position.x,traveler.position.z,.88);walk=0;}
+    }
+    field.update(dt,{x:traveler.position.x,z:traveler.position.z});
+    const h=+hour.value/100;
+    const k=clamp(Math.sin(h*Math.PI)*.85+.25,.18,1);
+    sun.position.set(55*Math.cos(h*Math.PI*1.8),14+64*k,30);
+    sun.intensity=1.1+2.8*k;ambient.intensity=1.15+.95*k;
+    sun.color.set(h<.28||h>.8?'#ffd3a4':'#fff0c4');
+    renderer.toneMappingExposure=.65+.55*k;
+    const raining=+rain.value/100;
+    field.setAtmosphere({wind:+wind.value/100*.95,rain:raining,sunTint:raining>0?'#d6e4de':'#ffffff'});
+    scene.background.set(raining>.3?'#809895':'#b7c5a4');scene.fog.color.copy(scene.background);
+    controls.update();renderer.render(scene,camera);
+    cumulative+=dt;frameIndex++;
+    if(cumulative>1.05){fps=Math.round(frameIndex/cumulative);frameIndex=0;cumulative=0;
+      const s=field.getStats(),g=field.getGameplay(traveler.position.x,traveler.position.z);
+      stats.innerHTML=`<b>${s.plants.toLocaleString()}</b> individual tufts + <b>${s.flowers.toLocaleString()}</b> blossoms · ${s.drawCalls} vegetation batches<br/>${fps} FPS · ${s.quality} quality · ${s.state.changedCells} persistent vegetation cells<br/>Cover ${Math.round(g.concealment*100)}% · ground travel ×${g.movementCost.toFixed(2)} · fire exposure ${Math.round(g.fireSpreadPotential*100)}%<br/>Forage: ${g.forage.replaceAll('-',' ')}`;
+    }
+  }
+  tick();
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+  document.querySelector('#toggle').addEventListener('click',()=>document.querySelector('#panel').classList.toggle('closed'));
+}catch(e){console.error(e);const d=document.querySelector('#error');d.style.display='block';d.textContent='The WebGL preview could not initialize: '+e.message+' . Use a current browser with WebGL2 and load the demo over a local web server. Three.js also requires access to the pinned CDN.';}
+</script></body></html>

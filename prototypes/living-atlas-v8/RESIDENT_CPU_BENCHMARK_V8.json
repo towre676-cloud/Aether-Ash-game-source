@@ -1,0 +1,10 @@
+{
+  "schema": "AA-resident-v8-cpu-only",
+  "iterations": 150,
+  "visibleResidents": 20,
+  "minMs": 0.6715,
+  "medianMs": 0.83,
+  "p95Ms": 1.4946,
+  "saveBytes": 566188,
+  "note": "No WebGL, GPU, networking, thermals, 3D draw calls or production engine involved."
+}

@@ -1,0 +1,36 @@
+{
+  "simulation": "A&A Wildlife v7 reproducible counterfactual",
+  "seed": 27029,
+  "species": "hearthland.grazer",
+  "baselineCount": 10.5975,
+  "acceptedFootfall": true,
+  "firstFieldSurvey": {
+    "ok": true,
+    "name": "Wildglass Stag",
+    "confidence": 0.351,
+    "material": "clay-fieldstone",
+    "population": 10.5975,
+    "behavior": "migrate",
+    "notes": 1
+  },
+  "alertImmediatelyAfterFootfall": 0.22444,
+  "countAfterBattle": 9.5975,
+  "battleVictorious": true,
+  "conditionedEvolution": {
+    "days": 12,
+    "quiet": 10.52101,
+    "afterFootfall": 10.04854
+  },
+  "observedMechanics": [
+    "local disturbance",
+    "behavioral avoidance",
+    "victory reduces population",
+    "population recovery",
+    "persistent knowledge",
+    "New Game Plus partial transfer"
+  ],
+  "reloadedCount": 10.04854,
+  "newGamePlusEpoch": 1,
+  "carriedNoteConfidence": 0.2106,
+  "verified": true
+}

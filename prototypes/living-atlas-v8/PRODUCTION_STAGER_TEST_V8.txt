@@ -1,0 +1,10 @@
+test_additive_and_idempotent (test_v8_stager.Stage.test_additive_and_idempotent) ... ok
+test_collision_no_overwrite (test_v8_stager.Stage.test_collision_no_overwrite) ... ok
+test_no_mutation_dryrun (test_v8_stager.Stage.test_no_mutation_dryrun) ... ok
+test_rejects_symlink_destination (test_v8_stager.Stage.test_rejects_symlink_destination) ... ok
+test_source_changed_stale_plan (test_v8_stager.Stage.test_source_changed_stale_plan) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK

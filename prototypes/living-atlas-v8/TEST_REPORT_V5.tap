@@ -1,0 +1,826 @@
+TAP version 13
+# Subtest: manifest: all 132 declared assets exist and have valid metadata
+ok 1 - manifest: all 132 declared assets exist and have valid metadata
+  ---
+  duration_ms: 5.577281
+  type: 'test'
+  ...
+# Subtest: coverage: surface and biome library exhaustive
+ok 2 - coverage: surface and biome library exhaustive
+  ---
+  duration_ms: 4.152824
+  type: 'test'
+  ...
+# Subtest: physics: attenuation monotone and occlusion audible
+ok 3 - physics: attenuation monotone and occlusion audible
+  ---
+  duration_ms: 0.219588
+  type: 'test'
+  ...
+# Subtest: perception: stealth reduces alert and noisy terrain raises it
+ok 4 - perception: stealth reduces alert and noisy terrain raises it
+  ---
+  duration_ms: 0.216985
+  type: 'test'
+  ...
+# Subtest: gameplay: listening yields actionable flag exactly once
+ok 5 - gameplay: listening yields actionable flag exactly once
+  ---
+  duration_ms: 1.468405
+  type: 'test'
+  ...
+# Subtest: degradation: even when audio context locked, listening works without requiring sound
+ok 6 - degradation: even when audio context locked, listening works without requiring sound
+  ---
+  duration_ms: 0.218155
+  type: 'test'
+  ...
+# Subtest: 24 acoustic quest templates validate against actual audio signal and biome manifests
+ok 7 - 24 acoustic quest templates validate against actual audio signal and biome manifests
+  ---
+  duration_ms: 5.658182
+  type: 'test'
+  ...
+# Subtest: world sources are never invented; authored object position is preserved
+ok 8 - world sources are never invented; authored object position is preserved
+  ---
+  duration_ms: 1.989897
+  type: 'test'
+  ...
+# Subtest: quest unlocking, duplicate gate, and New Game Plus flags are enforced
+ok 9 - quest unlocking, duplicate gate, and New Game Plus flags are enforced
+  ---
+  duration_ms: 0.351239
+  type: 'test'
+  ...
+# Subtest: GPU allocation avoids v2 full-per-species instance buffers
+ok 10 - GPU allocation avoids v2 full-per-species instance buffers
+  ---
+  duration_ms: 38.130024
+  type: 'test'
+  ...
+# Subtest: GPU v3 bridge shares persistent state with ecology, updates day and respects explicit accessibility toggles
+ok 11 - GPU v3 bridge shares persistent state with ecology, updates day and respects explicit accessibility toggles
+  ---
+  duration_ms: 36.86382
+  type: 'test'
+  ...
+# Subtest: 3D and 2D sampling generate identical gameplay for the same ground and world seed
+ok 12 - 3D and 2D sampling generate identical gameplay for the same ground and world seed
+  ---
+  duration_ms: 16.123459
+  type: 'test'
+  ...
+# Subtest: unchanged vegetation is pristine and world-state disturbances are spatially bounded
+ok 13 - unchanged vegetation is pristine and world-state disturbances are spatially bounded
+  ---
+  duration_ms: 4.179507
+  type: 'test'
+  ...
+# Subtest: wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+ok 14 - wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+  ---
+  duration_ms: 1.06342
+  type: 'test'
+  ...
+# Subtest: harvest outcome and growth state are authoritative, persistent, and reloadable
+ok 15 - harvest outcome and growth state are authoritative, persistent, and reloadable
+  ---
+  duration_ms: 6.390556
+  type: 'test'
+  ...
+# Subtest: save file validation is strict and rollback time is rejected
+ok 16 - save file validation is strict and rollback time is rejected
+  ---
+  duration_ms: 6.633033
+  type: 'test'
+  ...
+# Subtest: same events give byte-identical saves; new seed must not load old world
+ok 17 - same events give byte-identical saves; new seed must not load old world
+  ---
+  duration_ms: 8.325765
+  type: 'test'
+  ...
+# Subtest: growth damage has ecologically visible consequences and eventual recovery
+ok 18 - growth damage has ecologically visible consequences and eventual recovery
+  ---
+  duration_ms: 5.803571
+  type: 'test'
+  ...
+# Subtest: world-space noise is deterministic, bounded and non-tiling in sampled regions
+ok 19 - world-space noise is deterministic, bounded and non-tiling in sampled regions
+  ---
+  duration_ms: 2.127605
+  type: 'test'
+  ...
+# Subtest: all 15 habitats have real, defined botanical diversity
+ok 20 - all 15 habitats have real, defined botanical diversity
+  ---
+  duration_ms: 0.426003
+  type: 'test'
+  ...
+# Subtest: soil, world sample, and species are stable across reloads
+ok 21 - soil, world sample, and species are stable across reloads
+  ---
+  duration_ms: 28.890734
+  type: 'test'
+  ...
+# Subtest: paths physically thin grass and provide less cover, obstacles are bare
+ok 22 - paths physically thin grass and provide less cover, obstacles are bare
+  ---
+  duration_ms: 0.301861
+  type: 'test'
+  ...
+# Subtest: marsh stores wet fire-risk suppression and different forage
+ok 23 - marsh stores wet fire-risk suppression and different forage
+  ---
+  duration_ms: 0.135669
+  type: 'test'
+  ...
+# Subtest: vegetation patches vary broadly and are not one repeating texture
+ok 24 - vegetation patches vary broadly and are not one repeating texture
+  ---
+  duration_ms: 0.858867
+  type: 'test'
+  ...
+# Subtest: winter growth is less than summer growth at the same location
+ok 25 - winter growth is less than summer growth at the same location
+  ---
+  duration_ms: 0.374636
+  type: 'test'
+  ...
+# Subtest: renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+ok 26 - renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+  ---
+  duration_ms: 32.754909
+  type: 'test'
+  ...
+# Subtest: game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+ok 27 - game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+  ---
+  duration_ms: 27.477104
+  type: 'test'
+  ...
+# Subtest: Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+ok 28 - Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+  ---
+  duration_ms: 16.256266
+  type: 'test'
+  ...
+# Subtest: no-install preview executes without network, WebGL, Three.js or DOM libraries
+ok 29 - no-install preview executes without network, WebGL, Three.js or DOM libraries
+  ---
+  duration_ms: 1507.790515
+  type: 'test'
+  ...
+# Subtest: Ground Forge compatibility respects hard surfaces, interiors, flooding and unknown material ids
+ok 30 - Ground Forge compatibility respects hard surfaces, interiors, flooding and unknown material ids
+  ---
+  duration_ms: 6.138286
+  type: 'test'
+  ...
+# Subtest: all 48 synthetic material samples are accepted without hardcoding external IDs
+ok 31 - all 48 synthetic material samples are accepted without hardcoding external IDs
+  ---
+  duration_ms: 4.698299
+  type: 'test'
+  ...
+# Subtest: ground adapter shares coordinates, dynamic weather, seasons, height and mask with vegetation
+ok 32 - ground adapter shares coordinates, dynamic weather, seasons, height and mask with vegetation
+  ---
+  duration_ms: 8.000698
+  type: 'test'
+  ...
+# Subtest: biology lives on bare soil and stays away from roads and walls across all 15 biomes
+ok 33 - biology lives on bare soil and stays away from roads and walls across all 15 biomes
+  ---
+  duration_ms: 0.876764
+  type: 'test'
+  ...
+# Subtest: heat, shielding, resonance and electrical transfer remain finite and bounded
+ok 34 - heat, shielding, resonance and electrical transfer remain finite and bounded
+  ---
+  duration_ms: 17.119322
+  type: 'test'
+  ...
+# Subtest: persistent vegetation modifies cover, and quality/reduced-motion change visuals only
+ok 35 - persistent vegetation modifies cover, and quality/reduced-motion change visuals only
+  ---
+  duration_ms: 54.231326
+  type: 'test'
+  ...
+# Subtest: same harvesting transaction id returns zero additional rewards, including after save/reload
+ok 36 - same harvesting transaction id returns zero additional rewards, including after save/reload
+  ---
+  duration_ms: 52.120155
+  type: 'test'
+  ...
+# Subtest: save/restore preserves environment values, rejects cross-timeline journals and does not corrupt progress
+ok 37 - save/restore preserves environment values, rejects cross-timeline journals and does not corrupt progress
+  ---
+  duration_ms: 3.315638
+  type: 'test'
+  ...
+# Subtest: new game plus histories are independent; returning to earlier timeline restores effects
+ok 38 - new game plus histories are independent; returning to earlier timeline restores effects
+  ---
+  duration_ms: 16.534484
+  type: 'test'
+  ...
+# Subtest: invalid timeline switch is transactional and leaves original changes accessible
+ok 39 - invalid timeline switch is transactional and leaves original changes accessible
+  ---
+  duration_ms: 3.327179
+  type: 'test'
+  ...
+# Subtest: host event names explicitly mapped; subscriptions are reversible
+ok 40 - host event names explicitly mapped; subscriptions are reversible
+  ---
+  duration_ms: 4.026443
+  type: 'test'
+  ...
+# Subtest: monotonic day updates and rejected event types do not modify state
+ok 41 - monotonic day updates and rejected event types do not modify state
+  ---
+  duration_ms: 0.616694
+  type: 'test'
+  ...
+# Subtest: Canvas fallback draws on the same game samples, while GPU layer remains optional
+ok 42 - Canvas fallback draws on the same game samples, while GPU layer remains optional
+  ---
+  duration_ms: 56.859009
+  type: 'test'
+  ...
+# Subtest: invalid event numeric payload does not poison persistent vegetation save
+ok 43 - invalid event numeric payload does not poison persistent vegetation save
+  ---
+  duration_ms: 0.542432
+  type: 'test'
+  ...
+# Subtest: unchanged vegetation is pristine and world-state disturbances are spatially bounded
+ok 44 - unchanged vegetation is pristine and world-state disturbances are spatially bounded
+  ---
+  duration_ms: 21.880754
+  type: 'test'
+  ...
+# Subtest: wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+ok 45 - wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+  ---
+  duration_ms: 9.671964
+  type: 'test'
+  ...
+# Subtest: harvest outcome and growth state are authoritative, persistent, and reloadable
+ok 46 - harvest outcome and growth state are authoritative, persistent, and reloadable
+  ---
+  duration_ms: 87.608716
+  type: 'test'
+  ...
+# Subtest: save file validation is strict and rollback time is rejected
+ok 47 - save file validation is strict and rollback time is rejected
+  ---
+  duration_ms: 2.694822
+  type: 'test'
+  ...
+# Subtest: same events give byte-identical saves; new seed must not load old world
+ok 48 - same events give byte-identical saves; new seed must not load old world
+  ---
+  duration_ms: 4.408944
+  type: 'test'
+  ...
+# Subtest: growth damage has ecologically visible consequences and eventual recovery
+ok 49 - growth damage has ecologically visible consequences and eventual recovery
+  ---
+  duration_ms: 16.307294
+  type: 'test'
+  ...
+# Subtest: world-space noise is deterministic, bounded and non-tiling in sampled regions
+ok 50 - world-space noise is deterministic, bounded and non-tiling in sampled regions
+  ---
+  duration_ms: 3.362779
+  type: 'test'
+  ...
+# Subtest: all 15 habitats have real, defined botanical diversity
+ok 51 - all 15 habitats have real, defined botanical diversity
+  ---
+  duration_ms: 0.321975
+  type: 'test'
+  ...
+# Subtest: soil, world sample, and species are stable across reloads
+ok 52 - soil, world sample, and species are stable across reloads
+  ---
+  duration_ms: 79.882552
+  type: 'test'
+  ...
+# Subtest: paths physically thin grass and provide less cover, obstacles are bare
+ok 53 - paths physically thin grass and provide less cover, obstacles are bare
+  ---
+  duration_ms: 4.9748
+  type: 'test'
+  ...
+# Subtest: marsh stores wet fire-risk suppression and different forage
+ok 54 - marsh stores wet fire-risk suppression and different forage
+  ---
+  duration_ms: 0.288983
+  type: 'test'
+  ...
+# Subtest: vegetation patches vary broadly and are not one repeating texture
+ok 55 - vegetation patches vary broadly and are not one repeating texture
+  ---
+  duration_ms: 11.266673
+  type: 'test'
+  ...
+# Subtest: winter growth is less than summer growth at the same location
+ok 56 - winter growth is less than summer growth at the same location
+  ---
+  duration_ms: 0.457025
+  type: 'test'
+  ...
+# Subtest: renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+ok 57 - renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+  ---
+  duration_ms: 149.799635
+  type: 'test'
+  ...
+# Subtest: game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+ok 58 - game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+  ---
+  duration_ms: 114.126852
+  type: 'test'
+  ...
+# Subtest: Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+ok 59 - Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+  ---
+  duration_ms: 30.166952
+  type: 'test'
+  ...
+# Subtest: no-install preview executes without network, WebGL, Three.js or DOM libraries
+ok 60 - no-install preview executes without network, WebGL, Three.js or DOM libraries
+  ---
+  duration_ms: 1604.870757
+  type: 'test'
+  ...
+# Subtest: exactly 48 unique surfaces across four story realms
+ok 61 - exactly 48 unique surfaces across four story realms
+  ---
+  duration_ms: 5.856843
+  type: 'test'
+  ...
+# Subtest: deterministic seeded noise and spatial coherence
+ok 62 - deterministic seeded noise and spatial coherence
+  ---
+  duration_ms: 0.516245
+  type: 'test'
+  ...
+# Subtest: each palette gives alpha, normals and roughness with valid ranges
+ok 63 - each palette gives alpha, normals and roughness with valid ranges
+  ---
+  duration_ms: 665.641556
+  type: 'test'
+  ...
+# Subtest: same seed yields exact image: different seed yields different image
+ok 64 - same seed yields exact image: different seed yields different image
+  ---
+  duration_ms: 274.333695
+  type: 'test'
+  ...
+# Subtest: weather causes visible wetness and alters traction
+ok 65 - weather causes visible wetness and alters traction
+  ---
+  duration_ms: 32.493986
+  type: 'test'
+  ...
+# Subtest: electrical metal, aether phase and silencing rug physically distinct
+ok 66 - electrical metal, aether phase and silencing rug physically distinct
+  ---
+  duration_ms: 0.398269
+  type: 'test'
+  ...
+# Subtest: material locators respect polygon, rectangle, disk and priority
+ok 67 - material locators respect polygon, rectangle, disk and priority
+  ---
+  duration_ms: 0.623353
+  type: 'test'
+  ...
+# Subtest: map sampler chooses each world coordinate and room without random interiors
+ok 68 - map sampler chooses each world coordinate and room without random interiors
+  ---
+  duration_ms: 2.66821
+  type: 'test'
+  ...
+# Subtest: bad ground ID or dimensions fail loudly
+ok 69 - bad ground ID or dimensions fail loudly
+  ---
+  duration_ms: 15.434702
+  type: 'test'
+  ...
+# Subtest: ground-impact causes threshold events with persistent state
+ok 70 - ground-impact causes threshold events with persistent state
+  ---
+  duration_ms: 39.036404
+  type: 'test'
+  ...
+# Subtest: wetness and charge diffuse locally, decay, and change movement
+ok 71 - wetness and charge diffuse locally, decay, and change movement
+  ---
+  duration_ms: 29.486747
+  type: 'test'
+  ...
+# Subtest: fracture is repairable only with resources and traces survive saves
+ok 72 - fracture is repairable only with resources and traces survive saves
+  ---
+  duration_ms: 1.036817
+  type: 'test'
+  ...
+# Subtest: grid rejects huge allocations and snaps reject corruption
+ok 73 - grid rejects huge allocations and snaps reject corruption
+  ---
+  duration_ms: 0.375557
+  type: 'test'
+  ...
+# Subtest: narrative floor wear follows doorway paths and drainage sources
+ok 74 - narrative floor wear follows doorway paths and drainage sources
+  ---
+  duration_ms: 78.514821
+  type: 'test'
+  ...
+# Subtest: two world-adjacent maps share same seamless albedo boundary
+ok 75 - two world-adjacent maps share same seamless albedo boundary
+  ---
+  duration_ms: 24.311367
+  type: 'test'
+  ...
+# Subtest: content IDs, reciprocal regional routes, quest prerequisites and material references are valid
+ok 76 - content IDs, reciprocal regional routes, quest prerequisites and material references are valid
+  ---
+  duration_ms: 19.558113
+  type: 'test'
+  ...
+# Subtest: authoritative biology differs causally between saturated forest and arid volcanic geology
+ok 77 - authoritative biology differs causally between saturated forest and arid volcanic geology
+  ---
+  duration_ms: 897.100651
+  type: 'test'
+  ...
+# Subtest: travel must follow actual connected edges and advances every loaded region
+ok 78 - travel must follow actual connected edges and advances every loaded region
+  ---
+  duration_ms: 897.658215
+  type: 'test'
+  ...
+# Subtest: late region generation replays whole-world days instead of restarting at day zero
+ok 79 - late region generation replays whole-world days instead of restarting at day zero
+  ---
+  duration_ms: 795.459416
+  type: 'test'
+  ...
+# Subtest: campaign events mutate same state used by scenery, traversal and combat
+ok 80 - campaign events mutate same state used by scenery, traversal and combat
+  ---
+  duration_ms: 548.605046
+  type: 'test'
+  ...
+# Subtest: Hydrophone wave cancellation reduces both game defense and audiovisual world field
+ok 81 - Hydrophone wave cancellation reduces both game defense and audiovisual world field
+  ---
+  duration_ms: 115.48871
+  type: 'test'
+  ...
+# Subtest: regional creature populations are indexed by actual cell habitat and region species
+ok 82 - regional creature populations are indexed by actual cell habitat and region species
+  ---
+  duration_ms: 380.56642
+  type: 'test'
+  ...
+# Subtest: encounter result is reproducible for a fixed world and geographic location
+ok 83 - encounter result is reproducible for a fixed world and geographic location
+  ---
+  duration_ms: 94.625772
+  type: 'test'
+  ...
+# Subtest: trade shifts real inventory and purchasing wealth and prices respond to stock
+ok 84 - trade shifts real inventory and purchasing wealth and prices respond to stock
+  ---
+  duration_ms: 34.484834
+  type: 'test'
+  ...
+# Subtest: crafting checks supply, consumes exact materials, preserves item material provenance
+ok 85 - crafting checks supply, consumes exact materials, preserves item material provenance
+  ---
+  duration_ms: 23.992195
+  type: 'test'
+  ...
+# Subtest: quest cannot be completed outside its region, without dependencies, or twice
+ok 86 - quest cannot be completed outside its region, without dependencies, or twice
+  ---
+  duration_ms: 245.556683
+  type: 'test'
+  ...
+# Subtest: combat reads material and persistent ecological state, and victorious outcomes give actual loot
+ok 87 - combat reads material and persistent ecological state, and victorious outcomes give actual loot
+  ---
+  duration_ms: 17.052429
+  type: 'test'
+  ...
+# Subtest: A* traverses a real map using the same cell legality and walk costs as encounters
+ok 88 - A* traverses a real map using the same cell legality and walk costs as encounters
+  ---
+  duration_ms: 287.028135
+  type: 'test'
+  ...
+# Subtest: party combat requires a real encounter and survivor health changes in battle
+ok 89 - party combat requires a real encounter and survivor health changes in battle
+  ---
+  duration_ms: 26.053968
+  type: 'test'
+  ...
+# Subtest: merchant prices and purchase changes inventory and actual wallet
+ok 90 - merchant prices and purchase changes inventory and actual wallet
+  ---
+  duration_ms: 24.439733
+  type: 'test'
+  ...
+# Subtest: equipment bought with inventory affects subsequent combat and echo clarity
+ok 91 - equipment bought with inventory affects subsequent combat and echo clarity
+  ---
+  duration_ms: 38.746006
+  type: 'test'
+  ...
+# Subtest: save restore preserves active region, economy, quest and world fields
+ok 92 - save restore preserves active region, economy, quest and world fields
+  ---
+  duration_ms: 501.960155
+  type: 'test'
+  ...
+# Subtest: New Game Plus resets quests but preserves tangible ecology and music imprints
+ok 93 - New Game Plus resets quests but preserves tangible ecology and music imprints
+  ---
+  duration_ms: 135.843346
+  type: 'test'
+  ...
+# Subtest: invalid world saves and impossible purchases cannot mutate world state
+ok 94 - invalid world saves and impossible purchases cannot mutate world state
+  ---
+  duration_ms: 49.987982
+  type: 'test'
+  ...
+# Subtest: all 216 adaptive forms have unique IDs and mechanically distinct elemental resistance profiles
+ok 95 - all 216 adaptive forms have unique IDs and mechanically distinct elemental resistance profiles
+  ---
+  duration_ms: 0.36729
+  type: 'test'
+  ...
+# Subtest: resident dialogue is interactive and location-scoped; not remote text decoration
+ok 96 - resident dialogue is interactive and location-scoped; not remote text decoration
+  ---
+  duration_ms: 19.721114
+  type: 'test'
+  ...
+# Subtest: regional climate drives evolution beyond mere initial palette differences
+ok 97 - regional climate drives evolution beyond mere initial palette differences
+  ---
+  duration_ms: 214.173707
+  type: 'test'
+  ...
+# Subtest: battle remains active across rounds and monster health persists deterministically
+ok 98 - battle remains active across rounds and monster health persists deterministically
+  ---
+  duration_ms: 79.374764
+  type: 'test'
+  ...
+# Subtest: New Game Plus carries completed bridge and musical quest consequences into the new starting world
+ok 99 - New Game Plus carries completed bridge and musical quest consequences into the new starting world
+  ---
+  duration_ms: 265.383855
+  type: 'test'
+  ...
+# Subtest: all 48 physical materials have valid, deterministic audio surfaces
+ok 100 - all 48 physical materials have valid, deterministic audio surfaces
+  ---
+  duration_ms: 2.286827
+  type: 'test'
+  ...
+# Subtest: nine authored regions map onto the actual recorded ambience bank
+ok 101 - nine authored regions map onto the actual recorded ambience bank
+  ---
+  duration_ms: 0.370566
+  type: 'test'
+  ...
+# Subtest: existing lawn, plaza, and water state drive the same game and acoustic calculations
+ok 102 - existing lawn, plaza, and water state drive the same game and acoustic calculations
+  ---
+  duration_ms: 50.032258
+  type: 'test'
+  ...
+# Subtest: material conductivity and wetness influence the nonlinear perception field
+ok 103 - material conductivity and wetness influence the nonlinear perception field
+  ---
+  duration_ms: 38.071057
+  type: 'test'
+  ...
+# Subtest: accepted movement changes terrain, not by reading the acoustic sensor
+ok 104 - accepted movement changes terrain, not by reading the acoustic sensor
+  ---
+  duration_ms: 41.21526
+  type: 'test'
+  ...
+# Subtest: no invented sonic secret exists before a real Hydrophone event
+ok 105 - no invented sonic secret exists before a real Hydrophone event
+  ---
+  duration_ms: 10.793113
+  type: 'test'
+  ...
+# Subtest: only an accepted Hydrophone placement creates a discoverable audio source
+ok 106 - only an accepted Hydrophone placement creates a discoverable audio source
+  ---
+  duration_ms: 19.832115
+  type: 'test'
+  ...
+# Subtest: knowledge survives Atlas saves without changing its version 3 contract
+ok 107 - knowledge survives Atlas saves without changing its version 3 contract
+  ---
+  duration_ms: 48.631989
+  type: 'test'
+  ...
+# Subtest: old v3 saves without audio restore with default knowledge state
+ok 108 - old v3 saves without audio restore with default knowledge state
+  ---
+  duration_ms: 53.325059
+  type: 'test'
+  ...
+# Subtest: acoustic assets exist and are local to the package, including each sampled audio kind
+ok 109 - acoustic assets exist and are local to the package, including each sampled audio kind
+  ---
+  duration_ms: 5.552262
+  type: 'test'
+  ...
+# Subtest: parallel authored packages are genuinely preserved: 16 species, 15 habitats, 48 substrates
+ok 110 - parallel authored packages are genuinely preserved: 16 species, 15 habitats, 48 substrates
+  ---
+  duration_ms: 1.46067
+  type: 'test'
+  ...
+# Subtest: all regional material mappings are authored valid IDs and distinguish world geology
+ok 111 - all regional material mappings are authored valid IDs and distinguish world geology
+  ---
+  duration_ms: 853.532089
+  type: 'test'
+  ...
+# Subtest: semantic footprints block growing tufts through occupied structures
+ok 112 - semantic footprints block growing tufts through occupied structures
+  ---
+  duration_ms: 28.698967
+  type: 'test'
+  ...
+# Subtest: room identities yield actual physically different materials
+ok 113 - room identities yield actual physically different materials
+  ---
+  duration_ms: 0.662768
+  type: 'test'
+  ...
+# Subtest: an accepted footfall persists vegetation traces and ground traffic without minting items
+ok 114 - an accepted footfall persists vegetation traces and ground traffic without minting items
+  ---
+  duration_ms: 48.798059
+  type: 'test'
+  ...
+# Subtest: invalid or blocked movement never changes surface state or the position
+ok 115 - invalid or blocked movement never changes surface state or the position
+  ---
+  duration_ms: 36.739134
+  type: 'test'
+  ...
+# Subtest: confirmed elemental spell changes same ground state used by battle
+ok 116 - confirmed elemental spell changes same ground state used by battle
+  ---
+  duration_ms: 33.559997
+  type: 'test'
+  ...
+# Subtest: invalid game event cannot change ground or vegetation persistence
+ok 117 - invalid game event cannot change ground or vegetation persistence
+  ---
+  duration_ms: 100.017916
+  type: 'test'
+  ...
+# Subtest: water treatment adds persistent ground wetness and grass moisture
+ok 118 - water treatment adds persistent ground wetness and grass moisture
+  ---
+  duration_ms: 95.866105
+  type: 'test'
+  ...
+# Subtest: surface data survive serialisation and restoration unchanged, including multiple regions
+ok 119 - surface data survive serialisation and restoration unchanged, including multiple regions
+  ---
+  duration_ms: 1819.890069
+  type: 'test'
+  ...
+# Subtest: older v3 save files with no surfaces still restore without dropping quests
+ok 120 - older v3 save files with no surfaces still restore without dropping quests
+  ---
+  duration_ms: 112.039408
+  type: 'test'
+  ...
+# Subtest: new game plus preserves prior epoch surface provenance in history and resets disturbances
+ok 121 - new game plus preserves prior epoch surface provenance in history and resets disturbances
+  ---
+  duration_ms: 236.222252
+  type: 'test'
+  ...
+# Subtest: material maps are derived deterministically from game fields, not decorative randomness
+ok 122 - material maps are derived deterministically from game fields, not decorative randomness
+  ---
+  duration_ms: 73.36863
+  type: 'test'
+  ...
+# Subtest: a prior surface injury affects traversal costs in the same region
+ok 123 - a prior surface injury affects traversal costs in the same region
+  ---
+  duration_ms: 22.56471
+  type: 'test'
+  ...
+# Subtest: new listen control exists and is reachable within the existing World panel
+ok 124 - new listen control exists and is reachable within the existing World panel
+  ---
+  duration_ms: 1.038824
+  type: 'test'
+  ...
+# Subtest: recorded audio triggers are downstream of accepted gameplay commands
+ok 125 - recorded audio triggers are downstream of accepted gameplay commands
+  ---
+  duration_ms: 0.445001
+  type: 'test'
+  ...
+# Subtest: version-3 save compatibility is retained and acoustic extension is namespaced
+ok 126 - version-3 save compatibility is retained and acoustic extension is namespaced
+  ---
+  duration_ms: 0.221226
+  type: 'test'
+  ...
+# Subtest: acoustic source and 3D graphical imports are local except the pinned Three CDN
+ok 127 - acoustic source and 3D graphical imports are local except the pinned Three CDN
+  ---
+  duration_ms: 0.118218
+  type: 'test'
+  ...
+# Subtest: seeded generation and evolution are deterministic
+ok 128 - seeded generation and evolution are deterministic
+  ---
+  duration_ms: 187.557866
+  type: 'test'
+  ...
+# Subtest: orchard and traversal really change when structures change
+ok 129 - orchard and traversal really change when structures change
+  ---
+  duration_ms: 47.821861
+  type: 'test'
+  ...
+# Subtest: fire harms cover, harvest and alters combat shielding
+ok 130 - fire harms cover, harvest and alters combat shielding
+  ---
+  duration_ms: 16.593585
+  type: 'test'
+  ...
+# Subtest: hydrophone changes local aether defense and story echo
+ok 131 - hydrophone changes local aether defense and story echo
+  ---
+  duration_ms: 18.6673
+  type: 'test'
+  ...
+# Subtest: save restore is exact including event ledger
+ok 132 - save restore is exact including event ledger
+  ---
+  duration_ms: 38.4009
+  type: 'test'
+  ...
+# Subtest: game adapter handles events, rejects unknown and malformed positions
+ok 133 - game adapter handles events, rejects unknown and malformed positions
+  ---
+  duration_ms: 6.244646
+  type: 'test'
+  ...
+# Subtest: bounded world fields after 90-day advance
+ok 134 - bounded world fields after 90-day advance
+  ---
+  duration_ms: 134.914266
+  type: 'test'
+  ...
+# Subtest: elemental combat damage is coupled to wetness, material shielding and persistent terrain effects
+ok 135 - elemental combat damage is coupled to wetness, material shielding and persistent terrain effects
+  ---
+  duration_ms: 3.088601
+  type: 'test'
+  ...
+# Subtest: Hydrophone phases interfere destructively rather than adding decorative glow
+ok 136 - Hydrophone phases interfere destructively rather than adding decorative glow
+  ---
+  duration_ms: 12.420927
+  type: 'test'
+  ...
+1..136
+# tests 136
+# suites 0
+# pass 136
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8762.868717

@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: deterministic hash / smoothstep
+ok 1 - deterministic hash / smoothstep
+  ---
+  duration_ms: 4.488436
+  type: 'test'
+  ...
+# Subtest: does not place without authoritative classifiers
+ok 2 - does not place without authoritative classifiers
+  ---
+  duration_ms: 0.693226
+  type: 'test'
+  ...
+# Subtest: shrine intentionally follows known path and respects indoor masks
+ok 3 - shrine intentionally follows known path and respects indoor masks
+  ---
+  duration_ms: 0.266133
+  type: 'test'
+  ...
+# Subtest: waterfall requires wet geological site
+ok 4 - waterfall requires wet geological site
+  ---
+  duration_ms: 0.12419
+  type: 'test'
+  ...
+# Subtest: boss arena keeps clear low detail density
+ok 5 - boss arena keeps clear low detail density
+  ---
+  duration_ms: 0.956763
+  type: 'test'
+  ...
+# Subtest: quality governor gradually scales down slow performance
+ok 6 - quality governor gradually scales down slow performance
+  ---
+  duration_ms: 0.550757
+  type: 'test'
+  ...
+# Subtest: quality governor hysteresis avoids premature promotion
+ok 7 - quality governor hysteresis avoids premature promotion
+  ---
+  duration_ms: 0.217192
+  type: 'test'
+  ...
+# Subtest: reduced motion zero particles but not simulation
+ok 8 - reduced motion zero particles but not simulation
+  ---
+  duration_ms: 0.311948
+  type: 'test'
+  ...
+# Subtest: camera view is read-only and frame-step stable
+ok 9 - camera view is read-only and frame-step stable
+  ---
+  duration_ms: 2.06296
+  type: 'test'
+  ...
+# Subtest: camera respects manual camera ownership
+ok 10 - camera respects manual camera ownership
+  ---
+  duration_ms: 0.501927
+  type: 'test'
+  ...
+# Subtest: effect reads environmental quantities without calculating damage
+ok 11 - effect reads environmental quantities without calculating damage
+  ---
+  duration_ms: 0.531354
+  type: 'test'
+  ...
+# Subtest: visual queue idempotent and expires
+ok 12 - visual queue idempotent and expires
+  ---
+  duration_ms: 0.281178
+  type: 'test'
+  ...
+# Subtest: invalid events cannot spawn effects
+ok 13 - invalid events cannot spawn effects
+  ---
+  duration_ms: 0.106631
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 177.149748

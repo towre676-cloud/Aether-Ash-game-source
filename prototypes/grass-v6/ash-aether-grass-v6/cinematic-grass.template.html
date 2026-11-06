@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Ash & Aether | The living meadow</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#172321;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#world{display:block;width:100vw;height:100dvh;touch-action:none}header{position:fixed;top:24px;left:30px;pointer-events:none;text-shadow:0 3px 18px #000a;color:#fff1d2;max-width:510px}header small{font-size:10px;letter-spacing:.23em;color:#ffdfa5;font-weight:700}header h1{font:normal clamp(29px,5vw,62px)/.99 Georgia,serif;letter-spacing:-.025em;margin:10px 0 11px}header p{color:#fff2d9;font-size:12px;line-height:1.5;max-width:340px}aside{position:fixed;right:18px;top:18px;width:250px;background:#142a25de;backdrop-filter:blur(15px);padding:16px;border:1px solid #d5c99958;border-radius:16px;color:#f3e8ce;box-shadow:0 15px 40px #0b221456}aside h2{font:normal 18px Georgia,serif;margin:0 0 6px}aside p{font-size:10px;color:#c9dccb;line-height:1.5;margin:0 0 12px}label{display:block;font-size:11px;margin:10px 0 5px;color:#e6e3c8}select,button,input[type=range]{width:100%;accent-color:#cde5a4}select,button{border:1px solid #a6bda36a;border-radius:8px;padding:9px;background:#2c4e3c;color:#f3f0da;font:inherit;font-size:12px}button{cursor:pointer}button:hover{background:#3b6549}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #ffdb8f;outline-offset:2px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}.readout{margin-top:13px;border-top:1px solid #d5daba34;padding-top:10px;font-size:11px;line-height:1.65;color:#f8e9b9;font-variant-numeric:tabular-nums}.footer{position:fixed;bottom:19px;left:26px;color:#fff4d2;text-shadow:0 2px 10px #101a14;font-size:10px;pointer-events:none}.footer strong{letter-spacing:.12em}@media(max-width:700px){header{top:14px;left:15px}header h1{font-size:30px;margin:6px 0}header p{display:none}aside{top:auto;bottom:7px;left:8px;right:8px;width:auto;max-height:40dvh;overflow-y:auto;padding:11px;border-radius:12px}aside h2{font-size:15px}aside p{display:none}.pairs{display:grid;grid-template-columns:1fr 1fr;gap:0 9px}.readout{margin-top:6px;padding-top:6px}.footer{top:92px;bottom:auto;left:15px}}
+</style></head><body><canvas id="world" aria-label="Animated procedural meadow with grounded ecology and weather"></canvas>
+<header><small>ASH & AETHER · FIELD STUDY 05</small><h1>The living meadow</h1><p>A single wind passes through thousands of different stems. Fire, weather, terrain and history shape what grows next.</p></header>
+<aside><h2>Field observation</h2><p>Actual deterministic A&A ecology • perspective art study • no login or network required</p>
+<div class="pairs"><div><label for="habitat">Habitat</label><select id="habitat"><option value="meadow">Sunlit meadow</option><option value="orchard" selected>Ancient orchard</option><option value="marsh">Reed marsh</option><option value="woodland">Woodland undergrowth</option><option value="moor">Heather moor</option><option value="highlands">Highland grasses</option><option value="aether">Aether wilds</option><option value="ashlands">Ashlands</option></select></div>
+<div><label for="season">Season</label><select id="season"><option>spring</option><option selected>summer</option><option>autumn</option><option>winter</option></select></div>
+<div><label for="wind">Wind</label><input type="range" id="wind" min="0" max="100" value="43"></div><div><label for="quality">Detail</label><select id="quality"><option value="low">Mobile</option><option value="medium">Balanced</option><option value="high" selected>Detailed</option></select></div></div>
+<div class="actions"><button id="walk">Walk / trample</button><button id="burn">Set fire</button><button id="water">Water ground</button><button id="recover">30 days later</button></div>
+<div id="readout" class="readout" aria-live="polite">Preparing the field.</div></aside>
+<div class="footer"><strong>VISUAL RESEARCH PROTOTYPE</strong> · Grass gameplay state is shared with the A&A integration bridge</div>
+<script>
+<!--AA_BUNDLE-->
+const $=id=>document.getElementById(id),cv=$('world'),ctx=cv.getContext('2d');
+const {hash2,valueNoise}=__aaModules['grass-ecology.mjs'];
+let W=innerWidth,H=innerHeight,DPR=1,seed=13409,biome='orchard',season='summer',wind=.43,quality='high',rain=.26,day=0,seq=0,bridge,foreground,player={x:0,z:7},last=0,lastDraw=0,landscapeDirty=true,bg;
+const PI=Math.PI,TAU=PI*2,clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const perspective=(z)=>13/(13+Math.max(0,z));
+const scaleAt=(x,z)=>perspective(z);
+function heightAt(x,z){return .28*Math.sin(x*.21+z*.09)+.17*Math.cos(x*.12-z*.08)+.04*Math.sin(x*.64+z*.77)}
+function project(x,z,y=0){const f=perspective(z);return {x:W*.49+(x-player.x)*59*f,y:H*1.10-z*59*f-y*59*f}}
+function roadX(z){return 2.6+Math.sin(z*.12)*1.8}
+function waterX(z){return -19+Math.sin(z*.11)*2.9}
+function trailAt(x,z){return clamp(1-Math.abs(x-roadX(z))/(1.7+.009*z));}
+function materialAt(x,z){return {id:'visual-reference-loam',tags:['soil'],organic:.91,moisture:clamp(.32+rain*.34+.09*valueNoise(x*.1,z*.1,seed+47)),grip:.67,wear:trailAt(x,z)};}
+function groundOptions(){return {materialAt,regionAt:()=>({biome,outdoor:true}),heightAt,seasonAt:()=>season,weatherAt:()=>({rain,wind}),pathAt:trailAt,obstacleAt:(x,z)=>Math.abs(x-waterX(z))<2.8&&biome!=='ashlands'};}
+function create(){bridge?.dispose();bridge=createAAGameVegetationBridge({renderMode:'canvas',seed,timelineId:'field-study',quality,groundOptions:groundOptions(),worldToScreen:project,scaleAt});}
+function resize(){W=innerWidth;H=innerHeight;DPR=Math.min(devicePixelRatio||1,1.5);cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);bg=document.createElement('canvas');bg.width=Math.round(W*DPR);bg.height=Math.round(H*DPR);landscapeDirty=true;}
+addEventListener('resize',resize);resize();create();
+function shade(hex,n){const c=hex.match(/\w\w/g).map(h=>parseInt(h,16));return '#'+c.map(k=>Math.round(clamp(k*n,0,255)).toString(16).padStart(2,'0')).join('');}
+const scenery={meadow:['#778a56','#4b6539','#b2a05e'],orchard:['#687d4d','#4b673a','#baa16b'],marsh:['#54796f','#3c6353','#a4a17a'],woodland:['#476c51','#2d513d','#8d9169'],moor:['#78826a','#5c6b53','#a89b7e'],highlands:['#8a9168','#64764b','#b8ad84'],aether:['#53797a','#33616d','#d6baa1'],ashlands:['#807663','#60564d','#c9a878']};
+function mountain(C,base,amplitude,phase,col){C.fillStyle=col;C.beginPath();C.moveTo(0,H);C.lineTo(0,base);for(let x=0;x<W+16;x+=12){const h=Math.sin(x*.004+phase)*.6+Math.sin(x*.013+phase*1.9)*.24+Math.sin(x*.027+phase*.8)*.13;C.lineTo(x,base+amplitude*h)}C.lineTo(W,H);C.closePath();C.fill();}
+function tree(C,x,z){const p=project(x,z,heightAt(x,z));const f=perspective(z),h=(12+hash2(x|0,z|0,91)*12)*f*17;
+ if(p.x<-110||p.x>W+110||p.y>H+90)return;
+ const dark=biome==='aether'?'#314f54':biome==='ashlands'?'#473d34':'#293f30';
+ C.fillStyle=dark;C.beginPath();C.moveTo(p.x-3*f,p.y);C.lineTo(p.x-2*f,p.y-h);C.lineTo(p.x+3*f,p.y-h*.97);C.lineTo(p.x+5*f,p.y);C.fill();
+ const canopy=biome==='ashlands'?'#736450':season==='autumn'?'#9f8855':season==='winter'?'#667966':biome==='aether'?'#639e90':'#43643e';
+ const r=h*.35;for(let k=0;k<7;k++){const a=k*TAU/7;C.fillStyle=k%3===0?shade(canopy,1.22):shade(canopy,.75+.25*k/7);C.beginPath();C.ellipse(p.x+Math.cos(a)*r*.58,p.y-h*.81+Math.sin(a)*r*.38,r*.75,r*.64,k*.18,0,TAU);C.fill();}
+}
+function drawBackground(){const C=bg.getContext('2d');C.setTransform(DPR,0,0,DPR,0,0);
+ const colors=scenery[biome]||scenery.meadow;
+ let sky=C.createLinearGradient(0,0,0,H);sky.addColorStop(0,biome==='aether'?'#344c66':'#577a83');sky.addColorStop(.41,season==='winter'?'#b8c4c1':'#dcba85');sky.addColorStop(.68,'#ead29b');sky.addColorStop(1,colors[0]);C.fillStyle=sky;C.fillRect(0,0,W,H);
+ // Far hills follow the horizon; overlapping profiles eliminate rectangular silhouettes.
+ mountain(C,H*.37,56,1.6,'#7b938c');mountain(C,H*.43,48,4.1,'#6d8574');mountain(C,H*.49,36,2.7,'#657b61');
+ const glow=C.createRadialGradient(W*.29,H*.37,8,W*.29,H*.37,H*.65);glow.addColorStop(0,'#f8df9b75');glow.addColorStop(.42,'#e8d49a27');glow.addColorStop(1,'#e8d49a00');C.fillStyle=glow;C.fillRect(0,0,W,H);
+ const ground=C.createLinearGradient(0,H*.48,0,H);ground.addColorStop(0,colors[0]);ground.addColorStop(.58,colors[1]);ground.addColorStop(1,colors[2]);C.fillStyle=ground;C.beginPath();C.moveTo(0,H*.49);for(let x=0;x<=W+10;x+=10)C.lineTo(x,H*.485+Math.sin(x*.005)*14+Math.sin(x*.015)*5);C.lineTo(W,H);C.lineTo(0,H);C.fill();
+ // Deterministic painterly ground patches follow world metres and perspective.
+ for(let j=72;j>=0;j-=1.5){for(let i=-34;i<=34;i+=1.35){const x=i+.6*hash2(Math.floor(i*20),Math.floor(j*20),seed+31),z=j;const p=project(x,z,heightAt(x,z));const f=perspective(z);if(p.x<0||p.x>W||p.y<H*.46||p.y>H+6)continue;
+  const n=valueNoise(x*.26,z*.26,seed+4),v=hash2(Math.floor(x*23),Math.floor(z*23),seed+29);
+  if(v>.70)continue;C.globalAlpha=.06+.11*n;C.fillStyle=n>.53?'#b8bb78':'#254d39';C.beginPath();C.ellipse(p.x,p.y,Math.max(1,57*f*(.45+v)),Math.max(.5,10*f*(.6+n)),(v-.5)*.6,0,TAU);C.fill();}}
+ C.globalAlpha=1;
+ // The path and river share physical masks with ecology: no grass grows on water.
+ function ribbon(xAt,halfWidth,c1,c2){C.beginPath();for(let z=72;z>=0;z-=.8){const p=project(xAt(z)-halfWidth,z,heightAt(xAt(z),z));if(z===72)C.moveTo(p.x,p.y);else C.lineTo(p.x,p.y)}for(let z=0;z<=72;z+=.8){const p=project(xAt(z)+halfWidth,z,heightAt(xAt(z),z));C.lineTo(p.x,p.y)}C.closePath();C.fillStyle=c1;C.fill();C.strokeStyle=c2;C.lineWidth=1;C.stroke()}
+ ribbon(waterX,2.9,biome==='ashlands'?'#454642':'#457773','#a8bdb173');
+ ribbon(roadX,1.30,'#98876194','#dbbc8470');
+ // Stream glints correlate with river location; never painted as an independent meadow tile.
+ for(let z=2;z<70;z+=1.2){const x=waterX(z)+(.5-hash2(z*9|0,12,seed+80))*4;const p=project(x,z);C.strokeStyle='rgba(215,228,194,.18)';C.lineWidth=Math.max(.5,perspective(z)*2.7);C.beginPath();C.moveTo(p.x-3*perspective(z),p.y);C.lineTo(p.x+21*perspective(z),p.y-1);C.stroke();}
+ if(biome!=='ashlands')for(let z=67;z>=20;z-=12)for(const x of [-29,-17,20,28])tree(C,x+hash2(x|0,z|0,3)*7,z+hash2(z|0,x|0,4)*5);
+ // Sky/ground atmospheric veil.
+ const haze=C.createLinearGradient(0,H*.42,0,H*.8);haze.addColorStop(0,'#dcd5aa36');haze.addColorStop(.43,'#f6e7b207');haze.addColorStop(1,'#ffffff00');C.fillStyle=haze;C.fillRect(0,H*.42,W,H*.4);
+ landscapeDirty=false;
+}
+function drawPlayer(){const p=project(player.x,player.z,heightAt(player.x,player.z));const size=perspective(player.z)*33;ctx.fillStyle='#13231c88';ctx.beginPath();ctx.ellipse(p.x+4,p.y+4,size*.48,size*.15,0,0,TAU);ctx.fill();ctx.fillStyle='#ead19b';ctx.beginPath();ctx.ellipse(p.x,p.y-size*.65,size*.19,size*.28,0,0,TAU);ctx.fill();ctx.fillStyle='#3c5945';ctx.beginPath();ctx.moveTo(p.x-size*.3,p.y);ctx.lineTo(p.x-size*.24,p.y-size*.5);ctx.lineTo(p.x+size*.18,p.y-size*.53);ctx.lineTo(p.x+size*.30,p.y);ctx.closePath();ctx.fill();}
+function updateReadout(){const s=bridge.sample(player.x,player.z);$('readout').textContent=`Ground cover ${Math.round(s.gameplay.concealment*100)}% · Moisture ${Math.round(s.vegetation.moisture*100)}% · Fire transfer ${Math.round(s.combined.fireTransfer*100)}% · Day ${day}`;}
+function frame(t){requestAnimationFrame(frame);if(t-lastDraw<65)return;lastDraw=t;const dt=Math.min(.1,(t-last)/1000||.04);last=t;if(landscapeDirty)drawBackground();
+ bridge.tick(dt,player);ctx.setTransform(DPR,0,0,DPR,0,0);ctx.drawImage(bg,0,0,W,H);
+ bridge.draw(ctx,{bounds:{minX:player.x-34,maxX:player.x+34,minZ:0,maxZ:71},dt,wind,player,pixelScale:59});drawPlayer();updateReadout();}
+requestAnimationFrame(frame);
+function action(type,args){bridge.applyEvent({type,eventId:'field-'+(++seq),x:player.x,z:player.z,...args});updateReadout()}
+$('habitat').onchange=e=>{biome=e.target.value;bridge.notifyTerrainChanged();landscapeDirty=true};
+$('season').onchange=e=>{season=e.target.value;bridge.notifyTerrainChanged();landscapeDirty=true};
+$('wind').oninput=e=>wind=+e.target.value/100;
+$('quality').onchange=e=>{quality=e.target.value;bridge.setVisualSettings({quality})};
+$('walk').onclick=()=>{player.x+=.35;action('footfall',{radius:1.5,mass:1.2});landscapeDirty=true};
+$('burn').onclick=()=>action('fire',{radius:3.1,strength:1});
+$('water').onclick=()=>{rain=clamp(rain+.1);action('water',{radius:3.2,amount:1});landscapeDirty=true};
+$('recover').onclick=()=>{day+=30;bridge.applyEvent({type:'day',eventId:'field-'+(++seq),worldDay:day});updateReadout()};
+</script></body></html>

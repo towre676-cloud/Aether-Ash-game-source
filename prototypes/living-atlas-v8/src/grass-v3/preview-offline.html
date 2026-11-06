@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Ash & Aether — Living Vegetation Preview (Offline)</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#172921;color:#f1efdd}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}canvas{width:100%;height:100%;display:block;background:#8ca590;touch-action:none}#title{position:fixed;left:25px;top:19px;pointer-events:none;text-shadow:0 3px 20px #152a19}#title small{font-size:10px;letter-spacing:.28em;color:#e0d09e;font-weight:700}h1{margin:8px 0 0;font:normal clamp(26px,4vw,46px) Georgia,serif}#title p{font-size:12px;max-width:330px;line-height:1.5;color:#f5f3db;margin:7px 0}.panel{position:fixed;right:20px;top:20px;width:253px;padding:16px;background:#0d2119db;border:1px solid #b3c9aa55;border-radius:16px;backdrop-filter:blur(13px);box-shadow:0 20px 50px #182a1959}label{display:block;font-size:11px;letter-spacing:.025em;color:#d8e5cc;margin:10px 0 5px}select,input{width:100%;padding:8px;border-radius:8px;border:1px solid #708b6e7d;background:#1e352a;color:#f1f2e3;accent-color:#d9c793}input[type=range]{padding:0}button{background:#345c47;color:#e4f2d9;border:1px solid #719477;border-radius:9px;padding:8px 9px;font-weight:600;font-size:12px;cursor:pointer}button:hover{background:#416c50}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:14px 0 0}#stats{font-size:11px;line-height:1.55;color:#ccdac9;border-top:1px solid #91aa894d;margin-top:12px;padding-top:10px;white-space:pre-line}#footer{position:fixed;bottom:20px;left:25px;font-size:11px;line-height:1.7;color:#fff5d8;text-shadow:0 2px 12px #22382b;pointer-events:none}#notice{font-size:10px;max-width:240px;color:#c9d7c8;margin-top:8px}.badge{display:inline-block;border:1px solid #f3dfad83;border-radius:30px;padding:5px 9px;margin-top:9px;font-size:10px;color:#f3dfad;letter-spacing:.06em}@media(max-width:760px){#title{top:13px;left:14px}#title p{display:none}.panel{left:10px;right:10px;top:auto;bottom:10px;width:auto;max-height:43vh;overflow:auto;padding:12px}.panel .controls{display:grid;grid-template-columns:1fr 1fr;column-gap:10px}.panel label{margin:5px 0}h1{font-size:27px}#footer{top:94px;bottom:auto;left:14px;max-width:175px;font-size:10px}#notice{max-width:none}}
+</style></head><body><canvas id="world" aria-label="Animated interactive grass landscape"></canvas><div id="title"><small>ASH & AETHER / LIVE TERRAIN STUDY</small><h1>Where the earth remembers</h1><p>Millions of possible placements. Wild grasses bend, recover, and carry the marks of weather and travel.</p><div class="badge">OFFLINE • NO DEPENDENCIES</div></div><div class="panel"><div class="controls"><div><label for="region">Habitat</label><select id="region"><option value="meadow">Sun-dappled meadow</option><option value="orchard">Old orchard</option><option value="woodland">Woodland undergrowth</option><option value="riverbank">Riverbank reeds</option><option value="moor">Heather moor</option><option value="highlands">Highland meadow</option><option value="farmlands">Wild wheat fields</option><option value="tundra">Frosted grasses</option><option value="ashlands">Ash and cinder</option><option value="aether">Aether bloom</option></select></div><div><label for="time">Sunlight</label><input id="time" type="range" min="0" max="100" value="65"></div><div><label for="wind">Wind intensity</label><input id="wind" type="range" min="0" max="100" value="44"></div><div><label for="density">Grass coverage</label><input id="density" type="range" min="30" max="140" value="100"></div></div><div class="buttons"><button id="walk">Walk forward</button><button id="trample">Trample</button><button id="burn">Controlled burn</button><button id="water">Water patch</button><button id="heal">Advance season</button><button id="reset">New landscape</button></div><div id="stats"></div><div id="notice">This is an offline artistic inspection preview, not the deployed A&A game or its Three.js renderer. The packaged modules contain the game-facing logic.</div></div><div id="footer">Drag horizontally to look around · use A/D or ←/→ to roam<br>Wildflowers, seed heads, mossy ground and distinct plant silhouettes are procedurally placed.</div>
+<script>
+'use strict';
+const cv=document.getElementById('world'),ctx=cv.getContext('2d',{alpha:false});
+const $=id=>document.getElementById(id);let W,H,DPR=1,origin=0,seed=716,biome='meadow',wind=44,time=65,density=100;
+let frame=0,elapsed=0,scar=null,wet=null,regrowth=0,lastRender=0,looking=false,px=0;
+const TAU=2*Math.PI;const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+function hash(i,j,s=0){let n=Math.imul(i|0,374761393)^Math.imul(j|0,668265263)^Math.imul((seed+s)|0,1442695041);n=Math.imul(n^(n>>>13),1274126177);return((n^(n>>>16))>>>0)/4294967296}
+function noise(x,z,s=0){let i=Math.floor(x),j=Math.floor(z),a=x-i,b=z-j;a=a*a*(3-2*a);b=b*b*(3-2*b);return (hash(i,j,s)*(1-a)+hash(i+1,j,s)*a)*(1-b)+(hash(i,j+1,s)*(1-a)+hash(i+1,j+1,s)*a)*b}
+function geo(x,z){const warp=(noise(x*.04,z*.03,19)-.5)*11;return .51*noise((x+warp)*.065,z*.06,2)+.27*noise(x*.19,z*.15,8)+.22*noise(x*.52,z*.45,16)}
+const palettes={
+ meadow:['#39613a','#4a7039','#567e3d','#698543','#8c974c','#b5a95a'], orchard:['#2e6247','#4c7e48','#678e4a','#8a994c','#b2a760','#c6b86b'],
+ woodland:['#23513f','#326848','#467b50','#597c47','#66744a','#8d875e'], riverbank:['#38664e','#567a56','#6d9267','#8c9d68','#b4a96e','#738d72'],
+ moor:['#495d41','#647d52','#79805a','#8e7890','#9d8a9a','#b4a576'], highlands:['#59764a','#6e8751','#829655','#a0a36a','#b0aa70','#c6b884'],
+ farmlands:['#626c3a','#838344','#a99b50','#c3af62','#dbc37b','#b8a772'], tundra:['#536b68','#6d8985','#849e9a','#9eb1ab','#b7bdb4','#7f9787'],
+ ashlands:['#46483c','#5d5944','#7a6e4b','#998254','#a79670','#4f6257'],aether:['#286b62','#368b7a','#4c9b82','#6ca4a0','#8b9dac','#9ac6ad']};
+const species={meadow:['fine','rye','clover','flowers'],orchard:['fine','clover','fern','flowers'],woodland:['fern','clover','moss','nettle'],riverbank:['reed','rush','sedge','fine'],moor:['heather','fine','rye','flowers'],highlands:['rye','fine','sedge','flowers'],farmlands:['wheat','rye','fine','flowers'],tundra:['sedge','fine','moss','rye'],ashlands:['wheat','rye','sedge','moss'],aether:['reed','clover','flowers','heather']};
+function resize(){DPR=Math.min(devicePixelRatio||1,1.4);W=innerWidth;H=innerHeight;cv.width=Math.floor(W*DPR);cv.height=Math.floor(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0)}addEventListener('resize',resize);resize();
+function hex(h){const n=parseInt(h.slice(1),16);return[(n>>16)&255,(n>>8)&255,n&255]}
+function rgba(hexColor,a=1){let c=hex(hexColor);return `rgba(${c.join(',')},${a})`}
+function paintSky(hour){let k=Math.sin((hour/100)*Math.PI),sun=clamp(k,.06,1);
+ const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,sun>.5?'#7dabb0':'#354f5e');sky.addColorStop(.55,sun>.5?'#bacbb7':'#a99581');sky.addColorStop(1,sun>.5?'#c9c5a5':'#857967');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+ const sx=W*(.29+(hour/100)*.41),sy=H*.29 - .10*H*sun;
+ let g=ctx.createRadialGradient(sx,sy,3,sx,sy,H*.45);g.addColorStop(0,`rgba(255,241,182,${.77*sun})`);g.addColorStop(.17,`rgba(255,235,182,${.25*sun})`);g.addColorStop(1,'rgba(255,236,180,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ for(let layer=0;layer<4;layer++){ctx.beginPath();let hy=H*(.39+layer*.066),a=16+layer*15;ctx.moveTo(0,H);for(let x=0;x<=W+12;x+=10){let y=hy+Math.sin(x*.006+layer)*a*.4+Math.sin(x*.017+layer*2.2)*a*.4+Math.sin(x*.049+layer)*a*.13;ctx.lineTo(x,y)}ctx.lineTo(W,H);ctx.closePath();ctx.fillStyle=['#8eaa9a','#789685','#6c8e6c','#66865b'][layer];ctx.fill()}
+}
+function ground(){let from=H*.52;let g=ctx.createLinearGradient(0,from,0,H);const p=palettes[biome];g.addColorStop(0,rgba(p[2]));g.addColorStop(.43,rgba(p[1]));g.addColorStop(1,rgba(p[0]));ctx.fillStyle=g;ctx.fillRect(0,from,W,H-from);
+ // layered irregular density patches: no square edges or repeating texture tile
+ for(let i=0;i<160;i++){let z=6+hash(i,0,20)*65,x=(hash(i,0,22)*2-1)*85+origin*.23;
+ let proj=project(x,z),r=clamp(80/(z+9),.3,5)*(.7+hash(i,0,23)) * (1.8 + hash(i,0,24)*3);
+ if(proj.x<-r||proj.x>W+r)continue;ctx.save();ctx.translate(proj.x,proj.y);ctx.scale(2.2, .35);ctx.beginPath();ctx.ellipse(0,0,r*3,r,0,0,TAU);ctx.fillStyle=rgba(p[Math.floor(hash(i,0,25)*4)],.10);ctx.fill();ctx.restore();}
+}
+function project(x,z){let zz=z+9;return{x:W*.5+(x-origin)*W*.63/zz,y:H*.51+(H*.51)*(1-Math.pow(clamp(z/76),.53)),scale:64/zz}}
+function grassBlade(x,y,height,width,lean,color,offset=0){
+ ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x-width*.5,y);
+ ctx.quadraticCurveTo(x+lean*.22,y-height*.55,x+lean+offset,y-height);
+ ctx.quadraticCurveTo(x+lean*.69+width*.25,y-height*.6,x+width*.53,y);
+ ctx.closePath();ctx.fill();
+}
+function drawTuft(t,windPhase){let {x,y,s,z,plant,paint,scorch}=t;
+ if(s<.3||x<-30||x>W+30||y>H+60)return;
+ let r=.4+.7*hash(t.id,0,97),gust=(wind/100)*Math.sin(elapsed*1.8+z*.11+x*.004+windPhase)*s*.5;
+ if(scar){let dx=(t.wx-scar.x),dz=t.wz-scar.z,d=Math.hypot(dx,dz),effect=clamp(1-d/(scar.radius||5));if(effect>0){scorch=Math.max(scorch,effect*(1-regrowth));}}
+ ctx.save();ctx.globalAlpha=clamp((s-.1)*1.4,.2,.95);
+ if(plant==='moss'){
+  for(let k=0;k<4;k++){ctx.beginPath();ctx.ellipse(x+(k-1.5)*s*.45,y-s*.15,s*.8,s*.30,0,0,TAU);ctx.fillStyle=paint[(k+1)%paint.length];ctx.fill()}ctx.restore();return;
+ }
+ let blades=plant==='reed'||plant==='rush'?7:plant==='fern'?5:plant==='clover'?4:plant==='flowers'?5:9;
+ if(plant==='heather')blades=8;
+ for(let k=0;k<blades;k++){
+   const n=hash(t.id,k,98),h=s*(.75+n*.8)*(plant==='reed'?2.1:plant==='rush'?1.65:plant==='wheat'?1.7:plant==='rye'?1.25:plant==='fern'?1.15:plant==='flowers'?1.25:1.0);
+   const bx=x+(n-.5)*s*1.6,lean=(hash(t.id,k,99)-.5)*s*1.8+gust;
+   const col=paint[Math.floor(hash(t.id,k,101)*paint.length)];const color=scorch>.05?'#5e4a38':col;
+   const width=s*(plant==='reed'||plant==='rush'?.18:plant==='fine'?.17:plant==='fern'?.24:.25);
+   if(plant==='clover'){
+     grassBlade(bx,y,h*.6,width*.65,lean*.4,color);
+     for(let a=-1;a<=1;a++){ctx.beginPath();ctx.ellipse(bx+lean*.40+a*s*.22,y-h*.63+Math.abs(a)*s*.07,s*.16,s*.15,a*.5,0,TAU);ctx.fillStyle=paint[(k+blades+a+1)%paint.length];ctx.fill()}
+   }else if(plant==='fern'){
+     grassBlade(bx,y,h,width*.4,lean,color);
+     for(let j=1;j<=5;j++){let yy=y-h*(.18+j*.13),xx=bx+lean*(.18+j*.13);for(let sign of [-1,1]){
+       ctx.beginPath();ctx.moveTo(xx,yy);ctx.quadraticCurveTo(xx+sign*s*.34,yy-s*.15,xx+sign*s*.48,yy-s*.09);ctx.quadraticCurveTo(xx+sign*s*.22,yy+s*.15,xx,yy);ctx.fillStyle=paint[(k+j)%paint.length];ctx.fill()}}
+   }else{
+     grassBlade(bx,y,h,width,lean,color);
+     if(['reed','rye','wheat','rush','flowers','heather'].includes(plant)){
+       let count=plant==='wheat'?5:plant==='reed'?2:3;
+       for(let q=0;q<count;q++){let xx=bx+lean+Math.sin(q*1.8+k)*s*.13,yy=y-h+(q-count/2)*s*.12;
+         ctx.beginPath();ctx.ellipse(xx,yy,plant==='flowers'?s*.16:s*.08,plant==='flowers'?s*.14:s*.18,.3,0,TAU);
+         ctx.fillStyle=plant==='flowers'?['#f1e3ae','#d9c6cb','#e7e4c8','#f0d8ac'][Math.floor(hash(t.id,k+q,121)*4)]:plant==='heather'?'#b19aae':plant==='wheat'?'#d6bc79':col;ctx.fill()}
+     }
+   }
+ }
+ ctx.restore();
+}
+let tufts=[];
+function build(){tufts=[];let target=Math.round((W<760?1700:3400)*(density/100));const p=palettes[biome];let collection=species[biome];
+ for(let i=0;i<target*2.3;i++){
+  const z=.2+hash(i,0,31)*76;
+  const wx=(hash(i,0,32)*2-1)*92;
+  const m=geo(wx,z),fine=noise(wx*.7,z*.7,41);
+  const gate=clamp((m-.2)*1.9)*(.45+.65*fine);
+  if(hash(i,0,44)>gate)continue;
+  const q=project(wx,z);if(q.x<-45||q.x>W+45)continue;
+  const s=q.scale*(.72+hash(i,0,35)*1.0)*(.60+m*.70);
+  const plant=collection[Math.floor(hash(i,0,38)*collection.length)];
+  tufts.push({id:i,x:q.x,y:q.y,z,wx,wz:z,s,plant,paint:p,scorch:0});
+ }
+ tufts.sort((a,b)=>b.z-a.z);
+}
+function display(ts){requestAnimationFrame(display);if(ts-lastRender<(W<760?49:38))return;lastRender=ts;elapsed=ts/1000;frame++;
+ ctx.clearRect(0,0,W,H);paintSky(time);ground();
+ for(let i=0;i<tufts.length;i++)drawTuft(tufts[i],hash(i,4,88)*TAU);
+ let fog=ctx.createLinearGradient(0,H*.50,0,H*.76);fog.addColorStop(0,'#c5cdb226');fog.addColorStop(1,'#b8c8ae00');ctx.fillStyle=fog;ctx.fillRect(0,H*.50,W,H*.26);
+ if(frame%12===0)$('stats').textContent=`${tufts.length.toLocaleString()} unique clumps · 10 habitats · 16 available botanical families\nWind ${wind}% · Coverage ${density}% · ${scar?'Disturbed earth':'Undisturbed landscape'}\nNo network, external assets, or engine required for this preview.`;
+
+}
+function reinit(){build()}
+$('region').onchange=e=>{biome=e.target.value;reinit()};$('wind').oninput=e=>wind=+e.target.value;$('time').oninput=e=>time=+e.target.value;$('density').oninput=e=>{density=+e.target.value;build()};
+$('walk').onclick=()=>{origin+=2.5;build()};$('trample').onclick=()=>{scar={x:origin,z:4,radius:7};regrowth=0};$('burn').onclick=()=>{scar={x:origin,z:4,radius:17};regrowth=0};$('water').onclick=()=>{regrowth=Math.min(1,regrowth+.45)};$('heal').onclick=()=>{regrowth=1;scar=null};$('reset').onclick=()=>{seed+=137;scar=null;regrowth=0;origin=0;build()};
+addEventListener('keydown',e=>{if(['ArrowRight','d','D'].includes(e.key)){origin+=1.4;build()}if(['ArrowLeft','a','A'].includes(e.key)){origin-=1.4;build()}});
+cv.addEventListener('pointerdown',e=>{looking=true;px=e.clientX;cv.setPointerCapture(e.pointerId)});cv.addEventListener('pointermove',e=>{if(!looking)return;const v=e.clientX-px;if(Math.abs(v)>7){origin-=v*.05;build();px=e.clientX}});cv.addEventListener('pointerup',()=>looking=false);
+build();requestAnimationFrame(display);
+</script></body></html>

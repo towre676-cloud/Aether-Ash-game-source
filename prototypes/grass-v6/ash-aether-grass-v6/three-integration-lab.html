@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Ash & Aether / Three.js integration lab (v6)</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:#111b17;color:#eee}canvas{display:block;width:100vw;height:100vh;touch-action:none}#hud{position:fixed;left:12px;top:12px;width:min(315px,calc(100vw - 24px));background:#07150fdb;box-shadow:0 12px 34px #0008;border:1px solid #fff2;border-radius:15px;padding:15px;backdrop-filter:blur(12px);font-size:12px}h1{font-size:19px;font-family:Georgia,serif;font-weight:500;margin:3px 0 4px;color:#e6dbb6}.overline{font-size:10px;letter-spacing:.18em;color:#b6caa6}.desc{line-height:1.4;color:#c4ccb7;margin:0 0 9px}.control{display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center;gap:6px;margin:9px 0}label{color:#c6d0bf}select,button,input{accent-color:#b6c48b}select,button{border:1px solid #fff4;background:#183427;color:#fff;padding:8px;border-radius:8px}button{cursor:pointer}#actions{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}#stats{white-space:pre-wrap;font:11px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4e0bc;background:#0c2119;padding:9px;margin:10px 0 0;border-radius:9px}#help{position:fixed;bottom:14px;left:14px;background:#07150fcc;border-radius:8px;padding:10px 12px;font-size:11px;color:#f0e8d0;max-width:320px}.notice{color:#e6cb90}#error{position:fixed;inset:0;background:#10251e;padding:32px;display:none;white-space:pre-wrap}#meter{position:fixed;top:12px;right:12px;background:#07150fcc;color:#ccdfc9;border-radius:8px;padding:8px;font:11px/1.3 monospace}@media(max-width:600px){#hud{max-height:60vh;overflow:auto;padding:10px}h1{font-size:16px}#meter{top:auto;bottom:12px;right:12px}#help{max-width:160px;font-size:10px}}
+</style></head><body><div id="screen"></div>
+<div id="hud"><div class="overline">ASH & AETHER / WEBGL INTEGRATION STUDY</div><h1>Grass that belongs to its world</h1><p class="desc">Real Three.js instancing, one authoritative terrain heightfield, host-owned roads and foundations, and camera-aware ecology.</p>
+<div class="control"><label for="quality">Detail</label><select id="quality"><option value="low">Mobile</option><option value="medium" selected>Balanced</option><option value="high">High</option><option value="ultra">Ultra</option></select></div>
+<div class="control"><label for="biome">Habitat</label><select id="biome"><option value="orchard">Orchard / meadow</option><option value="woodland">Woodland</option><option value="moor">Moorland</option><option value="riverbank">Riverbank</option><option value="farmlands">Farmlands</option></select></div>
+<div class="control"><label for="density">Max tufts</label><input id="density" type="range" min="500" max="20000" value="5000" step="500"></div>
+<div class="control"><label for="wind">Wind</label><input id="wind" type="range" min="0" max="150" value="35"></div>
+<div class="control"><label for="season">Season</label><select id="season"><option>summer</option><option>autumn</option><option>winter</option><option>spring</option></select></div>
+<div class="control"><label for="cameraCull">View cull</label><input id="cameraCull" type="checkbox" checked></div>
+<div id="actions"><button id="step">Trample</button><button id="fire">Burn</button><button id="water">Water</button></div>
+<div id="stats" role="status">Initializing renderer…</div>
+<p class="desc notice" style="margin:7px 0 0">Development harness, not deployed A&A. Loads pinned Three.js from CDN; requires WebGL and internet access.</p></div>
+<div id="meter">Renderer initializing</div><div id="help">Drag to orbit. Wheel or pinch to zoom. Arrow keys / WASD move the avatar. Grass affects cover and fire, independent of detail settings.</div><div id="error" role="alert"></div>
+<script type="module">async function start(){try{
+
+const THREE=await import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js');
+const {createAAGameVegetationBridge}=await import('./aa-game-integration.mjs');
+const {valueNoise,clamp}=await import('./grass-ecology.mjs');
+const $=x=>document.getElementById(x);
+const ui={quality:$('quality'),biome:$('biome'),density:$('density'),wind:$('wind'),season:$('season'),cameraCull:$('cameraCull'),stats:$('stats')};
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setSize(innerWidth,innerHeight);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+$('screen').appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#9eaca2');scene.fog=new THREE.FogExp2('#aab8a6',.014);
+const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.12,240);
+scene.add(new THREE.HemisphereLight('#cdddf1','#62563b',2.2));
+const sun=new THREE.DirectionalLight('#ffedbf',2.2);sun.position.set(-23,42,12);sun.castShadow=true;
+sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.bias=-.00015;scene.add(sun);
+const seed=531;
+const heightAt=(x,z)=>.60*Math.sin(x*.085)*Math.cos(z*.095)+.35*(valueNoise(x*.09,z*.09,seed)-.5);
+const riverZ=x=>-13+2.1*Math.sin(x*.06);
+const riverDist=(x,z)=>Math.abs(z-riverZ(x));
+const pathAt=(x,z)=>clamp(1-Math.abs(z-(3+.65*Math.sin(x*.06)))/2.5);
+const foundationAt=(x,z)=>x>-9&&x<-2&&z>11&&z<18;
+const blockedAt=(x,z)=>foundationAt(x,z)||riverDist(x,z)<2.8;
+const moistureAt=(x,z)=>clamp(.29+.65*(1-clamp(riverDist(x,z)/14)));
+const shadeAt=(x,z)=>clamp(.12+.4*valueNoise(x*.09,z*.09,seed+8));
+function normalAt(x,z){const d=.28,dx=(heightAt(x+d,z)-heightAt(x-d,z))/(2*d),dz=(heightAt(x,z+d)-heightAt(x,z-d))/(2*d);return {x:-dx,y:1,z:-dz};}
+// World geometry is created once. The vegetation renderer does not create a second terrain plane.
+const groundGeom=new THREE.PlaneGeometry(110,110,150,150);groundGeom.rotateX(-Math.PI/2);
+const pos=groundGeom.attributes.position,colors=[];
+const col0=new THREE.Color('#697351'),col1=new THREE.Color('#9e8a67'),col2=new THREE.Color('#576c55'),col3=new THREE.Color('#5c786b');
+for(let i=0;i<pos.count;i++){
+ const x=pos.getX(i),z=pos.getZ(i);pos.setY(i,heightAt(x,z));
+ const c=col0.clone().lerp(col2,Math.min(.45,shadeAt(x,z)*.65));
+ c.lerp(col1,pathAt(x,z)*.83);c.lerp(col3,Math.max(0,1-riverDist(x,z)/4)*.76);
+ colors.push(c.r,c.g,c.b);
+}
+groundGeom.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));groundGeom.computeVertexNormals();
+const ground=new THREE.Mesh(groundGeom,new THREE.MeshStandardMaterial({vertexColors:true,roughness:1,metalness:0}));ground.receiveShadow=true;scene.add(ground);
+// Test-only terrain markers. The game owns its own water, buildings and models.
+const house=new THREE.Mesh(new THREE.BoxGeometry(7,4,7),new THREE.MeshStandardMaterial({color:'#927965',roughness:1}));house.position.set(-5.5,heightAt(-5.5,14.5)+2.0,14.5);house.castShadow=true;house.receiveShadow=true;scene.add(house);
+const roof=new THREE.Mesh(new THREE.ConeGeometry(5.45,2.8,4),new THREE.MeshStandardMaterial({color:'#534b40',roughness:1}));roof.rotation.y=Math.PI/4;roof.position.set(-5.5,6,14.5);roof.castShadow=true;scene.add(roof);
+const waterPts=[];for(let x=-53;x<=53;x+=1){waterPts.push(new THREE.Vector3(x,heightAt(x,riverZ(x))+.09,riverZ(x)-2.65),new THREE.Vector3(x,heightAt(x,riverZ(x))+.09,riverZ(x)+2.65));}
+const wi=[];for(let i=0;i<waterPts.length/2-1;i++){const n=i*2;wi.push(n,n+1,n+2,n+1,n+3,n+2)}
+const wg=new THREE.BufferGeometry();wg.setFromPoints(waterPts);wg.setIndex(wi);wg.computeVertexNormals();const water=new THREE.Mesh(wg,new THREE.MeshStandardMaterial({color:'#537e80',metalness:.15,roughness:.29,transparent:true,opacity:.92,side:THREE.DoubleSide}));scene.add(water);
+const trunks=new THREE.CylinderGeometry(.23,.32,3.3,7),crowns=new THREE.IcosahedronGeometry(2.0,1),trunkMat=new THREE.MeshStandardMaterial({color:'#66513d'}),crownMat=new THREE.MeshStandardMaterial({color:'#486a47',roughness:.9});
+for(let i=0;i<24;i++){
+ const x=-38+i*3.5,z=23+(i%3-1)*2.5;if(pathAt(x,z)>.1||foundationAt(x,z))continue;
+ const trunk=new THREE.Mesh(trunks,trunkMat),top=new THREE.Mesh(crowns,crownMat);trunk.position.set(x,heightAt(x,z)+1.65,z);top.position.set(x,heightAt(x,z)+4.3,z);top.scale.set(.92+i%3*.15,.85+i%4*.12,1);trunk.castShadow=true;top.castShadow=true;scene.add(trunk,top);
+}
+const actor=new THREE.Group();const actorBody=new THREE.Mesh(new THREE.CapsuleGeometry(.28,.82,5,8),new THREE.MeshStandardMaterial({color:'#e4c898',roughness:.7}));actorBody.position.y=.86;actor.add(actorBody);scene.add(actor);
+let player={x:0,z:0},theta=.65,distance=15,pitch=.54,drag=null,bridge,previous=performance.now(),elapsed=0,frames=0,meanFrame=0,frameDate=0;
+function settings(){return {THREE,scene,seed,quality:ui.quality.value,maxPlants:Number(ui.density.value),wind:Number(ui.wind.value)/100,renderMode:'gpu',timelineId:'main',groundOptions:{
+ materialAt:(x,z)=>({tags:foundationAt(x,z)?['stone','foundation']:['loam','soil'],organic:foundationAt(x,z)?0:.9,moisture:moistureAt(x,z)}),regionAt:(x,z)=>({biome:ui.biome.value}),normalAt,
+ heightAt,shadeAt,moistureAt,pathAt,obstacleAt:blockedAt,seasonAt:()=>ui.season.value,weatherAt:()=>({rain:0,wind:Number(ui.wind.value)/100})},
+ cameraView:ui.cameraCull.checked?getCameraView():null};}
+function getCameraView(){const h=new THREE.Vector3();camera.getWorldDirection(h);return {x:camera.position.x,z:camera.position.z,forwardX:h.x,forwardZ:h.z,halfAngleDegrees:75,nearRadius:10};}
+function build(){bridge?.dispose();bridge=createAAGameVegetationBridge(settings());}
+function moveCamera(){camera.position.set(player.x+Math.sin(theta)*Math.cos(pitch)*distance,heightAt(player.x,player.z)+3+Math.sin(pitch)*distance,player.z+Math.cos(theta)*Math.cos(pitch)*distance);camera.lookAt(player.x,heightAt(player.x,player.z)+1.25,player.z);actor.position.set(player.x,heightAt(player.x,player.z),player.z);}
+moveCamera();build();
+for(const id of ['quality','biome','density','season'])$(id).addEventListener('change',build);$('cameraCull').addEventListener('change',()=>bridge.tick(0,player,{cameraView:ui.cameraCull.checked?getCameraView():null}));
+const typed=(type,extras={})=>bridge.applyEvent({type,eventId:`lab-${Date.now()}-${Math.random()}`,x:player.x,z:player.z,...extras});
+$('step').onclick=()=>typed('footfall',{radius:1.7,mass:2});$('fire').onclick=()=>typed('fire',{radius:4,strength:.9});$('water').onclick=()=>typed('water',{radius:4,amount:1});
+const keys=new Set();onkeydown=e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))e.preventDefault();keys.add(e.code)};onkeyup=e=>keys.delete(e.code);
+const dom=renderer.domElement;dom.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};dom.setPointerCapture(e.pointerId)});
+dom.addEventListener('pointermove',e=>{if(!drag)return;theta-=(e.clientX-drag.x)*.008;pitch=clamp(pitch+(e.clientY-drag.y)*.004,.12,1.18);drag={x:e.clientX,y:e.clientY}});
+dom.addEventListener('pointerup',()=>drag=null);dom.addEventListener('wheel',e=>{distance=clamp(distance+e.deltaY*.012,4.5,36);e.preventDefault()},{passive:false});
+onresize=()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)};
+function animate(now){requestAnimationFrame(animate);let dt=clamp((now-previous)/1000,0,.05);previous=now;elapsed+=dt;frames++;frameDate+=dt;
+ const x=(keys.has('KeyD')||keys.has('ArrowRight')?1:0)-(keys.has('KeyA')||keys.has('ArrowLeft')?1:0);
+ const z=(keys.has('KeyS')||keys.has('ArrowDown')?1:0)-(keys.has('KeyW')||keys.has('ArrowUp')?1:0);
+ if(x||z){const d=Math.hypot(x,z);player.x=clamp(player.x+x/d*dt*4,-45,45);player.z=clamp(player.z+z/d*dt*4,-42,42);if(!blockedAt(player.x,player.z)&&Math.random()<.06)typed('footfall',{radius:.7,mass:1});}
+ moveCamera();bridge.tick(dt,player,{wind:Number(ui.wind.value)/100,cameraView:ui.cameraCull.checked?getCameraView():null,sunTint:'#f9e6ba'});
+ renderer.render(scene,camera);
+ if(frameDate>.7){const s=bridge.getStats().gpu||{},v=bridge.sample(player.x,player.z);
+ $('stats').textContent=`Tufts ${s.plants??0} | flowers ${s.flowers??0} | visible camera rejects ${s.viewRejected??0}\nCPU field build ${Math.round(s.buildMs??0)} ms (count ${s.buildCount??0})\nDraw calls ${renderer.info.render.calls} | triangles ${renderer.info.render.triangles.toLocaleString()}\nFrame rate ~${Math.round(frames/frameDate)} fps (browser + test scene, not GPU benchmark)\nWorld cover ${(v.gameplay.concealment*100).toFixed(0)}% | scorch ${(v.vegetation.scorch*100).toFixed(0)}%`;
+ $('meter').textContent=`${Math.round(frames/frameDate)} fps · ${(s.plants??0).toLocaleString()} tufts`;frames=0;frameDate=0;}
+}
+requestAnimationFrame(animate);
+
+}catch(error){const box=document.getElementById('error');box.style.display='block';
+box.textContent='WebGL scene did not start: '+error.message+'\n\nThis development harness requires a local HTTP server, WebGL, and internet access for Three.js.\n\nUse the included offline perspective and ecology labs if unavailable.';
+for(const [name,url] of [['Open offline perspective lab','./cinematic-grass-offline.html'],['Open ecology lab','./reconciliation-lab-offline.html']]){const p=document.createElement('p'),a=document.createElement('a');a.href=url;a.textContent=name;a.style.color='#eed49e';p.append(a);box.append(p);}
+console.error(error);}}start();
+</script></body></html>

@@ -1,0 +1,13 @@
+{
+  "browser": "Chromium actual JavaScript + mocked 400ms WAV transport",
+  "headless": true,
+  "start": "SPATIAL SOUND ON",
+  "weather": "rain",
+  "gate_opened": true,
+  "new_game_plus": true,
+  "boss_guard": true,
+  "ferryman": true,
+  "hydrophone": true,
+  "js_errors": [],
+  "audio_limit": "Not a real packaged-Opus playback test."
+}

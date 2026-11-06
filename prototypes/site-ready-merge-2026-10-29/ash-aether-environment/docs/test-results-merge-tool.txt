@@ -1,0 +1,12 @@
+test_apply_is_additive_and_repeatable (test_merge_tool.ProductionMergeTests.test_apply_is_additive_and_repeatable) ... ok
+test_conflicting_existing_module_refuses_all_changes (test_merge_tool.ProductionMergeTests.test_conflicting_existing_module_refuses_all_changes) ... ok
+test_dry_run_is_read_only (test_merge_tool.ProductionMergeTests.test_dry_run_is_read_only) ... ok
+test_fingerprint_detects_content_change_with_same_mtime (test_merge_tool.ProductionMergeTests.test_fingerprint_detects_content_change_with_same_mtime) ... ok
+test_reject_lab_root_and_unrecognized_dir (test_merge_tool.ProductionMergeTests.test_reject_lab_root_and_unrecognized_dir) ... ok
+test_stale_source_fingerprint_refuses (test_merge_tool.ProductionMergeTests.test_stale_source_fingerprint_refuses) ... ok
+test_symlinked_destination_parent_is_rejected (test_merge_tool.ProductionMergeTests.test_symlinked_destination_parent_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.721s
+
+OK

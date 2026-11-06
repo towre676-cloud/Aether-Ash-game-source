@@ -1,0 +1,146 @@
+{
+  "name": "ash-aether-living-grass-v6-three-integration",
+  "date": "2026-10-29",
+  "deployment": "NOT DEPLOYED",
+  "validation": {
+    "nodeTests": 57,
+    "nodeFailed": 0,
+    "browserCanvasLoadTests": 4,
+    "webglShaderCompile": "NOT VERIFIED: sandbox lacks WebGL context",
+    "cpuBenchmarks": "BENCHMARK_V6.json is synthetic Node/mock-only"
+  },
+  "files": {
+    "README_V6.md": {
+      "sha256": "d30a29bbd9783defb3f5f23da0764c84271142be6820d0bc394375f986ca720a",
+      "bytes": 6510
+    },
+    "LIVE_MERGE_CHECKLIST_V6.md": {
+      "sha256": "02cc009669c517f6c8f64cd2399cc7a9eda94d5bb681acac2ebf6a07d2e0a378",
+      "bytes": 2454
+    },
+    "BENCHMARK_V6.json": {
+      "sha256": "5d5c84b9157614bb71ce93e19386cc0c1efab29321be71ae576f1194eddbe87b",
+      "bytes": 1606
+    },
+    "OFFLINE_BROWSER_V6.json": {
+      "sha256": "138547f775ab799c16536792d488e9942395b07d611a0333b87086e1acd3a0f5",
+      "bytes": 1116
+    },
+    "TEST_LOG_V6.tap": {
+      "sha256": "bcee889682d6b4fe21f8715a4fc9ed772b4a304d34b202f1b93eced3a9195d3c",
+      "bytes": 13156
+    },
+    "package.json": {
+      "sha256": "f0ffa63fbe678d306eba08dd056af9785bd010663fd696cef48dc59f3a47c449",
+      "bytes": 341
+    },
+    "grass-ecology.mjs": {
+      "sha256": "739021457a13ee5315585140ebbee1d7f9734803cb7979b61bf55b407f98adc0",
+      "bytes": 9386
+    },
+    "grass-appearance.mjs": {
+      "sha256": "f0fbff93e0e8df64beafd975948099b3c4438703dc1c9c6043610d2d663aa9a2",
+      "bytes": 1451
+    },
+    "grass-state.mjs": {
+      "sha256": "4b3aaa5112f00b4a68cf9b2e2bb7be9194301974a50f4eb274b517c97eea1e28",
+      "bytes": 6174
+    },
+    "grass-renderer.mjs": {
+      "sha256": "dfdb2b553bf18c4564be0155cfec9d7be8fccccb32c55011cecbde64d0aab1e9",
+      "bytes": 22920
+    },
+    "canvas-grass-fallback.mjs": {
+      "sha256": "909c81e879510440741403c0eb6d3c73c42b3413185545b22d9a8604123cadab",
+      "bytes": 8252
+    },
+    "ground-forge-compat.mjs": {
+      "sha256": "cb2ac08bf965bf57492e9f2b6d44a646ab20b042aa6163c33584bf3d56178359",
+      "bytes": 6234
+    },
+    "living-landscape.mjs": {
+      "sha256": "a59e05cc27f9c3f2691f67e3c01a156177ce9f1b845cc7c25ada158968cb143c",
+      "bytes": 3297
+    },
+    "foliage-quality-governor.mjs": {
+      "sha256": "6462b80036640658bf20f3e1eb8b1f1979f3cbbf4442fb36afc49be64c10de1a",
+      "bytes": 2117
+    },
+    "aa-game-integration.mjs": {
+      "sha256": "d38e38c890bf35a83c94c36e2f651ec5f4ecfde92367c30bccdf0903d3fa70e7",
+      "bytes": 15564
+    },
+    "grass.test.mjs": {
+      "sha256": "4666a46ac5c6d5edce7fcb0d03df9ddcf7fafba786340b3b1e53cfb6432a831d",
+      "bytes": 7176
+    },
+    "grass-state.test.mjs": {
+      "sha256": "244f16342f415ce7444c6f5a766d9dcae2f5e2c4343e2cd427469ff3304bd2c1",
+      "bytes": 2703
+    },
+    "gpu-integration.test.mjs": {
+      "sha256": "e60d3758af149ce4b11abc0b0712a051854b47cdbff25bcf2362c8d11c377896",
+      "bytes": 4336
+    },
+    "reconciliation.test.mjs": {
+      "sha256": "c6fb9b43f365d7f0467b50614974f434e45fde524af9637a0642e72ee3f37307",
+      "bytes": 8392
+    },
+    "offline-preview.test.mjs": {
+      "sha256": "648a0893ebb9ac14d25663e5c423396138279abdec519c4a422e9c133e62f745",
+      "bytes": 1948
+    },
+    "v4-regressions.test.mjs": {
+      "sha256": "a4a7aae680c1b0eef9466ad6cb795cae611fce3999e868fc018512c1ff0c1e7a",
+      "bytes": 8674
+    },
+    "v5-visual.test.mjs": {
+      "sha256": "0b3c4cb91633a830d3021fa65017172bd0ad107e884a031af1d97f436b688511",
+      "bytes": 5746
+    },
+    "v6-integration.test.mjs": {
+      "sha256": "00559371e103d990fc10e7d30c29f0511397e36a3e3826d4bed6ef964e504eeb",
+      "bytes": 6817
+    },
+    "build-offline-lab.py": {
+      "sha256": "c998fff83c2d1903e624d5932830bb3ea2aacd9c40a3b08b0eba96a41f0d488f",
+      "bytes": 1798
+    },
+    "build-cinematic-lab.py": {
+      "sha256": "3336ed6840f89c1620b38b6c70df59807ae17a07382acc7baab210ba3b9c1f44",
+      "bytes": 1315
+    },
+    "browser-offline-smoke.py": {
+      "sha256": "b75ffcd1aa7c6a126f22856ca237f8f1bca2ef53d21195e336d8d8a8ba27a1d3",
+      "bytes": 1259
+    },
+    "benchmark-field.mjs": {
+      "sha256": "a65fa1f80f93279a094110d978756ea294b6eb40a882e9bd64e467099426195f",
+      "bytes": 2282
+    },
+    "cinematic-grass.template.html": {
+      "sha256": "1e6ad54beff3b5dbd117740dd0c3d8f6cc8fbd559a65e2fee93befc1361c51d9",
+      "bytes": 12668
+    },
+    "cinematic-grass-offline.html": {
+      "sha256": "04ee1facc000b5c0c150668692e167bf70f9577d9dd01063fde2dc4b24f20b9d",
+      "bytes": 89065
+    },
+    "reconciliation-lab.template.html": {
+      "sha256": "3aaa1e5e33060d7f1febb4629bdfedb497b011930bed95eb9dddb8eac3089764",
+      "bytes": 17103
+    },
+    "reconciliation-lab-offline.html": {
+      "sha256": "166c3210818e7572c279cc6b5c1f27eb6960aad29158b287259562bb194fba17",
+      "bytes": 93500
+    },
+    "preview-offline.html": {
+      "sha256": "7c0047679724acab5a213145e5aaaacaef7d7a9d1933852036eb55da388b9f05",
+      "bytes": 13831
+    },
+    "three-integration-lab.html": {
+      "sha256": "6cf5841b1b8fd438773095d82dd23897b24e092c262fd2c5df68f348eebe6b4f",
+      "bytes": 13734
+    }
+  }
+}

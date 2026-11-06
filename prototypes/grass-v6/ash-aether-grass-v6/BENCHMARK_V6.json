@@ -1,0 +1,73 @@
+{
+  "kind": "CPU_MOCK_ONLY__NOT_GPU_OR_END_USER_FPS",
+  "machine": "v22.16.0",
+  "date": "2026-10-29T15:25:29.539Z",
+  "data": [
+    {
+      "quality": "low",
+      "maxPlants": 4000,
+      "viewCulling": false,
+      "plants": 1827,
+      "flowers": 0,
+      "instancesAllocated": 37084,
+      "drawCalls": 4,
+      "viewRejected": 0,
+      "avgRebuildMs": 12.3
+    },
+    {
+      "quality": "low",
+      "maxPlants": 4000,
+      "viewCulling": true,
+      "plants": 1207,
+      "flowers": 0,
+      "instancesAllocated": 37084,
+      "drawCalls": 4,
+      "viewRejected": 1088,
+      "avgRebuildMs": 9
+    },
+    {
+      "quality": "medium",
+      "maxPlants": 7000,
+      "viewCulling": false,
+      "plants": 6666,
+      "flowers": 770,
+      "instancesAllocated": 64890,
+      "drawCalls": 5,
+      "viewRejected": 0,
+      "avgRebuildMs": 31.3
+    },
+    {
+      "quality": "medium",
+      "maxPlants": 7000,
+      "viewCulling": true,
+      "plants": 3695,
+      "flowers": 425,
+      "instancesAllocated": 64890,
+      "drawCalls": 5,
+      "viewRejected": 5582,
+      "avgRebuildMs": 17.2
+    },
+    {
+      "quality": "high",
+      "maxPlants": 10000,
+      "viewCulling": false,
+      "plants": 10000,
+      "flowers": 1100,
+      "instancesAllocated": 92699,
+      "drawCalls": 5,
+      "viewRejected": 0,
+      "avgRebuildMs": 33.9
+    },
+    {
+      "quality": "high",
+      "maxPlants": 10000,
+      "viewCulling": true,
+      "plants": 10000,
+      "flowers": 1100,
+      "instancesAllocated": 92699,
+      "drawCalls": 5,
+      "viewRejected": 16132,
+      "avgRebuildMs": 33.7
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Ash & Aether Living Grass v2",
+  "date": "2026-10-29",
+  "status": "portable modules, not deployed to active A&A Site",
+  "sha256": {
+    "INTEGRATION_CHECKLIST.md": "c17dc77376002b7e4f59aa94dfb45215fe92a2f31121575538a3d5f5bda6af2f",
+    "README.md": "3de7856233d1feb540d84e21f21d9857299f7208842c42cb72e32321ac3fef9f",
+    "canvas-grass-fallback.mjs": "985f49426f514352108ad0894ad7469ac82626a222bc9722a90b5d303877e485",
+    "demo.html": "b90ba98c35448cd0fdef100ac496de9f238baef7cdfc75e6972356cd4f6d082e",
+    "grass-ecology.mjs": "a00939ea364cdcf7e3cfe5129a0cc07d491438ce6254cef803afe38c9c4e926c",
+    "grass-renderer.mjs": "6079dbec27983ce47f834f76ad05a450e6808b38c472c39bd5c33faea80f4d51",
+    "grass-state.mjs": "4b3aaa5112f00b4a68cf9b2e2bb7be9194301974a50f4eb274b517c97eea1e28",
+    "grass-state.test.mjs": "244f16342f415ce7444c6f5a766d9dcae2f5e2c4343e2cd427469ff3304bd2c1",
+    "grass.test.mjs": "a7241b180fddbb9ad7fde436779e0327b4d09712ec78c07606e65c98704bbb3a",
+    "living-landscape.mjs": "7a10050eb18d51ff3bfb955f1f20082063e2773b677f81395a5b01bbcf049f9b",
+    "offline-preview.test.mjs": "648a0893ebb9ac14d25663e5c423396138279abdec519c4a422e9c133e62f745",
+    "package.json": "5053c45aa8f52ac91733cf9421f5837b52d8df772cb72027a71cefcecddc0947",
+    "preview-offline.html": "7c0047679724acab5a213145e5aaaacaef7d7a9d1933852036eb55da388b9f05"
+  },
+  "tests": 17
+}

@@ -1,0 +1,334 @@
+TAP version 13
+# Subtest: runes enumerate twelve original playable sigils
+ok 1 - runes enumerate twelve original playable sigils
+  ---
+  duration_ms: 1.673263
+  type: 'test'
+  ...
+# Subtest: socket engraving costs resources and modifies equipped stats
+ok 2 - socket engraving costs resources and modifies equipped stats
+  ---
+  duration_ms: 3.3684
+  type: 'test'
+  ...
+# Subtest: runic socket capacity is honored; common items reject engraving
+ok 3 - runic socket capacity is honored; common items reject engraving
+  ---
+  duration_ms: 0.341435
+  type: 'test'
+  ...
+# Subtest: rune extraction preserves item base statistics even after tempering
+ok 4 - rune extraction preserves item base statistics even after tempering
+  ---
+  duration_ms: 0.689689
+  type: 'test'
+  ...
+# Subtest: two matching-element runes yield bounded nonlinear harmonic bonus
+ok 5 - two matching-element runes yield bounded nonlinear harmonic bonus
+  ---
+  duration_ms: 1.315305
+  type: 'test'
+  ...
+# Subtest: save and wear full loadout with alternate builds without duping equipment
+ok 6 - save and wear full loadout with alternate builds without duping equipment
+  ---
+  duration_ms: 1.771349
+  type: 'test'
+  ...
+# Subtest: loadout rejects missing items without changing the armory state
+ok 7 - loadout rejects missing items without changing the armory state
+  ---
+  duration_ms: 1.643018
+  type: 'test'
+  ...
+# Subtest: crafting produces region-specific deterministic equipment with paid costs
+ok 8 - crafting produces region-specific deterministic equipment with paid costs
+  ---
+  duration_ms: 0.914242
+  type: 'test'
+  ...
+# Subtest: forge serial prevents accidental duplicate outputs and persists
+ok 9 - forge serial prevents accidental duplicate outputs and persists
+  ---
+  duration_ms: 1.288284
+  type: 'test'
+  ...
+# Subtest: craft failures cannot spend material balances or forge serial
+ok 10 - craft failures cannot spend material balances or forge serial
+  ---
+  duration_ms: 0.624103
+  type: 'test'
+  ...
+# Subtest: unrecognized real-game species retains its identity and supplied anatomy
+ok 11 - unrecognized real-game species retains its identity and supplied anatomy
+  ---
+  duration_ms: 0.938157
+  type: 'test'
+  ...
+# Subtest: unknown species does not silently masquerade as Cinderstag
+ok 12 - unknown species does not silently masquerade as Cinderstag
+  ---
+  duration_ms: 0.339412
+  type: 'test'
+  ...
+# Subtest: boss encounter fourth signature award is deterministic and paid once
+ok 13 - boss encounter fourth signature award is deterministic and paid once
+  ---
+  duration_ms: 2.811066
+  type: 'test'
+  ...
+# Subtest: loot journal tracks real claimed victories rather than previews
+ok 14 - loot journal tracks real claimed victories rather than previews
+  ---
+  duration_ms: 0.404518
+  type: 'test'
+  ...
+# Subtest: full save roundtrips runes, loadouts, forge, journal and no double-grants
+ok 15 - full save roundtrips runes, loadouts, forge, journal and no double-grants
+  ---
+  duration_ms: 1.443544
+  type: 'test'
+  ...
+# Subtest: legacy v1 snapshots missing v2 fields migrate
+ok 16 - legacy v1 snapshots missing v2 fields migrate
+  ---
+  duration_ms: 0.368926
+  type: 'test'
+  ...
+# Subtest: invalid rune identifiers rejected without mutating previous armory state
+ok 17 - invalid rune identifiers rejected without mutating previous armory state
+  ---
+  duration_ms: 0.788626
+  type: 'test'
+  ...
+# Subtest: host-owned mode does not pretend a private preview inventory is canonical
+ok 18 - host-owned mode does not pretend a private preview inventory is canonical
+  ---
+  duration_ms: 0.25692
+  type: 'test'
+  ...
+# Subtest: host bridge accepts canonical creature descriptors and copies reward once
+ok 19 - host bridge accepts canonical creature descriptors and copies reward once
+  ---
+  duration_ms: 0.818069
+  type: 'test'
+  ...
+# Subtest: catalog spans every equipment slot including paired rings
+ok 20 - catalog spans every equipment slot including paired rings
+  ---
+  duration_ms: 2.081768
+  type: 'test'
+  ...
+# Subtest: rarity names and each base produce distinct item power
+ok 21 - rarity names and each base produce distinct item power
+  ---
+  duration_ms: 1.339941
+  type: 'test'
+  ...
+# Subtest: deterministic draw across seeds and events
+ok 22 - deterministic draw across seeds and events
+  ---
+  duration_ms: 1.823235
+  type: 'test'
+  ...
+# Subtest: all regions generate ecological elemental affixes
+ok 23 - all regions generate ecological elemental affixes
+  ---
+  duration_ms: 0.666996
+  type: 'test'
+  ...
+# Subtest: unique item skill strings persist, unique event id and finite stats
+ok 24 - unique item skill strings persist, unique event id and finite stats
+  ---
+  duration_ms: 0.769447
+  type: 'test'
+  ...
+# Subtest: grid pack never overlaps and handles non-square equipment
+ok 25 - grid pack never overlaps and handles non-square equipment
+  ---
+  duration_ms: 0.657092
+  type: 'test'
+  ...
+# Subtest: ring slots hold independent rings and swaps are lossless
+ok 26 - ring slots hold independent rings and swaps are lossless
+  ---
+  duration_ms: 0.609231
+  type: 'test'
+  ...
+# Subtest: wrong slot does not take a gear item or change inventory
+ok 27 - wrong slot does not take a gear item or change inventory
+  ---
+  duration_ms: 0.509423
+  type: 'test'
+  ...
+# Subtest: level gates gear equipment
+ok 28 - level gates gear equipment
+  ---
+  duration_ms: 0.41912
+  type: 'test'
+  ...
+# Subtest: unequip respects full bag and never deletes gear
+ok 29 - unequip respects full bag and never deletes gear
+  ---
+  duration_ms: 7.445001
+  type: 'test'
+  ...
+# Subtest: fully occupied grid routes excess items to vault then recovery
+ok 30 - fully occupied grid routes excess items to vault then recovery
+  ---
+  duration_ms: 13.665182
+  type: 'test'
+  ...
+# Subtest: sort never loses or duplicates ids
+ok 31 - sort never loses or duplicates ids
+  ---
+  duration_ms: 1.906658
+  type: 'test'
+  ...
+# Subtest: moving to occupied slot fails atomically
+ok 32 - moving to occupied slot fails atomically
+  ---
+  duration_ms: 0.508362
+  type: 'test'
+  ...
+# Subtest: reclaiming a locked item is forbidden
+ok 33 - reclaiming a locked item is forbidden
+  ---
+  duration_ms: 0.348215
+  type: 'test'
+  ...
+# Subtest: salvage increases real resource records and cannot repeat
+ok 34 - salvage increases real resource records and cannot repeat
+  ---
+  duration_ms: 0.30432
+  type: 'test'
+  ...
+# Subtest: upgrade charges costs, improves stats, caps at eight and prevents negative resources
+ok 35 - upgrade charges costs, improves stats, caps at eight and prevents negative resources
+  ---
+  duration_ms: 0.735578
+  type: 'test'
+  ...
+# Subtest: claiming encounter produces canonical resource records with no duplicate awards
+ok 36 - claiming encounter produces canonical resource records with no duplicate awards
+  ---
+  duration_ms: 2.112553
+  type: 'test'
+  ...
+# Subtest: boss guarantees an epic-or-higher drop
+ok 37 - boss guarantees an epic-or-higher drop
+  ---
+  duration_ms: 3.810353
+  type: 'test'
+  ...
+# Subtest: all creature profiles generate valid finite rewards
+ok 38 - all creature profiles generate valid finite rewards
+  ---
+  duration_ms: 0.625304
+  type: 'test'
+  ...
+# Subtest: stats use multi-set threshold bonuses without losing base item stats
+ok 39 - stats use multi-set threshold bonuses without losing base item stats
+  ---
+  duration_ms: 0.452339
+  type: 'test'
+  ...
+# Subtest: combat multipliers are numeric, shield responds to piercing and material
+ok 40 - combat multipliers are numeric, shield responds to piercing and material
+  ---
+  duration_ms: 0.547549
+  type: 'test'
+  ...
+# Subtest: valid snapshot roundtrips and rejects overlap, duplicate id and wrong version
+ok 41 - valid snapshot roundtrips and rejects overlap, duplicate id and wrong version
+  ---
+  duration_ms: 2.775623
+  type: 'test'
+  ...
+# Subtest: NG+ namespaces item and encounter ledger, optional carry is preserved
+ok 42 - NG+ namespaces item and encounter ledger, optional carry is preserved
+  ---
+  duration_ms: 0.499188
+  type: 'test'
+  ...
+# Subtest: generate 1500 varied deterministic gear without invalid values
+ok 43 - generate 1500 varied deterministic gear without invalid values
+  ---
+  duration_ms: 30.017386
+  type: 'test'
+  ...
+# Subtest: unique abilities alter real world modifiers, not only tooltip text
+ok 44 - unique abilities alter real world modifiers, not only tooltip text
+  ---
+  duration_ms: 0.662189
+  type: 'test'
+  ...
+# Subtest: root armor, water crown and rooted boots change environmental defenses and grip
+ok 45 - root armor, water crown and rooted boots change environmental defenses and grip
+  ---
+  duration_ms: 0.548641
+  type: 'test'
+  ...
+# Subtest: timed unique trigger fires on the fourth encounter without mutating battle owner
+ok 46 - timed unique trigger fires on the fourth encounter without mutating battle owner
+  ---
+  duration_ms: 0.521671
+  type: 'test'
+  ...
+# Subtest: timeline sigil implements an additional NG+ memory
+ok 47 - timeline sigil implements an additional NG+ memory
+  ---
+  duration_ms: 0.238984
+  type: 'test'
+  ...
+# Subtest: host-owned mode requires idempotent canonical award API
+ok 48 - host-owned mode requires idempotent canonical award API
+  ---
+  duration_ms: 1.135619
+  type: 'test'
+  ...
+# Subtest: host-owned mode commits once without minting armory inventory/resources
+ok 49 - host-owned mode commits once without minting armory inventory/resources
+  ---
+  duration_ms: 1.854061
+  type: 'test'
+  ...
+# Subtest: host idempotency prevents double award even if armory state is lost
+ok 50 - host idempotency prevents double award even if armory state is lost
+  ---
+  duration_ms: 0.498467
+  type: 'test'
+  ...
+# Subtest: host refusal leaves ledger untouched, allowing safe retry
+ok 51 - host refusal leaves ledger untouched, allowing safe retry
+  ---
+  duration_ms: 0.758351
+  type: 'test'
+  ...
+# Subtest: loss, escape or unresolved combat never awards loot
+ok 52 - loss, escape or unresolved combat never awards loot
+  ---
+  duration_ms: 0.190162
+  type: 'test'
+  ...
+# Subtest: armory-owned mode consumes one victory and gives rewards, not defeats
+ok 53 - armory-owned mode consumes one victory and gives rewards, not defeats
+  ---
+  duration_ms: 0.888033
+  type: 'test'
+  ...
+# Subtest: bridge returns numeric combat inputs and separate save namespace
+ok 54 - bridge returns numeric combat inputs and separate save namespace
+  ---
+  duration_ms: 1.437125
+  type: 'test'
+  ...
+1..54
+# tests 54
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 163.558308

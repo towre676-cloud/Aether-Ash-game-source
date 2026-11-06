@@ -1,0 +1,18 @@
+{
+ "version":3,
+ "note":"These twelve user-generated studio masters were confirmed completed in the connected audio workspace. They are NOT embedded in the ZIP because the connected tool provides short-lived signed URLs which this local build container could not materialize. Use ingest_studio_masters.py with downloaded files. No signed URLs are shipped.",
+ "masters":[
+  {"id":"ambience_hydrophone_marsh","taskId":"504f865b-b9be-404a-be79-25858dd888e6","kind":"sfx","seconds":9,"use":"reed marsh hydrophone ambience"},
+  {"id":"ambience_hearthforge","taskId":"399bae62-0b99-4bc9-b252-39b3a54b3387","kind":"sfx","seconds":9,"use":"forge room ambience"},
+  {"id":"ambience_resonant_aqueduct","taskId":"81bcba37-42d3-495f-b7fb-6d29646fff65","kind":"sfx","seconds":9,"use":"stone aqueduct ambience"},
+  {"id":"shield_natural_mineral_assembly","taskId":"4ab1b33b-5b64-4306-a428-48a2efee2abd","kind":"sfx","seconds":4,"use":"creature armor forms"},
+  {"id":"voice_witness_water","taskId":"fb68fe07-4140-4e88-8c72-f3f1964c9c68","kind":"voice","seconds":12.64,"lineId":"witness_water"},
+  {"id":"voice_companion_armor","taskId":"f6b61217-9c80-4e5b-9d66-f226d7ba85b0","kind":"voice","seconds":5.6,"lineId":"companion_armor"},
+  {"id":"score_hidden_resonance","taskId":"eab2f5a1-ab84-4760-94c3-14a58520ad3c","kind":"music","seconds":30.15,"use":"discovery cinematic"},
+  {"id":"score_clayback_guardian","taskId":"a506e853-99cd-42c2-bedd-c4641f587741","kind":"music","seconds":180.11,"use":"boss orchestral cinematic"},
+  {"id":"score_water_remembers","taskId":"8615369c-6f04-4729-9e6d-bae93879f7fb","kind":"music","seconds":160.65,"use":"NG+ orchestral cinematic"},
+  {"id":"voice_companion_moss","taskId":"9581ab9f-8c23-4ae5-b45f-a8c17c8317d7","kind":"voice","seconds":8.96,"lineId":"companion_moss"},
+  {"id":"voice_companion_clayback","taskId":"0c8ed3ed-e63a-41c9-9dc6-da3cbd567a27","kind":"voice","seconds":6.8,"lineId":"companion_clayback"},
+  {"id":"voice_archivist_paths","taskId":"2545090c-0e82-4a69-bdbd-d1939912e25b","kind":"voice","seconds":9.12,"lineId":"archivist_paths"}
+ ]
+}

@@ -1,0 +1,352 @@
+TAP version 13
+# Subtest: GPU allocation avoids v2 full-per-species instance buffers
+ok 1 - GPU allocation avoids v2 full-per-species instance buffers
+  ---
+  duration_ms: 54.386971
+  type: 'test'
+  ...
+# Subtest: GPU v3 bridge shares persistent state with ecology, updates day and respects explicit accessibility toggles
+ok 2 - GPU v3 bridge shares persistent state with ecology, updates day and respects explicit accessibility toggles
+  ---
+  duration_ms: 51.792838
+  type: 'test'
+  ...
+# Subtest: 3D and 2D sampling generate identical gameplay for the same ground and world seed
+ok 3 - 3D and 2D sampling generate identical gameplay for the same ground and world seed
+  ---
+  duration_ms: 10.438836
+  type: 'test'
+  ...
+# Subtest: unchanged vegetation is pristine and world-state disturbances are spatially bounded
+ok 4 - unchanged vegetation is pristine and world-state disturbances are spatially bounded
+  ---
+  duration_ms: 2.634759
+  type: 'test'
+  ...
+# Subtest: wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+ok 5 - wet landscapes prevent most ignition and fire leaves coherent, persistent damage
+  ---
+  duration_ms: 0.740338
+  type: 'test'
+  ...
+# Subtest: harvest outcome and growth state are authoritative, persistent, and reloadable
+ok 6 - harvest outcome and growth state are authoritative, persistent, and reloadable
+  ---
+  duration_ms: 2.076278
+  type: 'test'
+  ...
+# Subtest: save file validation is strict and rollback time is rejected
+ok 7 - save file validation is strict and rollback time is rejected
+  ---
+  duration_ms: 0.409433
+  type: 'test'
+  ...
+# Subtest: same events give byte-identical saves; new seed must not load old world
+ok 8 - same events give byte-identical saves; new seed must not load old world
+  ---
+  duration_ms: 1.819824
+  type: 'test'
+  ...
+# Subtest: growth damage has ecologically visible consequences and eventual recovery
+ok 9 - growth damage has ecologically visible consequences and eventual recovery
+  ---
+  duration_ms: 1.350672
+  type: 'test'
+  ...
+# Subtest: world-space noise is deterministic, bounded and non-tiling in sampled regions
+ok 10 - world-space noise is deterministic, bounded and non-tiling in sampled regions
+  ---
+  duration_ms: 1.665278
+  type: 'test'
+  ...
+# Subtest: all 15 habitats have real, defined botanical diversity
+ok 11 - all 15 habitats have real, defined botanical diversity
+  ---
+  duration_ms: 0.349073
+  type: 'test'
+  ...
+# Subtest: soil, world sample, and species are stable across reloads
+ok 12 - soil, world sample, and species are stable across reloads
+  ---
+  duration_ms: 17.26858
+  type: 'test'
+  ...
+# Subtest: paths physically thin grass and provide less cover, obstacles are bare
+ok 13 - paths physically thin grass and provide less cover, obstacles are bare
+  ---
+  duration_ms: 0.368722
+  type: 'test'
+  ...
+# Subtest: marsh stores wet fire-risk suppression and different forage
+ok 14 - marsh stores wet fire-risk suppression and different forage
+  ---
+  duration_ms: 0.205648
+  type: 'test'
+  ...
+# Subtest: vegetation patches vary broadly and are not one repeating texture
+ok 15 - vegetation patches vary broadly and are not one repeating texture
+  ---
+  duration_ms: 1.488628
+  type: 'test'
+  ...
+# Subtest: winter growth is less than summer growth at the same location
+ok 16 - winter growth is less than summer growth at the same location
+  ---
+  duration_ms: 0.231045
+  type: 'test'
+  ...
+# Subtest: renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+ok 17 - renderer lifecycle: batch generation, density budget, footsteps, rebuild and disposal
+  ---
+  duration_ms: 44.984211
+  type: 'test'
+  ...
+# Subtest: game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+ok 18 - game-facing coordinator persists damage, preserves it through visual quality changes, and separates effects from ticking
+  ---
+  duration_ms: 39.190429
+  type: 'test'
+  ...
+# Subtest: Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+ok 19 - Canvas2D non-WebGL fallback respects biome/path/building exclusions and renders varied leaf shapes
+  ---
+  duration_ms: 14.389559
+  type: 'test'
+  ...
+# Subtest: no-install preview executes without network, WebGL, Three.js or DOM libraries
+ok 20 - no-install preview executes without network, WebGL, Three.js or DOM libraries
+  ---
+  duration_ms: 1222.84639
+  type: 'test'
+  ...
+# Subtest: Ground Forge compatibility respects hard surfaces, interiors, flooding and unknown material ids
+ok 21 - Ground Forge compatibility respects hard surfaces, interiors, flooding and unknown material ids
+  ---
+  duration_ms: 3.017427
+  type: 'test'
+  ...
+# Subtest: all 48 synthetic material samples are accepted without hardcoding external IDs
+ok 22 - all 48 synthetic material samples are accepted without hardcoding external IDs
+  ---
+  duration_ms: 0.72489
+  type: 'test'
+  ...
+# Subtest: ground adapter shares coordinates, dynamic weather, seasons, height and mask with vegetation
+ok 23 - ground adapter shares coordinates, dynamic weather, seasons, height and mask with vegetation
+  ---
+  duration_ms: 3.259068
+  type: 'test'
+  ...
+# Subtest: biology lives on bare soil and stays away from roads and walls across all 15 biomes
+ok 24 - biology lives on bare soil and stays away from roads and walls across all 15 biomes
+  ---
+  duration_ms: 0.656333
+  type: 'test'
+  ...
+# Subtest: heat, shielding, resonance and electrical transfer remain finite and bounded
+ok 25 - heat, shielding, resonance and electrical transfer remain finite and bounded
+  ---
+  duration_ms: 4.149491
+  type: 'test'
+  ...
+# Subtest: persistent vegetation modifies cover, and quality/reduced-motion change visuals only
+ok 26 - persistent vegetation modifies cover, and quality/reduced-motion change visuals only
+  ---
+  duration_ms: 3.171427
+  type: 'test'
+  ...
+# Subtest: same harvesting transaction id returns zero additional rewards, including after save/reload
+ok 27 - same harvesting transaction id returns zero additional rewards, including after save/reload
+  ---
+  duration_ms: 1.328539
+  type: 'test'
+  ...
+# Subtest: save/restore preserves environment values, rejects cross-timeline journals and does not corrupt progress
+ok 28 - save/restore preserves environment values, rejects cross-timeline journals and does not corrupt progress
+  ---
+  duration_ms: 0.893898
+  type: 'test'
+  ...
+# Subtest: new game plus histories are independent; returning to earlier timeline restores effects
+ok 29 - new game plus histories are independent; returning to earlier timeline restores effects
+  ---
+  duration_ms: 0.856462
+  type: 'test'
+  ...
+# Subtest: invalid timeline switch is transactional and leaves original changes accessible
+ok 30 - invalid timeline switch is transactional and leaves original changes accessible
+  ---
+  duration_ms: 0.608852
+  type: 'test'
+  ...
+# Subtest: host event names explicitly mapped; subscriptions are reversible
+ok 31 - host event names explicitly mapped; subscriptions are reversible
+  ---
+  duration_ms: 0.517865
+  type: 'test'
+  ...
+# Subtest: monotonic day updates and rejected event types do not modify state
+ok 32 - monotonic day updates and rejected event types do not modify state
+  ---
+  duration_ms: 0.477966
+  type: 'test'
+  ...
+# Subtest: Canvas fallback draws on the same game samples, while GPU layer remains optional
+ok 33 - Canvas fallback draws on the same game samples, while GPU layer remains optional
+  ---
+  duration_ms: 9.341033
+  type: 'test'
+  ...
+# Subtest: invalid event numeric payload does not poison persistent vegetation save
+ok 34 - invalid event numeric payload does not poison persistent vegetation save
+  ---
+  duration_ms: 0.557094
+  type: 'test'
+  ...
+# Subtest: weighted selection uses adjusted weights, not stale unadjusted fractions
+ok 35 - weighted selection uses adjusted weights, not stale unadjusted fractions
+  ---
+  duration_ms: 2.95962
+  type: 'test'
+  ...
+# Subtest: ecotone blends are continuous and still deterministic and renderer-independent
+ok 36 - ecotone blends are continuous and still deterministic and renderer-independent
+  ---
+  duration_ms: 1.224042
+  type: 'test'
+  ...
+# Subtest: ground bridge passes through genuine region blend facts, never inventing biome IDs
+ok 37 - ground bridge passes through genuine region blend facts, never inventing biome IDs
+  ---
+  duration_ms: 1.131604
+  type: 'test'
+  ...
+# Subtest: densely capped renderer samples around player in all four quadrants
+ok 38 - densely capped renderer samples around player in all four quadrants
+  ---
+  duration_ms: 40.802081
+  type: 'test'
+  ...
+# Subtest: distant sparse regions never consume close-grass budget preferentially
+ok 39 - distant sparse regions never consume close-grass budget preferentially
+  ---
+  duration_ms: 7.185225
+  type: 'test'
+  ...
+# Subtest: v4 harvest reward receipts remain durable past the short generic event journal
+ok 40 - v4 harvest reward receipts remain durable past the short generic event journal
+  ---
+  duration_ms: 10.158106
+  type: 'test'
+  ...
+# Subtest: v4 save validation is atomic, v3 and bare v2 remain importable
+ok 41 - v4 save validation is atomic, v3 and bare v2 remain importable
+  ---
+  duration_ms: 1.131323
+  type: 'test'
+  ...
+# Subtest: permanent receipt data is isolated by NG+ timeline
+ok 42 - permanent receipt data is isolated by NG+ timeline
+  ---
+  duration_ms: 0.549803
+  type: 'test'
+  ...
+# Subtest: host terrain change invalidates source sample without altering ecology save or rewards
+ok 43 - host terrain change invalidates source sample without altering ecology save or rewards
+  ---
+  duration_ms: 1.237393
+  type: 'test'
+  ...
+# Subtest: Canvas winter palette visibly differs from summer and persists under higher contrast
+ok 44 - Canvas winter palette visibly differs from summer and persists under higher contrast
+  ---
+  duration_ms: 16.563749
+  type: 'test'
+  ...
+# Subtest: adaptive vegetation detail steps down conservatively and can recover without gameplay changes
+ok 45 - adaptive vegetation detail steps down conservatively and can recover without gameplay changes
+  ---
+  duration_ms: 1.967876
+  type: 'test'
+  ...
+# Subtest: v5 morphology is stable over frame/camera changes and varied over space
+ok 46 - v5 morphology is stable over frame/camera changes and varied over space
+  ---
+  duration_ms: 10.310894
+  type: 'test'
+  ...
+# Subtest: v5 GPU puts finite, nonuniform per-instance morphology into all populated species and flowers
+ok 47 - v5 GPU puts finite, nonuniform per-instance morphology into all populated species and flowers
+  ---
+  duration_ms: 34.248576
+  type: 'test'
+  ...
+# Subtest: v5 Canvas paints organic foliage at every tier and respects perspective scaling
+ok 48 - v5 Canvas paints organic foliage at every tier and respects perspective scaling
+  ---
+  duration_ms: 132.608716
+  type: 'test'
+  ...
+# Subtest: v5 morphology and render modes cannot alter combat or ground samples
+ok 49 - v5 morphology and render modes cannot alter combat or ground samples
+  ---
+  duration_ms: 3.366489
+  type: 'test'
+  ...
+# Subtest: v5 scenic and QA previews are fully inlined and use the current bridge
+ok 50 - v5 scenic and QA previews are fully inlined and use the current bridge
+  ---
+  duration_ms: 2.033063
+  type: 'test'
+  ...
+# Subtest: v6 view mask is conservative, spatial, and explicitly opt-in
+ok 51 - v6 view mask is conservative, spatial, and explicitly opt-in
+  ---
+  duration_ms: 1.488569
+  type: 'test'
+  ...
+# Subtest: v6 terrain slope uses host normals, clamps steep slopes and fails safely
+ok 52 - v6 terrain slope uses host normals, clamps steep slopes and fails safely
+  ---
+  duration_ms: 0.880638
+  type: 'test'
+  ...
+# Subtest: v6 camera selects fewer visible instances without changing deterministic world or gameplay
+ok 53 - v6 camera selects fewer visible instances without changing deterministic world or gameplay
+  ---
+  duration_ms: 108.198301
+  type: 'test'
+  ...
+# Subtest: v6 all foliage shares finite shader attributes, including shadows and slope
+ok 54 - v6 all foliage shares finite shader attributes, including shadows and slope
+  ---
+  duration_ms: 50.259082
+  type: 'test'
+  ...
+# Subtest: v6 host camera and terrain normals remain visual-only when gameplay changes and saves restore
+ok 55 - v6 host camera and terrain normals remain visual-only when gameplay changes and saves restore
+  ---
+  duration_ms: 49.050703
+  type: 'test'
+  ...
+# Subtest: v6 repeated camera rotations coalesce field rebuilds rather than rebuilding every pointer event
+ok 56 - v6 repeated camera rotations coalesce field rebuilds rather than rebuilding every pointer event
+  ---
+  duration_ms: 59.852027
+  type: 'test'
+  ...
+# Subtest: v6 production lab is a live Three.js bridge, supplies terrain normals and degrades with clear offline links
+ok 57 - v6 production lab is a live Three.js bridge, supplies terrain normals and degrades with clear offline links
+  ---
+  duration_ms: 2.058261
+  type: 'test'
+  ...
+1..57
+# tests 57
+# suites 0
+# pass 57
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1377.839867

@@ -1,0 +1,12 @@
+{
+  "name": "ash-aether-living-grass",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test *.test.mjs",
+    "preview": "python -m http.server 8765",
+    "build:offline": "python build-offline-lab.py && python build-cinematic-lab.py",
+    "build:scenic": "python build-cinematic-lab.py"
+  }
+}
