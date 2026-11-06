@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: turn in place distinct from idle
+ok 1 - turn in place distinct from idle
+  ---
+  duration_ms: 2.320116
+  type: 'test'
+  ...
+# Subtest: run cadence exceeds walk cadence
+ok 2 - run cadence exceeds walk cadence
+  ---
+  duration_ms: 0.95649
+  type: 'test'
+  ...
+# Subtest: 24 guardians receive repeating families with increasing variants
+ok 3 - 24 guardians receive repeating families with increasing variants
+  ---
+  duration_ms: 1.54058
+  type: 'test'
+  ...
+# Subtest: boss phases change rules
+ok 4 - boss phases change rules
+  ---
+  duration_ms: 1.755671
+  type: 'test'
+  ...
+# Subtest: hurt expression overrides normal scene
+ok 5 - hurt expression overrides normal scene
+  ---
+  duration_ms: 0.923211
+  type: 'test'
+  ...
+# Subtest: lead silhouette is stronger
+ok 6 - lead silhouette is stronger
+  ---
+  duration_ms: 0.279758
+  type: 'test'
+  ...
+# Subtest: requires multiple clue types
+ok 7 - requires multiple clue types
+  ---
+  duration_ms: 1.13586
+  type: 'test'
+  ...
+# Subtest: dungeon rooms expose visible before/during/after states and gameplay verbs
+ok 8 - dungeon rooms expose visible before/during/after states and gameplay verbs
+  ---
+  duration_ms: 2.945411
+  type: 'test'
+  ...
+# Subtest: funding creates tradeoff project
+ok 9 - funding creates tradeoff project
+  ---
+  duration_ms: 1.459899
+  type: 'test'
+  ...
+# Subtest: side activities have distinct loops
+ok 10 - side activities have distinct loops
+  ---
+  duration_ms: 0.390336
+  type: 'test'
+  ...
+# Subtest: encounters attach identity and avoid immediate objective repetition
+ok 11 - encounters attach identity and avoid immediate objective repetition
+  ---
+  duration_ms: 1.555429
+  type: 'test'
+  ...
+# Subtest: archetypes get recognizable identities
+ok 12 - archetypes get recognizable identities
+  ---
+  duration_ms: 0.836518
+  type: 'test'
+  ...
+# Subtest: sound hunter selects noisy actor
+ok 13 - sound hunter selects noisy actor
+  ---
+  duration_ms: 0.438406
+  type: 'test'
+  ...
+# Subtest: gear thief flees after stealing
+ok 14 - gear thief flees after stealing
+  ---
+  duration_ms: 0.279762
+  type: 'test'
+  ...
+# Subtest: local fun summary measures variety, reward use and voluntary discovery
+ok 15 - local fun summary measures variety, reward use and voluntary discovery
+  ---
+  duration_ms: 1.399116
+  type: 'test'
+  ...
+# Subtest: adapter needs host-owned save and event bus
+ok 16 - adapter needs host-owned save and event bus
+  ---
+  duration_ms: 10.242771
+  type: 'test'
+  ...
+# Subtest: adapter migrates save without replacing existing systems
+ok 17 - adapter migrates save without replacing existing systems
+  ---
+  duration_ms: 1.829019
+  type: 'test'
+  ...
+# Subtest: host integration is additive
+ok 18 - host integration is additive
+  ---
+  duration_ms: 3.449636
+  type: 'test'
+  ...
+# Subtest: flags small touch targets and frame spikes
+ok 19 - flags small touch targets and frame spikes
+  ---
+  duration_ms: 1.706591
+  type: 'test'
+  ...
+# Subtest: long musical dead zones are filled by adaptive bridges
+ok 20 - long musical dead zones are filled by adaptive bridges
+  ---
+  duration_ms: 1.077541
+  type: 'test'
+  ...
+# Subtest: offers three unowned verb mutations
+ok 21 - offers three unowned verb mutations
+  ---
+  duration_ms: 3.431904
+  type: 'test'
+  ...
+# Subtest: echo step changes approach not base stat
+ok 22 - echo step changes approach not base stat
+  ---
+  duration_ms: 0.556576
+  type: 'test'
+  ...
+# Subtest: fault chain adds secondary interaction
+ok 23 - fault chain adds secondary interaction
+  ---
+  duration_ms: 0.232044
+  type: 'test'
+  ...
+# Subtest: victory can offer gear, verb mutation and world unlock
+ok 24 - victory can offer gear, verb mutation and world unlock
+  ---
+  duration_ms: 2.378135
+  type: 'test'
+  ...
+# Subtest: migration is additive and valid
+ok 25 - migration is additive and valid
+  ---
+  duration_ms: 2.226472
+  type: 'test'
+  ...
+# Subtest: sample loop links encounter identity to reward, discovery and world consequence
+ok 26 - sample loop links encounter identity to reward, discovery and world consequence
+  ---
+  duration_ms: 3.615049
+  type: 'test'
+  ...
+# Subtest: deterministic authored placement clusters content around anchors
+ok 27 - deterministic authored placement clusters content around anchors
+  ---
+  duration_ms: 18.184236
+  type: 'test'
+  ...
+# Subtest: large empty scene receives void repair landmarks
+ok 28 - large empty scene receives void repair landmarks
+  ---
+  duration_ms: 10.433581
+  type: 'test'
+  ...
+# Subtest: social clustering detects nearby groups
+ok 29 - social clustering detects nearby groups
+  ---
+  duration_ms: 0.316669
+  type: 'test'
+  ...
+# Subtest: adapter delegates authored layout, consequences and music without owning host systems
+ok 30 - adapter delegates authored layout, consequences and music without owning host systems
+  ---
+  duration_ms: 15.628091
+  type: 'test'
+  ...
+# Subtest: door and river create physical continuity steps
+ok 31 - door and river create physical continuity steps
+  ---
+  duration_ms: 1.147041
+  type: 'test'
+  ...
+# Subtest: danger outranks lore
+ok 32 - danger outranks lore
+  ---
+  duration_ms: 2.233859
+  type: 'test'
+  ...
+# Subtest: action bar stays compact
+ok 33 - action bar stays compact
+  ---
+  duration_ms: 1.591319
+  type: 'test'
+  ...
+# Subtest: schedule changes across day
+ok 34 - schedule changes across day
+  ---
+  duration_ms: 0.885366
+  type: 'test'
+  ...
+# Subtest: repair changes traffic and pressure
+ok 35 - repair changes traffic and pressure
+  ---
+  duration_ms: 0.458643
+  type: 'test'
+  ...
+# Subtest: migration deterministic
+ok 36 - migration deterministic
+  ---
+  duration_ms: 2.735481
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1021.492238

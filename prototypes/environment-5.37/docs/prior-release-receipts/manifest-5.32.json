@@ -1,0 +1,285 @@
+{
+  "version": "5.32.0",
+  "files": [
+    {
+      "path": "SHA256SUMS",
+      "sha256": "2910c98f7ed18ef10b3b0dbb047e3e74a65346280521f9aa1f49e420df1175fb",
+      "bytes": 2386
+    },
+    {
+      "path": "docs/5.28_MASTER_PASS.md",
+      "sha256": "9f862711b18ed07fca2f799c609a69b8ddc01805754556e2653a3850093da659",
+      "bytes": 9418
+    },
+    {
+      "path": "docs/5.32_SPATIAL_AUTHORING_PASS.md",
+      "sha256": "c1de6182ecb6d9f5c0a195d19791b8dbbaf654869fb92edf54e601911d5624ad",
+      "bytes": 2836
+    },
+    {
+      "path": "docs/5.32_TEST_OUTPUT.txt",
+      "sha256": "a6a6b841dcaf0e4b30c496b29d255a6f5674867e116c58e71b6d845990eaa430",
+      "bytes": 5779
+    },
+    {
+      "path": "docs/PHYSICAL_DEVICE_PLAYTEST.md",
+      "sha256": "d8b0179159409d1c4af150ae40d9511fac249360e9fa159ac59d90fc1a788bcb",
+      "bytes": 2018
+    },
+    {
+      "path": "docs/replay-output.txt",
+      "sha256": "64a23e25a048e803eddad4a7e7d1c9bf97beceb82b9d920cddd9c6bcb33af2c0",
+      "bytes": 6371
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "fe0c8e3170fcaf64fdca9fe7d5d5d33fb83e5e729e5eaaddada4d52506020e59",
+      "bytes": 553
+    },
+    {
+      "path": "package.json",
+      "sha256": "efeb2c67e42859b8456374c4adfadd1ee47cafbe8a23c559a79f3df4abdb0286",
+      "bytes": 266
+    },
+    {
+      "path": "replay.sh",
+      "sha256": "84a60891fdde50ce1e6f91ba3ba73fd9b921b122ad9725a2d26e1444672dddc0",
+      "bytes": 184
+    },
+    {
+      "path": "src/animation.mjs",
+      "sha256": "e8f55c8923065c3d7e7f9c31c5c2226e0f38ad85b748ba7868040624186509a6",
+      "bytes": 899
+    },
+    {
+      "path": "src/boss-catalog.mjs",
+      "sha256": "0491777fb4bf7f64ac83082d0786a33d3a7014f16b98c6dd7ba904a03ebf4573",
+      "bytes": 1017
+    },
+    {
+      "path": "src/boss-phases.mjs",
+      "sha256": "e851e47077a9c637063b4abb9a1d99e8fe786d22cd253b11977354612310bc6e",
+      "bytes": 1344
+    },
+    {
+      "path": "src/character-presentation.mjs",
+      "sha256": "07c1250c375387203efa94029965d30856b6c5b083731d2f605fc73c430c5c5f",
+      "bytes": 1013
+    },
+    {
+      "path": "src/context-ui.mjs",
+      "sha256": "7b9b5b1150d1b48089a05e7e538d3579dcf8ece98a52b6c63d67df79f0697987",
+      "bytes": 552
+    },
+    {
+      "path": "src/discovery.mjs",
+      "sha256": "4d06c66589dafac0abfc0042fff717c23e73e2bd072d5c2237f12cd5b27faefe",
+      "bytes": 832
+    },
+    {
+      "path": "src/dungeon-director.mjs",
+      "sha256": "d1e067d3e49698aaf7eba616eeb3f79a626ef6737269f69aec60e78caa0fbf4f",
+      "bytes": 1538
+    },
+    {
+      "path": "src/economy.mjs",
+      "sha256": "7c2752d6818bd8c0d4daa05c42941d6ed436e598acfb2f47e663d28dd1f48242",
+      "bytes": 1206
+    },
+    {
+      "path": "src/encounter-director.mjs",
+      "sha256": "11565484a35814348147f1a08aac0a75c46d48aa40038e2389cc79c89440449e",
+      "bytes": 1084
+    },
+    {
+      "path": "src/enemy-identity.mjs",
+      "sha256": "15266247d7e3cca5131f94be04ed56c5ad5f364bd3bfe690c925f1a43aefca6d",
+      "bytes": 2148
+    },
+    {
+      "path": "src/fun-metrics.mjs",
+      "sha256": "d468351a38861681d54ee96d9a4f36bf1f537a7726e575d709b292e7acca1225",
+      "bytes": 1621
+    },
+    {
+      "path": "src/host-adapter.example.mjs",
+      "sha256": "483ef5a6d5038a731b9fe5a5c42af440680ce50c8cde0f92c3af2c0894927128",
+      "bytes": 1186
+    },
+    {
+      "path": "src/integration.mjs",
+      "sha256": "d38a5f3993fd6258107985faf879b904978f75ae35bd69d4e9e8097901e69c11",
+      "bytes": 1474
+    },
+    {
+      "path": "src/living-world.mjs",
+      "sha256": "9133b14b8dd715f6873832ebb1f798f6ef118b3227e12e1877c47c2c0a403246",
+      "bytes": 1209
+    },
+    {
+      "path": "src/mobile-audit.mjs",
+      "sha256": "ec738c2f3bd911a7fd02199cbf04fc5d4355a95ed6ae17ca9d642d1c1f751244",
+      "bytes": 706
+    },
+    {
+      "path": "src/music-continuity.mjs",
+      "sha256": "dddf547636770c272484b3851403d038b185be55432c6350f737ee9bd23d5a88",
+      "bytes": 1074
+    },
+    {
+      "path": "src/progression-reward.mjs",
+      "sha256": "8b8bf17140d18e49ac4c582728bfd96545a689f49ee20a85d41896cd56e2001e",
+      "bytes": 522
+    },
+    {
+      "path": "src/progression.mjs",
+      "sha256": "2d5289359e39861d9c6d63c39522c1a70c9294bbb65018a184efb74df328a536",
+      "bytes": 2813
+    },
+    {
+      "path": "src/save-migration.mjs",
+      "sha256": "e2ac6a763d121514bc560cf2fac9ef71ba83211b45ea1367dceeb282242f993d",
+      "bytes": 527
+    },
+    {
+      "path": "src/scenario-sim.mjs",
+      "sha256": "1eba0088603770c2fcd42ef5ef9ee7d4727c70369be395e25d36fca700297b02",
+      "bytes": 923
+    },
+    {
+      "path": "src/scene-composer.mjs",
+      "sha256": "c57bfea8a5da919488663f10e04d948c8a0feb7293ae6e5969bd5a6710b39aee",
+      "bytes": 4707
+    },
+    {
+      "path": "src/spatial-3d-integration.mjs",
+      "sha256": "561171624c49e33a879f69ad3a1a99d55efdd6c666bdc0ef3a407325d9b5d46d",
+      "bytes": 948
+    },
+    {
+      "path": "src/transitions.mjs",
+      "sha256": "d150a4e19978aa3807799fe357c75d9b18d0643a13dd5ae3d08a1b68136de0ff",
+      "bytes": 445
+    },
+    {
+      "path": "src/util.mjs",
+      "sha256": "adc2e0d8a715b82ecf9494a10b714eeb91b2a8f1738c499f54dc692496df19b0",
+      "bytes": 356
+    },
+    {
+      "path": "test/animation.test.mjs",
+      "sha256": "f52419b0df2fe8ae040eef9abb66265bc2bdd729a0b9009437f428268856118a",
+      "bytes": 358
+    },
+    {
+      "path": "test/boss-catalog.test.mjs",
+      "sha256": "0c09ec5b0a00e4f216089e3c07276a361864836d5efd42ae61f38d1f2e2eb826",
+      "bytes": 401
+    },
+    {
+      "path": "test/boss.test.mjs",
+      "sha256": "6913bf8042bf83f1aedd6e03002bd377100707ed5291330d964811eee22e941d",
+      "bytes": 359
+    },
+    {
+      "path": "test/character.test.mjs",
+      "sha256": "6a28a89730910fca00ccec5f357666487c53a2e04fc9f72c2218cc4801ef7b77",
+      "bytes": 422
+    },
+    {
+      "path": "test/discovery.test.mjs",
+      "sha256": "490da6ab7bdf452dc8b2e2cb885ac4756913eadc551bd62df1dcf2c34963ecdd",
+      "bytes": 403
+    },
+    {
+      "path": "test/dungeon-director.test.mjs",
+      "sha256": "9d2c1f4916effea0438860898c62ed17bc8ca842f8b0520c9875e2b80193a7b3",
+      "bytes": 599
+    },
+    {
+      "path": "test/economy.test.mjs",
+      "sha256": "1f890e6db2ae4ea0ea6743f5b596676313f9bdff01cc806a9202b3020587b494",
+      "bytes": 518
+    },
+    {
+      "path": "test/encounter-director.test.mjs",
+      "sha256": "28378c545334ed83bac6f387da8ac194241a4608e6c176a8b5eb7f17abbbbf83",
+      "bytes": 469
+    },
+    {
+      "path": "test/enemies.test.mjs",
+      "sha256": "4e10ef00c6eb2657e111e9b3fa21e59f409b30db6802587ff4c074fd9e930be5",
+      "bytes": 665
+    },
+    {
+      "path": "test/fun-metrics.test.mjs",
+      "sha256": "16895602fc7e3a6e12c7e021dc52e00843561fca5223e05a2562c462c112b31e",
+      "bytes": 764
+    },
+    {
+      "path": "test/host-adapter.test.mjs",
+      "sha256": "b5df85def9f16e5d5434b63d928877a3bfec498fd71daae3a171c011b69bd676",
+      "bytes": 669
+    },
+    {
+      "path": "test/integration.test.mjs",
+      "sha256": "019aa5856734f75de12acb0e3c00eac9d41de1d9cd1d89bee1ceaf261788c9a2",
+      "bytes": 526
+    },
+    {
+      "path": "test/mobile.test.mjs",
+      "sha256": "c294fa7f467b7896fc814dc388ab981bc053683b237ee13b1b4520ba8af3f049",
+      "bytes": 464
+    },
+    {
+      "path": "test/music-continuity.test.mjs",
+      "sha256": "a5e44d989ec1ccad6a3dc9ffd344604c08ef152e9022f039b88e427bef786804",
+      "bytes": 486
+    },
+    {
+      "path": "test/progression.test.mjs",
+      "sha256": "2bb7e7a12678cbe9fa8ebe18f7e04d5e6144a338b76f174ea445c9be782ab17c",
+      "bytes": 665
+    },
+    {
+      "path": "test/reward.test.mjs",
+      "sha256": "2d4623285fd6c04ae6acc398345997b0ec3f22d19d5ab454e98a1da6648dd9c7",
+      "bytes": 372
+    },
+    {
+      "path": "test/save.test.mjs",
+      "sha256": "4cd6321bda1cb9758fe7cc3d84bf257384eccecff1bcdcdabc1159a0dbaa0e0b",
+      "bytes": 365
+    },
+    {
+      "path": "test/scenario.test.mjs",
+      "sha256": "cd77a0763fb9b47af09b7534ebec1d6f58814ff29ab94d3899e91b6c433c2ed8",
+      "bytes": 406
+    },
+    {
+      "path": "test/scene-composer.test.mjs",
+      "sha256": "1a0ebf068f3d187a6e92d616c5f055e845b36b1c277638fee620026b4cf45710",
+      "bytes": 1271
+    },
+    {
+      "path": "test/spatial-3d-integration.test.mjs",
+      "sha256": "10a206d213e41d8913850a7244ad1ca61ec28ede9c43568b950a7953dc0bf2a2",
+      "bytes": 816
+    },
+    {
+      "path": "test/transitions.test.mjs",
+      "sha256": "73d6769dc36096e94409aac36c3d537a4d401cca408fa716dbc3c5c650857207",
+      "bytes": 334
+    },
+    {
+      "path": "test/ui.test.mjs",
+      "sha256": "018c769fda706ad048e8b4b33040439c61af8e789aa681b2631ea3455ef71284",
+      "bytes": 399
+    },
+    {
+      "path": "test/world.test.mjs",
+      "sha256": "7dc0b2a374a74e58514087552c3a9855e2d26222b75f4e42a9851caf5515f517",
+      "bytes": 564
+    }
+  ]
+}

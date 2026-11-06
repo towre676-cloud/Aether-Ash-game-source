@@ -1,0 +1,27 @@
+{
+  "active_project_id": "appgprj_6adf63724e5c8191bd55637b8ecd8d9a",
+  "active_site_source_version_observed": 38,
+  "generated_date": "2026-10-30",
+  "live_site_modified": false,
+  "production_module_sha256": {
+    "environment-detail-kit.mjs": "a72df2677581808fe795d351b4f7223838624e1ab2c657f03d49cebc6ddaba28",
+    "environment-plan.mjs": "2ac15d31c75ea33f9e712bc025c026bdbd8a2b493d9eb6bc36de29f2d162beec",
+    "environment-renderer.mjs": "ab0aa91dde1a771645d484e01b1b27ce74c8618795a29833c3bb294d021cc3d6",
+    "environment-vegetation.mjs": "b444e139403e6c26c84e92bd9218c19f58f90612b3a4d3d80cd8eed6c60e6a46",
+    "ground-materials.mjs": "05eaab394be2da602462a3a745be37d8995ff3dc80ec09ce5486acfcd44714b7",
+    "ground-synthesis.mjs": "c58035b2f58888f4e340c32517b8b92bf9fb179feb511944531c74dc8dae85c2",
+    "production-bridge.mjs": "dc534eea8cb8cf1b67f64b797bf8d408a06d7c40b2b15064725a4be5f733f072",
+    "util.mjs": "adc2e0d8a715b82ecf9494a10b714eeb91b2a8f1738c499f54dc692496df19b0"
+  },
+  "release": "5.37.0",
+  "results": {
+    "gpu_fps": "not_measured",
+    "node_passed": 71,
+    "node_tests": 71,
+    "preview_inline_js_syntax": "pass",
+    "python_installer_tests": 6,
+    "python_passed": 6,
+    "three_js_browser_visual_qa": "not_performed"
+  },
+  "source_scope": "Archived 5.32 source tests plus independent namespaced production ESM bridge; current site source not accessible"
+}

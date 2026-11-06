@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#151c1d"><title>Ash & Aether — Environment Rebuild | 3D Art Verification</title>
+<style>
+:root{color-scheme:dark;--gold:#ddc495;--muted:#dfd0b8}
+*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#45515a,#0d1416);font-family:Georgia,'Times New Roman',serif;color:#f7ebd9;touch-action:none}
+#view,canvas{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#view{background:linear-gradient(160deg,#718185,#3e5660 42%,#15202a)}
+#vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 28%,rgba(3,8,10,.19) 72%,rgba(3,8,10,.56) 100%)}
+#mast{position:fixed;top:18px;left:21px;z-index:2;pointer-events:none;text-shadow:0 2px 14px #0b1514}
+#mast small{font:600 9px/1.2 system-ui;letter-spacing:.25em;color:var(--gold)}
+#mast h1{font-weight:400;font-size:clamp(21px,3vw,34px);margin:7px 0 0;letter-spacing:-.02em}
+#mast em{display:block;font-style:normal;font:11px system-ui;letter-spacing:.07em;color:#e7e1d3;margin-top:8px}
+#worlds{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:4px;padding:5px;border:1px solid #ceb68f45;border-radius:40px;background:#111b1ed9;backdrop-filter:blur(14px);max-width:calc(100vw - 20px);z-index:5}
+#worlds button{appearance:none;background:transparent;border:0;border-radius:25px;padding:11px 14px;color:#c8c9bd;font:500 11px/1.2 system-ui;white-space:nowrap;letter-spacing:.02em;cursor:pointer;touch-action:manipulation}
+#worlds button[aria-pressed="true"]{background:#bda77a;color:#19211e;font-weight:700}
+#play{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);font:10px/1.45 system-ui;letter-spacing:.04em;color:#eadcc9b8;text-align:center;pointer-events:none;text-shadow:0 1px 4px #060d10}
+#quality{position:fixed;right:19px;top:20px;text-align:right;font:10px/1.6 system-ui;letter-spacing:.09em;color:#d9cbaf;pointer-events:none;text-shadow:0 1px 5px #060d10}
+#warning{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#172022ef;border:1px solid #d6ab7266;padding:24px;max-width:380px;line-height:1.5;z-index:10}
+@media(max-width:600px){#mast{top:12px;left:13px}#mast small{font-size:8px}#mast h1{font-size:23px}#quality{right:10px;top:13px;font-size:9px}#worlds{bottom:15px;width:calc(100vw - 18px);justify-content:space-around}#worlds button{font-size:10px;padding:11px 9px}#play{bottom:78px;max-width:90vw}#mast em{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head><body>
+<div id="view" aria-label="Explorable 3D world of Ash & Aether"></div><div id="vignette"></div>
+<header id="mast"><small>ASH & AETHER · WORLD ART STUDY</small><h1 id="chapter">The Furnace Quarter</h1><em id="tagline">Weathered masonry, warm windows, carved thresholds.</em></header>
+<div id="quality" aria-live="polite">LOADING ART…</div>
+<div id="play">Drag to look · pinch / scroll to keep your zoom · WASD to move · tap terrain to walk</div>
+<nav id="worlds" aria-label="Choose environment">
+<button type="button" data-scene="ash" aria-pressed="true">Ash City</button>
+<button type="button" data-scene="water" aria-pressed="false">Undercity</button>
+<button type="button" data-scene="clay" aria-pressed="false">Orchard</button>
+<button type="button" data-scene="aether" aria-pressed="false">Aether</button>
+<button type="button" data-scene="dungeon" aria-pressed="false">Dungeon</button>
+</nav>
+<div id="warning"></div>
+<script type="module">
+try {
+ const T=await import('three');
+ const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+ const {authorScene}=await import('../src/scene-composer.mjs');
+ const {createEnvironmentRenderer}=await import('../src/environment-renderer.mjs');
+ const {buildDungeonSequence}=await import('../src/dungeon-director.mjs');
+ const mobile=matchMedia('(pointer:coarse)').matches;
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
+ renderer.setPixelRatio(Math.min(devicePixelRatio||1,mobile?1.35:1.85));
+ renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.35;
+ renderer.shadowMap.enabled=!mobile;renderer.shadowMap.type=T.PCFSoftShadowMap;
+ document.getElementById('view').appendChild(renderer.domElement);
+ const scene=new T.Scene();scene.background=new T.Color(0x7f9aa2);scene.fog=new T.FogExp2(0x8399a1,.012);
+ const camera=new T.PerspectiveCamera(mobile?63:53,innerWidth/innerHeight,.1,220);camera.position.set(10,9,15);
+ const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.065;controls.minDistance=4;controls.maxDistance=32;controls.maxPolarAngle=Math.PI*.485;controls.target.set(0,1.4,0);controls.update();
+ const hemi=new T.HemisphereLight(0xc7d6e2,0x6b5c4b,2.4);scene.add(hemi);
+ const sun=new T.DirectionalLight(0xffdfb3,2.4);sun.position.set(-17,25,12);sun.castShadow=!mobile;sun.shadow.mapSize.set(mobile?512:1024,mobile?512:1024);sun.shadow.camera.left=-45;sun.shadow.camera.right=45;sun.shadow.camera.top=45;sun.shadow.camera.bottom=-45;sun.shadow.bias=-.0007;scene.add(sun);
+ const human=new T.Group();human.name='traveler';scene.add(human);
+ const mat=(color,roughness=.88)=>new T.MeshStandardMaterial({color,roughness});
+ const coat=mat(0x4c4755),linen=mat(0xd7d1be),hair=mat(0x473529),boots=mat(0x333632),metal=mat(0xaba288,.46);
+ function part(geometry,material,x,y,z,group=human){const m=new T.Mesh(geometry,material);m.position.set(x,y,z);m.castShadow=true;group.add(m);return m;}
+ part(new T.CapsuleGeometry(.24,.72,6,12),coat,0,1.2,0);part(new T.SphereGeometry(.205,12,9),linen,0,2.06,.04);part(new T.SphereGeometry(.225,12,9),hair,0,2.155,-.045);
+ part(new T.ConeGeometry(.48,1.06,11),coat,0,.94,-.17).rotation.x=.09;
+ for(const s of [-1,1]){part(new T.CapsuleGeometry(.075,.48,4,7),boots,s*.16,.48,0);part(new T.CapsuleGeometry(.066,.43,4,7),coat,s*.33,1.28,.025).rotation.z=s*.12;}
+ part(new T.CylinderGeometry(.023,.023,1.36,8),metal,-.39,1.15,.08).rotation.z=.17;
+ const heightAt=(x,z)=>.13*Math.sin(x*.095)*Math.cos(z*.14)+.065*Math.cos(x*.26+z*.18);
+ const manager=createEnvironmentRenderer({THREE:T,scene,heightAt,quality:mobile?'low':'high',maxLights:3,lightingMode:'authored'});
+ const sky={ash:[0xa5a19a,0xc6a37a,0xf4d7b4],water:[0x7e9fa9,0xb5d2cc,0xe3e6d3],clay:[0x8cafa7,0xded5ae,0xffe0ad],aether:[0x6d8c9d,0x9ccabf,0xc7f4e9],dungeon:[0x182f32,0x647d77,0xa5b9aa]};
+ const defs={
+  ash:{title:'The Furnace Quarter',tagline:'Weathered masonry · open thresholds · warm windows',kind:'settlement',anchors:[['city gate','threshold',0,21,8],['furnace forge','workshop',-13,9,6],['old well','well',11,9,4],['watch tower','tower',-17,-10,3],['inn dwelling','dwelling',13,-11,5],['sanctuary','sanctuary',-5,-18,4],['gatehouse home','dwelling',21,5,2]]},
+  water:{title:'The Underwater Streets',tagline:'Mineral vaults · wet stone · lichen and green light',kind:'settlement',anchors:[['floodgate threshold','threshold',0,19,8],['well spring','well',-14,4,6],['pump mechanism','mechanism',9,5,7],['stone dweller house','dwelling',15,-10,4],['watch tower','tower',-17,-13,5],['undercity shrine','sanctuary',0,-18,5],['bridge crossing','bridge',18,15,3]]},
+  clay:{title:'Orchard After Fire',tagline:'Living growth · worn paths · sheltered homes',kind:'wilderness',anchors:[['orchard grove','grove',-11,8,5],['old house dwelling','dwelling',12,13,6],['water well','well',0,0,4],['memory shrine','sanctuary',-13,-16,5],['garden grove','grove',15,-12,4],['country gate','threshold',1,-23,6],['camp rest','camp',20,3,3]]},
+  aether:{title:'The Sky Engine',tagline:'Patinated metal · refracted glass · ancient instruments',kind:'settlement',anchors:[['aether gate','threshold',0,22,8],['wind watch tower','tower',-17,2,6],['phase engine','mechanism',1,-6,7],['sky sanctuary','sanctuary',12,9,7],['collector workshop','workshop',18,-13,6],['water well','well',-13,-17,3]]},
+  dungeon:{title:'The Unfinished Song',tagline:'Connected carved chambers · ribbed vaults · tangible mechanisms',kind:'dungeon',anchors:[]}
+ };
+ let active='ash',time=0,clickMove=null;
+ function envSpec(k){const d=defs[k];return authorScene({id:'art-verification:'+k,kind:d.kind,bounds:{minX:-34,maxX:34,minZ:-32,maxZ:32},anchors:d.anchors.map((a,i)=>({id:a[0].replaceAll(' ','-'),kind:a[1],x:a[2],z:a[3],importance:a[4]}))});}
+ function switchScene(k){active=k;clickMove=null;const d=defs[k];
+   document.getElementById('chapter').textContent=d.title;document.getElementById('tagline').textContent=d.tagline;
+   document.querySelectorAll('#worlds button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scene===k)));
+   scene.background.setHex(sky[k][0]);scene.fog.color.setHex(sky[k][0]);scene.fog.density=k==='dungeon'?.026:.011;
+   hemi.color.setHex(sky[k][1]);sun.color.setHex(sky[k][2]);
+   if(k==='dungeon'){
+     manager.drawDungeon(buildDungeonSequence({id:'under-choir',region:'ash',rooms:7}),{region:'ash',activeOnly:true,activeIndex:2});human.position.set(0,.05,2);
+   }else{
+     manager.draw(envSpec(k),{region:k,quality:mobile?'low':'high',surfaceMode:'replace-flat'});human.position.set(0,heightAt(0,0)+.1,7);
+   }
+   const out=manager.stats();document.getElementById('quality').textContent=`${mobile?'MOBILE':'HIGH'} · ${out.meshes.toLocaleString()} MESHES · ${(out.grassInstances||0).toLocaleString()} GRASS`;
+   controls.target.set(human.position.x,1.4,human.position.z);camera.position.set(human.position.x+9,9,human.position.z+13);controls.update();
+ }
+ document.querySelectorAll('#worlds button').forEach(b=>b.addEventListener('click',()=>switchScene(b.dataset.scene)));
+ const keys=new Set();addEventListener('keydown',e=>{if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)){keys.add(e.code);e.preventDefault();}if(/^Digit[1-5]$/.test(e.code))switchScene(['ash','water','clay','aether','dungeon'][Number(e.code.slice(-1))-1]);});
+ addEventListener('keyup',e=>keys.delete(e.code));
+ // Touch tap initiates travel, while drag remains orbit and two-finger pinch remains persistent zoom.
+ const ray=new T.Raycaster(),mouse=new T.Vector2();let down=null;
+ renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,time:performance.now(),type:e.pointerType};},{passive:true});
+ renderer.domElement.addEventListener('pointerup',e=>{if(!down)return;const d=Math.hypot(e.clientX-down.x,e.clientY-down.y);const clicked=d<6&&performance.now()-down.time<300;down=null;
+  if(!clicked||active==='dungeon')return;mouse.set(e.clientX/innerWidth*2-1,-e.clientY/innerHeight*2+1);ray.setFromCamera(mouse,camera);
+  const t=-ray.ray.origin.y/ray.ray.direction.y;if(!(t>0))return;const p=ray.ray.origin.clone().addScaledVector(ray.ray.direction,t);
+  if(Math.abs(p.x)<31&&Math.abs(p.z)<30)clickMove={x:p.x,z:p.z};
+ },{passive:true});
+ let previous=performance.now();
+ function animate(now){requestAnimationFrame(animate);
+  const dt=Math.min(.06,(now-previous)/1000);previous=now;time+=dt;
+  const dx=(keys.has('KeyD')||keys.has('ArrowRight')?1:0)-(keys.has('KeyA')||keys.has('ArrowLeft')?1:0);
+  const dz=(keys.has('KeyW')||keys.has('ArrowUp')?1:0)-(keys.has('KeyS')||keys.has('ArrowDown')?1:0);
+  let vx=dx,vz=dz;
+  if(vx||vz){const ang=Math.atan2(camera.position.x-controls.target.x,camera.position.z-controls.target.z);
+   const fx=-Math.sin(ang),fz=-Math.cos(ang),rx=-fz,rz=fx;
+   const d=Math.hypot(vx,vz);const xx=(fx*vz+rx*vx)/d,zz=(fz*vz+rz*vx)/d;vx=xx;vz=zz;clickMove=null;
+  }else if(clickMove){const dx=clickMove.x-human.position.x,dz=clickMove.z-human.position.z,d=Math.hypot(dx,dz);if(d<.3){clickMove=null;vx=0;vz=0;}else{vx=dx/d;vz=dz/d;}}
+  const speed=active==='dungeon'?2.5:3.1,moved=(vx||vz);
+  if(moved){human.position.x=Math.max(-29,Math.min(29,human.position.x+vx*dt*speed));human.position.z=Math.max(-29,Math.min(29,human.position.z+vz*dt*speed));human.rotation.y=Math.atan2(vx,vz);
+    human.position.y=(active==='dungeon'?0:heightAt(human.position.x,human.position.z))+.07+.023*Math.sin(time*12);
+  }else human.position.y=(active==='dungeon'?0:heightAt(human.position.x,human.position.z))+.07;
+  controls.target.lerp(new T.Vector3(human.position.x,1.4+human.position.y,human.position.z),Math.min(1,dt*5));
+  manager.tick(dt,time);controls.update();renderer.render(scene,camera);
+ }
+ addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+ switchScene('ash');requestAnimationFrame(animate);
+} catch(err) {console.error(err);const w=document.getElementById('warning');w.style.display='block';w.textContent=`3D preview could not start. Serve this project over localhost (python -m http.server 8080), use a browser with WebGL, and allow its pinned Three.js module to load. ${err.message}`;document.getElementById('quality').textContent='PREVIEW UNAVAILABLE';}
+</script></body></html>
