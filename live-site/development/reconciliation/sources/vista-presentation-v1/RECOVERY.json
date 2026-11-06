@@ -1,0 +1,10 @@
+{
+  "library_file_id": "libfile_90541d3406b48191940d76c7823d4e22",
+  "name": "Ash_Aether_Vista_Presentation_Upgrade_v1.zip",
+  "archive_sha256": "2a40fe23208e004af5fd5e86c72f95024f2e58fa3159a28af409a02f89df098d",
+  "source_status": "Standalone original prototype, not previously integrated or deployed",
+  "production_source": "dist/game/engine2/reconciled-content/vista/vista-core.mjs",
+  "source_sha256": "c7ef57696b573f6e214465c220ab16ed0543ce76fbc02a31e9f04ddc016cd0db",
+  "license_notice": "Original header declares MIT; no separate LICENSE file present. Original notice retained. No competitor assets bundled.",
+  "adaptation": "Canvas2D host adapters use actual scene geometry and confirmed battle events. Three.js bridge and independent showcase retained as development references, not runtime replacements."
+}

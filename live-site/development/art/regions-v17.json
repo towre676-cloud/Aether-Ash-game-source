@@ -1,0 +1,495 @@
+{
+  "version": "5.18.0",
+  "generator": "image_gen built-in",
+  "generatedAt": "2026-10-29",
+  "pixelPolicy": "Generated PNGs copied unchanged; only read-only alpha analysis used. No image transforms or background extraction.",
+  "cropMethod": "Main connected alpha>0 silhouette plus four pixels padding, preserving complete physical object and soft contact shadow; exact crops avoid adjoining sprites.",
+  "atlases": [
+    {
+      "id": "industry",
+      "asset": "environmentIndustryV17",
+      "file": "industry-v17.png",
+      "source": "/workspace/scratch/7b00f669b5c3/generated_images/exec-368ddcdd-b65e-4dc2-9d96-8c3e9551f055.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production environment sprite atlas for the original top-down RPG Ash & Aether. Generate one wide landscape 2:1 PNG, exactly FOUR columns and TWO rows, exactly EIGHT separate complete game props. Every prop stays INSIDE its own equal cell, with at least 8 percent clear transparent space on ALL sides and empty transparent gutters. No piece crosses into another cell. Rich original hand-painted fantasy RPG artwork, elegant readable silhouettes, subtly irregular rounded natural forms, physical weathered material detail, gentle upper-left lighting. Consistent 35-degree elevated orthographic camera, visible fronts and tops, all props grounded toward bottom of their cells. Polished indie RPG art, nuanced brushwork, warm ochre clay, muted petrol blue stone, oxidized copper and aged brass where appropriate. Genuine RGBA transparency, clean cutout silhouettes, only tiny soft contact shadow under each prop. No background color, no checkerboard, no rectangle platforms or large landscape bases, no grid lines, no labels, no text, no numbers, no people or animals, no decorative borders. Eight props must be spatially separated and unmistakably distinct. INDUSTRY AND RAIL KIT. Exact left-to-right top row: 1 small rounded terracotta clay kiln with arched dark fire mouth, brick lip and short chimney; 2 bronze casting basin and blacksmith tongs on a compact squat blue-stone plinth; 3 compact hand-operated bellows and anvil workstand, worn oak and dark iron with brass rivets; 4 old iron railway buffer with a weathered steel wheel and a very short fragment of paired rails. Bottom row: 5 curved copper pipe assembly with large verdigris valve wheel, mounted on two small stone feet; 6 jagged but rounded basalt outcrop split by thin warm ember veins, no floating flame; 7 small wooden ore cart loaded with copper ore and coal, believable four iron wheels; 8 sculptural dark slag chimney vent on a rocky base, hollow warm mouth, no smoke beyond the object. Preserve exact 4 by 2 order and generous gutters.",
+      "props": [
+        {
+          "id": "clay-kiln",
+          "crop": [
+            23,
+            31,
+            400,
+            394
+          ],
+          "height": 122
+        },
+        {
+          "id": "casting-basin",
+          "crop": [
+            470,
+            94,
+            398,
+            339
+          ],
+          "height": 84
+        },
+        {
+          "id": "bellows-workstand",
+          "crop": [
+            904,
+            51,
+            406,
+            391
+          ],
+          "height": 104
+        },
+        {
+          "id": "rail-buffer",
+          "crop": [
+            1336,
+            90,
+            415,
+            337
+          ],
+          "height": 86
+        },
+        {
+          "id": "copper-valve",
+          "crop": [
+            19,
+            460,
+            431,
+            385
+          ],
+          "height": 98
+        },
+        {
+          "id": "ember-basalt",
+          "crop": [
+            457,
+            463,
+            432,
+            383
+          ],
+          "height": 91
+        },
+        {
+          "id": "ore-cart",
+          "crop": [
+            919,
+            513,
+            394,
+            330
+          ],
+          "height": 88
+        },
+        {
+          "id": "slag-vent",
+          "crop": [
+            1348,
+            448,
+            409,
+            409
+          ],
+          "height": 109
+        }
+      ],
+      "sha256": "42ca885e62746bee11217278d75fda58f8a27cba0d80e72e529d30c98db4a0d9",
+      "sizeBytes": 1766607,
+      "alphaZeroPixels": 836920,
+      "alphaPositivePixels": 736618,
+      "cropAudit": [
+        {
+          "id": "clay-kiln",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 83301
+        },
+        {
+          "id": "casting-basin",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 84106
+        },
+        {
+          "id": "bellows-workstand",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 85650
+        },
+        {
+          "id": "rail-buffer",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 72020
+        },
+        {
+          "id": "copper-valve",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 79609
+        },
+        {
+          "id": "ember-basalt",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 88857
+        },
+        {
+          "id": "ore-cart",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 88781
+        },
+        {
+          "id": "slag-vent",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 76242
+        }
+      ],
+      "alphaAbove32OutsideAllCrops": 0,
+      "archivedSourcePath": "development/art/source-v17/industry-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/industry-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/industry-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 518318,
+        "sha256": "4e8e748c2bb92dbad59e7f4b4eeafec8861d5cebed53ec249a6015278fe5ad95",
+        "sourceSha256": "42ca885e62746bee11217278d75fda58f8a27cba0d80e72e529d30c98db4a0d9",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "id": "highlands",
+      "asset": "environmentHighlandsV17",
+      "file": "highlands-v17.png",
+      "source": "/workspace/scratch/7b00f669b5c3/generated_images/exec-7ba088bc-c163-4b79-b625-85c0921faaa6.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production environment sprite atlas for the original top-down RPG Ash & Aether. Generate one wide landscape 2:1 PNG, exactly FOUR columns and TWO rows, exactly EIGHT separate complete game props. Every prop stays INSIDE its own equal cell, with at least 8 percent clear transparent space on ALL sides and empty transparent gutters. No piece crosses into another cell. Rich original hand-painted fantasy RPG artwork, elegant readable silhouettes, subtly irregular rounded natural forms, physical weathered material detail, gentle upper-left lighting. Consistent 35-degree elevated orthographic camera, visible fronts and tops, all props grounded toward bottom of their cells. Polished indie RPG art, nuanced brushwork, warm ochre clay, muted petrol blue stone, oxidized copper and aged brass where appropriate. Genuine RGBA transparency, clean cutout silhouettes, only tiny soft contact shadow under each prop. No background color, no checkerboard, no rectangle platforms or large landscape bases, no grid lines, no labels, no text, no numbers, no people or animals, no decorative borders. Eight props must be spatially separated and unmistakably distinct. FROST AND WIND HIGHLANDS KIT. Exact left-to-right top row: 1 two ice-scored blue-gray standing stones with small snow pockets and lichen; 2 compact cluster of two frost-dusted pine saplings, natural branch needles, frosted moss at roots; 3 bleached curved driftwood ribs intertwined with frost-covered river stones and dry grass; 4 small aurora prism cairn, translucent green-blue crystal rising among cool stone with a restrained ethereal glow entirely inside cell. Bottom row: 5 windswept purple heather and straw grasses growing from a layered gray crag; 6 intricate brass weather vane mounted on a three-legged stone pedestal, miniature wind cups and curved pointer, no text or compass letters; 7 short snowbound timber fence segment with uneven weathered posts and stone feet; 8 rounded glacial blue ice ledge with elegant fractures, trapped bubbles and frosty white crest. Keep naturally grounded irregular small bases, no square ground patches. Preserve exact 4 by 2 order and generous gutters.",
+      "props": [
+        {
+          "id": "ice-standing-stones",
+          "crop": [
+            35,
+            60,
+            392,
+            370
+          ],
+          "height": 102
+        },
+        {
+          "id": "frost-pines",
+          "crop": [
+            495,
+            43,
+            351,
+            385
+          ],
+          "height": 118
+        },
+        {
+          "id": "frost-driftwood",
+          "crop": [
+            908,
+            89,
+            419,
+            357
+          ],
+          "height": 84
+        },
+        {
+          "id": "aurora-cairn",
+          "crop": [
+            1368,
+            59,
+            362,
+            394
+          ],
+          "height": 102
+        },
+        {
+          "id": "heather-crag",
+          "crop": [
+            33,
+            481,
+            463,
+            362
+          ],
+          "height": 80
+        },
+        {
+          "id": "weather-vane",
+          "crop": [
+            543,
+            430,
+            290,
+            418
+          ],
+          "height": 125
+        },
+        {
+          "id": "snow-fence",
+          "crop": [
+            900,
+            533,
+            441,
+            314
+          ],
+          "height": 80
+        },
+        {
+          "id": "glacial-ledge",
+          "crop": [
+            1352,
+            528,
+            400,
+            322
+          ],
+          "height": 91
+        }
+      ],
+      "sha256": "4a73bb06ec980bbe6996ea6ea26165e6e1c15e0e31e9c7962cf4b7405cf7abbf",
+      "sizeBytes": 2125397,
+      "alphaZeroPixels": 883546,
+      "alphaPositivePixels": 689992,
+      "cropAudit": [
+        {
+          "id": "ice-standing-stones",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 71665
+        },
+        {
+          "id": "frost-pines",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 59803
+        },
+        {
+          "id": "frost-driftwood",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 73635
+        },
+        {
+          "id": "aurora-cairn",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 64013
+        },
+        {
+          "id": "heather-crag",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 98366
+        },
+        {
+          "id": "weather-vane",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 48467
+        },
+        {
+          "id": "snow-fence",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 71723
+        },
+        {
+          "id": "glacial-ledge",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 83322
+        }
+      ],
+      "alphaAbove32OutsideAllCrops": 0,
+      "archivedSourcePath": "development/art/source-v17/highlands-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/highlands-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/highlands-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 669604,
+        "sha256": "71c1d6c3fdf717c3025150246505b37f3e9e5ea56e39e62a6de2c443b548e53b",
+        "sourceSha256": "4a73bb06ec980bbe6996ea6ea26165e6e1c15e0e31e9c7962cf4b7405cf7abbf",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "id": "drylands",
+      "asset": "environmentDrylandsV17",
+      "file": "drylands-v17.png",
+      "source": "/workspace/scratch/7b00f669b5c3/generated_images/exec-082af4b0-d030-4ff8-bd16-daffccc1d45e.png",
+      "width": 1774,
+      "height": 887,
+      "prompt": "Use case: stylized-concept. Asset type: production environment sprite atlas for the original top-down RPG Ash & Aether. Generate one wide landscape 2:1 PNG, exactly FOUR columns and TWO rows, exactly EIGHT separate complete game props. Every prop stays INSIDE its own equal cell, with at least 8 percent clear transparent space on ALL sides and empty transparent gutters. No piece crosses into another cell. Rich original hand-painted fantasy RPG artwork, elegant readable silhouettes, subtly irregular rounded natural forms, physical weathered material detail, gentle upper-left lighting. Consistent 35-degree elevated orthographic camera, visible fronts and tops, all props grounded toward bottom of their cells. Polished indie RPG art, nuanced brushwork, warm ochre clay, muted petrol blue stone, oxidized copper and aged brass where appropriate. Genuine RGBA transparency, clean cutout silhouettes, only tiny soft contact shadow under each prop. No background color, no checkerboard, no rectangle platforms or large landscape bases, no grid lines, no labels, no text, no numbers, no people or animals, no decorative borders. Eight props must be spatially separated and unmistakably distinct. DESERT AND ANCIENT RUINS KIT. Exact left-to-right top row: 1 layered ochre sandstone shelf with rounded wind-carved ledges, fine warm striations and sparse sand grass; 2 sculptural flowering agave and ocotillo cluster with dusty sage leaves and tiny coral blooms; 3 white crystalline salt outcrop with faceted pale lavender shadows and short dry grasses; 4 small weathered sandstone water rill bowl, carved wave channels and a faint turquoise mineral stain, no running water leaving the cell. Bottom row: 5 broken fluted ivory marble column with a few green vines, chips, and small worn stone fragments; 6 compact freestanding fresco ruin wall fragment with faded abstract wave and sun ornament, illegible and no letters; 7 small curved terracotta wind-shelter shrine with an arched niche, brass bowl and a draped faded blue cloth; 8 blooming cactus cluster with a tall curved green stem and rounded prickly pear, tiny warm pink flowers. Preserve exact 4 by 2 order and generous gutters.",
+      "props": [
+        {
+          "id": "sandstone-shelf",
+          "crop": [
+            9,
+            23,
+            422,
+            389
+          ],
+          "height": 101
+        },
+        {
+          "id": "agave-ocotillo",
+          "crop": [
+            464,
+            13,
+            385,
+            420
+          ],
+          "height": 98
+        },
+        {
+          "id": "salt-outcrop",
+          "crop": [
+            882,
+            35,
+            433,
+            394
+          ],
+          "height": 92
+        },
+        {
+          "id": "stone-rill",
+          "crop": [
+            1340,
+            57,
+            420,
+            348
+          ],
+          "height": 82
+        },
+        {
+          "id": "marble-column",
+          "crop": [
+            12,
+            455,
+            406,
+            402
+          ],
+          "height": 126
+        },
+        {
+          "id": "fresco-wall",
+          "crop": [
+            459,
+            448,
+            416,
+            396
+          ],
+          "height": 105
+        },
+        {
+          "id": "wind-shrine",
+          "crop": [
+            896,
+            461,
+            418,
+            387
+          ],
+          "height": 112
+        },
+        {
+          "id": "flowering-cactus",
+          "crop": [
+            1358,
+            440,
+            388,
+            425
+          ],
+          "height": 107
+        }
+      ],
+      "sha256": "9b73e26a7718df7744657373026059a777b2e4ecbf3551ed3f8482a0bbc9f4c5",
+      "sizeBytes": 2159678,
+      "alphaZeroPixels": 766083,
+      "alphaPositivePixels": 807455,
+      "cropAudit": [
+        {
+          "id": "sandstone-shelf",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 92174
+        },
+        {
+          "id": "agave-ocotillo",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 73238
+        },
+        {
+          "id": "salt-outcrop",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 76832
+        },
+        {
+          "id": "stone-rill",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 83316
+        },
+        {
+          "id": "marble-column",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 77521
+        },
+        {
+          "id": "fresco-wall",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 93327
+        },
+        {
+          "id": "wind-shrine",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 98367
+        },
+        {
+          "id": "flowering-cactus",
+          "oneCompleteMainSilhouette": true,
+          "mainSilhouettePixels": 76876
+        }
+      ],
+      "alphaAbove32OutsideAllCrops": 0,
+      "archivedSourcePath": "development/art/source-v17/drylands-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/drylands-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/drylands-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 696572,
+        "sha256": "ce9f01c49c6e33f7467dec301c7d25f98a807cdc80371e31f7d42c0de4a66ac9",
+        "sourceSha256": "9b73e26a7718df7744657373026059a777b2e4ecbf3551ed3f8482a0bbc9f4c5",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "artCheckpointVersion": "5.17.0",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

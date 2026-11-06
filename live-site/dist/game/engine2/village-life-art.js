@@ -1,0 +1,10 @@
+/** Authored alpha sprite bounds; every pose shares its species' world scale. */
+export const VILLAGE_FRAMES={
+ cat:[[43,32,270,275],[345,51,320,259],[704,49,181,260],[967,158,276,150]],
+ cow:[[13,337,322,272],[332,351,314,252],[649,350,339,260],[956,408,284,201]],
+ dog:[[22,622,307,291],[342,651,328,257],[673,621,243,293],[951,752,293,160]],
+ grass:[[14,926,318,287],[328,927,329,283],[648,920,296,293],[939,918,302,295]]
+};
+const SIZE={cat:{w:34,h:27},cow:{w:87,h:66},dog:{w:45,h:36},grass:{w:34,h:27}};
+export function villagePose(o,time){time=Number.isFinite(time)?Math.max(0,time):0;const moving=!!o.path?.length;if(o.lifeKind==='grass')return [0,1,0,2,1,3][o.grass%6]||0;if(moving)return o.lifeKind==='cow'?(Math.floor(time*3)%2?2:0):Math.floor(time*3)%2;if(o.lifeKind==='cow')return /grazing/.test(o.activity||'')?1:/sleep|chewing cud/.test(o.activity||'')?3:0;return /sleep|napping/.test(o.activity||'')?3:/rest|sleep/.test(o.activity||'')?2:0;}
+export function drawVillageLife(c,o,time,atlas){if(!atlas)return false;const kind=o.lifeKind,frames=VILLAGE_FRAMES[kind];if(!frames)return false;const pose=villagePose(o,time),[sx,sy,sw,sh]=frames[pose]||frames[0],size=SIZE[kind],scale=Math.min(size.w/frames[0][2],size.h/frames[0][3]),w=sw*scale,h=sh*scale,moving=!!o.path?.length,flip=o.facing===-1;c.save();c.translate((o.xy[0]+.5)*48,(o.xy[1]+.5)*48);if(kind==='grass'){const sway=Math.sin(time*1.15+o.xy[0]*.31)*.012;c.transform(1,0,sway,1,0,0);}else{c.fillStyle='#17251e25';c.beginPath();c.ellipse(0,1,size.w*.34,3.5,0,0,Math.PI*2);c.fill();if(flip)c.scale(-1,1);}if(kind==='cow'&&pose===2){c.beginPath();c.moveTo(-w/2,-h);c.lineTo(w/2,-h);c.lineTo(w/2,-h+165*scale);c.lineTo(w/2-40*scale,-h+165*scale);c.lineTo(w/2-40*scale,0);c.lineTo(-w/2,0);c.closePath();c.clip();}if(kind==='cow'&&pose===3){c.beginPath();c.moveTo(-w/2,-h+50*scale);c.lineTo(-w/2+60*scale,-h);c.lineTo(w/2,-h);c.lineTo(w/2,0);c.lineTo(-w/2,0);c.closePath();c.clip();}c.drawImage(atlas,sx,sy,sw,sh,-w/2,-h,w,h);c.restore();return true;}

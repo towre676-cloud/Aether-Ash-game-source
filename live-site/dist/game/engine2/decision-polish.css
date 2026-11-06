@@ -1,0 +1,12 @@
+.battle-on #spell-menu .technique-option{display:grid;gap:5px;text-align:left;line-height:1.35}
+.technique-option strong{font:600 13px system-ui;color:#f2e7c9}
+.technique-option .technique-cost{font:12px/1.35 system-ui;color:#bbdace}
+.technique-option small{font:11px/1.4 system-ui;color:#adc6cd}
+.technique-option.overdraw{border-color:#c7a46b!important;background:#493b2a!important}
+.technique-option.overdraw .technique-cost{color:#ffe0a1}
+.battle-on #spell-menu .technique-option:disabled{opacity:.65}
+#objective[aria-pressed=true]{border-color:#a8d8bb;background:#204239}
+#graphics-mode{max-width:100%;min-height:44px}
+#rebuild-graphics{min-height:44px;font-size:12px;padding:9px 12px}
+.setting:has(#graphics-mode){flex-wrap:wrap;gap:10px}
+#graphics-status{font-size:12px;line-height:1.5}

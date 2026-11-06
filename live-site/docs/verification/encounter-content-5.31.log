@@ -1,0 +1,15 @@
+✔ native rescue, pressure, store and relay encounters get exact-position assets on all seven origin backdrops (10808.725655ms)
+✔ roaming objective preview uses the same native asset without creating a Battle or advancing state (1381.19899ms)
+✔ native objective actions visibly move the patient, wheel, store bindings and disconnected relay contacts (1225.520135ms)
+✔ native theft and sabotage remove a bundle and expose integrity or pressure consequences (1234.032559ms)
+✔ saved objective snapshot restores the identical machine, route, patient and partial progress (1380.228846ms)
+✔ native listening coverage and clay replay appear only while their finite charges remain (352.559581ms)
+✔ missing, distant and blocked objective positions do not create geometry outside the real world (311.671535ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16925.506747

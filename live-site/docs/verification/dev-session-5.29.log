@@ -1,0 +1,15 @@
+✔ developer catalogue is lightweight, bounded and covers each authored guardian (1.178457ms)
+✔ every chapter, arrival/boss stage and lead restores a canonical legal three-person practice state (148898.866994ms)
+✔ alternate branch fixtures retain meaningful earlier decisions without claiming the current guardian or sharing mutable state (2312.818541ms)
+✔ practice kits can resolve all 24 isolated guardian baselines using only equipped recipes and resource-paying commands (17351.565097ms)
+✔ invalid or ambiguous practice requests fail without constructing or altering a normal journey (0.482321ms)
+✔ practice construction neither touches browser storage nor changes an already-running normal journey (739.329645ms)
+✔ arrival checkpoints have reachable first objectives and boss checkpoints guide directly to their prepared guardian (21446.113234ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190778.380317

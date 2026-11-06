@@ -1,0 +1,64 @@
+{
+  "release": "5.37 \u00b7 Stone, timber & tide",
+  "base_commit": "b53ee12054efc8ce88c0e2c72fa76198fcf6a272",
+  "other_session_inputs": [
+    "Ash_Aether_5_37_Production_Integration_Modules.zip",
+    "Ash_Aether_5_37_Environment_Production_Upgrade.zip"
+  ],
+  "native_scene_visual_review": [
+    5,
+    20,
+    49,
+    2040,
+    2,
+    703
+  ],
+  "ordinary_journey": {
+    "scene": 50013,
+    "traveller": "Veyr",
+    "viewport": [
+      390,
+      844
+    ],
+    "game_viewport": [
+      388,
+      842
+    ],
+    "document_size": [
+      388,
+      842
+    ],
+    "backend": "software-3d",
+    "quality": "low",
+    "added_detail_triangles": 600,
+    "screenshot": "environment-5.37-phone.jpg"
+  },
+  "full_suite": {
+    "tests": 1657,
+    "passed": 1657,
+    "failed": 0,
+    "log": "environment-5.37-tests.log"
+  },
+  "after_final_phone_adjustment": {
+    "change": "static detail selection prioritizes nearby native footprints under the same geometry budget",
+    "focused_tests": 14,
+    "log": "environment-5.37-focused-final.log"
+  },
+  "drainage": {
+    "scene": 703,
+    "phases": [
+      "flowing",
+      "isolated",
+      "venting",
+      "drained"
+    ],
+    "native_action_sequence_tested": true,
+    "browser_initial_room_reviewed": true,
+    "browser_full_action_sequence_tested": false
+  },
+  "limits": [
+    "Browser uses native software3D fallback; physical Android performance was not measured.",
+    "No Three.js replacement scene or PBR map-binding claim.",
+    "Materials and attached art refine current environments; broad environment rebuilding remains future work."
+  ]
+}

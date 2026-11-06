@@ -1,0 +1,21 @@
+{
+  "source": "built-in image generation",
+  "asset": "material-atlas-v2.webp",
+  "source_png": "material-atlas-v2.png",
+  "width": 1254,
+  "height": 1254,
+  "quadrant_pixels": 627,
+  "quadrants": {
+    "top_left": "dark blue-gray worn limestone flagstone floor",
+    "top_right": "damp soot-dark quarried stone block wall",
+    "bottom_left": "tarnished antique brass with fine engraved filigree",
+    "bottom_right": "rough layered cavern rock with sparse moss"
+  },
+  "notes": [
+    "Diffuse/albedo-style original texture art.",
+    "No cast perspective or scene baked in.",
+    "Requested2048 square; image generator produced1254 square.",
+    "Each quadrant should tile independently, but seams must be checked in runtime; do not promise perfect seamlessness."
+  ],
+  "sha256": "5214e81fd0cb5f8c4358c6380ecf0dc0db4392ef7f2c69ca68eea80815c8d510"
+}

@@ -1,0 +1,18 @@
+✔ fourteen actual remembered places form connected service walks and occupied work bays without changing collision or saves (5651.185154ms)
+✔ Veyr arrives at a real mast worksite and walks to each exact native station instead of isolated markers (403.808831ms)
+✔ each saved repair and peaceful worksite change is visible at the same clock without advancing the narrative (5037.021121ms)
+✔ Veyr ground and handle previews affect machinery before committing state (337.811731ms)
+✔ physical replacements keep authored people at their stations and completed people remain visible without new interactions (2218.97108ms)
+✔ ordinary campaign and frontier scenes are outside the origin staging scope (394.094727ms)
+✔ repair-choice input plates remain at the actual physical descriptor anchors and preview without spending a choice (360.37913ms)
+✔ the upper storm station is an enclosed working roof, with a northern array and a low lateral decision table (381.783939ms)
+✔ storm decking, machinery and service lanes have distinct quiet materials and the array displays real saved status (370.863992ms)
+✔ both coastal observatory roofs have continuous foundations reaching below their actual sea surface and readable array outlines (748.663306ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16140.2301

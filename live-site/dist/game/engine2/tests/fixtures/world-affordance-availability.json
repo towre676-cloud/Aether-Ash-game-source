@@ -1,0 +1,946 @@
+{
+  "230": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "229": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "228": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "5": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "4": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "12": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "17": [
+    "salvage-0",
+    "site"
+  ],
+  "13": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "50": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "61": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "135": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "214": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "47": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "49": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "48": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "292": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "125": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "212": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "213": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "234": [
+    "site"
+  ],
+  "28": [
+    "salvage-0",
+    "salvage-1",
+    "scout"
+  ],
+  "29": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "30": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "19": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "20": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "42": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "294": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "295": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "112": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "406": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "256": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "225": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "68": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "160": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "70": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "66": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "73": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "359": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "164": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "172": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "145": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "144": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "142": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "394": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "143": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "313": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "146": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "315": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "147": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "149": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "438": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "259": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "151": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "303": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "392": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "314": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "393": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "319": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "251": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "404": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "226": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "701": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "702": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "703": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "704": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "705": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "706": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "707": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "708": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "709": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "710": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "711": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "712": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "713": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "714": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "715": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "716": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "717": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "718": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "719": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "720": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "721": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "722": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "723": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "724": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2000": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2001": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2002": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2003": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2004": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2005": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2006": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2007": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2008": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2009": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2010": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2011": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2012": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2013": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2014": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2015": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2016": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2017": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2018": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2019": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2020": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2021": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2022": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2023": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2024": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2025": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2026": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2027": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2028": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2029": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2030": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2031": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2032": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2033": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2034": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2035": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2036": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2037": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2038": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2039": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2040": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2041": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2042": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2043": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2044": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2045": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2046": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2047": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2048": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2049": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2050": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2051": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2052": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2053": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2054": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "2055": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2056": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2057": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2058": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "2059": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "50000": [
+    "salvage-0",
+    "salvage-1",
+    "site"
+  ],
+  "50001": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50002": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50003": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50004": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50005": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50006": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50007": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50008": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50009": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50010": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50011": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50012": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "50013": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4700": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4701": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4702": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4703": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4704": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4705": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ],
+  "4706": [
+    "salvage-0",
+    "salvage-1",
+    "site",
+    "scout"
+  ]
+}

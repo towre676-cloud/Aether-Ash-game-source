@@ -1,0 +1,234 @@
+/* Ash & Aether 5.34 — a traveller's instrument case, rather than a dashboard.
+   Presentation only: native viewport measurements, input positions, and world
+   transforms remain owned by their existing systems. */
+:root{
+ --aa-brass:#bea16c;--aa-brass-light:#ead2a0;--aa-brass-shadow:#58472e;
+ --aa-parchment:#e2d0ac;--aa-muted:#b4b49b;--aa-stone:#1c211f;
+ --aa-panel:#141c1b;--aa-ember:#d99155;--aa-moss:#9dbba3;
+ --aa-grain:url('../art/ui/engraved-bronze-5.34.svg');
+ --aa-compass:url('../art/ui/wayfinder-seal-5.34.svg');
+ --paper:#e7dcc5;--gold:#d8bb82;--line:#9c845858;
+}
+#game :is(#hud,#commands,#spell-menu,#dialog,#notice,#pause,.embodied-choices){color:var(--aa-parchment)}
+#game :is(#hud,#commands,#spell-menu,#dialog,#pause,.embodied-choices) button,
+#game :is(#pause,#spell-menu) select,
+#game #pause .file-button{
+ border-radius:2px;border-color:#9d815762;color:#e3d5b6;
+ background-image:var(--aa-grain),linear-gradient(180deg,#37403a,#202b27 48%,#1a2421);
+ box-shadow:inset 0 1px #ebd6a022,inset 0 -2px #080e0b99,0 2px 5px #0003;
+ text-shadow:0 1px #0008;
+}
+#game :is(#hud,#commands,#spell-menu,#dialog,#pause,.embodied-choices) button:not(:disabled):hover{
+ border-color:#cfb47c;background-color:#3d493a;filter:brightness(1.13);
+}
+#game :is(#hud,#commands,#spell-menu,#dialog,#pause,.embodied-choices) button:focus-visible,
+#game #pause :is(select,summary,a,.file-button):focus-visible{outline:2px solid #ead2a0;outline-offset:3px}
+#game :is(#pause,#commands,#dialog) button.primary,
+#game #pause #resume{
+ background-image:var(--aa-grain),linear-gradient(#cfb67e,#a88a51 52%,#8d6e3f);
+ color:#161d18;border-color:#ebd2a1;text-shadow:0 1px #e4cb8b66;
+ box-shadow:inset 0 1px #fff3,inset 0 -2px #5b422d,0 3px 9px #0005;
+}
+/* The chapter is a cartographer's engraved nameplate. */
+#game #hud{
+ background:linear-gradient(180deg,#080f10e8,#0b1415aa 55%,transparent);
+ padding-bottom:14px;
+}
+#game:not(.battle-on) #hud header>div:first-child{
+ position:relative;min-height:59px;padding:3px 14px 10px 52px;
+ border-bottom:1px solid #ad92514a;
+ background:linear-gradient(90deg,#111b1cba,transparent 80%);
+}
+#game:not(.battle-on) #hud header>div:first-child::before{
+ content:'';position:absolute;width:40px;height:40px;left:0;top:6px;
+ background:var(--aa-compass) center/contain no-repeat;pointer-events:none;
+ filter:drop-shadow(0 2px 2px #0009);
+}
+#game:not(.battle-on) #hud header>div:first-child::after{
+ content:'';position:absolute;bottom:-3px;left:19px;width:5px;height:5px;
+ background:#bda16a;transform:rotate(45deg);pointer-events:none;
+ box-shadow:2px 2px 0 #111b1b;
+}
+#game:not(.battle-on) #hud header>div>small{color:#bda576;font:9px/1.2 Georgia,serif;letter-spacing:.23em}
+#game:not(.battle-on) #hud header #chapter-title{
+ font:400 clamp(17px,1.65vw,25px)/1.22 Georgia,'Times New Roman',serif;
+ letter-spacing:.015em;color:#ede0bd;text-shadow:0 2px 3px #000b;margin:4px 0;
+}
+#game:not(.battle-on) #hud header #area-name{color:#b5b99f;font-size:9px;letter-spacing:.13em}
+#game #hud header>button{min-height:44px;padding:9px 16px;font:13px/1.2 Georgia,serif;letter-spacing:.035em;border-top-color:#c7aa7677}
+#game #hud #quick-armory{color:#f1d79f;border-color:#c6a46c99;background-image:var(--aa-grain),linear-gradient(#534b34,#302f23)}
+#game #hud #quick-armory::before{
+ content:'';display:inline-block;width:17px;height:20px;vertical-align:middle;margin-right:7px;
+ background:currentColor;clip-path:polygon(68% 0,83% 0,49% 65%,66% 74%,61% 83%,43% 75%,33% 96%,21% 91%,32% 70%,14% 60%,19% 51%,38% 60%);
+}
+#game #gold{color:#cfb884;font:11px Georgia,serif}
+#game #score-indicator{background:transparent;border:0;border-left:1px solid #a58b5855;border-radius:0;padding-left:12px;color:#b2b69e;font:10px Georgia,serif}
+#game #score-indicator.audible{color:#e1c28d}
+/* Crew strips are worked leather and enamel, with inset vitality channels. */
+#game #party{gap:8px;margin-top:9px}
+#game .party-card,#game.battle-on .party-card{
+ position:relative;border-radius:2px 2px 8px 2px;border:1px solid #a78b555e;
+ border-left:3px solid #b29867;padding:7px 10px 9px;
+ background-image:var(--aa-grain),linear-gradient(115deg,#283b32ed,#14241feb);
+ box-shadow:inset 0 1px #ddcb9220,inset 0 -3px #08120e6b,0 4px 10px #0003;
+}
+#game .party-card strong{font-family:Georgia,serif;font-size:13px;color:#f0e3c5;font-weight:400}
+#game .party-card strong small{color:#b8b99d;font-size:9px}
+#game .party-card :is(.hp,.mp,.atb,.xp){height:4px;border-radius:0;background:#0a1713;box-shadow:0 0 0 1px #b19b5736,inset 0 1px #0007}
+#game .party-card .hp b{background:linear-gradient(#bfd2a4,#799a7c)}
+#game .party-card .atb b{background:linear-gradient(#e9d59b,#a48a55)}
+#game .party-card .xp b{background:#afa5b9}
+#game .party-card.selected{outline:1px solid #e4c98e;background-image:var(--aa-grain),linear-gradient(115deg,#3b4934ed,#1b2f27eb)}
+#game .party-card.ready{border-color:#d8bd80;box-shadow:inset 0 1px #efddac44,0 0 9px #c9ba7138}
+/* A pinned route slip; secondary help reads like marginalia, not chips. */
+#game.adventure-3d #objective,#game.embodied-world #objective{
+ background-image:var(--aa-grain),linear-gradient(90deg,#403b2ad9,#252c24cf);
+ border:0;border-top:1px solid #c0a66b66;border-bottom:1px solid #c0a66b55;
+ border-radius:0 0 4px 0;opacity:1;color:#e6d4a9;padding:8px 13px 8px 9px;
+ box-shadow:inset 3px 0 #a48e5d,0 3px 8px #0003;
+ font-family:Georgia,serif;font-size:12px;
+}
+#game #objective::before{content:'';width:20px;height:20px;background:var(--aa-compass) center/contain no-repeat;flex:none}
+#game .journey-help>button{min-height:32px!important;padding:5px 8px!important;border:0!important;border-bottom:1px solid #a58b5855!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#c9bc9c!important;font:10px/1.4 Georgia,serif!important}
+#game .journey-help-panel{border-radius:2px;border-color:#b39b6a8c;background-image:var(--aa-grain),linear-gradient(120deg,#29362ef7,#14231efb);box-shadow:inset 0 0 0 4px #0a171a66,0 10px 35px #0008}
+#game .journey-help-panel :is(h3,.journey-city-answers summary){color:#e7c991}
+#game #notice,#game:not(.battle-on) #notice,#game #field-prompt{
+ border-radius:1px;border:1px solid #a68c5966;background-image:var(--aa-grain),linear-gradient(#24332cee,#14231fee);
+ box-shadow:inset 0 0 0 3px #09151266,0 4px 18px #0005;color:#eadbbc;font-family:Georgia,serif;
+}
+/* The compass housing is ornamental. Its native position/size/drag transform
+   are deliberately untouched, including the zoom recovery control. */
+#game #touch #joystick{
+ border-color:#b89c6e99;background:var(--aa-compass) center/96% no-repeat,radial-gradient(circle,#10201ad9,#172b22a3 63%,#6a5d3c77 65%,#13221fc4 69%);
+ box-shadow:inset 0 0 0 3px #09181588,inset 0 0 0 5px #a48d5955,0 4px 12px #0006;opacity:.9;
+}
+#game #touch #joystick::before,#game #touch #joystick::after{background:#c1aa6c36}
+#game #touch .joystick-ring{border-color:#cebc8244;box-shadow:0 0 0 2px #071c174a}
+#game #touch .joystick-knob{border-color:#d3b984;background:radial-gradient(circle at 35% 23%,#b6c6a2,#778d73 36%,#3b5d4a 69%,#1d362d 72%);box-shadow:inset 0 0 0 3px #acbd8b36,inset 0 1px #f4e2b879,0 3px 9px #0009}
+#game #touch .face button{color:#e7d6ab;border-color:#b59a6e8c;background-image:var(--aa-grain),radial-gradient(circle at 40% 25%,#475548,#1b3027 70%);box-shadow:inset 0 0 0 3px #09161266,inset 0 1px #d5c78f66,0 3px 10px #0006;font-family:Georgia,serif}
+#game #touch .face [data-button=y]{border-radius:7px 7px 13px 7px}
+#game #touch .face [data-button=a]{border-color:#e0bc78;background-image:var(--aa-grain),radial-gradient(circle at 37% 24%,#9c945b,#50663c 57%,#273c2b 80%);color:#fff0c4;box-shadow:inset 0 0 0 3px #273e2d88,inset 0 1px #f6e9b76b,0 4px 14px #0009}
+#game #touch .face small{color:#cfcbb0;font-family:Georgia,serif}
+#game #touch .touch-view-reset{border-radius:2px;border-color:#b49b6666;background:#172b24de;color:#decca3;box-shadow:inset 0 1px #d7c49220;font-family:Georgia,serif}
+/* Dialogue and action choices share the bronze-bound folio. */
+#game #dialog{
+ border:1px solid #b99a65a8;border-radius:2px 2px 10px 2px;
+ background-image:var(--aa-grain),linear-gradient(110deg,#30382bf8,#17251ffb 70%);
+ box-shadow:inset 0 0 0 4px #080f1166,inset 0 0 0 5px #9d865b30,0 14px 40px #0009;
+}
+#game #dialog-portrait{filter:drop-shadow(0 3px 5px #0008);border-bottom:1px solid #b0976777;padding-bottom:5px}
+#game #speaker{font:small-caps 14px/1.3 Georgia,serif;color:#e0bd7e;letter-spacing:.07em}
+#game #dialog-text{color:#e9ddc3;text-shadow:0 1px #0004}
+#game #dialog-next{font-family:Georgia,serif;color:#ead09b;border-color:#bd9e6666}
+#game #choices button{border-left:2px solid #c3a777;text-align:left;font-family:Georgia,serif}
+#game #choices button.selected{outline-color:#eed9a3;background-image:var(--aa-grain),linear-gradient(#5c573b,#343e2b)}
+#game .embodied-cue-label{border-radius:1px;border-bottom:1px solid #b99b6666;background:#15261ee0;color:#f1dfb9;font-family:Georgia,serif}
+#game .embodied-cue-ring b{background:#16251fe8;border-color:#b99d6a9c;color:#e7d5a4}
+#game .embodied-choices{border-radius:2px;background-image:var(--aa-grain),linear-gradient(120deg,#2c382ce8,#15271feb);border-color:#b59b64a1;box-shadow:inset 0 0 0 3px #07150c44,0 7px 20px #0007}
+/* Pause opens a bound atlas: a lighter folio heading, engraved rules, and
+   generous book margins. All existing disclosures and controls remain native. */
+#game #pause{background:#080e0de0;backdrop-filter:blur(9px)}
+#game #pause .menu-card{
+ position:relative;border-radius:3px 3px 11px 3px;border:1px solid #a78b55a8;
+ border-left:5px solid #715833;background-image:var(--aa-grain),linear-gradient(105deg,#30372b,#1a2720 24%,#15231e);
+ box-shadow:inset 7px 0 14px #0006,inset 0 0 0 5px #b1995b20,0 28px 80px #000b;
+ padding:clamp(21px,3.2vw,40px);
+}
+#game #pause-title{font:400 clamp(29px,4vw,42px)/1.15 Georgia,serif;color:#f0dcae;border-bottom:3px double #c3a46a88;padding:0 0 19px;margin-bottom:20px;letter-spacing:.03em}
+#game #pause-title::after{content:'';display:block;width:32px;height:32px;float:right;background:var(--aa-compass) center/contain no-repeat;opacity:.7}
+#game #journal-goal{background:transparent;border-left:2px solid #c6a46b;color:#d9cfb5;font-family:Georgia,serif;font-size:17px}
+#game #pause-body .pause-primary{gap:9px}
+#game #pause-body .pause-primary>button{min-height:52px;font-family:Georgia,serif;font-size:16px}
+#game #pause-body .pause-group{border:0;border-radius:1px;background:transparent;overflow:visible;margin:10px 0;border-bottom:1px solid #b29a6555}
+#game #pause-body .pause-group>summary{
+ border-radius:1px;background-image:var(--aa-grain),linear-gradient(90deg,#b4a17a29,#b4a17a0a);
+ border-top:1px solid #d4bb7d44;min-height:62px;padding-left:16px;
+}
+#game #pause-body .pause-group>summary strong{font:400 18px/1.25 Georgia,serif;color:#e2c996;letter-spacing:.02em}
+#game #pause-body .pause-group>summary span{color:#b4b9a2;font-size:11px}
+#game #pause-body .pause-group>summary::after{font-family:Georgia,serif;color:#d8bd7f}
+#game #pause-body .pause-group[open]>summary{border-bottom:1px solid #a9915b4d;background-color:#0c17112b}
+#game .pause-action-grid{gap:1px 15px;padding:9px 7px 14px}
+#game #pause .pause-action-grid>:is(button,a,.file-button){border:0;border-bottom:1px solid #9e8b5e30;border-radius:0;box-shadow:none;background:transparent;min-height:48px;padding:11px 8px;color:#d8d4bd;font-family:Georgia,serif;font-size:14px}
+#game #pause .pause-action-grid>:is(button,a,.file-button):not(:disabled):hover{background:#c0ae6e12;border-bottom-color:#b49a63}
+#game #pause .hint,#game .pause-save-status{color:#b3b7a0}
+#game #pause .setting{border-top-color:#b09a5933;color:#c9c9ad}
+#game #pause input{accent-color:#c4aa6f}
+#game #pause :is(h3,h4){color:#e4cca0;font-family:Georgia,serif}
+#game .character-art{border-radius:40% 40% 3px 3px;border-color:#b59a6255;background:var(--aa-compass) center 34%/85% no-repeat,radial-gradient(ellipse at center,#6f795735,transparent 68%);box-shadow:inset 0 0 45px #08140d55}
+#game .hero-name{color:#eddbb3;font-size:42px}
+#game .hero-stats{gap:0;border-top:1px solid #a28e5d66;border-bottom:3px double #a28e5d66}
+#game .hero-stats>div{border:0;border-right:1px solid #a28e5d33;border-radius:0;background:transparent;padding:13px 7px}
+#game .hero-stats>div:last-child{border-right:0}
+#game .hero-stats strong{color:#e5cc92;font:24px Georgia,serif}
+#game .hero-stats small{color:#bdc0a6}
+#game .vital progress{border-radius:1px}
+#game .vital progress::-webkit-progress-bar{background:#0b1b13}
+#game .vital progress::-webkit-progress-value{background:#9fb58a}
+#game .tech-card{background:#b09b6a09;border-left-width:2px;border-bottom:1px solid #a48f592e}
+#game .menu-card .crew-setup :is(section,article),#game .adventure-guidance article{
+ border:0;border-top:3px double #ae965b66;border-radius:0;background:transparent;padding-left:8px;padding-right:8px;
+}
+#game .crew-vitals span{border-radius:1px;border:0;border-bottom:1px solid #b79a6266;background:transparent;color:#d5c6a1}
+#game .crew-live{background:#73805e16;color:#d1d9ba;border-left-color:#b5c58e}
+#game .crew-setup .crew-socket{border-radius:2px;background:var(--aa-grain),#102218;border-color:#aa925662;box-shadow:inset 0 0 0 3px #060f0933}
+#game .crew-growth-choice{border-radius:2px!important}
+#game .crew-school-drawer,#game .crew-advanced,#game .crew-services{border-top-color:#a78f5955}
+#game .economy-header{background:transparent;border-bottom:3px double #b39a6266;padding-left:0}
+#game :is(.economy-card,.economy-shop,.economy-book,.economy-item){border-radius:1px;border-color:#aa91564d;background-image:var(--aa-grain),linear-gradient(120deg,#293528a3,#14251d88)}
+#game .economy-good{background:transparent;border:0;border-bottom:2px solid var(--good);border-radius:0}
+/* The battle shelf uses the same instrument metal, without changing its
+   measured geometry or stealing pixels from the combat arena. */
+#game.battle-on #commands,#game.battle-on.battle-console-side #commands{
+ border-radius:3px;border-color:#b99b6699;background-image:var(--aa-grain),linear-gradient(110deg,#313a2cf7,#14251ffa);
+ box-shadow:inset 0 0 0 3px #091a1255,0 9px 30px #0009;
+}
+#game.battle-on #commands .command-grid button{border-radius:2px;border-color:#a58c5966;background-image:var(--aa-grain),linear-gradient(#3d4936,#233527);color:#deceb0;box-shadow:inset 0 1px #ddc79325,inset 0 -2px #08130e66}
+#game.battle-on #commands .command-grid #cmd-attack{background-image:var(--aa-grain),linear-gradient(#bca26e,#8c744a);color:#132319;border-color:#dfc28c}
+#game.battle-on #commands .command-grid button[data-picker-active=true]{background-image:var(--aa-grain),linear-gradient(#656246,#39492f);border-color:#d7bc80;color:#ffedc3;box-shadow:inset 0 -2px #d6bc7b}
+#game.battle-on #battle-flow .enemy-list button{border-radius:1px;background-image:var(--aa-grain),linear-gradient(120deg,#353c2d,#1b2e22);border-color:#b59a5855}
+#game.battle-on #battle-flow .enemy-list button.selected{background-image:var(--aa-grain),linear-gradient(#4a5134,#2d3e27);outline-color:#d7bd80}
+#game.battle-on #battle-flow .enemy-list button.charging{border-color:#dca16a;box-shadow:inset 3px 0 #ce8f53}
+#game.battle-on .enemy-heading strong{font-family:Georgia,serif;color:#e8d8b4}
+#game.battle-on .enemy-intent{color:#d1b38b}
+#game.battle-on #commands .quick-technique,#game.battle-on #commands #spell-menu>button.battle-picker-option{border-radius:2px;border-color:#a68d595f;background-image:var(--aa-grain),linear-gradient(110deg,#30402e,#192e21)}
+#game.battle-on .quick-technique strong,#game.battle-on #commands #spell-menu .technique-option strong{color:#eadbb6;font-family:Georgia,serif}
+#game.battle-on #commands .battle-picker-bar,#game.battle-on #commands .battle-picker-pages{border-top-color:#ae965655}
+#game #encounter-goal{border-radius:0;background:#182c22e3;border-top:1px solid #b6a06c44;border-bottom:1px solid #b6a06c33}
+@media(max-width:650px){
+ #game:not(.battle-on) #hud{padding-top:calc(10px + env(safe-area-inset-top,0px))}
+ #game:not(.battle-on) #hud header{gap:5px;align-items:flex-start}
+ #game:not(.battle-on) #hud header>div:first-child{min-height:54px;padding:2px 5px 7px 32px}
+ #game:not(.battle-on) #hud header>div:first-child::before{width:27px;height:27px;top:7px}
+ #game:not(.battle-on) #hud header>div:first-child::after{left:12px}
+ #game:not(.battle-on) #hud header>div>small{font-size:7px;letter-spacing:.13em}
+ #game:not(.battle-on) #hud header #chapter-title{font-size:15px;line-height:1.25;margin:4px 0}
+ #game:not(.battle-on) #hud header #area-name{font-size:8px;letter-spacing:.06em;max-width:36vw}
+ #game #hud header>button{min-height:44px;padding:8px 10px;font-size:12px}
+ #game #hud #quick-armory::before{display:none}
+ #game #hud #score-indicator[role=button]{font-size:0;padding:4px;width:44px;min-width:44px;max-width:44px;min-height:44px;flex:0 0 44px;overflow:hidden;border:1px solid #9d815762;background-image:var(--aa-grain),linear-gradient(#37403a,#1a2421);justify-content:center}
+ #game #hud #score-indicator[role=button]::before{content:'♪';font:18px Georgia,serif;display:block}
+ #game #hud #score-indicator[data-music-recovery=true]{color:#f1d79f;border-color:#c6a46c99}
+ #game #party{gap:6px;margin-top:7px}
+ #game .party-card,#game.battle-on .party-card{padding-left:8px;padding-right:8px}
+ #game .party-card strong{font-size:12px}
+ #game.embodied-world #objective{font-size:11px;max-width:64vw;min-height:44px}
+ #game .journey-help>button{min-height:44px!important;padding:7px 8px!important}
+ #game #pause .menu-card{padding:20px 16px 20px 19px}
+ #game #pause-title{font-size:29px}
+ #game #pause-body .pause-primary>button{font-size:14px}
+ #game #pause-body .pause-group>summary strong{font-size:17px}
+ #game .pause-action-grid{gap:1px 10px;padding-left:3px;padding-right:3px}
+ #game #dialog #choices button,#game .embodied-choices .embodied-choice{min-height:44px}
+ #game .character-art{border-radius:2px;background-size:160px;background-position:left center}
+ #game .hero-name{font-size:31px}
+}
+@media(max-height:550px) and (min-width:650px){
+ #game:not(.battle-on) #hud header>div:first-child{min-height:32px;padding:0 8px 4px 30px}
+ #game:not(.battle-on) #hud header>div:first-child::before{width:24px;height:24px;top:0}
+ #game:not(.battle-on) #hud header>div:first-child::after{left:10px}
+ #game:not(.battle-on) #hud header #chapter-title{font-size:15px;margin:2px 0}
+ #game #hud header>button{min-height:36px;padding:6px 11px;font-size:12px}
+ #game #party{margin-top:5px}
+}
+@media(prefers-reduced-motion:reduce){#game :is(#hud,#pause,#dialog,#commands) *{transition:none!important}}

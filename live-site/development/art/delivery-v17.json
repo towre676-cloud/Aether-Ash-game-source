@@ -1,0 +1,226 @@
+{
+  "schema": "ash-aether.environment-delivery/1",
+  "encoding": {
+    "encoder": "FFmpeg libwebp",
+    "quality": 95,
+    "compressionLevel": 6,
+    "losslessColor": false,
+    "alpha": "exact original alpha channel",
+    "dimensions": "unchanged"
+  },
+  "originalBytes": 36135738,
+  "deliveryBytes": 10575052,
+  "seconds": 38.58,
+  "files": [
+    {
+      "original": "development/art/source-v17/architecture-accents-v17.png",
+      "delivery": "dist/game/engine2/art/architecture-accents-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 1701869,
+      "deliveryBytes": 515070,
+      "originalSha256": "15632f12c04b7b56823bde9f96c927eeafce1d07c28362cc88bcb0622eca00b2",
+      "deliverySha256": "079485c38c19c97a60605deefaa6363f3d7f582b119aeec4c2245abf6b732ce2",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/artisans-v17.png",
+      "delivery": "dist/game/engine2/art/artisans-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2567273,
+      "deliveryBytes": 780498,
+      "originalSha256": "116be3b4107158e0af55af233d545dc621f214635e53738638f292214359e4d4",
+      "deliverySha256": "1d597ddee5fa219b014ca40dac76f08d50c9c6e62c7b2097140224a59c350def",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/drylands-v17.png",
+      "delivery": "dist/game/engine2/art/drylands-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2159678,
+      "deliveryBytes": 696572,
+      "originalSha256": "9b73e26a7718df7744657373026059a777b2e4ecbf3551ed3f8482a0bbc9f4c5",
+      "deliverySha256": "ce9f01c49c6e33f7467dec301c7d25f98a807cdc80371e31f7d42c0de4a66ac9",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/environment-canopies-v17.png",
+      "delivery": "dist/game/engine2/art/environment-canopies-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 3146499,
+      "deliveryBytes": 1093120,
+      "originalSha256": "a9dee896e62b1e2d11688cc687c0540e60d54bad91dc5f71dbbade5abaa793ec",
+      "deliverySha256": "31b47226dd12a9a680203c7525548c377129a936616db7c00a0620688fa42943",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/environment-surfaces-v17.png",
+      "delivery": "dist/game/engine2/art/environment-surfaces-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 4101512,
+      "deliveryBytes": 946536,
+      "originalSha256": "7090099ac88a64485c7454fc0f835f36cb3e88ddda2e0d223288daf12e1cee18",
+      "deliverySha256": "c368d50db583a90d9a6323a497e768ae610a5106f6b6617675c862c25e9f98f3",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/environment-water-v17.png",
+      "delivery": "dist/game/engine2/art/environment-water-v17.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "originalBytes": 2423543,
+      "deliveryBytes": 390334,
+      "originalSha256": "72ac5d40efe0c103f86901ec462092f610fc26580f869a394774e91baf115301",
+      "deliverySha256": "f83df973416b018ca03dd1f71ac88e0109738194585e2a21defe19b0c611e098",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/ground-details-v17.png",
+      "delivery": "dist/game/engine2/art/ground-details-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 909354,
+      "deliveryBytes": 324042,
+      "originalSha256": "e87ed93884bfe699a9198f475ca0937ee46e2d0084478e76f1a3715bb503bca4",
+      "deliverySha256": "04d15387c05bcd83b82e2b23be2ecd91b58f20cb2fbf79cf2161cf72f74e02c8",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/highlands-v17.png",
+      "delivery": "dist/game/engine2/art/highlands-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2125397,
+      "deliveryBytes": 669604,
+      "originalSha256": "4a73bb06ec980bbe6996ea6ea26165e6e1c15e0e31e9c7962cf4b7405cf7abbf",
+      "deliverySha256": "71c1d6c3fdf717c3025150246505b37f3e9e5ea56e39e62a6de2c443b548e53b",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/industry-v17.png",
+      "delivery": "dist/game/engine2/art/industry-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 1766607,
+      "deliveryBytes": 518318,
+      "originalSha256": "42ca885e62746bee11217278d75fda58f8a27cba0d80e72e529d30c98db4a0d9",
+      "deliverySha256": "4e8e748c2bb92dbad59e7f4b4eeafec8861d5cebed53ec249a6015278fe5ad95",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/mineral-garden-v17.png",
+      "delivery": "dist/game/engine2/art/mineral-garden-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2311379,
+      "deliveryBytes": 679190,
+      "originalSha256": "c4553fe96c81c3183df54ef08e986ff91e0dfd2d875f41a09f34d04feef75897",
+      "deliverySha256": "77e3e2de2c6d9212d2888bf79b53a465a8b7617f7cde8a493c58db8d3cb2894d",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/shelters-v17.png",
+      "delivery": "dist/game/engine2/art/shelters-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 1486814,
+      "deliveryBytes": 432608,
+      "originalSha256": "28dc3dfe550c7c412183a396d646bef95a907dfaaf4fb5288e91a430c013cffc",
+      "deliverySha256": "354046060bdd718bc2c3390a489ed885de0079aaa68ec48e9f346937588aee77",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/stormworks-v17.png",
+      "delivery": "dist/game/engine2/art/stormworks-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2270200,
+      "deliveryBytes": 688498,
+      "originalSha256": "0927b8a7b8a2734d7bc9479e533111b8536a2c613c496f0ae10170fef71958e5",
+      "deliverySha256": "f5a8a22e00a6681a09469090d11f1d97e6bc251228800fc8fc7a850db3b11dfd",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/village-craft-v17.png",
+      "delivery": "dist/game/engine2/art/village-craft-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2496750,
+      "deliveryBytes": 746930,
+      "originalSha256": "cd2b0c9b821748f671394b79635c82dd84f6fafc653b6783bdc7308927c5b171",
+      "deliverySha256": "c05761dbf33a19b0416398b7e4586d0ac1cb230dfe024ce40e7f54d80dd02289",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/waterside-v17.png",
+      "delivery": "dist/game/engine2/art/waterside-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2638627,
+      "deliveryBytes": 847892,
+      "originalSha256": "0f0a6045e74d981034c470bf9e59cf10ba6f0f9524837a740fa0790a1099b467",
+      "deliverySha256": "bf81b7ca71454eda8cc1b3c90a5af8e4072a576169760bee707b73961bbd8cfd",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/wayfinding-v17.png",
+      "delivery": "dist/game/engine2/art/wayfinding-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 1532119,
+      "deliveryBytes": 450068,
+      "originalSha256": "19e6c886bd4b24ae569d967d2b1166f72fa6e0098f71b96eb9b21d1501c32bb8",
+      "deliverySha256": "419466b273318948f8e768e3d05074c17e6411e725b6566777360fc67d028afb",
+      "maxAlphaError": 0
+    },
+    {
+      "original": "development/art/source-v17/woodland-v17.png",
+      "delivery": "dist/game/engine2/art/woodland-v17.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "originalBytes": 2498117,
+      "deliveryBytes": 795772,
+      "originalSha256": "1d99b7de16f09dc0d4300628668419f762fe9771a3264bc92ce874c16d0e1296",
+      "deliverySha256": "1ff451ba0356eead844ac84235084192cc3bfbfe16b3ad9ca1a12ee9ee974c32",
+      "maxAlphaError": 0
+    }
+  ],
+  "release": "5.18.0",
+  "sourcePolicy": "Original PNG bytes retained unchanged in development/art/source-v17/. Delivery WebPs retain dimensions and exact alpha; color is encoded at quality 95. Original generation prompts and paths remain in the per-collection metadata."
+}

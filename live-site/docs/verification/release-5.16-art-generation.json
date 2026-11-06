@@ -1,0 +1,76 @@
+{
+  "release": "5.16.0",
+  "created": "2026-10-29",
+  "generator": "Built-in image_gen.imagegen; no external art or source code",
+  "method": "Original raster poses and environment cutouts derived from existing original project art. Generated PNGs copied without pixel edits. Runtime source rectangles and fixed body/foot registration handle layout variation.",
+  "sourceReferences": [
+    "dist/game/engine2/art/crew.webp",
+    "dist/game/engine2/art/creatures.webp",
+    "dist/game/engine2/art/bestiary.webp",
+    "dist/game/engine2/art/scene-props-v11.png"
+  ],
+  "generations": [
+    {
+      "asset": "Sable initial 16 poses",
+      "selected": false,
+      "file": "exec-2bc1d021-d1e1-44d9-8757-c849ca3ff6d7.png",
+      "reason": "Spacing revision chosen instead",
+      "prompt": "Use case: stylized-concept. Asset type: original production sprite animation atlas for the existing fantasy game Ash & Aether, genuinely transparent background. Input image is a character identity/style reference: use ONLY the dark-haired male swordsman in its TOP ROW (Sable), ignore all other characters. Preserve his identity, lean adult proportions, black tousled hair, navy long coat, ivory shoulder plates, brass trim, brown boots, plain steel sword, painterly high-detail JRPG game style. Create a clean 4-column by 4-row grid of EXACTLY SIXTEEN separate full-body sprites, evenly spaced in equal square cells, no borders, no text. All bodies at precisely the same apparent scale; each sprite's foot contact baseline at 88 percent of its own cell, full weapon and coat inside the cell, generous transparent gutters. Camera is slightly elevated three-quarter game view, neutral diffuse light from upper left. Every sprite faces RIGHT except the explicitly named turn poses. Row1: (1) relaxed ready idle, (2) subtle breathing idle with shoulder shift, (3) right run contact left foot ahead and right arm back, (4) right run passing pose bent left leg and right leg crossing. Row2: (5) right run opposite contact right foot ahead, (6) right run opposite passing, (7) planted braking pose leaning backward, (8) pivot through frontal view with bent supporting knee and coat catching up. Row3: (9) sword attack anticipation sword drawn behind torso, (10) sword attack early forward swing, (11) sword attack impact full rightward extension, (12) sword attack followthrough low blade and weight forward. Row4: (13) recover from swing to ready, (14) recoil from incoming hit knees bent shoulder drawn back, (15) guarding with raised blade across chest, (16) defeated kneeling supported by sword. Anatomically coherent sequenced motion, changing actual limb poses rather than rotating or stretching the whole figure. Match the top-row reference closely across all16. No spell particles, no trails, no backdrops, no ground patches, no shadows baked beyond a tiny contact hint, no cropped limbs, no duplicate heads, no other people. Crisp silhouettes for use at90–120pixels tall.",
+      "transparent_background": true
+    },
+    {
+      "asset": "Sable spacing revision",
+      "selected": true,
+      "file": "dist/game/engine2/art/sable-motion-v16.png",
+      "generatedFile": "exec-ad54dfff-c400-4220-bbbd-975ca787468d.png",
+      "frames": 16,
+      "prompt": "Use case: precise-object-edit. This image is the edit target: a 16-pose Sable production sprite sheet. Keep all sixteen exact character poses, identity, colors, sword, painting style, and their ordering. Fix ONLY the layout for reliable game cropping: use an evenly spaced FOUR COLUMN by FOUR ROW grid on a genuinely transparent background. Each sprite including sword and coat must fit entirely within its own equal cell, with a minimum 12% transparent gutter on every side. Reduce the size of ALL sixteen sprites uniformly enough to fit the widest sword extension without overlapping any neighbouring cell. Give every pose the same standing-body scale; crouches remain naturally shorter. Center each torso horizontally in its cell and put the feet/sword-contact point at 85% of that cell's height. No sprite may touch an image edge. No new poses or objects. No borders, grid lines, text, checkerboard or background. Preserve alpha. Crisp original painterly detail.",
+      "transparent_background": true
+    },
+    {
+      "asset": "Ash Herald",
+      "selected": true,
+      "file": "dist/game/engine2/art/ash-herald-motion-v16.png",
+      "generatedFile": "exec-7f35148b-54b9-45d4-8893-271800364cc4.png",
+      "frames": 12,
+      "prompt": "Use case: stylized-concept. Asset type: original transparent production animation atlas for Ash & Aether. Reference image supplies the identity and painterly material style of the walking cathedral creature in ROW FIVE, the dark bronze cathedral on articulated legs with a turquoise central round core. Ignore all other rows. Draw an Ash Herald variant of that same mechanical cathedral: weathered dark bronze, pale rain-stained stone ribs, hanging small bronze bells, turquoise return-channel core, restrained ash caught in its joints. It must remain one recognizable creature in all poses. Camera slightly elevated three-quarter game view, faces RIGHT, light upper left. EXACTLY TWELVE isolated full-body sprites in a precise FOUR COLUMNS by THREE ROWS grid, all same body scale, every sprite and appendage entirely inside its own cell, at most70% of eachcell width, at most65% height, large transparent gutters, centered torsos, feet at80% of eachcell height. Row1: 1 quiet idle legs planted, 2 breathing bell core opening slightly, 3 walking left legs forward and right legs back, 4 walking passing pose left legs bent and right legs advancing. Row2: 5 walking opposite contact, 6 walking opposite passing, 7 anticipation crouch legs bent outward and bell tower tilting slightly forward, 8 attack forward strike with front legs raised and core aimed forward. Row3: 9 grounded slam impact legs spread low and bells tilted, 10 recovering gradually to upright, 11 struck recoil body twisted back and one leg lifting with core exposed, 12 defeat collapsed legs folded and towers leaning inward. These are actual distinct articulated body and leg poses, not translations, rotations, stretched copies or spell effects. No giant beam, no particles outside creature, no other characters, no background, no floor patches, no cast shadow, no text, no labels, no gridlines. Genuine alpha transparency. Keep crisp silhouette for120pixel tall game display.",
+      "transparent_background": true
+    },
+    {
+      "asset": "Moonveil initial 12 poses",
+      "selected": false,
+      "file": "exec-526ef2f0-5a33-4cb5-9c9f-8a98a0f945e6.png",
+      "reason": "Wide wings crossed nominal frame boundaries; replaced with cleaner nine-pose sheet",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent 12-frame creature animation sprite atlas for Ash & Aether. Input reference: use ONLY the Moonveil Moth at TOP RIGHT of the reference sheet. Preserve its identity: ivory moth with moon-and-gold pattern wings, small pale masklike face, soft cream thorax, thin brass chains and delicate antennae. Ignore every other species. Match the existing painterly high-detail game art with restrained gold highlights. Create EXACTLY twelve isolated full-body poses in a regular4columns×3rows grid on genuine transparent alpha. Each complete wing silhouette must fit within its owncell with generousemptygutter, same creature body scale in everycell, center of thorax at samecellposition. This is a coherent wingbeat/action sequence with actual wing articulation. Row1:1resting wings halfopen,2wings rising,3wings fully raised narrow silhouette,4wings sweeping down broad silhouette. Row2:5wings lowest and body lifted slightly,6wings returning tohalfopen,7alert antennae raised wings drawnback,8silkenhush anticipation wings cuppedforward. Row3:9hush release wings spreadwidely body leaningforward,10recovery wings relaxing,11hit recoil wings foldedasymmetrically,12defeat wings folded down and body resting. Slightly elevated threequarter gameview facingRIGHT, consistent diffuse upperleft lighting. No other characters, no floor patch, no castshadow, no smoke, no particlecloud, no motiontrails, no text, no borders, no gridlines. All figures fully visible, no overlappingcells. Render conservatively so largestwingsspan occupies at most75%ofcellwidth. Crisp at100px display.",
+      "transparent_background": true
+    },
+    {
+      "asset": "Moonveil nine-pose revision",
+      "selected": true,
+      "file": "dist/game/engine2/art/moonveil-motion-v16.png",
+      "generatedFile": "exec-3464f680-5b64-4f6f-b674-6718425f8a46.png",
+      "frames": 9,
+      "prompt": "Use case: stylized-concept. Produce a usable game sprite atlas of the Moonveil Moth only (TOP RIGHT creature from reference), preserving the same ivory and gold moon-patterned wings, pale porcelain face, delicate chains, fluffy thorax and painterly style. EXACTLY NINE small complete moth sprites in a THREE COLUMN by THREE ROW grid on fully transparent background. The sheet is landscape. Eachsprite is deliberately small with VERY LARGE transparent gutters, filling at most sixty percent of its cell width, even with wings fullyspread. No part may leave its cell. Center eachthorax at the same local point. All body scales identical. Row1:1hoverrest halfopen wings,2upstroke raisednarrow wings,3full downstroke widewings. Row2:4returning wings midway,5attack windup wings cupped back,6hush release wings spread andthorax leaningforward. Row3:7recover tohalfopen wings,8hit recoil one wing folded,9defeated moth sitting with wingsfolded. Every pose whole anduncropped with feet andallwingtipsvisible. This is anatomical wing articulation, not a rotated image. Same slightly elevated threequarter right-facing camera and diffuse upperleft light. No trails, no effects, no background, no shadows, no ground, no text, no gridlines, no additional subjects. Large clear gaps between all nine poses are essential. Overall artwork scale should be smaller than reference to leave those gaps.",
+      "transparent_background": true
+    },
+    {
+      "asset": "Architectural and household prop kit",
+      "selected": true,
+      "file": "dist/game/engine2/art/authored-props-v16.png",
+      "generatedFile": "exec-c36a1e24-651b-4bfe-b65f-9dd9570d97d5.png",
+      "props": 8,
+      "prompt": "Use case: stylized-concept. Asset type: original production environment-prop atlas for the painterly fantasy game Ash & Aether. Reference image is style and material reference only. Create EIGHT new grounded architectural/working props, in an evenly spaced4COLUMN×2ROW grid on a genuinely transparent background. Same elevated threequarter game camera and diffuse upper-left light as reference. Cohesive weathered limestone, rain-dark bronze, warm oak, clay and muted teal; detailed but readable, no plastic. Every prop entirely inside its owncell with10%emptygutter, fullfootprintvisible, allbases at86%ofcellheight. Row1 left-to-right:1 carved limestone chapel doorway with thick arch and paired supportingpilasters, no door, darkemptytransparentopening;2 a bronze rainbell suspended in a low oak yoke above a limestone altar with visible sounding bowl and turquoise returnpipe;3 a practical chapel oakbench with carvedends and wornseating;4 low limestone drainagechannel with bronze elbowdiverter and handwheel, clearly a physical machine notanicon. Row2 left-to-right:5 working potter's claybench with a halfmade bowl, foldedcloth, wooden tools anddust, grounded legs;6 domestic clay-and-brick hearth with a smallwarmemberglow andironpot;7 an irregular riverbank cluster of smoothlimestone steppingstones, wetreeds andsmallfern clumps, no largefloorpatch;8 a thick inset chapelwindow of leadedglass in an aged limestoneframe, teal/cream glass, no text or religiouslogo. No people, no monsters, no interface glyphs, no labels, no borderlines, no backgroundroom orfakeshadowplanes. Original practical gameprops with consistent perspective, believable supports, contact surfaces and gentle painterlyedges.",
+      "transparent_background": true
+    }
+  ],
+  "runtime": "dist/game/engine2/authored-art.js and authored-motion.js",
+  "review": "dist/game/engine2/qa/authored-motion.html",
+  "limitations": [
+    "Front and three-quarter views only. Sable's existing rear travel, courier outfit and spell-casting art remain fallbacks.",
+    "This set covers Sable, the chapter-four Ash Herald and ordinary Moonveil Moth, not every party member or species.",
+    "Generated grid spacing is approximate. Use measured metadata, not evenly divided nominal cells.",
+    "Sable strike and follow-through and the bell/hearth boundary use multiple exact source rectangles to preserve subjects while excluding neighbors.",
+    "PNG alpha is genuine; unused RGB beneath transparent pixels may look like a backdrop in software that ignores alpha.",
+    "Defeat frames are inspectable; live enemy defeat visibility follows the host renderer's lifecycle."
+  ]
+}

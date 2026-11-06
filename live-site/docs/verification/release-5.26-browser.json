@@ -1,0 +1,78 @@
+{
+  "schema": "aa-browser-verification/1",
+  "game_version": "5.26.0",
+  "completed_at_utc": "2026-10-29T19:54:20.990992+00:00",
+  "method": "Actual managed-preview game in Chrome, operated through visible controls, keyboard and pointer. DOM diagnostics were read without injecting game state. Existing Dev Portal practice fixtures were used; ordinary journey saves were not modified.",
+  "preview_url": "http://terminal.local:4173/game/?dev=1",
+  "game_viewport_css_pixels": {
+    "width": 1363,
+    "height": 936
+  },
+  "runtime_freeze": "development/reconciliation/runtime-freeze-5.26.json",
+  "timing": "The initial Pause disclosure check preceded the final README freeze; its gameplay code was already final. The saved proof images, Refuge combat/reward checks and final handoff checks were captured after the runtime freeze. The browser review finished after the complete gate. No assertion that every browser observation occurred inside the gate window.",
+  "checks": [
+    {
+      "name": "Quiet landscape and keyboard inspection",
+      "result": "pass",
+      "observed": "No zero-value ecology row in the field. Pause > Travellers & the world > Local landscape opens with Enter while Pause remains open. Inspection retained 0% cover, 0% resonance, 1% alert, 100% population pressure and vegetation habitat orchard."
+    },
+    {
+      "name": "Field priorities",
+      "result": "pass",
+      "observed": "Refuge portal and then nearby Brace plank received the interaction label. Near the approaching patrol, four candidates produced two visible labels: threat and interaction. After manual movement, Dara became the interaction and Brace plank the secondary ambient label. Rail Warden approach showed two labels without covering the invitation or crew faces."
+    },
+    {
+      "name": "Refuge field and combat roster",
+      "result": "pass",
+      "observed": "Clockwork Mole and Porcelain Mender were visible on the field and appeared as those same two actors in combat, each at 71 HP."
+    },
+    {
+      "name": "Direct Earth targeting",
+      "result": "pass",
+      "observed": "Sable selected the mender and used Fault Lance: MP 50 to 44, mender defeated, Clockwork Mole still 71 HP. An ordinary attack then reduced the mole to 44 HP; a second Fault Lance completed the encounter."
+    },
+    {
+      "name": "Actual victory settlement",
+      "result": "pass",
+      "observed": "Credits changed 450 to 495. The post-dialogue receipt showed +80 XP, +45 credits, recovered supplies, a Kiln-Bronze Starweft Coat comparison for Iona, mastery progress, and the cleared patrol. This was an actual played practice battle, not a fixture-generated victory."
+    },
+    {
+      "name": "Compact activity handoff",
+      "result": "pass",
+      "observed": "Continue route opened the Brace plank invitation with Explore here and Continue route directly visible. Enter expanded the full brief, reward hint and Crew setup without opening Pause. Space and a down-arrow movement returned to manual control and dismissed the invitation; position changed from 50.50,23.99 to 50.50,25.25."
+    },
+    {
+      "name": "Compact combat handoff",
+      "result": "pass",
+      "observed": "Existing Chapter 2 Test the guardian guided approach stopped before combat with the Rail Warden card. Its collapsed measured size was 354 by 201.34375 CSS pixels. Explore here, Approach pack and Continue route were all visible. Enter revealed full counterplay, the 100 XP / 300 credits guardian reward hint, movement help and Crew setup without opening Pause."
+    },
+    {
+      "name": "Console review",
+      "result": "pass",
+      "observed": "The 500-entry error query returned 444 entries: 443 browser-extension metadata errors and one historical Armory error at 18:20:26 UTC. No application errors occurred after the 19:48:42 UTC runtime freeze. The historical empty-selection error predates this release and its correction is already present in current source."
+    }
+  ],
+  "limits": [
+    "Representative desktop practice sessions; not an uninterrupted campaign playthrough.",
+    "Narrow-screen label budget is covered by automated cases; no physical-phone or device FPS claim.",
+    "Movement continuity is measured by focused motion tests; the browser observations are not a subjective fun score.",
+    "The guard-interception comparison for ordinary strikes is covered by the actual Battle model tests; the browser demonstrated the direct Earth hit and completed fight."
+  ],
+  "proofs": [
+    {
+      "path": "docs/verification/browser/aa-field-5.26.jpg",
+      "bytes": 167126,
+      "sha256": "10cf38165be8ee0c8cc4c9549017f507680276d1fb41cbbabfd4350cb5a46de7"
+    },
+    {
+      "path": "docs/verification/browser/aa-handoff-5.26.jpg",
+      "bytes": 128143,
+      "sha256": "f8e99a27226f8671ab4c3bf74bb3636e32768a7f81a0d2ceb682cc1d617b0426"
+    },
+    {
+      "path": "docs/verification/browser/aa-patrol-formation-5.26.jpg",
+      "bytes": 136008,
+      "sha256": "c304303554d508d90a453c42da62518d361c9f45213cea4f4f2cc3880463fe80"
+    }
+  ]
+}

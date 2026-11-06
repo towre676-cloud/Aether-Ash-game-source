@@ -1,0 +1,76 @@
+{
+  "release": "5.38 \u00b7 The listening headland",
+  "source_base": "668618a5e094e5a25efc2061e2e7face22be291e",
+  "scope": {
+    "rebuilt_native_scenes": [
+      50012,
+      50013
+    ],
+    "other_scene_count": 165,
+    "shared_field_hud": true
+  },
+  "runtime_review": {
+    "browser": "Cloud Chrome",
+    "portrait_css": [
+      388,
+      842
+    ],
+    "landscape_css": [
+      738,
+      358
+    ],
+    "renderer": "software-3d",
+    "physical_android_or_gpu_timing_verified": false
+  },
+  "native_practice": {
+    "isolated_from_journey_saves": true,
+    "steps_observed": [
+      "receiver heard",
+      "mast conductor grounded",
+      "coils separated; repair=1",
+      "upper court entered",
+      "spare vane grounded; Storm Kite visibly diverted",
+      "shared listening watch chosen; choice=0",
+      "departure completed; Act1 festival and Veyr/Sable party appeared"
+    ],
+    "portrait_and_landscape_reviewed": true,
+    "characters_and_crew_growth_access_verified": true
+  },
+  "ordinary_restore": {
+    "veyr_profile": "4/5",
+    "position": [
+      11.5,
+      6.5
+    ],
+    "mode": "field",
+    "zoom": 1.35,
+    "zoom_mode": "automatic",
+    "both_destiny_handles_visible": true
+  },
+  "reviewed_fixes": [
+    "copper roof front-face winding",
+    "continuous tessellated sea horizon",
+    "continuous clipped cast shadows",
+    "post-diversion dual-control framing",
+    "active creature and spare-vane framing",
+    "layout-marker battle-floor validation"
+  ],
+  "screenshots": {
+    "regular_phone": "observatory-5.38-regular_phone.jpg",
+    "native_diversion": "observatory-5.38-native_diversion.jpg",
+    "landscape_after_reply": "observatory-5.38-landscape_after_reply.jpg"
+  },
+  "limits": [
+    "This release rebuilds Veyr\u2019s observatory, not every location.",
+    "Software fallback screenshots establish composition and interaction, not physical Android or WebGL performance.",
+    "No Direct3D12 renderer was added; the hosted game retains its browser 3D renderer."
+  ],
+  "final_regression": {
+    "modules": 219,
+    "tests": 1693,
+    "passed": 1693,
+    "failed": 0,
+    "skipped": 0,
+    "log": "observatory-5.38-tests.log"
+  }
+}

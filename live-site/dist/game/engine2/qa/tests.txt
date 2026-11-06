@@ -1,0 +1,40 @@
+✔ both options of all seven decisions record explicit values and survive save roundtrip (6.89306ms)
+✔ legacy save migration preserves Mako and treats unseen decisions as unknown (0.802438ms)
+✔ legacy completed decisions can be revisited without reopening boss rewards (0.661215ms)
+✔ conditional cache bonuses defer unknown history and never repeat base loot (0.726985ms)
+✔ deferred downstream rewards pay once when old missing history is recorded (0.251229ms)
+✔ crown verdict actually takes the lift to summit for both choices (0.490218ms)
+✔ all native doors and authored actors have an orthogonal approach from arrival (49.040786ms)
+✔ chapter debriefs enter the journal before choosing the next destination (0.454555ms)
+✔ later chapter objective follows witness, patrol prerequisite and cross-room choice (1.457003ms)
+✔ sprite fitting preserves source aspect and respects both bounds (0.960276ms)
+✔ stride is distance based, frame rate independent and retains facing at rest (0.738232ms)
+✔ all four run phases occur and each actor moves independently (0.178008ms)
+✔ trail samples turn through the actual corner instead of cutting across it (1.900692ms)
+✔ portrait and landscape reserve space for touch controls and dialogue (0.337728ms)
+✔ story puzzle characters are people, including the smaller child (0.256647ms)
+✔ opening objective advances repair to Nell to the hatch on actual flags (5.30625ms)
+✔ line attack damage now matches the finite visible telegraph (0.331509ms)
+✔ all 120 recipes compile with valid costs and effects (1.177163ms)
+✔ overdraw consumes HP and rejects unsafe casts without payment (1.529663ms)
+✔ link needs partner, consumes partner resources and damages target (0.903411ms)
+✔ break cancels telegraphs and removes armor (0.386262ms)
+✔ volt reacts with wet targets (0.224047ms)
+✔ guard restores focus and reduces strain (0.130587ms)
+✔ menders repair, alarms reinforce at most twice, guards alternate (1.115921ms)
+✔ echo and field survive JSON save/load (1.20246ms)
+✔ healing counter restores defender instead of enemy (0.214002ms)
+✔ telegraphed circles and lines can be dodged (0.252751ms)
+✔ 62 scenes preserve 24 guardians and every authored mechanism is reachable (32.4546ms)
+✔ opening puzzle choices show authored consequences and unlock service hatch (1.748022ms)
+✔ save roundtrip and all 24 campaign reward transitions reach ending (model only) (2.374726ms)
+✔ all 24 boss configurations can be resolved using legal resource-paying commands (20.390385ms)
+✔ tap navigation follows collision and cannot cross walls (0.937882ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.410479

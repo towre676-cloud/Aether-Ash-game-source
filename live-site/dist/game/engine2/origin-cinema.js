@@ -1,0 +1,11 @@
+import {ORIGINS} from './origin-content.js?v=5.18.0';
+/** Uses authored origin prose and actual decisions. No future branch is exposed. */
+export function originCinematics(artFor){const entries=[];for(const o of ORIGINS){const art=artFor(o.chapter),base={expansion:true,environment:true,kind:'living-world',chapter:o.chapter,originId:o.id,hero:o.hero,priority:1,musicId:'cinema_reveal',color:'#d5c39a',duration:8};const add=(suffix,topic,title,lines,branch)=>entries.push({...base,id:'world:origin:'+o.id+':'+suffix,topic,title,subtitle:o.era+' · '+o.region,branch,shots:lines.map((caption,i)=>({art,caption,focus:[i%2?.63:.38,.47],zoom:i%2?1.13:1.03}))});
+add('begin','origin-begin',o.title,[o.era+' · '+o.region,o.opening]);
+for(let i=0;i<2;i++){add('repair:'+i,'origin-repair',o.title+' · the first repair',[o.repair[i],o.repairText[i]],i);add('destiny:'+i,'origin-destiny',o.title+' · what survives',[o.choices[i],o.consequences[i]],i);}
+for(const approach of ['battle','diversion'])add('approach:'+approach,'origin-approach',o.title+' · the worksite',approach==='diversion'?[o.peace,'The worksite is clear. There is room for another life.']:[o.threat,'The worksite holds. The keeper is waiting.'],approach);
+add('return','origin-return',o.title+' · carried forward',[o.ending,o.present]);}return entries;}
+export function originMemoryEarned(e,s){const c=s.chronicle;if(!c)return false;const record=(c.records||[]).find(r=>r.originId===e.originId),active=c.originId===e.originId,choices=active?c.choices:null;switch(e.topic){case'origin-begin':return active||!!record;case'origin-repair':return choices?.repair===e.branch||record?.repair===e.branch;case'origin-destiny':return choices?.destiny===e.branch||record?.destiny===e.branch;case'origin-approach':return choices?.approach===e.branch||record?.approach===e.branch;case'origin-return':return !!record;default:return false;}}
+const ambient=new Set(['region','frontier-area','botany','wildlife','study','physical','rooms','core','growth','origin-begin','origin-repair','origin-approach']);
+/** Album retains full scenes; ordinary exploration gets a short, non-blocking glimpse. */
+export function explorationPresentation(e){if(e.compact||!ambient.has(e.topic))return e;const index=e.topic==='origin-repair'?1:0;return {...e,compact:true,duration:5.5,shots:[e.shots[index]||e.shots[0]]};}

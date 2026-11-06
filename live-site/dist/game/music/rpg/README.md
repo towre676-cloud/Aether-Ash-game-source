@@ -1,0 +1,25 @@
+# Hydrophone RPG soundtrack collection · 2026-10-26
+
+28 rendered arrangements, including 20 exact-length loops and 8 one-shot story/reward/transition cues, drawn from both original Hydrophone symphonies. Open listen.html directly: it contains every recording and player dependency and works offline. Individual Ogg Vorbis recordings and manifest.json are supplied for browser-game integration. Modern Chrome/Firefox support Vorbis; older Safari versions may require an AAC fallback, which this pack does not supply.
+
+Original source: https://github.com/towre676-cloud/hydrophone/commit/f081829926f11de3f3955c22e00438512b440352 . Both original works remain untouched. Each arrangement retains source event pitches, note spelling, per-note Dyletsky cents and expression, with explicit source beat window, tempo ratio and orchestration map. Some tracks intentionally share thematic material. These are arrangements and excerpts, not 28 independently composed works or a demonstrated improvement over the original performances.
+
+The companion editable pack contains the reproducible build script, all performed event scores and MIDI exports, original written/performed scores and build receipts, profile data, renderer and asset-fetch recipes. Per-note microtuning is in rendered audio and editable JSON; portable MIDI is the original renderer's equal-tempered export. Rebuild inside the supplied Hydrophone directory using Python, the requirements, ffmpeg and assets/symphony/fetch_soundfont.py --native-linux; set LD_LIBRARY_PATH to the extracted native runtime lib directory, then run build_rpg.py. The original score/performance provenance and SoundFont license are retained. Upstream performance-data license notices include ASAP CC BY-NC-SA; this package does not grant blanket commercial clearance.
+
+## Audio checks
+
+Independent ffmpeg decoding checks finite non-silent audio, peak below full scale, EBU integrated loudness within 1.3 LU of -19 LUFS, and exact loop length within 10 ms. All loop endpoint sample jumps are below 0.08 full scale after Vorbis decoding. audio-qa.json reports per-file actual values. Loop production folds orchestral release/reverb tails back into the beginning and corrects a 256-sample endpoint discontinuity and applies 5 ms edge tapers before and after loudness processing. This establishes continuous playback boundaries, not aesthetically perfect harmonic joins. Human headphone/speaker listening review and older-device performance are still needed.
+
+## Drop-in playback
+
+Serve adaptive-soundtrack.js beside soundtrack.js and engine2/instrument.js. Import AdaptiveSoundtrack and call play({...track,rpg:true,audio:absoluteAssetURL}) with a manifest track. Start from a user gesture. pause() and resume() preserve loop position; setVolume(0..1) controls output; cue(track) overlays a short one-shot. Play requests use a generation counter so the latest scene wins; decoded buffers are capped at four. Source playback and 650 ms fades use the Web Audio clock, not a frame-timed loop restart. The first load is asynchronous, so keep the current scene's music playing while the next cue downloads. No fetch or decode is awaited in the game render loop.
+
+## Game changes
+
+The actual enhanced Canvas game source now routes environments and battles into this collection while preserving the newer cinematic director and its existing film soundtracks; the additional story cues remain available in the collection for explicit shot assignment. Sable, Iona and Rook arrangements change after chapter 12; these are authored chapter-based assignments, not inferred character emotions. Victory, discovery and transition one-shots are available. Explicit listening-kiln performance selections and original compositions remain available.
+
+Battle pace offers 1×, 1.5× and 2× simulation rates. Faster settings accelerate enemy actions and telegraphs too. Auto attack spends only ready basic attacks; healing, guard, movement and Mako choices remain player-controlled. Enemy buttons expose health and timed intentions. Party XP and equipped-core mastery display the existing level/rank thresholds. Repeatable practice skirmishes are available from Pause after the first weapon and core unlock; wins grant ordinary encounter XP/credits and equipped-core AP, restore the party, and do not set boss/story flags or repeat unique drops. Existing campaign saves retain their schema; practice encounter origins are retained for mid-battle saves.
+
+## Verification scope
+
+Node tests cover the existing campaign/battle rules, growth thresholds, auto attacks, repeat practice reward isolation, latest-scene cancellation, pause/resume offsets and buffer limits. Browser checks exercised nonzero audio, rapid scene requests, pause to zero signal, resume, campaign New Game boot and an isolated real-engine battle at 2× with auto attack through victory and the level bar update. The isolated drill is under engine2/qa/battle-flow.html; it never edits a campaign save. This is not a full campaign playthrough, mobile benchmark, retention study or independent musical-quality assessment. Deployment status is reported separately from these files.

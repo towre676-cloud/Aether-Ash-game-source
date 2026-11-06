@@ -1,0 +1,4 @@
+export function comfortSettings(value={},reducedMotion=false){const n=Number(value.brightness);return {brightness:Number.isFinite(n)?Math.max(.8,Math.min(1.3,n)):1,screenShake:typeof value.screenShake==='boolean'?value.screenShake:!reducedMotion,steadyLighting:typeof value.steadyLighting==='boolean'?value.steadyLighting:reducedMotion};}
+export function readComfort(storage,reduced=false){try{return comfortSettings(JSON.parse(storage.getItem('ash-player-comfort')||'{}'),reduced);}catch{return comfortSettings({},reduced);}}
+export function checkpointValue({current,stable,busy}){return busy?(stable?JSON.parse(JSON.stringify(stable)):null):JSON.parse(JSON.stringify(current));}
+export function routeProgress(previous,position,dt){const moved=Math.hypot(position.x-previous.x,position.y-previous.y);return {x:position.x,y:position.y,blocked:moved<.002?(previous.blocked||0)+Math.max(0,dt):0};}

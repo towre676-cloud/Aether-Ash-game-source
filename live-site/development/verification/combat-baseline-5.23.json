@@ -1,0 +1,482 @@
+[
+  {
+    "name": "earned opening patrol / Attack",
+    "chapter": 1,
+    "boss": false,
+    "policy": "attack",
+    "dodge": false,
+    "level": 1,
+    "geometry": 86,
+    "initialEnemyHP": 116,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.4999999999999956,
+    "firstEnemyCast": null,
+    "actions": 4,
+    "heroDamage": 0,
+    "enemyDamage": 156,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      42,
+      36
+    ],
+    "techDamage": [],
+    "result": "win",
+    "seconds": 4.45,
+    "remainingHP": [
+      180,
+      180,
+      180
+    ],
+    "remainingMP": [
+      38,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "earned opening patrol / earned techniques",
+    "chapter": 1,
+    "boss": false,
+    "policy": "earned",
+    "dodge": false,
+    "level": 1,
+    "geometry": 86,
+    "initialEnemyHP": 116,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": null,
+    "firstEnemyCast": null,
+    "actions": 3,
+    "heroDamage": 0,
+    "enemyDamage": 152,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      36
+    ],
+    "techDamage": [
+      80
+    ],
+    "result": "win",
+    "seconds": 2.15,
+    "remainingHP": [
+      180,
+      180,
+      180
+    ],
+    "remainingMP": [
+      32,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "earned first guardian / Attack",
+    "chapter": 1,
+    "boss": true,
+    "policy": "attack",
+    "dodge": false,
+    "level": 1,
+    "geometry": 108,
+    "initialEnemyHP": 418,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": 5.649999999999988,
+    "actions": 17,
+    "heroDamage": 78,
+    "enemyDamage": 435,
+    "enemyCasts": 2,
+    "enemyHitCasts": 2,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      27,
+      23,
+      32,
+      28
+    ],
+    "techDamage": [],
+    "result": "win",
+    "seconds": 17.3,
+    "remainingHP": [
+      141,
+      160,
+      161
+    ],
+    "remainingMP": [
+      38,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "earned first guardian / earned techniques",
+    "chapter": 1,
+    "boss": true,
+    "policy": "earned",
+    "dodge": false,
+    "level": 1,
+    "geometry": 108,
+    "initialEnemyHP": 418,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": 5.649999999999988,
+    "actions": 13,
+    "heroDamage": 38,
+    "enemyDamage": 423,
+    "enemyCasts": 1,
+    "enemyHitCasts": 1,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      23
+    ],
+    "techDamage": [
+      46,
+      55
+    ],
+    "result": "win",
+    "seconds": 12.4,
+    "remainingHP": [
+      161,
+      180,
+      161
+    ],
+    "remainingMP": [
+      8,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "earned first guardian / earned techniques + dodge",
+    "chapter": 1,
+    "boss": true,
+    "policy": "earned",
+    "dodge": true,
+    "level": 1,
+    "geometry": 108,
+    "initialEnemyHP": 418,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": 5.649999999999988,
+    "actions": 13,
+    "heroDamage": 0,
+    "enemyDamage": 428,
+    "enemyCasts": 1,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      23,
+      28
+    ],
+    "techDamage": [
+      46,
+      55
+    ],
+    "result": "win",
+    "seconds": 12.4,
+    "remainingHP": [
+      180,
+      180,
+      180
+    ],
+    "remainingMP": [
+      8,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "earned first guardian / idle",
+    "chapter": 1,
+    "boss": true,
+    "policy": "idle",
+    "dodge": false,
+    "level": 1,
+    "geometry": 108,
+    "initialEnemyHP": 418,
+    "firstAction": null,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": 5.649999999999988,
+    "actions": 0,
+    "heroDamage": 549,
+    "enemyDamage": 0,
+    "enemyCasts": 15,
+    "enemyHitCasts": 15,
+    "interrupts": 0,
+    "defeats": 3,
+    "attackDamage": [],
+    "techDamage": [],
+    "result": "loss",
+    "seconds": 109.6,
+    "remainingHP": [
+      0,
+      0,
+      0
+    ],
+    "remainingMP": [
+      38,
+      0,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": [
+      418
+    ]
+  },
+  {
+    "name": "chapter 2 patrol fixture / Attack",
+    "chapter": 2,
+    "boss": false,
+    "policy": "attack",
+    "dodge": false,
+    "level": 4,
+    "geometry": 75,
+    "initialEnemyHP": 142,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.8499999999999943,
+    "firstEnemyCast": null,
+    "actions": 5,
+    "heroDamage": 0,
+    "enemyDamage": 186,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      35,
+      37,
+      44
+    ],
+    "techDamage": [],
+    "result": "win",
+    "seconds": 5.1,
+    "remainingHP": [
+      252,
+      252,
+      252
+    ],
+    "remainingMP": [
+      47,
+      47,
+      47
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "chapter 2 guardian fixture / Break",
+    "chapter": 2,
+    "boss": true,
+    "policy": "break",
+    "dodge": false,
+    "level": 5,
+    "geometry": 123,
+    "initialEnemyHP": 572,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": null,
+    "actions": 4,
+    "heroDamage": 0,
+    "enemyDamage": 666,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 1,
+    "defeats": 0,
+    "attackDamage": [],
+    "techDamage": [
+      176,
+      157
+    ],
+    "result": "win",
+    "seconds": 4.45,
+    "remainingHP": [
+      276,
+      276,
+      276
+    ],
+    "remainingMP": [
+      36,
+      41,
+      41
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "chapter 4 patrol fixture / Attack",
+    "chapter": 4,
+    "boss": false,
+    "policy": "attack",
+    "dodge": false,
+    "level": 6,
+    "geometry": 203,
+    "initialEnemyHP": 194,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.4999999999999956,
+    "firstEnemyCast": null,
+    "actions": 4,
+    "heroDamage": 0,
+    "enemyDamage": 230,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      45,
+      53,
+      66
+    ],
+    "techDamage": [],
+    "result": "win",
+    "seconds": 4.45,
+    "remainingHP": [
+      300,
+      300,
+      300
+    ],
+    "remainingMP": [
+      53,
+      53,
+      53
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "chapter 4 guardian fixture / Break",
+    "chapter": 4,
+    "boss": true,
+    "policy": "break",
+    "dodge": false,
+    "level": 7,
+    "geometry": 223,
+    "initialEnemyHP": 988,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": null,
+    "actions": 5,
+    "heroDamage": 0,
+    "enemyDamage": 994,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [],
+    "techDamage": [
+      212,
+      190
+    ],
+    "result": "win",
+    "seconds": 5.1,
+    "remainingHP": [
+      324,
+      324,
+      324
+    ],
+    "remainingMP": [
+      42,
+      47,
+      38
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "chapter 8 patrol fixture / Attack",
+    "chapter": 8,
+    "boss": false,
+    "policy": "attack",
+    "dodge": false,
+    "level": 10,
+    "geometry": 117,
+    "initialEnemyHP": 298,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.4999999999999956,
+    "firstEnemyCast": null,
+    "actions": 6,
+    "heroDamage": 0,
+    "enemyDamage": 393,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 0,
+    "defeats": 0,
+    "attackDamage": [
+      59,
+      61,
+      73,
+      82
+    ],
+    "techDamage": [],
+    "result": "win",
+    "seconds": 5.35,
+    "remainingHP": [
+      396,
+      396,
+      396
+    ],
+    "remainingMP": [
+      65,
+      65,
+      65
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  },
+  {
+    "name": "chapter 8 guardian fixture / Break",
+    "chapter": 8,
+    "boss": true,
+    "policy": "break",
+    "dodge": false,
+    "level": 11,
+    "geometry": 165,
+    "initialEnemyHP": 2401,
+    "firstAction": 1.7500000000000009,
+    "firstIntent": 3.349999999999996,
+    "firstEnemyCast": null,
+    "actions": 11,
+    "heroDamage": 0,
+    "enemyDamage": 2812,
+    "enemyCasts": 0,
+    "enemyHitCasts": 0,
+    "interrupts": 1,
+    "defeats": 0,
+    "attackDamage": [],
+    "techDamage": [
+      282,
+      252,
+      172
+    ],
+    "result": "win",
+    "seconds": 11.2,
+    "remainingHP": [
+      420,
+      420,
+      420
+    ],
+    "remainingMP": [
+      40,
+      41,
+      32
+    ],
+    "reinforcements": 0,
+    "enemyRemaining": []
+  }
+]

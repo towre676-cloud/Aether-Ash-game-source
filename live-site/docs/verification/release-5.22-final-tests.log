@@ -1,0 +1,3434 @@
+Release regression
+HEAD: 862fd386bb5b7c24f51414d4312fe9490002803f
+Node: v24.22.1
+Started: 2026-10-29T17:16:38.050Z
+Discovery: recursive dist/game/**/*.test.mjs, excluding dependency directories and symlinks
+Launch: Python subprocess pipe bridge; one actual Node process per module; stdout/stderr combined before relay
+Modules: 166; concurrency: 4; per-module timeout: 300000 ms
+
+===== dist/game/engine2/living-armory/tests/armory-v3.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/living-armory/tests/armory-v3.test.mjs
+✔ all engraving stats are whitelisted with no dupes (1.486404ms)
+✔ engraving debits canonical resources once and adds a real stat (1.837662ms)
+✔ focused retuning replaces its last imprint and cannot inflate item power forever (1.45007ms)
+✔ invalid engraving never costs resources or mutates item (1.691788ms)
+✔ no resources means no engraving at all (0.549501ms)
+✔ elemental chord requires two items from each element (0.875703ms)
+✔ organic Kindled Orchard chord actually affects offense only on organic ground (1.558721ms)
+✔ overtone activates only with matching attack and ground and is bounded (0.554819ms)
+✔ harmonic piercing reduces shield and remains capped (0.627566ms)
+✔ new bonuses survive saves, preserve old schema, and reject unsafe imports (1.532523ms)
+✔ v2 snapshots without imprint fields migrate without modification (0.391659ms)
+✔ equipment harmonies are derived, not persisted, so render settings cannot alter them (0.334053ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.683487
+Exit: 0; signal: none; elapsed: 0.115s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/living-armory/tests/armory-v2.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/living-armory/tests/armory-v2.test.mjs
+✔ runes enumerate twelve original playable sigils (1.242334ms)
+✔ socket engraving costs resources and modifies equipped stats (1.785596ms)
+✔ runic socket capacity is honored; common items reject engraving (0.241136ms)
+✔ rune extraction preserves item base statistics even after tempering (2.053281ms)
+✔ two matching-element runes yield bounded nonlinear harmonic bonus (1.335822ms)
+✔ save and wear full loadout with alternate builds without duping equipment (1.064372ms)
+✔ loadout rejects missing items without changing the armory state (1.432866ms)
+✔ crafting produces region-specific deterministic equipment with paid costs (0.56854ms)
+✔ forge serial prevents accidental duplicate outputs and persists (0.849715ms)
+✔ craft failures cannot spend material balances or forge serial (0.373531ms)
+✔ unrecognized real-game species retains its identity and supplied anatomy (0.861111ms)
+✔ unknown species does not silently masquerade as Cinderstag (0.312361ms)
+✔ boss encounter fourth signature award is deterministic and paid once (1.583688ms)
+✔ loot journal tracks real claimed victories rather than previews (0.258842ms)
+✔ full save roundtrips runes, loadouts, forge, journal and no double-grants (1.157559ms)
+✔ legacy v1 snapshots missing v2 fields migrate (0.341895ms)
+✔ invalid rune identifiers rejected without mutating previous armory state (0.834181ms)
+✔ host-owned mode does not pretend a private preview inventory is canonical (0.332451ms)
+✔ host bridge accepts canonical creature descriptors and copies reward once (1.467155ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29.143349
+Exit: 0; signal: none; elapsed: 0.13s; timed out: false
+Counts: {"tests":19,"pass":19,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/living-armory/tests/armory.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/living-armory/tests/armory.test.mjs
+✔ catalog spans every equipment slot including paired rings (1.794069ms)
+✔ rarity names and each base produce distinct item power (1.500415ms)
+✔ deterministic draw across seeds and events (1.706369ms)
+✔ all regions generate ecological elemental affixes (0.583502ms)
+✔ unique item skill strings persist, unique event id and finite stats (1.315152ms)
+✔ grid pack never overlaps and handles non-square equipment (0.957694ms)
+✔ ring slots hold independent rings and swaps are lossless (0.708496ms)
+✔ wrong slot does not take a gear item or change inventory (0.47476ms)
+✔ level gates gear equipment (0.419329ms)
+✔ unequip respects full bag and never deletes gear (7.95949ms)
+✔ fully occupied grid routes excess items to vault then recovery (17.14042ms)
+✔ sort never loses or duplicates ids (2.690407ms)
+✔ moving to occupied slot fails atomically (0.547158ms)
+✔ reclaiming a locked item is forbidden (0.499167ms)
+✔ salvage increases real resource records and cannot repeat (0.466759ms)
+✔ upgrade charges costs, improves stats, caps at eight and prevents negative resources (0.631562ms)
+✔ claiming encounter produces canonical resource records with no duplicate awards (2.259676ms)
+✔ boss guarantees an epic-or-higher drop (3.349515ms)
+✔ all creature profiles generate valid finite rewards (1.443922ms)
+✔ stats use multi-set threshold bonuses without losing base item stats (0.865558ms)
+✔ combat multipliers are numeric, shield responds to piercing and material (1.650266ms)
+✔ valid snapshot roundtrips and rejects overlap, duplicate id and wrong version (4.670866ms)
+✔ NG+ namespaces item and encounter ledger, optional carry is preserved (0.653315ms)
+✔ generate 1500 varied deterministic gear without invalid values (52.007779ms)
+✔ unique abilities alter real world modifiers, not only tooltip text (0.671762ms)
+✔ root armor, water crown and rooted boots change environmental defenses and grip (0.548159ms)
+✔ timed unique trigger fires on the fourth encounter without mutating battle owner (0.554709ms)
+✔ timeline sigil implements an additional NG+ memory (0.296547ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.351339
+Exit: 0; signal: none; elapsed: 0.212s; timed out: false
+Counts: {"tests":28,"pass":28,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/living-armory/tests/host-bridge-v3.test.mjs
+✔ host combat bridge refuses to use unsynced prototype gear (2.364982ms)
+✔ host bridge rejects untranslated or unknown equipment slots (0.320523ms)
+✔ host bridge computes canonical gear and restores the offline prototype untouched (3.451135ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.745506
+Exit: 0; signal: none; elapsed: 0.107s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/living-armory/tests/host-bridge.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/living-armory/tests/host-bridge.test.mjs
+✔ host-owned mode requires idempotent canonical award API (2.553775ms)
+✔ host-owned mode commits once without minting armory inventory/resources (3.835572ms)
+✔ host idempotency prevents double award even if armory state is lost (0.935471ms)
+✔ host refusal leaves ledger untouched, allowing safe retry (0.901521ms)
+✔ loss, escape or unresolved combat never awards loot (0.267134ms)
+✔ armory-owned mode consumes one victory and gives rewards, not defeats (1.006085ms)
+✔ bridge returns numeric combat inputs and separate save namespace (2.248479ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25.385642
+Exit: 0; signal: none; elapsed: 0.122s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/animation-expansion/player/timeline.test.mjs =====
+Command: node --test-reporter=spec dist/game/animation-expansion/player/timeline.test.mjs
+✔ all 399 recordings bind to exact speaker and text in isolated beats (230.375917ms)
+✔ turn boundaries switch at the exact next recorded cue (0.360762ms)
+✔ missing voices and receipts stay silent and visible (0.180086ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 243.787507
+Exit: 0; signal: none; elapsed: 0.35s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/adaptive-audio.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/adaptive-audio.test.mjs
+✔ rapid scene requests leave only the latest active scene (3.167115ms)
+✔ pause/resume keeps musical position without duplicated voices (0.713073ms)
+✔ pause cancels an in-flight first scene load (0.350948ms)
+✔ decoded buffers have a bounded cache (0.583642ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.713696
+Exit: 0; signal: none; elapsed: 0.097s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/actor-atlas.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/actor-atlas.test.mjs
+✔ measured source rectangles preserve all 128 actor poses inside their sheets (2.413022ms)
+✔ offline torso and sole measurements belong to the delivered artwork and all 128 crops (12.119943ms)
+✔ Iona boots and wide action poses extend beyond the old equal-grid cells (0.180887ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24.918487
+Exit: 0; signal: none; elapsed: 0.126s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/affordance-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/affordance-art.test.mjs
+✔ outdoor mechanisms select faithful source art at usable-object scale (1.360148ms)
+✔ floor listening stays compact, dry burrows never borrow waterwheels, and tools retain their semantics (1.563769ms)
+✔ only actors behind the painted body fade it and collected salvage stays identifiable (0.376195ms)
+✔ painted and fallback surroundings retain their actual near label and collected state (0.879238ms)
+✔ missing or truncated atlases use the existing fallback in both graphics modes (1.076129ms)
+✔ compact constrained-room artwork retains the same semantic crop and uniform scale (1.169297ms)
+✔ a burrow-profile scout draws the same compact Hydrophone as another profile, never a second soil repair (2.114953ms)
+✔ loose repair stock uses muted clay, metal, wood and reed colours within its original scale (2.15378ms)
+✔ real electrical and archive profiles never borrow a wind vane or water fountain (0.655859ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20.827235
+Exit: 0; signal: none; elapsed: 0.188s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/architectural-program.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/architectural-program.test.mjs
+✔ every substantial interior has real architectural separation rather than an undivided prop box (1.681824ms)
+✔ internal doorways are broad, unoccupied and connected to the actual arrival (20.412712ms)
+✔ house, clinic, archive, store and work hall are architecturally distinct and retain coherent uses (1.005564ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.615271
+Exit: 0; signal: none; elapsed: 1.126s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/adventure-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/adventure-guidance.test.mjs
+✔ guidance offers affordable exact hero/node destinations without mutation or spending (24.698591ms)
+✔ a merchant is remembered only within sight and inventory thresholds drive the cue (12.834461ms)
+✔ each rival pays out once, keeps story flags unchanged, and advances real XP levels (1.02916ms)
+✔ rival gear equips one companion, replaces bonuses and cannot heal through swapping (0.75878ms)
+✔ all rival NPCs have reachable meeting places and real human combat avatars (922.875818ms)
+✔ vendor trails never route through unseen rooms or sealed doors (0.919267ms)
+✔ accepting and winning NPC sparring uses its own reward path without clearing campaign encounters (551.397755ms)
+✔ losing friendly sparring grants no rewards and does not record a campaign defeat (538.10667ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2074.26761
+Exit: 0; signal: none; elapsed: 2.303s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/architecture.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/architecture.test.mjs
+✔ campaign furniture preserves authored action and enemy approaches, arrivals and current exits (30.879403ms)
+✔ all campaign exits meet a shell boundary and duplicate floor doors are consolidated (0.711641ms)
+✔ physical lore placements stay reachable and clear of all furniture in the rebuilt rooms (16.822321ms)
+✔ restoring an old save inside a new furniture footprint moves to free floor without losing progress (72.841401ms)
+✔ building registry binds room identity, footprint and available exterior entrances (0.962451ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 132.660072
+Exit: 0; signal: none; elapsed: 1.11s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/asset-loader.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/asset-loader.test.mjs
+✔ required art resolves under its original keys and reports named completed progress (2.978398ms)
+✔ a transient atlas error gets exactly one fresh image attempt without double-counting progress (0.52818ms)
+✔ persistent failure names the missing atlas and releases every other pending image (0.938165ms)
+✔ a hung request times out, retries once, and cannot hang startup indefinitely (10.306759ms)
+✔ invalid manifests fail before requests and a broken progress display does not discard loaded art (1.166803ms)
+✔ all twenty-two environment atlases are optional while the core art stays required (4.387128ms)
+✔ optional failure retries once then omits only that image and completes honest progress (0.46109ms)
+✔ optional timeout is bounded while optional success retains its real image key (10.555737ms)
+✔ an optional asset never masks a required failure or keeps other requests alive (0.850436ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 38.749069
+Exit: 0; signal: none; elapsed: 0.163s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/atlas-fallback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/atlas-fallback.test.mjs
+✔ original actor recovery retains the actual image and all measured poses (3.001241ms)
+✔ actor fallback scales packed source rectangles to delivered image dimensions (0.44016ms)
+✔ compatibility locomotion pins the actual torso and soles rather than a moving cape bounding box (2.240488ms)
+✔ nonactor fallback uses complete equal-grid cells without canvas or pixel reads (0.203761ms)
+✔ blank processed atlases and an entirely empty actor row are rejected (0.505126ms)
+✔ invalid dimensions, missing image, stale cell count and unsafe source bounds cannot be accepted (0.720324ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.663669
+Exit: 0; signal: none; elapsed: 0.103s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/authored-lossless-delivery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/authored-lossless-delivery.test.mjs
+✔ every v16 source survives exactly and lossless delivery preserves the full alpha/RGBA verification (19.480946ms)
+✔ live authored art keys resolve to preserved-dimension lossless deliverables (0.482833ms)
+✔ unclean draft sources are archived, while clean atlases and motion videos remain playable (8.394531ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37.394814
+Exit: 0; signal: none; elapsed: 0.152s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/authored-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/authored-motion.test.mjs
+✔ unavailable art and unsupported identities keep the established renderer (4.788681ms)
+✔ Sable locomotion remains tied to resolved travel at different frame rates (3.244901ms)
+✔ a single turn and brake settle without resetting the distance phase (0.193947ms)
+✔ a physical action plays anticipation, strike, follow-through and recovery once (1.30016ms)
+✔ impact interrupts the visual pose briefly; burn ticks do not make bodies flinch repeatedly (0.196981ms)
+✔ spell casting falls back without misrepresenting a spell as a sword attack (0.405169ms)
+✔ guardian telegraph, release and recovery survive multi-target damage events (0.351479ms)
+✔ fresh field snapshots keep the same guardian stride state by actor ID (0.418808ms)
+✔ Moonveil has real wingbeat, anticipation, release, recoil and defeat frames (0.390677ms)
+✔ reduced motion removes idle beat and transitional sways while retaining articulated strides (0.580087ms)
+✔ the motion cache is bounded and scene resets discard old actions (1.243906ms)
+✔ every lossless delivery matches its versioned atlas dimensions and source pieces stay inside it (2.926551ms)
+✔ a shared reference scale retains full poses and their registration without body stretching (1.484252ms)
+✔ prop fits are bottom-centered, preserve shape, and fail safely while loading (0.576511ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.738936
+Exit: 0; signal: none; elapsed: 0.116s; timed out: false
+Counts: {"tests":14,"pass":14,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/battle-flow.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-flow.test.mjs
+✔ XP boundaries and maximum level reflect real world formula (1.432175ms)
+✔ mastery bars show actual rank thresholds (0.238542ms)
+✔ auto attack spends readiness and stops cleanly after last target (4.515047ms)
+✔ repeat practice earns growth without story milestones or unique item duplication (743.230801ms)
+✔ Wait freezes every battle clock and auto attack while choosing, then resumes normally (2.981203ms)
+✔ Active mode keeps time running while choosing and stores the preference when storage is supplied (0.482523ms)
+✔ blocked preference storage retains a usable default and does not prevent an explicit mode change (0.262989ms)
+✔ auto attack respects the selected living target and falls back when it falls (0.432679ms)
+✔ an early Goal or Tactics picker keeps charging until someone is ready, then Wait freezes (0.933598ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 763.348608
+Exit: 0; signal: none; elapsed: 0.972s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/battle-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-layout.test.mjs
+✔ battle camera stays inside the clear area between measured HUD and dock (1.551942ms)
+✔ larger options or spell lists move camera center upward without covering the reserved view (0.144253ms)
+✔ spell menu shares the command dock and optional panels are folded away (0.869083ms)
+✔ persistent picker back uses Cancel cleanup without selecting a technique or supply (0.254246ms)
+✔ every action remains reachable exactly once across bounded picker pages (1.217107ms)
+✔ short screens and portrait touch use one row of cards while large screens can show six (0.154048ms)
+✔ all eight battle commands have distinct local vector silhouettes and unknown commands degrade cleanly (0.347934ms)
+✔ only short landscape reserves console width; tall viewports use the shallow bottom shelf (0.142591ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.433069
+Exit: 0; signal: none; elapsed: 0.156s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/battle-picker-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battle-picker-ui.test.mjs
+✔ picker paging settles its observer and preserves fixed commands, targets and paid callbacks (9.077855ms)
+✔ switching the open command resets the page and keeps the correct visible active category (2.718844ms)
+✔ portrait touch pages expose two cards at a time and all actions stay reachable without scrolling (7.980324ms)
+✔ landscape mode reports width instead of height reservation, then resets when the viewport narrows (1.600734ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.928271
+Exit: 0; signal: none; elapsed: 0.117s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/authored-openings.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/authored-openings.test.mjs
+✔ authored opening composition preserves every walking cell, story marker, threshold and save identity (883.108741ms)
+✔ all fourteen playable memories and the first chapter route receive distinct authored direction (532.494146ms)
+✔ every approach remains contiguous on walkable ground and leads to existing reachable interactions (539.299135ms)
+✔ scenic props stay on blocked boundary ground away from arrival, doors and interactions (494.299006ms)
+✔ composition is deterministic and leaves later chapters untouched (398.922869ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2855.20171
+Exit: 0; signal: none; elapsed: 3.079s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/battlefield.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battlefield.test.mjs
+✔ ordinary legacy, friendly and tutorial fights retain an empty optional battlefield (3.489132ms)
+✔ wild formations equip no more than half their members from the same finite pool (1.284126ms)
+✔ two creatures contest one object; a claim is not an item duplication (0.346852ms)
+✔ disarm then reclaim changes ownership, stops a charge and exposes its owner (0.743198ms)
+✔ failed actions preserve readiness, ownership and charges (0.502201ms)
+✔ carried tools change enemy telegraphs, attack geometry and readiness effects (0.749878ms)
+✔ enemy tools spend once per intent across misses or multiple struck actors (0.709728ms)
+✔ ordinary player strikes spend finite tools; DOT, spells and secondary arcs do not (0.369345ms)
+✔ bell action cancels an alarm, but delays a normal attack instead of universally stunning (0.206846ms)
+✔ cover depends on geometry and blocks a single aimed crossing attack (0.502422ms)
+✔ dropping or defeating a carrier releases the original tool with its remaining uses (0.259534ms)
+✔ plain state roundtrips; invalid ownership, duplicate IDs and orphan gear are rejected (0.7792ms)
+✔ actual Battle can equip, disarm, reclaim, use and restore a finite tool (6.904655ms)
+✔ actual Battle spends one enemy tool use per multi-target swing and one for a miss (3.33219ms)
+✔ a counter-defeated carrier cannot restore the use spent on its attempted swing (0.197522ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.037995
+Exit: 0; signal: none; elapsed: 0.181s; timed out: false
+Counts: {"tests":15,"pass":15,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/activity-sites.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/activity-sites.test.mjs
+✔ every generated service remains reachable and stationary additions clear architecture, scenery and repairs (4443.72508ms)
+✔ Witness Vault keeps all five regional records and the document press remains actionable beside exact repair footprints (421.404912ms)
+✔ field stables follow the actual terrain trail and retain an off-road landing (473.378925ms)
+✔ placement is deterministic, respects the caller reachable component and leaves supplied data unchanged (431.68277ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5785.998717
+Exit: 0; signal: none; elapsed: 6.023s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/battlefield-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/battlefield-integration.test.mjs
+✔ all fourteen origin backdrops source finite tools on real floor, while canonical bosses retain their optional empty field (1407.199489ms)
+✔ every actual origin lead can beat a first wild fight with its real scene, tool pool and nonlinear material shell (749.118234ms)
+✔ Battle commands disarm and reclaim the same finite tool; invalid range spends no action (1.467096ms)
+✔ snapshot and Battle.restore preserve carried tools, spent uses and finite directional cover (3.425838ms)
+✔ enhanced-save preflight rejects orphan battlefield ownership before active state changes (1347.975169ms)
+✔ actual multi-target and missed enemy swings each consume one tool use per planned intent (1.461207ms)
+✔ guard interception depends on a nearby formation rather than protecting the entire scene (0.44022ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3524.042061
+Exit: 0; signal: none; elapsed: 3.728s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/boss-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-guidance.test.mjs
+✔ every boss movement exposes its actual phase, named tell and geometric counterplay in the existing readout (7.971177ms)
+✔ a committed tell keeps its displayed phase after damage until the next movement is planned (0.244812ms)
+✔ boss interrupt advice requires an equipped affordable technique or a finite owned supply (0.431347ms)
+✔ actual recovery has a bounded counterattack window and a new charge always takes priority (0.404227ms)
+✔ phase and recovery lessons announce once without repeating every changing countdown (1.078652ms)
+✔ ordinary armored enemy cards never promise an unavailable Break technique (0.199925ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17.254702
+Exit: 0; signal: none; elapsed: 0.162s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/boss-patterns.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-patterns.test.mjs
+✔ all guardians have three phases, bounded damage and readable windups (2.928443ms)
+✔ annulus and cross retain genuine safe zones and render from same dimensions (0.567168ms)
+✔ boss recovery and pending choreography survive battle saves (7.900994ms)
+✔ regional maps keep generous open worksite courts (9.48302ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.106596
+Exit: 0; signal: none; elapsed: 0.157s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/boss-gear.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-gear.test.mjs
+✔ 24 guardians expose 72 bounded historical forms for every companion (32.477694ms)
+✔ unique ownership, battle locks, and one claim per history (0.614027ms)
+✔ equipping, tempering and sync cannot heal or accumulate stats (6.899143ms)
+✔ new histories inherit discoveries, reforge locally, and suppress late-game raw power (1.137169ms)
+✔ gear damage has bounded conditional synergy, resistance, and no secondary multiplication (4.112197ms)
+✔ real boss rewards and gear survive World restore and level transitions without stacking (2195.185325ms)
+✔ timeline armaments trade armor against health and survive battle snapshots (9.617186ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2265.816939
+Exit: 0; signal: none; elapsed: 2.454s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/boss-strategy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/boss-strategy.test.mjs
+✔ guardian identities and readable strategy cards match all 24 actual chapters (1.441791ms)
+✔ boss preferences rotate witnesses and select distant, focused or clustered targets deterministically (9.834748ms)
+✔ every move in every phase has bounded power, a safe point and immutable announced geometry (438.561282ms)
+✔ parallel rails have a genuine central corridor and finite ends, matching their drawn polygons (1.709327ms)
+✔ fan and paired circles expose the safe rear and preserve distinct fixed impact areas (0.620998ms)
+✔ legacy straight lanes retain their finite hit geometry, and unknown intents stay on the legacy path (2.201574ms)
+✔ phase announcements occur once per threshold and cannot regress after a mender heals the boss (2.525052ms)
+✔ UI phase stays with an announced move until the next plan and reports actual vulnerability (0.362585ms)
+✔ a completely dodged movement earns a longer real recovery, and Break still cancels every new pattern (7.004077ms)
+✔ boss lightning participates in wet conduction and grounded terrain mitigation through the real damage pipeline (1.493627ms)
+✔ all new pattern geometry and phase progress roundtrip battle snapshots without recalculation (3.81586ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 487.198211
+Exit: 0; signal: none; elapsed: 0.64s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/building-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/building-craft.test.mjs
+✔ facade runs cover every exposed cell once and retain concave gaps (21.805481ms)
+✔ windows fit real wall bays, avoid the doorway and share a consistent small-screen scale (6.436013ms)
+✔ baked material detailing leaves projection geometry unchanged and fits the retained canvas bounds (116.004752ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.715339
+Exit: 0; signal: none; elapsed: 1.21s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/camera-window.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/camera-window.test.mjs
+✔ disabled exploration windows return battle and conversation compositions untouched (1.290457ms)
+✔ small exploration steps and changes of direction do not shift the scenery (1.124622ms)
+✔ large movement follows in both directions while retaining a small screen-space margin (0.526398ms)
+✔ long travel and reversal keep an ideal follow target inside the window without drift (1.258961ms)
+✔ zoom changes preserve the composed lens and immediately resize the world-space window (0.27077ms)
+✔ viewport resizing and measured HUD bands reduce the window instead of hiding the focus (0.279483ms)
+✔ cameraFollow still performs all settling and stops without recentering the held focus (0.956594ms)
+✔ the target window adds no frame-rate dependence to an existing stationary follow (1.168067ms)
+✔ missing, nonfinite and tiny views bypass the helper without poisoning a valid composition (4.035225ms)
+✔ invalid composed frames and arithmetic overflow bypass unchanged (0.687186ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.029695
+Exit: 0; signal: none; elapsed: 0.147s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/building-geometry.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/building-geometry.test.mjs
+✔ every furnished room has one architectural outline and a unique registry identity (9.201267ms)
+✔ every exterior roof is exactly a rotated uniformly scaled copy of its interior footprint (24.083855ms)
+✔ inn, clinic and joiner entrances are reachable from the public square and enter free floor (3.540374ms)
+✔ entering and returning uses the same street threshold, including after a save roundtrip (241.687186ms)
+✔ interior window bays and ordinary thresholds refer to the same shell, without removing campaign gates (7.594697ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 311.680146
+Exit: 0; signal: none; elapsed: 1.483s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/campaign-purpose.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/campaign-purpose.test.mjs
+✔ journey identity survives party changes and falls back through validated legacy identity (1.168247ms)
+✔ all 24 chapters have distinct causal reasons for each selected lead without mutating the save (5.081522ms)
+✔ the first purpose follows the inciting events instead of revealing the stolen recording before it is heard (0.664883ms)
+✔ each origin retains its own obligation and both civic decisions in the present (0.787865ms)
+✔ physical proof changes the reason only after its actual earned work exists (0.37908ms)
+✔ home conversations follow earned milestones, repeat briefly, and do not fabricate missed visits (0.832721ms)
+✔ homecoming keeps the family decision distinct from the selected lead and does not invent an old save’s ending (0.441031ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17.536853
+Exit: 0; signal: none; elapsed: 0.118s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/character-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/character-motion.test.mjs
+✔ walk and sprint use the coherent locomotion atlas in both directions (2.693611ms)
+✔ walk and sprint cadence follow distance at 30, 60, 120 and 144 fps (2.539494ms)
+✔ stopping and teleports preserve orientation without a spurious stride (0.48039ms)
+✔ stride advance exposes this update before phase wrap and is zero without resolved travel (0.376216ms)
+✔ body pivots ignore a long low sword extending beside the torso (1.219893ms)
+✔ a running foot outside the torso band still defines the floor (1.395643ms)
+✔ front and rear walk cells retain heading for all seven crew members (0.227356ms)
+✔ near vertical travel does not flip heading from tiny horizontal drift (0.356217ms)
+✔ brief wall tangents keep the rear view but a sustained horizontal turn settles forward (0.245803ms)
+✔ every compass direction selects the corresponding front or rear run family (1.392242ms)
+✔ requested heading resolves collision slides and deliberate turns without a stationary stride (0.247015ms)
+✔ all moving gaits keep one authored heading through every four-pose cycle (1.936512ms)
+✔ gait changes preserve leg phase and the speed deadband avoids flickering (0.314725ms)
+✔ weight transfer is small, disappears on foot plants and respects reduced motion (8.910149ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.179493
+Exit: 0; signal: none; elapsed: 0.124s; timed out: false
+Counts: {"tests":14,"pass":14,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/character-showcase.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/character-showcase.test.mjs
+✔ hidden and disconnected showcases never perform a canvas redraw (1.553115ms)
+✔ reduced-motion portraits redraw only for actual changes (0.211874ms)
+✔ automatic rotation is capped at thirty paints per second and pauses during manual turns (0.289378ms)
+✔ a GPU shader failure keeps character selection usable through the canvas fallback (3.270133ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.27135
+Exit: 0; signal: none; elapsed: 0.123s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/cinema.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/cinema.test.mjs
+✔ all actual chapters have arrival, guardian, victory and attack scenes with exact boss identities (7.836193ms)
+✔ every active bestiary species, supply and usable Mako recipe has cinematic coverage (9.767407ms)
+✔ presentation history roundtrips through existing save without granting rewards or changing flags (1.280292ms)
+✔ all cinematic art and action tracks resolve to packaged files (3.120383ms)
+✔ arrival cards respect the earned opening and never fire in home or town (0.276379ms)
+✔ skipping a guardian victory delivers rewards callback once, and presentation can be disabled safely (6.125354ms)
+✔ compact techniques do not suspend gameplay or invoke the full scene audio lifecycle (3.114684ms)
+✔ previous journey history suppresses duplicate arrival and base-creature introductions (0.194037ms)
+✔ a graphics-recovery canvas export failure cannot interrupt cinematic presentation or completion (2.195566ms)
+✔ existing arrival videos also stay static in reduced-motion and compatibility graphics (3.827498ms)
+✔ compatibility cinematics still draw a captured backdrop without requesting a blur filter (4.264073ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.373873
+Exit: 0; signal: none; elapsed: 0.209s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/city-answer-battle.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/city-answer-battle.test.mjs
+✔ the first real Choir warning gains one bounded return pause that survives a pending save (16.63606ms)
+✔ community care halves one direct Choir hit per crew member, never DOT, secondary, zero or nonliving targets (3.893114ms)
+✔ a witnessed opening still requires two different living crew voices and is longer only once (3.15942ms)
+✔ the first paid Guard creates one shared respite and cannot be retriggered by save restoration (1.105694ms)
+✔ missing contributions preserve the ordinary final encounter and other chapters cannot consume city help (2.217899ms)
+✔ invalid city state is rejected before an imported battle can alter its actors; older snapshots restore (1.234665ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35.922377
+Exit: 0; signal: none; elapsed: 0.185s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/city-answer.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/city-answer.test.mjs
+✔ missing, legacy and preparatory history cannot invent community help or mutate the journey (2.832782ms)
+✔ completed return works share one pause while distinct relays and the public board earn different help (1.391775ms)
+✔ only opened Chapel aftercare qualifies; a prepared legacy fight alone creates no shelter or witness (0.413501ms)
+✔ actual civic purchases and a completed shipment contribute; cargo accepted or inherited seals do not (1.59189ms)
+✔ an origin choice must become an explicitly activated matching service before it answers (0.448962ms)
+✔ all seven selected leads and legacy origin identities are respected without consuming a private recording choice (0.814713ms)
+✔ serialized contributions reject invented sources, duplicate uses and protection assigned to an absent hero (0.56222ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.546784
+Exit: 0; signal: none; elapsed: 0.106s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/bell-witness-arc.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/bell-witness-arc.test.mjs
+✔ clues and physical return sites occupy distinct reachable floor beside the existing voiced arc (662.712524ms)
+✔ preparation requires evidence and both conversations; remote interaction and repeated clues cannot advance it (521.703268ms)
+✔ two earned preparations have distinct actual battle effects without stacking or changing other bosses (894.808103ms)
+✔ bell completion relocates the witness once and keeps its authored aftermath and exact recorded conversation anchors (510.726309ms)
+✔ aftermath earns one growth once only after victory and preserves evidence, preparation and spent charge across saves (718.109559ms)
+✔ optional guidance names a real investigation target and does not intrude into other eras or chapters (448.024397ms)
+✔ physical repair earns the return-wave descriptor while a legacy preparation survives unchanged (466.082789ms)
+✔ post-guardian shelter and witness routes persist, offer different services, and grant their supply only once (864.176975ms)
+✔ bell work rejects invented steps and aftercare before the guardian while accepting old partial saves (0.80572ms)
+✔ returning after the guardian guides to the unfinished aftermath even after chapter five begins (350.906936ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5447.193041
+Exit: 0; signal: none; elapsed: 5.672s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/combat-command-safety.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-command-safety.test.mjs
+✔ wrong-side and stale technique targets never pay MP, HP, strain, AP or partner readiness (4.625699ms)
+✔ valid healing, offensive Link and Counter techniques still spend exactly one action (2.308508ms)
+✔ a Siphon heals from damage actually dealt after defenses, without overkill or overheal credit (0.691861ms)
+✔ a defeated enemy cannot execute a previously queued attack (0.449704ms)
+✔ selected-target guidance follows material state and urgent intent (1.661353ms)
+✔ guard interception and wet reactions have usable advice after a shell is shed (0.364268ms)
+✔ draining supplies respect shields and remaining HP instead of generating health from blocked or excess damage (1.577659ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.40275
+Exit: 0; signal: none; elapsed: 0.154s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/combat-advice.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-advice.test.mjs
+✔ starting Earth-only kit never requests unowned Tide, Frost or Volt recipes (5.008714ms)
+✔ equipped finite supplies provide a valid next step and disappear from advice when spent (0.684361ms)
+✔ armor-only and non-damaging supplies are not invented material-shell attacks (0.520668ms)
+✔ known but unequipped cores, unlearned arts and fallen companions cannot supply a counter (0.652674ms)
+✔ a dry clay coat is never hardened by an ill-advised Flame command (0.727344ms)
+✔ multi-step instructions require both usable steps and enough MP for a shared caster (2.581922ms)
+✔ armor and alarm advice requests an actual interrupt rather than an unavailable Break (1.834599ms)
+✔ live objectives offer a feasible alternative to removing an unreachable material recipe (0.370948ms)
+✔ an intercepting guard prevents a misleading strike-to-shatter promise (0.576892ms)
+✔ ordinary charge cycles do not repeat screen-reader lessons, while meaningful changes announce once (0.637562ms)
+✔ the actual new Sable journey receives advice supported by its earned kit (616.455445ms)
+✔ recommended supply counters replay through the real finite-item shell rules (4.060004ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 651.834855
+Exit: 0; signal: none; elapsed: 0.853s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/combat-instruments.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-instruments.test.mjs
+✔ every protagonist can use portable instruments during an opening objective, without a late unlock (2.967821ms)
+✔ listening reads real pressure and threat clocks and buys only one bounded breath per charge (0.924865ms)
+✔ clay records an immutable attack pattern and retains it across encounters (1.272809ms)
+✔ a replay redirects exactly one matching active or future objective attack to a decoy (0.46104ms)
+✔ unmatched families, support actions and bosses cannot consume a clay decoy (0.364449ms)
+✔ directional coverage depends on crossing geometry, not a global shield (0.476143ms)
+✔ range and malformed actions do not spend readiness, memory or coverage capacity (0.268967ms)
+✔ listening without a charge calibrates a real mechanism instead of spending a turn on text alone (0.381243ms)
+✔ snapshots retain finite instruments and reject orphan patterns or invalid lines (0.917505ms)
+✔ persistent clay memory has a strict bounded schema and a non-mutating migration helper (0.549261ms)
+✔ the real Battle intent event redirects a retained sabotage pattern and prevents actual asset damage (10.118238ms)
+✔ hydrophone calibration changes real regulator and relay commands through Battle.command (1.183277ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28.344107
+Exit: 0; signal: none; elapsed: 0.152s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/combat-position.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-position.test.mjs
+✔ all compass angles use signed two-dimensional displacement with matching previews (8.677792ms)
+✔ pulling approaches the caster but stops before actor overlap (0.4877ms)
+✔ known walls and diagonal corners stop movement without crossing a partition (0.391799ms)
+✔ no topology cannot invent legal floor, spend readiness or move a creature (0.783597ms)
+✔ objective topology is used safely and duplicate floor coordinates are normalized (0.411447ms)
+✔ collisions damage both real actors once and interrupt no unrelated tools (0.566656ms)
+✔ blocked, distant, unready, withdrawn and boss commands leave readiness intact (0.362635ms)
+✔ displaced charged actors keep the aim and telegraph their changed origin (0.338951ms)
+✔ friendly fire requires an actual redirected or repositioned line, clear floor and crossing (0.586546ms)
+✔ Spread finds a safe sideways route when the direct route away from a named partner is walled off (2.213487ms)
+✔ cramped or unknown floor explains the conduit alternative without spending or moving (0.96831ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.235035
+Exit: 0; signal: none; elapsed: 0.092s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/compatibility-ground.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/compatibility-ground.test.mjs
+✔ compatibility terrain retains floor holes and connected trails without canvases or readbacks (2.124056ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8.463686
+Exit: 0; signal: none; elapsed: 0.102s; timed out: false
+Counts: {"tests":1,"pass":1,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/combat-reactions.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/combat-reactions.test.mjs
+✔ conduction consumes water, increases impact and only equipped Stormcoil adds one bounded arc (7.445562ms)
+✔ freeze creates one brittle opening; follow-up physical strike consumes it and breaks armor (0.615279ms)
+✔ steam consumes setup, extinguishes burn and Riverglass supplies a capped defensive payoff (1.955848ms)
+✔ vitrification reduces fire then Earth shatters the stored defense (0.494931ms)
+✔ ground fault, crosswind, witness echo and gravity affect actual charge, statuses and positions (2.57339ms)
+✔ overhealing, Echo and Link relics are conditional and bounded (2.898379ms)
+✔ battle replay retains terrain, cooldowns, equipped relics and delayed action strength (3.08207ms)
+✔ all 45 item effects emit a source-specific visual on a successful use (7.013815ms)
+✔ each rare collectible is earned at a real site, claimed once and unique across wearers and saves (682.601389ms)
+✔ scene context derives distinct terrain rules without requiring rare collectibles (0.976151ms)
+✔ action order is noncommutative and secondary arcs cannot recursively propagate (0.883745ms)
+✔ local restoration and regional preparation contribute bounded optional battle conditions (0.217301ms)
+✔ restorative supplies participate in Graftroot protection and cures remove new harmful conditions (0.56925ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 719.418776
+Exit: 0; signal: none; elapsed: 0.918s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/creature-ecology.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/creature-ecology.test.mjs
+✔ every catalog variety inherits one coherent authored ecology profile (5.294126ms)
+✔ canonical, friendly and tutorial encounters retain optional inactive ecology (4.312668ms)
+✔ nourishment spends one real supply and action, cannot be farmed, and enables a trusted release (1.482449ms)
+✔ frightened soothing resolves a living creature and releases its exact finite tool (0.758711ms)
+✔ rescue treats a real snare or wound, remembers kindness and creates no loot (2.488454ms)
+✔ a nesting shelter consumes a real carried brace use and leaves a peaceful creature (2.406102ms)
+✔ sounding clay lures redirect movement along actual floor and expire on investigation (1.454898ms)
+✔ predator rivalry targets another creature and uses a telegraphed paid enemy turn (1.775812ms)
+✔ rival strikes and player interactions cannot cross a partition (0.480769ms)
+✔ scavengers contest original tools, reach a real den and remember a theft without duplicating inventory (1.027427ms)
+✔ damaged mobility restricts floor movement and prevents a physical escape (0.770117ms)
+✔ harm produces a persistent grudge and a remembered attacker changes later plans (0.960739ms)
+✔ friend relationships guard a wounded companion with a bounded shield budget (0.715016ms)
+✔ failed commands preserve MP, readiness, inventory and all creature state (2.164346ms)
+✔ settlement and memory roundtrip are idempotent, bounded and recognize a rescued individual (3.326562ms)
+✔ snapshots validate identities, floor, relationships and consistent living withdrawal (1.223627ms)
+✔ ecology attacks use the same real interception callback as normal attacks (1.245849ms)
+✔ corner-touching floor cells do not permit diagonal interaction or an attack (0.202499ms)
+✔ same-family creatures have separate identities and a dead occupant does not return as a familiar animal (0.768504ms)
+✔ a grudge softens once between separate meetings while a same-encounter restore preserves it (0.370868ms)
+✔ reinforcement registration preserves existing relationships and living withdrawals (0.954619ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.206391
+Exit: 0; signal: none; elapsed: 0.175s; timed out: false
+Counts: {"tests":21,"pass":21,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/constellation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/constellation.test.mjs
+✔ twelve schools add 72 stable noncolliding nodes per hero while retaining all original IDs (5.525148ms)
+✔ forks are exclusive, prerequisites and chapter gates are enforced without spending on failure (6.187766ms)
+✔ two slots reject double majors, duplicates, unlearned schools, reserves and midbattle changes (3.934588ms)
+✔ free respec refunds only constellation spending and never changes stats, core AP or original nodes (2.154942ms)
+✔ schools affect actual paid casts with conditional hits and the displayed MP cost (10.778774ms)
+✔ mastery fork improves paid AP without free casts; discounts, power and rebates stay bounded (2.038419ms)
+✔ all 48 school paths have bounded resource and damage effects across recipes and target states (27.2244ms)
+✔ recipe loom equips only discovered recipes and valid sockets, preserving compatible rare Mako (0.411527ms)
+✔ constellations and equipped builds roundtrip through the real World save and personal arts use the same costs (705.281154ms)
+✔ saved blueprints are plans only and reject impossible forks, malformed schools and unknown node IDs (2.608421ms)
+✔ all legal paired schools obey global ceilings even at their strongest conditional state (43.001328ms)
+✔ loom preview includes the destination socket’s compatible rare crystal and predicts the equipped MP cost (0.651772ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 823.287682
+Exit: 0; signal: none; elapsed: 1.032s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/crew-setup.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/crew-setup.test.mjs
+✔ free setup fills only earned empty sockets and never spends growth or changes chosen moves (3.342715ms)
+✔ battle and pre-core onboarding never get automatic equipment changes (0.188989ms)
+✔ a rare decision buys the exact prerequisite chain and applies its battle effect in one action (3.929401ms)
+✔ unaffordable rare bundles change neither points nor slots (0.21721ms)
+✔ learned rare traits settle only into compatible unoccupied moves (0.439108ms)
+✔ school selection learns and equips atomically; a full capacity never burns points (1.630257ms)
+✔ unlock cues batch once, persist across saves, and do not replay for spending or old saves (3.234846ms)
+✔ story-learned personal arts connect for free and never need to be bought again (0.561969ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20.960286
+Exit: 0; signal: none; elapsed: 0.111s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/dialogue-presentation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/dialogue-presentation.test.mjs
+✔ mixed reward and named dialogue retain every character but voice only the character (3.692732ms)
+✔ a conversation creates distinct exact voice turns without reading speaker names (0.830506ms)
+✔ line-wrapped sentences continue a speaker; finished sentences do not absorb action narration (0.441141ms)
+✔ blank paragraphs, CRLF, apostrophes and headings are preserved losslessly (0.20991ms)
+✔ cache receipts and progress never become speech (0.44063ms)
+✔ unknown labels and option labels remain visible without guessed voice casting (0.213646ms)
+✔ empty input and unpunctuated ordinary prose are safe and lossless (0.141249ms)
+✔ interface vocabulary inside real dialogue is not stripped (0.133587ms)
+✔ learning notices and party joins are distinct from surrounding prose (0.266483ms)
+✔ voice keys cannot accidentally match a different speaker or shortened text (0.273003ms)
+✔ display pages keep each explicit speaker turn and move receipts out of spoken prose (0.264471ms)
+✔ explicit repeated turns still match separately recorded lines while pure receipts stay visible (0.1556ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.793399
+Exit: 0; signal: none; elapsed: 0.108s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/direction-latch.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/direction-latch.test.mjs
+✔ touch radial deadband engages deliberately and releases immediately at the centre (3.08177ms)
+✔ small angle jitter cannot alternate cardinal and diagonal presses (0.390637ms)
+✔ all sector boundaries wrap correctly while deliberate turns and reversals are immediate (0.398789ms)
+✔ touch state is isolated between callers and the legacy stateless helper is unchanged (0.239744ms)
+✔ gamepad axes retain engagement through threshold jitter without adding inertia (0.31859ms)
+✔ gamepad axis history is independent per axis and invalid samples cannot latch a direction (0.235457ms)
+✔ bound touch stick holds its selected heading through jitter and shows that heading on the knob (1.026085ms)
+✔ pointer release, capture loss, cancellation and disabled controls clear every held direction once (0.69114ms)
+✔ unrelated pointers cannot steer the gesture and synchronous release does not leave stale latch state (0.551074ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.457422
+Exit: 0; signal: none; elapsed: 0.114s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/earned-progression.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/earned-progression.test.mjs
+✔ New Game is a solo civilian with no unearned money, supplies, spells or teammates (623.30006ms)
+✔ home cannot be skipped, parcel and small rewards are once only (500.743996ms)
+✔ first three members and abilities are earned at distinct causal scenes (470.524859ms)
+✔ yard and battle gates prevent fighting before the basic tools and first pattern (785.199007ms)
+✔ authored rewards delay Link until chapter 3 and third socket until chapter 6 (399.802724ms)
+✔ solo and earned saves roundtrip while legacy saves retain their full kit (616.870421ms)
+✔ first guardian is winnable with the actually earned early loadouts (428.208224ms)
+✔ both endings resolve the recording question and return to the original home (832.112374ms)
+✔ recruitment supplies and chapter gear cannot be collected twice (318.873478ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4992.769883
+Exit: 0; signal: none; elapsed: 5.221s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/campaign-homecoming.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/campaign-homecoming.test.mjs
+✔ all seven selected beginnings reach the festival with their kit, lead, civic history and full assistance intact (3868.609722ms)
+✔ the first clay reading teaches the return without claiming a physical repair (377.737616ms)
+✔ milestone visits persist through saves without repeating rewards or resetting the road (461.270581ms)
+✔ community recognition precedes either personal ending, which keeps the chosen lead and returns to Mara (5416.495066ms)
+✔ a legacy completion without a recorded final choice gets no invented public broadcast (390.456519ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10521.839645
+Exit: 0; signal: none; elapsed: 10.748s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/encounter-objectives.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/encounter-objectives.test.mjs
+✔ all four objectives have active, nonlethal win paths while foes remain alive (7.271156ms)
+✔ escort follows real floor, needs an accompanying crew member, and stops for a nearby blocker (0.632694ms)
+✔ regulator stability requires work, retains pressure, and can fail from sabotage or overload (0.903153ms)
+✔ scavengers contest secured bundles and signal reconnection costs real progress (1.195966ms)
+✔ enemy plans alternate readable objective threats with normal turns and route around walls (0.60973ms)
+✔ clay redirects and physical or instrument interceptions prevent objective damage and theft (1.109218ms)
+✔ range, readiness and unsupported objective actions cost nothing; treatment costs one action (0.673334ms)
+✔ asset loss takes priority over clearing foes; clearing threats otherwise protects every objective (2.731577ms)
+✔ objective state roundtrips and malformed geometry, progress, ownership or timers are rejected (1.136083ms)
+✔ a paid guide action finds a real detour on wide floor while a blocked corridor stays blocked (5.418622ms)
+✔ listening calibration changes the next pressure action and protects one relay reconnect (1.045354ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.025247
+Exit: 0; signal: none; elapsed: 0.111s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/economy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/economy.test.mjs
+✔ all 24 regional markets have finite materials, distinct surplus and needs and no same-market resale profit (9.622588ms)
+✔ actual cross-region trade earns a bounded margin and rest or reload cannot refill quotas (0.622589ms)
+✔ reciprocity belongs to one district, comes from work once, and is spent explicitly (0.493809ms)
+✔ public investment changes crafting, prices and real battle context once (3.344818ms)
+✔ crafted supplies really execute their normal battle mechanics (3.334304ms)
+✔ contracts consume real goods, have bounded requests, and never consume partial payment (0.450735ms)
+✔ shipments require destination and two distinct real encounters; cancel and claims are exact (0.677261ms)
+✔ trade seals are unique and lineage carries institutions, never cash, materials or local favor (664.978786ms)
+✔ borrowed trials and active battles cannot create goods or currency (0.404718ms)
+✔ economy save validation rejects negative materials and invalid shipments (0.923443ms)
+✔ World victory awards salvage once and practice cannot mint currency (945.096693ms)
+✔ merchant spending fills a real community reserve that co-funds public services (0.362455ms)
+✔ the central hub stays in Cinderfall and cannot impersonate a cargo destination as chapters advance (345.072508ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1983.746013
+Exit: 0; signal: none; elapsed: 2.19s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-architecture-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-architecture-v17.test.mjs
+✔ architectural accents have valid isolated source bounds in the actual original PNG (2.003599ms)
+✔ window-sized and gallery-sized accent draws preserve aspect and a bottom-center anchor (0.772721ms)
+✔ normal building bakes use all eight accents at existing detail locations without changing geometry (220.466724ms)
+✔ missing or malformed images retain legacy baked details; decode errors restore context (3.925547ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 233.689418
+Exit: 0; signal: none; elapsed: 0.955s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-architecture-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-architecture-v19.test.mjs
+✔ sixteen original pieces agree with their retained source and delivery audit (9.438937ms)
+✔ gallery fits and draw failures retain aspect, alpha and context state (1.10418ms)
+✔ real window centers and complete wall bays fit without reaching doors or neighbors (63.314439ms)
+✔ roof craft fits actual cells and wall fittings retain actual frontages (14.23559ms)
+✔ building bakes preserve geometry and all sixteen motifs are meaningful production draws (295.037192ms)
+✔ missing new atlases keep legacy details and successful families can load independently (7.326408ms)
+✔ a foreground building fades for a covered companion and keeps hero-only doorway labels (0.589641ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 399.86033
+Exit: 0; signal: none; elapsed: 1.127s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-canopies-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-canopies-v17.test.mjs
+✔ measured canopy source parts fit the original RGBA atlas and one common root frame (3.718921ms)
+✔ admitted seed pattern selects about half the sites without snowy or dry-biome leakage (19.99553ms)
+✔ stable admitted seeds vary non-wind canopy handedness while junipers keep one wind direction (20.380143ms)
+✔ an unavailable or mismatched optional atlas leaves all legacy geometry unchanged (3.178043ms)
+✔ the optional tree artwork uses existing safe sites and leaves the expanded world unchanged (660.569014ms)
+✔ drawing isolated source strips keeps one fixed scale and off-center root anchor (0.958345ms)
+✔ horizontal reflection retains each original source part, fixed root and matching opaque bounds (0.893159ms)
+✔ new tree alpha uses exactly the transformed painted canopy and protects companions (1.026386ms)
+✔ an off-center reflected crown fades on its newly occupied side rather than its original side (0.875223ms)
+✔ new draw path needs no DOM or texture preparation and restores context on decode failure (0.92751ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 724.062803
+Exit: 0; signal: none; elapsed: 0.911s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-art-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-art-v17.test.mjs
+✔ every registered motif has a complete source rectangle in its actual PNG (90.439555ms)
+✔ all sixteen v17 runtime WebP atlases preserve source dimensions and cutout alpha (15.941909ms)
+✔ scene art selection is deterministic, diverse and does not mutate the actual expanded world (899.326782ms)
+✔ mixed seed variation does not alias a placement rule and story openings retain their material (2.359875ms)
+✔ origin terrain and painted props share the actual river, furnace and storm identities (443.875641ms)
+✔ natural banks never introduce work equipment, even in industrial or coastal regions (406.827067ms)
+✔ work groups require a matching local job and cannot substitute unrelated catalogue pieces (0.803627ms)
+✔ group motifs allow natural repetition and are independent of neighbours, plan and draw order (1.873557ms)
+✔ painted art keeps its aspect ratio and local pixel anchor in either graphics mode (0.618032ms)
+✔ failed image draws restore shared context and preserve the established art fallback (0.702868ms)
+✔ occlusion uses the painted width and height, fading only scenery in front of a traveller (0.260014ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1871.601054
+Exit: 0; signal: none; elapsed: 2.064s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-canopies-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-canopies-v19.test.mjs
+✔ delivery matches its verified original and exact-alpha/crop receipt (6.123893ms)
+✔ admitted tree seeds sample a minority of sites with strictly regional age and exposure forms (21.94931ms)
+✔ optional variation loss preserves the previous canopy or legacy geometry exactly (19.513773ms)
+✔ new geometry uses existing sites and does not mutate the expanded world or tree plan (573.031064ms)
+✔ drawing and companion fades use the same measured root frame in both handednesses (2.302716ms)
+✔ both wind-shaped trees retain direction and failed drawing restores caller state (3.439459ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 637.910037
+Exit: 0; signal: none; elapsed: 0.852s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-depth.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-depth.test.mjs
+✔ region depth distinguishes wet banks, highlands, desert and origin interior shadows (2.401877ms)
+✔ depth spans and moving water stay entirely outside walkable cells (0.950794ms)
+✔ every prepared outdoor region has bounded deterministic landforms without changing navigation (650.087688ms)
+✔ both graphics modes bound terrain bitmap memory and retain actual world coordinates (1.133423ms)
+✔ bank, surround and animated passes preserve canvas state and cull water work (2.022707ms)
+✔ generated terrain crops retain four semantic surfaces and remain within delivered artwork (0.933198ms)
+✔ compatibility paints a prepared scene bitmap directly without pixel processing (0.34556ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 671.135909
+Exit: 0; signal: none; elapsed: 0.865s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-materials-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-materials-v17.test.mjs
+✔ delivered opaque surface source and every central crop have the declared dimensions (8.524028ms)
+✔ all current ground kinds select a surface while water and unavailable images keep their fallback (0.774293ms)
+✔ the game-sized material stays within its bounds and restores transform, opacity and current path (0.60263ms)
+✔ reflected neighbors and the outer cached repeat meet on the same source pixels (0.551414ms)
+✔ partial last tiles never draw outside a requested nonmultiple square (0.488031ms)
+✔ a drawing failure returns to the fallback with balanced canvas state (0.209118ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20.328739
+Exit: 0; signal: none; elapsed: 0.104s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-shells.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-shells.test.mjs
+✔ formation policy is bounded, deterministic and excludes tutorials, rivals and bosses (9.821884ms)
+✔ habitat contributes real local materials (0.205463ms)
+✔ clay action order changes actual damage and exposes the creature (3.584313ms)
+✔ dry heat fires clay, water then thermal-fractures it; reeds char before Gale strips (0.533688ms)
+✔ ash washes, rime melts, mineral charging enables ground fracture (0.583251ms)
+✔ every material can be defeated with basic attacks within five hits without magical gates (0.883185ms)
+✔ shell condition persists through battle save and older battles need no shell (1.908028ms)
+✔ supplies trigger the same material rules and secondary effects cannot recurse shell reactions (1.674452ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.473018
+Exit: 0; signal: none; elapsed: 0.183s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-interiors-v19.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-interiors-v19.test.mjs
+✔ 24 wall pieces match archived source metadata and the three exact delivery files (8.008086ms)
+✔ wall fitting preserves aspect, bottom-center registration, canvas state and the caller path (1.643507ms)
+✔ cached placements stay on real back walls, spare windows and doorways, and preserve all room and journey data (59.001474ms)
+✔ both household modes draw identical wall art without changing bake bounds or chapel rendering (255.029825ms)
+✔ optional-art fallback, view culling and decode failures remain bounded and restore state (0.838308ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 332.513632
+Exit: 0; signal: none; elapsed: 1.235s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-water-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-water-v17.test.mjs
+✔ regional water crops belong to the exact delivered opaque atlas (3.04686ms)
+✔ only the four actual wet-region identities opt into these materials (0.997773ms)
+✔ unavailable water art retains fallback without touching the drawing context (0.322276ms)
+✔ painted water preserves context and current path, including decode failure (0.501831ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11.369709
+Exit: 0; signal: none; elapsed: 0.095s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environmental-grounding.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environmental-grounding.test.mjs
+✔ projected building reservations retain concave ground and extend to the actual wall silhouette (2.00439ms)
+✔ an underground entrance reserves only the rendered stairs, never the hidden room floor (2.994843ms)
+✔ vegetation keeps urban courts and entrances open, with smooth deliberate verge patches (8.217274ms)
+✔ real campaign reservations are finite and do not change any scene navigation or story object (654.245799ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 679.606648
+Exit: 0; signal: none; elapsed: 0.875s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/answering-network.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/answering-network.test.mjs
+✔ legacy migration recognizes established seed heat without inventing discoveries, tests or item spends (2.203503ms)
+✔ save validation rejects forged proofs, impossible sequences, duplicate and unknown ledger entries (0.69037ms)
+✔ all nine device sites are reachable on the real furnished floors and available in destination guidance (2902.311915ms)
+✔ native chapter prerequisites remain real work and optional proofs do not force a return after victory (1835.730223ms)
+✔ five complete works run through the integrated full-assistance resolver, checked walking paths and World.interact (2075.680282ms)
+✔ remote, wrong-scene, forged-stage and stale object attempts cannot finish a physical proof (437.90952ms)
+✔ chapel discovery changes the in-world diagram and returns a finite answer without opening a dialogue (373.345506ms)
+✔ chapter-eight encounter is blocked until root, diversion and collector isolation have all happened (431.810855ms)
+✔ both water readings are necessary, can be taken in either order, and remain separate public evidence (1074.348018ms)
+✔ relay replies stay distinct, while the assembly board records only actual earlier proof (830.913615ms)
+✔ new network state survives save validation/restoration and old cleared saves keep their established heat (1784.897016ms)
+✔ developer arrival/boss fixtures perform authored work at the correct point for both civic branches (10087.379701ms)
+✔ local completed reply motifs are bounded, distinct and absent before work (1722.962008ms)
+✔ compatibility drawings need no filter/readback and reduced motion keeps static evidence without traveling pulses (2451.448783ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26022.893887
+Exit: 0; signal: none; elapsed: 26.264s; timed out: false
+Counts: {"tests":14,"pass":14,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/environment-staging.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/environment-staging.test.mjs
+✔ street branches share a connected route without paving a square under every person (4.399076ms)
+✔ Cinderfall has a readable stable landing beside the inn, outside drawn buildings and door approaches (702.828354ms)
+✔ a regional work site follows its craft and remains separate from the harvest garden (560.284506ms)
+✔ a missing offscreen drawing context falls back to the real stairwell, never a whole forge sprite (441.114133ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1731.541626
+Exit: 0; signal: none; elapsed: 1.947s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-encounters.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-encounters.test.mjs
+✔ first contact arrives after five to nine real danger tiles, independent of movement frame size (4.184569ms)
+✔ outdoors and interiors use longer randomized intervals after a battle (7.206301ms)
+✔ homes, healing rooms, secret family spaces and frontier sanctuaries remain safe (6.56878ms)
+✔ selected working interiors and ruins have explicit local encounter habitats (0.227116ms)
+✔ all seven actual origin journeys have early danger without converting Mara’s home into a fight room (612.083564ms)
+✔ standing still, a blocked move, invalid input, and teleports cannot spend encounter distance (3.341514ms)
+✔ menus, dialogue, battle and cinema modes cannot advance a pending encounter (0.328165ms)
+✔ door and conversation buffers do not accumulate hidden encounter debt (6.512527ms)
+✔ scene transitions keep the pending budget but grant enough room to step away from a doorway (0.654046ms)
+✔ retreat and defeat grant movement grace and a fresh regular encounter interval (0.888312ms)
+✔ a readable danger warning fires once before each contact, and serializable state resumes exactly (0.556993ms)
+✔ field tier and formation follow story level while every historical origin stays introductory (0.497865ms)
+✔ malformed old encounter counters repair locally instead of blocking the game (0.48096ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.246498
+Exit: 0; signal: none; elapsed: 0.871s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/exploration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/exploration.test.mjs
+✔ the early workshop patrol cannot repeatedly trap an ungeared player in warning dialogues (778.860768ms)
+✔ every chapter has an actual connected optional interior, three reachable hiding places and a return route (537.040952ms)
+✔ wrong latch guesses cost nothing; successful clues unlock a once-only reward preserved through saves (493.709177ms)
+✔ hidden cache hints appear at close range and never masquerade as a mandatory campaign objective (404.15358ms)
+✔ legacy saves receive optional rooms without losing their kit or gaining rewards (723.999861ms)
+✔ instrument tuning matches the recovered solver and uses bounded low-cost room parameters (0.583211ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2946.037966
+Exit: 0; signal: none; elapsed: 3.159s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-expeditions.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-expeditions.test.mjs
+✔ three real resolutions turn the same damaged site into a usable refuge (5.472952ms)
+✔ patrol salvage shares the existing claim and cannot duplicate goods or progress (4.066305ms)
+✔ regional work stays local and a global serial high-water mark rejects old wild claims (2.389478ms)
+✔ practice, origins, friendly sparring, borrowed trials and unfinished battles earn no expedition progress (0.475281ms)
+✔ refuge placement is in the reachable component and avoids doors and occupied work (1.359633ms)
+✔ opening town supports its public refuge while later towns, sanctuaries and interiors keep existing services (0.892278ms)
+✔ recovery is modest, affects the travelling crew, and only a new win renews it (1.356453ms)
+✔ refinement consumes actual matching material for an equipped core and respects mastery cap (1.042409ms)
+✔ refuge interaction offers optional explicit actions rather than spending on inspection (1.125172ms)
+✔ save validation rejects malformed and unbounded claims, placement and recovery history (5.832402ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.169529
+Exit: 0; signal: none; elapsed: 0.127s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/exploration-investigations.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/exploration-investigations.test.mjs
+✔ ordinary optional latches vary their answer position and keep evidence outside the question (727.864694ms)
+✔ leak tracing changes a real ordered mechanism, survives a reload and does not grant story flags (620.514554ms)
+✔ the vestry distinguishes a silence from another pull and preserves a valid prefix (538.17599ms)
+✔ the carrier must actually leave the tray uncovered; a repeated guess does not advance their routine (409.741606ms)
+✔ creature custody requires shelter and finite local food, preserves either decision, and rests only once (951.056186ms)
+✔ authored sites reject remote activation and legacy solved rooms retain their rewards without replay (416.23868ms)
+✔ investigation validation accepts old ledgers and rejects impossible or unbounded state (1.462279ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3672.786347
+Exit: 0; signal: none; elapsed: 3.884s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-journey-director.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-journey-director.test.mjs
+✔ patrols without xy use the nearest currently rendered body as their interaction approach (2.92585ms)
+✔ visible wild packs use their nearest mobile body and preserve the exact descriptor (0.309377ms)
+✔ non-creature targets keep canonical objects while missing positions are excluded (0.186605ms)
+✔ nearby threats invite takeover only after the guide has covered real distance (0.787943ms)
+✔ a dynamic nearest body determines which threat prompts the handoff (0.310248ms)
+✔ walls and blocked affordance tiles hide threats until the player has a clear view (0.475772ms)
+✔ manual exploration, a held guide and non-field modes do not count distance (0.388554ms)
+✔ each dangerous scene invites exploration once, including origin and campaign transitions (0.366291ms)
+✔ replacing a journey state and explicit reset allow a fresh invitation without importing old distance (0.368093ms)
+✔ unfinished nearby affordances give an exploration invitation and solved work does not (0.670791ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.416497
+Exit: 0; signal: none; elapsed: 0.106s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-journey-model.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-journey-model.test.mjs
+✔ capture does not create ledgers or retain mutable state references (2.95226ms)
+✔ victory reports exact XP, credits, material and item changes without predicted loot (1.99147ms)
+✔ earned rank and growth point reports use actual before and after values (0.524364ms)
+✔ the two closest mastery goals are bounded and earned ranks take precedence (0.583762ms)
+✔ local aid changes name their existing mechanical effect and are reported only once (1.310365ms)
+✔ a confirmed patrol clearance and actual guardian milestone have physical consequences (0.605173ms)
+✔ expedition progress distinguishes a future shelter from the refuge actually unlocked (0.731ms)
+✔ an unchanged settlement invents neither resources nor progress and tolerates absent optional ledgers (0.810617ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.690047
+Exit: 0; signal: none; elapsed: 0.167s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-expeditions-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-expeditions-integration.test.mjs
+✔ real World wild victories preserve normal XP and mastery while awarding one field material (754.600884ms)
+✔ nonlethal objective resolutions advance the same refuge while retreat awards nothing (522.51941ms)
+✔ actual authored patrol victory shares one economy claim and cannot be re-engaged after clearing (473.024774ms)
+✔ three first-chapter victories repair the same real town site and materials fund actual mastery (990.050706ms)
+✔ World.restore accepts older saves and rejects corrupted new expedition history before replacing a journey (1150.397561ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3898.561531
+Exit: 0; signal: none; elapsed: 4.11s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-feedback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-feedback.test.mjs
+✔ furnishings inspect and shared remedies collect in field, once across save restoration (767.699945ms)
+✔ cupboard inspection changes visible open state without dialogue or moving possessions (487.136608ms)
+✔ warming at a hearth applies the existing strain relief and reports its actual effect (390.808317ms)
+✔ a hidden cache pays normally, retains every note, and never blocks walking (394.172736ms)
+✔ real environmental choices use field actions and reject actions after walking away or entering battle (479.287603ms)
+✔ ordinary story dialogue and meaningful plot choices retain the original callback lifecycle (376.802189ms)
+✔ field receipts describe actual item, currency and Mako changes rather than repeating arbitrary flavour text (0.258872ms)
+✔ a distant fixture cannot be opened, looted or recorded through the field adapter (368.059339ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3282.696755
+Exit: 0; signal: none; elapsed: 3.481s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-rumor-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-rumor-art.test.mjs
+✔ overheard text wraps into at most three short readable lines (1.097631ms)
+✔ world-space captions stay inside portrait and landscape clear play areas (0.354032ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.632184
+Exit: 0; signal: none; elapsed: 0.087s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-patrols.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-patrols.test.mjs
+✔ authored roam moves each field body while leaving encounters and saves unchanged (10.634202ms)
+✔ a noticed creature telegraphs before contact and returns its canonical encounter (2.947802ms)
+✔ walking away defeats pursuit and a creature returns inside its bounded territory (10.169868ms)
+✔ walls prevent detection through rooms and every frame stays on open floor (12.245ms)
+✔ doors and conversation areas let the player stop without being attacked (15.09222ms)
+✔ menus, dialogue, battle and invalid time cannot advance field bodies or alert clocks (1.062568ms)
+✔ clearing a patrol removes runtime motion; a new scene or loaded save starts at authored positions (1.626581ms)
+✔ scripted origin guardians pace close to their story landmark (3.10836ms)
+✔ commission patrols reconstructed on each object read keep their motion and warning state (1.25966ms)
+✔ runtime wild packs visibly patrol and telegraph before returning their wild descriptor (0.813661ms)
+✔ manual battle and retreat hooks can calm all nearby patrols before field control returns (1.046996ms)
+✔ actual campaign field patrols remain canonical and can be sampled in every authored room (1227.741559ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1297.260795
+Exit: 0; signal: none; elapsed: 1.495s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-rumors.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-rumors.test.mjs
+✔ an actual named resident gives a nonmodal observation about an actual unfinished nearby object (7.820498ms)
+✔ blocked lifecycles and objective following clear captions and never emit another (6.117584ms)
+✔ captions expire after four seconds, obey a global 45-second gap and repeat no opportunity this session (1.54415ms)
+✔ scanning is bounded to three times a second and cooldown does not poll objects (0.762456ms)
+✔ solved, completed, inspected, unavailable and unreachable opportunities are excluded (0.626705ms)
+✔ a solved or removed target clears the active caption instead of following a stale object (0.692833ms)
+✔ scene changes clear captions, retain once-per-session memory and impose a new arrival margin (1.871594ms)
+✔ without a genuine named person cues remain observations anchored to the object (0.328505ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.180896
+Exit: 0; signal: none; elapsed: 0.113s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/follower-motion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/follower-motion.test.mjs
+✔ follower travel stays continuous at 30, 60, 120 and 240 Hz (6.504094ms)
+✔ seeded formation checks each segment and chooses an open entrance direction (0.322727ms)
+✔ cramped spawn separates continuously without a first-step teleport (1.260351ms)
+✔ followers retain right-angle corners and reversals instead of cutting through walls (0.715476ms)
+✔ long running histories retain an accurate distance window with bounded storage (15.302478ms)
+✔ invalid samples do not corrupt the trail and teleports reset its history (0.358569ms)
+✔ formation preparation does not mutate the lead, party or combat actors (0.466068ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.409479
+Exit: 0; signal: none; elapsed: 0.182s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/frontier-art-v17.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/frontier-art-v17.test.mjs
+✔ new utility sprites preserve their approved measured crops and staging policy (2.466262ms)
+✔ painted utility roles cover actual dispatches, surveys and supplies without changing the world (680.486261ms)
+✔ travel artwork stays on existing outdoor routes and arrows follow a clear horizontal exit (0.675888ms)
+✔ regional shelters replace actual outdoor rest points and preserve specialized or indoor services (458.845353ms)
+✔ a painted rest shelter retains its exact interaction anchor and label in both graphics modes (1.119864ms)
+✔ frontier stage visibility and labels survive a successful painted replacement (0.437626ms)
+✔ travel props use tile coordinates, correct mirroring and the same direct image path in either graphics mode (0.599275ms)
+✔ missing or failed sprites preserve established frontier and route fallbacks (0.518065ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1162.50301
+Exit: 0; signal: none; elapsed: 1.371s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/functional-anatomy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/functional-anatomy.test.mjs
+✔ all432 varieties receive deterministic functional anatomy from16 authored profiles (10.024484ms)
+✔ legacy friendly tutorial and anchored bosses retain their authored capabilities (0.302186ms)
+✔ targeted strikes use real damage and readiness, respect shielded hits, and reject failures (1.548968ms)
+✔ part targeting requires a known unbroken floor line and cannot reach through partitions (0.251772ms)
+✔ breaking a plate changes guard plans and armor, then releases one finite shared brace (1.1575ms)
+✔ a broken bell sac rewrites an already charged alarm and every future alarm (0.293764ms)
+✔ horn damage narrows a charge and claw damage changes actual mobility and escape policy (0.384217ms)
+✔ functional organs disable status and special traits rather than only subtracting HP (0.767333ms)
+✔ parts remain serializable and reject forged profiles, duplicate parts and invalid integrity (0.854381ms)
+✔ salvage provenance rejects orphan body tools, forged flags and duplicate source identities (0.437376ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.433915
+Exit: 0; signal: none; elapsed: 0.158s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/graphics-health.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/graphics-health.test.mjs
+✔ backing stores stay within dimension and pixel limits at laptop, 4K, ultrawide and high-DPI sizes (3.411037ms)
+✔ compatibility preserves source art while only changing backing scale and filter policy (0.194597ms)
+✔ source rectangles use decoded image dimensions and reject off-atlas, invalid and unready sources (0.336297ms)
+✔ atlas health distinguishes empty isolation placeholders, invalid crops and genuinely transparent prepared art (0.580638ms)
+✔ null, lost and unqueryable context states remain distinguishable (0.288847ms)
+✔ tiny readback probe distinguishes working baseline, bad filter, blank canvas and blocked inspection (0.480119ms)
+✔ 2D loss and restoration events are reported without suppressing browser restoration (0.374593ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.020878
+Exit: 0; signal: none; elapsed: 0.092s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/ground-contact.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/ground-contact.test.mjs
+✔ footfall materials follow actual ground and do not emit dirt inside houses (5.016748ms)
+✔ contacts occur only on new planted steps and stay behind in world space (1.145812ms)
+✔ real walk and run footplants keep their count and world spacing at 10 through 144 Hz (10.436136ms)
+✔ a slow moving update emits a plant it crossed even when the final pose is airborne (0.278351ms)
+✔ one resolved update can cross both feet and wrap the four-pose clock (0.181508ms)
+✔ legacy poses use a short modulo interval and emit an endpoint plant only once (0.160858ms)
+✔ invalid or discontinuous phase and position jumps never create marks (0.603431ms)
+✔ stops and teleports stay silent while a resumed stride can cross a real plant (0.406891ms)
+✔ indoor intervals update the clock without leaving marks or an outdoor backlog (0.219924ms)
+✔ crossed plants retain material lifetimes and the mark history stays bounded (0.955741ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.152165
+Exit: 0; signal: none; elapsed: 0.111s; timed out: false
+Counts: {"tests":10,"pass":10,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/guardian-reward-rules.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guardian-reward-rules.test.mjs
+✔ selected guardian rewards expose their learned rules and old gear sync gains identity without stacking stats (4.567816ms)
+✔ Rainbell carries the learned Guard answer into ordinary fights once per Guard and never recurses (2.797171ms)
+✔ Crownless Lens turns separation into a single ally protection instead of a passive stat increase (0.634658ms)
+✔ Mountain Rest removes actual area geometry once per encounter and survives save restore (4.025614ms)
+✔ Unfinished Circle restores resources only after a different crew member answers differently (0.884896ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.994506
+Exit: 0; signal: none; elapsed: 0.153s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/guardian-rules.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guardian-rules.test.mjs
+✔ ordinary enemies and the first guardian retain the complete paid Break response (6.939067ms)
+✔ Ash Herald has a real second wave; Break silences that wave without cancelling the toll (13.002732ms)
+✔ the bell return rewards a deliberate Guard with real prevention and an opening (0.740423ms)
+✔ bell repair benefits are bounded and old preparation fields retain their original effects (1.750065ms)
+✔ supplies, ground reactions and a carried hook cannot bypass the bell response (3.039568ms)
+✔ Crown conduits retain other moves, let Break cut one end, and reward actual crew separation (1.57795ms)
+✔ a visible paid Spread command grounds the named Crown pair without manual crew movement (10.611589ms)
+✔ the Giant exposes real targetable resonators, and broken parts remove later hit geometry (2.942315ms)
+✔ the Choir needs two different voices and a genuinely different kind of hit (0.786851ms)
+✔ milestone advice describes the actual response instead of promising universal cancellation (2.156655ms)
+✔ pending returns, split conduits, broken resonators and answers survive snapshots; legacy snapshots remain valid (11.365184ms)
+✔ earned origin support is local, bounded, serialized and cannot stack onto the chapel (1.734411ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.778831
+Exit: 0; signal: none; elapsed: 0.224s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/frontiers.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/frontiers.test.mjs
+✔ 60 connected frontier areas preserve every exit and objective approach (677.578794ms)
+✔ all 240 commissions complete through survey, repair, encounter and one-time report (1657.108224ms)
+✔ all 96 frontier profiles enter real battle and serialize without losing their identity (384.507959ms)
+✔ unfinished jobs survive save and switching jobs without claiming their reward (858.301104ms)
+✔ older off-route frontier saves settle onto walkable ground (817.002124ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4413.642804
+Exit: 0; signal: none; elapsed: 4.639s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/hero-legacy.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/hero-legacy.test.mjs
+✔ all seven leads can earn all three optional forms from distinct actual outcome classes (3.489873ms)
+✔ failed, unknown, repeated and malformed events do not farm rewards or body history (0.329897ms)
+✔ first attunement is free and subsequent changes pay exactly one Ether between encounters (0.297359ms)
+✔ persistent histories are bounded, serialized and reject unearned or malformed forms (3.083804ms)
+✔ a remembered signature and a deed travel with the selected local companion, never currency or campaign flags (0.599295ms)
+✔ ceramic anchor costs readiness and MP, blocks one real crossing, and releases the tool hand (1.022239ms)
+✔ ceramic cover bypasses close contact and expires without trapping the tool hand (1.010332ms)
+✔ reed ear reads a real windup once and pays for it; electrical sensitivity is a real tradeoff (0.538616ms)
+✔ ash step follows actual adjacent floor, leaves exposure and catches only an attack aimed at the previous place (0.69759ms)
+✔ no ash movement crosses a wall, unavailable topology or an occupied destination (0.437015ms)
+✔ runtime snapshots preserve spent uses and reject mismatched owners, excessive counts and unearned forms (0.547638ms)
+✔ ceramic physical tradeoff is paid without mutating the base stat sheet (0.246794ms)
+✔ real local drop-in preserves the invited body history without importing levels or wealth (1.315041ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.937403
+Exit: 0; signal: none; elapsed: 0.114s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/field-origins.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/field-origins.test.mjs
+✔ all seven field origins preserve campaign state, timeline, kit and recruitment across save and exit (6126.754048ms)
+✔ every approach is available to every companion and equipment is locked during battle (393.487859ms)
+✔ supplies create six distinct bounded disciplines without bypassing inventory costs (6.648347ms)
+✔ retreat and repeated origins cannot award campaign items, XP or guardian milestones (497.936908ms)
+✔ borrowed origin kits cannot travel into the canonical campaign (356.805902ms)
+✔ an active past-era campaign survives field trials and resumes the same historical step (1317.371607ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8735.352182
+Exit: 0; signal: none; elapsed: 8.974s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/guided-objective.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/guided-objective.test.mjs
+✔ the earned first chapter resolves a real prerequisite instead of a null guardian relay (652.336919ms)
+✔ frontier encounter objectives provide a walking coordinate, including patrols stored as enemy positions (489.658603ms)
+✔ a commission in another area uses a real connecting passage; another region offers the current dispatch ledger (431.752765ms)
+✔ Commons transport is a real route edge and walking to a tracked Wayglass seam needs no manual movement (439.153947ms)
+✔ tracked witness objectives follow their actual upstairs relocation after the crypt opens (468.667255ms)
+✔ remembered vendor routing supports explicit transport choices without discovering unseen rooms (400.954771ms)
+✔ region portal destinations use their explicit room rather than the global hub alias (460.250002ms)
+✔ the final delivery guides from Commons through an explicit transport answer to Mara (439.80362ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3795.91577
+Exit: 0; signal: none; elapsed: 4.014s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/journey-cinema.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-cinema.test.mjs
+✔ twenty locally rendered clips have matching packaged files and bounded first-eight chapter scope (1.494097ms)
+✔ arrival policy excludes the civilian home, optional interiors, later chapters and repeated visits (0.319661ms)
+✔ encounter introductions follow actual enemies and teach elder geometry rather than a stale normal move (1.228815ms)
+✔ journey album does not spoil future destinations or creatures and supports older saves (0.297279ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.888421
+Exit: 0; signal: none; elapsed: 0.164s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/interior-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/interior-craft.test.mjs
+✔ interior fabric and hearth accents stay anchored to the actual activity group (15.450765ms)
+✔ cached room spans preserve every actual floor cell and never fill a partition (21.159483ms)
+✔ compatibility rooms paint real continuous materials and walls without bitmap APIs (29.25249ms)
+✔ continuous compatibility planks use material units rather than the world collision grid (0.992806ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.063067
+Exit: 0; signal: none; elapsed: 0.872s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/journey-memory.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-memory.test.mjs
+✔ cinematics select the installed orchestral cues for action, loss, revelation and resolution (1.280661ms)
+✔ new civilian album contains only the starting companion, without future story or unknown creatures (1.631128ms)
+✔ legacy history becomes one replay per earned moment, preserving current videos and elder identity (7.136438ms)
+✔ cinematic lore uses current visited room and never reveals an undefeated boss or future climax (0.405449ms)
+✔ completed chapter resolution context matches the current lore source and remains bounded (0.336497ms)
+✔ all purchased stat paths survive a real battle level-up, JSON save, and restore (692.892379ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 719.248833
+Exit: 0; signal: none; elapsed: 0.908s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/kakeya.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/kakeya.test.mjs
+✔ every chamber starts unsolved and exact star completion covers each direction (2.886763ms)
+✔ removing a directional pair creates the corresponding coverage deficit (0.587698ms)
+✔ supplied 46-point ring witness contains all 120 primitive projective lines (3.012419ms)
+✔ rewards survive JSON save and cannot be collected twice (0.249698ms)
+✔ stations exist on reachable floors and preserve story state (620.156172ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 639.20163
+Exit: 0; signal: none; elapsed: 0.798s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/label-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/label-layout.test.mjs
+✔ nearby field names move away from faces and other labels without escaping the visible world (1.765036ms)
+✔ a narrow viewport bounds long labels and preserves the subject anchor (0.431838ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8.744953
+Exit: 0; signal: none; elapsed: 0.084s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/legacy-art-delivery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/legacy-art-delivery.test.mjs
+✔ three legacy originals retain their exact PNG bytes, dimensions and existing source crops (12.042251ms)
+✔ WebP delivery headers and hash-bound full-image alpha verification match every original (3.247616ms)
+✔ existing required asset keys resolve to the validated delivery files without changing their source identities (0.838088ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.239936
+Exit: 0; signal: none; elapsed: 0.165s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/households.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/households.test.mjs
+✔ every furnished interior has reachable, individually selectable objects and wall-aligned ordinary exits (829.652494ms)
+✔ shared supply compartments pay once, survive a save roundtrip and never write quest flags (490.293074ms)
+✔ older saves inside newly occupied furniture recover on walkable ground without changing crew or supplies (498.826619ms)
+✔ room programs do not turn hidden ventilation works into bedrooms or galleries into repair shops (337.819672ms)
+✔ old obstacle rectangles become floor rather than rows of identical workbenches (376.226799ms)
+✔ furnishing maker marks refer to physical objects actually bound to the same room (349.638299ms)
+✔ past-era rooms inherit useful layouts without present-day portable-lore stamps or clues (305.581459ms)
+✔ every hidden room uses its authored purpose and keeps bedrooms out of stores, workshops and waiting rooms (388.107302ms)
+✔ the original communal stock stays claimed after an old save enters a recomposed room (349.731596ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3946.007268
+Exit: 0; signal: none; elapsed: 4.192s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/journey-roster.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/journey-roster.test.mjs
+✔ eighteen distinct starting weaves per hero have reproducible item discipline and threads (9.449342ms)
+✔ seven journey slots remain separate and identify the protagonist after party reordering (1.006926ms)
+✔ drop-in preserves leader, campaign flags, currency and commissions and caps active party at three (0.994639ms)
+✔ unfinished beginnings and active encounters cannot drop into another timeline (0.795335ms)
+✔ each chosen protagonist carries actual origin progress through convergence without a second starting kit (3849.260453ms)
+✔ manual starting choices are normalized without changing the selected protagonist (0.387272ms)
+✔ reroll changes a manually edited weave even if the next seed describes the same combination (0.278491ms)
+✔ incomplete or mismatched character profiles are excluded instead of crashing the roster (0.410096ms)
+✔ a full profile storage partition does not interrupt the current journey (0.341294ms)
+✔ a newly joining traveller matches the current crew level without importing another save’s levels (0.465347ms)
+✔ a dialogue or other unresolved mode cannot accept a drop-in (0.280203ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3877.332385
+Exit: 0; signal: none; elapsed: 3.988s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/living-armory.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-armory.test.mjs
+✔ new and existing campaigns receive no prototype gear, materials or credits (3.334113ms)
+✔ real hostile victory awards once across save/restore and never duplicates canonical gold (3.820091ms)
+✔ practice, friendly sparring, defeat and peaceful withdrawals do not mint creature equipment (0.348635ms)
+✔ boss victories guarantee multiple actual artifacts; caches have separate durable one-time identities (2.278485ms)
+✔ shared storage and individual equipment preserve unique item ownership and battle locks (2.76948ms)
+✔ canonical forge spends actual campaign credits once and rolls back unaffordable transactions (1.514396ms)
+✔ repeated equipment sync never stacks contributions or heals injured travellers (16.363392ms)
+✔ material harmonics sample the real floor while combat contributions stay bounded and skip secondary damage (3.158964ms)
+✔ malformed imported armories cannot duplicate gear across companions or corrupt currencies (1.437133ms)
+✔ NG+ inherits discovered patterns, not items, materials, raw power or reward claims (1.88895ms)
+✔ full World save restores exact equipped stats and preserves all existing gear systems (1513.065003ms)
+✔ canonical controller changes actual selected traveller, persists actions and exposes only campaign rewards (0.909092ms)
+✔ origin convergence preserves earned gear and mount history in the same journey (427.835556ms)
+✔ actual campaign victories and level changes preserve gear deltas without erasing other progression (867.130216ms)
+✔ unique powers execute bounded real battle events, retain stronger shields, and do not recurse (3.00726ms)
+✔ rooted boots and remembered sigils use actual worn ownership and preserve only earned memory (2.790816ms)
+✔ leech recovers bounded health from actual primary damage, excluding shields, overkill and secondary hits (4.412767ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2865.21719
+Exit: 0; signal: none; elapsed: 3.153s; timed out: false
+Counts: {"tests":17,"pass":17,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/living-world-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-world-ui.test.mjs
+✔ the shared tactics picker receives real paid choices and their live readiness reasons (10.38914ms)
+✔ selected creature details report actual needs, relationships and disabled capabilities (2.248901ms)
+✔ all site families and finite sources draw distinct material silhouettes at their physical coordinates (84.547104ms)
+✔ motive, anatomy and finite legacy geometry are drawn from their live runtime state (1.951482ms)
+✔ committed movement preview shows the exact legal path while absent or invalid geometry stays silent (0.985545ms)
+✔ live outcomes produce in-world feedback without inventing a modal or changing combat state (0.855643ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.145372
+Exit: 0; signal: none; elapsed: 0.258s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/lore.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/lore.test.mjs
+✔ all authored and 24 exploration rooms bind uniquely to world lore (1.307902ms)
+✔ new and legacy saves gain visit records without quest changes (0.745842ms)
+✔ opening hides endgame lore, boss outcomes and unrevealed myth truth (0.456985ms)
+✔ chapter 24 keeps climax account hidden until completion (0.347323ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.017244
+Exit: 0; signal: none; elapsed: 0.101s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/living-atlas.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-atlas.test.mjs
+✔ real floor, doors, roads, projected buildings and indoor rooms remain authoritative (100.7241ms)
+✔ only accepted movement flattens plants and it cannot alter host displacement (27.626985ms)
+✔ accepted fire/water/earth/aether alter numerical fields, duplicate and healing events do not (51.742964ms)
+✔ Hydrophone phases really interfere, cost exactly 2 MP and never grant resources (52.252652ms)
+✔ exact sparse numerical saves survive dynamic ground, map streaming and restoration (139.896613ms)
+✔ ordinary aging does not multiply dense fields across a long campaign save (349.010736ms)
+✔ malformed new snapshots are rejected before any existing state is mutated (40.06799ms)
+✔ old saves work, effects at map edges save, and same-lineage transitions retain history (48.921368ms)
+✔ actual defeated and peaceful species update local pressure exactly once with no loot writes (32.225995ms)
+✔ resident gate samples current canonical actors, rejects walls, distance and departed packs (17.361145ms)
+✔ numeric shielding is capped, never owns HP, and secondary or DOT damage stays unchanged (20.390178ms)
+✔ rooted-stride boots affect actual patrol noticing without replacing Atlas cover (6.277059ms)
+✔ Canvas chunks and low-quality settings leave simulation untouched and readout obeys hide (50.604864ms)
+✔ nearby grass animation is bounded to about eight updates per second and reuses its canvas (61.855957ms)
+✔ production World keeps all authored encounters and old progress through composed save wrappers (787.996099ms)
+✔ all campaign installers compose across real origin convergence and a new telling resets physical fields (724.789445ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2521.161836
+Exit: 0; signal: none; elapsed: 2.726s; timed out: false
+Counts: {"tests":16,"pass":16,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/material-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/material-craft.test.mjs
+✔ material coats are visibly distinct and real damage removes their surface coverage (1.190048ms)
+✔ saturation, firing, charring, charge and brittleness use the actual coat state (0.240004ms)
+✔ shell reaction metadata identifies the affected material and exact before/after wear (0.859569ms)
+✔ every material and wear state draws with finite bounded canvas work in both modes (5.422547ms)
+✔ wind-up indicator is continuous and handles expired or legacy intents safely (0.659153ms)
+✔ directional impacts and shed particles stay bounded with old and new events (1.338317ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.827007
+Exit: 0; signal: none; elapsed: 0.104s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/media-delivery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/media-delivery.test.mjs
+✔ all deployed orchestral bytes match their manifest and complete-file decoded duration receipt (21.895952ms)
+✔ listening room shares current audio assets rather than downloading duplicate embedded tracks (0.77857ms)
+✔ configured static output stays within the hosting expanded-size limit (28.188704ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61.633449
+Exit: 0; signal: none; elapsed: 0.153s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/monster-catalog.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/monster-catalog.test.mjs
+✔ hundreds of varieties retain all legacy IDs and truthful art-family count (1.21863ms)
+✔ all habitats have multiple viable starter creatures and every variety is reachable by midgame (2.15341ms)
+✔ adaptations change actual tactical profiles rather than only names or levels (0.863354ms)
+✔ all records use delivered art cells and supported battle mechanics and drops (2.047984ms)
+✔ decoration preserves actor identity and supports a real battle turn for every variety (21.462071ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35.615169
+Exit: 0; signal: none; elapsed: 0.189s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/motion-media.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/motion-media.test.mjs
+✔ only two full earned scenes opt into motion, preserving their original duration and unlock rules (4.153724ms)
+✔ media creation is deferred to presentation and remains disabled in reduced-motion or compatibility mode (0.429574ms)
+✔ the compositor receives a real ready video frame only after media becomes drawable (0.343347ms)
+✔ blocked playback and decode errors dispose media and fall back without changing story state (0.299923ms)
+✔ a stale rejected play promise cannot dispose a newer scene and changing graphics mode stops playback (0.230991ms)
+✔ expansion cinema composites motion behind unchanged captions, using the video’s decoded dimensions (0.706763ms)
+✔ not-ready, reduced-motion, compatibility and failed canvas video draws retain canonical static art (0.668857ms)
+✔ the existing director finish path releases motion video once, including repeated skips (3.545915ms)
+✔ frontier portraits avoid hue filters and bobbing in compatibility and reduced-motion modes (2.935644ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.077026
+Exit: 0; signal: none; elapsed: 0.172s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/motion-realism.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/motion-realism.test.mjs
+✔ pose changes retain a single body scale even with extended arms (1.160273ms)
+✔ camera decay is independent of rendering frame rate (0.363316ms)
+✔ standing, sprinting and starter rows share a stable actor scale (1.04274ms)
+✔ all delivered crew and civilian rows keep the same median body height across idle and locomotion (2.297213ms)
+✔ a wide attack weapon does not shrink the locomotion reference (0.25724ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.943869
+Exit: 0; signal: none; elapsed: 0.105s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/network-audio.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/network-audio.test.mjs
+✔ the finite score ignores malformed notes and duplicate work IDs (3.978185ms)
+✔ unrepaired places stay quiet and ordinary updates never repeat a completed reply (0.898096ms)
+✔ a completion sounds its real reply once, without an immediate entry duplicate (0.195609ms)
+✔ pause cancels scheduled sound, and continuing the same place does not repeat it (0.253535ms)
+✔ a new place waits for speech/menu to finish before giving its quiet answer (0.149741ms)
+✔ mute and a suspended instrument cannot consume a future audible reply (0.150602ms)
+✔ switching journeys resets the local sound without transferring work (0.179896ms)
+✔ the synthesizer schedules at most fifteen finite notes and returns a cancellation handle (1.334982ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.206221
+Exit: 0; signal: none; elapsed: 0.111s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/new-game-plus.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/new-game-plus.test.mjs
+✔ completed outcomes deterministically select routes, six rotate before repeating, inputs remain intact (668.397691ms)
+✔ origin selection keeps completed account, resets gear and preserves listening through present convergence (690.273177ms)
+✔ all six routes place three accessible notes, require current Wayglass and validate the actual fibre answer (736.221704ms)
+✔ listening histories remain saveable after more than 512 completed journeys (251.250789ms)
+✔ damaged listening records are rejected before they can crash a future encore (2.204234ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2371.538556
+Exit: 0; signal: none; elapsed: 2.57s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/npc-routines.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/npc-routines.test.mjs
+✔ civilian art distinguishes named story people, professions and children without replacing the crew (2.39759ms)
+✔ residents route around another person and stop for conversations or nearby players (2.012481ms)
+✔ all household shifts remain on the authored floor with distinct initial placements (1388.897731ms)
+✔ work descriptions reflect roles and local advice recommends a reachable rest site for a hurt crew (0.647206ms)
+✔ a household conversation pauses its routine without deleting the return route (545.356062ms)
+✔ resident routes avoid projected building ground while real doorway approaches and player floor remain open (1.847248ms)
+✔ Cinderfall family shift routes remain below the facade instead of crossing its projected floor (473.020164ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2452.34521
+Exit: 0; signal: none; elapsed: 2.679s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/objective-context.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-context.test.mjs
+✔ every protagonist receives an early purpose on all fourteen origin backdrops with reachable bounded geometry (1552.792851ms)
+✔ objective rotation preserves ordinary fights and is deterministic for a chosen journey (526.49759ms)
+✔ repair and destiny decisions alter mechanisms, routes, timing, integrity and finite tool availability (520.330325ms)
+✔ present regional inheritance and restored infrastructure change active encounter mechanics (460.818926ms)
+✔ objective settlement awards one modest bonus and unlocks bounded local physical aids without story mutations (499.794687ms)
+✔ finishing the purpose with living opponents earns a premium without duplicating supplies (0.317599ms)
+✔ losses grant no bonus and the persistent objective account rejects malformed records and remains bounded (3.314153ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3585.566111
+Exit: 0; signal: none; elapsed: 3.814s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/objective-ui.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-ui.test.mjs
+✔ Goal leads with actions and preserves urgent warnings outside optional notes (7.002459ms)
+✔ replay selectors retain both choices across refresh and dispatch one real finite action (2.531197ms)
+✔ a changing objective preserves notes focus and cancel never spends readiness (1.345357ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17.929053
+Exit: 0; signal: none; elapsed: 0.161s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/living-world-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/living-world-integration.test.mjs
+✔ all seven opening journeys pass real floor geometry, ecology and functional anatomy into Battle (1105.748786ms)
+✔ paid rescue releases a living creature and repeated commands cannot spend supplies or farm memory (8.875065ms)
+✔ breaking a bell sac changes a real charged alarm into a nonreinforcing body attack (7.094296ms)
+✔ a broken plate becomes one real finite shared tool and stays unique through a battle save (4.813517ms)
+✔ push and pull use both axes, respect closed floor and charge only for a legal action (3.099616ms)
+✔ real redirected line attacks can strike another enemy and do not award a hero-only fake hit (1.629737ms)
+✔ withdrawn living creatures yield neither species loot nor defeat counts when an intact objective wins (413.644035ms)
+✔ an earned ceramic arm creates a real one-use crossing and occupies the carried-tool hand (469.604993ms)
+✔ body history survives save, origin convergence and a new telling without carrying future physical supplies (1178.286677ms)
+✔ enhanced save preflight rejects malformed anatomy, ecology and body history before replacing active progress (2189.661365ms)
+✔ every opening contains usable, finite travel tools and a repair that physically opens floor (774.033257ms)
+✔ scouting and finite preparation change the real encounter and apply only to the prepared contact (559.422225ms)
+✔ a known physical rhythm works without clue flags and only its knowledge survives a new telling (519.547893ms)
+✔ packing transfers one travel tool into one real shared battlefield without replenishment on retreat (405.134294ms)
+✔ an actual paid nourishment credits the acting companion and settles its legacy only once (487.846159ms)
+✔ an earned ceramic crossing protects a real regulator from a crossing sabotage once (394.846839ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8546.834591
+Exit: 0; signal: none; elapsed: 8.808s; timed out: false
+Counts: {"tests":16,"pass":16,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/organic-ground.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/organic-ground.test.mjs
+✔ organic contours preserve holes, diagonal islands and winding single-cell passages (1.902394ms)
+✔ all outdoor maps retain their floor area and collision data under contour extraction (583.19958ms)
+✔ the 24-cell creature atlas uses all six columns without mixing neighbouring silhouettes (0.666313ms)
+✔ surface flecks form compact sparse groups rather than a field of bright grass hatch marks (4.287451ms)
+✔ grouped world dressing leaves streets, arrivals and story interactions quiet without changing floor data (11.505007ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 611.905509
+Exit: 0; signal: none; elapsed: 0.845s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/objective-integration.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/objective-integration.test.mjs
+✔ all seven actual opening wild encounters create live objectives and early instrument actions (1061.863505ms)
+✔ four actual Battle objectives can complete nonlethally using earned readiness and advancing clocks (3.634506ms)
+✔ objective-directed enemy plans damage the protected actor and clay replay redirects a real charge (2.777712ms)
+✔ directional instrument lines and finite field braces intercept aimed attacks on the protected actor (1.458533ms)
+✔ Mend, Ward and a Tonic can protect a patient through the same battle actor interfaces (2.581041ms)
+✔ enhanced saves preserve objective progress, material tools, geometry and instruments while rejecting malformed state (2399.12095ms)
+✔ nonlethal settlement rewards the objective without inventing creature defeats or their loot (427.940775ms)
+✔ objective loss records no reward or campaign advancement (380.368062ms)
+✔ retained clay rhythms survive origin convergence and a new telling without importing future objectives (480.166169ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4805.428982
+Exit: 0; signal: none; elapsed: 5.014s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/origin-goal-feasibility.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-goal-feasibility.test.mjs
+✔ sable-reed first walked wild encounter supports its real nonlethal goal (1771.939853ms)
+✔ iona-lowbank first walked wild encounter supports its real nonlethal goal (1353.798384ms)
+✔ rook-regulator first walked wild encounter supports its real nonlethal goal (1202.206516ms)
+✔ brass-rail first walked wild encounter supports its real nonlethal goal (1188.919611ms)
+✔ riven-tide first walked wild encounter supports its real nonlethal goal (1289.684683ms)
+✔ mira-archive first walked wild encounter supports its real nonlethal goal (1115.051174ms)
+✔ veyr-storm first walked wild encounter supports its real nonlethal goal (1236.02529ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9165.816464
+Exit: 0; signal: none; elapsed: 9.393s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/origin-voice-coverage.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-voice-coverage.test.mjs
+✔ origin voice plan contains exact current spoken turns with established cast identities and traceable provenance (4.852325ms)
+✔ each integrated origin recording matches the current script and its intact local audio without requiring failed jobs (4.395ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.39707
+Exit: 0; signal: none; elapsed: 0.103s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/origin-payoffs.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-payoffs.test.mjs
+✔ all fourteen civic outcomes have reachable distinct relationship support, paid only by explicit choice (7571.780253ms)
+✔ each protagonist’s two historical branches provide different actual preparation modes (0.305942ms)
+✔ inheritance passages open after the local milestone and route to a real scene without inventing completion (1156.905997ms)
+✔ support is region-bound, one selection at a time, absent from the past, and cannot be forged by a mismatched effect (482.574763ms)
+✔ several retained histories share a district without sharing an interaction position (475.828146ms)
+✔ old inherited claims stay valid without any new service or support fields (447.201801ms)
+✔ an explicitly chosen assistance mode survives the origin-to-present handoff (461.715751ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10604.499562
+Exit: 0; signal: none; elapsed: 10.837s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/outdoor-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/outdoor-layout.test.mjs
+✔ all outdoor layers consume one stable plan without changing the canonical world (357.58881ms)
+✔ the real painted prop and canopy rectangles respect buildings, roads and interaction courts (17.824673ms)
+✔ different groups cannot overlap; deliberate grove understory stays below crowns and off trunks (2.903296ms)
+✔ authored banks have precedence and all members remain on their connected bank (1.468969ms)
+✔ work props belong only to small explicit workplaces and ordinary banks contain natural repeats (0.948871ms)
+✔ groves repeat one canopy family, with at most one matching age variant (1.344985ms)
+✔ urban layout reserves the street network actually painted, without an extra trail network (5.130514ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 397.535991
+Exit: 0; signal: none; elapsed: 1.258s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/pause-navigation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/pause-navigation.test.mjs
+✔ pause keeps one unified setup and six primary actions while preserving callbacks and IDs (5.632456ms)
+✔ settings retain their controls and values; import and old edition remain available under save files (0.597542ms)
+✔ future appended actions remain reachable and revealing one opens only its own disclosure (0.730198ms)
+✔ group classification recognizes dynamically authored buttons without losing unknown features (0.378949ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.015046
+Exit: 0; signal: none; elapsed: 0.096s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/peaceful-shipments.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/peaceful-shipments.test.mjs
+✔ real peaceful passage protects carried local cargo without minting bodies, goods, money or XP (9.805176ms)
+✔ each passage counts once across saves; two different resolved roads can complete the existing delivery (3.367151ms)
+✔ an unfinished objective, a defeat, a different district and borrowed histories cannot claim safe cargo passage (5.658894ms)
+✔ a creature harmed by the crew or a death prevents this peaceful delivery claim (1.676925ms)
+✔ a remembered peaceful creature and a route name alone cannot retroactively protect a new shipment (1.027918ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28.749171
+Exit: 0; signal: none; elapsed: 0.193s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/personal-signatures.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/personal-signatures.test.mjs
+✔ all seven heroes expose a distinct tactical signature only on their personal recipes (1.405945ms)
+✔ Sable passes a consumable opening to another crew member without rewarding self or secondary hits (5.574369ms)
+✔ Iona treats one harmful condition and shields a patient who was critical before the heal (0.50805ms)
+✔ Rook recovers one usable brace from armor and neither repeated casts nor restored saves duplicate it (2.923386ms)
+✔ Brass intercepts one nearby ally hit with actual HP transfer, but not distant, repeated or secondary hits (0.628298ms)
+✔ Riven redistributes actual wet status and protects the dried crew, with a spatial limit (0.378329ms)
+✔ Mira transfers a foe’s actual haste and clears nearby slow without repeating the benefit on field ticks (0.710689ms)
+✔ Veyr remembers one announced element for the next ordinary strike, and reads each charge only once (0.873049ms)
+✔ failed commands do not spend or activate signatures, and malformed saved signature state is rejected (2.144686ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.875079
+Exit: 0; signal: none; elapsed: 0.154s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/origin-guidance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origin-guidance.test.mjs
+✔ every first objective names its person and can be reached in under five seconds of walking (3350.113323ms)
+✔ all seven origins can be followed on foot through repair, encounter choice, destiny and the present (3400.701955ms)
+✔ backtracking points to the named passage instead of suggesting a person in the wrong room (2882.444619ms)
+✔ one latched guide walks all seven current origin layouts through every repair, encounter and destiny branch (25792.609404ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35434.873617
+Exit: 0; signal: none; elapsed: 35.641s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/player-comfort.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/player-comfort.test.mjs
+✔ comfort settings respect reduced motion and bound brightness without overriding explicit choices (1.722853ms)
+✔ busy saves retain a detached pre-interaction checkpoint instead of half-completed choices (0.207016ms)
+✔ blocked tap routes time out but ordinary travel resets the blocked timer (0.225893ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10.928485
+Exit: 0; signal: none; elapsed: 0.08s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/player-locomotion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/player-locomotion.test.mjs
+✔ manual diagonals, reversals and release preserve immediate unchanged movement speeds (1.901727ms)
+✔ manual motion is invariant across normal refresh rates and ignores invalid elapsed time (0.919398ms)
+✔ route movement spends the full frame budget through cardinal turns at every refresh rate (1.697787ms)
+✔ ordinary routes cover15.9tiles in6seconds at every refresh rate, with an explicit fast route option (6.181997ms)
+✔ small residual distance is travelled before turning, so corner geometry is respected (0.666234ms)
+✔ a newly blocked waypoint stops the route without skipping to a reachable point behind it (0.238593ms)
+✔ a partial axis collision does not skip its vertex or spend the remaining budget elsewhere (0.270079ms)
+✔ dialogue, battle, scene and state replacement interrupt stale routes without consuming them (0.367993ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19.015707
+Exit: 0; signal: none; elapsed: 0.173s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/playtest-recorder.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/playtest-recorder.test.mjs
+✔ local playtest reports contain observed timing and bounded scalar events, never live state (1.174624ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8.699584
+Exit: 0; signal: none; elapsed: 0.08s; timed out: false
+Counts: {"tests":1,"pass":1,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/physical-lore.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/physical-lore.test.mjs
+✔ 24 artifact chains have 72 distinct reachable placements, without changing a floor or authored action (670.903423ms)
+✔ pickup, cross-room carry, drop, resume and retrieve preserve one physical copy (878.089081ms)
+✔ wrong piece, empty hands and distant actions never consume or install an object (406.684458ms)
+✔ all five mechanical actions solve; each reward is once-only across a save and advances actual skill progression (10170.099999ms)
+✔ growth and silence use gameplay time and survive a mid-action save (806.37901ms)
+✔ earned opening and future chapter visibility remain intact (390.200732ms)
+✔ portable light reveals a real distant hiding place only while the tool is held (315.279472ms)
+✔ restored gate crossing moves the crew between the actual source and receiver rooms (414.180578ms)
+✔ removed artifacts leave inspectable maker marks without granting progression or duplicating an item (10044.580069ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24122.470448
+Exit: 0; signal: none; elapsed: 24.318s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/presentation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/presentation.test.mjs
+✔ sprite fitting preserves source aspect and respects both bounds (0.899749ms)
+✔ stride is distance based, frame rate independent and retains facing at rest (0.391388ms)
+✔ all four run phases occur and each actor moves independently (0.156561ms)
+✔ trail samples turn through the actual corner instead of cutting across it (1.050241ms)
+✔ portrait and landscape reserve space for touch controls and dialogue (0.43337ms)
+✔ story puzzle characters are people, including the smaller child (0.306372ms)
+✔ opening objectives follow earned delivery, repair and recruitment (1120.223057ms)
+✔ line attack damage now matches the finite visible telegraph (1.600313ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1138.159625
+Exit: 0; signal: none; elapsed: 1.329s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/quest-navigation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/quest-navigation.test.mjs
+✔ chapter-two guidance finds Brass through the actual region destination instead of the hub (601.545516ms)
+✔ one selected guide walks from home through real passages to Brass and remains selected for the next task (512.571031ms)
+✔ the Commons keeper remains a real dialog transit that does not require selecting the guide again (483.298705ms)
+✔ explicit cancellation releases the guide and never interacts at a distance (1.561295ms)
+✔ unreachable objectives remain selected and automatically resume when the collision context opens (1.283274ms)
+✔ stalls retry a bounded number of times per context without spamming or turning the guide off (1.460607ms)
+✔ a closed passage is attempted once and waits for a causal change instead of reopening its dialogue (0.996922ms)
+✔ actual approach selection routes around intervening walls before interacting (0.642319ms)
+✔ a furnishing’s own blocked tile stays usable but a new physical barrier cannot be reached through (0.247766ms)
+✔ moving residents can replan more than eight times and are reached when they settle (5.281808ms)
+✔ changed objectives and disappearing objectives replan without stale interactions or manual reactivation (0.66354ms)
+✔ dialogue, battle and every UI pause suspend walking and resume the current goal automatically (2.372022ms)
+✔ world mode interruptions work without frontend hooks and choices are never selected by the guide (0.395954ms)
+✔ same-object two-stage puzzles reopen only after the player changes a stage flag (0.332581ms)
+✔ the selected encounter starts from a safe approach, but the guide never chooses combat actions (1.03616ms)
+✔ scene changes retain the selected guide, while replacing the save without a transition cancels stale work (0.568399ms)
+✔ an explicit origin-to-present transition keeps the same selected traveller guide (0.249789ms)
+✔ a cycle of open passages stays selected without repeatedly walking the loop (0.659353ms)
+✔ physical listening clocks do not cause repeated interactions until their readiness changes (0.437065ms)
+✔ an exploration handoff clears the trail and never walks, resolves or interacts until explicitly resumed (0.874862ms)
+✔ continue route retains a chosen service after an exploration stop, then returns to story only after arrival (1.183056ms)
+✔ a spoils handoff survives every UI interruption, world mode and same-traveller scene transition (0.62937ms)
+✔ resuming a handoff replans the current objective from the player’s explored position (0.403696ms)
+✔ replacing the save or cancelling releases held work without touching the new traveller (0.188047ms)
+✔ the guide approaches at ordinary walking speed instead of running through the scene (0.25045ms)
+✔ the interaction gate can decline a guide action without recording a completed attempt (0.227957ms)
+✔ the interaction gate permits ordinary guide interactions when it returns true (0.234196ms)
+✔ a field handoff at interaction range resumes the same encounter only after explicit acceptance (0.222258ms)
+✔ selected guidance crosses waypoints at one real pace across refresh rates and clears motion during pauses (6.772709ms)
+✔ an interaction hook that holds the guide cannot auto-interact even without an explicit false return (0.4402ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1653.267137
+Exit: 0; signal: none; elapsed: 1.865s; timed out: false
+Counts: {"tests":30,"pass":30,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/reconciled-acoustics.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/reconciled-acoustics.test.mjs
+✔ all 512 original runtime files have their manifest hashes and every v4 event cue ships (25.441805ms)
+✔ actual scene, material and object mappings use known acoustic names (1.723454ms)
+✔ no playback before gesture and visible boss cues use real actor names (2.947582ms)
+✔ host combat casts map all elements to actual files and replayed callback objects play once (11.390828ms)
+✔ menu/hidden gating cancels active cues and does not schedule gain changes every frame (0.667456ms)
+✔ device cues require actual accepted interactions and listening grants no invented rewards (3.754824ms)
+✔ caption parity and mute never mutate world or combat state (1.744736ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 54.426229
+Exit: 0; signal: none; elapsed: 0.198s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/reconciled-campaign.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/reconciled-campaign.test.mjs
+✔ composed campaign save preserves equipment, terrain, resonance and a running relay together (1343.35857ms)
+✔ all installed systems migrate an old save without granting a playtest kit or changing progress (869.793941ms)
+✔ origin convergence keeps the same landscape and companion record while a new telling resets them (559.946184ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2787.875063
+Exit: 0; signal: none; elapsed: 3.027s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/quest-assistance.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/quest-assistance.test.mjs
+✔ default guidance walks to an instrument but never supplies or plays the next answer (666.258383ms)
+✔ choosing a distant sound walks to its real instrument before sounding it, without manual input (555.784891ms)
+✔ explicit full assistance retains checked traversal through every campaign musical sequence (3503.783124ms)
+✔ hints escalate only on request and never mutate an inventory, answer or story decision (440.860927ms)
+✔ known local clues have one-off walking destinations; hidden unreached caches do not leak through the list (473.188337ms)
+✔ assistance save validation is bounded and rejects malformed settings without inventing a mode (0.818508ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5654.862534
+Exit: 0; signal: none; elapsed: 5.868s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/reconciled-travel.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/reconciled-travel.test.mjs
+✔ Bellrun gates stay on reachable cells and do not mutate the authored map (12.121086ms)
+✔ Bellrun refuses cramped interiors and disconnected courses (0.693644ms)
+✔ relay rewards and mount bond are awarded only once per actual circuit (8.749919ms)
+✔ crossing the wrong gate never advances a race and paused encounters do not advance time (3.790056ms)
+✔ relay progress survives serialization without replaying rewards (5.382888ms)
+✔ corrupt relay save is rejected before replacing the live journey (0.29135ms)
+✔ Mossback care spends real currency and riding is bounded to outdoor field play (0.317219ms)
+✔ entering an interior dismounts and cancels a race without moving map coordinates (0.275687ms)
+✔ old saves acquire optional trail state and service hooks leave existing objects intact (17.340203ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.099177
+Exit: 0; signal: none; elapsed: 0.145s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/regional-life-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/regional-life-art.test.mjs
+✔ every harvest profile uses modest matching painted vegetation without changing campaign data (8.077942ms)
+✔ missing painted assets retain readable small plants and fauna without altering their species or behavior (6.938084ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.382854
+Exit: 0; signal: none; elapsed: 0.105s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/reconciled-ground.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/reconciled-ground.test.mjs
+✔ authored indoor floors, doors, roads and walls forbid grass without changing the floor mask (5.525618ms)
+✔ physical impacts change real terrain and bounded final damage once without assigning HP (3.40678ms)
+✔ accepted cast events create terrain consequences once and rejected/healing casts do not (1.105091ms)
+✔ canonical movement displacement and route wall semantics remain exact (1.299008ms)
+✔ worn rooted boots improve actual organic traction without boosting routes or stone (3.418587ms)
+✔ sparse exact saves survive scene streaming and preserve unrelated state (6.641927ms)
+✔ old saves initialize clean ground and new journeys never inherit unearned scars (0.945526ms)
+✔ real origin convergence preserves ground history only within the same lineage (1339.02327ms)
+✔ malformed new ground snapshots are rejected before World state changes (1.929439ms)
+✔ unknown future ground extensions round trip without being overwritten (1.00226ms)
+✔ all host core elements map to supported Ground Forge impacts (0.275567ms)
+✔ ground draw is clipped by real cells and restores canvas state without loading GPU code (3.277228ms)
+✔ authored floors keep one base surface while physical changes still paint in both graphics modes (13.490318ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1406.821285
+Exit: 0; signal: none; elapsed: 1.616s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/renderer-recovery.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/renderer-recovery.test.mjs
+✔ a thrown or transparent processing result uses the retained original art for every actor (3.723688ms)
+✔ compatibility mode bypasses all atlas processing and does not replace the artwork with generated placeholders (0.415714ms)
+✔ rebuilding graphics starts from the retained Image instead of processing a prior canvas again (1.040916ms)
+✔ one blank idle or running cell cannot leave a single animation pose invisible (0.235929ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.276506
+Exit: 0; signal: none; elapsed: 0.201s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/regional-work.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/regional-work.test.mjs
+✔ each region has its own observed condition and a persistent preparation before completion (706.86235ms)
+✔ regional work validation accepts existing saves and rejects invalid steps (0.541129ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 717.233407
+Exit: 0; signal: none; elapsed: 0.9s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/repertoire-expansion.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/repertoire-expansion.test.mjs
+✔ every new consumable is stocked by the campaign, uniquely identified and backed by a useful description (0.910364ms)
+✔ rally gives readiness to other living allies without refunding its own turn (2.758713ms)
+✔ group cleansing and dispelling affect the intended side and ineffective use costs nothing (0.686934ms)
+✔ delay retains telegraph proportions and breaker cancels all charged attacks once (0.703709ms)
+✔ new AI traits execute and survive battle save replay (6.709216ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.430217
+Exit: 0; signal: none; elapsed: 0.156s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/repertoire.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/repertoire.test.mjs
+✔ new species reach encounters without replacing chapter-one training or story bosses (1.589947ms)
+✔ every new supply has a unique chapter treasure and guarded purchase (0.382846ms)
+✔ all 45 consumables apply a real effect and spend exactly one ready turn (12.912265ms)
+✔ ineffective healing consumes neither item nor actor turn (0.306082ms)
+✔ special moves retain visible geometry and only apply status on actual hits (2.924588ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25.356399
+Exit: 0; signal: none; elapsed: 0.164s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/room-realism.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/room-realism.test.mjs
+✔ occupied workstations have real collision, clear reachable approaches and valid atlas cells (57.949533ms)
+✔ generic decorative planters and loose chests are restricted to appropriate rooms and retained stock (0.420971ms)
+✔ room work determines the kit; food storage is not used as the medical cabinet (0.159846ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.697657
+Exit: 0; signal: none; elapsed: 0.909s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/save-feedback.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/save-feedback.test.mjs
+✔ only a successful write earns a saved timestamp, which ages without claiming another save (1.247212ms)
+✔ saving a checkpoint during an interaction does not claim its unresolved outcome was saved (20.120568ms)
+✔ a failed write remains unavailable through changes and clears only after storage succeeds (0.462763ms)
+✔ a failed traveller-slot write is reported without denying that the main save succeeded (0.398258ms)
+✔ loading an older save never invents a just-now storage timestamp (0.415133ms)
+✔ quiet status updates age independently, expose detail accessibly, and clean up their timer (0.496373ms)
+✔ status feedback does not need a timer or a storage implementation (0.641938ms)
+✔ repeated dirty marks during movement do not rewrite the status or reformat timestamps (0.627377ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 38.859162
+Exit: 0; signal: none; elapsed: 0.126s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/runtime.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/runtime.test.mjs
+✔ all 120 recipes compile with valid costs and effects (1.636606ms)
+✔ overdraw consumes HP and rejects unsafe casts without payment (0.303578ms)
+✔ link needs partner, consumes partner resources and damages target (6.484034ms)
+✔ break cancels telegraphs and removes armor (12.889662ms)
+✔ volt reacts with wet targets (0.840612ms)
+✔ guard restores focus and reduces strain (0.476624ms)
+✔ menders repair, alarms reinforce at most twice, guards alternate (1.524511ms)
+✔ echo and field survive JSON save/load (4.387819ms)
+✔ healing counter restores defender instead of enemy (1.333609ms)
+✔ telegraphed circles and lines can be dodged (0.790518ms)
+✔ expanded scenes preserve 24 guardians and every authored mechanism is reachable (52.101579ms)
+✔ opening puzzle choices earn Rook before the service hatch opens (625.309431ms)
+✔ save roundtrip and all 24 campaign reward transitions reach ending (model only) (943.371233ms)
+✔ all 24 boss configurations can be resolved using legal resource-paying commands (52.629688ms)
+✔ tap navigation follows collision and cannot cross walls (0.653495ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1722.972538
+Exit: 0; signal: none; elapsed: 1.939s; timed out: false
+Counts: {"tests":15,"pass":15,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-camera.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-camera.test.mjs
+✔ small opening homes use a closer readable lens without fitting the entire map grid (2.037218ms)
+✔ large interiors follow the actor while respecting physical room edges (0.163592ms)
+✔ portrait and compact views use their own restrained close lens (0.150702ms)
+✔ exploration is closer and landmark proximity adds a continuous modest composition (0.262127ms)
+✔ named conversation framing keeps the lead and speaker bodies above the dialog (0.499468ms)
+✔ a tall measured HUD in a short dialog still aims inside the actual remaining band (0.298381ms)
+✔ speaker matching only frames a nearby actual NPC or travelling companion (1.106393ms)
+✔ battle boolean fallback preserves the old point contract (0.402645ms)
+✔ tight battles move closer while wide battles fit all living bodies and the objective (0.954029ms)
+✔ a crowded battle viewport fits the real small band without inventing extra height (0.398709ms)
+✔ every guardian warning and living body fits the measured battle viewport (28.808436ms)
+✔ a side console gives a stronger battle view while keeping every warning out of the console (7.264216ms)
+✔ steady framing avoids boss warning lens changes and camera settling is bounded (0.958876ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.953826
+Exit: 0; signal: none; elapsed: 0.209s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-craft.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-craft.test.mjs
+✔ composition stays in blocked banks and protects arrivals, doors and interactions (14.808915ms)
+✔ invalid authored decorations cannot move into walking cells or create non-finite draw sites (5.350109ms)
+✔ every authored life and first chapter composition keeps the original collision data (837.229754ms)
+✔ interior decoration uses room work rather than outdoor rocks and reeds (0.695697ms)
+✔ visible sites and particles are bounded and actors in front stay opaque (3.125725ms)
+✔ painted props use source rectangles within the unchanged archived transparent PNG (0.874191ms)
+✔ painted bank boulders replace vector stones only in natural habitats at existing scale (439.992184ms)
+✔ compatibility draws original atlas crops directly and all passes restore canvas state (3.493909ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1326.831361
+Exit: 0; signal: none; elapsed: 1.522s; timed out: false
+Counts: {"tests":8,"pass":8,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-dressing.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-dressing.test.mjs
+✔ regional craft silhouettes show each of the 24 actual material practices (14.339022ms)
+✔ tree families keep stable proportions and deterministic varied silhouettes (1.533114ms)
+✔ civilian stance and animal poses never lift their entire root off the floor (1.525482ms)
+✔ named civilians retain authored clothes while neighboring households have stable varied dyes (0.244271ms)
+✔ grove placement keeps canopy trunks apart and thresholds clear (1.160003ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26.424205
+Exit: 0; signal: none; elapsed: 0.116s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-identity.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-identity.test.mjs
+✔ the two Names Archive wings are indoor archive rooms, independent of theme (0.952767ms)
+✔ archive rendering has furnished architectural rooms and keeps story patrols (595.777186ms)
+✔ floor materials use human-scale boards and distinguish civic stone (0.975961ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 604.566915
+Exit: 0; signal: none; elapsed: 0.781s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-lighting.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-lighting.test.mjs
+✔ lighting follows the existing world clock with continuous day boundaries (2.827705ms)
+✔ light sources belong to real fixtures and have bounded counts (0.653646ms)
+✔ sunlit windows go dark at night while steady fire keeps its light (0.265141ms)
+✔ a hearth and its interaction marker share one emitted light (0.16943ms)
+✔ interior fixture visibility is cached and cannot pass through a partition wall (1.131852ms)
+✔ furniture contact stays below the feet without a detached or room-sized cast (0.331399ms)
+✔ ambient and contact passes restore alpha, composite mode and transforms (1.409731ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.268495
+Exit: 0; signal: none; elapsed: 0.094s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/scene-prop-repertoire.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/scene-prop-repertoire.test.mjs
+✔ the eight original companion props retain the inspected source bytes and complete nonoverlapping crops (6.702576ms)
+✔ site variants add context-specific frost, crystal and stump art while omitting every interior (0.988149ms)
+✔ actual mechanisms follow the object job, not the traveller origin or biome (1.080345ms)
+✔ both graphics modes draw measured source crops directly and restore canvas alpha (0.466649ms)
+✔ occlusion fades a mechanism only when it lies in front of a traveller (0.25728ms)
+✔ bad or unavailable images and invalid IDs safely preserve the existing renderer fallback (0.137373ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.476027
+Exit: 0; signal: none; elapsed: 0.098s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/selected-lead-text.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/selected-lead-text.test.mjs
+✔ Iona and Rook retain their early participation without a second arrival or departure (1.289954ms)
+✔ Brass follows the same docket to the same refuge without being described as absent (0.300223ms)
+✔ Riven remains answerable for his signature and the same poisoned well while already travelling with the crew (0.165775ms)
+✔ Mira carries Hesper’s account back to the unchanged archive access and evidence sequence (0.194938ms)
+✔ Veyr returns to his controls without losing the accusation, daughter, or heat constraint (0.212784ms)
+✔ adaptation is pure and idempotent, skips the past, and never substitutes names in unrelated lines (0.642929ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.754442
+Exit: 0; signal: none; elapsed: 0.088s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/soundscape.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/soundscape.test.mjs
+✔ soundscape maps occupied workrooms and explicit outdoor places without birds in interiors or unmatched origins (1.370553ms)
+✔ construction and inactive/unmapped scenes never create audio or download beds (0.608699ms)
+✔ active sound starts lazily at independent .24 volume, ducks during dialogue, and repeated frames reuse it (1.195936ms)
+✔ settled and inactive animation frames perform no redundant media writes or pause calls (1.347099ms)
+✔ pausing, hidden/menu gate, battles and unmapped rooms stop every deck immediately (2.104457ms)
+✔ volume zero persists as mute and resumes only after an explicit nonzero setting (0.387873ms)
+✔ blocked autoplay never retries on frames, then an explicit gesture retries successfully (0.612775ms)
+✔ download failures remain optional and do not retry until a new scene bed or gesture (0.32548ms)
+✔ late play completion after pausing cannot restart a stopped bed (0.340833ms)
+✔ rapid bed changes cancel obsolete requests and destroy releases bounded decks and timers (0.533257ms)
+✔ denied storage or missing HTMLAudio cannot interrupt the game (0.678432ms)
+✔ changing places crossfades a bounded pair of decks instead of cutting the old bed (0.35227ms)
+✔ a hung optional download times out once and can retry after a later gesture (0.675898ms)
+✔ stored mute and finite volume preferences are respected without opening a media element (0.245593ms)
+✔ fading the previous place cannot pause an incoming bed whose play promise is still loading (0.425619ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.64571
+Exit: 0; signal: none; elapsed: 0.097s; timed out: false
+Counts: {"tests":15,"pass":15,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/sprite-cutout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/sprite-cutout.test.mjs
+✔ neighbor feet above a head are removed without inverting the principal body (1.511342ms)
+✔ each atlas cell keeps its own connected actor (0.281536ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8.819713
+Exit: 0; signal: none; elapsed: 0.082s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/starter-home-composition.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/starter-home-composition.test.mjs
+✔ starter house preserves its perimeter and fixture identities while opening a real entrance and living area (629.113477ms)
+✔ Sable inherits the compact home with distinct keeper, clamp and doorway approaches (451.412706ms)
+✔ old saves inside a newly wall-backed fixture repair their landing without losing crew, claims or story (800.790658ms)
+✔ authored activity groups own their pictures in both graphics modes and missing images fall back safely (424.407382ms)
+✔ the home rest interaction points to the existing bed instead of adding an aisle cabinet (320.388152ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2633.026784
+Exit: 0; signal: none; elapsed: 2.837s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/subterranean-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/subterranean-art.test.mjs
+✔ subterranean treads recede toward the darker far passage and meet each other (1.064402ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6.539527
+Exit: 0; signal: none; elapsed: 0.074s; timed out: false
+Counts: {"tests":1,"pass":1,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/technique-icons.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/technique-icons.test.mjs
+✔ every delivered crystal recipe maps to its real core, targeting shape, and mastery rank (4.520389ms)
+✔ purpose badges describe support behavior without mislabeling healing and protection (0.283599ms)
+✔ personal arts use their actual crystal recipe rather than the personal identifier (0.843345ms)
+✔ partial craft previews and malformed metadata remain honest and bounded (0.396816ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.39004
+Exit: 0; signal: none; elapsed: 0.095s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/technique-preview.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/technique-preview.test.mjs
+✔ all recipe previews leave the live encounter untouched and quote the resource payment actually used (26.546493ms)
+✔ overdraw explicitly quotes HP and unsafe casts explain a recovery action (0.33882ms)
+✔ Link and readiness previews track actual partner charge without paying it (0.262287ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.427307
+Exit: 0; signal: none; elapsed: 0.147s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/terrain-materials.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/terrain-materials.test.mjs
+✔ terrain is stable, fine grain is bounded and all biomes have distinct material identities (6.862909ms)
+✔ desire lines follow walkable floor around walls and do not modify a map (0.77155ms)
+✔ desire lines never fabricate bridges over disconnected floor or accept blocked anchors (0.160868ms)
+✔ material repeats seamlessly at its cached pattern boundary (4.579326ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.613354
+Exit: 0; signal: none; elapsed: 0.084s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/touch-controls.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/touch-controls.test.mjs
+✔ portrait and short landscape touch targets keep inactive gaps and safe edges in both presets (3.310579ms)
+✔ Y waits for a release inside its own target and emits only one press (1.768852ms)
+✔ Y drag-out stays cancelled even after sliding back across the target (0.319793ms)
+✔ cancellation, lost capture, disabled and paused states cannot activate Y (1.513025ms)
+✔ primary actions remain immediate hold controls and sliding does not activate a neighbor (0.369495ms)
+✔ releaseAll clears minimum-duration primary presses without duplicate delayed releases (0.315886ms)
+✔ release-triggered menu opening can synchronously release all controls without leaving Y held (0.34519ms)
+✔ narrow notched screens keep the isolated crew target inside their safe area (0.234457ms)
+✔ compact landscape uses its horizontal space instead of reserving a portrait-height control column (0.258542ms)
+✔ cancelling a quick tap releases the held action immediately, including its pending minimum duration (0.354463ms)
+✔ an unrelated control cannot release another pointer owner (0.21676ms)
+✔ normal automatic capture loss after pointerup preserves the native minimum tap duration (0.165344ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.952565
+Exit: 0; signal: none; elapsed: 0.099s; timed out: false
+Counts: {"tests":12,"pass":12,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/tree-visibility.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/tree-visibility.test.mjs
+✔ actual admitted scenery seeds keep the full regional tree repertoire (616.726241ms)
+✔ Riven’s initial arrival has a clear canopy court in the composed scene (496.179847ms)
+✔ the same tree stays opaque when a traveller is already in front, even beside its roots (0.276539ms)
+✔ travellers outside the canopy and trunk do not fade a tree merely for being nearby (0.309066ms)
+✔ companions and procedural fallback canopies receive the same visibility protection (0.457365ms)
+✔ atlas fade bounds stay inside the exact drawing rectangle for every variant family (0.434983ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1129.637188
+Exit: 0; signal: none; elapsed: 1.326s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/village-art.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/village-art.test.mjs
+✔ painted village atlas has alpha and every authored source rectangle fits (1.553523ms)
+✔ painted sprites keep feet at baseline, proportional sizes, direction and behavior poses (1.718447ms)
+✔ runtime loads the painted atlas and no longer draws placeholder animals (0.739732ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12.423545
+Exit: 0; signal: none; elapsed: 0.082s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/voice-assets.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/voice-assets.test.mjs
+✔ every packaged voice is an exact current campaign or origin turn with an intact local audio asset (72.41614ms)
+✔ recorded turns cover every campaign chapter and exclude interface receipts (1.066205ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.1838
+Exit: 0; signal: none; elapsed: 0.177s; timed out: false
+Counts: {"tests":2,"pass":2,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/wayfinding.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayfinding.test.mjs
+✔ town paving follows walkable collision and reaches every accessible activity (13.092953ms)
+✔ exits expose destinations and distinguish stairs from gates (0.757569ms)
+✔ village, forest, mountain, riverbank, ruins and foundry have distinct art identities (0.514139ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21.381482
+Exit: 0; signal: none; elapsed: 0.11s; timed out: false
+Counts: {"tests":3,"pass":3,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/wayglass-puzzle.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayglass-puzzle.test.mjs
+✔ all three puzzle grammars produce exact full directional coverage (2.048695ms)
+✔ wrong choices never decode to a completed route, including bridge and echo phases (0.931256ms)
+✔ every core and support preview uses the real recipe compiler without granting ownership (4.079243ms)
+✔ equipped school forks are reflected in preview without granting nodes (0.531655ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.506547
+Exit: 0; signal: none; elapsed: 0.104s; timed out: false
+Counts: {"tests":4,"pass":4,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/wayglass.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wayglass.test.mjs
+✔ Wayglass is earned, portable, unique, and survives save serialization (1.504802ms)
+✔ calibration locates a seam; it does not award Mako, credits or attunement (0.780533ms)
+✔ recovery, prerequisite, paid attunement, equipment and battle use one consistent Mako path (8.153719ms)
+✔ undiscovered or unattuned rare slots receive no battle bonus (0.555019ms)
+✔ later finds obey story gates and each rare crystal has a real recipe effect (1.498352ms)
+✔ all three physical seams and pickup are reachable; installation is idempotent (575.549669ms)
+✔ existing discoveries hydrate into the shared ledger without duplicate growth (0.452768ms)
+✔ cinematic progress cues always name the next earned gameplay action (1.382582ms)
+✔ another character’s attunement never displays an unearned equipment cue (0.31815ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 606.232782
+Exit: 0; signal: none; elapsed: 0.796s; timed out: false
+Counts: {"tests":9,"pass":9,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/origins.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/origins.test.mjs
+✔ all seven protagonists are selectable before the first playthrough (3363.276741ms)
+✔ every protagonist begins with usable combat tools before speaking to the keeper (2799.584265ms)
+✔ keeper preserves levels, mastery, chosen approach and supplies earned by early exploration (2736.693043ms)
+✔ worksite exploration and its return route are available without completing origin dialogue (2729.16354ms)
+✔ Mira origin occupies both actual chapter-five archive wings (434.025223ms)
+✔ all fourteen era maps isolate present events and every visible marker is reachable (2589.864935ms)
+✔ every origin, repair, encounter approach and civic destiny reaches the present with causal state (25633.765387ms)
+✔ past saves roundtrip at every step and invalid timeline claims are rejected (4373.530776ms)
+✔ inherited services exist in actual present regions, pay once, and earlier decisions survive another origin (432.754237ms)
+✔ each origin encounter is winnable by its actual solo hero without unrecruited skills (3064.29899ms)
+✔ timeline eras and discovered boss patterns follow the chosen history without carrying owned equipment (482.576594ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48657.179009
+Exit: 0; signal: none; elapsed: 48.901s; timed out: false
+Counts: {"tests":11,"pass":11,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/save-validation.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/save-validation.test.mjs
+✔ save preflight validates a fresh isolated world without altering the active journey (1663.328083ms)
+✔ truncated battle snapshots fail before the active world is touched (831.749832ms)
+✔ battle imports rehearse echo and persistent field resumption on isolated actors (2364.965046ms)
+✔ corrupt actors, stale scenes and incomplete delayed effects fail before changing an active journey (5252.000478ms)
+✔ identity and supply corruption cannot enter a journey through an imported world (394.920621ms)
+✔ field-trial save preflight protects the full main-journey return state (2713.445466ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13239.862378
+Exit: 0; signal: none; elapsed: 13.522s; timed out: false
+Counts: {"tests":6,"pass":6,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/world-affordances.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/world-affordances.test.mjs
+✔ twelve authored site families use real reachable floor without disconnecting original story markers (73.484982ms)
+✔ all seven selectable origin journeys receive an appropriate tool and route model (28.167159ms)
+✔ each finite source can be carried only once and range failures leave resources unchanged (4.340118ms)
+✔ two-part assemblies consume real tools, open a physical shortcut and award salvage exactly once (67.957431ms)
+✔ a single fitting tool is a complete alternative to assembly, with no disguised recipe requirement (7.205409ms)
+✔ knowledge gates accept the actual rhythm immediately without prerequisite flags or inventory (59.054205ms)
+✔ incorrect notes reset the physical sequence and knowledge alone survives a new telling (9.822603ms)
+✔ scouting provides partial evidence and one quiet approach changes actual clocks and reinforcement budget (6.301995ms)
+✔ side-entry preparations relocate creatures to legal unoccupied floor and reed chimes buy an objective window (10.340298ms)
+✔ packing transfers one finite kit tool into the contested field and repeats cannot duplicate it (4.591849ms)
+✔ restored local infrastructure changes later encounter conditions and preserves story flags (8.925539ms)
+✔ persistent kit, route, knowledge and preparation records reject malformed or duplicating saves (5.104917ms)
+✔ a legacy player standing on an unrepaired optional tile is never enclosed by its collision (4.586782ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 307.22208
+Exit: 0; signal: none; elapsed: 0.407s; timed out: false
+Counts: {"tests":13,"pass":13,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/world-affordance-layout.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/world-affordance-layout.test.mjs
+✔ all previously available finite IDs survive the placement change across all canonical scenes (1200.006733ms)
+✔ every repair closes only an optional tile while keeping all other original reachable floor (212.559847ms)
+✔ generated repair, stock and listening silhouettes clear architecture and the shared scenery plan (20.235668ms)
+✔ every canonical repair remains actionable and pays the unchanged finite reward once (35.017083ms)
+✔ real World save and restore retain partial rhythm, finite stock, repaired state and scouting (509.379354ms)
+✔ the town burrow and listening point use compact honest silhouettes in one work patch (0.416525ms)
+✔ home repairs have domestic floorboard presentation while retaining profile recipes, bounds and rewards (1.610468ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2002.430878
+Exit: 0; signal: none; elapsed: 2.819s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/wild-combat.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/wild-combat.test.mjs
+✔ all seven actual origin leads can beat solo opening creatures of every role using basic commands (2260.981151ms)
+✔ wild victories award real XP, credits, equipped mastery and actual species drops without story advancement (407.565128ms)
+✔ random encounters save and restore through preflight with their species, context and earned rewards intact (1743.614924ms)
+✔ spawn cells stay on reachable floor for every origin backdrop and furnished indoor danger room (849.504155ms)
+✔ serial selection yields many distinct opening encounters and keeps formations within tier and count budgets (429.336181ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5697.486729
+Exit: 0; signal: none; elapsed: 5.883s; timed out: false
+Counts: {"tests":5,"pass":5,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== dist/game/engine2/tests/dev-session.test.mjs =====
+Command: node --test-reporter=spec dist/game/engine2/tests/dev-session.test.mjs
+✔ developer catalogue is lightweight, bounded and covers each authored guardian (1.245689ms)
+✔ every chapter, arrival/boss stage and lead restores a canonical legal three-person practice state (156265.565279ms)
+✔ alternate branch fixtures retain meaningful earlier decisions without claiming the current guardian or sharing mutable state (2280.485067ms)
+✔ practice kits can resolve all 24 isolated guardian baselines using only equipped recipes and resource-paying commands (17367.167467ms)
+✔ invalid or ambiguous practice requests fail without constructing or altering a normal journey (0.37242ms)
+✔ practice construction neither touches browser storage nor changes an already-running normal journey (673.316884ms)
+✔ arrival checkpoints have reachable first objectives and boss checkpoints guide directly to their prepared guardian (18796.66408ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195394.894407
+Exit: 0; signal: none; elapsed: 195.626s; timed out: false
+Counts: {"tests":7,"pass":7,"fail":0,"skipped":0,"cancelled":0,"todo":0}
+
+===== TOTAL =====
+{
+  "revision": "862fd386bb5b7c24f51414d4312fe9490002803f",
+  "head_at_finish": "862fd386bb5b7c24f51414d4312fe9490002803f",
+  "files": 166,
+  "elapsed_seconds": 209.002,
+  "totals": {
+    "tests": 1250,
+    "pass": 1250,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "failures": [],
+  "missing_count_summaries": [],
+  "interrupted": null
+}

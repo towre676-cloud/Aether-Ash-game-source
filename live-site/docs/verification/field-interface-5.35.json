@@ -1,0 +1,109 @@
+{
+  "release": "5.35 \u00b7 The field forge",
+  "structure": [
+    "One active Armory destination on desktop and phone",
+    "Persistent Return/resource strip and bottom navigation outside the content scroller",
+    "Unframed full-surface weapon scene with one quoted growth offer",
+    "Satchel workstations under a single native disclosure",
+    "Actual selected traveller artwork in Bearer view",
+    "Parchment journal pause layout",
+    "Floating adventure HUD with native sprite miniatures",
+    "Title choices over painted world"
+  ],
+  "tests": {
+    "passed": 94,
+    "failed": 0,
+    "log": "field-interface-5.35-tests.log"
+  },
+  "browser": {
+    "desktop_forge": [
+      1440,
+      900
+    ],
+    "phone_forge": [
+      390,
+      844
+    ],
+    "phone_forge_client_width": 388,
+    "phone_forge_scroll_width": 388,
+    "phone_next_temper_cost_y": [
+      607.984375,
+      643.984375
+    ],
+    "phone_next_temper_button_y": [
+      652.984375,
+      700.984375
+    ],
+    "phone_bottom_nav_y": [
+      786,
+      842
+    ],
+    "phone_visible_armory_panels": [
+      "weapon"
+    ],
+    "phone_journal_return_y": [
+      299.75,
+      360.140625
+    ],
+    "ordinary_HUD_viewports": [
+      [
+        1363,
+        936
+      ],
+      [
+        390,
+        780
+      ],
+      [
+        740,
+        360
+      ],
+      [
+        568,
+        320
+      ]
+    ],
+    "native_Dpad_bounds_verified": true,
+    "compact_crew_route_overlap_repaired": true,
+    "bounded_HUD_measurement_px": [
+      156,
+      146
+    ]
+  },
+  "native_transactions": [
+    {
+      "action": "equip",
+      "power": 168,
+      "scrap": 35
+    },
+    {
+      "action": "temper_1",
+      "power": 182,
+      "scrap": 27,
+      "previewed_scrap_cost": 8
+    }
+  ],
+  "portrait": {
+    "verified": "Veyr original art, then Sable after native bearer switch",
+    "inactive_canvas_count": 0,
+    "new_lifecycle_tests": true,
+    "parent_cancel_teardown": true
+  },
+  "navigation": [
+    "Weapon \u2192 Satchel \u2192 selected-item Inspect",
+    "Bearer \u2192 native bearer cycle \u2192 Weapon",
+    "Armory Return \u2192 Pause journal \u2192 Crew setup",
+    "Phone journal Return reachable before long story text"
+  ],
+  "screenshots": [
+    "field-forge-desktop-5.35.jpg",
+    "field-forge-phone-5.35.jpg",
+    "field-journal-5.35.jpg"
+  ],
+  "limits": [
+    "Browser uses software 3D fallback; viewport checks are not Android hardware performance measurements.",
+    "Weapon graphics are native vector illustrations with bounded tilt; character portraits use existing native front/back artwork.",
+    "Screenshots use isolated practice equipment."
+  ],
+  "static_payload_mib": 251.463
+}

@@ -1,0 +1,232 @@
+/* 5.35 — field instruments around the world, without an application header.
+   This sheet owns only the ordinary 3D field HUD. Native touch geometry,
+   camera transforms, battle composition and hidden-state ownership are kept. */
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud{
+ inset:0 0 auto;height:calc(156px + env(safe-area-inset-top,0px));padding:0;background:none;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header{
+ position:absolute;top:calc(18px + env(safe-area-inset-top,0px));
+ left:calc(22px + env(safe-area-inset-left,0px));right:calc(22px + env(safe-area-inset-right,0px));
+ min-height:44px;display:flex;align-items:flex-start;justify-content:flex-end;gap:12px;
+ background:none;box-shadow:none;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child{
+ position:absolute;left:0;top:0;width:min(620px,calc(100% - 310px));max-width:none;
+ min-height:44px;padding:0 0 0 42px;border:0;background:none;
+ filter:drop-shadow(0 2px 3px #050b09);
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child::before{
+ left:0;top:2px;width:29px;height:36px;background-size:contain;opacity:.78;
+ filter:none;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child::after{display:none}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div>small{display:none}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header #chapter-title{
+ margin:0 0 6px;font:400 21px/1.15 Georgia,'Times New Roman',serif;
+ letter-spacing:.01em;color:#f0e4c4;text-shadow:0 1px 3px #06100d,0 0 12px #06100dc9;
+ max-width:100%;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header #area-name{
+ max-width:100%;font:9px/1.4 Georgia,serif;letter-spacing:.13em;
+ color:#cbc9b0;text-shadow:0 1px 3px #03100b,0 0 8px #03100b;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>button,
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #quick-armory{
+ min-height:44px;min-width:44px;padding:9px 5px;
+ border:0;border-bottom:1px solid #c4ad6d65;border-radius:0;
+ background:none;box-shadow:none;color:#e7d8b3;
+ font:13px/1.2 Georgia,serif;letter-spacing:.035em;
+ text-shadow:0 1px 3px #03100b,0 0 10px #03100b;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>button:not(:disabled):hover{
+ background:none;border-bottom-color:#e9cc89;filter:none;color:#fff0cc;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #quick-armory{color:#efce8a}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #quick-armory::before{width:15px;height:18px;margin-right:5px}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #gold{display:none}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #score-indicator[role=button]{
+ display:inline-flex!important;align-items:center;justify-content:center;
+ width:44px;min-width:44px;max-width:44px;min-height:44px;flex:0 0 44px;
+ margin:0;padding:4px;overflow:hidden;font-size:0;
+ border:0;border-bottom:1px solid #c4ad6d65;border-radius:0;
+ background:none;box-shadow:none;color:#d6cfad;pointer-events:auto;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #score-indicator[role=button]::before{
+ content:'♪';display:block;font:21px/1 Georgia,serif;
+ text-shadow:0 1px 3px #03100b,0 0 10px #03100b;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #score-indicator[data-music-recovery=true]{
+ color:#f2cd85;border-bottom-color:#d6b26d;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>button:focus-visible{
+ outline:2px solid #efd9a3;outline-offset:3px;
+}
+
+/* The crew is a small company at the margin: native character silhouettes,
+   names and exposed vitality strokes, with no enclosing cards or stat boxes. */
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party{
+ position:fixed;left:calc(22px + env(safe-area-inset-left,0px));
+ bottom:calc(var(--control-zone) + 18px);margin:0;gap:16px;
+ width:min(390px,calc(100% - 44px));max-width:none;align-items:flex-end;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card{
+ position:relative;flex:1;min-width:0;max-width:126px;min-height:44px;
+ padding:3px 0 5px 34px;border:0;border-radius:0;outline:0;
+ background:none;box-shadow:none;color:#e7ddbf;
+ text-shadow:0 1px 3px #06100a,0 0 7px #06100a;
+ --crew-row:0%;--crew-tint:#c9b68a;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card::before{
+ content:'';position:absolute;left:0;bottom:0;width:30px;height:41px;
+ background:url('./art/crew.webp') 0 var(--crew-row)/800% 700% no-repeat;
+ filter:drop-shadow(0 2px 2px #000b);
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="1"]{--crew-row:16.66667%;--crew-tint:#abc8bd}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="2"]{--crew-row:33.33333%;--crew-tint:#d3af80}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="3"]{--crew-row:50%;--crew-tint:#c4af67}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="4"]{--crew-row:66.66667%;--crew-tint:#a3bca0}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="5"]{--crew-row:83.33333%;--crew-tint:#b9b3ce}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card[data-hero="6"]{--crew-row:100%;--crew-tint:#bca9d6}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong{
+ display:flex;align-items:baseline;gap:5px;font:400 13px/1.2 Georgia,serif;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong em{
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong small{
+ font:8px/1 Georgia,serif;white-space:nowrap;color:#c3c4ab;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card .hp{
+ height:3px;margin:8px 0 0;border-radius:0;background:#03130ec4;
+ box-shadow:0 1px 2px #0009,0 0 0 1px #dfd8ae29;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card .hp b{
+ background:linear-gradient(90deg,#6a987e,var(--crew-tint));
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card:focus-visible{
+ outline:1px solid #efd9a3;outline-offset:4px;
+}
+
+/* A route in the margin, rather than a quest widget. Existing disclosure and
+   walking actions remain in their native guidance wrapper. */
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-objective{
+ position:absolute;left:calc(22px + env(safe-area-inset-left,0px));
+ top:calc(68px + env(safe-area-inset-top,0px));
+ width:min(380px,calc(100% - 44px));max-width:none;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #objective{
+ position:relative;top:auto;left:auto;max-width:100%;min-height:44px;
+ margin:0;padding:8px 0 8px 22px;border:0;border-radius:0;
+ background:none;box-shadow:none;opacity:1;
+ font:12px/1.4 Georgia,serif;color:#e8d8ad;
+ text-shadow:0 1px 3px #06100b,0 0 9px #06100b;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #objective::before{
+ content:'';position:absolute;left:0;top:15px;width:12px;height:12px;
+ background:var(--aa-compass) center/contain no-repeat;opacity:.8;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on):not(.dialog-open) .journey-objective:not(.journey-help-blocked) .journey-help{
+ display:flex;position:relative;top:auto;left:auto;gap:14px;margin:0;flex-wrap:wrap;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-help>button{
+ min-height:44px!important;padding:8px 0!important;
+ border:0!important;border-bottom:1px solid #b9a36a40!important;border-radius:0!important;
+ background:none!important;box-shadow:none!important;color:#c6c7aa!important;
+ font:10px/1.3 Georgia,serif!important;
+ text-shadow:0 1px 3px #06100b,0 0 8px #06100b;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-help-panel{
+ position:absolute;top:calc(100% + 8px);left:0;width:min(360px,calc(100vw - 28px));
+ max-height:min(55dvh,calc(100dvh - 180px));border-radius:0;
+ border:0;border-left:2px solid #b8a16c;
+ background:linear-gradient(110deg,#1c2822f7,#101c16f7);
+ box-shadow:0 10px 28px #0008;padding:18px;
+}
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) .encounter-status{
+ font:10px/1.4 Georgia,serif;color:#d9c995;
+ text-shadow:0 1px 3px #03100b,0 0 8px #03100b;
+}
+
+/* Practice-only tools stay a small separate annotation above the control zone. */
+#game:is(.adventure-3d,.embodied-world):not(.battle-on) #dev-session-badge{
+ position:fixed;left:auto;right:22px;bottom:calc(var(--control-zone) + 18px);
+ width:min(320px,calc(100% - 44px));max-width:none;margin:0;
+ border:0;border-left:1px solid #c1a46b70;border-radius:0;
+ background:linear-gradient(90deg,#102018dc,#10201815);box-shadow:none;
+ font:10px/1.4 Georgia,serif;padding:6px 10px;
+}
+
+@media(max-width:650px){
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header{
+  top:calc(14px + env(safe-area-inset-top,0px));left:14px;right:14px;min-height:96px;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child{
+  width:calc(100% - 56px);min-height:44px;padding:0 0 0 31px;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child::before{
+  width:21px;height:30px;top:0;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header #chapter-title{
+  font-size:17px;margin:0 0 5px;line-height:1.2;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header #area-name{
+  max-width:100%;font-size:8px;letter-spacing:.075em;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>button{
+  position:absolute;min-height:44px;min-width:44px;font-size:12px;padding:8px 2px;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #mako-button{top:52px;right:104px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #quick-armory{top:52px;right:52px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #menu-button{top:0;right:0}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #quick-armory::before{display:none}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #score-indicator[role=button]{position:absolute;top:52px;right:0}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party{
+  left:14px;bottom:calc(var(--control-zone) + 10px);width:calc(100% - 28px);gap:10px;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card{
+  max-width:117px;padding-left:29px;
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card::before{width:26px;height:36px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong{font-size:12px;gap:3px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong small{font-size:7px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-objective{
+  top:calc(68px + env(safe-area-inset-top,0px));left:14px;width:calc(100% - 190px);
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #objective{font-size:11px;padding-left:18px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #objective::before{width:10px;height:10px;top:16px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on):not(.dialog-open) .journey-objective:not(.journey-help-blocked) .journey-help{gap:4px 10px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-help>button{font-size:9px!important}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-help-panel{
+  top:calc(100% + 4px);max-height:calc(100dvh - 210px);
+ }
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #dev-session-badge{
+  left:auto;right:14px;bottom:calc(var(--control-zone) + 76px);
+  width:min(270px,calc(100% - 28px));font-size:9px;
+ }
+}
+@media(max-height:550px) and (min-width:651px){
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud{height:calc(146px + env(safe-area-inset-top,0px))}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header{top:9px;left:16px;right:16px;gap:8px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child{width:calc(100% - 270px);padding-left:30px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child::before{width:22px;height:28px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header #chapter-title{font-size:16px;margin-bottom:4px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>button{font-size:12px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party{left:16px;bottom:calc(var(--control-zone) + 10px);width:330px;gap:10px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-objective{left:16px;top:58px;width:min(330px,44vw)}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-help-panel{max-height:calc(100dvh - 150px)}
+}
+/* Compact landscape keeps the route margin clear of the crew hit targets. */
+@media(max-height:400px) and (min-width:500px) and (max-width:650px){
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header{min-height:44px;top:9px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud header>div:first-child{width:calc(100% - 236px)}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #mako-button{top:0;right:156px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #quick-armory{top:0;right:104px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #menu-button{top:0;right:52px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #hud #score-indicator[role=button]{top:0;right:0}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) .journey-objective{top:58px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party{left:125px;bottom:18px;width:calc(100% - 340px);max-width:228px;gap:8px;overflow-x:auto}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card{width:64px;min-width:64px;max-width:64px;padding-left:22px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card::before{width:21px;height:30px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong{font-size:10px}
+ #game:is(.adventure-3d,.embodied-world):not(.battle-on) #party .party-card strong small{display:none}
+}

@@ -1,0 +1,20 @@
+✔ Veyr begins in the world with a receiver action and no blocking opening paragraphs (583.933104ms)
+✔ the mast must be grounded before either repair, and cable dragging previews without committing (371.44423ms)
+✔ partial cable work saves and restores without inventing a native repair or consuming supplies (420.411758ms)
+✔ releasing a held control, leaving reach, pausing or changing scenes cannot commit an unfinished action (1384.953552ms)
+✔ a stale repair control cannot choose a branch before grounding or after the stage changes (338.079473ms)
+✔ the peaceful grounded spare vane clears the native encounter and leaves final choices explicit (343.87661ms)
+✔ all origins retain both repairs, both encounter approaches and both native inheritances (21712.914727ms)
+✔ old valid origin saves migrate from native choices and malformed physical history is rejected (325.106746ms)
+✔ installing twice preserves the same controller and destroying restores native behavior (333.477539ms)
+✔ enhanced saves validate physical mechanisms before replacing the live world, preserving old absent fields (1140.008369ms)
+✔ guided objectives resolve physical replacements and retain an explicit choice boundary (345.449722ms)
+✔ fresh Veyr arrival faces the mast without relocating restores, map returns or the second part (804.023787ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28366.453487

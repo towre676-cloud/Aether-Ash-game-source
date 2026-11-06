@@ -1,0 +1,49 @@
+{
+  "schema": "ash-aether.release-tests/1",
+  "verification_stage": "targeted legacy v17 scope correction",
+  "revision": "e491e9395428b39233316e1970bbae1fb364b9fc",
+  "files": 1,
+  "discovered_files": [
+    "dist/game/engine2/tests/environment-art-v17.test.mjs"
+  ],
+  "method": "Python subprocess captures the actual direct Node spec-reporter summary; only the affected module is rerun",
+  "started_at_utc": "2026-10-29T06:44:49.910578+00:00",
+  "finished_at_utc": "2026-10-29T06:44:51.326925+00:00",
+  "elapsed_seconds": 1.416,
+  "source_sha256": "995d3878e5decba4e825f0ee3aca33d023882c6d194b85607784bac790ba31e4",
+  "prior_full_run": "docs/verification/environment-5.20-art-checkpoint-corrected-tests.json",
+  "correction": "Select and assert exactly the original sixteen v17 asset keys before resolving source-v17 originals; all existing WebP container, dimensions and alpha assertions remain unchanged. Later collections retain their separate source/provenance tests.",
+  "totals": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "failures": [],
+  "missing_count_summaries": [],
+  "inconsistent_count_summaries": [],
+  "results": [
+    {
+      "file": "dist/game/engine2/tests/environment-art-v17.test.mjs",
+      "command": [
+        "node",
+        "--test-reporter=spec",
+        "dist/game/engine2/tests/environment-art-v17.test.mjs"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.416,
+      "counts": {
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    }
+  ],
+  "combined_log": "docs/verification/environment-5.20-art-checkpoint-legacy-v17-recheck-tests.log",
+  "passed": true
+}

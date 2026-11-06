@@ -1,0 +1,48 @@
+{
+  "schema": "ash-aether.native-browser-qa/1",
+  "release": "5.42",
+  "scope": {
+    "environment": "local native game preview",
+    "presentation": "phone-sized browser viewport",
+    "productionGameplayVerified": false,
+    "physicalPhoneTested": false,
+    "gpuPerformanceMeasured": false
+  },
+  "checks": [
+    {
+      "area": "Rook receiver interaction",
+      "input": "keyboard X",
+      "result": "receiver opened and the native objective advanced",
+      "passed": true
+    },
+    {
+      "area": "orchestral music transport",
+      "result": "active orchestral transport with nonzero analyser signal",
+      "analyserRms": 0.01257,
+      "passed": true
+    },
+    {
+      "area": "home camera and controls",
+      "zoomPercent": 300,
+      "result": "all controls remained in the visible bounds",
+      "passed": true
+    },
+    {
+      "area": "home Reset view",
+      "input": "Reset view control",
+      "result": "World zoom returned to 135 percent",
+      "resetZoomPercent": 135,
+      "passed": true
+    }
+  ],
+  "captures": {
+    "home": "aa542-native-home.jpg",
+    "field": "aa542-native-field.jpg"
+  },
+  "limitations": [
+    "Checks used the local native game preview, not production gameplay.",
+    "Phone-sized browser presentation is not a physical-phone performance measurement.",
+    "No GPU or WebGL performance result is claimed.",
+    "A nonzero analyser signal verifies transport output; it is not a subjective listening evaluation of the entire score."
+  ]
+}

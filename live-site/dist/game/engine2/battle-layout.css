@@ -1,0 +1,138 @@
+/* A stable command shelf; only the selected action cards use a scrollport. */
+.battle-on #commands{bottom:calc(8px + env(safe-area-inset-bottom,0px));width:min(880px,calc(100% - 28px));max-height:none;overflow:visible;padding:6px 9px;border-radius:14px;background:linear-gradient(145deg,#17333cf5,#0b1e2af7);backdrop-filter:blur(8px);border-color:#acb69788;box-shadow:0 10px 45px #020c16aa}
+.battle-on #commands[hidden]{display:none}
+.battle-on.touch-on #commands{left:auto;right:8px;transform:none;width:calc(100% - 120px);max-width:880px}
+.battle-on #commands .command-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:0 0 4px;padding:0;background:transparent;position:static}
+.battle-on #commands .command-grid:has(.field-command:not([hidden])),.battle-on #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(8,minmax(0,1fr))}
+.battle-on #commands .command-grid button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:5px 5px;font:600 12px/1.2 system-ui;border:1px solid #829e9766;border-radius:8px;background:#193842;color:#dfe5d1;white-space:nowrap}
+.battle-on #commands .command-grid button[hidden]{display:none}
+.battle-on #commands .command-grid button:hover{background:#2c5152;border-color:#bfca9b}
+.battle-on #commands .command-grid button::before{content:'';flex:none;width:20px;height:20px;background:currentColor;mask-image:var(--command-icon);mask-size:contain;mask-repeat:no-repeat;mask-position:center;-webkit-mask-image:var(--command-icon);-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center}
+.battle-on #commands .command-grid button[data-picker-active=true]{border-color:#dfc58a;color:#fff0c1;background:#4c5340;box-shadow:inset 0 -2px #dfc58a}
+.battle-on #commands .command-grid #cmd-attack{color:#e9d4a7}.battle-on #commands .command-grid #cmd-guard{color:#a6d8cf}.battle-on #commands .command-grid #cmd-retreat{color:#b6c1bf}
+.battle-on #commands .command-grid kbd{display:none}
+.battle-on #battle-flow{margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:start}
+.battle-on #battle-flow .enemy-list{grid-column:1;grid-row:1;display:flex;gap:5px;min-width:0;max-height:none;margin:0;padding:1px 1px 3px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+.battle-on #battle-flow .enemy-list button{flex:1 0 135px;min-width:0;min-height:52px;max-height:57px;padding:4px 8px;gap:2px;border-radius:8px;display:grid}
+.battle-on #battle-flow .enemy-list button.selected{outline:1px solid #dfc58a;outline-offset:-1px;background:#294a47}
+.battle-on #battle-flow .enemy-list button.charging{border-color:#dcad70}
+.battle-on .enemy-heading{display:flex;min-width:0;gap:7px;justify-content:space-between}
+.battle-on .enemy-heading strong{font:600 12px/1.2 system-ui;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.battle-on .enemy-heading small{display:none}
+.battle-on #battle-flow .enemy-health{width:100%;height:3px;margin:1px 0}
+.battle-on .enemy-intent{font:10px/1.2 system-ui;color:#ead1a1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.battle-on .enemy-shell{font:9px/1.2 system-ui;color:#bad0c4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.battle-on .enemy-shell:empty{display:none}
+.battle-on .turn-ribbon,.battle-on #ready-name,.battle-on #supply-count,.battle-on #target-name{display:none}
+/* Settings and detailed advice expand in place only when requested. */
+.battle-settings{grid-column:2;grid-row:1;min-width:0;font:11px system-ui}
+.battle-settings>summary{cursor:pointer;list-style:none;padding:5px 6px;color:#c8caa4;min-height:32px;max-width:72px;line-height:1.3}
+.battle-settings>summary:before{content:'⚙';display:inline-block;margin-right:4px;font-size:15px}
+.battle-settings>summary:after{content:' ▾'}
+.battle-settings[open]{grid-column:1/-1;grid-row:4;max-height:130px;overflow:auto;border-top:1px solid #b7bd8944;padding-top:5px}
+.battle-settings[open]>summary{max-width:none}
+.battle-settings .battle-topline{margin:0 0 5px}.battle-settings .eyebrow{display:none}.battle-settings .growth-details{max-height:none;overflow:visible}
+.battle-settings .pace{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.battle-settings .pace label{min-width:0;max-width:100%}.battle-settings .pace select,.battle-settings .pace button{max-width:100%;min-height:44px;padding:7px 9px;border:1px solid #759c9966;border-radius:8px;background:#102630;color:#d4e3da;font:11px system-ui}
+.battle-on .battle-settings #battle-conditions:not([hidden]){display:block;margin:6px 0;font-size:11px;line-height:1.4}
+.battle-tactical-readout{grid-column:2;grid-row:2;align-self:start;font:11px/1.4 system-ui}.battle-tactical-readout>summary{cursor:pointer;color:#b7cec1;padding:1px 0;min-height:18px;white-space:nowrap}.battle-tactical-readout[open]{grid-column:1/-1;grid-row:3}.battle-tactical-readout>summary.urgent{color:#edd0a1}
+.battle-on #battle-flow .combat-advice{margin:3px 0 0;padding:6px 9px;border-left:2px solid #8eb7a5;background:#d7eee809;color:#d9e5d4;font:12px/1.45 system-ui;max-width:100%;overflow-wrap:break-word}.battle-on #battle-flow .combat-advice.urgent{border-color:#e6b778;color:#f3d8ac}
+.battle-on #battle-flow .decision-pause{grid-column:1;grid-row:2;padding:2px 6px;font:600 10px/1.3 system-ui;color:#b9dcd2;border-left:2px solid #8eb7a5}.battle-on #battle-flow .decision-pause[hidden],.battle-tactical-readout[hidden]{display:none}
+/* The command strip and live targets remain present while choosing. */
+.battle-picker-bar,.battle-picker-pages{display:none}
+.battle-on #commands.battle-picker-open .battle-picker-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 0;border-top:1px solid #b2b48744;margin-top:2px}
+.battle-picker-bar>span{font:600 12px/1.3 system-ui;color:#dfddbd}.battle-on #commands .battle-picker-bar button{min-height:30px;padding:5px 12px;font:600 11px system-ui;flex:none}
+.battle-on #commands #spell-menu{position:static;inset:auto;transform:none;width:100%;max-height:25dvh;margin:0;padding:2px 0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.battle-on #commands #spell-menu[hidden]{display:none}
+.battle-on #commands #spell-menu>button.battle-picker-option{min-height:64px;margin:0;padding:7px 9px;font:12px/1.35 system-ui;border-radius:8px;align-content:center;overflow-wrap:anywhere;text-align:left}
+.battle-on #commands #spell-menu>.battle-page-hidden,.battle-on #commands #spell-menu .battle-picker-dismiss{display:none!important}
+.battle-on #commands #spell-menu>.battle-picker-context,.battle-on #commands #spell-menu>.objective-context,.battle-on #commands #spell-menu>.battle-picker-warning,.battle-on #commands #spell-menu>.tactics-category,.battle-on #commands #spell-menu>[data-action-for]{grid-column:1/-1}
+.battle-on #commands #spell-menu .technique-option{display:grid;gap:3px}.battle-on #commands #spell-menu .technique-option strong{font-size:12px}.battle-on #commands #spell-menu .technique-cost{font:11px/1.3 system-ui;color:#c0dfcc}.battle-on #commands #spell-menu .technique-option small{font:10px/1.35 system-ui;color:#b6cdc5;letter-spacing:0}
+.battle-on #commands #spell-menu>button:has(canvas){display:flex;align-items:center;gap:6px}.battle-on #commands #spell-menu>button>canvas{flex:none;width:30px;height:30px}
+.battle-picker-context{font:11px/1.4 system-ui;color:#bfd0c2}.battle-picker-context>summary{cursor:pointer;padding:7px 1px;color:#b0c5b9}.battle-picker-context p{margin:6px 0}.battle-picker-context .field-picker-summary{margin:3px 0}
+.battle-on #commands.battle-picker-open .battle-picker-pages{display:flex;align-items:center;justify-content:center;gap:10px;border-top:1px solid #aab39233;padding-top:2px;margin-top:2px;font:10px system-ui;color:#bfd0bf}
+.battle-on #commands .battle-picker-pages button{min-height:28px;min-width:44px;padding:4px 11px;font:18px/1 system-ui}.battle-on #commands .battle-picker-pages[data-single=true] button{display:none}.battle-picker-pages span{text-align:center;min-width:120px}
+/* Tactics use visible categories rather than a nested native dropdown. */
+.battle-on #commands #spell-menu .tactics-category{display:flex;flex-wrap:wrap;gap:4px;margin:1px 0 4px}
+.battle-on #commands #spell-menu .tactics-category button{flex:1 1 68px;width:auto;min-height:36px;margin:0;padding:5px;font:11px/1.2 system-ui;text-align:center}
+.battle-on #commands #spell-menu .tactics-category button[aria-pressed=true]{background:#475742;border-color:#d3c18a;color:#fff0c2}
+.battle-on #commands #spell-menu .tactics-category button span{display:block;font:16px/1.1 Georgia;margin-bottom:2px}
+.battle-on #commands #spell-menu .field-action,.battle-on #commands #spell-menu .objective-action{gap:6px}.battle-on #commands #spell-menu .field-action-icon{width:28px;height:28px;flex:none}.battle-on #commands #spell-menu .field-action-copy strong,.battle-on #commands #spell-menu .objective-action-copy strong{font-size:11px}.battle-on #commands #spell-menu .field-action-copy small,.battle-on #commands #spell-menu .objective-action-copy small{font-size:10px;line-height:1.3;letter-spacing:0}.battle-on #commands #spell-menu .tactics-action-symbol,.battle-on #commands #spell-menu .objective-action-symbol{font-size:22px;width:25px}
+.battle-on #touch .face,.battle-on #touch .shoulders,.battle-on #touch:after{display:none}.battle-on #joystick{width:88px;height:88px;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:12px}.battle-on #joystick .joystick-knob{width:36px;height:36px;left:calc(50% - 18px);top:calc(50% - 18px)}
+.battle-on #hud{padding:5px 10px}.battle-on header{min-height:30px;gap:5px}.battle-on header>div>small,.battle-on #area-name,.battle-on #gold,.battle-on #score-indicator,.battle-on #town-clock{display:none}.battle-on h1{font-size:10px}.battle-on header button{min-height:30px;padding:5px 8px;font-size:10px}.battle-on #party{margin-top:4px;max-width:510px;gap:4px}.battle-on .party-card{min-height:51px;padding:5px 8px;border-radius:8px}.battle-on .party-card strong{font-size:12px}.battle-on .party-card span{font-size:10px;line-height:1.2}.battle-on .party-card .mp-text{display:block;font-size:9px}.battle-on .party-card .hp,.battle-on .party-card .atb{height:3px;margin-top:3px}
+.battle-on #notice{top:calc(var(--battle-hud-height,85px) + 7px);left:auto;right:10px;transform:none;max-width:55%;font-size:11px;padding:5px 8px}
+@media(max-width:760px){
+ .battle-on #commands .command-grid,.battle-on #commands .command-grid:has(.field-command:not([hidden])),.battle-on #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(4,minmax(0,1fr))}
+ .battle-on #commands .command-grid button{flex-direction:column;gap:3px;min-height:49px;padding:5px 2px;font-size:10px}.battle-on #commands .command-grid button::before{width:18px;height:18px}
+ .battle-on #commands{padding:7px 8px;width:calc(100% - 16px)}.battle-on.touch-on #commands{width:calc(100% - 112px)}
+ .battle-on #battle-flow .enemy-list button{min-height:51px;max-height:58px;flex-basis:120px;padding:4px 6px}.battle-on .enemy-heading strong{font-size:11px}.battle-on .enemy-intent{font-size:9px}.battle-on .enemy-shell{font-size:8px}
+ .battle-settings>summary{font-size:0;min-width:38px;max-width:38px;padding:8px 5px}.battle-settings>summary:before{font-size:19px;margin:0}.battle-settings>summary:after{content:''}.battle-settings[open]>summary{font-size:11px;max-width:none}.battle-settings[open]>summary:before{font-size:15px;margin-right:5px}
+ .battle-tactical-readout>summary{font-size:10px;min-height:20px}.battle-picker-bar>span{font-size:11px}.battle-on #commands .battle-picker-bar button{min-height:30px;padding:4px 8px}
+ .battle-on #commands #spell-menu{max-height:23dvh;gap:4px}.battle-on #commands #spell-menu>button.battle-picker-option{min-height:68px;padding:6px;font-size:11px}.battle-on #commands #spell-menu>button>canvas{width:24px;height:24px}
+ .battle-on #commands #spell-menu .technique-option strong{font-size:11px}.battle-on #commands #spell-menu .technique-option small{font-size:9px}.battle-on #commands #spell-menu .technique-cost{font-size:10px}
+ .battle-on #commands #spell-menu .tactics-category button{flex-basis:58px;font-size:10px;min-height:36px}.battle-on #commands #spell-menu .tactics-category button span{display:none}
+ .battle-picker-pages{gap:5px}.battle-on #commands.battle-picker-open .battle-picker-pages{font-size:9px;gap:4px}.battle-on #commands .battle-picker-pages button{min-width:36px}
+}
+@media(max-height:550px) and (min-width:480px){
+ .battle-on #commands,.battle-on.touch-on #commands{bottom:5px;padding:5px 8px;width:min(880px,calc(100% - 124px))}
+ .battle-on #commands .command-grid,.battle-on #commands .command-grid:has(.field-command:not([hidden])),.battle-on #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(8,minmax(0,1fr));gap:3px}
+ .battle-on #commands .command-grid button{min-height:38px;flex-direction:row;padding:4px 2px;font-size:10px;gap:3px}.battle-on #commands .command-grid button::before{width:15px;height:15px}
+ .battle-on #battle-flow .enemy-list button{min-height:45px;max-height:49px;flex-basis:150px}.battle-on #battle-flow .enemy-list{padding-bottom:2px}.battle-on #commands #spell-menu{max-height:26dvh}.battle-on #commands #spell-menu>button.battle-picker-option{min-height:57px;padding:5px 7px}.battle-picker-bar{margin-top:2px!important;padding:2px 0!important}.battle-picker-pages{padding-top:2px!important;margin-top:2px!important}.battle-on #commands .battle-picker-pages button{min-height:26px}.battle-on .party-card{min-height:42px}.battle-on #party{max-width:420px}.battle-on .party-card .mp-text{display:none}.battle-settings[open]{max-height:80px}
+}
+@media(prefers-reduced-motion:reduce){.battle-on #commands *{scroll-behavior:auto}}
+
+/* Practice controls stay compact enough to inspect real battle framing. */
+.battle-on #dev-session-badge{margin:2px 0;padding:2px 5px;min-height:0;gap:6px;font-size:9px;line-height:1.2}.battle-on #dev-session-badge button{min-height:24px;padding:3px 7px;font-size:9px}
+
+/* Wide laptops give the arena its height back: a stable console lives beside it.
+   The measured width is passed to camera composition, including charged tells. */
+.battle-on.battle-console-side #commands{top:54px;bottom:12px;left:auto;right:12px;transform:none;width:350px;max-width:350px;max-height:none;display:flex;flex-direction:column;overflow:hidden;padding:9px;border-radius:14px}
+.battle-on.battle-console-side #commands[hidden]{display:none}
+.battle-on.battle-console-side #commands .command-grid,.battle-on.battle-console-side #commands .command-grid:has(.field-command:not([hidden])),.battle-on.battle-console-side #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(4,minmax(0,1fr));flex:none;gap:4px;margin:0 0 7px}
+.battle-on.battle-console-side #commands .command-grid button{flex-direction:column;min-height:48px;padding:5px 2px;gap:3px;font-size:10px}
+.battle-on.battle-console-side #commands .command-grid button::before{width:19px;height:19px}
+.battle-on.battle-console-side #battle-flow{flex:none;grid-template-columns:minmax(0,1fr) 77px;gap:2px 6px}
+.battle-on.battle-console-side #battle-flow .enemy-list{min-width:0;grid-column:1/-1;grid-row:1}
+.battle-on.battle-console-side #battle-flow .enemy-list button{flex:1 0 142px;min-height:55px;max-height:59px;padding:4px 6px}
+.battle-on.battle-console-side #battle-flow .battle-settings{grid-column:2;grid-row:2}
+.battle-on.battle-console-side #battle-flow .battle-settings>summary{min-height:27px;padding:4px 2px;font-size:9px;max-width:none}
+.battle-on.battle-console-side #battle-flow .battle-settings>summary:before{font-size:12px;margin-right:3px}
+.battle-on.battle-console-side #battle-flow .battle-settings[open]{grid-column:1/-1;grid-row:5;max-height:130px}
+.battle-on.battle-console-side #battle-flow .decision-pause{grid-column:1;grid-row:2;align-self:center;padding:2px 5px;font-size:9px}
+.battle-on.battle-console-side #battle-flow .battle-tactical-readout{grid-column:1/-1;grid-row:3}
+.battle-on.battle-console-side #battle-flow .battle-tactical-readout>summary{font-size:10px;min-height:20px}
+.battle-on.battle-console-side #battle-flow .battle-tactical-readout[open]{grid-row:4}
+.battle-on.battle-console-side #commands .battle-picker-bar{flex:none;margin-top:5px;padding:4px 0}
+.battle-on.battle-console-side #commands #spell-menu{flex:0 1 auto;min-height:0;max-height:calc(100dvh - 400px);grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.battle-on.battle-console-side #commands #spell-menu>button.battle-picker-option{min-height:73px;padding:7px;font-size:11px}
+.battle-on.battle-console-side #commands #spell-menu .technique-option strong{font-size:11px}.battle-on.battle-console-side #commands #spell-menu .technique-cost{font-size:10px}.battle-on.battle-console-side #commands #spell-menu .technique-option small{font-size:10px}
+.battle-on.battle-console-side #commands .battle-picker-pages{flex:none}
+.battle-on.battle-console-side #commands #spell-menu .tactics-category button{flex:1 1 53px;font-size:9px;min-height:33px;padding:4px 2px}.battle-on.battle-console-side #commands #spell-menu .tactics-category button span{display:none}
+/* The selected target keeps exact health beside its name without another row. */
+.battle-on #battle-flow .enemy-list button.selected .enemy-heading small{display:block;flex:none;max-width:88px;font:9px/1.2 system-ui;letter-spacing:0;color:#bfd0c1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Field/Goal styles predate this dock and used a 39dvh outer cap. Never let
+   that cap clip the cards or pager beneath a measured, non-scrolling console. */
+.battle-on #commands:has(.field-command:not([hidden])),.battle-on #commands:has(.objective-command:not([hidden])){max-height:none}
+/* A short landscape viewport needs width reservation, not another bottom band. */
+@media(min-width:760px) and (max-height:559px){
+ .battle-on.battle-console-side #commands{top:54px;bottom:8px;width:330px;max-width:330px;padding:5px 7px;overflow:hidden}
+ .battle-on.battle-console-side #commands .command-grid,.battle-on.battle-console-side #commands .command-grid:has(.field-command:not([hidden])),.battle-on.battle-console-side #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;margin-bottom:4px}
+ .battle-on.battle-console-side #commands .command-grid button{min-height:34px;padding:3px 1px;gap:1px;font-size:9px}
+ .battle-on.battle-console-side #commands .command-grid button::before{width:14px;height:14px}
+ .battle-on.battle-console-side #battle-flow{gap:0 5px}
+ .battle-on.battle-console-side #battle-flow .enemy-list button{min-height:54px;max-height:58px;flex-basis:140px;padding:3px 5px}
+ .battle-on.battle-console-side #battle-flow .enemy-list{padding-bottom:1px}
+ .battle-on.battle-console-side #battle-flow .enemy-heading strong{font-size:10px}
+ .battle-on.battle-console-side #battle-flow .battle-settings>summary{min-height:19px;padding:2px 1px;font-size:9px}
+ .battle-on.battle-console-side #battle-flow .battle-settings>summary:before{font-size:10px}
+ .battle-on.battle-console-side #battle-flow .decision-pause{padding:1px 4px;font-size:9px}
+ .battle-on.battle-console-side #battle-flow .battle-tactical-readout>summary{min-height:17px;padding:0;font-size:9px}
+ .battle-on.battle-console-side #battle-flow .battle-settings[open]{max-height:75px}
+ .battle-on.battle-console-side #commands .battle-picker-bar{margin-top:2px;padding:2px 0}
+ .battle-on.battle-console-side #commands .battle-picker-bar>span{font-size:10px}
+ .battle-on.battle-console-side #commands .battle-picker-bar button{min-height:28px;padding:3px 8px;font-size:10px}
+ .battle-on.battle-console-side #commands #spell-menu{max-height:calc(100dvh - 280px);padding:1px 0;gap:4px}
+ .battle-on.battle-console-side #commands #spell-menu>button.battle-picker-option{min-height:57px;padding:5px 6px;font-size:10px}
+ .battle-on.battle-console-side #commands #spell-menu .technique-option strong{font-size:10px}.battle-on.battle-console-side #commands #spell-menu .technique-cost,.battle-on.battle-console-side #commands #spell-menu .technique-option small{font-size:9px}
+ .battle-on.battle-console-side #commands #spell-menu .tactics-category{gap:2px;margin-bottom:2px}.battle-on.battle-console-side #commands #spell-menu .tactics-category button{min-height:27px;font-size:8px;padding:3px 1px}
+ .battle-on.battle-console-side #commands .battle-picker-pages{margin-top:2px;padding-top:2px;font-size:9px}
+ .battle-on.battle-console-side #commands .battle-picker-pages button{min-height:26px;padding:3px 10px}
+}

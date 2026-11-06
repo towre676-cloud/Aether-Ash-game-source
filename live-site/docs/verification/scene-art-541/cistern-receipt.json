@@ -1,0 +1,159 @@
+{
+  "summary": {
+    "frames": 3,
+    "sourceDrift": false,
+    "sourceStart": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+    "sourceEnd": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+    "assets": 46,
+    "elapsedMs": 3477.157184
+  },
+  "frames": [
+    {
+      "id": "entry",
+      "label": "Native descent gallery",
+      "image": "entry.jpg",
+      "player": {
+        "x": 0,
+        "z": 12,
+        "facing": 3.141592653589793,
+        "moving": false
+      },
+      "resonators": [
+        false,
+        false
+      ],
+      "walkable": true,
+      "stateUnchanged": true,
+      "meshes": {
+        "static": {
+          "triangles": 45094,
+          "finite": true
+        },
+        "dynamic": {
+          "triangles": 1836,
+          "finite": true
+        },
+        "shadows": {
+          "triangles": 168,
+          "finite": true
+        },
+        "glow": {
+          "triangles": 192,
+          "finite": true
+        }
+      },
+      "drawn": {
+        "drawCalls": 179,
+        "triangles": 3908,
+        "quality": "low",
+        "texturedTriangles": 3050,
+        "sprites": 6,
+        "submittedTriangles": 60464,
+        "staticCacheHit": false,
+        "staticLayers": 11,
+        "staticCachePixels": 1322715,
+        "interiorCutaway": false,
+        "backend": "software-3d"
+      },
+      "sprites": 7
+    },
+    {
+      "id": "west-resonator",
+      "label": "West resonator - one channel answered",
+      "image": "west-resonator.jpg",
+      "player": {
+        "x": -7.1,
+        "z": -5,
+        "facing": 3.141592653589793,
+        "moving": false
+      },
+      "resonators": [
+        true,
+        false
+      ],
+      "walkable": true,
+      "stateUnchanged": true,
+      "meshes": {
+        "static": {
+          "triangles": 45094,
+          "finite": true
+        },
+        "dynamic": {
+          "triangles": 1840,
+          "finite": true
+        },
+        "shadows": {
+          "triangles": 168,
+          "finite": true
+        },
+        "glow": {
+          "triangles": 208,
+          "finite": true
+        }
+      },
+      "drawn": {
+        "drawCalls": 391,
+        "triangles": 4298,
+        "quality": "low",
+        "texturedTriangles": 3164,
+        "sprites": 4,
+        "submittedTriangles": 60484,
+        "staticCacheHit": false,
+        "staticLayers": 11,
+        "staticCachePixels": 1204010,
+        "interiorCutaway": false,
+        "backend": "software-3d"
+      },
+      "sprites": 7
+    },
+    {
+      "id": "bell-room",
+      "label": "Drowned Bell - both channels answered",
+      "image": "bell-room.jpg",
+      "player": {
+        "x": 0,
+        "z": -21,
+        "facing": 3.141592653589793,
+        "moving": false
+      },
+      "resonators": [
+        true,
+        true
+      ],
+      "walkable": true,
+      "stateUnchanged": true,
+      "meshes": {
+        "static": {
+          "triangles": 45094,
+          "finite": true
+        },
+        "dynamic": {
+          "triangles": 1712,
+          "finite": true
+        },
+        "shadows": {
+          "triangles": 168,
+          "finite": true
+        },
+        "glow": {
+          "triangles": 320,
+          "finite": true
+        }
+      },
+      "drawn": {
+        "drawCalls": 109,
+        "triangles": 2611,
+        "quality": "low",
+        "texturedTriangles": 2076,
+        "sprites": 4,
+        "submittedTriangles": 60468,
+        "staticCacheHit": false,
+        "staticLayers": 7,
+        "staticCachePixels": 626848,
+        "interiorCutaway": false,
+        "backend": "software-3d"
+      },
+      "sprites": 7
+    }
+  ]
+}

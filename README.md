@@ -50,7 +50,7 @@ These archived experiments are now browsable directly from the repository (and f
 
 ## Quick start
 
-**Play the main game:** Open [the game site](https://ash-aether-clay-water.towre676.chatgpt.site/). This repository does not contain an export of its complete v5.42+ runtime.
+**Play the main game:** Open [the game site](https://ash-aether-clay-water.towre676.chatgpt.site/). The complete original Site version 45 snapshot is preserved in [`live-site/`](live-site/), including its source and tracked game assets. See [`docs/SITE-EXPORT.md`](docs/SITE-EXPORT.md) for provenance and local use.
 
 **Play the self-contained lab locally:** download [`labs/living-world.html`](labs/living-world.html) and open it in a modern browser; no server or dependency installation is required. JavaScript is needed for the lab, but not for this project's information pages.
 

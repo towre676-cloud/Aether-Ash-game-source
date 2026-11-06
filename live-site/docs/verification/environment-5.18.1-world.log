@@ -1,0 +1,74 @@
+{
+  "output": "docs/verification/environment-5.18.1-world.json",
+  "issues": [],
+  "world": {
+    "scenes": 167,
+    "outdoorScenes": 103,
+    "interiorScenes": 64,
+    "sourceSha256": "260cfb738250fdb0cde3fc727217bd645741e8a1614c95d43b18bb355e16051f",
+    "expandedWorldSha256": "2fbc032981d2abd760d79986ce6de83140e04396c7f6a9c40267c0404696378f",
+    "initialStateSha256": "5348a78388040c1ab62714904ae9dca27cac320c6162f0e22f35143cdfad2331",
+    "sourceEqualsBaseline": true,
+    "expandedWorldEqualsBaseline": true,
+    "initialStateEqualsBaseline": true,
+    "unchangedByAudit": true
+  },
+  "inventory": {
+    "motifs": 172,
+    "newMotifsUsed": 48,
+    "registeredImages": 46,
+    "newSourceBytes": 11476926,
+    "newDeliveryBytes": 3330790
+  },
+  "walls": {
+    "placements": 432,
+    "rooms": 59,
+    "maxPerRoom": 16,
+    "cacheIdentityChecks": 167,
+    "normalDraws": 432,
+    "compatibilityDraws": 432,
+    "outsideWall": 0,
+    "reservedOverlaps": 0,
+    "drawRegistrationErrors": 0
+  },
+  "facades": {
+    "exteriorPlans": 49,
+    "undergroundExcluded": 12,
+    "eligiblePlans": 37,
+    "plansWithV19": 25,
+    "placements": 74,
+    "productionDraws": 74,
+    "doorOverlaps": 0,
+    "roofCellViolations": 0,
+    "shapeChanges": 0,
+    "followerFadeChecks": 37
+  },
+  "canopies": {
+    "baselineVisible": 1451,
+    "currentVisible": 1451,
+    "v19": 445,
+    "v17Remaining": 653,
+    "legacyRemaining": 353,
+    "addedSites": 0,
+    "removedSites": 0,
+    "maxWidth": 240,
+    "maxHeight": 227.13921113689096,
+    "fadeChecks": 445,
+    "rootRegistrationChecks": 596
+  },
+  "legacy": {
+    "scenery": 4109,
+    "furniture": 68,
+    "ground": 4118,
+    "utility": 257,
+    "routes": 241,
+    "selectedMotifs": 94,
+    "eligibleMotifs": 94
+  },
+  "budget": {
+    "expandedDistBytes": 260721676,
+    "limitBytes": 268435456,
+    "headroomBytes": 7713780,
+    "scope": "Snapshot of the art release; rerun against the actual campaign baseline after a future campaign merge."
+  }
+}

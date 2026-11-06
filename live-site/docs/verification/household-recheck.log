@@ -1,0 +1,17 @@
+✔ every furnished interior has reachable, individually selectable objects and wall-aligned ordinary exits (744.894731ms)
+✔ shared supply compartments pay once, survive a save roundtrip and never write quest flags (515.678418ms)
+✔ older saves inside newly occupied furniture recover on walkable ground without changing crew or supplies (449.541876ms)
+✔ room programs do not turn hidden ventilation works into bedrooms or galleries into repair shops (354.096064ms)
+✔ old obstacle rectangles become floor rather than rows of identical workbenches (381.203271ms)
+✔ furnishing maker marks refer to physical objects actually bound to the same room (408.516497ms)
+✔ past-era rooms inherit useful layouts without present-day portable-lore stamps or clues (362.257526ms)
+✔ every hidden room uses its authored purpose and keeps bedrooms out of stores, workshops and waiting rooms (403.53802ms)
+✔ the original communal stock stays claimed after an old save enters a recomposed room (485.212333ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4402.288112

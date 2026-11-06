@@ -1,0 +1,189 @@
+{
+  "version": "5.14.0",
+  "generator": "image_gen",
+  "original_art": true,
+  "sources": [
+    {
+      "path": "art/crew.webp",
+      "sha256": "f022f3e11e9a1d6c943e4a106b9e4931fa5ed587798a6c518e0837946801a4a5",
+      "production_brief": "Eight action and direction poses for seven original clay, water and industrial fantasy heroes; transparent 8 by 7 atlas."
+    },
+    {
+      "path": "art/creatures.webp",
+      "sha256": "a2cb37d226d50ecee904ba48bfb8c0db441fe896710bce0a7f12abafb20af5ab",
+      "production_brief": "Four combat poses for six original creatures: armored antler beetle, alarm drone, repair priest, feathered raptor, reactor cathedral, storm wyrm; transparent 4 by 6 atlas."
+    },
+    {
+      "path": "art/terrain.webp",
+      "sha256": "1ebbb8028e04cafc5e7d05a0f23532c2e3e89a01e69e5cede68d3d861b11dcab",
+      "production_brief": "Four environment families: industrial, garden village, memory ruins, mountain; five columns of ground, wall, tree or boiler, shrine and detail; transparent 5 by 4 atlas."
+    },
+    {
+      "path": "art/crew-run-v2.webp",
+      "sha256": "eb55dca955e539a9be64992046d81e7e8edc9645d372c6f319869947c9c6e0a5",
+      "generator": "built-in image_gen",
+      "reference": "art/crew.webp",
+      "production_brief": "Identity-preserving run cycles for seven existing crew members. Eight columns by seven rows; first four columns alternate foot contact and passing poses facing southeast, last four face northeast; mirror horizontally for western travel. Preserve costumes, faces and weapons; true transparent background, common cell size and foot baseline, no spell or attack poses. Detailed pixel-painted style matching the original crew atlas."
+    },
+    {
+      "path": "art/sable-starter.webp",
+      "sha256": "a8ef8dadb366a0613d631af7f89455a596712b71e6fdea16d3eae982622c8252",
+      "generator": "built-in image_gen",
+      "reference": "art/crew.webp",
+      "production_brief": "Identity-preserving Sable civilian courier, navy tunic, worn coat and canvas satchel, no armor or grand sword. Eight action/idle cells plus eight distance-cycle run cells in two rows. Same character and pixel-painted style as crew.webp."
+    },
+    {
+      "path": "art/home-interior.webp",
+      "sha256": "7ed046b3ee952a39d4887065c418fe287b317d922c6b41308b09b89936919f51",
+      "generator": "built-in image_gen",
+      "reference": "art/crew.webp",
+      "production_brief": "Four-cell warm modest artisan home atlas matching crew style: oak floorboards, timber window wall, indigo-blanket bed, reed-case table with two mugs and a candle. No people. Opaque material cells, transparent furniture cutouts."
+    },
+    {
+      "path": "art/bestiary.webp",
+      "sha256": "207c3c7ae11468bed48580c84141fb03ea82c6a0116f1c00c10ee4b49d7a8e1e",
+      "generator": "built-in image_gen",
+      "production_brief": "Twelve distinct clay/water/brass fantasy creatures in a 4-column, 3-row source atlas; measured cutouts and transparent isolation in bestiary-art.js."
+    },
+    {
+      "path": "art/supplies.webp",
+      "sha256": "124288d9441a75adf0f665e2d116d103a73a44ff43f5e6b6241ee00595830f29",
+      "generator": "built-in image_gen",
+      "production_brief": "Twenty-four painted inventory objects in a 6-column, 4-row atlas, ordered to match NEW_ITEMS."
+    },
+    {
+      "path": "art/furnishings.webp",
+      "sha256": "fc9e9251d6d5ec4dc92245bb21f398de1001531358b096eac2557c2499077981",
+      "generator": "built-in image_gen",
+      "production_brief": "Twenty-four separate painted RPG furnishings in six columns by four rows: bed, wardrobe, books, stove, hearth, meal table, washstand, desk, craft bench, tools, apothecary, cot, chest, barrel, chair, sofa, rug, plant, window, pantry, bedside cabinet, loom, equipment stand, music stand; transparent cutouts isolated at runtime."
+    },
+    {
+      "path": "art/bestiary3.webp",
+      "sha256": "30d3513054f66581d4c2c3b54ced097e8c0fc34526d74b9871b783d38d9de311",
+      "production_brief": "Built-in image_gen; transparent 6 by 4 full-body frontier creature atlas, ordered sandstone scorpion, saltglass fox, cactus armadillo, lantern beetle, ember basilisk, ceramic vulture, coral seahorse, pearl turtle, kelp octopus, mangrove crocodile, luminous bat, amethyst spider, snow owl, glacier elk, woolly yak, aurora hare, mushroom snail, spore badger, obsidian raven, brass centipede, storm medusa, cloud griffin, marble gargoyle, root sphinx. Painterly ceramic botanical mineral materials; upright anatomy, isolated padded cells, no lettering."
+    },
+    {
+      "path": "art/village-life-v2.webp",
+      "sha256": "aa1453339ee43cfdcddd641bf0394357f8f4e8a83bbf8f636cf6f21c0e0f6a53",
+      "production_brief": "Painted tabby cat, milk cow, golden village dog in four poses each; four transparent organic grass clumps. Built-in image_gen; 1254-square source retained in development/art/village-life-v2-source.webp."
+    },
+    {
+      "path": "art/civilians.webp",
+      "sha256": "f8d2f2c7245b46218bd9ece9bac76e5b1dbcd014f57cc7daaf0d76c34379cac3",
+      "production_brief": "Built-in image_gen original transparent 4×4 civilian atlas: household cook, young reader, stonemason, seedkeeper, healer, ferryman, teacher, merchant, archivist, mechanic, innkeeper, watchkeeper, young runner, older craftsman, older neighbour and trail guide. Full-body upright painterly fantasy figures; no platforms, detached props, labels or shadows. WebP delivery encoding retains transparency."
+    },
+    {
+      "path": "art/scene-props-v10.webp",
+      "sha256": "cef393ae2e99c10531590bf0af49954d11b1666c6db34085432e0a7495948eb8",
+      "generator": "built-in image_gen",
+      "production_brief": "Original transparent four-column two-row painterly environment atlas: aqueduct arch, listening kiln, sluice wheel, orchard bell, fern boulders, river reeds, clay tablets, copper listening mast. Elevated orthographic camera, consistent clay/brass/water palette, padded cells, no text or borrowed assets.",
+      "original_source": {
+        "path": "development/art/source-legacy-delivery/scene-props-v10.png",
+        "original_production_path": "dist/game/engine2/art/scene-props-v10.png",
+        "sha256": "058be38f04612bb56c46bf17bab87b30ad75b31c0c499079326e54b3686ee674",
+        "bytes": 2159156,
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "delivery": {
+        "format": "WebP",
+        "bytes": 714328,
+        "dimensions": [
+          1774,
+          887
+        ],
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "pixelFormat": "bgra",
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "alpha_exact": true,
+        "max_alpha_error": 0,
+        "verification_receipt": "development/art/legacy-delivery.json"
+      }
+    },
+    {
+      "path": "art/scene-props-v11.webp",
+      "sha256": "b494da88dc161da9ccfc689f18e61f5945e35b9553bdee7e8de3bded7d65bad1",
+      "generator": "built-in image_gen",
+      "production_brief": "Eight original painted props: rail signal, flood gauge, archive reading desk, mossy stump, amethyst outcrop, frost reeds, sandstone shrine and copper wind chimes. Exact prompt and measured source rectangles in scene-prop-repertoire.js.",
+      "original_source": {
+        "path": "development/art/source-legacy-delivery/scene-props-v11.png",
+        "original_production_path": "dist/game/engine2/art/scene-props-v11.png",
+        "sha256": "3ba1e7fe5df715f0fba67f14361f7545fd46cf2cef77f1835275bd542830cc7e",
+        "bytes": 2273190,
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "delivery": {
+        "format": "WebP",
+        "bytes": 712534,
+        "dimensions": [
+          1774,
+          887
+        ],
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "pixelFormat": "bgra",
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "alpha_exact": true,
+        "max_alpha_error": 0,
+        "verification_receipt": "development/art/legacy-delivery.json"
+      }
+    },
+    {
+      "path": "art/scenic-materials-v12.webp",
+      "sha256": "b4d9dd10766ed57e0bb1da619074475720f64abf6feded2a449d2f46c6c01528",
+      "generator": "built-in image_gen",
+      "production_brief": "Original straight-down 2 by 2 calm painterly terrain atlas: mossy meadow, worn ochre path, weathered grey stone, clear teal water. Exact prompt, source and encoding provenance in development/art/scenic-materials-v12-brief.txt. No borrowed artwork; generated repetition is visually checked, not certified seamless."
+    },
+    {
+      "path": "art/occupied-workstations-v6.webp",
+      "delivery_note": "Existing occupied-room workstation artwork; technical encoding only. The source PNG and all measured crop coordinates remain unchanged.",
+      "sha256": "0f7cad3f5d82842567fa47a034fadd92540c564f4dcda43eb55a9ff79811323e",
+      "original_source": {
+        "path": "development/art/source-legacy-delivery/occupied-workstations-v6.png",
+        "original_production_path": "dist/game/engine2/art/occupied-workstations-v6.png",
+        "sha256": "15f62c279cbae5e0197609b1bd2e8823f24868f4221ef9791cfad33a4ed866c9",
+        "bytes": 3066867,
+        "dimensions": [
+          1536,
+          1024
+        ]
+      },
+      "delivery": {
+        "format": "WebP",
+        "bytes": 777212,
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "pixelFormat": "bgra",
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "alpha_exact": true,
+        "max_alpha_error": 0,
+        "verification_receipt": "development/art/legacy-delivery.json"
+      }
+    }
+  ]
+}

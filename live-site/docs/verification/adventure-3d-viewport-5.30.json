@@ -1,0 +1,1489 @@
+{
+  "schema": "ash-aether.adventure-3d-code-review/3",
+  "release": "5.30",
+  "checked_at_utc": "2026-10-30T19:09:42.122Z",
+  "method": "Node constructs the real World and Adventure3DRenderer with a minimal canvas and software raster callback stub. Actual architecture/dynamic meshes, scene state, projection matrices and save validation run. A separate actual software painter fixture checks billboard projection invariance. UI reservation values are explicit test inputs, not browser DOM measurements.",
+  "source_snapshot_at_report": {
+    "dist/game/engine2/cistern-renderer.js": "736088f412436ae469a4ecdc7586d4a631dbe1e1e5349cc43194d9d8a42a4774",
+    "dist/game/engine2/cistern-software.js": "373958557569822b4ccc3e46b6cc1116fd94aabc7daed7d87178b1768dbbec8d",
+    "dist/game/engine2/adventure-3d-renderer.js": "07f0e1455685270fdb0c285f88d0e7e5ad973140885db08423a7d430e7b987c1",
+    "dist/game/engine2/adventure-3d-geometry.js": "047e0e0d2cb3edef1f223ad7189d6e4621a3b06ec82d38da8b430dbfa6e8da0b",
+    "dist/game/engine2/adventure-presentation.js": "df8a41904d3d17663f02f93ae948fc72681e1a3645d5376ec04c9a3be24bab24",
+    "dist/game/engine2/adventure-world-props.js": "1aac083bf3d3edc8312102925f9b3733b238e31d6c85ed104f154dacb3224ce1",
+    "dist/game/engine2/campaign-actuators.js": "25e58c086bd1de9eef2d04eeafddfb69a892ff342d0f5bab8d7b8c2b8f256563",
+    "dist/game/engine2/world-controls.js": "9cf0b17f3fc890d66d845e71a13d6fd3495005468982c304d80376a7fee9a2f4",
+    "dist/game/engine2/touch-layout.js": "5dae9e882eef3d3bc2cc355f324458189f2df9babae4789707ef2c552e445521"
+  },
+  "viewport_projection_checks": [
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "canvas_offset": [
+        16,
+        30
+      ],
+      "field": {
+        "lead_vertical_fraction": 0.6246632921875781,
+        "world_roundtrip_error_tiles": 0.00003531038534104573
+      },
+      "battle": {
+        "reserved_ui_input": {
+          "hudHeight": 58,
+          "battleDockHeight": 230,
+          "battleDockWidth": 0,
+          "touch": false
+        },
+        "reserved_world_bounds": {
+          "left": 8,
+          "right": 1272,
+          "top": 66,
+          "bottom": 466,
+          "shiftX": 0.0388704401959906,
+          "shiftY": 0.3548821399307117
+        },
+        "lead_screen": [
+          640.0000692466311,
+          322.0000273992212
+        ],
+        "lead_head_screen_y": 225.2027828372524,
+        "world_roundtrip_error_tiles": 0.00006314316916822892,
+        "party_feet_clear_reserved_ui": true
+      },
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "canvas_offset": [
+        16,
+        30
+      ],
+      "field": {
+        "lead_vertical_fraction": 0.608031497895613,
+        "world_roundtrip_error_tiles": 0.00008953334367220121
+      },
+      "battle": {
+        "reserved_ui_input": {
+          "hudHeight": 112,
+          "battleDockHeight": 230,
+          "battleDockWidth": 0,
+          "touch": true,
+          "touchReserve": 190
+        },
+        "reserved_world_bounds": {
+          "left": 8,
+          "right": 492,
+          "top": 120,
+          "bottom": 570,
+          "shiftX": 0.0999600897361662,
+          "shiftY": 0.22577173365530354
+        },
+        "lead_screen": [
+          249.99997573798257,
+          407.99999041165074
+        ],
+        "lead_head_screen_y": 314.4460023413737,
+        "world_roundtrip_error_tiles": 0.000043919339034893466,
+        "party_feet_clear_reserved_ui": true
+      },
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "canvas_offset": [
+        16,
+        30
+      ],
+      "field": {
+        "lead_vertical_fraction": 0.608031497895613,
+        "world_roundtrip_error_tiles": 0.00004362400662497034
+      },
+      "battle": {
+        "reserved_ui_input": {
+          "hudHeight": 96,
+          "battleDockHeight": 260,
+          "battleDockWidth": 0,
+          "touch": true,
+          "touchReserve": 190
+        },
+        "reserved_world_bounds": {
+          "left": 8,
+          "right": 382,
+          "top": 104,
+          "bottom": 560,
+          "shiftX": 0.13126422132977728,
+          "shiftY": 0.2780535171182401
+        },
+        "lead_screen": [
+          195,
+          395.8399987928083
+        ],
+        "lead_head_screen_y": 300.0152901845831,
+        "world_roundtrip_error_tiles": 0.000028837438913977512,
+        "party_feet_clear_reserved_ui": true
+      },
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "canvas_offset": [
+        16,
+        30
+      ],
+      "field": {
+        "lead_vertical_fraction": 0.6246632921875781,
+        "world_roundtrip_error_tiles": 0.0000722879141649943
+      },
+      "battle": {
+        "reserved_ui_input": {
+          "hudHeight": 52,
+          "battleDockHeight": 0,
+          "battleDockWidth": 324,
+          "touch": true,
+          "touchReserve": 92
+        },
+        "reserved_world_bounds": {
+          "left": 8,
+          "right": 512,
+          "top": 60,
+          "bottom": 286,
+          "shiftX": -0.35195472888023666,
+          "shiftY": 0.19989068693925865
+        },
+        "lead_screen": [
+          260.00001580569455,
+          204.63999921362802
+        ],
+        "lead_head_screen_y": 152.2081578399904,
+        "world_roundtrip_error_tiles": 0.000005416371527737156,
+        "party_feet_clear_reserved_ui": true
+      },
+      "save_unchanged": true
+    }
+  ],
+  "house_zoom_checks": [
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "zoom": 0.5,
+      "lead_screen": [
+        225.00998996654513,
+        501.01795548771236
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.000013280553474736962,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "zoom": 0.75,
+      "lead_screen": [
+        225.00994818195957,
+        501.01794404790155
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00005478500106800869,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "zoom": 1.35,
+      "lead_screen": [
+        225.00997756595845,
+        501.01795426598505
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00008953334367220121,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "zoom": 2,
+      "lead_screen": [
+        225.0099452166019,
+        501.017965816862
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.000007825202272668833,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        500,
+        824
+      ],
+      "zoom": 3,
+      "lead_screen": [
+        225.01010157182526,
+        501.01794715775304
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.000025974464346421983,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "zoom": 0.5,
+      "lead_screen": [
+        615.1229267290965,
+        449.7575686766014
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00006182433246132378,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "zoom": 0.75,
+      "lead_screen": [
+        615.1229448459478,
+        449.7575656193828
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00008788208283574916,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "zoom": 1.35,
+      "lead_screen": [
+        615.122918274566,
+        449.7575703750562
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00003531038534104573,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "zoom": 2,
+      "lead_screen": [
+        615.1230704561159,
+        449.7575558815753
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00005390019411400863,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "zoom": 3,
+      "lead_screen": [
+        615.122865936996,
+        449.7575903035925
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.000016355019522101,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "zoom": 0.5,
+      "lead_screen": [
+        408.5248925346446,
+        243.6186830331591
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00006172569655683157,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "zoom": 0.75,
+      "lead_screen": [
+        408.52489996758607,
+        243.61868137716567
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.0000646237937475687,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "zoom": 1.35,
+      "lead_screen": [
+        408.52489558745987,
+        243.61868395315545
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.0000722879141649943,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "zoom": 2,
+      "lead_screen": [
+        408.5248655902319,
+        243.61867610251994
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.000054600640503176544,
+      "save_unchanged": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "zoom": 3,
+      "lead_screen": [
+        408.52495425460484,
+        243.61869474777927
+      ],
+      "camera_eye_fixed": true,
+      "lead_visible": true,
+      "roundtrip_error_tiles": 0.00001541824688093855,
+      "save_unchanged": true
+    }
+  ],
+  "origin_checks": [
+    {
+      "origin": "sable-reed",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.000039989015298210276,
+      "initial_control_in_portrait_view": true
+    },
+    {
+      "origin": "iona-lowbank",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.00006053555003992708,
+      "initial_control_in_portrait_view": false
+    },
+    {
+      "origin": "rook-regulator",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.00006297268277413039,
+      "initial_control_in_portrait_view": false
+    },
+    {
+      "origin": "brass-rail",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.000020883552660820523,
+      "initial_control_in_portrait_view": false
+    },
+    {
+      "origin": "riven-tide",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.00012872014167920106,
+      "initial_control_in_portrait_view": false
+    },
+    {
+      "origin": "mira-archive",
+      "physical_action": "work",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.00010805584553435473,
+      "initial_control_in_portrait_view": false
+    },
+    {
+      "origin": "veyr-storm",
+      "physical_action": "receiver",
+      "save_unchanged": true,
+      "validated_save_origin_preserved": true,
+      "projected_control_roundtrip_error_tiles": 0.0002732555005006624,
+      "initial_control_in_portrait_view": true
+    }
+  ],
+  "scene_geometry_checks": [
+    {
+      "scene": 230,
+      "key": "security",
+      "vertices": 32448,
+      "finite": true
+    },
+    {
+      "scene": 229,
+      "key": "console",
+      "vertices": 19152,
+      "finite": true
+    },
+    {
+      "scene": 228,
+      "key": "workshop",
+      "vertices": 22644,
+      "finite": true
+    },
+    {
+      "scene": 5,
+      "key": "town",
+      "vertices": 88272,
+      "finite": true
+    },
+    {
+      "scene": 2,
+      "key": "home",
+      "vertices": 15606,
+      "finite": true
+    },
+    {
+      "scene": 4,
+      "key": "instrumentworks",
+      "vertices": 19380,
+      "finite": true
+    },
+    {
+      "scene": 12,
+      "key": "inn",
+      "vertices": 22872,
+      "finite": true
+    },
+    {
+      "scene": 17,
+      "key": "market",
+      "vertices": 23166,
+      "finite": true
+    },
+    {
+      "scene": 13,
+      "key": "guild",
+      "vertices": 17178,
+      "finite": true
+    },
+    {
+      "scene": 50,
+      "key": "clinic",
+      "vertices": 20100,
+      "finite": true
+    },
+    {
+      "scene": 61,
+      "key": "carpenter",
+      "vertices": 17424,
+      "finite": true
+    },
+    {
+      "scene": 135,
+      "key": "bridge",
+      "vertices": 56730,
+      "finite": true
+    },
+    {
+      "scene": 214,
+      "key": "refuge",
+      "vertices": 37482,
+      "finite": true
+    },
+    {
+      "scene": 47,
+      "key": "passages",
+      "vertices": 53862,
+      "finite": true
+    },
+    {
+      "scene": 49,
+      "key": "river",
+      "vertices": 48714,
+      "finite": true
+    },
+    {
+      "scene": 48,
+      "key": "bypass",
+      "vertices": 57594,
+      "finite": true
+    },
+    {
+      "scene": 292,
+      "key": "chapel",
+      "vertices": 18456,
+      "finite": true
+    },
+    {
+      "scene": 125,
+      "key": "bell_crypt",
+      "vertices": 24222,
+      "finite": true
+    },
+    {
+      "scene": 212,
+      "key": "west",
+      "vertices": 77772,
+      "finite": true
+    },
+    {
+      "scene": 213,
+      "key": "east",
+      "vertices": 40776,
+      "finite": true
+    },
+    {
+      "scene": 234,
+      "key": "unindexed",
+      "vertices": 11316,
+      "finite": true
+    },
+    {
+      "scene": 28,
+      "key": "catwalk",
+      "vertices": 87252,
+      "finite": true
+    },
+    {
+      "scene": 29,
+      "key": "office",
+      "vertices": 25320,
+      "finite": true
+    },
+    {
+      "scene": 30,
+      "key": "hold",
+      "vertices": 15108,
+      "finite": true
+    },
+    {
+      "scene": 19,
+      "key": "forest",
+      "vertices": 109986,
+      "finite": true
+    },
+    {
+      "scene": 20,
+      "key": "grove",
+      "vertices": 20268,
+      "finite": true
+    },
+    {
+      "scene": 42,
+      "key": "sanctuary",
+      "vertices": 27234,
+      "finite": true
+    },
+    {
+      "scene": 294,
+      "key": "reactor",
+      "vertices": 50070,
+      "finite": true
+    },
+    {
+      "scene": 295,
+      "key": "summit",
+      "vertices": 25668,
+      "finite": true
+    },
+    {
+      "scene": 112,
+      "key": "field",
+      "vertices": 63708,
+      "finite": true
+    },
+    {
+      "scene": 406,
+      "key": "lowbank_shelter",
+      "vertices": 41850,
+      "finite": true
+    },
+    {
+      "scene": 256,
+      "key": "field",
+      "vertices": 89226,
+      "finite": true
+    },
+    {
+      "scene": 225,
+      "key": "manifest_depot",
+      "vertices": 19236,
+      "finite": true
+    },
+    {
+      "scene": 68,
+      "key": "field",
+      "vertices": 42222,
+      "finite": true
+    },
+    {
+      "scene": 160,
+      "key": "flood_spillway",
+      "vertices": 28200,
+      "finite": true
+    },
+    {
+      "scene": 70,
+      "key": "field",
+      "vertices": 21768,
+      "finite": true
+    },
+    {
+      "scene": 66,
+      "key": "name_vault",
+      "vertices": 24654,
+      "finite": true
+    },
+    {
+      "scene": 73,
+      "key": "field",
+      "vertices": 29430,
+      "finite": true
+    },
+    {
+      "scene": 359,
+      "key": "letter_attic",
+      "vertices": 21672,
+      "finite": true
+    },
+    {
+      "scene": 164,
+      "key": "field",
+      "vertices": 49590,
+      "finite": true
+    },
+    {
+      "scene": 172,
+      "key": "echo_chamber",
+      "vertices": 16632,
+      "finite": true
+    },
+    {
+      "scene": 145,
+      "key": "field",
+      "vertices": 47856,
+      "finite": true
+    },
+    {
+      "scene": 144,
+      "key": "refugee_gate",
+      "vertices": 101574,
+      "finite": true
+    },
+    {
+      "scene": 142,
+      "key": "field",
+      "vertices": 80862,
+      "finite": true
+    },
+    {
+      "scene": 394,
+      "key": "resonance_gallery",
+      "vertices": 47430,
+      "finite": true
+    },
+    {
+      "scene": 143,
+      "key": "field",
+      "vertices": 49362,
+      "finite": true
+    },
+    {
+      "scene": 313,
+      "key": "lens_workshop",
+      "vertices": 34818,
+      "finite": true
+    },
+    {
+      "scene": 146,
+      "key": "field",
+      "vertices": 46332,
+      "finite": true
+    },
+    {
+      "scene": 315,
+      "key": "relief_store",
+      "vertices": 23016,
+      "finite": true
+    },
+    {
+      "scene": 147,
+      "key": "field",
+      "vertices": 29160,
+      "finite": true
+    },
+    {
+      "scene": 149,
+      "key": "storm_anchorage",
+      "vertices": 33948,
+      "finite": true
+    },
+    {
+      "scene": 438,
+      "key": "field",
+      "vertices": 23988,
+      "finite": true
+    },
+    {
+      "scene": 259,
+      "key": "witness_vault",
+      "vertices": 17220,
+      "finite": true
+    },
+    {
+      "scene": 151,
+      "key": "field",
+      "vertices": 24168,
+      "finite": true
+    },
+    {
+      "scene": 303,
+      "key": "pottery_floor",
+      "vertices": 71802,
+      "finite": true
+    },
+    {
+      "scene": 392,
+      "key": "field",
+      "vertices": 118302,
+      "finite": true
+    },
+    {
+      "scene": 314,
+      "key": "vent_house",
+      "vertices": 31068,
+      "finite": true
+    },
+    {
+      "scene": 393,
+      "key": "field",
+      "vertices": 68490,
+      "finite": true
+    },
+    {
+      "scene": 319,
+      "key": "common_assembly",
+      "vertices": 27180,
+      "finite": true
+    },
+    {
+      "scene": 251,
+      "key": "field",
+      "vertices": 62970,
+      "finite": true
+    },
+    {
+      "scene": 404,
+      "key": "listening_chamber",
+      "vertices": 28044,
+      "finite": true
+    },
+    {
+      "scene": 226,
+      "key": "hub",
+      "vertices": 29856,
+      "finite": true
+    },
+    {
+      "scene": 701,
+      "key": "secret_1",
+      "vertices": 19950,
+      "finite": true
+    },
+    {
+      "scene": 702,
+      "key": "secret_2",
+      "vertices": 23442,
+      "finite": true
+    },
+    {
+      "scene": 703,
+      "key": "secret_3",
+      "vertices": 23652,
+      "finite": true
+    },
+    {
+      "scene": 704,
+      "key": "secret_4",
+      "vertices": 22788,
+      "finite": true
+    },
+    {
+      "scene": 705,
+      "key": "secret_5",
+      "vertices": 19722,
+      "finite": true
+    },
+    {
+      "scene": 706,
+      "key": "secret_6",
+      "vertices": 23094,
+      "finite": true
+    },
+    {
+      "scene": 707,
+      "key": "secret_7",
+      "vertices": 21204,
+      "finite": true
+    },
+    {
+      "scene": 708,
+      "key": "secret_8",
+      "vertices": 22362,
+      "finite": true
+    },
+    {
+      "scene": 709,
+      "key": "secret_9",
+      "vertices": 20142,
+      "finite": true
+    },
+    {
+      "scene": 710,
+      "key": "secret_10",
+      "vertices": 22662,
+      "finite": true
+    },
+    {
+      "scene": 711,
+      "key": "secret_11",
+      "vertices": 22722,
+      "finite": true
+    },
+    {
+      "scene": 712,
+      "key": "secret_12",
+      "vertices": 22038,
+      "finite": true
+    },
+    {
+      "scene": 713,
+      "key": "secret_13",
+      "vertices": 21636,
+      "finite": true
+    },
+    {
+      "scene": 714,
+      "key": "secret_14",
+      "vertices": 21822,
+      "finite": true
+    },
+    {
+      "scene": 715,
+      "key": "secret_15",
+      "vertices": 19914,
+      "finite": true
+    },
+    {
+      "scene": 716,
+      "key": "secret_16",
+      "vertices": 22620,
+      "finite": true
+    },
+    {
+      "scene": 717,
+      "key": "secret_17",
+      "vertices": 20226,
+      "finite": true
+    },
+    {
+      "scene": 718,
+      "key": "secret_18",
+      "vertices": 19026,
+      "finite": true
+    },
+    {
+      "scene": 719,
+      "key": "secret_19",
+      "vertices": 21138,
+      "finite": true
+    },
+    {
+      "scene": 720,
+      "key": "secret_20",
+      "vertices": 20640,
+      "finite": true
+    },
+    {
+      "scene": 721,
+      "key": "secret_21",
+      "vertices": 18936,
+      "finite": true
+    },
+    {
+      "scene": 722,
+      "key": "secret_22",
+      "vertices": 21660,
+      "finite": true
+    },
+    {
+      "scene": 723,
+      "key": "secret_23",
+      "vertices": 20118,
+      "finite": true
+    },
+    {
+      "scene": 724,
+      "key": "secret_24",
+      "vertices": 20490,
+      "finite": true
+    },
+    {
+      "scene": 2000,
+      "key": "frontier_dunes_0",
+      "vertices": 24108,
+      "finite": true
+    },
+    {
+      "scene": 2001,
+      "key": "frontier_dunes_1",
+      "vertices": 28146,
+      "finite": true
+    },
+    {
+      "scene": 2002,
+      "key": "frontier_dunes_2",
+      "vertices": 28854,
+      "finite": true
+    },
+    {
+      "scene": 2003,
+      "key": "frontier_dunes_3",
+      "vertices": 29538,
+      "finite": true
+    },
+    {
+      "scene": 2004,
+      "key": "frontier_dunes_4",
+      "vertices": 26358,
+      "finite": true
+    },
+    {
+      "scene": 2005,
+      "key": "frontier_salt_0",
+      "vertices": 29334,
+      "finite": true
+    },
+    {
+      "scene": 2006,
+      "key": "frontier_salt_1",
+      "vertices": 28434,
+      "finite": true
+    },
+    {
+      "scene": 2007,
+      "key": "frontier_salt_2",
+      "vertices": 24630,
+      "finite": true
+    },
+    {
+      "scene": 2008,
+      "key": "frontier_salt_3",
+      "vertices": 28506,
+      "finite": true
+    },
+    {
+      "scene": 2009,
+      "key": "frontier_salt_4",
+      "vertices": 27330,
+      "finite": true
+    },
+    {
+      "scene": 2010,
+      "key": "frontier_cactus_0",
+      "vertices": 27618,
+      "finite": true
+    },
+    {
+      "scene": 2011,
+      "key": "frontier_cactus_1",
+      "vertices": 26028,
+      "finite": true
+    },
+    {
+      "scene": 2012,
+      "key": "frontier_cactus_2",
+      "vertices": 22500,
+      "finite": true
+    },
+    {
+      "scene": 2013,
+      "key": "frontier_cactus_3",
+      "vertices": 31320,
+      "finite": true
+    },
+    {
+      "scene": 2014,
+      "key": "frontier_cactus_4",
+      "vertices": 32448,
+      "finite": true
+    },
+    {
+      "scene": 2015,
+      "key": "frontier_caldera_0",
+      "vertices": 31440,
+      "finite": true
+    },
+    {
+      "scene": 2016,
+      "key": "frontier_caldera_1",
+      "vertices": 25992,
+      "finite": true
+    },
+    {
+      "scene": 2017,
+      "key": "frontier_caldera_2",
+      "vertices": 27702,
+      "finite": true
+    },
+    {
+      "scene": 2018,
+      "key": "frontier_caldera_3",
+      "vertices": 25974,
+      "finite": true
+    },
+    {
+      "scene": 2019,
+      "key": "frontier_caldera_4",
+      "vertices": 25848,
+      "finite": true
+    },
+    {
+      "scene": 2020,
+      "key": "frontier_coral_0",
+      "vertices": 34740,
+      "finite": true
+    },
+    {
+      "scene": 2021,
+      "key": "frontier_coral_1",
+      "vertices": 32616,
+      "finite": true
+    },
+    {
+      "scene": 2022,
+      "key": "frontier_coral_2",
+      "vertices": 27990,
+      "finite": true
+    },
+    {
+      "scene": 2023,
+      "key": "frontier_coral_3",
+      "vertices": 34884,
+      "finite": true
+    },
+    {
+      "scene": 2024,
+      "key": "frontier_coral_4",
+      "vertices": 35430,
+      "finite": true
+    },
+    {
+      "scene": 2025,
+      "key": "frontier_mangrove_0",
+      "vertices": 31290,
+      "finite": true
+    },
+    {
+      "scene": 2026,
+      "key": "frontier_mangrove_1",
+      "vertices": 24174,
+      "finite": true
+    },
+    {
+      "scene": 2027,
+      "key": "frontier_mangrove_2",
+      "vertices": 34272,
+      "finite": true
+    },
+    {
+      "scene": 2028,
+      "key": "frontier_mangrove_3",
+      "vertices": 26016,
+      "finite": true
+    },
+    {
+      "scene": 2029,
+      "key": "frontier_mangrove_4",
+      "vertices": 28230,
+      "finite": true
+    },
+    {
+      "scene": 2030,
+      "key": "frontier_crystal_0",
+      "vertices": 25620,
+      "finite": true
+    },
+    {
+      "scene": 2031,
+      "key": "frontier_crystal_1",
+      "vertices": 31380,
+      "finite": true
+    },
+    {
+      "scene": 2032,
+      "key": "frontier_crystal_2",
+      "vertices": 28596,
+      "finite": true
+    },
+    {
+      "scene": 2033,
+      "key": "frontier_crystal_3",
+      "vertices": 27684,
+      "finite": true
+    },
+    {
+      "scene": 2034,
+      "key": "frontier_crystal_4",
+      "vertices": 28734,
+      "finite": true
+    },
+    {
+      "scene": 2035,
+      "key": "frontier_glacier_0",
+      "vertices": 29364,
+      "finite": true
+    },
+    {
+      "scene": 2036,
+      "key": "frontier_glacier_1",
+      "vertices": 30672,
+      "finite": true
+    },
+    {
+      "scene": 2037,
+      "key": "frontier_glacier_2",
+      "vertices": 27336,
+      "finite": true
+    },
+    {
+      "scene": 2038,
+      "key": "frontier_glacier_3",
+      "vertices": 27624,
+      "finite": true
+    },
+    {
+      "scene": 2039,
+      "key": "frontier_glacier_4",
+      "vertices": 25056,
+      "finite": true
+    },
+    {
+      "scene": 2040,
+      "key": "frontier_aurora_0",
+      "vertices": 25392,
+      "finite": true
+    },
+    {
+      "scene": 2041,
+      "key": "frontier_aurora_1",
+      "vertices": 28776,
+      "finite": true
+    },
+    {
+      "scene": 2042,
+      "key": "frontier_aurora_2",
+      "vertices": 34092,
+      "finite": true
+    },
+    {
+      "scene": 2043,
+      "key": "frontier_aurora_3",
+      "vertices": 26808,
+      "finite": true
+    },
+    {
+      "scene": 2044,
+      "key": "frontier_aurora_4",
+      "vertices": 28200,
+      "finite": true
+    },
+    {
+      "scene": 2045,
+      "key": "frontier_spore_0",
+      "vertices": 35526,
+      "finite": true
+    },
+    {
+      "scene": 2046,
+      "key": "frontier_spore_1",
+      "vertices": 35952,
+      "finite": true
+    },
+    {
+      "scene": 2047,
+      "key": "frontier_spore_2",
+      "vertices": 34110,
+      "finite": true
+    },
+    {
+      "scene": 2048,
+      "key": "frontier_spore_3",
+      "vertices": 43740,
+      "finite": true
+    },
+    {
+      "scene": 2049,
+      "key": "frontier_spore_4",
+      "vertices": 40116,
+      "finite": true
+    },
+    {
+      "scene": 2050,
+      "key": "frontier_storm_0",
+      "vertices": 29892,
+      "finite": true
+    },
+    {
+      "scene": 2051,
+      "key": "frontier_storm_1",
+      "vertices": 33486,
+      "finite": true
+    },
+    {
+      "scene": 2052,
+      "key": "frontier_storm_2",
+      "vertices": 36180,
+      "finite": true
+    },
+    {
+      "scene": 2053,
+      "key": "frontier_storm_3",
+      "vertices": 32412,
+      "finite": true
+    },
+    {
+      "scene": 2054,
+      "key": "frontier_storm_4",
+      "vertices": 31920,
+      "finite": true
+    },
+    {
+      "scene": 2055,
+      "key": "frontier_marble_0",
+      "vertices": 30630,
+      "finite": true
+    },
+    {
+      "scene": 2056,
+      "key": "frontier_marble_1",
+      "vertices": 29412,
+      "finite": true
+    },
+    {
+      "scene": 2057,
+      "key": "frontier_marble_2",
+      "vertices": 32784,
+      "finite": true
+    },
+    {
+      "scene": 2058,
+      "key": "frontier_marble_3",
+      "vertices": 32394,
+      "finite": true
+    },
+    {
+      "scene": 2059,
+      "key": "frontier_marble_4",
+      "vertices": 27732,
+      "finite": true
+    },
+    {
+      "scene": 50000,
+      "key": "origin_sable-reed_0",
+      "vertices": 15642,
+      "finite": true
+    },
+    {
+      "scene": 50001,
+      "key": "origin_sable-reed_1",
+      "vertices": 78702,
+      "finite": true
+    },
+    {
+      "scene": 50002,
+      "key": "origin_iona-lowbank_0",
+      "vertices": 39558,
+      "finite": true
+    },
+    {
+      "scene": 50003,
+      "key": "origin_iona-lowbank_1",
+      "vertices": 37362,
+      "finite": true
+    },
+    {
+      "scene": 50004,
+      "key": "origin_rook-regulator_0",
+      "vertices": 20616,
+      "finite": true
+    },
+    {
+      "scene": 50005,
+      "key": "origin_rook-regulator_1",
+      "vertices": 45966,
+      "finite": true
+    },
+    {
+      "scene": 50006,
+      "key": "origin_brass-rail_0",
+      "vertices": 34152,
+      "finite": true
+    },
+    {
+      "scene": 50007,
+      "key": "origin_brass-rail_1",
+      "vertices": 37776,
+      "finite": true
+    },
+    {
+      "scene": 50008,
+      "key": "origin_riven-tide_0",
+      "vertices": 54234,
+      "finite": true
+    },
+    {
+      "scene": 50009,
+      "key": "origin_riven-tide_1",
+      "vertices": 41640,
+      "finite": true
+    },
+    {
+      "scene": 50010,
+      "key": "origin_mira-archive_0",
+      "vertices": 76764,
+      "finite": true
+    },
+    {
+      "scene": 50011,
+      "key": "origin_mira-archive_1",
+      "vertices": 40140,
+      "finite": true
+    },
+    {
+      "scene": 50012,
+      "key": "origin_veyr-storm_0",
+      "vertices": 31062,
+      "finite": true
+    },
+    {
+      "scene": 50013,
+      "key": "origin_veyr-storm_1",
+      "vertices": 25590,
+      "finite": true
+    },
+    {
+      "scene": 4700,
+      "key": "origin_storm",
+      "vertices": 31152,
+      "finite": true
+    },
+    {
+      "scene": 4701,
+      "key": "origin_mangrove",
+      "vertices": 26238,
+      "finite": true
+    },
+    {
+      "scene": 4702,
+      "key": "origin_caldera",
+      "vertices": 18804,
+      "finite": true
+    },
+    {
+      "scene": 4703,
+      "key": "origin_crystal",
+      "vertices": 30564,
+      "finite": true
+    },
+    {
+      "scene": 4704,
+      "key": "origin_coral",
+      "vertices": 32412,
+      "finite": true
+    },
+    {
+      "scene": 4705,
+      "key": "origin_spore",
+      "vertices": 34302,
+      "finite": true
+    },
+    {
+      "scene": 4706,
+      "key": "origin_aurora",
+      "vertices": 23700,
+      "finite": true
+    }
+  ],
+  "limits": [
+    "Illustrated sprite textures and actual rasterization are omitted from the actual-data renderer fixture.",
+    "Battle command and HUD bounds are representative inputs; browser QA must establish their measured dimensions and final appearance.",
+    "Scene sweeps construct geometry against default campaign state; they do not simulate every quest permutation.",
+    "Offscreen first objectives require ordinary navigation or the existing guide."
+  ],
+  "passed": true,
+  "billboard_projection_check": {
+    "unframed_pixels": [
+      61.16209420028508,
+      118.65446433983931
+    ],
+    "framed_pixels": [
+      61.162095713621966,
+      118.65446591165846
+    ],
+    "dimensions_invariant": true
+  },
+  "composite_control_check": {
+    "native_scene": 135,
+    "device": "puzzle",
+    "present_preview": 0.5,
+    "native_save_unchanged": true,
+    "cancel_keeps_native_state": true,
+    "past_owner_selected": true
+  }
+}

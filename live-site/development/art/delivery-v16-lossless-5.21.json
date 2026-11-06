@@ -1,0 +1,89 @@
+{
+  "schema": "ash-aether.lossless-delivery/v1",
+  "release": "5.21.0",
+  "encoding": {
+    "format": "WebP",
+    "lossless": true,
+    "method": 6,
+    "exact_transparent_rgb": true
+  },
+  "authored_art": [
+    {
+      "source": "development/art/source-v16/ash-herald-motion-v16.png",
+      "delivery": "dist/game/engine2/art/ash-herald-motion-v16.webp",
+      "source_sha256": "bd7bb714865aa1ded3c5d41eaf595384c09e6ea5e0ca8b112b9e799e3c830293",
+      "delivery_sha256": "21fc11470f0ab26d4ede16854d5b0b11de192f195ff4e2fbc3c6c337a6e7e576",
+      "source_bytes": 2052365,
+      "delivery_bytes": 1417214,
+      "width": 1448,
+      "height": 1086,
+      "alpha_equal": true,
+      "all_rgba_pixels_equal": true,
+      "decoded_rgba_sha256": "bdf74467ad32ff8e6648fd7d6c5a0d5c4d2578da6708d9f50c59e3478af290de"
+    },
+    {
+      "source": "development/art/source-v16/authored-props-v16.png",
+      "delivery": "dist/game/engine2/art/authored-props-v16.webp",
+      "source_sha256": "4f8ae55605e31cb14628af9ff95a5322cbf96f1df71f0cc6acde7f4ecd1212f1",
+      "delivery_sha256": "224bf9e8c204b4bcb5f7fa31380d82e03f6e3f91a0d42a3d70cca7b70042f4f7",
+      "source_bytes": 2653977,
+      "delivery_bytes": 1845334,
+      "width": 1774,
+      "height": 887,
+      "alpha_equal": true,
+      "all_rgba_pixels_equal": true,
+      "decoded_rgba_sha256": "a5c08497c697840f36fe76c1afbe6c716b1ef5ddafbd3acf827101a3fec05178"
+    },
+    {
+      "source": "development/art/source-v16/moonveil-motion-v16.png",
+      "delivery": "dist/game/engine2/art/moonveil-motion-v16.webp",
+      "source_sha256": "5e0e331104c53ad7284c0d464ba4678e066123a0597200df9e153ec1ef334153",
+      "delivery_sha256": "acbb4b5bbd2eb3a59e251135391e57cd75b80aa88beb7dcaa82c6cce2f12cabf",
+      "source_bytes": 2357969,
+      "delivery_bytes": 1582516,
+      "width": 1536,
+      "height": 1024,
+      "alpha_equal": true,
+      "all_rgba_pixels_equal": true,
+      "decoded_rgba_sha256": "853af642643bab6f455e69c10450a19ba56f19be59cb84fda2810d96c8a5f238"
+    },
+    {
+      "source": "development/art/source-v16/sable-motion-v16.png",
+      "delivery": "dist/game/engine2/art/sable-motion-v16.webp",
+      "source_sha256": "b94a66fba9874b4902d753f7b332a8347230df72996893a4b1ed350537ee5042",
+      "delivery_sha256": "53c8a500de5425deeadb0a9baea84b23f23d0f76885f2e245744598363dbbbb0",
+      "source_bytes": 1675726,
+      "delivery_bytes": 1173008,
+      "width": 1341,
+      "height": 1173,
+      "alpha_equal": true,
+      "all_rgba_pixels_equal": true,
+      "decoded_rgba_sha256": "0ac9ff4118d16870cfd384d075b0f41b79c178e25ea85cee2f84062758968456"
+    }
+  ],
+  "relocated_motion_sources": [
+    {
+      "source": "dist/game/animation-expansion/motion/crew-actions-v1.webp",
+      "preserved": "development/publication-originals/motion/crew-actions-v1.webp",
+      "sha256": "01b679f352783aa8678063bb314ef2effb607f280813b0b3c70a230f9d52e492",
+      "bytes": 1851288
+    },
+    {
+      "source": "dist/game/animation-expansion/motion/crew-actions-secondary-v1.webp",
+      "preserved": "development/publication-originals/motion/crew-actions-secondary-v1.webp",
+      "sha256": "d37b528adfe3850d9f86b19f742ff314379dbac9c7914f9fe596268c6215cb56",
+      "bytes": 1947638
+    },
+    {
+      "source": "dist/game/animation-expansion/motion/monster-actions-v1.webp",
+      "preserved": "development/publication-originals/motion/monster-actions-v1.webp",
+      "sha256": "ee2b68fa74747785edcd4fc8d6c2768af917f2ba87ced76c842773a8dae6b034",
+      "bytes": 1753410
+    }
+  ],
+  "dist_bytes_before": 269972847,
+  "dist_bytes_after": 261698900,
+  "dist_bytes_saved": 8273947,
+  "authored_art_bytes_saved": 2721965,
+  "motion_source_bytes_relocated": 5552336
+}

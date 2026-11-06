@@ -1,0 +1,28 @@
+✔ first contact arrives after five to nine real danger tiles, independent of movement frame size (9.487506ms)
+✔ outdoors and interiors use longer randomized intervals after a battle (9.939914ms)
+✔ homes, healing rooms, secret family spaces and frontier sanctuaries remain safe (9.335469ms)
+✔ selected working interiors and ruins have explicit local encounter habitats (0.856813ms)
+✔ all seven actual origin journeys have early danger without converting Mara’s home into a fight room (764.482412ms)
+✔ standing still, a blocked move, invalid input, and teleports cannot spend encounter distance (6.009399ms)
+✔ menus, dialogue, battle and cinema modes cannot advance a pending encounter (0.360791ms)
+✔ door and conversation buffers do not accumulate hidden encounter debt (1.223317ms)
+✔ scene transitions keep the pending budget but grant enough room to step away from a doorway (0.674834ms)
+✔ retreat and defeat grant movement grace and a fresh regular encounter interval (1.059428ms)
+✔ a readable danger warning fires once before each contact, and serializable state resumes exactly (0.541533ms)
+✔ field tier and formation follow story level while every historical origin stays introductory (0.53462ms)
+✔ malformed old encounter counters repair locally instead of blocking the game (0.860231ms)
+✔ save preflight validates a fresh isolated world without altering the active journey (1354.433528ms)
+✔ truncated battle snapshots fail before the active world is touched (734.051724ms)
+✔ all seven actual origin leads can beat solo opening creatures of every role using basic commands (1917.996957ms)
+✔ wild victories award real XP, credits, equipped mastery and actual species drops without story advancement (495.495453ms)
+✔ random encounters save and restore through preflight with their species, context and earned rewards intact (1433.402076ms)
+✔ spawn cells stay on reachable floor for every origin backdrop and furnished indoor danger room (850.420074ms)
+✔ serial selection yields many distinct opening encounters and keeps formations within tier and count budgets (414.835603ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5448.754824

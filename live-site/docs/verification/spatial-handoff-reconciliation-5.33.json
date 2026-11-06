@@ -1,0 +1,23 @@
+{
+  "handoff": "Ash_Aether_5.32_Spatial_Authoring_3D_Pass.zip",
+  "sha256": "3f2df240fcc39d7078ae64814e4317537f7cc7cbae17633c83f3e206487f32e4",
+  "supplied_tests_reproduced": 36,
+  "new_module_tests": 6,
+  "decision": "Retain schema and vocabulary; replace abstract placement/action/audio application with native implementations.",
+  "observed_counterexamples": [
+    "A supplied actor at1.5,1.5 is overwritten with5.716,5.308.",
+    "Straight connectors can pass through a blocked wall.",
+    "Three actors in a one-metre rectangle can overlap at0.5,0.5 while authoredFraction reports1.",
+    "Social chain0\u21924\u21928 can split according to source ordering.",
+    "Default six-room dungeon omits release; repeated matching verbs repeat a consequence callback without saved ownership.",
+    "An empty or synthetic bridge-only music plan can pass despite having no audio transport. Native audio has no setAdaptivePlan callback."
+  ],
+  "replacement_modules": [
+    "native-spatial-authoring.js",
+    "native-dungeon-director.js",
+    "music-director.js",
+    "soundtrack.js",
+    "adaptive-soundtrack.js"
+  ],
+  "production_ownership": "World, existing controls, native music player and campaign inventory remain authoritative."
+}

@@ -1,0 +1,216 @@
+{
+  "release": "5.11",
+  "merged_base": "eb3402c",
+  "targeted_tests": {
+    "count": 42,
+    "pass": 42,
+    "fail": 0
+  },
+  "campaign": {
+    "branch": 0,
+    "chapters": 24,
+    "fights": 66,
+    "rooms": 84,
+    "decisions": 7,
+    "result": "pass",
+    "method": "Existing qa/campaign-play.mjs with legal earned resource-paying actions; no HP/AP/flag fabrication"
+  },
+  "arena_escape": {
+    "checks": 648,
+    "failures": [],
+    "normal_speed_tiles_per_second": 2.65,
+    "minimum_conservative_grid_margin_seconds": 0.4358490566037738,
+    "scope": "Three sampled walkable crew positions near each actual guardian; all 3 phases and 3 moves. BFS over authored floor and affordance blockers; no manual walk-through-walls. This is not all possible player positions or a reaction-time guarantee.",
+    "chapters": [
+      {
+        "chapter": 1,
+        "guardian": "Sentinel",
+        "scene": "security",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.1679245283018866
+      },
+      {
+        "chapter": 2,
+        "guardian": "Rail Warden",
+        "scene": "bridge",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.2679245283018867
+      },
+      {
+        "chapter": 3,
+        "guardian": "Well Keeper",
+        "scene": "river",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 4,
+        "guardian": "Ash Herald",
+        "scene": "chapel",
+        "max_escape_tiles": 6,
+        "minimum_conservative_grid_margin_seconds": 0.4358490566037738
+      },
+      {
+        "chapter": 5,
+        "guardian": "Index Shade",
+        "scene": "west",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 6,
+        "guardian": "Sky Marshal",
+        "scene": "catwalk",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 0.9679245283018869
+      },
+      {
+        "chapter": 7,
+        "guardian": "Cinder Seed",
+        "scene": "grove",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 0.9679245283018869
+      },
+      {
+        "chapter": 8,
+        "guardian": "Hollow Crown",
+        "scene": "summit",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.9952830188679245
+      },
+      {
+        "chapter": 9,
+        "guardian": "Wiremother",
+        "scene": "lowbank_shelter",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 10,
+        "guardian": "Chainmaster",
+        "scene": "manifest_depot",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 11,
+        "guardian": "Silt Crown",
+        "scene": "field",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 12,
+        "guardian": "Redactor",
+        "scene": "name_vault",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 13,
+        "guardian": "Homekeeper",
+        "scene": "letter_attic",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.1679245283018866
+      },
+      {
+        "chapter": 14,
+        "guardian": "Glass Child",
+        "scene": "field",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.4179245283018866
+      },
+      {
+        "chapter": 15,
+        "guardian": "Commander",
+        "scene": "refugee_gate",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 16,
+        "guardian": "Mute Giant",
+        "scene": "resonance_gallery",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 2.195283018867925
+      },
+      {
+        "chapter": 17,
+        "guardian": "Star Reader",
+        "scene": "field",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 18,
+        "guardian": "Tollkeeper",
+        "scene": "relief_store",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 0.9679245283018869
+      },
+      {
+        "chapter": 19,
+        "guardian": "Wind Bailiff",
+        "scene": "storm_anchorage",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.3452830188679246
+      },
+      {
+        "chapter": 20,
+        "guardian": "False Judge",
+        "scene": "witness_vault",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 0.9679245283018869
+      },
+      {
+        "chapter": 21,
+        "guardian": "First Form",
+        "scene": "pottery_floor",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.2679245283018867
+      },
+      {
+        "chapter": 22,
+        "guardian": "Choir Lung",
+        "scene": "vent_house",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.8452830188679246
+      },
+      {
+        "chapter": 23,
+        "guardian": "Choir Hand",
+        "scene": "field",
+        "max_escape_tiles": 2,
+        "minimum_conservative_grid_margin_seconds": 1.5952830188679246
+      },
+      {
+        "chapter": 24,
+        "guardian": "The Choir",
+        "scene": "listening_chamber",
+        "max_escape_tiles": 3,
+        "minimum_conservative_grid_margin_seconds": 1.567924528301887
+      }
+    ],
+    "minimum_required_margin_seconds": 0.35
+  },
+  "geometry": {
+    "shared_draw_and_hit": true,
+    "new_shapes": [
+      "rails",
+      "cleave",
+      "pair"
+    ],
+    "legacy_intents_preserved": true,
+    "overlap": "Overlapping cross arms or paired circles may have denser translucent fill; damage membership is a union and each target is hit once, not once per primitive.",
+    "legibility": "Finite lane ends, actual fan angle/range and paired circle centers use the same primitive dimensions for rendering and hits. All tells are frozen on announcement and include a geometric escape cue.",
+    "limits": "Canvas stroke edges extend roughly one rendered pixel beyond fill; no actual GPU/phone readability certification."
+  },
+  "fairness_refinement": {
+    "guardian": "Ash Herald",
+    "chapter": 4,
+    "old_base_windup_seconds": 2.4,
+    "new_base_windup_seconds": 2.7,
+    "scope": "Only this guardian base windup changed. Geometry, damage, HP and other guardian choreography are unchanged.",
+    "limitation": "The added conservative sampled movement margin is not a guarantee for every possible player position, input delay or reaction time."
+  }
+}

@@ -1,0 +1,48 @@
+✔ a chosen absolute zoom survives a new reader and automatic reset removes it (1.779011ms)
+✔ corrupt preferences and unavailable storage safely retain automatic framing (0.345299ms)
+✔ the actual renderer keeps the world point under a pinch midpoint at every supported zoom (1.131217ms)
+✔ scene changes, conversation focus, landmarks and warnings cannot replace the chosen lens (1.05888ms)
+✔ a zoomed room follows its traveller using the selected scale instead of the old room fit (0.316276ms)
+✔ manual battle view follows the selected living actor and never stays on a defeated lead (0.193986ms)
+✔ the camera follow chain preserves the exact saved scale over repeated travel frames (3.830273ms)
+✔ returning to automatic zoom restores the existing scene lens and leaves the last frame finite (0.431536ms)
+✔ portrait and short landscape touch targets keep inactive gaps and safe edges in both presets (2.910218ms)
+✔ Y waits for a release inside its own target and emits only one press (1.846861ms)
+✔ Y drag-out stays cancelled even after sliding back across the target (1.15375ms)
+✔ cancellation, lost capture, disabled and paused states cannot activate Y (0.482271ms)
+✔ primary actions remain immediate hold controls and sliding does not activate a neighbor (0.314503ms)
+✔ releaseAll clears minimum-duration primary presses without duplicate delayed releases (0.357637ms)
+✔ release-triggered menu opening can synchronously release all controls without leaving Y held (0.33219ms)
+✔ narrow notched screens keep the isolated crew target inside their safe area (0.317468ms)
+✔ compact landscape uses its horizontal space instead of reserving a portrait-height control column (0.315605ms)
+✔ cancelling a quick tap releases the held action immediately, including its pending minimum duration (0.391246ms)
+✔ an unrelated control cannot release another pointer owner (0.2307ms)
+✔ normal automatic capture loss after pointerup preserves the native minimum tap duration (0.244981ms)
+✔ two canvas fingers zoom outward and inward from the actual lens with a CSS-pixel midpoint (3.066528ms)
+✔ a later pinch starts at the last chosen zoom instead of resetting to one (0.364206ms)
+✔ zoom limits clamp safely and reverse immediately without a dead stretch (0.310848ms)
+✔ a single touch taps once on release while mouse and pen act immediately (0.408553ms)
+✔ dragging out and back, ending outside, or cancellation cannot become a tap (0.349776ms)
+✔ a third finger can replace a lifted pair member without a jump or extra lifecycle callbacks (0.399119ms)
+✔ after a pinch drops to one finger all remaining and newly added contacts stay quarantined until release (0.211532ms)
+✔ pointer cancel, lost capture and explicit cancellation end once and discard surviving fingers (0.715915ms)
+✔ blur and pagehide discard pointers that may never send a final up, without poisoning the next tap (0.638286ms)
+✔ inactive surfaces reject gestures and deactivation before release cannot dispatch a world action (1.463727ms)
+✔ only contacts that begin on the world surface are counted; captured orphans are ignored (0.206645ms)
+✔ coincident or malformed touches never emit a nonfinite zoom (0.175608ms)
+✔ a touch-generated click is suppressed while a genuine mouse or keyboard click stays usable (0.269657ms)
+✔ capture rejection and outside release clean up without selecting the world (0.239123ms)
+✔ callbacks can synchronously cancel or destroy without stale zoom updates, duplicate endings or held captures (0.524293ms)
+✔ visible touch bounds follow browser magnification and visual viewport panning in host CSS coordinates (1.347556ms)
+✔ all movement and action targets stay reachable after native zoom, narrow viewports, safe insets and rotation (0.777826ms)
+✔ mounted pad updates on visual viewport scroll/resize and offers independent field and Pause recovery (1.389046ms)
+✔ real indoor 3D zoom keeps camera angle and feet stable through the full saved zoom range (1314.553486ms)
+✔ real indoor pinch preserves its world anchor and Reset view recovers a bounded camera (320.108892ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1865.546899

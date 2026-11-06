@@ -1,0 +1,10 @@
+{
+  "schema": "aa-runtime-freeze/1",
+  "game_version": "5.27.0",
+  "captured_at_utc": "2026-10-29T22:15:23.065989+00:00",
+  "revision": "765a5ae2a32c9e07fefbcb532f3fb728b46fb8bb",
+  "files": 2139,
+  "expanded_bytes": 262222671,
+  "tree_sha256": "43da14543d33b8db09ee345e68af7641c4a3c9e8c1b3827d06989b85a9cee344",
+  "capture_context": "After final pinch, camera, cache and README edits, and correction of the isolated field-journey test callback binding. Before final complete release gate. Original failed gate and first freeze retained unchanged."
+}

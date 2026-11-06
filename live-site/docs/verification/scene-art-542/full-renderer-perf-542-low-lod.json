@@ -1,0 +1,4232 @@
+{
+  "method": "FINAL quiet-window native Adventure3DRenderer comparison after software-low terrain-detail guard. Separate isolated sequential Node processes, same actual46assets,388x842,2warmups+10movingframesperrun,2runspervariantwithreversedorder. Fulltests/inventory/browser stopped byroot. Each draw measured with performance.now and process.cpuUsage. Host software CPU results, not phone/WebGL evidence. Higher-quality/GPU terrain detail is intentionally outside this low-quality fallback test.",
+  "baselineCommit": "5d49baca6ced580f83bb7192ea46de4fa2371be9",
+  "allSourceFingerprintsStable": true,
+  "summary": [
+    {
+      "scene": 2,
+      "samplesPerVariant": 20,
+      "head": {
+        "meanMs": 169.69131669999996,
+        "medianMs": 168.25697599999967,
+        "p95Ms": 194.74221899999975,
+        "cpuMeanMs": 206.8607,
+        "cpuMedianMs": 192.34550000000002,
+        "cpuP95Ms": 291.261,
+        "meshes": {
+          "static": 4356,
+          "dynamic": 544,
+          "shadows": 120,
+          "glow": 96
+        },
+        "visible": {
+          "drawCalls": 134,
+          "triangles": 1556,
+          "quality": "low",
+          "texturedTriangles": 617,
+          "sprites": 1,
+          "submittedTriangles": 6332,
+          "staticCacheHit": false,
+          "staticLayers": 19,
+          "staticCachePixels": 1874601,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "current": {
+        "meanMs": 192.22327799999997,
+        "medianMs": 185.08022549999964,
+        "p95Ms": 225.69522299999971,
+        "cpuMeanMs": 230.7125,
+        "cpuMedianMs": 209.6935,
+        "cpuP95Ms": 315.816,
+        "meshes": {
+          "static": 4356,
+          "dynamic": 544,
+          "shadows": 306,
+          "glow": 96
+        },
+        "visible": {
+          "drawCalls": 209,
+          "triangles": 1631,
+          "quality": "low",
+          "texturedTriangles": 617,
+          "sprites": 1,
+          "submittedTriangles": 6518,
+          "staticCacheHit": false,
+          "staticLayers": 19,
+          "staticCachePixels": 1874601,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "meanRatio": 1.132782052365323,
+      "p95Ratio": 1.158943469777347,
+      "cpuMeanRatio": 1.1153036802060516,
+      "cpuP95Ratio": 1.084305828792732
+    },
+    {
+      "scene": 5,
+      "samplesPerVariant": 20,
+      "head": {
+        "meanMs": 247.23426905000005,
+        "medianMs": 249.20194850000007,
+        "p95Ms": 267.3348270000006,
+        "cpuMeanMs": 282.38335,
+        "cpuMedianMs": 270.914,
+        "cpuP95Ms": 345.545,
+        "meshes": {
+          "static": 27809,
+          "dynamic": 10960,
+          "shadows": 540,
+          "glow": 384
+        },
+        "visible": {
+          "drawCalls": 397,
+          "triangles": 3100,
+          "quality": "low",
+          "texturedTriangles": 811,
+          "sprites": 3,
+          "submittedTriangles": 58945,
+          "staticCacheHit": false,
+          "staticLayers": 14,
+          "staticCachePixels": 1080578,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "current": {
+        "meanMs": 252.66686839999974,
+        "medianMs": 247.63548249999985,
+        "p95Ms": 279.3600699999988,
+        "cpuMeanMs": 278.7203,
+        "cpuMedianMs": 270.72900000000004,
+        "cpuP95Ms": 338.398,
+        "meshes": {
+          "static": 27809,
+          "dynamic": 10960,
+          "shadows": 1170,
+          "glow": 384
+        },
+        "visible": {
+          "drawCalls": 746,
+          "triangles": 3449,
+          "quality": "low",
+          "texturedTriangles": 811,
+          "sprites": 3,
+          "submittedTriangles": 59575,
+          "staticCacheHit": false,
+          "staticLayers": 14,
+          "staticCachePixels": 1080578,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "meanRatio": 1.021973488428099,
+      "p95Ratio": 1.044981954408799,
+      "cpuMeanRatio": 0.9870280949638143,
+      "cpuP95Ratio": 0.979316731540031
+    },
+    {
+      "scene": 145,
+      "samplesPerVariant": 20,
+      "head": {
+        "meanMs": 181.2962536,
+        "medianMs": 183.78841999999986,
+        "p95Ms": 209.72043400000075,
+        "cpuMeanMs": 191.468,
+        "cpuMedianMs": 189.637,
+        "cpuP95Ms": 215.994,
+        "meshes": {
+          "static": 19491,
+          "dynamic": 1689,
+          "shadows": 180,
+          "glow": 96
+        },
+        "visible": {
+          "drawCalls": 90,
+          "triangles": 2431,
+          "quality": "low",
+          "texturedTriangles": 887,
+          "sprites": 1,
+          "submittedTriangles": 38276,
+          "staticCacheHit": false,
+          "staticLayers": 13,
+          "staticCachePixels": 1237926,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "current": {
+        "meanMs": 187.5516359,
+        "medianMs": 182.77061350000076,
+        "p95Ms": 206.22037199999977,
+        "cpuMeanMs": 198.1016,
+        "cpuMedianMs": 191.29000000000002,
+        "cpuP95Ms": 220.622,
+        "meshes": {
+          "static": 19491,
+          "dynamic": 1689,
+          "shadows": 430,
+          "glow": 96
+        },
+        "visible": {
+          "drawCalls": 292,
+          "triangles": 2633,
+          "quality": "low",
+          "texturedTriangles": 887,
+          "sprites": 1,
+          "submittedTriangles": 38526,
+          "staticCacheHit": false,
+          "staticLayers": 13,
+          "staticCachePixels": 1237926,
+          "interiorCutaway": true,
+          "backend": "software-3d"
+        }
+      },
+      "meanRatio": 1.0345036490042505,
+      "p95Ratio": 0.983310820346667,
+      "cpuMeanRatio": 1.03464599828692,
+      "cpuP95Ratio": 1.0214265211070679
+    }
+  ],
+  "runs": [
+    {
+      "order": [
+        "head",
+        "current"
+      ],
+      "runs": {
+        "head": {
+          "variant": "head",
+          "engine": "/workspace/scratch/069bdc7b547d/perf-542-base/dist/game/engine2/",
+          "sourceStart": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+          "sourceEnd": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+          "sourceDrift": false,
+          "width": 388,
+          "height": 842,
+          "assets": 46,
+          "assetFailures": [],
+          "host": "Node + actual Skia Canvas software renderer; not physical phone/WebGL",
+          "elapsedMs": 11637.691084,
+          "scenes": [
+            {
+              "id": 2,
+              "key": "home",
+              "arrival": [
+                21.5,
+                8.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 180.71209629999998,
+              "medianMs": 180.1897590000001,
+              "p95Ms": 196.94303900000068,
+              "timingsMs": [
+                180.56123399999979,
+                179.8182840000004,
+                159.15099399999963,
+                196.94303900000068,
+                170.84518899999966,
+                168.9273119999998,
+                176.5896330000005,
+                188.27429500000017,
+                194.74221899999975,
+                191.26876399999946
+              ],
+              "cpuTimingsMs": [
+                242.549,
+                330.226,
+                189.322,
+                205.045,
+                175.248,
+                183.353,
+                182.105,
+                291.261,
+                205.793,
+                245.47
+              ],
+              "cpuMeanMs": 225.03719999999998,
+              "cpuMedianMs": 205.41899999999998,
+              "cpuP95Ms": 330.226,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 242.549,
+                  "position": [
+                    21.67606204672517,
+                    8.5
+                  ],
+                  "ms": 180.56123399999979,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1423,
+                    "quality": "low",
+                    "texturedTriangles": 551,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1797783,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 330.226,
+                  "position": [
+                    21.738590246145822,
+                    8.5
+                  ],
+                  "ms": 179.8182840000004,
+                  "stats": {
+                    "drawCalls": 145,
+                    "triangles": 1430,
+                    "quality": "low",
+                    "texturedTriangles": 542,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1799882,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 189.322,
+                  "position": [
+                    21.77380208868189,
+                    8.5
+                  ],
+                  "ms": 159.15099399999963,
+                  "stats": {
+                    "drawCalls": 143,
+                    "triangles": 1410,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1782082,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 205.045,
+                  "position": [
+                    21.77766614692669,
+                    8.5
+                  ],
+                  "ms": 196.94303900000068,
+                  "stats": {
+                    "drawCalls": 143,
+                    "triangles": 1407,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1780758,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 175.248,
+                  "position": [
+                    21.749740022266945,
+                    8.5
+                  ],
+                  "ms": 170.84518899999966,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1414,
+                    "quality": "low",
+                    "texturedTriangles": 538,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1838756,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 183.353,
+                  "position": [
+                    21.693220995395944,
+                    8.5
+                  ],
+                  "ms": 168.9273119999998,
+                  "stats": {
+                    "drawCalls": 142,
+                    "triangles": 1444,
+                    "quality": "low",
+                    "texturedTriangles": 550,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1790480,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 182.105,
+                  "position": [
+                    21.614579967508163,
+                    8.5
+                  ],
+                  "ms": 176.5896330000005,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1469,
+                    "quality": "low",
+                    "texturedTriangles": 578,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1809797,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 291.261,
+                  "position": [
+                    21.522820602492875,
+                    8.5
+                  ],
+                  "ms": 188.27429500000017,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1500,
+                    "quality": "low",
+                    "texturedTriangles": 599,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1821418,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 205.793,
+                  "position": [
+                    21.428448491432487,
+                    8.5
+                  ],
+                  "ms": 194.74221899999975,
+                  "stats": {
+                    "drawCalls": 137,
+                    "triangles": 1546,
+                    "quality": "low",
+                    "texturedTriangles": 616,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1863101,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 245.47,
+                  "position": [
+                    21.342268360451897,
+                    8.5
+                  ],
+                  "ms": 191.26876399999946,
+                  "stats": {
+                    "drawCalls": 134,
+                    "triangles": 1556,
+                    "quality": "low",
+                    "texturedTriangles": 617,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 19,
+                    "staticCachePixels": 1874601,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "key": "town",
+              "arrival": [
+                24.5,
+                42.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 260.84475790000016,
+              "medianMs": 262.0042360000002,
+              "p95Ms": 267.4778589999996,
+              "timingsMs": [
+                244.1097579999996,
+                263.4534450000001,
+                259.4314350000004,
+                255.00880299999972,
+                267.1975739999998,
+                260.55502700000034,
+                267.4778589999996,
+                265.8137880000013,
+                267.3348270000006,
+                258.065063
+              ],
+              "cpuTimingsMs": [
+                300.739,
+                382.086,
+                266.431,
+                294.587,
+                307.5,
+                268.339,
+                273.489,
+                304.208,
+                310.692,
+                263.75
+              ],
+              "cpuMeanMs": 297.1821,
+              "cpuMedianMs": 297.663,
+              "cpuP95Ms": 382.086,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 300.739,
+                  "position": [
+                    24.67606204672517,
+                    42.5
+                  ],
+                  "ms": 244.1097579999996,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3095,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085586,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 382.086,
+                  "position": [
+                    24.738590246145822,
+                    42.5
+                  ],
+                  "ms": 263.4534450000001,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085834,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 266.431,
+                  "position": [
+                    24.77380208868189,
+                    42.5
+                  ],
+                  "ms": 259.4314350000004,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086387,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 294.587,
+                  "position": [
+                    24.77766614692669,
+                    42.5
+                  ],
+                  "ms": 255.00880299999972,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3094,
+                    "quality": "low",
+                    "texturedTriangles": 809,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086293,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 307.5,
+                  "position": [
+                    24.749740022266945,
+                    42.5
+                  ],
+                  "ms": 267.1975739999998,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3092,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085620,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 268.339,
+                  "position": [
+                    24.693220995395944,
+                    42.5
+                  ],
+                  "ms": 260.55502700000034,
+                  "stats": {
+                    "drawCalls": 398,
+                    "triangles": 3092,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1084490,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 273.489,
+                  "position": [
+                    24.614579967508163,
+                    42.5
+                  ],
+                  "ms": 267.4778589999996,
+                  "stats": {
+                    "drawCalls": 398,
+                    "triangles": 3096,
+                    "quality": "low",
+                    "texturedTriangles": 813,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083748,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 304.208,
+                  "position": [
+                    24.522820602492875,
+                    42.5
+                  ],
+                  "ms": 265.8137880000013,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083004,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 310.692,
+                  "position": [
+                    24.428448491432487,
+                    42.5
+                  ],
+                  "ms": 267.3348270000006,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3103,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1081897,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 263.75,
+                  "position": [
+                    24.342268360451897,
+                    42.5
+                  ],
+                  "ms": 258.065063,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3100,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1080578,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                }
+              ]
+            },
+            {
+              "id": 145,
+              "key": "field",
+              "arrival": [
+                18.5,
+                30.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 200.3745234000002,
+              "medianMs": 204.8900635,
+              "p95Ms": 212.00509500000044,
+              "timingsMs": [
+                189.20791500000087,
+                207.42618799999946,
+                212.00509500000044,
+                204.9051010000003,
+                192.32861400000002,
+                206.8252420000008,
+                209.72043400000075,
+                193.7741929999993,
+                182.6774260000002,
+                204.8750259999997
+              ],
+              "cpuTimingsMs": [
+                194.882,
+                333.192,
+                215.994,
+                208.038,
+                192.623,
+                210.089,
+                213.209,
+                207.583,
+                186.651,
+                207.381
+              ],
+              "cpuMeanMs": 216.96420000000003,
+              "cpuMedianMs": 207.8105,
+              "cpuP95Ms": 333.192,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 194.882,
+                  "position": [
+                    18.67606204672517,
+                    30.5
+                  ],
+                  "ms": 189.20791500000087,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2422,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1254383,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 333.192,
+                  "position": [
+                    18.738590246145822,
+                    30.5
+                  ],
+                  "ms": 207.42618799999946,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2419,
+                    "quality": "low",
+                    "texturedTriangles": 885,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 215.994,
+                  "position": [
+                    18.77380208868189,
+                    30.5
+                  ],
+                  "ms": 212.00509500000044,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2421,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261857,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 208.038,
+                  "position": [
+                    18.77766614692669,
+                    30.5
+                  ],
+                  "ms": 204.9051010000003,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2423,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261701,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 192.623,
+                  "position": [
+                    18.749740022266945,
+                    30.5
+                  ],
+                  "ms": 192.32861400000002,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2423,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262370,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 210.089,
+                  "position": [
+                    18.693220995395944,
+                    30.5
+                  ],
+                  "ms": 206.8252420000008,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2424,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262199,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 213.209,
+                  "position": [
+                    18.614579967508163,
+                    30.5
+                  ],
+                  "ms": 209.72043400000075,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2427,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255398,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 207.583,
+                  "position": [
+                    18.522820602492875,
+                    30.5
+                  ],
+                  "ms": 193.7741929999993,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2429,
+                    "quality": "low",
+                    "texturedTriangles": 890,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255044,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 186.651,
+                  "position": [
+                    18.428448491432487,
+                    30.5
+                  ],
+                  "ms": 182.6774260000002,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2429,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1248534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 207.381,
+                  "position": [
+                    18.342268360451897,
+                    30.5
+                  ],
+                  "ms": 204.8750259999997,
+                  "stats": {
+                    "drawCalls": 90,
+                    "triangles": 2431,
+                    "quality": "low",
+                    "texturedTriangles": 887,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 13,
+                    "staticCachePixels": 1237926,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "current": {
+          "variant": "current",
+          "engine": "/workspace/sites/ash-aether-dungeon/dist/game/engine2/",
+          "sourceStart": "1014cfd7770753e3623a06bdec7da72bb4aa6ae5216324f031e07ed2748f9edd",
+          "sourceEnd": "1014cfd7770753e3623a06bdec7da72bb4aa6ae5216324f031e07ed2748f9edd",
+          "sourceDrift": false,
+          "width": 388,
+          "height": 842,
+          "assets": 46,
+          "assetFailures": [],
+          "host": "Node + actual Skia Canvas software renderer; not physical phone/WebGL",
+          "elapsedMs": 10916.989774999998,
+          "scenes": [
+            {
+              "id": 2,
+              "key": "home",
+              "arrival": [
+                21.5,
+                8.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 178.70378230000014,
+              "medianMs": 178.86669900000015,
+              "p95Ms": 193.49245599999995,
+              "timingsMs": [
+                193.49245599999995,
+                182.49338399999988,
+                169.62120099999993,
+                171.853744,
+                176.42124100000046,
+                182.58826100000078,
+                168.8419670000003,
+                177.08668500000022,
+                180.6467130000001,
+                183.99217099999987
+              ],
+              "cpuTimingsMs": [
+                303.463,
+                275.322,
+                189.387,
+                177.064,
+                181.639,
+                199.965,
+                175.578,
+                194.534,
+                204.184,
+                222.405
+              ],
+              "cpuMeanMs": 212.35409999999996,
+              "cpuMedianMs": 197.2495,
+              "cpuP95Ms": 303.463,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 303.463,
+                  "position": [
+                    21.67606204672517,
+                    8.5
+                  ],
+                  "ms": 193.49245599999995,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1479,
+                    "quality": "low",
+                    "texturedTriangles": 551,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1797783,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 275.322,
+                  "position": [
+                    21.738590246145822,
+                    8.5
+                  ],
+                  "ms": 182.49338399999988,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1485,
+                    "quality": "low",
+                    "texturedTriangles": 542,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1799882,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 189.387,
+                  "position": [
+                    21.77380208868189,
+                    8.5
+                  ],
+                  "ms": 169.62120099999993,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1465,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1782082,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 177.064,
+                  "position": [
+                    21.77766614692669,
+                    8.5
+                  ],
+                  "ms": 171.853744,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1462,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1780758,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 181.639,
+                  "position": [
+                    21.749740022266945,
+                    8.5
+                  ],
+                  "ms": 176.42124100000046,
+                  "stats": {
+                    "drawCalls": 199,
+                    "triangles": 1469,
+                    "quality": "low",
+                    "texturedTriangles": 538,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1838756,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 199.965,
+                  "position": [
+                    21.693220995395944,
+                    8.5
+                  ],
+                  "ms": 182.58826100000078,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1500,
+                    "quality": "low",
+                    "texturedTriangles": 550,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1790480,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 175.578,
+                  "position": [
+                    21.614579967508163,
+                    8.5
+                  ],
+                  "ms": 168.8419670000003,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1525,
+                    "quality": "low",
+                    "texturedTriangles": 578,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1809797,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 194.534,
+                  "position": [
+                    21.522820602492875,
+                    8.5
+                  ],
+                  "ms": 177.08668500000022,
+                  "stats": {
+                    "drawCalls": 209,
+                    "triangles": 1565,
+                    "quality": "low",
+                    "texturedTriangles": 599,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1821418,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 204.184,
+                  "position": [
+                    21.428448491432487,
+                    8.5
+                  ],
+                  "ms": 180.6467130000001,
+                  "stats": {
+                    "drawCalls": 211,
+                    "triangles": 1620,
+                    "quality": "low",
+                    "texturedTriangles": 616,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1863101,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 222.405,
+                  "position": [
+                    21.342268360451897,
+                    8.5
+                  ],
+                  "ms": 183.99217099999987,
+                  "stats": {
+                    "drawCalls": 209,
+                    "triangles": 1631,
+                    "quality": "low",
+                    "texturedTriangles": 617,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 19,
+                    "staticCachePixels": 1874601,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "key": "town",
+              "arrival": [
+                24.5,
+                42.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 253.35816099999994,
+              "medianMs": 246.23832100000027,
+              "p95Ms": 284.61547299999984,
+              "timingsMs": [
+                242.3502040000003,
+                242.70318599999973,
+                284.61547299999984,
+                247.5630460000002,
+                241.15088899999955,
+                244.55103099999997,
+                244.91359600000033,
+                272.4917059999998,
+                264.43830699999944,
+                248.8041720000001
+              ],
+              "cpuTimingsMs": [
+                270.651,
+                338.398,
+                330.945,
+                263.44,
+                247.37,
+                253.435,
+                251.675,
+                279.901,
+                270.807,
+                255.444
+              ],
+              "cpuMeanMs": 276.20660000000004,
+              "cpuMedianMs": 267.0455,
+              "cpuP95Ms": 338.398,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 270.651,
+                  "position": [
+                    24.67606204672517,
+                    42.5
+                  ],
+                  "ms": 242.3502040000003,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3443,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59554,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085586,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1149,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 338.398,
+                  "position": [
+                    24.738590246145822,
+                    42.5
+                  ],
+                  "ms": 242.70318599999973,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3446,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085834,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 330.945,
+                  "position": [
+                    24.77380208868189,
+                    42.5
+                  ],
+                  "ms": 284.61547299999984,
+                  "stats": {
+                    "drawCalls": 748,
+                    "triangles": 3447,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086387,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 263.44,
+                  "position": [
+                    24.77766614692669,
+                    42.5
+                  ],
+                  "ms": 247.5630460000002,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3443,
+                    "quality": "low",
+                    "texturedTriangles": 809,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086293,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 247.37,
+                  "position": [
+                    24.749740022266945,
+                    42.5
+                  ],
+                  "ms": 241.15088899999955,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3441,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085620,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 253.435,
+                  "position": [
+                    24.693220995395944,
+                    42.5
+                  ],
+                  "ms": 244.55103099999997,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3441,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59554,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1084490,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1149,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 251.675,
+                  "position": [
+                    24.614579967508163,
+                    42.5
+                  ],
+                  "ms": 244.91359600000033,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3445,
+                    "quality": "low",
+                    "texturedTriangles": 813,
+                    "sprites": 3,
+                    "submittedTriangles": 59548,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083748,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1143,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 279.901,
+                  "position": [
+                    24.522820602492875,
+                    42.5
+                  ],
+                  "ms": 272.4917059999998,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3447,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59566,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083004,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1161,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 270.807,
+                  "position": [
+                    24.428448491432487,
+                    42.5
+                  ],
+                  "ms": 264.43830699999944,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3452,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59575,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1081897,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1170,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 255.444,
+                  "position": [
+                    24.342268360451897,
+                    42.5
+                  ],
+                  "ms": 248.8041720000001,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3449,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59575,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1080578,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1170,
+                    "glow": 384
+                  }
+                }
+              ]
+            },
+            {
+              "id": 145,
+              "key": "field",
+              "arrival": [
+                18.5,
+                30.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 187.75373169999983,
+              "medianMs": 180.52962949999983,
+              "p95Ms": 213.65880199999992,
+              "timingsMs": [
+                167.64645399999972,
+                205.9035929999991,
+                171.3772939999999,
+                174.4140959999986,
+                178.38777599999958,
+                177.79316000000108,
+                199.4642870000007,
+                182.67148300000008,
+                213.65880199999992,
+                206.22037199999977
+              ],
+              "cpuTimingsMs": [
+                174.675,
+                325.409,
+                177.672,
+                175.239,
+                181.374,
+                181.516,
+                203.196,
+                195.147,
+                220.622,
+                210.361
+              ],
+              "cpuMeanMs": 204.5211,
+              "cpuMedianMs": 188.3315,
+              "cpuP95Ms": 325.409,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 174.675,
+                  "position": [
+                    18.67606204672517,
+                    30.5
+                  ],
+                  "ms": 167.64645399999972,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2617,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38549,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1254383,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 453,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 325.409,
+                  "position": [
+                    18.738590246145822,
+                    30.5
+                  ],
+                  "ms": 205.9035929999991,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2614,
+                    "quality": "low",
+                    "texturedTriangles": 885,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 177.672,
+                  "position": [
+                    18.77380208868189,
+                    30.5
+                  ],
+                  "ms": 171.3772939999999,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2616,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261857,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 175.239,
+                  "position": [
+                    18.77766614692669,
+                    30.5
+                  ],
+                  "ms": 174.4140959999986,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2618,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261701,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 181.374,
+                  "position": [
+                    18.749740022266945,
+                    30.5
+                  ],
+                  "ms": 178.38777599999958,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2618,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262370,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 181.516,
+                  "position": [
+                    18.693220995395944,
+                    30.5
+                  ],
+                  "ms": 177.79316000000108,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2619,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262199,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 203.196,
+                  "position": [
+                    18.614579967508163,
+                    30.5
+                  ],
+                  "ms": 199.4642870000007,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2626,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38547,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255398,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 451,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 195.147,
+                  "position": [
+                    18.522820602492875,
+                    30.5
+                  ],
+                  "ms": 182.67148300000008,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2628,
+                    "quality": "low",
+                    "texturedTriangles": 890,
+                    "sprites": 1,
+                    "submittedTriangles": 38539,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255044,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 443,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 220.622,
+                  "position": [
+                    18.428448491432487,
+                    30.5
+                  ],
+                  "ms": 213.65880199999992,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2628,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38532,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1248534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 436,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 210.361,
+                  "position": [
+                    18.342268360451897,
+                    30.5
+                  ],
+                  "ms": 206.22037199999977,
+                  "stats": {
+                    "drawCalls": 292,
+                    "triangles": 2633,
+                    "quality": "low",
+                    "texturedTriangles": 887,
+                    "sprites": 1,
+                    "submittedTriangles": 38526,
+                    "staticCacheHit": false,
+                    "staticLayers": 13,
+                    "staticCachePixels": 1237926,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 430,
+                    "glow": 96
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "order": [
+        "current",
+        "head"
+      ],
+      "runs": {
+        "current": {
+          "variant": "current",
+          "engine": "/workspace/sites/ash-aether-dungeon/dist/game/engine2/",
+          "sourceStart": "1014cfd7770753e3623a06bdec7da72bb4aa6ae5216324f031e07ed2748f9edd",
+          "sourceEnd": "1014cfd7770753e3623a06bdec7da72bb4aa6ae5216324f031e07ed2748f9edd",
+          "sourceDrift": false,
+          "width": 388,
+          "height": 842,
+          "assets": 46,
+          "assetFailures": [],
+          "host": "Node + actual Skia Canvas software renderer; not physical phone/WebGL",
+          "elapsedMs": 11369.370944,
+          "scenes": [
+            {
+              "id": 2,
+              "key": "home",
+              "arrival": [
+                21.5,
+                8.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 205.74277369999976,
+              "medianMs": 205.69587749999982,
+              "p95Ms": 245.15811499999927,
+              "timingsMs": [
+                192.30017700000008,
+                198.33083399999987,
+                166.46341799999982,
+                186.1682799999994,
+                204.56336499999998,
+                245.15811499999927,
+                206.82838999999967,
+                208.05637299999944,
+                223.86356200000046,
+                225.69522299999971
+              ],
+              "cpuTimingsMs": [
+                242.104,
+                315.816,
+                201.321,
+                193.99,
+                209.484,
+                259.784,
+                209.903,
+                332.252,
+                248.519,
+                277.536
+              ],
+              "cpuMeanMs": 249.0709,
+              "cpuMedianMs": 245.31150000000002,
+              "cpuP95Ms": 332.252,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 242.104,
+                  "position": [
+                    21.67606204672517,
+                    8.5
+                  ],
+                  "ms": 192.30017700000008,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1479,
+                    "quality": "low",
+                    "texturedTriangles": 551,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1797783,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 315.816,
+                  "position": [
+                    21.738590246145822,
+                    8.5
+                  ],
+                  "ms": 198.33083399999987,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1485,
+                    "quality": "low",
+                    "texturedTriangles": 542,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1799882,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 201.321,
+                  "position": [
+                    21.77380208868189,
+                    8.5
+                  ],
+                  "ms": 166.46341799999982,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1465,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1782082,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 193.99,
+                  "position": [
+                    21.77766614692669,
+                    8.5
+                  ],
+                  "ms": 186.1682799999994,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1462,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1780758,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 209.484,
+                  "position": [
+                    21.749740022266945,
+                    8.5
+                  ],
+                  "ms": 204.56336499999998,
+                  "stats": {
+                    "drawCalls": 199,
+                    "triangles": 1469,
+                    "quality": "low",
+                    "texturedTriangles": 538,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1838756,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 259.784,
+                  "position": [
+                    21.693220995395944,
+                    8.5
+                  ],
+                  "ms": 245.15811499999927,
+                  "stats": {
+                    "drawCalls": 198,
+                    "triangles": 1500,
+                    "quality": "low",
+                    "texturedTriangles": 550,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1790480,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 209.903,
+                  "position": [
+                    21.614579967508163,
+                    8.5
+                  ],
+                  "ms": 206.82838999999967,
+                  "stats": {
+                    "drawCalls": 200,
+                    "triangles": 1525,
+                    "quality": "low",
+                    "texturedTriangles": 578,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1809797,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 332.252,
+                  "position": [
+                    21.522820602492875,
+                    8.5
+                  ],
+                  "ms": 208.05637299999944,
+                  "stats": {
+                    "drawCalls": 209,
+                    "triangles": 1565,
+                    "quality": "low",
+                    "texturedTriangles": 599,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1821418,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 248.519,
+                  "position": [
+                    21.428448491432487,
+                    8.5
+                  ],
+                  "ms": 223.86356200000046,
+                  "stats": {
+                    "drawCalls": 211,
+                    "triangles": 1620,
+                    "quality": "low",
+                    "texturedTriangles": 616,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1863101,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 277.536,
+                  "position": [
+                    21.342268360451897,
+                    8.5
+                  ],
+                  "ms": 225.69522299999971,
+                  "stats": {
+                    "drawCalls": 209,
+                    "triangles": 1631,
+                    "quality": "low",
+                    "texturedTriangles": 617,
+                    "sprites": 1,
+                    "submittedTriangles": 6518,
+                    "staticCacheHit": false,
+                    "staticLayers": 19,
+                    "staticCachePixels": 1874601,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 306,
+                    "glow": 96
+                  }
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "key": "town",
+              "arrival": [
+                24.5,
+                42.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 251.97557579999958,
+              "medianMs": 252.99796249999918,
+              "p95Ms": 279.3600699999988,
+              "timingsMs": [
+                261.10896800000046,
+                247.7079189999995,
+                241.17573899999934,
+                265.05451599999924,
+                230.84946199999922,
+                231.6175600000006,
+                236.50266499999998,
+                268.0908529999997,
+                258.28800599999886,
+                279.3600699999988
+              ],
+              "cpuTimingsMs": [
+                282.876,
+                332.079,
+                281.573,
+                349.287,
+                249.845,
+                245.873,
+                247.408,
+                275.596,
+                262.025,
+                285.778
+              ],
+              "cpuMeanMs": 281.23400000000004,
+              "cpuMedianMs": 278.5845,
+              "cpuP95Ms": 349.287,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 282.876,
+                  "position": [
+                    24.67606204672517,
+                    42.5
+                  ],
+                  "ms": 261.10896800000046,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3443,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59554,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085586,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1149,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 332.079,
+                  "position": [
+                    24.738590246145822,
+                    42.5
+                  ],
+                  "ms": 247.7079189999995,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3446,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085834,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 281.573,
+                  "position": [
+                    24.77380208868189,
+                    42.5
+                  ],
+                  "ms": 241.17573899999934,
+                  "stats": {
+                    "drawCalls": 748,
+                    "triangles": 3447,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086387,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 349.287,
+                  "position": [
+                    24.77766614692669,
+                    42.5
+                  ],
+                  "ms": 265.05451599999924,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3443,
+                    "quality": "low",
+                    "texturedTriangles": 809,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086293,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 249.845,
+                  "position": [
+                    24.749740022266945,
+                    42.5
+                  ],
+                  "ms": 230.84946199999922,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3441,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59502,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085620,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 1145,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 245.873,
+                  "position": [
+                    24.693220995395944,
+                    42.5
+                  ],
+                  "ms": 231.6175600000006,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3441,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59554,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1084490,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1149,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 247.408,
+                  "position": [
+                    24.614579967508163,
+                    42.5
+                  ],
+                  "ms": 236.50266499999998,
+                  "stats": {
+                    "drawCalls": 747,
+                    "triangles": 3445,
+                    "quality": "low",
+                    "texturedTriangles": 813,
+                    "sprites": 3,
+                    "submittedTriangles": 59548,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083748,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1143,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 275.596,
+                  "position": [
+                    24.522820602492875,
+                    42.5
+                  ],
+                  "ms": 268.0908529999997,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3447,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59566,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083004,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1161,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 262.025,
+                  "position": [
+                    24.428448491432487,
+                    42.5
+                  ],
+                  "ms": 258.28800599999886,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3452,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 59575,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1081897,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1170,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 285.778,
+                  "position": [
+                    24.342268360451897,
+                    42.5
+                  ],
+                  "ms": 279.3600699999988,
+                  "stats": {
+                    "drawCalls": 746,
+                    "triangles": 3449,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 59575,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1080578,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 1170,
+                    "glow": 384
+                  }
+                }
+              ]
+            },
+            {
+              "id": 145,
+              "key": "field",
+              "arrival": [
+                18.5,
+                30.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 187.34954010000018,
+              "medianMs": 183.0623725000005,
+              "p95Ms": 204.682268999999,
+              "timingsMs": [
+                182.43982400000095,
+                183.25500099999954,
+                178.16342799999984,
+                196.3679400000001,
+                204.682268999999,
+                181.3274590000001,
+                179.90554499999962,
+                182.86974400000145,
+                191.34027100000094,
+                193.14392000000043
+              ],
+              "cpuTimingsMs": [
+                188.155,
+                188.942,
+                181.459,
+                199.802,
+                204.901,
+                184.691,
+                183.314,
+                194.712,
+                193.638,
+                197.207
+              ],
+              "cpuMeanMs": 191.6821,
+              "cpuMedianMs": 191.29000000000002,
+              "cpuP95Ms": 204.901,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 188.155,
+                  "position": [
+                    18.67606204672517,
+                    30.5
+                  ],
+                  "ms": 182.43982400000095,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2617,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38549,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1254383,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 453,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 188.942,
+                  "position": [
+                    18.738590246145822,
+                    30.5
+                  ],
+                  "ms": 183.25500099999954,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2614,
+                    "quality": "low",
+                    "texturedTriangles": 885,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 181.459,
+                  "position": [
+                    18.77380208868189,
+                    30.5
+                  ],
+                  "ms": 178.16342799999984,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2616,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261857,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 199.802,
+                  "position": [
+                    18.77766614692669,
+                    30.5
+                  ],
+                  "ms": 196.3679400000001,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2618,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261701,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 204.901,
+                  "position": [
+                    18.749740022266945,
+                    30.5
+                  ],
+                  "ms": 204.682268999999,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2618,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262370,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 184.691,
+                  "position": [
+                    18.693220995395944,
+                    30.5
+                  ],
+                  "ms": 181.3274590000001,
+                  "stats": {
+                    "drawCalls": 286,
+                    "triangles": 2619,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38551,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262199,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 455,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 183.314,
+                  "position": [
+                    18.614579967508163,
+                    30.5
+                  ],
+                  "ms": 179.90554499999962,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2626,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38547,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255398,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 451,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 194.712,
+                  "position": [
+                    18.522820602492875,
+                    30.5
+                  ],
+                  "ms": 182.86974400000145,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2628,
+                    "quality": "low",
+                    "texturedTriangles": 890,
+                    "sprites": 1,
+                    "submittedTriangles": 38539,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255044,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 443,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 193.638,
+                  "position": [
+                    18.428448491432487,
+                    30.5
+                  ],
+                  "ms": 191.34027100000094,
+                  "stats": {
+                    "drawCalls": 290,
+                    "triangles": 2628,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38532,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1248534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 436,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 197.207,
+                  "position": [
+                    18.342268360451897,
+                    30.5
+                  ],
+                  "ms": 193.14392000000043,
+                  "stats": {
+                    "drawCalls": 292,
+                    "triangles": 2633,
+                    "quality": "low",
+                    "texturedTriangles": 887,
+                    "sprites": 1,
+                    "submittedTriangles": 38526,
+                    "staticCacheHit": false,
+                    "staticLayers": 13,
+                    "staticCachePixels": 1237926,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 430,
+                    "glow": 96
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "head": {
+          "variant": "head",
+          "engine": "/workspace/scratch/069bdc7b547d/perf-542-base/dist/game/engine2/",
+          "sourceStart": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+          "sourceEnd": "3734466a9a0c93b6ef556d617530e848540bfebc73b60bc0581be621969cebc6",
+          "sourceDrift": false,
+          "width": 388,
+          "height": 842,
+          "assets": 46,
+          "assetFailures": [],
+          "host": "Node + actual Skia Canvas software renderer; not physical phone/WebGL",
+          "elapsedMs": 9929.397479,
+          "scenes": [
+            {
+              "id": 2,
+              "key": "home",
+              "arrival": [
+                21.5,
+                8.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 158.6705370999999,
+              "medianMs": 157.79990049999992,
+              "p95Ms": 177.14641200000005,
+              "timingsMs": [
+                177.14641200000005,
+                152.50043200000027,
+                153.207136,
+                146.18161299999974,
+                147.7688509999998,
+                147.37066200000027,
+                162.39266499999985,
+                165.0198019999998,
+                167.58663999999953,
+                167.53115799999978
+              ],
+              "cpuTimingsMs": [
+                247.491,
+                248.353,
+                177.647,
+                152.671,
+                150.544,
+                159.378,
+                165.872,
+                179.225,
+                195.369,
+                210.292
+              ],
+              "cpuMeanMs": 188.68419999999998,
+              "cpuMedianMs": 178.43599999999998,
+              "cpuP95Ms": 248.353,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 247.491,
+                  "position": [
+                    21.67606204672517,
+                    8.5
+                  ],
+                  "ms": 177.14641200000005,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1423,
+                    "quality": "low",
+                    "texturedTriangles": 551,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1797783,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 248.353,
+                  "position": [
+                    21.738590246145822,
+                    8.5
+                  ],
+                  "ms": 152.50043200000027,
+                  "stats": {
+                    "drawCalls": 145,
+                    "triangles": 1430,
+                    "quality": "low",
+                    "texturedTriangles": 542,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1799882,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 177.647,
+                  "position": [
+                    21.77380208868189,
+                    8.5
+                  ],
+                  "ms": 153.207136,
+                  "stats": {
+                    "drawCalls": 143,
+                    "triangles": 1410,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1782082,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 152.671,
+                  "position": [
+                    21.77766614692669,
+                    8.5
+                  ],
+                  "ms": 146.18161299999974,
+                  "stats": {
+                    "drawCalls": 143,
+                    "triangles": 1407,
+                    "quality": "low",
+                    "texturedTriangles": 535,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1780758,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 150.544,
+                  "position": [
+                    21.749740022266945,
+                    8.5
+                  ],
+                  "ms": 147.7688509999998,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1414,
+                    "quality": "low",
+                    "texturedTriangles": 538,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1838756,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 159.378,
+                  "position": [
+                    21.693220995395944,
+                    8.5
+                  ],
+                  "ms": 147.37066200000027,
+                  "stats": {
+                    "drawCalls": 142,
+                    "triangles": 1444,
+                    "quality": "low",
+                    "texturedTriangles": 550,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1790480,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 165.872,
+                  "position": [
+                    21.614579967508163,
+                    8.5
+                  ],
+                  "ms": 162.39266499999985,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1469,
+                    "quality": "low",
+                    "texturedTriangles": 578,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1809797,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 179.225,
+                  "position": [
+                    21.522820602492875,
+                    8.5
+                  ],
+                  "ms": 165.0198019999998,
+                  "stats": {
+                    "drawCalls": 144,
+                    "triangles": 1500,
+                    "quality": "low",
+                    "texturedTriangles": 599,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1821418,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 195.369,
+                  "position": [
+                    21.428448491432487,
+                    8.5
+                  ],
+                  "ms": 167.58663999999953,
+                  "stats": {
+                    "drawCalls": 137,
+                    "triangles": 1546,
+                    "quality": "low",
+                    "texturedTriangles": 616,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 18,
+                    "staticCachePixels": 1863101,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 210.292,
+                  "position": [
+                    21.342268360451897,
+                    8.5
+                  ],
+                  "ms": 167.53115799999978,
+                  "stats": {
+                    "drawCalls": 134,
+                    "triangles": 1556,
+                    "quality": "low",
+                    "texturedTriangles": 617,
+                    "sprites": 1,
+                    "submittedTriangles": 6332,
+                    "staticCacheHit": false,
+                    "staticLayers": 19,
+                    "staticCachePixels": 1874601,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 4356,
+                    "dynamic": 544,
+                    "shadows": 120,
+                    "glow": 96
+                  }
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "key": "town",
+              "arrival": [
+                24.5,
+                42.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 233.62378019999997,
+              "medianMs": 231.84452099999953,
+              "p95Ms": 252.13240099999985,
+              "timingsMs": [
+                233.17340000000058,
+                222.8960449999995,
+                227.21796900000027,
+                223.50921199999993,
+                221.5714049999997,
+                245.77683200000047,
+                231.18782699999974,
+                232.50121499999932,
+                246.2714960000003,
+                252.13240099999985
+              ],
+              "cpuTimingsMs": [
+                276.882,
+                307.815,
+                232.144,
+                260.363,
+                255.476,
+                345.545,
+                249.222,
+                235.918,
+                254.102,
+                258.379
+              ],
+              "cpuMeanMs": 267.58459999999997,
+              "cpuMedianMs": 256.9275,
+              "cpuP95Ms": 345.545,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 276.882,
+                  "position": [
+                    24.67606204672517,
+                    42.5
+                  ],
+                  "ms": 233.17340000000058,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3095,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085586,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 307.815,
+                  "position": [
+                    24.738590246145822,
+                    42.5
+                  ],
+                  "ms": 222.8960449999995,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085834,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 232.144,
+                  "position": [
+                    24.77380208868189,
+                    42.5
+                  ],
+                  "ms": 227.21796900000027,
+                  "stats": {
+                    "drawCalls": 399,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086387,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 260.363,
+                  "position": [
+                    24.77766614692669,
+                    42.5
+                  ],
+                  "ms": 223.50921199999993,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3094,
+                    "quality": "low",
+                    "texturedTriangles": 809,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1086293,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 255.476,
+                  "position": [
+                    24.749740022266945,
+                    42.5
+                  ],
+                  "ms": 221.5714049999997,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3092,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58897,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1085620,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10912,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 345.545,
+                  "position": [
+                    24.693220995395944,
+                    42.5
+                  ],
+                  "ms": 245.77683200000047,
+                  "stats": {
+                    "drawCalls": 398,
+                    "triangles": 3092,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1084490,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 249.222,
+                  "position": [
+                    24.614579967508163,
+                    42.5
+                  ],
+                  "ms": 231.18782699999974,
+                  "stats": {
+                    "drawCalls": 398,
+                    "triangles": 3096,
+                    "quality": "low",
+                    "texturedTriangles": 813,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083748,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 235.918,
+                  "position": [
+                    24.522820602492875,
+                    42.5
+                  ],
+                  "ms": 232.50121499999932,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3098,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1083004,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 254.102,
+                  "position": [
+                    24.428448491432487,
+                    42.5
+                  ],
+                  "ms": 246.2714960000003,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3103,
+                    "quality": "low",
+                    "texturedTriangles": 810,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1081897,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 258.379,
+                  "position": [
+                    24.342268360451897,
+                    42.5
+                  ],
+                  "ms": 252.13240099999985,
+                  "stats": {
+                    "drawCalls": 397,
+                    "triangles": 3100,
+                    "quality": "low",
+                    "texturedTriangles": 811,
+                    "sprites": 3,
+                    "submittedTriangles": 58945,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1080578,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 27809,
+                    "dynamic": 10960,
+                    "shadows": 540,
+                    "glow": 384
+                  }
+                }
+              ]
+            },
+            {
+              "id": 145,
+              "key": "field",
+              "arrival": [
+                18.5,
+                30.5
+              ],
+              "axis": [
+                1,
+                0
+              ],
+              "resolution": [
+                388,
+                842
+              ],
+              "warmups": 2,
+              "frames": 10,
+              "meanMs": 162.2179837999998,
+              "medianMs": 159.8348270000006,
+              "p95Ms": 184.89941399999952,
+              "timingsMs": [
+                150.91812599999867,
+                155.79479999999967,
+                154.13610700000027,
+                152.8285530000012,
+                152.8110660000002,
+                163.8748540000015,
+                164.48590899999908,
+                184.89941399999952,
+                175.25303799999892,
+                167.17797099999916
+              ],
+              "cpuTimingsMs": [
+                152.761,
+                162.893,
+                157.721,
+                156.25,
+                153.048,
+                166.616,
+                166.998,
+                196.599,
+                179.266,
+                167.566
+              ],
+              "cpuMeanMs": 165.9718,
+              "cpuMedianMs": 164.7545,
+              "cpuP95Ms": 196.599,
+              "frameData": [
+                {
+                  "frame": 2,
+                  "cpuMs": 152.761,
+                  "position": [
+                    18.67606204672517,
+                    30.5
+                  ],
+                  "ms": 150.91812599999867,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2422,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1254383,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 3,
+                  "cpuMs": 162.893,
+                  "position": [
+                    18.738590246145822,
+                    30.5
+                  ],
+                  "ms": 155.79479999999967,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2419,
+                    "quality": "low",
+                    "texturedTriangles": 885,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 4,
+                  "cpuMs": 157.721,
+                  "position": [
+                    18.77380208868189,
+                    30.5
+                  ],
+                  "ms": 154.13610700000027,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2421,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261857,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 5,
+                  "cpuMs": 156.25,
+                  "position": [
+                    18.77766614692669,
+                    30.5
+                  ],
+                  "ms": 152.8285530000012,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2423,
+                    "quality": "low",
+                    "texturedTriangles": 886,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1261701,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 6,
+                  "cpuMs": 153.048,
+                  "position": [
+                    18.749740022266945,
+                    30.5
+                  ],
+                  "ms": 152.8110660000002,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2423,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262370,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 7,
+                  "cpuMs": 166.616,
+                  "position": [
+                    18.693220995395944,
+                    30.5
+                  ],
+                  "ms": 163.8748540000015,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2424,
+                    "quality": "low",
+                    "texturedTriangles": 888,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1262199,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 8,
+                  "cpuMs": 166.998,
+                  "position": [
+                    18.614579967508163,
+                    30.5
+                  ],
+                  "ms": 164.48590899999908,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2427,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255398,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 9,
+                  "cpuMs": 196.599,
+                  "position": [
+                    18.522820602492875,
+                    30.5
+                  ],
+                  "ms": 184.89941399999952,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2429,
+                    "quality": "low",
+                    "texturedTriangles": 890,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1255044,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 10,
+                  "cpuMs": 179.266,
+                  "position": [
+                    18.428448491432487,
+                    30.5
+                  ],
+                  "ms": 175.25303799999892,
+                  "stats": {
+                    "drawCalls": 91,
+                    "triangles": 2429,
+                    "quality": "low",
+                    "texturedTriangles": 889,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 14,
+                    "staticCachePixels": 1248534,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                },
+                {
+                  "frame": 11,
+                  "cpuMs": 167.566,
+                  "position": [
+                    18.342268360451897,
+                    30.5
+                  ],
+                  "ms": 167.17797099999916,
+                  "stats": {
+                    "drawCalls": 90,
+                    "triangles": 2431,
+                    "quality": "low",
+                    "texturedTriangles": 887,
+                    "sprites": 1,
+                    "submittedTriangles": 38276,
+                    "staticCacheHit": false,
+                    "staticLayers": 13,
+                    "staticCachePixels": 1237926,
+                    "interiorCutaway": true,
+                    "backend": "software-3d"
+                  },
+                  "meshes": {
+                    "static": 19491,
+                    "dynamic": 1689,
+                    "shadows": 180,
+                    "glow": 96
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "elapsedSeconds": 45.91305401700083
+}

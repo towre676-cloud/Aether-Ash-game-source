@@ -1,0 +1,217 @@
+/* Combat is an instrument belt. The actor, target and live choices stay near
+   the same thumb position; pages replace choices instead of extending a page. */
+#game.battle-on{overflow:hidden;overscroll-behavior:none}
+#game.battle-on #hud{padding:8px 14px;height:48px;min-height:48px;max-height:48px;background:none;pointer-events:none}
+#game.battle-on #hud header{height:32px;min-height:32px;align-items:center;background:none}
+#game.battle-on #hud header>div{max-width:60vw}
+#game.battle-on #hud #chapter-title{font:14px/1.2 Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#e5d4ae}
+#game.battle-on #hud #mako-button{display:none}
+#game.battle-on #hud #menu-button{min-width:44px;min-height:44px;padding:6px;background:none;border:0;box-shadow:none;pointer-events:auto;font:12px Georgia,serif}
+#game.battle-on #commands,#game.battle-on.battle-console-side #commands{
+ position:fixed;left:12px;right:12px;top:auto;bottom:calc(8px + env(safe-area-inset-bottom,0px));
+ transform:none;width:auto;max-width:none;max-height:none;padding:6px 8px 4px;
+ display:flex;flex-direction:column;gap:4px;overflow:visible;border:0;border-radius:0;
+ background:linear-gradient(0deg,#0b1514fa 0%,#0e1c19f5 75%,#10221cdc);
+ box-shadow:0 -1px #b5a06a66,0 -8px 30px #07110c66;backdrop-filter:none;
+}
+#game.battle-on #commands[hidden]{display:none}
+#game.battle-on #commands #party{
+ position:static;inset:auto;order:1;display:flex;gap:6px;margin:0;padding:0;max-width:none;width:100%;
+ background:none;pointer-events:auto;flex:none;min-height:44px;
+}
+#game.battle-on #commands #party .party-card{
+ flex:1 1 0;width:0;min-width:0;min-height:44px;max-height:48px;padding:5px 8px;
+ border:0;border-bottom:1px solid #aa9b6b3d;border-radius:0;background:transparent;box-shadow:none;
+ color:#d6d9bb;overflow:hidden;outline:none;touch-action:manipulation;
+}
+#game.battle-on #commands #party .party-card.selected{border-bottom:2px solid #d5b875;background:#c8b46c0d;box-shadow:none}
+#game.battle-on #commands #party .party-card::before,#game.battle-on #commands #party .party-card::after{display:none}
+#game.battle-on #commands #party .party-card strong{font:13px/1.1 Georgia,serif;display:flex;justify-content:space-between;gap:5px;color:#e6d3a7}
+#game.battle-on #commands #party .party-card strong small{font:8px Georgia,serif;color:#a0b0a0}
+#game.battle-on #commands #party .party-card .mp-text{display:none}
+#game.battle-on #commands #party .party-card :is(.hp,.mp,.atb){height:3px;margin-top:3px;border-radius:0;background:#12251c}
+#game.battle-on #commands #party .party-card span{font-size:9px;line-height:1.1}
+#game.battle-on #commands #quick-techniques{display:none}
+#game.battle-on #commands .command-grid,
+#game.battle-on #commands .command-grid:has(.field-command:not([hidden])),
+#game.battle-on #commands .command-grid:has(.objective-command:not([hidden])){
+ order:5;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin:0;padding:0;flex:none;
+}
+#game.battle-on #commands .command-grid button{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:56px;
+ padding:4px 1px;border:0;border-bottom:1px solid #ad9b5e2b;border-radius:0;background:none;box-shadow:none;
+ font:12px/1.15 Georgia,serif;color:#c8d1b8;white-space:nowrap;touch-action:manipulation;
+}
+#game.battle-on #commands .command-grid button[hidden]{display:none}
+#game.battle-on #commands .command-grid button:hover,#game.battle-on #commands .command-grid button:focus-visible{background:#d6bf7811;border-bottom-color:#d5ba75;outline:1px solid #d5ba7577;outline-offset:-1px}
+#game.battle-on #commands .command-grid button>.command-icon{width:29px;height:29px;margin:0;flex:none;filter:drop-shadow(0 1px 3px #0009)}
+#game.battle-on #commands .command-grid button::before{width:26px;height:26px}
+#game.battle-on #commands #cmd-attack{color:#f1d395}
+#game.battle-on #commands #cmd-attack>.command-icon{filter:drop-shadow(0 0 7px #d3a64a55)}
+#game.battle-on #commands #cmd-guard{color:#a9ccbd}
+#game.battle-on #commands #battle-flow{order:0;display:block;margin:0;padding:0;flex:none;min-height:46px;position:relative}
+#game.battle-on #commands .battle-target-rail{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:stretch;gap:4px;min-height:44px}
+#game.battle-on #commands .battle-target-rail>button{min-width:44px;min-height:44px;background:none;border:0;box-shadow:none;border-radius:0;color:#cdb77f;font:26px/1 Georgia;touch-action:manipulation}
+#game.battle-on #commands .battle-target-rail[data-single=true]{grid-template-columns:minmax(0,1fr)}
+#game.battle-on #commands .battle-target-rail[data-single=true]>button{display:none}
+#game.battle-on #commands #battle-flow .enemy-list{display:block;overflow:hidden;margin:0;padding:0;max-height:none;min-width:0;width:100%}
+#game.battle-on #commands #battle-flow .enemy-list button{display:grid;width:100%;min-width:0;min-height:44px;max-height:48px;padding:2px 7px;margin:0;border:0;border-radius:0;background:none;box-shadow:none;outline:none;color:#e4d7b1;gap:1px;text-align:left}
+#game.battle-on #commands #battle-flow .enemy-list button.battle-target-hidden{display:none!important}
+#game.battle-on #commands .enemy-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#game.battle-on #commands .enemy-heading strong{font:14px/1.1 Georgia,serif;color:#ead5a2}
+#game.battle-on #commands .enemy-heading small,#game.battle-on #commands #battle-flow .enemy-list button.selected .enemy-heading small{display:block;max-width:none;font:9px/1.1 Georgia,serif;color:#b9c2a6}
+#game.battle-on #commands #battle-flow .enemy-health{height:2px;width:100%;margin:1px 0}
+#game.battle-on #commands .enemy-intent{font:10px/1.15 Georgia,serif;color:#d8c895;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#game.battle-on #commands .enemy-shell{display:none}
+#game.battle-on #commands .decision-pause{position:absolute;right:102px;top:-17px;display:block;padding:0;border:0;background:none;color:#d0c7a0;font:9px/1.2 Georgia,serif;pointer-events:none}
+#game.battle-on #commands .decision-pause[hidden]{display:none}
+#game.battle-on #commands .battle-settings,#game.battle-on #commands .battle-tactical-readout{position:absolute;right:0;top:-48px;min-width:44px;max-width:130px;margin:0;font:10px Georgia,serif;z-index:4}
+#game.battle-on #commands .battle-tactical-readout{right:64px}
+#game.battle-on #commands .battle-settings>summary,#game.battle-on #commands .battle-tactical-readout>summary{min-width:44px;min-height:44px;padding:8px 5px;list-style:none;text-align:center;background:#10221ac9;border:0;border-bottom:1px solid #b8a16a55;color:#c8c6a4;font:10px/1.2 Georgia,serif;cursor:pointer}
+#game.battle-on #commands .battle-settings>summary:before,#game.battle-on #commands .battle-settings>summary:after{content:none}
+#game.battle-on #commands .battle-settings[open],#game.battle-on #commands .battle-tactical-readout[open]{position:absolute;inset:auto 0 0 auto;width:min(480px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 85px);overflow:auto;padding:12px 14px;background:#15261ff7;border:1px solid #b69f6970;box-shadow:0 -8px 35px #0009;z-index:25}
+#game.battle-on #commands .battle-settings[open]>summary,#game.battle-on #commands .battle-tactical-readout[open]>summary{width:100%;max-width:none;font:16px Georgia,serif;text-align:left;margin-bottom:12px;min-height:44px}
+#game.battle-on #commands .battle-detail-close{position:sticky;bottom:0;display:block;width:100%;min-height:44px;margin:12px 0 0;border:0;border-top:1px solid #bba574;background:#b39a60;color:#162018;font:16px Georgia,serif}
+#game.battle-on #commands .battle-settings .pace{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#game.battle-on #commands .battle-settings .pace button{grid-column:1/-1;min-height:44px}
+#game.battle-on #commands .battle-settings select{min-height:44px;width:100%;max-width:100%;font-size:12px}
+#game.battle-on #commands #combat-order{position:absolute;left:0;right:0;bottom:calc(100% + 42px);margin:0;min-height:44px;max-height:56px;padding:4px 8px;border:0;border-left:2px solid #c4ab69;border-radius:0;background:#14251de8;font:11px/1.2 Georgia,serif;box-shadow:none}
+#game.battle-on #commands #combat-order[data-phase=idle],#game.battle-on #commands #combat-order[hidden]{display:none}
+#game.battle-on #commands #combat-order button{min-width:56px;min-height:44px;background:none;border:0;border-left:1px solid #b6a36a55;border-radius:0;font:12px Georgia}
+#game.battle-on #commands #guardian-rule-cue{font:12px/1.5 Georgia,serif;background:none;padding:8px 0;border:0}
+/* A picker replaces the command list and keeps its own exit/pages on the floor. */
+#game.battle-on #commands.battle-picker-open .command-grid{display:none!important}
+#game.battle-on #commands.battle-picker-open .battle-picker-bar{display:block;position:absolute;right:8px;bottom:4px;top:auto;padding:0;margin:0;border:0;width:76px;z-index:3}
+#game.battle-on #commands .battle-picker-bar>span{display:none}
+#game.battle-on #commands .battle-picker-bar button{display:block;width:76px;min-width:76px;min-height:44px;padding:7px 5px;border:0;border-left:1px solid #a8935a55;border-radius:0;background:#35432b;color:#efdfb7;box-shadow:none;font:14px Georgia,serif}
+#game.battle-on #commands #spell-menu{order:3;position:static;inset:auto;transform:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:auto;max-height:none;min-height:0;margin:0;padding:2px 0 3px;overflow:visible;overscroll-behavior:none;border:0;background:none;box-shadow:none}
+#game.battle-on #commands #spell-menu[hidden]{display:none}
+#game.battle-on #commands #spell-menu>button.battle-picker-option{display:flex;align-items:center;gap:8px;min-width:0;min-height:72px;margin:0;padding:6px 8px;border:0;border-left:2px solid #9fa275;border-radius:0;background:linear-gradient(90deg,#7d815a1c,transparent);box-shadow:none;font:12px/1.2 Georgia,serif;text-align:left}
+#game.battle-on #commands #spell-menu>button.battle-picker-option:disabled{opacity:.48}
+#game.battle-on #commands #spell-menu>button.battle-picker-option>.technique-icon{width:34px;height:34px;flex:none}
+#game.battle-on #commands #spell-menu .technique-copy strong,#game.battle-on #commands #spell-menu .field-action-copy strong,#game.battle-on #commands #spell-menu .objective-action-copy strong{font:14px/1.15 Georgia,serif;color:#ead5a3}
+#game.battle-on #commands #spell-menu .technique-copy>small,#game.battle-on #commands #spell-menu .field-action-copy small,#game.battle-on #commands #spell-menu .objective-action-copy small{font:10px/1.2 Georgia,serif;color:#adbda8;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#game.battle-on #commands #spell-menu .technique-cost{font:11px/1.2 Georgia,serif;color:#bdd5ba}
+#game.battle-on #commands #spell-menu .battle-picker-context,#game.battle-on #commands #spell-menu .objective-context{position:relative;margin:0;min-width:0;font:11px/1.25 Georgia,serif;color:#c2c5a8}
+#game.battle-on #commands #spell-menu .battle-picker-context>summary,#game.battle-on #commands #spell-menu .objective-context>summary{padding:4px;min-height:44px;font:10px Georgia,serif;color:#9eae96}
+#game.battle-on #commands #spell-menu .battle-picker-context[open],#game.battle-on #commands #spell-menu .objective-context[open]{position:absolute;left:4px;right:4px;bottom:54px;max-height:calc(100dvh - 180px);overflow:auto;padding:12px;background:#16291ff7;border:1px solid #af9a5c66;z-index:20}
+#game.battle-on #commands #spell-menu .tactics-category{grid-column:1/-1;display:flex;flex-wrap:nowrap;gap:3px;margin:0;padding:0}
+#game.battle-on #commands #spell-menu .tactics-category button{min-width:0;flex:1;min-height:44px;border:0;border-bottom:1px solid #a7905a55;border-radius:0;background:none;font:10px Georgia,serif}
+#game.battle-on #commands #spell-menu .tactics-category button span{display:none}
+#game.battle-on #commands #spell-menu .objective-replay{margin:0;padding:0;gap:5px}
+#game.battle-on #commands #spell-menu .objective-replay select{min-height:44px;max-width:100%;font:11px Georgia,serif}
+#game.battle-on #commands.battle-picker-open .battle-picker-pages{order:4;display:flex;align-items:center;justify-content:center;gap:3px;min-height:44px;margin:0;padding:0 82px 0 0;border-top:1px solid #a8935a44;flex:none}
+#game.battle-on #commands .battle-picker-pages button{display:block;min-width:44px;min-height:44px;width:44px;padding:4px;border:0;border-radius:0;background:none;box-shadow:none;color:#ddc38b;font:24px Georgia,serif;touch-action:manipulation}
+#game.battle-on #commands .battle-picker-pages[data-single=true] button{display:block;visibility:hidden}
+#game.battle-on #commands .battle-picker-pages span{min-width:0;flex:1;font:10px/1.25 Georgia,serif;color:#c1c7aa;text-align:center}
+#game.battle-on #commands #spell-menu>.battle-page-hidden,#game.battle-on #commands #spell-menu .battle-picker-dismiss{display:none!important}
+#game.battle-on #notice{top:58px;right:14px;left:auto;max-width:65%;padding:5px 8px;font:11px Georgia,serif;border:0;background:#10251bce}
+/* The stick keeps its native low-left zone. Only the actual action portion
+   reserves that width, so the target and crew can use a complete readable row. */
+@media(max-width:760px){
+ #game.battle-on #commands{left:6px;right:6px;bottom:calc(5px + env(safe-area-inset-bottom,0px));padding:5px 6px 3px;gap:3px}
+ #game.battle-on #commands .command-grid,#game.battle-on #commands .command-grid:has(.field-command:not([hidden])),#game.battle-on #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;margin-left:var(--battle-thumb-reserve,120px)}
+ #game.battle-on #commands .command-grid button{min-height:49px;font-size:10px;gap:3px}
+ #game.battle-on #commands .command-grid button>.command-icon{width:25px;height:25px}
+ #game.battle-on #commands #spell-menu{margin-left:var(--battle-thumb-reserve,120px);gap:5px}
+ #game.battle-on #commands #spell-menu>button.battle-picker-option{min-height:82px;padding:5px;gap:5px;align-items:flex-start}
+ #game.battle-on #commands #spell-menu>button.battle-picker-option>.technique-icon{width:26px;height:26px}
+ #game.battle-on #commands #spell-menu .technique-copy strong,#game.battle-on #commands #spell-menu .field-action-copy strong,#game.battle-on #commands #spell-menu .objective-action-copy strong{font-size:12px}
+ #game.battle-on #commands #spell-menu .technique-copy>small,#game.battle-on #commands #spell-menu .field-action-copy small,#game.battle-on #commands #spell-menu .objective-action-copy small{font-size:9px;-webkit-line-clamp:2}
+ #game.battle-on #commands.battle-picker-open .battle-picker-pages{margin-left:var(--battle-thumb-reserve,120px);padding-right:78px}
+ #game.battle-on #commands .battle-picker-pages span{font-size:9px}
+ #game.battle-on #commands .battle-picker-bar{right:6px;bottom:3px;width:72px}
+ #game.battle-on #commands .battle-picker-bar button{width:72px;min-width:72px}
+ #game.battle-on #commands .enemy-heading strong{font-size:13px}
+ #game.battle-on #commands #party .party-card strong{font-size:12px}
+ #game.battle-on #commands .battle-target-rail{min-height:44px}
+ #game.battle-on #commands .battle-settings,#game.battle-on #commands .battle-tactical-readout{top:-48px}
+ #game.battle-on #commands .battle-settings>summary,#game.battle-on #commands .battle-tactical-readout>summary{min-height:44px;font-size:9px}
+}
+@media(max-height:550px) and (min-width:480px){
+ #game.battle-on #hud{height:42px;max-height:42px;min-height:42px;padding-top:3px}
+ #game.battle-on #hud #chapter-title{font-size:12px}
+ #game.battle-on #commands{left:6px;right:6px;padding:3px 6px 2px;gap:2px}
+ #game.battle-on #commands .command-grid,#game.battle-on #commands .command-grid:has(.field-command:not([hidden])),#game.battle-on #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(8,minmax(0,1fr));margin-left:var(--battle-thumb-reserve,120px);gap:2px}
+ #game.battle-on #commands .command-grid button{min-height:44px;font-size:9px;gap:2px}
+ #game.battle-on #commands .command-grid button>.command-icon{width:19px;height:19px}
+ #game.battle-on #commands #party{min-height:44px;max-height:44px}
+ #game.battle-on #commands #party .party-card{min-height:44px;max-height:44px;padding:4px 8px}
+ #game.battle-on #commands #party .party-card strong{font-size:11px}
+ #game.battle-on #commands #battle-flow{min-height:44px}
+ #game.battle-on #commands #spell-menu{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:var(--battle-thumb-reserve,120px);gap:4px;padding:0}
+ #game.battle-on #commands #spell-menu>button.battle-picker-option{min-height:58px;max-height:80px;padding:4px;gap:4px}
+ #game.battle-on #commands #spell-menu .technique-copy strong,#game.battle-on #commands #spell-menu .field-action-copy strong,#game.battle-on #commands #spell-menu .objective-action-copy strong{font-size:11px}
+ #game.battle-on #commands #spell-menu .technique-copy>small,#game.battle-on #commands #spell-menu .field-action-copy small,#game.battle-on #commands #spell-menu .objective-action-copy small{display:none}
+ #game.battle-on #commands #spell-menu .technique-cost{font-size:10px}
+ #game.battle-on #commands #spell-menu .tactics-category button{min-height:44px;font-size:9px}
+ #game.battle-on #commands #spell-menu .objective-replay label{font-size:9px}
+ #game.battle-on #commands #spell-menu .objective-replay select{min-height:44px}
+ #game.battle-on #commands #spell-menu .battle-picker-context>summary,#game.battle-on #commands #spell-menu .objective-context>summary{min-height:44px;font-size:9px;padding:2px}
+ #game.battle-on #commands #combat-order{bottom:calc(100% + 29px);min-height:40px;max-height:48px;font-size:10px}
+ #game.battle-on #commands .battle-settings,#game.battle-on #commands .battle-tactical-readout{top:-48px}
+ #game.battle-on #commands .battle-settings>summary,#game.battle-on #commands .battle-tactical-readout>summary{min-height:44px;padding:6px 4px;font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){#game.battle-on #commands *{scroll-behavior:auto}}
+/* Short-wide screens can reserve a shallow side instrument
+   without moving its actions to the top of a tall console. */
+@media(min-width:760px) and (max-height:559px){
+ #game.battle-on.battle-console-side #commands{left:auto;right:8px;bottom:8px;top:auto;width:350px;max-width:350px;padding:4px 6px}
+ #game.battle-on.battle-console-side #commands .command-grid,#game.battle-on.battle-console-side #commands .command-grid:has(.field-command:not([hidden])),#game.battle-on.battle-console-side #commands .command-grid:has(.objective-command:not([hidden])){grid-template-columns:repeat(4,minmax(0,1fr));margin-left:0}
+ #game.battle-on.battle-console-side #commands #spell-menu,#game.battle-on.battle-console-side #commands .battle-picker-pages{margin-left:0}
+}
+@media(max-height:550px) and (min-width:480px){
+ #game.battle-on #commands.battle-picker-open #party{display:none}
+ #game.battle-on #commands #spell-menu .objective-replay{min-height:0}
+}
+
+/* Context is one optional pocket above the belt, never another action-list row. */
+#game.battle-on #commands #spell-menu>.battle-picker-context{position:absolute;left:0;right:auto;bottom:calc(100% + 4px);top:auto;width:calc(100% - 164px);max-width:260px;margin:0;z-index:4}
+#game.battle-on #commands #spell-menu>.battle-picker-context>summary{min-height:44px;padding:10px 6px;border-bottom:1px solid #a8915a55;background:#11251bdb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;list-style:none;font:10px/1.2 Georgia,serif}
+#game.battle-on #commands #spell-menu>.battle-picker-context[open]{left:0;right:0;bottom:48px;top:auto;width:auto;max-width:none;max-height:calc(100dvh - 130px);overflow:auto;background:#172a20fa;border:1px solid #ad975e88;padding:12px;z-index:24}
+#game.battle-on #commands #spell-menu .battle-picker-context .objective-context,#game.battle-on #commands #spell-menu .battle-picker-context .objective-context[open]{position:static;inset:auto;width:auto;max-height:none;overflow:visible;background:none;border:0;padding:0;margin:8px 0}
+#game.battle-on #commands #spell-menu .battle-context-close{position:sticky;bottom:0;display:block;width:100%;min-height:44px;border:0;border-top:1px solid #b9a069;background:#b79c5e;color:#152018;font:15px Georgia,serif;margin:12px 0 0;text-align:center}
+#game.battle-on #commands .battle-settings{width:60px;max-width:60px}
+#game.battle-on #commands .battle-tactical-readout{width:84px;max-width:84px;right:64px}
+#game.battle-on #commands .battle-settings[open],#game.battle-on #commands .battle-tactical-readout[open]{width:min(480px,calc(100vw - 32px));max-width:none}
+
+/* The live stick and Reset share one reserved left thumb column. Its width
+   covers the measured112px stick (right edge124px), not just its artwork. */
+@media(max-width:760px){
+ #game.battle-on #commands #party{width:auto;max-width:none;margin-left:var(--battle-thumb-reserve,120px)}
+ #game.battle-on #commands #battle-flow{margin-left:var(--battle-thumb-reserve,120px)}
+ #game.battle-on #commands .battle-target-rail{grid-template-columns:44px minmax(0,1fr) 44px;gap:2px}
+ #game.battle-on #commands .battle-target-rail[data-single=true]{grid-template-columns:minmax(0,1fr)}
+ #game.battle-on #commands .enemy-heading strong{font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ #game.battle-on #commands #party .party-card{padding-left:5px;padding-right:5px}
+ #game.battle-on #commands #party .party-card strong{font-size:11px;gap:3px}
+}
+#game.battle-on .journey-objective,#game.battle-on #hud .journey-objective,#game.battle-on .journey-help,#game.battle-on .journey-help-panel{display:none!important}
+
+/* Even a later :has(Goal/Tactics) grid rule cannot reopen a picker’s old belt. */
+#game.battle-on #commands.battle-picker-open .command-grid,#game.battle-on #commands.battle-picker-open .command-grid:has(.field-command),#game.battle-on #commands.battle-picker-open .command-grid:has(.objective-command){display:none!important}
+#game.battle-on #commands #party{width:auto;margin-left:var(--battle-thumb-reserve,0px)}
+#game.battle-on #commands #battle-flow,#game.battle-on #commands .command-grid,#game.battle-on #commands #spell-menu,#game.battle-on #commands.battle-picker-open .battle-picker-pages{margin-left:var(--battle-thumb-reserve,0px)}
+#game.battle-on #commands[data-thumb-narrow=true] .command-grid,#game.battle-on #commands[data-thumb-narrow=true] .command-grid:has(.field-command),#game.battle-on #commands[data-thumb-narrow=true] .command-grid:has(.objective-command){grid-template-columns:repeat(3,minmax(0,1fr))}
+#game.battle-on.battle-console-side #commands #party,#game.battle-on.battle-console-side #commands #battle-flow,#game.battle-on.battle-console-side #commands .command-grid,#game.battle-on.battle-console-side #commands #spell-menu,#game.battle-on.battle-console-side #commands.battle-picker-open .battle-picker-pages{margin-left:0}
+/* A one-action page (including compact instrument replay) uses the full lane. */
+#game.battle-on #commands #spell-menu:has(>button.battle-picker-option:not(.battle-page-hidden)):not(:has(>button.battle-picker-option:not(.battle-page-hidden)~button.battle-picker-option:not(.battle-page-hidden))){grid-template-columns:minmax(0,1fr)}
+/* Equipment is native-disabled during combat; do not offer it as a top tool. */
+#game.battle-on #hud #quick-armory{display:none}
+
+/* Secondary battle options retain a low, native route into the pause menu. */
+#game.battle-on #commands .battle-settings .battle-detail-actions{position:sticky;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0 0;padding-top:7px;background:#15261ff7;z-index:2}
+#game.battle-on #commands .battle-settings .battle-detail-actions>button{position:static;min-height:44px;min-width:44px;width:100%;margin:0;padding:8px 6px;border:0;border-top:1px solid #bba574;border-radius:0;background:#35452d;color:#e9d8ac;font:14px/1.2 Georgia,serif}
+#game.battle-on #commands .battle-settings .battle-detail-actions>.battle-detail-close{background:#b39a60;color:#162018}
+/* On a short screen, the live objective replaces the chapter caption. Its
+   native title, integrity, clock and progress share one quiet top status line. */
+@media(max-height:550px) and (min-width:480px){
+ #game.battle-on #hud:has(#encounter-goal:not([hidden])) header>div:first-child{visibility:hidden}
+ #game.battle-on #hud #encounter-goal:not([hidden]){position:absolute;top:7px;left:14px;right:70px;width:auto;max-width:none;min-height:20px;display:flex;align-items:center;gap:10px;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;font:11px/1.2 Georgia,serif}
+ #game.battle-on #hud #encounter-goal .encounter-goal-top{flex:1;min-width:0;gap:8px}
+ #game.battle-on #hud #encounter-goal .encounter-goal-top strong{font:11px/1.2 Georgia,serif}
+ #game.battle-on #hud #encounter-goal .encounter-goal-top>span{font:10px/1.2 Georgia,serif}
+ #game.battle-on #hud #encounter-goal .encounter-goal-bottom{flex:none;margin:0;font:10px/1.2 Georgia,serif}
+ #game.battle-on #hud #encounter-goal .encounter-goal-bottom>span:first-child{display:none}
+ #game.battle-on #hud #encounter-goal progress{position:absolute;left:0;right:0;bottom:-3px;width:100%;height:2px;margin:0;border-radius:0}
+}

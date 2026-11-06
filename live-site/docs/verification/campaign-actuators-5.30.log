@@ -1,0 +1,16 @@
+✔ the actuator inventory is read only and classifies authored controls with native coordinates (540.033115ms)
+✔ a real two-stage valve preserves native questions, answers, flags and outcomes after manipulation (769.425613ms)
+✔ real note controls preserve ordered phrase progression and incorrect-note resets (755.597887ms)
+✔ public projects consume resources only after an explicit native funding choice and cannot be charged twice (641.012141ms)
+✔ pause, released holds, changed flags, scene changes and restored state cancel unfinished mechanisms (1629.260453ms)
+✔ controls cannot be operated through solid terrain or outside reach (351.572376ms)
+✔ choice tokens reject moved-away, stale-state and changed-flag actions; context is restored after errors (1354.769254ms)
+✔ origins, NPCs, caches and unrelated systems retain their native interaction and installation is idempotent (357.587573ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6407.034818

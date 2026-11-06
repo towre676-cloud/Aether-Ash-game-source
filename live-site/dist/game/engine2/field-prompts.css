@@ -1,0 +1,138 @@
+/* Field invitations occupy one useful strip, leaving the creature and the
+   landscape visible. Native action handlers and world bounds remain owners. */
+#game .embodied-choices{
+ width:min(420px,calc(100% - 24px));max-width:calc(100% - 24px);
+ max-height:min(230px,40dvh);box-sizing:border-box;
+ display:flex;align-items:stretch;gap:4px;padding:4px;
+ border:0;border-top:1px solid #bba5746b;border-radius:0;
+ background:linear-gradient(90deg,#111c17e8,#15241bed 68%,#17251bc7);
+ background-image:url('../art/ui/engraved-bronze-5.34.svg'),linear-gradient(90deg,#111c17e8,#15241bed 68%,#17251bc7);
+ box-shadow:0 5px 16px #020a0844;backdrop-filter:blur(4px);
+ overflow-x:hidden;scrollbar-width:thin;
+}
+#game .embodied-choices[hidden]{display:none!important}
+#game .embodied-choices .embodied-choice{
+ flex:1 1 138px;min-width:0;max-width:none;min-height:44px;
+ margin:0;padding:8px 10px;border:0;border-radius:0;
+ border-bottom:1px solid #af9a6a55;background:none;background-image:none;
+ box-shadow:none;color:#ebddbd;font:13px/1.35 Georgia,serif;
+ text-shadow:0 1px 3px #0008;gap:7px;
+}
+#game .embodied-choices .embodied-choice:not(:disabled):hover{
+ background:#cfb57413;background-image:none;border-color:#d2b779;filter:none;
+}
+#game .embodied-choices .embodied-choice-icon{font:17px Georgia,serif;color:#c9b67c}
+#game .embodied-choices .embodied-choice-dismiss{
+ position:static;order:99;flex:0 0 44px;min-width:44px;width:44px;
+ min-height:44px;height:auto;margin:0;padding:5px;
+ border:0;border-radius:0;background:none;background-image:none;box-shadow:none;
+ color:#c1bfa6;font:23px Georgia,serif;
+}
+#game.touch-on .embodied-choices{
+ position:absolute;left:50%!important;right:auto;top:auto!important;
+ bottom:calc(var(--control-zone,var(--touch-reserve,228px)) + 70px);
+ transform:translateX(-50%);max-height:min(220px,30dvh);
+}
+
+/* A receipt has a bounded reading surface and a separate, always-visible
+   route control row. There is no empty surrounding dashboard panel. */
+#game .field-journey{
+ display:flex;flex-direction:column;gap:0;
+ padding:11px 13px 9px;border:0;border-left:2px solid #ab9360;
+ border-radius:0;background:linear-gradient(110deg,#17241ff7,#0e1c17f2);
+ background-image:url('../art/ui/engraved-bronze-5.34.svg'),linear-gradient(110deg,#17241ff7,#0e1c17f2);
+ box-shadow:0 6px 20px #02090555;overflow:hidden;
+ color:#e8dfc5;font:13px/1.45 Georgia,serif;
+}
+#game .field-journey[hidden],#game .field-journey [hidden]{display:none!important}
+#game .field-journey-body{
+ flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;
+ overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#8a7957 #102018;
+ padding:0 3px 5px 0;
+}
+#game .field-journey-eyebrow{font:9px/1.3 Georgia,serif;color:#b4a47c;letter-spacing:.13em}
+#game .field-journey-title{font:400 21px/1.15 Georgia,serif;margin:4px 0 6px;color:#f0dfb9}
+#game .field-journey-summary{font:13px/1.45 Georgia,serif;color:#d1d4bd;margin:0 0 6px}
+#game .field-journey-rewards{gap:3px 10px;margin:6px 0}
+#game .field-journey-rewards li{
+ background:none;border:0;border-radius:0;padding:1px 0;
+ font:12px/1.4 Georgia,serif;color:#bfd5aa;
+}
+#game .field-journey-progress li{font:12px/1.4 Georgia,serif;color:#b8c3b4}
+#game .field-journey-world{font:12px/1.5 Georgia,serif;border-color:#9b9f6e;padding:4px 0 4px 9px}
+#game .field-journey-hint{font:11px/1.4 Georgia,serif;color:#a6ae98;margin:7px 0 0}
+#game .field-journey>.field-journey-actions{
+ flex:0 0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:4px 7px;margin:0;padding:7px 0 0;border-top:1px solid #9e8a5c44;
+ background:none;
+}
+#game .field-journey[data-kind='handoff'][data-pack='true']>.field-journey-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+#game .field-journey .field-journey-action{
+ min-height:44px;min-width:0;border:0;border-radius:0;
+ border-bottom:1px solid #a58b5a6b;margin:0;padding:8px 7px;
+ background:none;box-shadow:none;color:#ded8bd;font:13px/1.3 Georgia,serif;
+}
+#game .field-journey .field-journey-action.field-journey-primary{
+ border-bottom-color:#dac286;color:#f3dfb2;background:#9d87471a;
+}
+#game .field-journey .field-journey-action:hover{background:#c7ac651a;filter:none}
+#game .field-journey-details{font:12px/1.45 Georgia,serif;margin:4px 0}
+#game .field-journey-details>summary,
+#game .field-journey-traits>summary{min-height:44px;padding:10px 0;font:12px/1.4 Georgia,serif;color:#cbbd93}
+#game .field-journey-full-summary{font:12px/1.5 Georgia,serif}
+#game .field-journey-gear{
+ padding:8px 0;margin:8px 0 0;border:0;border-radius:0;
+ border-top:1px solid #9e8a5c44;background:none;
+}
+#game .field-journey-gear-heading{font:12px/1.4 Georgia,serif;color:#c4b480}
+#game .field-journey-item-art{width:56px;height:56px;flex-basis:56px}
+#game .field-journey-item-name strong{font:17px/1.2 Georgia,serif}
+#game .field-journey-item-name small,
+#game .field-journey-item-status,
+#game .field-journey-comparison-note,
+#game .field-journey-comparison-for{font:12px/1.4 Georgia,serif}
+#game .field-journey .field-journey-select{
+ min-height:44px;border-radius:0;border:0;border-bottom:1px solid #a18e5b88;
+ background:#142219;color:#e7ddbf;font:12px/1.4 Georgia,serif;
+}
+#game .field-journey-select-label{font:12px Georgia,serif}
+#game .field-journey-stat-changes,
+#game .field-journey .field-journey-loss,
+#game .field-journey-traits{font:12px/1.4 Georgia,serif}
+#game .field-journey-body :is(p,ul):empty{display:none}
+#game.touch-on .field-journey{
+ top:auto!important;bottom:calc(var(--control-zone,var(--touch-reserve,228px)) + 66px);
+ right:12px;width:min(380px,calc(100% - 24px));
+ max-height:min(var(--field-journey-height,430px),calc(100dvh - var(--control-zone,var(--touch-reserve,228px)) - 90px));
+}
+
+/* Object captions remain quiet, while their interactive choices have square,
+   full-size hit targets rather than a row of message chips. */
+#game .field-receipt{border-radius:0;padding:2px 5px;background:#13261bda;font:12px/1.4 Georgia,serif}
+#game .field-actions{gap:4px 7px}
+#game .field-action{
+ border-radius:0!important;min-height:44px;padding:8px 11px!important;
+ border:0!important;border-bottom:1px solid #b59c6388!important;
+ background:#15251ee8!important;font:13px/1.35 Georgia,serif!important;
+}
+
+@media(max-width:650px){
+ #game .embodied-choices .embodied-choice{flex-basis:125px;padding:8px 6px;font-size:12px}
+ #game .field-journey{padding:9px 11px 8px}
+ #game .field-journey-title{font-size:19px}
+ #game .field-journey .field-journey-action{font-size:12px;padding:8px 5px}
+}
+@media(max-height:540px){
+ #game.touch-on .embodied-choices{
+  top:58px!important;bottom:auto;max-height:calc(100dvh - 150px);
+  width:min(430px,calc(100% - 28px));
+ }
+ #game.touch-on:has(>.embodied-choices:not([hidden])) .journey-objective{visibility:hidden}
+ #game.touch-on .field-journey{
+  top:58px!important;bottom:auto;right:12px;
+  width:min(350px,calc(100% - 140px));max-height:calc(100dvh - 124px);
+ }
+ #game .field-journey-eyebrow,#game .field-journey-hint{display:none}
+ #game .field-journey-title{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){#game .field-journey{animation:none}}

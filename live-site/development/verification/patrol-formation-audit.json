@@ -1,0 +1,839 @@
+{
+  "baselineCommit": "d88e0bec24d39793d57a95bcfe722a04b82e4932",
+  "integrationVersion": "5.26.0",
+  "methodology": "Eight exact ordinary patrol sites from the canonical World are selected by scene, chapter, key, bit and actor count. Before/after rosters use the same encounter tier. Walkability uses World.walkable; reachability uses the shared combat approach and order routes from each real scene entrance. Previews use the earned opening crew and actually selected new roster. This is a generation, reachability and truthful-brief audit; it is not a human playtest or a combat-duration benchmark. Focused tests separately exercise guard interception versus direct Earth, exact old actor restore, excluded encounter kinds and repeated reward settlement.",
+  "rows": [
+    {
+      "id": "security-watch",
+      "site": "Security",
+      "chapter": 1,
+      "scene": 230,
+      "patrolBit": 2,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "role": "scout",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 1,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "role": "mender",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 2,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.83,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "role": "scout",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 1,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "role": "mender",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 2,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.83,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "totals": {
+        "beforeHP": 116,
+        "afterHP": 116,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "x": 21.5,
+          "y": 49.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 13,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "x": 23.5,
+          "y": 48.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 16,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Porcelain Mender opens with a marked strike while the formation is healthy. Defeat that striker before release, move clear of its mark, or Guard. Alarmwing is the alarm caller; watch for a call after the first mark.",
+        "rewardHint": "Clear this patrol: 65 XP · 40 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "230:patrol:2",
+        "xp": 65,
+        "credits": 40
+      }
+    },
+    {
+      "id": "console-watch",
+      "site": "Console room",
+      "chapter": 1,
+      "scene": 229,
+      "patrolBit": 4,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "role": "scout",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 1,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "role": "scout",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 1,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "totals": {
+        "beforeHP": 58,
+        "afterHP": 58,
+        "beforeCount": 1,
+        "afterCount": 1
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "x": 29.5,
+          "y": 8.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 5,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Alarmwing",
+        "text": "Alarmwing is an alarm caller. If it starts calling, focus ready attacks on it before help arrives.",
+        "rewardHint": "Clear this patrol: 65 XP · 20 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "229:patrol:4",
+        "xp": 65,
+        "credits": 20
+      }
+    },
+    {
+      "id": "workshop-aisle",
+      "site": "Workshop",
+      "chapter": 1,
+      "scene": 228,
+      "patrolBit": 0,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Alarmwing",
+          "role": "scout",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 1,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "role": "mender",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 2,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.83,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Iron Antler",
+          "role": "guard",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 0,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.75,
+          "armor": 59,
+          "move": null,
+          "shape": null
+        },
+        {
+          "id": "e1",
+          "name": "Night Raptor",
+          "role": "predator",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 3,
+          "hp": 58,
+          "maxHp": 58,
+          "power": 15.1,
+          "speed": 0.83,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "totals": {
+        "beforeHP": 116,
+        "afterHP": 116,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Iron Antler",
+          "x": 7.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 4,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Night Raptor",
+          "x": 9.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 4,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Watch Night Raptor’s first mark. Iron Antler can intercept ordinary strikes for a nearby partner. Sable’s Fault Lance can target Night Raptor directly. Move clear of attack marks or Guard.",
+        "rewardHint": "Clear this patrol: 65 XP · 25 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "228:patrol:0",
+        "xp": 65,
+        "credits": 25
+      }
+    },
+    {
+      "id": "bridge-watch",
+      "site": "Rail bridge",
+      "chapter": 2,
+      "scene": 135,
+      "patrolBit": 2,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "role": "scout",
+          "species": "belljelly",
+          "atlas": "bestiary",
+          "sprite": 1,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Resonant discharge",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Clockwork Mole",
+          "role": "guard",
+          "species": "clockmole",
+          "atlas": "bestiary2",
+          "sprite": 2,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.83,
+          "armor": 63,
+          "move": "Survey-claw trench",
+          "shape": "line"
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "role": "scout",
+          "species": "belljelly",
+          "atlas": "bestiary",
+          "sprite": 1,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Resonant discharge",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Clockwork Mole",
+          "role": "guard",
+          "species": "clockmole",
+          "atlas": "bestiary2",
+          "sprite": 2,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.83,
+          "armor": 63,
+          "move": "Survey-claw trench",
+          "shape": "line"
+        }
+      ],
+      "totals": {
+        "beforeHP": 142,
+        "afterHP": 142,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "x": 18.5,
+          "y": 8.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 16,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Clockwork Mole",
+          "x": 20.5,
+          "y": 10.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 18,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Glassbell Jelly can call reinforcements. Clockwork Mole can intercept ordinary strikes for a nearby partner. Sable’s Fault Lance can target Glassbell Jelly directly. Stop the caller before its alarm completes.",
+        "rewardHint": "Clear this patrol: 80 XP · 60 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "135:patrol:2",
+        "xp": 80,
+        "credits": 60
+      }
+    },
+    {
+      "id": "refuge-stores",
+      "site": "Refuge stores",
+      "chapter": 2,
+      "scene": 214,
+      "patrolBit": 0,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "role": "scout",
+          "species": "belljelly",
+          "atlas": "bestiary",
+          "sprite": 1,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Resonant discharge",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Clockwork Mole",
+          "role": "guard",
+          "species": "clockmole",
+          "atlas": "bestiary2",
+          "sprite": 2,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.83,
+          "armor": 63,
+          "move": "Survey-claw trench",
+          "shape": "line"
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Clockwork Mole",
+          "role": "guard",
+          "species": "clockmole",
+          "atlas": "bestiary2",
+          "sprite": 2,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.75,
+          "armor": 63,
+          "move": "Survey-claw trench",
+          "shape": "line"
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "role": "mender",
+          "species": null,
+          "atlas": "creatures",
+          "sprite": 2,
+          "hp": 71,
+          "maxHp": 71,
+          "power": 18.2,
+          "speed": 0.83,
+          "armor": 0,
+          "move": null,
+          "shape": null
+        }
+      ],
+      "totals": {
+        "beforeHP": 142,
+        "afterHP": 142,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Clockwork Mole",
+          "x": 49.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 9,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Porcelain Mender",
+          "x": 50.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 9,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Watch Porcelain Mender’s first mark; it can also repair wounded allies. Clockwork Mole can intercept ordinary strikes for a nearby partner. Sable’s Fault Lance can target Porcelain Mender directly. Move clear of attack marks or Guard.",
+        "rewardHint": "Clear this patrol: 80 XP · 45 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "214:patrol:0",
+        "xp": 80,
+        "credits": 45
+      }
+    },
+    {
+      "id": "passage-watch",
+      "site": "Drainage passages",
+      "chapter": 3,
+      "scene": 47,
+      "patrolBit": 2,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Shellstream Otter",
+          "role": "mender",
+          "species": "riverotter",
+          "atlas": "bestiary",
+          "sprite": 6,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Riverstone splash",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "role": "scout",
+          "species": "belljelly",
+          "atlas": "bestiary",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Resonant discharge",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "totals": {
+        "beforeHP": 168,
+        "afterHP": 168,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Glassbell Jelly",
+          "x": 14.5,
+          "y": 44.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 6,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "x": 16.5,
+          "y": 46.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 9,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Reedwheel Serpent threatens a marked lane; Glassbell Jelly can call reinforcements. Defeat the striker before release, or focus the caller while moving clear of the mark. Guard reduces damage if you cannot move clear.",
+        "rewardHint": "Clear this patrol: 95 XP · 30 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "47:patrol:2",
+        "xp": 95,
+        "credits": 30
+      }
+    },
+    {
+      "id": "river-pair",
+      "site": "River path",
+      "chapter": 3,
+      "scene": 49,
+      "patrolBit": 4,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Shellstream Otter",
+          "role": "mender",
+          "species": "riverotter",
+          "atlas": "bestiary",
+          "sprite": 6,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Riverstone splash",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Shellstream Otter",
+          "role": "mender",
+          "species": "riverotter",
+          "atlas": "bestiary",
+          "sprite": 6,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Riverstone splash",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "totals": {
+        "beforeHP": 168,
+        "afterHP": 168,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Shellstream Otter",
+          "x": 15.5,
+          "y": 52.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 12,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "x": 16.5,
+          "y": 53.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 11,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Shellstream Otter opens with a marked strike while the formation is healthy. Defeat that striker before release, move clear of its mark, or Guard. Later, the mender can repair wounded allies.",
+        "rewardHint": "Clear this patrol: 95 XP · 30 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "49:patrol:4",
+        "xp": 95,
+        "credits": 30
+      }
+    },
+    {
+      "id": "bypass-pair",
+      "site": "Bypass",
+      "chapter": 3,
+      "scene": 48,
+      "patrolBit": 0,
+      "before": [
+        {
+          "id": "e0",
+          "name": "Shellstream Otter",
+          "role": "mender",
+          "species": "riverotter",
+          "atlas": "bestiary",
+          "sprite": 6,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 0,
+          "move": "Riverstone splash",
+          "shape": "burst"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "after": [
+        {
+          "id": "e0",
+          "name": "Clockwork Mole",
+          "role": "guard",
+          "species": "clockmole",
+          "atlas": "bestiary2",
+          "sprite": 2,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.75,
+          "armor": 67,
+          "move": "Survey-claw trench",
+          "shape": "line"
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "role": "predator",
+          "species": "reedserpent",
+          "atlas": "bestiary2",
+          "sprite": 1,
+          "hp": 84,
+          "maxHp": 84,
+          "power": 21.3,
+          "speed": 0.83,
+          "armor": 0,
+          "move": "Sluice-ribbon rush",
+          "shape": "line"
+        }
+      ],
+      "totals": {
+        "beforeHP": 168,
+        "afterHP": 168,
+        "beforeCount": 2,
+        "afterCount": 2
+      },
+      "reachability": [
+        {
+          "id": "e0",
+          "name": "Clockwork Mole",
+          "x": 35.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 7,
+          "clearStrikeFromApproach": true
+        },
+        {
+          "id": "e1",
+          "name": "Reedwheel Serpent",
+          "x": 37.5,
+          "y": 21.5,
+          "onWalkableFloor": true,
+          "connectedApproach": true,
+          "routePoints": 7,
+          "clearStrikeFromApproach": true
+        }
+      ],
+      "preview": {
+        "title": "Revealed formation · 2",
+        "text": "Watch Reedwheel Serpent’s first mark. Clockwork Mole can intercept ordinary strikes for a nearby partner. Sable’s Fault Lance can target Reedwheel Serpent directly. Move clear of attack marks or Guard.",
+        "rewardHint": "Clear this patrol: 95 XP · 60 credits."
+      },
+      "existingRewardIdentity": {
+        "key": "48:patrol:0",
+        "xp": 95,
+        "credits": 60
+      }
+    }
+  ]
+}

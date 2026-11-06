@@ -1,0 +1,179 @@
+{
+  "version": "5.18.0",
+  "generator": "image_gen built-in",
+  "pixelPolicy": "Generated PNG copied unchanged. Read-only alpha analysis; no image manipulation.",
+  "atlas": {
+    "id": "mineral-garden",
+    "asset": "environmentMinerals",
+    "file": "mineral-garden-v17.png",
+    "source": "/workspace/scratch/7b00f669b5c3/generated_images/exec-1c0ddd9b-0535-4c18-b0e9-c2993c4f7931.png",
+    "width": 1774,
+    "height": 887,
+    "prompt": "Use case: stylized-concept. Asset type: high-quality production transparent sprite atlas for Ash & Aether, an original hand-painted fantasy RPG. Create one landscape 2:1 PNG atlas with exactly FOUR COLUMNS and TWO ROWS of EIGHT separate complete props. IMPORTANT: every item must fit ENTIRELY inside its own equal rectangular cell with a MINIMUM TEN PERCENT TRANSPARENT GUTTER on every side. No leaf, fungus, rock, reflection or shadow crosses its cell. Genuine RGBA transparency; no background color or checkerboard. Consistent elevated 35-degree orthographic view showing fronts and tops, gentle upper-left light, rich nuanced hand-painted material surfaces, clear compact silhouettes, naturally irregular bases, not pixel art, not a photo. Match a sophisticated fantasy world of warm clay, cool slate, verdigris brass, minerals, remembered water, and unusual ecology. Exact left-to-right top row: cell 1 split quartz geode with luminous mint crystals INSIDE a dark slate shell, richly mineral textured exterior; cell 2 an elegant ivory aragonite mineral fan spreading from pale stone, finely layered branches; cell 3 a translucent aquamarine crystal shelf with tiny silver lichens tucked in crevices, broad horizontally layered crystal, no tall spire; cell 4 a squat dark star-slate cairn of stacked rounded stones with small embedded soft luminous veins and a subtle constellation-like mineral pattern, no symbols or text. Exact left-to-right bottom row: cell 5 a hollow bleached twisted root with pale blue moss and small rounded knots; cell 6 a decaying log carrying a dense amber-orange shelf-mushroom colony, believable velvety fungus layers; cell 7 a small twisted pale fungal sapling with pearl-blue mushroom caps in an asymmetrical branching canopy, elegant strange ecology; cell 8 an ancient rounded carved stone basin holding shallow teal water and one broken spiral shell inside, gently eroded lip, no spill beyond object. Complete usable game cutouts, discreet contact shadows, no rectangular platforms, no full scenery, no people, no animals, no text, no grid lines, no labels, no borders. Keep the exact 4-by-2 order, generous negative space, coherent scale and lighting.",
+    "props": [
+      {
+        "id": "mineral-geode",
+        "crop": [
+          23,
+          19,
+          400,
+          406
+        ],
+        "height": 92
+      },
+      {
+        "id": "aragonite-fan",
+        "crop": [
+          446,
+          14,
+          433,
+          415
+        ],
+        "height": 96
+      },
+      {
+        "id": "aquamarine-shelf",
+        "crop": [
+          894,
+          90,
+          439,
+          313
+        ],
+        "height": 74
+      },
+      {
+        "id": "star-slate-cairn",
+        "crop": [
+          1376,
+          17,
+          369,
+          410
+        ],
+        "height": 96
+      },
+      {
+        "id": "pale-root",
+        "crop": [
+          27,
+          447,
+          411,
+          416
+        ],
+        "height": 91
+      },
+      {
+        "id": "amber-shelf-fungi",
+        "crop": [
+          458,
+          445,
+          430,
+          416
+        ],
+        "height": 82
+      },
+      {
+        "id": "pearl-fungal-sapling",
+        "crop": [
+          929,
+          434,
+          365,
+          430
+        ],
+        "height": 112
+      },
+      {
+        "id": "shell-basin",
+        "crop": [
+          1337,
+          478,
+          427,
+          365
+        ],
+        "height": 79
+      }
+    ],
+    "sha256": "c4553fe96c81c3183df54ef08e986ff91e0dfd2d875f41a09f34d04feef75897",
+    "sizeBytes": 2311379,
+    "alphaZeroPixels": 730218,
+    "alphaPositivePixels": 843320,
+    "cropAudit": [
+      {
+        "id": "mineral-geode",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 102149,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "aragonite-fan",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 100350,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "aquamarine-shelf",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 89061,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "star-slate-cairn",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 86423,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "pale-root",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 87411,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "amber-shelf-fungi",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 95157,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "pearl-fungal-sapling",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 74468,
+        "includesSmallDetachedDetails": true
+      },
+      {
+        "id": "shell-basin",
+        "oneCompleteMainSilhouette": true,
+        "mainSilhouettePixels": 104549,
+        "includesSmallDetachedDetails": true
+      }
+    ],
+    "alphaAbove32OutsideAllCrops": 0,
+    "archivedSourcePath": "development/art/source-v17/mineral-garden-v17.png",
+    "originalProductionPath": "dist/game/engine2/art/mineral-garden-v17.png",
+    "delivery": {
+      "file": "dist/game/engine2/art/mineral-garden-v17.webp",
+      "format": "WebP",
+      "release": "5.18.0",
+      "width": 1774,
+      "height": 887,
+      "bytes": 679190,
+      "sha256": "77e3e2de2c6d9212d2888bf79b53a465a8b7617f7cde8a493c58db8d3cb2894d",
+      "sourceSha256": "c4553fe96c81c3183df54ef08e986ff91e0dfd2d875f41a09f34d04feef75897",
+      "encoding": {
+        "encoder": "FFmpeg libwebp",
+        "quality": 95,
+        "compressionLevel": 6,
+        "losslessColor": false,
+        "alpha": "exact original alpha channel",
+        "dimensions": "unchanged"
+      },
+      "maxAlphaError": 0,
+      "verificationReceipt": "development/art/delivery-v17.json"
+    }
+  },
+  "artCheckpointVersion": "5.17.0",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  }
+}

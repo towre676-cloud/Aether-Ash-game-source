@@ -1,0 +1,9 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {eligibleLore,rememberPlace} from '../lore.js';
+const data=JSON.parse(readFileSync(new URL('../lore-content.json',import.meta.url))),world=JSON.parse(readFileSync(new URL('../world.json',import.meta.url)));
+test('all authored and 24 exploration rooms bind uniquely to world lore',()=>{assert.equal(new Set(data.places.map(p=>p.location)).size,data.places.length);for(const s of world.scenes)assert.ok(data.places.find(p=>p.location===s.location),s.key);for(let n=1;n<=24;n++)assert.ok(data.places.find(p=>p.location===700+n));});
+test('new and legacy saves gain visit records without quest changes',()=>{const state={chapter:1,gold:0,flags:{}};const before=JSON.stringify(state);const w={state,scene:{location:2}};rememberPlace(data,w);rememberPlace(data,w);assert.deepEqual(state.lore.visited,[2]);const {lore,...rest}=state;assert.equal(JSON.stringify(rest),before);});
+test('opening hides endgame lore, boss outcomes and unrevealed myth truth',()=>{const entries=eligibleLore(data,{chapter:1,lore:{visited:[2]},bosses:[]});assert.ok(entries.some(e=>e.group==='places'));assert.ok(!entries.some(e=>e.group==='plot'||e.id?.startsWith('boss-')));assert.ok(!entries.some(e=>e.text.includes('What you learned:')));assert.ok(!entries.some(e=>e.name==='The Choir'));});
+test('chapter 24 keeps climax account hidden until completion',()=>{let state={chapter:24,bosses:[1],lore:{visited:[]}};assert.ok(!eligibleLore(data,state).some(e=>e.group==='plot'&&e.chapter===24));assert.ok(!eligibleLore(data,state).some(e=>e.id==='boss-24'));state.complete=true;state.bosses.push(24);assert.ok(eligibleLore(data,state).some(e=>e.group==='plot'&&e.chapter===24));assert.ok(eligibleLore(data,state).some(e=>e.id==='boss-24'));});

@@ -1,0 +1,2374 @@
+{
+  "schema": "ash-aether.world-3d-content-inventory/1",
+  "release": "5.30",
+  "checked_at_utc": "2026-10-30T18:50:33.620Z",
+  "prepared_scene_count": 167,
+  "object_type_counts": {
+    "puzzle": {
+      "objects": 35,
+      "scenes": 33
+    },
+    "patrol": {
+      "objects": 57,
+      "scenes": 48
+    },
+    "cache": {
+      "objects": 35,
+      "scenes": 34
+    },
+    "boss": {
+      "objects": 24,
+      "scenes": 24
+    },
+    "portal": {
+      "objects": 314,
+      "scenes": 134
+    },
+    "npc": {
+      "objects": 52,
+      "scenes": 48
+    },
+    "furnishing": {
+      "objects": 777,
+      "scenes": 64
+    },
+    "secret": {
+      "objects": 72,
+      "scenes": 48
+    },
+    "transport": {
+      "objects": 4,
+      "scenes": 2
+    },
+    "camp": {
+      "objects": 80,
+      "scenes": 80
+    },
+    "mentor": {
+      "objects": 7,
+      "scenes": 7
+    },
+    "listen": {
+      "objects": 26,
+      "scenes": 26
+    },
+    "shop": {
+      "objects": 3,
+      "scenes": 3
+    },
+    "project": {
+      "objects": 3,
+      "scenes": 3
+    },
+    "note": {
+      "objects": 23,
+      "scenes": 16
+    },
+    "aid": {
+      "objects": 3,
+      "scenes": 3
+    },
+    "guide": {
+      "objects": 1,
+      "scenes": 1
+    },
+    "frontier-board": {
+      "objects": 61,
+      "scenes": 61
+    },
+    "clue": {
+      "objects": 24,
+      "scenes": 24
+    },
+    "riddle": {
+      "objects": 24,
+      "scenes": 24
+    },
+    "switch": {
+      "objects": 4,
+      "scenes": 4
+    },
+    "frontier-landmark": {
+      "objects": 120,
+      "scenes": 60
+    },
+    "origin-exit": {
+      "objects": 7,
+      "scenes": 7
+    }
+  },
+  "coverage_priorities": [
+    "Native campaign puzzle, note, project and aid mechanisms need saved-state models rather than floor rings.",
+    "Camps, listening stations, dispatch boards and frontier survey/apparatus sites need visible physical identities across their existing regions.",
+    "Secret objects remain concealed until their authoritative discovery state allows them; presentation expansion must not reveal hidden rewards."
+  ],
+  "state_semantics": {
+    "notes": "flags['sequence:'+sequence_address] records played sequence progress; completes_bit at flagFor(object) records completion.",
+    "puzzles": "stage_flag records intermediate stage; done/bit and storyChoices record committed result.",
+    "frontier": "frontiers.active identifies the commission; frontiers.stages[active] runs survey0,repair1,protect2,report3,claimed4. Authored markers are stage-visible, while completed apparatus models may persist as scenery.",
+    "blockers": "household.floorBase represents the structural footprint; scene.floor adds real blocked furniture cells; scene.affordanceBlocked adds runtime repaired crossing/gate masks."
+  },
+  "limits": [
+    "Inventory counts authored prepared objects. Dynamic lore, network, relic, creature and life systems may add further objects at runtime.",
+    "Counts do not establish render quality or visual legibility; browser review and finite-geometry checks provide separate evidence."
+  ],
+  "scenes": [
+    {
+      "id": 230,
+      "key": "security",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "puzzle": 1,
+        "patrol": 1,
+        "cache": 1,
+        "boss": 1,
+        "portal": 1,
+        "npc": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 229,
+      "key": "console",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 1,
+        "cache": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 228,
+      "key": "workshop",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "puzzle": 1,
+        "cache": 1,
+        "patrol": 1,
+        "portal": 3,
+        "secret": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 5,
+      "key": "town",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "puzzle": 2,
+        "npc": 3,
+        "transport": 3,
+        "portal": 6
+      }
+    },
+    {
+      "id": 2,
+      "key": "home",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "portal": 1,
+        "mentor": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 4,
+      "key": "instrumentworks",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "listen": 1,
+        "portal": 2,
+        "mentor": 1,
+        "shop": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 12,
+      "key": "inn",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "camp": 1,
+        "npc": 1,
+        "portal": 1,
+        "mentor": 1,
+        "furnishing": 21
+      }
+    },
+    {
+      "id": 17,
+      "key": "market",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "shop": 1,
+        "portal": 1,
+        "mentor": 1
+      }
+    },
+    {
+      "id": 13,
+      "key": "guild",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 1,
+        "mentor": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 50,
+      "key": "clinic",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "camp": 1,
+        "npc": 1,
+        "portal": 1,
+        "mentor": 1,
+        "furnishing": 15
+      }
+    },
+    {
+      "id": 61,
+      "key": "carpenter",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "project": 1,
+        "portal": 1,
+        "mentor": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 135,
+      "key": "bridge",
+      "chapter": 2,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "cache": 1,
+        "patrol": 1,
+        "npc": 2,
+        "puzzle": 1,
+        "boss": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 214,
+      "key": "refuge",
+      "chapter": 2,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "cache": 1,
+        "patrol": 1,
+        "portal": 2,
+        "secret": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 47,
+      "key": "passages",
+      "chapter": 3,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "portal": 3,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 49,
+      "key": "river",
+      "chapter": 3,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "patrol": 1,
+        "puzzle": 1,
+        "boss": 1,
+        "portal": 1,
+        "secret": 1
+      }
+    },
+    {
+      "id": 48,
+      "key": "bypass",
+      "chapter": 3,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "cache": 1,
+        "patrol": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 292,
+      "key": "chapel",
+      "chapter": 4,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 2,
+        "patrol": 2,
+        "note": 1,
+        "boss": 1,
+        "cache": 1,
+        "portal": 3,
+        "secret": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 125,
+      "key": "bell_crypt",
+      "chapter": 4,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 2,
+        "note": 1,
+        "npc": 1,
+        "cache": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 212,
+      "key": "west",
+      "chapter": 5,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "npc": 1,
+        "boss": 1,
+        "portal": 2,
+        "furnishing": 16
+      }
+    },
+    {
+      "id": 213,
+      "key": "east",
+      "chapter": 5,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "cache": 1,
+        "portal": 1,
+        "furnishing": 9
+      }
+    },
+    {
+      "id": 234,
+      "key": "unindexed",
+      "chapter": 5,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "cache": 1,
+        "patrol": 1,
+        "portal": 2,
+        "secret": 1,
+        "furnishing": 4
+      }
+    },
+    {
+      "id": 28,
+      "key": "catwalk",
+      "chapter": 6,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "boss": 1
+      }
+    },
+    {
+      "id": 29,
+      "key": "office",
+      "chapter": 6,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "puzzle": 1,
+        "patrol": 1,
+        "cache": 1,
+        "portal": 3,
+        "furnishing": 8
+      }
+    },
+    {
+      "id": 30,
+      "key": "hold",
+      "chapter": 6,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "cache": 1,
+        "patrol": 1,
+        "portal": 2,
+        "secret": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 19,
+      "key": "forest",
+      "chapter": 7,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 2,
+        "npc": 1,
+        "cache": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 20,
+      "key": "grove",
+      "chapter": 7,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "puzzle": 1,
+        "boss": 1,
+        "portal": 1,
+        "secret": 1
+      }
+    },
+    {
+      "id": 42,
+      "key": "sanctuary",
+      "chapter": 7,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "cache": 1,
+        "patrol": 1,
+        "portal": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 294,
+      "key": "reactor",
+      "chapter": 8,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "puzzle": 2,
+        "patrol": 3,
+        "npc": 1,
+        "cache": 2,
+        "portal": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 295,
+      "key": "summit",
+      "chapter": 8,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "boss": 1,
+        "portal": 1,
+        "secret": 1
+      }
+    },
+    {
+      "id": 112,
+      "key": "field",
+      "chapter": 9,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "note": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 406,
+      "key": "lowbank_shelter",
+      "chapter": 9,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 1,
+        "aid": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 17
+      }
+    },
+    {
+      "id": 256,
+      "key": "field",
+      "chapter": 10,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 225,
+      "key": "manifest_depot",
+      "chapter": 10,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "puzzle": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 6
+      }
+    },
+    {
+      "id": 68,
+      "key": "field",
+      "chapter": 11,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "boss": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 160,
+      "key": "flood_spillway",
+      "chapter": 11,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 4,
+        "puzzle": 1,
+        "cache": 1,
+        "secret": 1,
+        "furnishing": 9
+      }
+    },
+    {
+      "id": 70,
+      "key": "field",
+      "chapter": 12,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 66,
+      "key": "name_vault",
+      "chapter": 12,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "puzzle": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 8
+      }
+    },
+    {
+      "id": 73,
+      "key": "field",
+      "chapter": 13,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "note": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 359,
+      "key": "letter_attic",
+      "chapter": 13,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 1,
+        "aid": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 164,
+      "key": "field",
+      "chapter": 14,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "boss": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 172,
+      "key": "echo_chamber",
+      "chapter": 14,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "puzzle": 1,
+        "cache": 1,
+        "secret": 1,
+        "furnishing": 9
+      }
+    },
+    {
+      "id": 145,
+      "key": "field",
+      "chapter": 15,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 2,
+        "portal": 3
+      }
+    },
+    {
+      "id": 144,
+      "key": "refugee_gate",
+      "chapter": 15,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 4,
+        "puzzle": 1,
+        "boss": 1,
+        "secret": 1
+      }
+    },
+    {
+      "id": 142,
+      "key": "field",
+      "chapter": 16,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "note": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 394,
+      "key": "resonance_gallery",
+      "chapter": 16,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 2,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 143,
+      "key": "field",
+      "chapter": 17,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "boss": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 313,
+      "key": "lens_workshop",
+      "chapter": 17,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 4,
+        "puzzle": 1,
+        "cache": 1,
+        "secret": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 146,
+      "key": "field",
+      "chapter": 18,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 315,
+      "key": "relief_store",
+      "chapter": 18,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 4,
+        "project": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 147,
+      "key": "field",
+      "chapter": 19,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "cache": 1,
+        "patrol": 1,
+        "note": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 149,
+      "key": "storm_anchorage",
+      "chapter": 19,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 2,
+        "boss": 1,
+        "camp": 1,
+        "secret": 1
+      }
+    },
+    {
+      "id": 438,
+      "key": "field",
+      "chapter": 20,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 259,
+      "key": "witness_vault",
+      "chapter": 20,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "puzzle": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 8
+      }
+    },
+    {
+      "id": 151,
+      "key": "field",
+      "chapter": 21,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "note": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 303,
+      "key": "pottery_floor",
+      "chapter": 21,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 2,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 392,
+      "key": "field",
+      "chapter": 22,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 2,
+        "note": 2,
+        "portal": 2
+      }
+    },
+    {
+      "id": 314,
+      "key": "vent_house",
+      "chapter": 22,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 1,
+        "aid": 1,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 393,
+      "key": "field",
+      "chapter": 23,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "patrol": 1,
+        "boss": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 319,
+      "key": "common_assembly",
+      "chapter": 23,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "project": 1,
+        "secret": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 251,
+      "key": "field",
+      "chapter": 24,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "npc": 1,
+        "camp": 1,
+        "cache": 1,
+        "note": 1,
+        "portal": 1,
+        "puzzle": 1
+      }
+    },
+    {
+      "id": 404,
+      "key": "listening_chamber",
+      "chapter": 24,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "portal": 3,
+        "note": 2,
+        "boss": 1,
+        "secret": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 226,
+      "key": "hub",
+      "chapter": null,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "guide": 1,
+        "transport": 1,
+        "shop": 1,
+        "listen": 1,
+        "camp": 1,
+        "frontier-board": 1
+      }
+    },
+    {
+      "id": 701,
+      "key": "secret_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 16
+      }
+    },
+    {
+      "id": 702,
+      "key": "secret_2",
+      "chapter": 2,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 16
+      }
+    },
+    {
+      "id": 703,
+      "key": "secret_3",
+      "chapter": 3,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "switch": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 704,
+      "key": "secret_4",
+      "chapter": 4,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "switch": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 705,
+      "key": "secret_5",
+      "chapter": 5,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "switch": 1,
+        "furnishing": 9
+      }
+    },
+    {
+      "id": 706,
+      "key": "secret_6",
+      "chapter": 6,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 15
+      }
+    },
+    {
+      "id": 707,
+      "key": "secret_7",
+      "chapter": 7,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "switch": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 708,
+      "key": "secret_8",
+      "chapter": 8,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 709,
+      "key": "secret_9",
+      "chapter": 9,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 710,
+      "key": "secret_10",
+      "chapter": 10,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 17
+      }
+    },
+    {
+      "id": 711,
+      "key": "secret_11",
+      "chapter": 11,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 14
+      }
+    },
+    {
+      "id": 712,
+      "key": "secret_12",
+      "chapter": 12,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 713,
+      "key": "secret_13",
+      "chapter": 13,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 15
+      }
+    },
+    {
+      "id": 714,
+      "key": "secret_14",
+      "chapter": 14,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 715,
+      "key": "secret_15",
+      "chapter": 15,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 12
+      }
+    },
+    {
+      "id": 716,
+      "key": "secret_16",
+      "chapter": 16,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 717,
+      "key": "secret_17",
+      "chapter": 17,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 718,
+      "key": "secret_18",
+      "chapter": 18,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 719,
+      "key": "secret_19",
+      "chapter": 19,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 15
+      }
+    },
+    {
+      "id": 720,
+      "key": "secret_20",
+      "chapter": 20,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 721,
+      "key": "secret_21",
+      "chapter": 21,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 11
+      }
+    },
+    {
+      "id": 722,
+      "key": "secret_22",
+      "chapter": 22,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 723,
+      "key": "secret_23",
+      "chapter": 23,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 13
+      }
+    },
+    {
+      "id": 724,
+      "key": "secret_24",
+      "chapter": 24,
+      "biome": null,
+      "origin": null,
+      "object_types": {
+        "clue": 1,
+        "riddle": 1,
+        "secret": 2,
+        "listen": 1,
+        "furnishing": 10
+      }
+    },
+    {
+      "id": 2000,
+      "key": "frontier_dunes_0",
+      "chapter": 2,
+      "biome": "sand",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2001,
+      "key": "frontier_dunes_1",
+      "chapter": 2,
+      "biome": "sand",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2002,
+      "key": "frontier_dunes_2",
+      "chapter": 2,
+      "biome": "sand",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2003,
+      "key": "frontier_dunes_3",
+      "chapter": 2,
+      "biome": "sand",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2004,
+      "key": "frontier_dunes_4",
+      "chapter": 2,
+      "biome": "sand",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2005,
+      "key": "frontier_salt_0",
+      "chapter": 3,
+      "biome": "salt",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2006,
+      "key": "frontier_salt_1",
+      "chapter": 3,
+      "biome": "salt",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2007,
+      "key": "frontier_salt_2",
+      "chapter": 3,
+      "biome": "salt",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2008,
+      "key": "frontier_salt_3",
+      "chapter": 3,
+      "biome": "salt",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2009,
+      "key": "frontier_salt_4",
+      "chapter": 3,
+      "biome": "salt",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2010,
+      "key": "frontier_cactus_0",
+      "chapter": 4,
+      "biome": "cactus",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2011,
+      "key": "frontier_cactus_1",
+      "chapter": 4,
+      "biome": "cactus",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2012,
+      "key": "frontier_cactus_2",
+      "chapter": 4,
+      "biome": "cactus",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2013,
+      "key": "frontier_cactus_3",
+      "chapter": 4,
+      "biome": "cactus",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2014,
+      "key": "frontier_cactus_4",
+      "chapter": 4,
+      "biome": "cactus",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2015,
+      "key": "frontier_caldera_0",
+      "chapter": 6,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2016,
+      "key": "frontier_caldera_1",
+      "chapter": 6,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2017,
+      "key": "frontier_caldera_2",
+      "chapter": 6,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2018,
+      "key": "frontier_caldera_3",
+      "chapter": 6,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2019,
+      "key": "frontier_caldera_4",
+      "chapter": 6,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2020,
+      "key": "frontier_coral_0",
+      "chapter": 7,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2021,
+      "key": "frontier_coral_1",
+      "chapter": 7,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2022,
+      "key": "frontier_coral_2",
+      "chapter": 7,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2023,
+      "key": "frontier_coral_3",
+      "chapter": 7,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2024,
+      "key": "frontier_coral_4",
+      "chapter": 7,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2025,
+      "key": "frontier_mangrove_0",
+      "chapter": 8,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2026,
+      "key": "frontier_mangrove_1",
+      "chapter": 8,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2027,
+      "key": "frontier_mangrove_2",
+      "chapter": 8,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2028,
+      "key": "frontier_mangrove_3",
+      "chapter": 8,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2029,
+      "key": "frontier_mangrove_4",
+      "chapter": 8,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2030,
+      "key": "frontier_crystal_0",
+      "chapter": 10,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2031,
+      "key": "frontier_crystal_1",
+      "chapter": 10,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2032,
+      "key": "frontier_crystal_2",
+      "chapter": 10,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2033,
+      "key": "frontier_crystal_3",
+      "chapter": 10,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2034,
+      "key": "frontier_crystal_4",
+      "chapter": 10,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2035,
+      "key": "frontier_glacier_0",
+      "chapter": 12,
+      "biome": "ice",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2036,
+      "key": "frontier_glacier_1",
+      "chapter": 12,
+      "biome": "ice",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2037,
+      "key": "frontier_glacier_2",
+      "chapter": 12,
+      "biome": "ice",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2038,
+      "key": "frontier_glacier_3",
+      "chapter": 12,
+      "biome": "ice",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2039,
+      "key": "frontier_glacier_4",
+      "chapter": 12,
+      "biome": "ice",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2040,
+      "key": "frontier_aurora_0",
+      "chapter": 14,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2041,
+      "key": "frontier_aurora_1",
+      "chapter": 14,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2042,
+      "key": "frontier_aurora_2",
+      "chapter": 14,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2043,
+      "key": "frontier_aurora_3",
+      "chapter": 14,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2044,
+      "key": "frontier_aurora_4",
+      "chapter": 14,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2045,
+      "key": "frontier_spore_0",
+      "chapter": 16,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2046,
+      "key": "frontier_spore_1",
+      "chapter": 16,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2047,
+      "key": "frontier_spore_2",
+      "chapter": 16,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2048,
+      "key": "frontier_spore_3",
+      "chapter": 16,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2049,
+      "key": "frontier_spore_4",
+      "chapter": 16,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2050,
+      "key": "frontier_storm_0",
+      "chapter": 18,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2051,
+      "key": "frontier_storm_1",
+      "chapter": 18,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2052,
+      "key": "frontier_storm_2",
+      "chapter": 18,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2053,
+      "key": "frontier_storm_3",
+      "chapter": 18,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2054,
+      "key": "frontier_storm_4",
+      "chapter": 18,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2055,
+      "key": "frontier_marble_0",
+      "chapter": 20,
+      "biome": "marble",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 2056,
+      "key": "frontier_marble_1",
+      "chapter": 20,
+      "biome": "marble",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2057,
+      "key": "frontier_marble_2",
+      "chapter": 20,
+      "biome": "marble",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2058,
+      "key": "frontier_marble_3",
+      "chapter": 20,
+      "biome": "marble",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 3
+      }
+    },
+    {
+      "id": 2059,
+      "key": "frontier_marble_4",
+      "chapter": 20,
+      "biome": "marble",
+      "origin": null,
+      "object_types": {
+        "frontier-board": 1,
+        "frontier-landmark": 2,
+        "camp": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50000,
+      "key": "origin_sable-reed_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "sable-reed",
+      "object_types": {
+        "furnishing": 10,
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50001,
+      "key": "origin_sable-reed_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "sable-reed",
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50002,
+      "key": "origin_iona-lowbank_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "iona-lowbank",
+      "object_types": {
+        "furnishing": 17,
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50003,
+      "key": "origin_iona-lowbank_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "iona-lowbank",
+      "object_types": {
+        "furnishing": 12,
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50004,
+      "key": "origin_rook-regulator_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "rook-regulator",
+      "object_types": {
+        "furnishing": 11,
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50005,
+      "key": "origin_rook-regulator_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "rook-regulator",
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50006,
+      "key": "origin_brass-rail_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "brass-rail",
+      "object_types": {
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50007,
+      "key": "origin_brass-rail_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "brass-rail",
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50008,
+      "key": "origin_riven-tide_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "riven-tide",
+      "object_types": {
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50009,
+      "key": "origin_riven-tide_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "riven-tide",
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50010,
+      "key": "origin_mira-archive_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "mira-archive",
+      "object_types": {
+        "furnishing": 16,
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50011,
+      "key": "origin_mira-archive_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "mira-archive",
+      "object_types": {
+        "furnishing": 9,
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 50012,
+      "key": "origin_veyr-storm_0",
+      "chapter": 1,
+      "biome": null,
+      "origin": "veyr-storm",
+      "object_types": {
+        "npc": 1,
+        "puzzle": 1,
+        "portal": 1
+      }
+    },
+    {
+      "id": 50013,
+      "key": "origin_veyr-storm_1",
+      "chapter": 1,
+      "biome": null,
+      "origin": "veyr-storm",
+      "object_types": {
+        "patrol": 1,
+        "puzzle": 1,
+        "npc": 1,
+        "portal": 2
+      }
+    },
+    {
+      "id": 4700,
+      "key": "origin_storm",
+      "chapter": 1,
+      "biome": "storm",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4701,
+      "key": "origin_mangrove",
+      "chapter": 1,
+      "biome": "mangrove",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4702,
+      "key": "origin_caldera",
+      "chapter": 1,
+      "biome": "lava",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4703,
+      "key": "origin_crystal",
+      "chapter": 1,
+      "biome": "crystal",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4704,
+      "key": "origin_coral",
+      "chapter": 1,
+      "biome": "coral",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4705,
+      "key": "origin_spore",
+      "chapter": 1,
+      "biome": "spore",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    },
+    {
+      "id": 4706,
+      "key": "origin_aurora",
+      "chapter": 1,
+      "biome": "aurora",
+      "origin": null,
+      "object_types": {
+        "patrol": 1,
+        "origin-exit": 1
+      }
+    }
+  ]
+}

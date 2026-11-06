@@ -1,0 +1,64 @@
+{
+  "release": "5.39 \u00b7 The working observatory",
+  "base_commit": "ec458ecd93be0332695c20b8eb658c38f3133abe",
+  "scope": {
+    "native_scenes": [
+      50012,
+      50013
+    ],
+    "other_places_redesigned": false,
+    "collision_or_save_format_changed": false
+  },
+  "visual_changes": [
+    "four authored material families shared by GPU/software",
+    "masonry, gutters, vents, receiver cabinets, insulators and calibration detail",
+    "coping, cliff strata and a coherent tidal reply station",
+    "large flush inlaid wind chart and actual control service plates",
+    "wind pennant and subtle roof exhaust",
+    "phone composition with clear east-side sightline and cable endpoint framing"
+  ],
+  "browser_checks": {
+    "ordinary_veyr_restore": "4/5 at11.5,6.5",
+    "manual_zoom": 2,
+    "all_touch_controls_inside_phone": true,
+    "reset_zoom": 1.35,
+    "reset_mode": "automatic",
+    "isolated_fresh_receiver": true,
+    "manual_ground_drag": true,
+    "grounded_after_drag": true,
+    "portrait_css": [
+      388,
+      842
+    ],
+    "landscape_css": [
+      738,
+      358
+    ],
+    "app_console_errors": [],
+    "renderer": "software-3d"
+  },
+  "validation": {
+    "broad_suite": {
+      "modules": 223,
+      "tests": 1705,
+      "passed": 1705,
+      "failed": 0,
+      "skipped": 0
+    },
+    "final_cable_camera_refinement": {
+      "focused_tests": 13,
+      "passed": 13,
+      "log": "observatory-5.39-camera-tests.log"
+    }
+  },
+  "screenshots": {
+    "upper": "observatory-5.39-upper.jpg",
+    "lower": "observatory-5.39-lower.jpg",
+    "landscape": "observatory-5.39-landscape.jpg",
+    "arrival": "observatory-5.39-arrival.jpg"
+  },
+  "limits": [
+    "Physical Android and WebGL timing were not measured.",
+    "Only the observatory received the new art treatment."
+  ]
+}

@@ -1,0 +1,173 @@
+/* 5.36: a compact travelling case, with permanent controls within thumb reach. */
+#game #pause{
+ --folio-ink:#e5d8ba;--folio-quiet:#aab09d;--folio-rule:#ad936343;
+ --folio-paper:#17231d;--folio-ochre:#d4ad73;--folio-green:#afc49b;
+ color:var(--folio-ink);color-scheme:dark;padding:24px 24px 84px;
+ background:linear-gradient(90deg,#050d0ce6,#07110be6),url('../cinema/expanded/art/chapter-1-2.webp') center/cover;
+ backdrop-filter:blur(4px);
+}
+#game #pause .menu-card{
+ position:relative;width:min(990px,100%);max-width:990px;max-height:calc(100dvh - 126px);
+ min-height:0;overflow:auto;isolation:isolate;border:0;border-radius:0;outline:0;
+ padding:22px 28px 26px;color:var(--folio-ink);
+ background:linear-gradient(105deg,#122019ed,#101b16f7 42%,#101a16f7),url('../cinema/expanded/art/chapter-3-2.webp') left center/cover;
+ box-shadow:0 16px 70px #0009,inset 0 1px #d5bb8044,inset 0 -1px #d5bb8033;
+ scrollbar-color:#9b8758 #101a16;scroll-padding:18px;
+}
+#game #pause .menu-card::before{content:'';position:absolute;inset:8px;z-index:-1;pointer-events:none;border:0;border-left:1px solid #c6a66a22;background:none;width:auto;transform:none}
+#game #pause .menu-card::after{content:'';position:absolute;right:20px;top:15px;width:34px;height:34px;background:url('../art/ui/wayfinder-seal-5.34.svg') center/contain no-repeat;box-shadow:none;clip-path:none;opacity:.4;pointer-events:none}
+#game #pause-title{font:400 28px/1.1 Georgia,serif;letter-spacing:.01em;color:#eddbb5;margin:0 0 18px;padding:0 55px 13px 0;border:0;border-bottom:1px solid var(--folio-rule);text-shadow:0 2px 4px #0009}
+#game #pause-title::after{display:none}
+#game #pause .menu-companion{position:absolute;left:18px;top:66px;width:105px;display:grid;justify-items:center;pointer-events:none;z-index:1}
+#game #pause .menu-companion[hidden]{display:none}
+#game #pause .menu-companion canvas{width:78px;height:104px;object-fit:contain;filter:drop-shadow(0 7px 8px #0009)}
+#game #pause .menu-companion span{font:14px Georgia,serif;color:#d9c18e;margin-top:2px;max-width:105px;overflow:hidden;text-overflow:ellipsis}
+#game #pause #pause-body.pause-navigation:not([hidden]){display:grid;grid-template-columns:minmax(220px,.95fr) minmax(260px,1.05fr);column-gap:30px;align-items:start;position:relative;padding-left:104px}
+#game #pause #pause-body.pause-navigation::before{display:none}
+#game #pause #pause-overview{grid-column:1;grid-row:1;margin:0;padding:0 0 8px;border:0;background:none}
+#game #pause #pause-overview :is(.eyebrow,h3){display:none}
+#game #pause .journey-totals{display:flex;align-items:baseline;gap:7px 14px;flex-wrap:wrap;background:none;border:0;padding:0}
+#game #pause .journey-totals>div{display:inline-flex;align-items:baseline;gap:5px;min-width:0;background:none;border:0;padding:0}
+#game #pause .journey-totals strong{font:17px Georgia,serif;color:#dfc994}
+#game #pause .journey-totals small{font:12px Georgia,serif;letter-spacing:0;text-transform:none;color:#aab29d}
+#game #pause #journal-goal{grid-column:1;grid-row:2;padding:7px 0 8px;margin:0;border:0;background:none;color:#d2d4bd;font:14px/1.55 Georgia,serif;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+#game #pause #journal-discoveries{grid-column:1;grid-row:3;padding:9px 0;margin:0;border:0;border-top:1px solid var(--folio-rule);font:12px/1.5 Georgia,serif;color:#a3ae98;max-height:3.1em;overflow:hidden}
+#game #pause #pause-body.pause-navigation .pause-primary{grid-column:2;grid-row:1/span 4;display:flex;flex-direction:column;gap:0;padding:0 0 8px;margin:0;border:0;background:none}
+#game #pause #pause-body.pause-navigation .pause-primary>button{position:relative;min-height:44px;padding:8px 8px 8px 23px;background:none;background-image:none;border:0;border-bottom:1px solid #9a936c26;border-radius:0;box-shadow:none;text-shadow:none;text-align:left;color:#ded6b8;font:18px/1.35 Georgia,serif;letter-spacing:0}
+#game #pause #pause-body.pause-navigation .pause-primary>button::before{content:'';position:absolute;left:3px;top:19px;width:5px;height:5px;transform:rotate(45deg);background:#b79c62}
+#game #pause #pause-body.pause-navigation .pause-primary>#resume{font-size:18px;color:#c5d4ab;font-style:normal;margin:0;padding-bottom:8px;background:none;border-bottom:1px solid #9a936c26;box-shadow:none;text-shadow:none}
+#game #pause #pause-body.pause-navigation .pause-primary>#preparation-button{color:#e6cca0;background:none;border-color:#9a936c26}
+#game #pause #pause-body.pause-navigation .pause-primary>button:not(:disabled):hover{color:#fff0bd;background:linear-gradient(90deg,#bd9e4b18,transparent);filter:none}
+#game #pause #pause-body.pause-navigation .pause-save-status{grid-column:1;grid-row:4;margin:7px 0 0;padding:8px 0;border:0;border-top:1px solid var(--folio-rule);font:12px/1.45 Georgia,serif;color:#9d9f87;min-height:0}
+#game #pause #pause-body.pause-navigation .pause-save-status:is([data-state=error],[data-state=failed],[data-save-state=unavailable]){color:#e4aa8d}
+#game #pause #pause-body .pause-group{grid-column:1/-1;display:block;margin:0;border:0;border-bottom:1px solid #9a936c35;border-radius:0;overflow:visible;background:none;box-shadow:none}
+#game #pause #pause-body .pause-group[hidden]{display:none}
+#game #pause #pause-body .pause-group>summary{min-height:46px;padding:10px 28px 10px 0;border:0;background:none;border-radius:0;box-shadow:none;display:flex;align-items:baseline;gap:14px}
+#game #pause #pause-body .pause-group>summary strong{font:16px/1.4 Georgia,serif;color:#d7c69f;letter-spacing:0;flex:0 0 205px}
+#game #pause #pause-body .pause-group>summary span{font:12px/1.4 Georgia,serif;color:#8f9d88}
+#game #pause #pause-body .pause-group>summary::after{color:#b59a5d;right:2px;top:13px;font:17px Georgia,serif}
+#game #pause #pause-body .pause-group[open]>summary{background:none;border-bottom:1px solid #9a936c22}
+#game #pause #pause-body .pause-action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;padding:2px 0 12px 12px;border:0;border-left:1px solid #9a936c44;margin:0}
+#game #pause .pause-action-grid>:is(button,a,.file-button){min-height:44px;padding:8px 0;display:flex;align-items:center;border:0;border-bottom:1px solid #9a936c22;border-radius:0;background:none;background-image:none;box-shadow:none;color:#c7cfb7;font:14px/1.5 Georgia,serif;text-decoration:none;text-shadow:none;margin:0}
+#game #pause .pause-action-grid>.file-button{display:block}
+#game #pause .pause-action-grid>:is(.setting,.hint,.player-comfort,.music-settings){grid-column:1/-1}
+#game #pause :is(button,select,.file-button){min-height:44px;color:#d8d7bd;border-radius:0;text-shadow:none}
+#game #pause button,#game #pause .file-button{background:none;background-image:none;box-shadow:none;border:0;border-bottom:1px solid #9a936c55}
+#game #pause button:not(:disabled):hover{filter:none;color:#f0ddb0}
+#game #pause :is(button,select,a,summary,.file-button):focus-visible{outline:2px solid #e0c487;outline-offset:3px}
+#game #pause :is(button,select):disabled{opacity:.5}
+#game #pause :is(.hint,.muted,.equipment-line){font:13px/1.5 Georgia,serif;color:#a9b69d}
+#game #pause :is(h3,h4){font-family:Georgia,serif;color:#dbcba7}
+#game #pause .setting{border-color:#9a936c33;font:14px/1.5 Georgia,serif;color:#b2c0aa;padding:9px 0}
+#game #pause select{background:#1d2a20;color:#e4d4ae;border:1px solid #8b835555;font:14px Georgia,serif;min-height:44px;padding:8px;max-width:100%}
+#game #pause input{accent-color:#b7b681}
+#game #pause :is(#music-settings,.music-settings){border:0;border-top:1px solid var(--folio-rule);border-radius:0;background:none;padding:10px 0}
+#game #pause :is(#music-now-playing,#music-pacing-help,#music-settings .music-pacing-label){color:#b3bea8;font:13px/1.5 Georgia,serif}
+#game #pause #music-settings>strong{color:#e1cba0}
+#game #pause :is(#music-next,#music-enable){background:#35412a;border-color:#a09860;color:#eee3b9;min-height:44px}
+/* Secondary pages keep native artwork and use compact, illustrated rows. */
+#game #pause .crew-tabs{display:flex;gap:6px;border:0;border-bottom:1px solid var(--folio-rule);padding-bottom:4px;margin-bottom:10px}
+#game #pause .crew-tabs>button{min-height:44px;font:16px Georgia,serif;padding:8px 12px;background:none;border:0;border-bottom:2px solid transparent;box-shadow:none;color:#aebda7}
+#game #pause .crew-tabs>[aria-pressed=true]{color:#efdcad!important;background:none!important;border-bottom-color:#c7ad71}
+#game #pause .character-layout{grid-template-columns:minmax(160px,.7fr) minmax(0,1.3fr);gap:24px}
+#game #pause .character-art{padding:12px 0;background:radial-gradient(ellipse at 50% 50%,#71945324,transparent 67%);border:0;border-radius:0;box-shadow:none}
+#game #pause .hero-portrait{height:230px;max-height:230px;filter:drop-shadow(0 9px 10px #0008)}
+#game #pause .hero-name{font:32px Georgia,serif;color:#e9d8b3}
+#game #pause .character-art :is(.eyebrow,.affinity){color:#a6b69b;font-size:12px}
+#game #pause .vital{font:13px Georgia,serif;color:#b1bfa5;margin:10px 0;gap:5px}
+#game #pause .vital strong{color:#dbd9be}
+#game #pause .vital progress{height:5px;border-radius:0}
+#game #pause .vital progress::-webkit-progress-bar{background:#29382a}
+#game #pause .vital progress::-webkit-progress-value{background:#9bb983}
+#game #pause .hero-stats{display:flex;flex-wrap:wrap;gap:7px 18px;padding:9px 0;margin:12px 0;border:0;border-top:1px solid var(--folio-rule);border-bottom:1px solid var(--folio-rule);background:none}
+#game #pause .hero-stats>div{display:flex;align-items:baseline;gap:6px;padding:0;border:0;background:none}
+#game #pause .hero-stats small{color:#a9b49c;font:12px Georgia,serif}
+#game #pause .hero-stats strong{color:#e5cfa2;font:17px Georgia,serif}
+#game #pause .tech-card{padding:7px 10px;border:0;border-left:2px solid #aa9663;border-bottom:1px solid #9a936c26;background:none;margin:6px 0;font:13px/1.45 Georgia,serif;color:#bcc7b0}
+#game #pause .tech-card small{color:#ceb584;font-size:12px}
+#game #pause :is(.character-actions,.crew-toolbar)>button{min-height:44px;padding:8px 12px;background:none;box-shadow:none;border:0;border-bottom:1px solid var(--folio-rule);font:14px Georgia,serif;color:#d4caab}
+#game #pause .crew-setup{color:#c8cfb6}
+#game #pause .crew-setup :is(section,article){border:0;border-top:1px solid var(--folio-rule);border-radius:0;background:none;padding:12px 0;margin:10px 0;box-shadow:none}
+#game #pause .crew-setup h3{font:20px/1.3 Georgia,serif;margin:5px 0 10px}
+#game #pause .crew-setup h4{font:18px Georgia,serif;margin:4px 0 10px}
+#game #pause .crew-setup p{font:13px/1.5 Georgia,serif;color:#aab99e;margin:7px 0}
+#game #pause .crew-kicker{font:12px Georgia,serif;letter-spacing:.1em;color:#b9a16d}
+#game #pause .crew-live{background:#8daa6021;border-left:2px solid #adbc7c;color:#c3d2b0;font:13px/1.45 Georgia,serif;padding:9px 10px;margin:9px 0}
+#game #pause .crew-toolbar{position:sticky;top:-1px;z-index:5;background:#122019f5;backdrop-filter:blur(4px);gap:6px;padding:4px 0}
+#game #pause .crew-toolbar button[aria-pressed=true]{color:#eddaab;background:none;border-bottom-color:#c4ab69}
+#game #pause .crew-vitals{gap:7px 16px;margin:9px 0}
+#game #pause .crew-vitals span{padding:5px 0;border:0;border-bottom:1px solid var(--folio-rule);background:none;color:#b8c3a7;font:13px Georgia,serif;border-radius:0}
+#game #pause .crew-sockets{display:flex;flex-wrap:wrap;gap:8px}
+#game #pause .crew-setup .crew-socket{flex:1 1 180px;max-width:360px;display:grid;grid-template-columns:44px 1fr;gap:2px 9px;align-items:center;text-align:left;min-height:66px;padding:7px 10px;border:0;border-left:2px solid #9e926342;border-bottom:1px solid var(--folio-rule);border-radius:0;background:none;background-image:none;box-shadow:none;color:#d8d5b8}
+#game #pause .crew-socket>.technique-icon{grid-column:1;grid-row:1/span 3;width:40px;height:40px;float:none;margin:0}
+#game #pause .crew-socket>small,#game #pause .crew-socket>strong,#game #pause .crew-socket>span{grid-column:2;font-size:13px}
+#game #pause .crew-socket>small{color:#9baa8c;font-size:12px}
+#game #pause .crew-socket.selected{background:#b5be7e12;border-left-color:#d5b778!important;box-shadow:none}
+#game #pause .crew-move-flow{margin:12px 0 7px;gap:10px;min-height:0}
+#game #pause .crew-move-flow strong{width:33px;height:33px;min-width:33px;font-size:19px;border-color:#9b976c;background:#273822;box-shadow:none;color:#c1cc9e}
+#game #pause .crew-move-flow span{font:12px/1.3 Georgia,serif;color:#b9c5ad}
+#game #pause .crew-move-flow::before{background:#a5a06d55;box-shadow:none}
+#game #pause .crew-growth-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+#game #pause .crew-setup .crew-growth-choice{min-height:58px;padding:8px 2px;background:none;background-image:none;border:0;border-bottom:1px solid var(--folio-rule);box-shadow:none;border-radius:0!important;color:#d6d0ae}
+#game #pause .crew-growth-choice>span{color:#bccb99}
+#game #pause .crew-growth-choice>strong{font:14px Georgia,serif}
+#game #pause .crew-growth-choice>small{font:12px/1.4 Georgia,serif;color:#a7b294}
+#game #pause .crew-setup summary{font:15px Georgia,serif;color:#cbb883;min-height:44px}
+#game #pause .crew-setup .crew-muted{color:#9eac92!important}
+#game #pause .crew-applied{color:#b9cc91!important}
+#game #pause :is(.crew-school-drawer,.crew-advanced,.crew-services){border-color:var(--folio-rule)}
+/* The permanent strip is outside .menu-card, including all native subviews. */
+#game #pause .menu-return-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 18px calc(9px + env(safe-area-inset-bottom,0px));background:linear-gradient(#15221ff2,#0b1513);border-top:1px solid #aa92644a;box-shadow:0 -6px 22px #0005}
+#game #pause .menu-return-bar button{min-height:48px;min-width:144px;padding:10px 18px;border:0;border-bottom:1px solid #a7966555;background:none;box-shadow:none;font:17px Georgia,serif;color:#c8d3b4;cursor:pointer}
+#game #pause .menu-return-bar button[hidden]{display:none}
+#game #pause .menu-return-bar button:last-child{color:#f0ddb2;background:linear-gradient(90deg,#5c512c55,#a38a4d44,#5c512c55);border-top:1px solid #c4aa7255}
+@media(max-width:760px){
+ #game #pause{padding:8px 7px 79px}
+ #game #pause .menu-card{width:100%;max-height:calc(100dvh - 95px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));padding:16px 17px 21px;border:0;outline:0;box-shadow:inset 0 1px #c4aa7144,inset 0 -1px #c4aa7133}
+ #game #pause .menu-card::before{inset:6px;border-left-color:#c6a66a18}
+ #game #pause .menu-card::after{width:24px;height:24px;right:16px;top:16px}
+ #game #pause-title{font-size:25px;padding:0 38px 12px 0;margin-bottom:13px}
+ #game #pause .menu-companion{left:auto;right:19px;top:53px;width:68px}
+ #game #pause .menu-companion canvas{width:58px;height:78px}
+ #game #pause .menu-companion span{font-size:12px;max-width:68px}
+ #game #pause #pause-body.pause-navigation:not([hidden]){display:flex;flex-direction:column;align-items:stretch;padding-left:0}
+ #game #pause #pause-overview{order:0;min-height:46px;padding-right:77px;padding-bottom:8px}
+ #game #pause .journey-totals{gap:5px 11px}
+ #game #pause .journey-totals strong{font-size:16px}
+ #game #pause .journey-totals small{font-size:12px}
+ #game #pause #pause-body.pause-navigation .pause-primary{order:1;padding:0;margin:2px 0 9px}
+ #game #pause #pause-body.pause-navigation .pause-primary>button{font-size:18px;min-height:45px;padding:8px 7px 8px 22px}
+ #game #pause #pause-body.pause-navigation .pause-primary>button::before{top:19px}
+ #game #pause #journal-goal{order:2;font-size:13px;line-height:1.5;-webkit-line-clamp:3;padding:9px 0;margin:0 0 7px;border-top:1px solid var(--folio-rule)}
+ #game #pause #journal-discoveries{order:3;font-size:12px;padding:7px 0;max-height:3.1em}
+ #game #pause #pause-body.pause-navigation .pause-save-status{order:4;font-size:12px;padding:7px 0;margin:0 0 5px}
+ #game #pause #pause-body .pause-group{order:5}
+ #game #pause #pause-body .pause-group>summary{min-height:48px;display:block;padding:10px 25px 10px 0}
+ #game #pause #pause-body .pause-group>summary strong{display:block;font-size:16px}
+ #game #pause #pause-body .pause-group>summary span{display:none}
+ #game #pause #pause-body .pause-action-grid{grid-template-columns:1fr;padding-left:9px}
+ #game #pause .pause-action-grid>:is(button,a,.file-button){font-size:14px;min-height:44px;overflow-wrap:anywhere}
+ #game #pause .character-layout{grid-template-columns:1fr;gap:12px}
+ #game #pause .character-art{display:grid;grid-template-columns:100px 1fr;text-align:left;padding:4px 0 9px}
+ #game #pause .hero-portrait{height:132px;max-height:132px;grid-column:1;grid-row:1/5}
+ #game #pause .hero-name{font-size:29px}
+ #game #pause .character-art .eyebrow,#game #pause .character-art .hero-name,#game #pause .character-art .affinity{grid-column:2}
+ #game #pause .crew-tabs{margin-bottom:9px}
+ #game #pause .crew-tabs>button{font-size:14px;min-height:44px;padding:8px 10px}
+ #game #pause .crew-setup h3{font-size:18px}
+ #game #pause .crew-toolbar{gap:3px;flex-wrap:wrap}
+ #game #pause .crew-toolbar>button{font-size:14px;padding:8px 11px}
+ #game #pause .crew-sockets{gap:5px}
+ #game #pause .crew-setup .crew-socket{flex-basis:100%;max-width:none;min-height:64px}
+ #game #pause .crew-growth-grid{gap:0 12px}
+ #game #pause .menu-return-bar{padding:7px 12px calc(7px + env(safe-area-inset-bottom,0px));gap:7px}
+ #game #pause .menu-return-bar button{min-width:0;flex:1;max-width:260px;min-height:48px;font-size:17px;padding:9px 13px}
+}
+@media(max-height:560px){
+ #game #pause{padding-top:7px;padding-bottom:68px}
+ #game #pause .menu-card{max-height:calc(100dvh - 81px);padding-top:13px}
+ #game #pause-title{font-size:24px;margin-bottom:10px;padding-bottom:10px}
+ #game #pause .menu-return-bar{padding-top:5px;padding-bottom:calc(5px + env(safe-area-inset-bottom,0px))}
+ #game #pause .menu-return-bar button{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){#game #pause *{transition:none!important;animation:none!important}}

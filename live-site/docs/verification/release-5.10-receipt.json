@@ -1,0 +1,39 @@
+{
+  "release": "5.10.0",
+  "research_date": "2026-10-28",
+  "tests": {
+    "passed": 701,
+    "failed": 0,
+    "full_log": "release-5.10-tests.log"
+  },
+  "browser": {
+    "environment": "provided Chromium development preview",
+    "composed_scenes": 32,
+    "modes": [
+      "standard",
+      "compatible"
+    ],
+    "render_errors_in_64_scene_selections": 0,
+    "actual_game": [
+      "saved Sable journey resumed",
+      "objective guide reached Mara and conversation completed",
+      "speaker clamp interaction opened repair choices",
+      "reed repair choice advanced state",
+      "objective guide crossed doorway into outdoor origin",
+      "character and painted mechanisms visible"
+    ],
+    "not_claimed": [
+      "full browser campaign playthrough",
+      "Windows Edge GPU benchmark",
+      "Android hardware test"
+    ]
+  },
+  "original_environment_props_added": 16,
+  "indie_references_reviewed": 14,
+  "preserved": [
+    "navigation geometry",
+    "story and scene identities",
+    "save semantics",
+    "version 5.9 audio and cinema update"
+  ]
+}

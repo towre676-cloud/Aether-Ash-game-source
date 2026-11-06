@@ -1,0 +1,122 @@
+{
+  "release": "5.32",
+  "method": "Native UI interaction in managed preview; DOM diagnostics read without injecting game state. Screenshots use the regular renderer. Separate isolated studio and developer sessions do not write journey slots.",
+  "renderer": "software-3d",
+  "regular_veyr": {
+    "scene": 50013,
+    "position": [
+      7.5,
+      20.5
+    ],
+    "score": "Silent Orbit",
+    "transport": {
+      "playing": true,
+      "requested": true,
+      "blocked": false,
+      "contextState": "running",
+      "transport": "media",
+      "position": 6.552,
+      "trackId": "silent_orbit"
+    },
+    "music_analyser_rms": 0.01843,
+    "physical_devices": {
+      "receiver": true,
+      "grounded": true,
+      "vaneRaised": true,
+      "coilSeparated": false,
+      "diverted": true,
+      "choice": null,
+      "repair": 0
+    },
+    "screenshot": "veyr-regular-5.32.jpg"
+  },
+  "phone": {
+    "iframe_viewport": [
+      388,
+      842
+    ],
+    "score_button": {
+      "left": 340,
+      "right": 376,
+      "top": 17.265625,
+      "bottom": 53.265625,
+      "pointer_events": "auto"
+    },
+    "joystick_after_reset": {
+      "left": 12,
+      "right": 124,
+      "top": 713,
+      "bottom": 825
+    },
+    "score": "Workshop",
+    "transport": {
+      "playing": true,
+      "requested": true,
+      "blocked": false,
+      "contextState": "running",
+      "transport": "buffer",
+      "position": 10.939501133786848,
+      "trackId": "rpg:workshop"
+    },
+    "music_analyser_rms": 0.02332,
+    "recovery_observation": "After deliberately choosing Ambience only, native HUD Play music tap changed mode to continuous, phase playing, and focused Next music piece. A later stable isolated session supplied the transport/RMS observation above.",
+    "screenshot": "phone-music-5.32.jpg"
+  },
+  "studio_views": [
+    {
+      "scene": 5,
+      "position": [
+        24.5,
+        42.5
+      ],
+      "screenshot": "town-courts-5.32.jpg"
+    },
+    {
+      "scene": 73,
+      "position": [
+        40.5,
+        50.5
+      ],
+      "screenshot": "chapter13-field-5.32.jpg"
+    },
+    {
+      "scene": 2,
+      "position": [
+        21.5,
+        8.5
+      ],
+      "screenshot": "home-composition-5.32.jpg"
+    },
+    {
+      "scene": 50012,
+      "position": [
+        54.5,
+        28.5
+      ],
+      "observation": "Fresh native embodied-origin arrival confirmed after installing the same origin wrapper as the regular game. Earlier intermediate screenshots are not final evidence."
+    }
+  ],
+  "visual_findings": [
+    "Continuous service routes and enclosures establish working areas.",
+    "Authority figure remains clear beside a low lateral console.",
+    "Landscape bitmap cutouts removed; native 3D vegetation has actual ground caps underneath.",
+    "Equipment remains coarse; the northern array has limited night contrast; further art detail remains."
+  ],
+  "limits": [
+    "Browser software fallback only; Android GPU performance and physical multitouch gestures not measured.",
+    "Screenshots cannot establish music/ambience balance by hearing. Playback diagnostics come from the score transport and score analyser, separate from ambient sound.",
+    "Full regression ran before the final small surface, foundation, and pointer-hit corrections. Final focused geometry/music tests and source-hash coverage supplement that run."
+  ],
+  "source_sha256": {
+    "dist/game/engine2/main.js": "e5f87e1639bf4578ebc686be5a4230b23b31a64abe246b86c548cee71b29584c",
+    "dist/game/engine2/adventure-3d-renderer.js": "94847bb71f70893549c9f9abfb2ef76b89e2ce3b74a41243f44e37c8d29433ee",
+    "dist/game/engine2/adventure-3d-geometry.js": "4ecfe83eeb9469ab7b1226506e8bfa7e938d3724ec5052db22588a5fa921ad51",
+    "dist/game/engine2/adventure-landscape.js": "a770ff25c154c781d36c5e4817ab55ce749fedc14a292099bf080ad29fb31ed6",
+    "dist/game/engine2/adventure-origin-staging.js": "790c9d5ed6c375bdc66af852f62dd0d5471ed6585224f192bfedea58edd7e474",
+    "dist/game/engine2/adventure-ground-composition.js": "7780dcc86818b88443c00ff254425c600b04314a7639d60a4873c2bc8e336d96",
+    "dist/game/engine2/music-controls.js": "8c980906c76ad142ca716176f9cbd795da5396644b0da68d631041bb7a7b7dea",
+    "dist/game/engine2/music-director.js": "880c217645370c4eab84ab2eeb61cc4d2b36f6e622434f55c5ef11f703b93a77",
+    "dist/game/soundtrack.js": "02ef2bdbc5787917ec8b5e9d700abec7e78397985e794cc3da81244252af2e20",
+    "dist/game/engine2/qa/composition.js": "085269c8025cfc2d42a1b3d18ce8aff7f2cb52b820f9cec1212c0ed2036d15b9"
+  }
+}

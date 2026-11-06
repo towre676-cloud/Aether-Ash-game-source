@@ -1,0 +1,87 @@
+{
+  "schema": "ash-aether.adventure-props-state-check/1",
+  "release": "5.31",
+  "checked_at_utc": "2026-10-30T19:31:13.721Z",
+  "checks": [
+    {
+      "label": "rail bridge control completion",
+      "scene": 135,
+      "type": "puzzle",
+      "family": "crank",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "two-stage drainage valve midpoint",
+      "scene": 47,
+      "type": "puzzle",
+      "family": "valve",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "bell phrase first-note progress",
+      "scene": 292,
+      "type": "note",
+      "family": "bell",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "field stone first-note progress",
+      "scene": 112,
+      "type": "note",
+      "family": "phrase",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "field stone completed phrase",
+      "scene": 112,
+      "type": "note",
+      "family": "phrase",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "public work committed branch",
+      "scene": 61,
+      "type": "project",
+      "family": "assembly",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "lowbank shelter powered",
+      "scene": 406,
+      "type": "aid",
+      "family": "clinic",
+      "native_state_changes_mesh": true,
+      "save_unchanged": true,
+      "finite": true
+    },
+    {
+      "label": "frontier repaired apparatus persists",
+      "scene": 2000,
+      "family": "valve",
+      "static_prop_retained": true,
+      "native_state_changes_mesh": true,
+      "save_unchanged": true
+    }
+  ],
+  "limits": [
+    "Actual authored state and emitted meshes are checked independently of native reward/dialogue progression.",
+    "Comparisons use one identical animation time, so a state response cannot pass merely because a clock advanced."
+  ],
+  "passed": true,
+  "hidden_rewards": {
+    "objects": 72,
+    "new_visible_props": 0
+  }
+}

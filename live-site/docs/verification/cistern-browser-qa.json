@@ -1,0 +1,46 @@
+{
+  "schema": "ash-aether.cistern-browser-qa/1",
+  "checked_at_utc": "2026-10-30T17:37:38.279691+00:00",
+  "environment": "Managed Chrome preview; WebGL context unavailable, actual software 3D path exercised.",
+  "practice_only": true,
+  "observations": [
+    {
+      "check": "First view",
+      "result": "Textured stone architecture, authored Sable/Iona/Rook, rust crab, water, compact HUD and unobstructed party visible."
+    },
+    {
+      "check": "Guided running and interaction",
+      "result": "Keyboard/mouse route reached west resonator at (-8.00,-4.98); E activated it; DOM progress 1,0 and objective changed to east resonator."
+    },
+    {
+      "check": "Combat resources",
+      "result": "Resonance Break reported 84 damage and Sable MP changed 47 to 41. Creature strikes changed real Sable HP."
+    },
+    {
+      "check": "Return to 2D",
+      "result": "Save & return restored SECURITY with Sable HP204/252 and MP41/47; Iona/Rook252HP47MP."
+    },
+    {
+      "check": "Resume",
+      "result": "Pause -> Descend reopened same position (-8.00,-4.98), resonators1,0 and shared party resources."
+    },
+    {
+      "check": "Responsiveness after static caching",
+      "result": "Active scene accessibility snapshot plus screenshot returned; observed one17.7ms drawing submission on an idle cached frame. This is not a sustained FPS or physical-device benchmark."
+    }
+  ],
+  "limits": [
+    "Browser boss completion was not manually played; complete collision/combat/return campaign covered by executable model tests.",
+    "Physical Android touch, controller hardware and Windows/Edge GPU performance unverified.",
+    "Software fallback uses approximate depth bands and retains static water between camera changes."
+  ],
+  "sources": {
+    "cistern-model.js": "5471cf8004fdc54aa22b57877d019b638bbe819c39d6806903f803117540eac8",
+    "cistern-campaign.js": "8a49a7a33e5bfaaa3e503e7ff35962252dae908331db26d7218798fe8a0140f8",
+    "cistern-architecture.js": "7349aa4a5600ced5c488a43cca50f14b68d7255498eb0c6150985cdabcea66c7",
+    "cistern-renderer.js": "9f491418a2501a1226c1dc3b58597670de3a8e96b450c70f2f336067bb0031de",
+    "cistern-software.js": "c34ac7df64a1338d852ac99c104ee6f7fe7d263ae3485a41c3eb650381cee5f1",
+    "cistern-ui.js": "b29d2cf02f9c067e0bd22f3e9334a3beb148a64e6b35490a066b8b4ab6cf7782"
+  },
+  "packaging_followup": "Original PNG moved to development source; primary lossless WebP is unchanged. JPEG replaces the PNG failure fallback to meet hosting size limit. Exact GPU checks rerun after the URI-only source change."
+}

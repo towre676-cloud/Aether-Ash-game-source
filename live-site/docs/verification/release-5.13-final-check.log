@@ -1,0 +1,30 @@
+✔ patrols without xy use the nearest currently rendered body as their interaction approach (2.268446ms)
+✔ visible wild packs use their nearest mobile body and preserve the exact descriptor (0.249575ms)
+✔ non-creature targets keep canonical objects while missing positions are excluded (0.196876ms)
+✔ nearby threats invite takeover only after the guide has covered real distance (0.76498ms)
+✔ a dynamic nearest body determines which threat prompts the handoff (0.228754ms)
+✔ walls and blocked affordance tiles hide threats until the player has a clear view (0.324908ms)
+✔ manual exploration, a held guide and non-field modes do not count distance (0.276876ms)
+✔ each dangerous scene invites exploration once, including origin and campaign transitions (0.335325ms)
+✔ replacing a journey state and explicit reset allow a fresh invitation without importing old distance (0.29885ms)
+✔ unfinished nearby affordances give an exploration invitation and solved work does not (0.333382ms)
+✔ authored roam moves each field body while leaving encounters and saves unchanged (6.223167ms)
+✔ a noticed creature telegraphs before contact and returns its canonical encounter (2.493429ms)
+✔ walking away defeats pursuit and a creature returns inside its bounded territory (13.029962ms)
+✔ walls prevent detection through rooms and every frame stays on open floor (8.714023ms)
+✔ doors and conversation areas let the player stop without being attacked (12.823878ms)
+✔ menus, dialogue, battle and invalid time cannot advance field bodies or alert clocks (1.144021ms)
+✔ clearing a patrol removes runtime motion; a new scene or loaded save starts at authored positions (1.492194ms)
+✔ scripted origin guardians pace close to their story landmark (4.791625ms)
+✔ commission patrols reconstructed on each object read keep their motion and warning state (3.352871ms)
+✔ runtime wild packs visibly patrol and telegraph before returning their wild descriptor (0.924831ms)
+✔ manual battle and retreat hooks can calm all nearby patrols before field control returns (1.629941ms)
+✔ actual campaign field patrols remain canonical and can be sampled in every authored room (615.515044ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 839.828569

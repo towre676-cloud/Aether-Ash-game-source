@@ -1,0 +1,10 @@
+{
+  "schema": "aa-runtime-freeze/1",
+  "game_version": "5.27.0",
+  "captured_at_utc": "2026-10-29T22:05:09.281254+00:00",
+  "revision": "765a5ae2a32c9e07fefbcb532f3fb728b46fb8bb",
+  "files": 2139,
+  "expanded_bytes": 262222345,
+  "tree_sha256": "3f675a4758284701b5f445102d904fcd98e6ae605b6773f19eb2cce7d6625967",
+  "capture_context": "Captured after final pinch/input/camera/cache/README edits, before the complete regression gate. Final packaging must match these runtime bytes."
+}

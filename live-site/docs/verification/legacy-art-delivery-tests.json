@@ -1,0 +1,274 @@
+{
+  "scope": "Three legacy art delivery encodings",
+  "startedAtUTC": "2026-10-29T06:23:30.383996+00:00",
+  "finishedAtUTC": "2026-10-29T06:23:33.618618+00:00",
+  "elapsedSeconds": 3.341,
+  "modules": 7,
+  "concurrency": 4,
+  "totals": {
+    "tests": 41,
+    "pass": 41,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "failures": [],
+  "missingCountSummaries": [],
+  "results": [
+    {
+      "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 0.104,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 1.139,
+      "counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 0.072,
+      "counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/room-realism.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 0.887,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/households.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 3.16,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 0.087,
+      "counts": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    },
+    {
+      "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+      "exit_code": 0,
+      "elapsed_seconds": 0.083,
+      "counts": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "todo": 0
+      }
+    }
+  ],
+  "initialRun": {
+    "scope": "Three legacy art delivery encodings",
+    "startedAtUTC": "2026-10-29T06:23:30.383996+00:00",
+    "finishedAtUTC": "2026-10-29T06:23:33.618618+00:00",
+    "elapsedSeconds": 3.235,
+    "modules": 7,
+    "concurrency": 4,
+    "totals": {
+      "tests": 41,
+      "pass": 39,
+      "fail": 2,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0
+    },
+    "failures": [
+      "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "dist/game/engine2/tests/asset-loader.test.mjs"
+    ],
+    "missingCountSummaries": [],
+    "results": [
+      {
+        "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+        "exit_code": 1,
+        "elapsed_seconds": 0.113,
+        "counts": {
+          "tests": 3,
+          "pass": 2,
+          "fail": 1,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/scene-craft.test.mjs",
+        "exit_code": 0,
+        "elapsed_seconds": 1.139,
+        "counts": {
+          "tests": 8,
+          "pass": 8,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/scene-prop-repertoire.test.mjs",
+        "exit_code": 0,
+        "elapsed_seconds": 0.072,
+        "counts": {
+          "tests": 6,
+          "pass": 6,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/room-realism.test.mjs",
+        "exit_code": 0,
+        "elapsed_seconds": 0.887,
+        "counts": {
+          "tests": 3,
+          "pass": 3,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/households.test.mjs",
+        "exit_code": 0,
+        "elapsed_seconds": 3.16,
+        "counts": {
+          "tests": 9,
+          "pass": 9,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+        "exit_code": 1,
+        "elapsed_seconds": 0.108,
+        "counts": {
+          "tests": 9,
+          "pass": 8,
+          "fail": 1,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      },
+      {
+        "file": "dist/game/engine2/tests/media-delivery.test.mjs",
+        "exit_code": 0,
+        "elapsed_seconds": 0.083,
+        "counts": {
+          "tests": 3,
+          "pass": 3,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      }
+    ]
+  },
+  "reruns": [
+    {
+      "checkedAtUTC": "2026-10-29T06:25:31.645084+00:00",
+      "elapsedSeconds": 0.106,
+      "results": [
+        {
+          "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+          "exit_code": 0,
+          "elapsed_seconds": 0.104,
+          "counts": {
+            "tests": 3,
+            "pass": 3,
+            "fail": 0,
+            "skipped": 0,
+            "cancelled": 0,
+            "todo": 0
+          }
+        },
+        {
+          "file": "dist/game/engine2/tests/asset-loader.test.mjs",
+          "exit_code": 0,
+          "elapsed_seconds": 0.087,
+          "counts": {
+            "tests": 9,
+            "pass": 9,
+            "fail": 0,
+            "skipped": 0,
+            "cancelled": 0,
+            "todo": 0
+          }
+        }
+      ]
+    }
+  ],
+  "verifiedAtUTC": "2026-10-29T06:25:31.645119+00:00",
+  "nodeExecutions": 10,
+  "integrationAttempts": [
+    {
+      "file": "dist/game/engine2/tests/legacy-art-delivery.test.mjs",
+      "exit_code": 1,
+      "testsStarted": 0,
+      "errorCode": "ERR_MODULE_NOT_FOUND",
+      "missingModule": "dist/game/engine2/environment-interiors-v19.js?v=5.20.0",
+      "reason": "Root registered the new interior module while its owner was still finishing it. The attempt stopped before loading the test suite; the final rerun passed after the module landed.",
+      "elapsed_seconds": null
+    }
+  ],
+  "timedNodeExecutions": 9,
+  "elapsedTimingScope": "Timed initial seven processes and final two reruns; one intermediate pre-load integration attempt has no stopwatch measurement."
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ash & Aether · Native place review</title>
+<style>html,body{margin:0;background:#15262d;color:#e4d8b9;font:13px Georgia,serif}header{display:flex;align-items:center;justify-content:center;gap:8px;min-height:64px;flex-wrap:wrap}select,button{background:#263d42;color:inherit;border:1px solid #8d9276;padding:10px;font:inherit}iframe{display:block;margin:auto;border:1px solid #8d9276;width:390px;height:844px}small{opacity:.8}</style>
+<header><small>Native game · isolated journey</small><label>Place <select id="place" aria-label="Place"></select></label><label>Commission <select id="workstep" aria-label="Commission stage"><option value="off">No active job</option><option value="0">Survey</option><option value="1">Repair</option><option value="2">Encounter</option><option value="3">Aftermath</option></select></label><button data-size="390,844">Phone</button><button data-size="740,360">Landscape</button><button data-size="1440,900">Desktop</button></header>
+<iframe id="scene-art-practice" title="Native game place review"></iframe>
+<script type="module">
+import {World} from '../world.js?v=5.41';
+const data=await fetch('../world.json').then(r=>r.json()),world=new World(data),select=document.querySelector('#place'),frame=document.querySelector('iframe'),params=new URL(location.href).searchParams;
+for(const s of [...world.scenes.values()].sort((a,b)=>a.location-b.location)){const o=document.createElement('option');o.value=s.location;o.textContent=(s.title||s.key)+' · '+s.location;select.append(o);}
+select.value=world.scenes.has(Number(params.get('scene')))?params.get('scene'):'50000';
+function show(){frame.src='/game/?dev=1&reviewScene='+select.value+(document.querySelector('#workstep').value==='off'?'':'&reviewJob='+document.querySelector('#workstep').value);const url=new URL(location.href);url.searchParams.set('scene',select.value);url.searchParams.set('job',document.querySelector('#workstep').value);history.replaceState(null,'',url);}
+const step=document.querySelector('#workstep');step.value=params.get('job')??'off';select.onchange=show;step.onchange=show;show();
+for(const b of document.querySelectorAll('[data-size]'))b.onclick=()=>{const [w,h]=b.dataset.size.split(',');frame.style.width=w+'px';frame.style.height=h+'px';};
+</script></html>

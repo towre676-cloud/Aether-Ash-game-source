@@ -1,0 +1,466 @@
+{
+  "release": "5.18.0",
+  "generationMode": "built-in image_gen",
+  "imageEdits": "none; original generated PNG bytes copied unchanged",
+  "styleReference": "development/art/source-legacy-delivery/scene-props-v11.png",
+  "cropMethod": "Connected components at alpha > 8, minimum 500 pixels, expanded by 3 source pixels on each side. Crop metadata uses measured alpha bodies rather than nominal equal cells. Alpha under 8 contains faint connecting matte residue, so absolute nonzero-alpha bounding boxes are unsuitable. No pixel manipulation or background removal.",
+  "sheets": [
+    {
+      "id": "waterside",
+      "file": "waterside-v17.png",
+      "assetKey": "environmentWaterside",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-ad9d300c-8c1d-4cc8-bc7d-ce182de256bf.png",
+      "sha256": "0f0a6045e74d981034c470bf9e59cf10ba6f0f9524837a740fa0790a1099b467",
+      "bytes": 2638627,
+      "width": 1774,
+      "height": 887,
+      "transparentPixels": 667764,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent sprite atlas for original top-down RPG Ash & Aether. Create ONE landscape 2:1 PNG atlas with EXACTLY FOUR columns and TWO rows, EIGHT complete, separate props. Each prop is centered wholly within its own equal cell with at least 8% transparent empty padding on EVERY side. No part of any object crosses a cell edge, no overlap, no frames, labels, typography, or grid. The background must be actual alpha transparency, never a checkerboard/black/white backdrop. Input image is STYLE REFERENCE ONLY, not an edit target: match its detailed painterly craftsmanship, elevated 35-degree orthographic view, rounded organic forms, material depth, restrained upper-left light and gentle compact contact shadows. More natural subtle color; no glossy plastic, no pixel art, no photo. TOP ROW left to right: 1) twisted low mangrove root cluster with turquoise moss and a few rounded leaves; 2) limestone tidepool ledge, shallow pool and tiny coral as one compact object; 3) short old wooden fishing skiff drawn onto a small bank beside neatly coiled rope and draped fishing net, one compact connected grouping; 4) cattail clump with broad glossy water leaves at the base, realistic layered reeds. BOTTOM ROW left to right: 5) four worn broad river-stone stairs ascending toward rear, small weathered verdigris rail, moss in seams; 6) shell-pink fan coral outcrop with pale ivory branching coral and blue-gray rock base; 7) two woven reed fish traps with wicker texture on smooth river stones; 8) small gracefully bent riverside willow sapling on a compact low rock bank, drooping narrow leaves. These must look beautiful and convincing when drawn at 80–150 pixels tall in a playable game, with strong readable silhouettes. Exact order and complete isolated objects matter. No people, animals, text, numerals, flags, decorative sparkles or landscape background. Keep every tip, branch, rope, shadow and base inside the object's own cell. True RGBA transparency.",
+      "sprites": [
+        {
+          "id": "mangrove-root",
+          "crop": [
+            23,
+            36,
+            400,
+            389
+          ],
+          "height": 102
+        },
+        {
+          "id": "tidepool-ledge",
+          "crop": [
+            454,
+            83,
+            418,
+            339
+          ],
+          "height": 78
+        },
+        {
+          "id": "fishing-skiff",
+          "crop": [
+            902,
+            116,
+            422,
+            313
+          ],
+          "height": 92
+        },
+        {
+          "id": "cattail-bank",
+          "crop": [
+            1354,
+            34,
+            398,
+            401
+          ],
+          "height": 92
+        },
+        {
+          "id": "river-stairs",
+          "crop": [
+            25,
+            448,
+            402,
+            415
+          ],
+          "height": 116
+        },
+        {
+          "id": "coral-fan",
+          "crop": [
+            463,
+            465,
+            399,
+            394
+          ],
+          "height": 94
+        },
+        {
+          "id": "reed-traps",
+          "crop": [
+            899,
+            480,
+            425,
+            377
+          ],
+          "height": 80
+        },
+        {
+          "id": "willow-bank",
+          "crop": [
+            1350,
+            457,
+            400,
+            407
+          ],
+          "height": 113
+        }
+      ],
+      "archivedSourcePath": "development/art/source-v17/waterside-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/waterside-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/waterside-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 847892,
+        "sha256": "bf81b7ca71454eda8cc1b3c90a5af8e4072a576169760bee707b73961bbd8cfd",
+        "sourceSha256": "0f0a6045e74d981034c470bf9e59cf10ba6f0f9524837a740fa0790a1099b467",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    },
+    {
+      "id": "woodland",
+      "file": "woodland-v17.png",
+      "assetKey": "environmentWoodland",
+      "sourcePath": "/workspace/scratch/7b00f669b5c3/generated_images/exec-0d187640-d6d6-4cb6-a5e5-00e2a29b5d4d.png",
+      "sha256": "1d99b7de16f09dc0d4300628668419f762fe9771a3264bc92ce874c16d0e1296",
+      "bytes": 2498117,
+      "width": 1774,
+      "height": 887,
+      "transparentPixels": 719214,
+      "prompt": "Use case: stylized-concept. Asset type: production transparent sprite atlas for original top-down RPG Ash & Aether. Create ONE landscape 2:1 PNG atlas with EXACTLY FOUR columns and TWO rows, EIGHT complete separate woodland props. Each prop is centered wholly inside its own equal cell with generous 8% transparent empty padding on EVERY side. No branch, leaf, base or shadow crosses a cell edge. No overlap, grid, borders, labels or typography. The background must be actual alpha transparency. Input image is STYLE REFERENCE ONLY, not an edit target: match the beautiful detailed hand-painted craftsmanship, 35-degree elevated orthographic view, readable rounded forms, weathered materials, restrained upper-left light and compact contact shadows of the supplied original A&A art. New drawings with lush layered foliage and convincing botanical texture. TOP ROW left to right: 1) a broad ancient hollow root with small lush ferns and soft moss around its low entrance; 2) a low decaying mossy log bearing layered warm ivory and rust shelf fungi, very different silhouette from prop 1; 3) a short pale birch stump with fine peeling bark, hanging moss, delicate ground leaves; 4) an elegant compact colony of violet bioluminescent mushrooms with pale blue gills and tiny bluish moss, subtle restrained glow, no floating sparkles. BOTTOM ROW left to right: 5) fallen dark log with bluebell flowers rising around it and a few tiny ferns; 6) a strange amber resin plant with several honey-gold translucent resin pods held in cupped pale cream petals on a dark moss base, a grounded botanical plant; 7) a rounded low root arch overgrown with russet mushroom caps and green moss, fully contained as one prop; 8) layered meadow shrubs with small white wildflowers, pale seedheads and textured green leaves, compact natural rounded silhouette. No people, no animals, no text or numerals, no background scenery, no pixel art, no glossy plastic. Every object remains a usable isolated sprite when drawn 80–150 px tall. True RGBA transparency and exact 4x2 order.",
+      "sprites": [
+        {
+          "id": "hollow-root",
+          "crop": [
+            16,
+            40,
+            456,
+            412
+          ],
+          "height": 107
+        },
+        {
+          "id": "shelf-fungi-log",
+          "crop": [
+            476,
+            97,
+            463,
+            302
+          ],
+          "height": 74
+        },
+        {
+          "id": "birch-stump",
+          "crop": [
+            964,
+            84,
+            345,
+            353
+          ],
+          "height": 84
+        },
+        {
+          "id": "violet-fungi",
+          "crop": [
+            1368,
+            80,
+            375,
+            356
+          ],
+          "height": 97
+        },
+        {
+          "id": "bluebell-log",
+          "crop": [
+            17,
+            508,
+            444,
+            335
+          ],
+          "height": 77
+        },
+        {
+          "id": "amber-resin-plant",
+          "crop": [
+            486,
+            458,
+            375,
+            396
+          ],
+          "height": 101
+        },
+        {
+          "id": "mushroom-root-arch",
+          "crop": [
+            876,
+            534,
+            458,
+            279
+          ],
+          "height": 79
+        },
+        {
+          "id": "meadow-shrubs",
+          "crop": [
+            1348,
+            484,
+            411,
+            359
+          ],
+          "height": 78
+        }
+      ],
+      "archivedSourcePath": "development/art/source-v17/woodland-v17.png",
+      "originalProductionPath": "dist/game/engine2/art/woodland-v17.png",
+      "delivery": {
+        "file": "dist/game/engine2/art/woodland-v17.webp",
+        "format": "WebP",
+        "release": "5.18.0",
+        "width": 1774,
+        "height": 887,
+        "bytes": 795772,
+        "sha256": "1ff451ba0356eead844ac84235084192cc3bfbfe16b3ad9ca1a12ee9ee974c32",
+        "sourceSha256": "1d99b7de16f09dc0d4300628668419f762fe9771a3264bc92ce874c16d0e1296",
+        "encoding": {
+          "encoder": "FFmpeg libwebp",
+          "quality": 95,
+          "compressionLevel": 6,
+          "losslessColor": false,
+          "alpha": "exact original alpha channel",
+          "dimensions": "unchanged"
+        },
+        "maxAlphaError": 0,
+        "verificationReceipt": "development/art/delivery-v17.json"
+      }
+    }
+  ],
+  "validation": [
+    {
+      "file": "waterside-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "checks": [
+        {
+          "id": "mangrove-root",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 2,
+              "included": 94232,
+              "total": 94232,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "tidepool-ledge",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 17,
+              "included": 98353,
+              "total": 98353,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "fishing-skiff",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 44,
+              "included": 96902,
+              "total": 96902,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "cattail-bank",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 92427,
+              "total": 92427,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "river-stairs",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 172,
+              "included": 99602,
+              "total": 99602,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "coral-fan",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 175,
+              "included": 111716,
+              "total": 111716,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "reed-traps",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 176,
+              "included": 95108,
+              "total": 95108,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "willow-bank",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 173,
+              "included": 107786,
+              "total": 107786,
+              "full": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "woodland-v17.png",
+      "mode": "RGBA",
+      "size": [
+        1774,
+        887
+      ],
+      "mainSubjectCount": 8,
+      "allEightCropsContainOneWholeSubject": true,
+      "checks": [
+        {
+          "id": "hollow-root",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 1,
+              "included": 112523,
+              "total": 112523,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "shelf-fungi-log",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 8,
+              "included": 90206,
+              "total": 90206,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "birch-stump",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 7,
+              "included": 77125,
+              "total": 77125,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "violet-fungi",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 5,
+              "included": 89041,
+              "total": 89041,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "bluebell-log",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 93,
+              "included": 105858,
+              "total": 105858,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "amber-resin-plant",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 89,
+              "included": 97049,
+              "total": 97049,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "mushroom-root-arch",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 103,
+              "included": 79615,
+              "total": 79615,
+              "full": true
+            }
+          ]
+        },
+        {
+          "id": "meadow-shrubs",
+          "passed": true,
+          "largeComponents": [
+            {
+              "component": 92,
+              "included": 97350,
+              "total": 97350,
+              "full": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artCheckpointRelease": "5.17",
+  "deliveryPolicy": {
+    "originals": "Original generated PNG bytes, hashes, prompts and generation paths remain unchanged. archivedSourcePath identifies the retained source file; originalProductionPath records its former runtime location.",
+    "runtime": "delivery.file is the WebP loaded by the browser. Color uses FFmpeg libwebp quality 95, compression level 6; alpha is exact. Dimensions, crop coordinates, source parts and anchors are unchanged.",
+    "validation": "Existing crop and silhouette measurements refer to the original PNG. Delivery dimensions and exact alpha are verified in development/art/delivery-v17.json."
+  },
+  "originalStyleReference": "dist/game/engine2/art/scene-props-v11.png"
+}

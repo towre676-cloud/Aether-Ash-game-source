@@ -1,0 +1,3 @@
+// Measured alpha bounds of archived occupied-workstations-v6.png. The WebP
+// delivery keeps these dimensions and exact alpha; no runtime pixel scan.
+export const ROOM_LIFE_BOUNDS=[{"x": 15, "y": 9, "w": 356, "h": 332}, {"x": 403, "y": 24, "w": 356, "h": 317}, {"x": 772, "y": 11, "w": 377, "h": 311}, {"x": 1161, "y": 8, "w": 362, "h": 320}, {"x": 16, "y": 342, "w": 366, "h": 319}, {"x": 402, "y": 342, "w": 355, "h": 312}, {"x": 775, "y": 344, "w": 370, "h": 338}, {"x": 1162, "y": 351, "w": 361, "h": 331}, {"x": 17, "y": 683, "w": 361, "h": 312}, {"x": 392, "y": 693, "w": 373, "h": 294}, {"x": 786, "y": 683, "w": 351, "h": 305}, {"x": 1157, "y": 683, "w": 366, "h": 314}];
