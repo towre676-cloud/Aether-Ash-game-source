@@ -1,0 +1,8 @@
+{
+  "platform": "Node numerical simulation only (NOT GPU FPS)",
+  "initialization_ms": 34.9,
+  "ninety_days_ms": 185.9,
+  "route_ms": 47.8,
+  "route_cost": 48.0474,
+  "two_hundred_inspections_ms": 21
+}

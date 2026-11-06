@@ -1,0 +1,22 @@
+{
+  "name": "A&A Living Atlas v6",
+  "date": "2026-10-29",
+  "site_project_id": "appgprj_6adf63724e5c8191bd55637b8ecd8d9a",
+  "site_version_observed": 21,
+  "live_modified": false,
+  "verified": {
+    "node_tests_passed": 213,
+    "node_tests_failed": 0,
+    "original_campaign_replay": true,
+    "ogg_files_verified": 244,
+    "numeric_benchmark": true,
+    "browser_gpu_rendering": "blocked by administrator; not verified",
+    "production_source_and_tests": "not accessible; not verified"
+  },
+  "upgrades": [
+    "Grass v4 GPU renderer, ecotones and foliage governor",
+    "Acoustic World v2 244 assets and opt-in score",
+    "ledger canonical type repair plus backward-compatible source discovery",
+    "no-reward two-position acoustic survey, NG+ scoping"
+  ]
+}

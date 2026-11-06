@@ -1,0 +1,91 @@
+{
+  "version": "4.0.0",
+  "date": "2026-10-29",
+  "local_audio_assets": 512,
+  "new_v4_audio_assets": 128,
+  "categories": {
+    "ambience": 16,
+    "behavior": 48,
+    "clues": 12,
+    "creatures": 30,
+    "footsteps": 30,
+    "hazards": 16,
+    "interaction": 34,
+    "material": 24,
+    "memories": 12,
+    "score": 24,
+    "spots": 48,
+    "tactics": 32,
+    "ui": 10,
+    "v4_boss": 32,
+    "v4_device": 32,
+    "v4_npc": 32,
+    "v4_timeline": 32,
+    "weather": 48
+  },
+  "audio_bytes": 8044692,
+  "codec_sha_duration_check": {
+    "passed": 512,
+    "total": 512,
+    "errors": {}
+  },
+  "node_tests": {
+    "passed": 41,
+    "failed": 0,
+    "expected": 41
+  },
+  "browser_smoke_wav": {
+    "browser": "Chromium actual JavaScript + mocked 400ms WAV transport",
+    "headless": true,
+    "start": "SPATIAL SOUND ON",
+    "weather": "rain",
+    "gate_opened": true,
+    "new_game_plus": true,
+    "boss_guard": true,
+    "ferryman": true,
+    "hydrophone": true,
+    "js_errors": [],
+    "audio_limit": "Not a real packaged-Opus playback test."
+  },
+  "browser_real_opus": {
+    "browser": "Chromium Web Audio decoding actual packaged Opus bytes, all fetches in-memory, no mocked WAV",
+    "startup": {
+      "audio": "SPATIAL SOUND ON",
+      "context": "running",
+      "decoded": 6,
+      "scene": "marsh"
+    },
+    "after": {
+      "context": "running",
+      "decoded": 11,
+      "boss": {
+        "type": "impact",
+        "boss": "clayback_warden",
+        "attackId": "clayback-3",
+        "guarded": true,
+        "sequence": 1
+      },
+      "weather": "storm",
+      "requested": 11,
+      "absent": []
+    },
+    "source_opus_files_embedded_for_test": 17,
+    "js_errors": [],
+    "limits": "Headless Chromium test of sampled original assets; not full 512 files or physical Windows Edge/Android testing."
+  },
+  "preview_seconds": 64.06,
+  "studio_masters": {
+    "completed_in_connected_audio_workspace": 12,
+    "included_in_zip": 0,
+    "reason": "short-lived provider URLs could not be materialized to local build"
+  },
+  "live_game_deployed": false,
+  "site_access": "Prior attempt returned 401; no writable live Site connection in this session",
+  "remaining_acceptance": [
+    "Connect to authorized actual A&A Site and map real event APIs",
+    "Profile on physical Windows Edge and Android",
+    "Import and master long-form studio audio; re-score into adaptive stems",
+    "Tune mix and dynamic-range against actual game video",
+    "Run full playthrough and hearing-accessibility QA"
+  ]
+}

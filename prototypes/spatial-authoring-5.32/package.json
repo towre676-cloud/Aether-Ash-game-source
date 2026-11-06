@@ -1,0 +1,9 @@
+{
+  "name": "ash-aether-moment-to-moment-5.28",
+  "version": "5.32.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "description": "Ash & Aether additive 3D spatial authoring, dungeon manipulation, and music continuity pass"
+}

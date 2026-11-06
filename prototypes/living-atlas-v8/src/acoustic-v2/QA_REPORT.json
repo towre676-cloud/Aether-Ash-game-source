@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "date": "2026-10-29",
+  "generated_ogg_assets": 244,
+  "categories": {
+    "ambience": 16,
+    "clues": 12,
+    "creatures": 30,
+    "footsteps": 30,
+    "hazards": 16,
+    "interaction": 34,
+    "material": 24,
+    "score": 24,
+    "spots": 48,
+    "ui": 10
+  },
+  "generated_audio_bytes": 4550142,
+  "codecs": "Ogg Opus stereo, 24 kHz original synthesis (Opus decoder reports 48 kHz)",
+  "codec_probe": "244/244 passed",
+  "codec_failures": {},
+  "sample_peak_max": 0.6858,
+  "adaptive_stems": 24,
+  "adaptive_stem_groups": 6,
+  "adaptive_loop_seconds": 16,
+  "node_tests": "20/20 passed",
+  "browser_test": "in-memory Chromium smoke with 1-second WAV transport mocks; audio unlock, 2-position listening, physical gate opening, and zero JS runtime errors",
+  "browser_test_limits": "Original Ogg playback in remote browser not tested; localhost blocked by browser administrator in this environment; no physical device test",
+  "preview_seconds": 38.448,
+  "runway_master_assets": {
+    "earlier_completed": 7,
+    "new_queued": 5,
+    "embedded_in_zip": 0
+  },
+  "deployed_to_live_game": false,
+  "live_site_status": "dev route 401 from current environment",
+  "open_qa": [
+    "Subjective in-game mastering, high-quality music stems and sound design review",
+    "AudioContext and Opus playback on Windows Edge and Android hardware",
+    "Integration with actual deployed A&A map, enemy AI, battle damage and quest events",
+    "External Runway master import and any licensing checks",
+    "Inspect latency and CPU on low-end devices"
+  ]
+}

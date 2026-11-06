@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {auditMobile} from '../src/mobile-audit.mjs';
+test('flags small touch targets and frame spikes',()=>{const r=auditMobile({width:390,height:844,dpr:3,touchTargets:[{id:'y',w:36,h:36},{id:'a',w:48,h:48}],frameMs:[16,17,24],pinchSamples:[{scale:1},{scale:1.1},{scale:1.15}]});assert.deepEqual(r.undersized,['y']);assert.equal(r.framePass,false);assert.equal(r.recommendedPixelRatio,1.5);});

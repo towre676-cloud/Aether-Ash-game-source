@@ -1,0 +1,128 @@
+{
+  "name": "Ash & Aether Living Grass v4 \u00b7 Cross-Session Ecotones + Production Gate",
+  "date": "2026-10-29",
+  "deployment": "LOCAL ONLY; private A&A Site not modified; 401 from unauthenticated access",
+  "reconciliation": "parallel sessions report A&A 5.18, Ground Forge 48 ground material identities, game art 124 motifs/materials, Living World and audio 244 assets; native modules not available to this run",
+  "checks": {
+    "node_tests_passed": 45,
+    "node_tests_failed": 0,
+    "desktop_chromium": "interactive PASS at 1366\u00d7768",
+    "mobile_chromium": "interactive PASS at 390\u00d7844",
+    "real_device_fps": "NOT MEASURED",
+    "real_WebGL_shader_compile": "NOT MEASURED"
+  },
+  "files": {
+    "CROSS_SESSION_RECONCILIATION_V3.md": {
+      "bytes": 10600,
+      "sha256": "ba99c8c9d3ff2f22c09f233cc2f75411a68bad221159ff305cad19cb789ba7e8"
+    },
+    "CROSS_SESSION_RECONCILIATION_V4.md": {
+      "bytes": 7071,
+      "sha256": "f4ab1b7c5992447eb3ff94f49cde6676bbe4cea35c576f314b928c4e33a0839f"
+    },
+    "INTEGRATION_CHECKLIST.md": {
+      "bytes": 2625,
+      "sha256": "c17dc77376002b7e4f59aa94dfb45215fe92a2f31121575538a3d5f5bda6af2f"
+    },
+    "README.md": {
+      "bytes": 9032,
+      "sha256": "3de7856233d1feb540d84e21f21d9857299f7208842c42cb72e32321ac3fef9f"
+    },
+    "README_V3.md": {
+      "bytes": 3255,
+      "sha256": "6dd9b0f72ce4d8f26390f4cfb3abe7a5339ccbf526df45394706f008b9c04d11"
+    },
+    "README_V4.md": {
+      "bytes": 5178,
+      "sha256": "bc4ed45b0a5827ada080bf7e86ba14e26e289668baab144d79b910c9154c08bf"
+    },
+    "aa-game-integration.mjs": {
+      "bytes": 15330,
+      "sha256": "c2e1ead5317254b82b658751d4f615ba7828620e937ca28ccb4eb111b2b3d9ac"
+    },
+    "build-offline-lab.py": {
+      "bytes": 1775,
+      "sha256": "4ea0dc106c23a081b99427452d535a4c0fabe94868d19123fd83762410706005"
+    },
+    "canvas-grass-fallback.mjs": {
+      "bytes": 5092,
+      "sha256": "a6002c5b9014e2c637ebb8f57cb8a2f2493e693890d0153aeab2eaa68ccb8642"
+    },
+    "demo.html": {
+      "bytes": 16364,
+      "sha256": "b90ba98c35448cd0fdef100ac496de9f238baef7cdfc75e6972356cd4f6d082e"
+    },
+    "foliage-quality-governor.mjs": {
+      "bytes": 2117,
+      "sha256": "6462b80036640658bf20f3e1eb8b1f1979f3cbbf4442fb36afc49be64c10de1a"
+    },
+    "gpu-integration.test.mjs": {
+      "bytes": 4246,
+      "sha256": "e93242844931fea81af4456ad84ee4f3b584a000fc2090269f99fd362b594d91"
+    },
+    "grass-ecology.mjs": {
+      "bytes": 9386,
+      "sha256": "739021457a13ee5315585140ebbee1d7f9734803cb7979b61bf55b407f98adc0"
+    },
+    "grass-renderer.mjs": {
+      "bytes": 17298,
+      "sha256": "ca1ee9a1ba6354395101f1bda0d718b7593ee406099b4408420f2620e5801020"
+    },
+    "grass-state.mjs": {
+      "bytes": 6174,
+      "sha256": "4b3aaa5112f00b4a68cf9b2e2bb7be9194301974a50f4eb274b517c97eea1e28"
+    },
+    "grass-state.test.mjs": {
+      "bytes": 2703,
+      "sha256": "244f16342f415ce7444c6f5a766d9dcae2f5e2c4343e2cd427469ff3304bd2c1"
+    },
+    "grass.test.mjs": {
+      "bytes": 7086,
+      "sha256": "a7241b180fddbb9ad7fde436779e0327b4d09712ec78c07606e65c98704bbb3a"
+    },
+    "ground-forge-compat.mjs": {
+      "bytes": 6234,
+      "sha256": "cb2ac08bf965bf57492e9f2b6d44a646ab20b042aa6163c33584bf3d56178359"
+    },
+    "living-landscape.mjs": {
+      "bytes": 3233,
+      "sha256": "6282ffdca31e46dc39b9084659cfcd0001625608333498abcf8798664b0ab871"
+    },
+    "offline-preview.test.mjs": {
+      "bytes": 1948,
+      "sha256": "648a0893ebb9ac14d25663e5c423396138279abdec519c4a422e9c133e62f745"
+    },
+    "package.json": {
+      "bytes": 255,
+      "sha256": "9aa6c72a6b51d1ea6eb9b71bdacd66dd1c485a00b64d85321a21b6a48c6c79c6"
+    },
+    "preview-offline.html": {
+      "bytes": 13831,
+      "sha256": "7c0047679724acab5a213145e5aaaacaef7d7a9d1933852036eb55da388b9f05"
+    },
+    "reconciliation-lab-offline.html": {
+      "bytes": 82786,
+      "sha256": "3adcd2a2267462edcd17163db0479a29618bb8d8de1cf7b98d4d24d7d9d82ebe"
+    },
+    "reconciliation-lab.template.html": {
+      "bytes": 17044,
+      "sha256": "1819dc81d5aedb5d4ccc34f1792845cca9b92567e5e42f8a7aa56a58e0b52bbe"
+    },
+    "reconciliation.test.mjs": {
+      "bytes": 8392,
+      "sha256": "c6fb9b43f365d7f0467b50614974f434e45fde524af9637a0642e72ee3f37307"
+    },
+    "v4-desktop.png": {
+      "bytes": 1099728,
+      "sha256": "560866dfd3e3b17ce767e3e49aae295b4b88528bb1b2405d027bfdcc613b9718"
+    },
+    "v4-mobile.png": {
+      "bytes": 272322,
+      "sha256": "3c1c0b02b918defbfd3f723434bbb42b20f8a029897b20532c66b7963123cbe3"
+    },
+    "v4-regressions.test.mjs": {
+      "bytes": 8546,
+      "sha256": "7db939209e7544eeb0f069bee3a9da668e424747faf75f3f282c0135c4b782c9"
+    }
+  }
+}

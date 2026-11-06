@@ -1,0 +1,10 @@
+{
+  "name": "ash-aether-environment-rebuild-5-37",
+  "version": "5.37.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "preview": "python -m http.server 8080"
+  },
+  "description": "Production-adaptable 3D environment art modules, test suite, and non-game standalone preview; NOT deployed to active Site"
+}

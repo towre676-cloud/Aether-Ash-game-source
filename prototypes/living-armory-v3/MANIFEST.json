@@ -1,0 +1,277 @@
+{
+  "name": "Ash & Aether Living Armory",
+  "version": "3.0.0",
+  "date": "2026-10-29",
+  "status": "standalone verified; NOT merged into production Site",
+  "test_count": 69,
+  "browser_qa": {
+    "desktop": {
+      "wide": 1490,
+      "viewport": 1490,
+      "title": "Ash & Aether \u2014 The Living Armory",
+      "painted": 11,
+      "decoded": 11,
+      "harmonics": "THE MATERIAL HARMONICSEquipment changes the worldEquipped element and socketed rune voices form true",
+      "imprints": true,
+      "screenshotWidth": 1490,
+      "engraveExecuted": true,
+      "engraveItems": 1,
+      "bossLootOpen": true,
+      "lootLabelsContained": true,
+      "jsErrors": []
+    },
+    "mobile": {
+      "wide": 390,
+      "viewport": 390,
+      "title": "Ash & Aether \u2014 The Living Armory",
+      "painted": 11,
+      "decoded": 11,
+      "harmonics": "THE MATERIAL HARMONICSEquipment changes the worldEquipped element and socketed rune voices form true",
+      "imprints": true,
+      "screenshotWidth": 390,
+      "jsErrors": []
+    }
+  },
+  "files": {
+    "BROWSER_QA_V3.json": {
+      "size": 796,
+      "sha256": "4af179459b2d210539a1fa423fc730685fa499003ec3ec8e2575ae0d4ce2a04a"
+    },
+    "INTEGRATION_CONTRACT_V2.md": {
+      "size": 2877,
+      "sha256": "14b20044d1eafae349b03aecd2316964eb32c179a9246aabdadda910579d237d"
+    },
+    "INTEGRATION_CONTRACT_V3.md": {
+      "size": 3483,
+      "sha256": "c22b7e5701d6f4f6c0efb677255ee5bd93e8d599d9a68ae4432e0c972e5c0ff8"
+    },
+    "README.md": {
+      "size": 17795,
+      "sha256": "6cbcb6ea1e85c0302a5d5df2da4d31f7952dee461a9bba96f631addf08d0f254"
+    },
+    "README_V3.md": {
+      "size": 5395,
+      "sha256": "709fc9f648d32fee4fd7f57da4f0954d1ee198aaeb9842f7fa1343369052b47d"
+    },
+    "TEST_RESULTS.txt": {
+      "size": 10564,
+      "sha256": "95ee0d635178eb1932d942969d34466a2c512cc9d41eb20df7c70bb21ec4782b"
+    },
+    "TEST_RESULTS_V3.txt": {
+      "size": 13544,
+      "sha256": "9728297aeb4c7f9b233d7917b3ba4a2545267fa0bea65d64d148722b8df10c8f"
+    },
+    "armory-playable.html": {
+      "size": 317685,
+      "sha256": "7431aa587a4c9240e2346ccb8c0e6c1d93c4fffdf61e8d01426b6df7ddbd6112"
+    },
+    "assets/art-direction-cinematic-concept.png": {
+      "size": 2736609,
+      "sha256": "ee76cfe34679b270bf80fedb8696b346aa3948f21fdb51859f3ddca993446cc7"
+    },
+    "assets/art-source-rpg-generated.png": {
+      "size": 2724019,
+      "sha256": "982eef595b5966dd9f2b3e832643ed539cfe624dee647a14b064e034a997eab2"
+    },
+    "assets/desktop-preview.png": {
+      "size": 1098615,
+      "sha256": "4b590c771285c831b6da459f184d3b4ee4fd4a659f8d2654d2960a74a193d8ba"
+    },
+    "assets/items/armor.webp": {
+      "size": 7468,
+      "sha256": "cc19a16efb71f3c5190fc1ced4f157579107a9b0175329d268217fcfb69d9726"
+    },
+    "assets/items/axe.webp": {
+      "size": 8588,
+      "sha256": "2fc02e3de4909978936e58287d48aeadcceaa0ea4e2358786281ebab58baeba5"
+    },
+    "assets/items/boots.webp": {
+      "size": 7348,
+      "sha256": "697ab4848a1cc3aacdfde9711f27c8f09967b921606d5fb864a86d27ec12c30c"
+    },
+    "assets/items/bow.webp": {
+      "size": 8022,
+      "sha256": "a78b22f9b0811414f790c8789535551a7aad818e25d784fedaa96225ebfa6a90"
+    },
+    "assets/items/crown.webp": {
+      "size": 9092,
+      "sha256": "594a19cd3b6a9fd7e823dc16c95e9639182102f505a6a71b7a2e959d99f07b7e"
+    },
+    "assets/items/helm.webp": {
+      "size": 8816,
+      "sha256": "4f7d3d17e011d3e5b4ec15554f8bea4b96e605a642956da91fde7af8b615a51a"
+    },
+    "assets/items/hood.webp": {
+      "size": 7764,
+      "sha256": "91882cb137ad256d748953246f6fde630d78327d97650eac8e0b5703d2f5cfb8"
+    },
+    "assets/items/legs.webp": {
+      "size": 6880,
+      "sha256": "3ea1d5f72ee8760ac586dea413a5a3d20007dda1c4cfb9da29d051ee5302c68b"
+    },
+    "assets/items/mantle.webp": {
+      "size": 7640,
+      "sha256": "889d1bdd09c58e512dd927f8bcedad01fa3621e726e236820979a02ea9565669"
+    },
+    "assets/items/relic.webp": {
+      "size": 7378,
+      "sha256": "d7167e0a7aebeeb9e36edaf5a69a1c1f72728fa9be5d23571689a96d34256302"
+    },
+    "assets/items/ring.webp": {
+      "size": 7228,
+      "sha256": "4d927ed5022c2e16f2c56304e874a9e7160f3b1b1762775939b6dee96e74dd6d"
+    },
+    "assets/items/robe.webp": {
+      "size": 7908,
+      "sha256": "506bf9ea8f2d48daac84abf827fdc5dc29f54469867e2c250855b6f68a7590ee"
+    },
+    "assets/items/scepter.webp": {
+      "size": 6338,
+      "sha256": "73b14ceb6f367ec385a3f94bef5d8114cb37bd1171d74389e9badfccf47ef5c6"
+    },
+    "assets/items/shield.webp": {
+      "size": 8116,
+      "sha256": "64b7f723eb86634dc011b29272bc627c53956162d2efd56d7ce2c91bdab5e356"
+    },
+    "assets/items/sigil.webp": {
+      "size": 8056,
+      "sha256": "e0b423b601050d2c2d3c1b88ff862c11a412560804a520dea44c37ec72058300"
+    },
+    "assets/items/spear.webp": {
+      "size": 7664,
+      "sha256": "7c990c7e047d3692a08affefb9775be8e3e5a39a278a6a2600192394013c8385"
+    },
+    "assets/items/sword.webp": {
+      "size": 8492,
+      "sha256": "c45afe6b70d83a5aeaf021ed3eec63e62cf1aa9169d8319514c13a12d2488336"
+    },
+    "assets/loot-preview.png": {
+      "size": 348100,
+      "sha256": "d03728107c64b01fcce0cac33808c3e822e4de54c5261e88152c46c43a5999ee"
+    },
+    "assets/mobile-bag-preview.png": {
+      "size": 249722,
+      "sha256": "1452f1dfadef8fd93d3ef956a32063c33a864104b370d3cb6a70eda3a900b1c2"
+    },
+    "assets/mobile-inspector-preview.png": {
+      "size": 248492,
+      "sha256": "39250ce50c57d7c14a151dd45332c9580bf9c998b4cb74d8a6a0c5b1b637dbd3"
+    },
+    "assets/v2-boss-loot.png": {
+      "size": 296684,
+      "sha256": "335c36964f63a0f5cfb11c1f3535a5f3dc803838f0d2f27a95cbeced5a0e8ca9"
+    },
+    "assets/v2-desktop.png": {
+      "size": 1439250,
+      "sha256": "ec9e208057670439e7e7d74353d0fedf0a90f8ef0687cd6f6a703ceddcd7ff80"
+    },
+    "assets/v2-mobile-codex.png": {
+      "size": 433814,
+      "sha256": "764473fbdf57fc0ec5a7464c4e96e0b9e8b7f427adaa8450713f244e0572fa0e"
+    },
+    "assets/v2-mobile.png": {
+      "size": 357730,
+      "sha256": "7aeb2fb8f464ecd74db277a2076c769d9aebab3465876bfb09e61cd6cbd93cf2"
+    },
+    "assets/v3-art-contact-sheet.png": {
+      "size": 426543,
+      "sha256": "6ca2d3f58ecc17a12b88e8ebc377e4d1865adbe1e2e358527b7bb9347fe20075"
+    },
+    "assets/v3-boss-loot.png": {
+      "size": 308343,
+      "sha256": "1d94259fab82aae86678b82fc8a7dd595ee5a81facd6b0eacbb8ff3ab4fb3600"
+    },
+    "assets/v3-desktop.png": {
+      "size": 1707027,
+      "sha256": "361e6a0864a317b82d15d63138a039eee6750393f849e34309fab5a921821c4c"
+    },
+    "assets/v3-final-desktop.png": {
+      "size": 890282,
+      "sha256": "ec28ebbe01a814fa65d7265041b6d2639b8b6feaf57f157cbdb691bf18ee6787"
+    },
+    "assets/v3-final-mobile.png": {
+      "size": 270533,
+      "sha256": "c52a75e8548d2940f8777a7bbe0f258252f5c05534ffb50389621bf15e464c45"
+    },
+    "assets/v3-mobile-gear.png": {
+      "size": 269819,
+      "sha256": "6965da82037b17de88cb3c6d13385c6190a545f8850850b1ef386af14b27a994"
+    },
+    "assets/v3-mobile.png": {
+      "size": 239753,
+      "sha256": "ca449ddd2cae8ee8ff54ea8fc47b47977b088dfa47b708d2efef47091869542b"
+    },
+    "bake-item-art.py": {
+      "size": 2877,
+      "sha256": "14100b3137cd84a0b88ab9cd1b8935b0ecda30370401ae7437ed2e687db885f0"
+    },
+    "browser-qa-quick.py": {
+      "size": 1121,
+      "sha256": "1a0abaf740fed35add61ff0f84a839bd9ab5a17254ca5d78633943ed9530ebed"
+    },
+    "browser-qa-v3.py": {
+      "size": 3093,
+      "sha256": "bef5384fb446f7f6661ce432e84ef6b3ae3b7a717ff4d8d38efc692422c65f11"
+    },
+    "build-standalone.py": {
+      "size": 1489,
+      "sha256": "ea33e6e24761fa8b1a83cf57d6efd8a37e29d1756b0d8045aa36350e30a2eb0d"
+    },
+    "index.html": {
+      "size": 14910,
+      "sha256": "25b4b220ce6b7a0cff5ddf920a9d102d1774aaa9240168ee6e60d5c5b3c1a281"
+    },
+    "src/armory.css": {
+      "size": 36885,
+      "sha256": "ccb9d79354b83f06a07012e69496ac1938f83aee219211738c2299a64b6482a9"
+    },
+    "src/armory.mjs": {
+      "size": 35374,
+      "sha256": "73d8a5bc271dddc710fec3435313df4f9b27d547e088afe2525b5125fb79bb7e"
+    },
+    "src/art.mjs": {
+      "size": 349,
+      "sha256": "7fa31ac70bd81013ef2bf1f21c4ba4d0d23a4f3125cf77cdc60e48f4f9637ba5"
+    },
+    "src/catalog.mjs": {
+      "size": 17881,
+      "sha256": "4e6ef9620df8189cbae83af013e802e76747547f8aaba41e400993e924f47d18"
+    },
+    "src/host-bridge.mjs": {
+      "size": 6199,
+      "sha256": "d54ef22ae485a68b807ab9fd94919bf1bbbdfd0521715a409538c3f50e6a98ac"
+    },
+    "src/ui.mjs": {
+      "size": 35496,
+      "sha256": "f6b6b497c43a045f7816e1098045c734dbd2411e9ed26ba4eb168f93fbd8b6f4"
+    },
+    "tests/armory-v2.test.mjs": {
+      "size": 8305,
+      "sha256": "62242983d2a57f73ef2389abc66e1e4dc8c805c117d50856d843ae466bbd01f5"
+    },
+    "tests/armory-v3.test.mjs": {
+      "size": 6192,
+      "sha256": "fadbf85ebc64cca715c9394be7d86afd1cf8b0e376a051741392f917a606225e"
+    },
+    "tests/armory.test.mjs": {
+      "size": 11001,
+      "sha256": "67bace84152b647a4cd98c8ec66a6234cd12f8a9328b78797903dce2b1c10ff5"
+    },
+    "tests/host-bridge-v3.test.mjs": {
+      "size": 1849,
+      "sha256": "9ef1885f9061be453362f5177c85f20078c9727f864e87ed8f38c7710e884143"
+    },
+    "tests/host-bridge.test.mjs": {
+      "size": 3860,
+      "sha256": "3418d5f9652c80e92e90b7b61ed5eef99416e6c8e4dd69eeba1ceb01b8ee2660"
+    },
+    "upgrade-v3.py": {
+      "size": 12032,
+      "sha256": "d0fc86cb88b0e1ea9779a4203e0da5d3bae4e4489f5ed52d39075944b7394b40"
+    },
+    "verify-v3.sh": {
+      "size": 95,
+      "sha256": "21ad696b5baac58dc95ba826fe5ceb1a946138958d18f6e732f13bb1da3dd0aa"
+    }
+  }
+}

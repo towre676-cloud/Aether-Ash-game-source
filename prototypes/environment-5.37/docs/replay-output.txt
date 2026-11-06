@@ -1,0 +1,275 @@
+
+> ash-aether-moment-to-moment-5.28@5.28.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: turn in place distinct from idle
+ok 1 - turn in place distinct from idle
+  ---
+  duration_ms: 0.64695
+  type: 'test'
+  ...
+# Subtest: run cadence exceeds walk cadence
+ok 2 - run cadence exceeds walk cadence
+  ---
+  duration_ms: 0.183011
+  type: 'test'
+  ...
+# Subtest: 24 guardians receive repeating families with increasing variants
+ok 3 - 24 guardians receive repeating families with increasing variants
+  ---
+  duration_ms: 0.973253
+  type: 'test'
+  ...
+# Subtest: boss phases change rules
+ok 4 - boss phases change rules
+  ---
+  duration_ms: 0.808229
+  type: 'test'
+  ...
+# Subtest: hurt expression overrides normal scene
+ok 5 - hurt expression overrides normal scene
+  ---
+  duration_ms: 0.806616
+  type: 'test'
+  ...
+# Subtest: lead silhouette is stronger
+ok 6 - lead silhouette is stronger
+  ---
+  duration_ms: 0.181499
+  type: 'test'
+  ...
+# Subtest: requires multiple clue types
+ok 7 - requires multiple clue types
+  ---
+  duration_ms: 0.930479
+  type: 'test'
+  ...
+# Subtest: funding creates tradeoff project
+ok 8 - funding creates tradeoff project
+  ---
+  duration_ms: 0.691355
+  type: 'test'
+  ...
+# Subtest: side activities have distinct loops
+ok 9 - side activities have distinct loops
+  ---
+  duration_ms: 0.205455
+  type: 'test'
+  ...
+# Subtest: encounters attach identity and avoid immediate objective repetition
+ok 10 - encounters attach identity and avoid immediate objective repetition
+  ---
+  duration_ms: 0.739486
+  type: 'test'
+  ...
+# Subtest: archetypes get recognizable identities
+ok 11 - archetypes get recognizable identities
+  ---
+  duration_ms: 0.899874
+  type: 'test'
+  ...
+# Subtest: sound hunter selects noisy actor
+ok 12 - sound hunter selects noisy actor
+  ---
+  duration_ms: 0.349237
+  type: 'test'
+  ...
+# Subtest: gear thief flees after stealing
+ok 13 - gear thief flees after stealing
+  ---
+  duration_ms: 0.966614
+  type: 'test'
+  ...
+# Subtest: local fun summary measures variety, reward use and voluntary discovery
+ok 14 - local fun summary measures variety, reward use and voluntary discovery
+  ---
+  duration_ms: 1.179149
+  type: 'test'
+  ...
+# Subtest: adapter needs host-owned save and event bus
+ok 15 - adapter needs host-owned save and event bus
+  ---
+  duration_ms: 0.993854
+  type: 'test'
+  ...
+# Subtest: adapter migrates save without replacing existing systems
+ok 16 - adapter migrates save without replacing existing systems
+  ---
+  duration_ms: 0.446162
+  type: 'test'
+  ...
+# Subtest: host integration is additive
+ok 17 - host integration is additive
+  ---
+  duration_ms: 1.314178
+  type: 'test'
+  ...
+# Subtest: flags small touch targets and frame spikes
+ok 18 - flags small touch targets and frame spikes
+  ---
+  duration_ms: 1.616087
+  type: 'test'
+  ...
+# Subtest: offers three unowned verb mutations
+ok 19 - offers three unowned verb mutations
+  ---
+  duration_ms: 0.962287
+  type: 'test'
+  ...
+# Subtest: echo step changes approach not base stat
+ok 20 - echo step changes approach not base stat
+  ---
+  duration_ms: 1.14617
+  type: 'test'
+  ...
+# Subtest: fault chain adds secondary interaction
+ok 21 - fault chain adds secondary interaction
+  ---
+  duration_ms: 0.224993
+  type: 'test'
+  ...
+# Subtest: victory can offer gear, verb mutation and world unlock
+ok 22 - victory can offer gear, verb mutation and world unlock
+  ---
+  duration_ms: 1.703276
+  type: 'test'
+  ...
+# Subtest: migration is additive and valid
+ok 23 - migration is additive and valid
+  ---
+  duration_ms: 1.584469
+  type: 'test'
+  ...
+# Subtest: sample loop links encounter identity to reward, discovery and world consequence
+ok 24 - sample loop links encounter identity to reward, discovery and world consequence
+  ---
+  duration_ms: 2.170729
+  type: 'test'
+  ...
+# Subtest: door and river create physical continuity steps
+ok 25 - door and river create physical continuity steps
+  ---
+  duration_ms: 1.076286
+  type: 'test'
+  ...
+# Subtest: danger outranks lore
+ok 26 - danger outranks lore
+  ---
+  duration_ms: 0.628923
+  type: 'test'
+  ...
+# Subtest: action bar stays compact
+ok 27 - action bar stays compact
+  ---
+  duration_ms: 0.179106
+  type: 'test'
+  ...
+# Subtest: schedule changes across day
+ok 28 - schedule changes across day
+  ---
+  duration_ms: 0.814808
+  type: 'test'
+  ...
+# Subtest: repair changes traffic and pressure
+ok 29 - repair changes traffic and pressure
+  ---
+  duration_ms: 0.264423
+  type: 'test'
+  ...
+# Subtest: migration deterministic
+ok 30 - migration deterministic
+  ---
+  duration_ms: 1.488838
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 380.802842
+{
+  "encounter": {
+    "id": "replay-5.28",
+    "region": "orchard",
+    "actors": [
+      {
+        "id": "r",
+        "archetype": "raptor",
+        "identity": {
+          "behavior": "sound_hunter",
+          "tell": "turns toward the loudest footfall",
+          "intent": "hunt_noise"
+        }
+      },
+      {
+        "id": "m",
+        "archetype": "mole",
+        "identity": {
+          "behavior": "nest_builder",
+          "tell": "drags debris toward a nest",
+          "intent": "alter_route"
+        }
+      }
+    ],
+    "objective": "disarm",
+    "pressure": 3,
+    "openingTell": "turns toward the loudest footfall",
+    "rewardBias": "gear"
+  },
+  "intent": {
+    "kind": "hunt",
+    "target": "lead",
+    "bonus": 0.5
+  },
+  "rewards": [
+    {
+      "kind": "gear",
+      "value": {
+        "id": "rootglass-ring"
+      },
+      "why": "changes build"
+    },
+    {
+      "kind": "mutation",
+      "value": {
+        "id": "fault_chain",
+        "label": "Fault Chain",
+        "trigger": "armor_break",
+        "effect": "chain_nearby_armor",
+        "description": "Breaking armor sends the fracture into one nearby armored enemy at reduced strength."
+      },
+      "why": "changes action"
+    },
+    {
+      "kind": "world",
+      "value": {
+        "id": "river-landing"
+      },
+      "why": "changes route or settlement"
+    }
+  ],
+  "discoveries": [
+    {
+      "id": "hidden-nest",
+      "confidence": 0.7142857142857143,
+      "clues": [
+        "tracks",
+        "resonance"
+      ],
+      "marker": false
+    }
+  ],
+  "world": {
+    "traffic": 1,
+    "monsterPressure": 1,
+    "flags": {
+      "river-landing": true
+    },
+    "prices": {}
+  }
+}

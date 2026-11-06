@@ -1,0 +1,1477 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><title>Ash & Aether · Living World Reconciliation Lab</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#101d19;color:#f7f1da;--glass:#13221fe9;--outline:#7a947f79}*{box-sizing:border-box}body{margin:0;overflow:hidden}canvas{position:fixed;inset:0;display:block;width:100vw;height:100dvh;touch-action:none}header{pointer-events:none;position:absolute;left:26px;top:22px;text-shadow:0 4px 15px #08190dcc}header .eyebrow{font-size:10px;font-weight:800;letter-spacing:.23em;color:#ffe6ab}h1{font:400 clamp(26px,4vw,42px) Georgia,serif;margin:7px 0}header p{max-width:380px;font-size:12px;line-height:1.55;color:#f2f4dd}aside{position:absolute;right:16px;top:14px;width:284px;max-height:calc(100dvh - 28px);overflow-y:auto;border:1px solid var(--outline);border-radius:17px;background:var(--glass);box-shadow:0 16px 60px #08120eaa;padding:15px;backdrop-filter:blur(12px)}aside h2{font:600 14px Georgia,serif;letter-spacing:.07em;margin:0 0 10px;color:#f6e3b1}label{display:block;margin:10px 0 4px;font-size:11px;color:#e1e8cc}select,input[type=range],button{width:100%;border:1px solid #7c9b86a3;border-radius:9px;background:#203b31;color:#f5f1dc;padding:9px;font:inherit;font-size:12px}input[type=range]{padding:0;accent-color:#c3e09f}input[type=checkbox]{accent-color:#cbdfb0}button{cursor:pointer;background:#315945}button:hover{background:#4d7658}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ffe0a6;outline-offset:2px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px}.check{display:flex;align-items:center;gap:7px;font-size:11px;margin:8px 0}.check label{margin:0}.note{font-size:10px;line-height:1.5;color:#cddccf;margin-top:11px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;border-top:1px solid #8c9c7b6c;padding-top:10px;margin-top:12px}.metric{background:#213c31;padding:8px;border-radius:9px}.metric .name{font-size:10px;color:#b5cbb5}.metric strong{display:block;font-size:15px;font-variant-numeric:tabular-nums;margin-top:3px}.readout{color:#f6e1ae;font-size:11px;margin-top:10px;line-height:1.55}#status{min-height:28px;font-size:11px;line-height:1.5;color:#dfefc5}#legend{position:absolute;left:24px;bottom:20px;pointer-events:none;font-size:11px;color:#f3f4d9;text-shadow:0 3px 12px #1119}#legend strong{color:#ffdda4}input[type=file]{display:none}@media(max-width:700px){header{left:13px;top:12px}h1{font-size:26px}header p{display:none}aside{top:auto;bottom:8px;right:8px;left:8px;width:auto;max-height:43dvh;border-radius:13px;padding:11px}aside h2{font-size:13px}.compact{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}.metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.metric{padding:7px 5px}.metric strong{font-size:12px}.metric .name{font-size:9px}#legend{bottom:auto;top:92px;left:13px;max-width:175px;font-size:10px}.note{font-size:9px}}
+</style></head><body><canvas id="world" aria-label="Interactive grass and ground materials test landscape" role="img"></canvas>
+<header><div class="eyebrow">ASH & AETHER · WORLD SYSTEMS</div><h1>The land remembers</h1><p>Grass, substrate, weather, travel and history now share one numerical world state. All interactions below use the actual bundled v4-compatible bridge / v5 foliage.</p></header>
+<aside aria-label="Living terrain controls"><h2>GROUND FORGE × LIVING GRASS</h2><div class="compact"><div><label for="habitat">Habitat / region</label><select id="habitat"></select></div><div><label for="neighbor">Ecotone neighbor</label><select id="neighbor"></select></div><div><label for="blend">Habitat blend</label><input id="blend" type="range" min="0" max="100" value="0"/></div><div><label for="material">Ground material example</label><select id="material"></select></div><div><label for="rain">Rain / moisture</label><input id="rain" type="range" min="0" max="100" value="30"/></div><div><label for="wind">Wind</label><input id="wind" type="range" min="0" max="100" value="36"/></div><div><label for="season">Season</label><select id="season"><option value="spring">Spring</option><option value="summer" selected>Summer</option><option value="autumn">Autumn</option><option value="winter">Winter</option></select></div><div><label for="quality">Rendering detail</label><select id="quality"><option value="low">Low · mobile</option><option value="medium" selected>Medium</option><option value="high">High</option></select></div></div>
+<div class="check"><input type="checkbox" id="adaptive"/><label for="adaptive">Adaptive detail on slower devices</label></div><div class="check"><input type="checkbox" id="reduced"/><label for="reduced">Reduced motion</label></div><div class="check"><input type="checkbox" id="contrast"/><label for="contrast">Higher grass contrast</label></div>
+<div class="controls"><button id="walk">Walk forward</button><button id="trample">Trample grass</button><button id="harvest">Harvest sample</button><button id="ignite">Apply fire</button><button id="water">Water patch</button><button id="day">Advance 30 days</button><button id="timeline">Enter NG+ timeline</button><button id="save">Export save JSON</button><button id="import">Import save JSON</button><button id="reset">Restore fresh world</button></div>
+<input id="file" type="file" accept="application/json,.json" aria-label="Import vegetation save JSON"/>
+<div class="metrics" aria-live="off"><div class="metric"><span class="name">Grass cover</span><strong id="cover">—</strong></div><div class="metric"><span class="name">Traction</span><strong id="traction">—</strong></div><div class="metric"><span class="name">Fire transfer</span><strong id="fire">—</strong></div><div class="metric"><span class="name">Shielding</span><strong id="shield">—</strong></div></div>
+<div class="readout" id="details"></div><p id="status" role="status" aria-live="polite"></p>
+<div class="note">OFFLINE · Single self-contained file; no network or Three.js. The eight ground profiles are <b>illustrative examples</b>, not the actual 48 Ground Forge material records. The grass/saving/physics APIs are the real v4 packaged implementation. This is not the deployed A&A game.</div></aside>
+<div id="legend"><strong>Controls:</strong> drag terrain to move · WASD/arrows travel<br/>World-ground exclusions and plant growth follow shared coordinates.</div>
+<script>
+'use strict';
+const __aaModules=Object.create(null);
+__aaModules['grass-ecology.mjs']=(()=>{
+/** Ash & Aether: Clay and Water — deterministic, gameplay-readable ecology.
+ * Pure JS: no renderer, global state, or external dependency. Coordinates are WORLD metres.
+ */
+const clamp = (x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const smooth = (x)=>{ x=clamp(x);return x*x*(3-2*x); };
+const fract = x=>x-Math.floor(x);
+function hash2(x,z,seed=1){
+  // integer-coordinate hashing avoids a repeating 2-D tile or Math.random state.
+  let h=Math.imul(x|0,374761393)^Math.imul(z|0,668265263)^Math.imul(seed|0,1442695041);
+  h=Math.imul(h^(h>>>13),1274126177);h^=h>>>16;
+  return (h>>>0)/4294967296;
+}
+function valueNoise(x,z,seed=1){
+  const xi=Math.floor(x),zi=Math.floor(z),fx=smooth(x-xi),fz=smooth(z-zi);
+  const a=hash2(xi,zi,seed),b=hash2(xi+1,zi,seed),c=hash2(xi,zi+1,seed),d=hash2(xi+1,zi+1,seed);
+  return (a+(b-a)*fx)*(1-fz)+(c+(d-c)*fx)*fz;
+}
+function fractal(x,z,seed=1){
+  // Two spatially warped frequencies prevent rectangular or repeating meadow patches.
+  const dx=(valueNoise(x*.035,z*.035,seed+19)-.5)*10;
+  const dz=(valueNoise(x*.039,z*.039,seed+23)-.5)*10;
+  const X=x+dx,Z=z+dz;
+  return .50*valueNoise(X*.052,Z*.052,seed+1)+.29*valueNoise(X*.14,Z*.14,seed+3)+.14*valueNoise(X*.34,Z*.34,seed+5)+.07*valueNoise(X*.89,Z*.89,seed+7);
+}
+const SPECIES = Object.freeze({
+  meadow:{height:.82,width:.084,leaves:5,palette:['#617b31','#819c43','#93a653','#728b31']},
+  rye:{height:.94,width:.051,leaves:7,palette:['#456b36','#688e3c','#869b4d','#5c7840']},
+  clover:{height:.37,width:.119,leaves:4,palette:['#316641','#478254','#598e51','#67914b']},
+  sedge:{height:1.08,width:.043,leaves:8,palette:['#4a7653','#6c9670','#8ba37b','#507f65']},
+  reed:{height:1.60,width:.046,leaves:5,palette:['#688852','#82994b','#a8a45b','#63815c']},
+  straw:{height:1.12,width:.058,leaves:5,palette:['#ae9a53','#b6aa68','#8d8b48','#c2b67a']},
+  frost:{height:.55,width:.065,leaves:5,palette:['#728b7b','#8baa9c','#7e9999','#a2b3ac']},
+  aether:{height:1.04,width:.062,leaves:6,palette:['#4c8b88','#69b2a0','#87b5ac','#6c9cb4']},
+  bentgrass:{height:.61,width:.024,leaves:9,palette:['#3b6535','#608c41','#7ea153','#4f7d38']},
+  bluegrass:{height:.52,width:.066,leaves:8,palette:['#386754','#538679','#73a7a0','#3c776c']},
+  fern:{height:.67,width:.135,leaves:7,palette:['#234f39','#397453','#508c63','#66874b']},
+  heather:{height:.53,width:.052,leaves:10,palette:['#586c38','#74805a','#8b7192','#82757a']},
+  rush:{height:1.24,width:.031,leaves:12,palette:['#4c6e56','#64826a','#81967f','#6d8260']},
+  lavender:{height:.72,width:.044,leaves:7,palette:['#5d7450','#78816b','#927e9d','#6b638c']},
+  wheat:{height:1.24,width:.071,leaves:7,palette:['#a38c48','#c0a861','#d1bb76','#8b8150']},
+  nettle:{height:.73,width:.126,leaves:6,palette:['#33583c','#52734c','#699153','#446d46']}
+});
+const BIOMES = Object.freeze({
+  meadow:   {density:1.0,wet:.45, shade:.2, species:[['meadow',.42],['rye',.27],['clover',.24],['sedge',.07]]},
+  orchard:  {density:.96,wet:.51, shade:.4, species:[['meadow',.34],['rye',.19],['clover',.39],['sedge',.08]]},
+  marsh:    {density:1.16,wet:.93, shade:.15,species:[['sedge',.40],['reed',.37],['meadow',.14],['clover',.09]]},
+  highlands:{density:.73,wet:.36, shade:.12,species:[['rye',.30],['meadow',.30],['straw',.27],['clover',.13]]},
+  savanna:  {density:.68,wet:.13, shade:.06,species:[['straw',.75],['rye',.17],['meadow',.08]]},
+  tundra:   {density:.44,wet:.24, shade:.08,species:[['frost',.58],['sedge',.22],['rye',.20]]},
+  ashlands: {density:.46,wet:.16, shade:.07,species:[['straw',.59],['aether',.12],['rye',.29]]},
+  aether:   {density:.92,wet:.61, shade:.28,species:[['aether',.45],['sedge',.19],['clover',.14],['bluegrass',.14],['heather',.08]]},
+  woodland: {density:.84,wet:.64,shade:.67,species:[['fern',.39],['clover',.21],['meadow',.13],['bluegrass',.15],['nettle',.12]]},
+  riverbank:{density:1.13,wet:.86,shade:.24,species:[['rush',.28],['sedge',.23],['reed',.19],['bluegrass',.14],['meadow',.16]]},
+  moor:     {density:.72,wet:.56,shade:.10,species:[['heather',.39],['bentgrass',.30],['rye',.19],['frost',.12]]},
+  alpine:   {density:.52,wet:.37,shade:.08,species:[['frost',.32],['bentgrass',.33],['lavender',.16],['rye',.19]]},
+  ruins:    {density:.75,wet:.46,shade:.34,species:[['nettle',.27],['fern',.22],['rye',.18],['clover',.21],['heather',.12]]},
+  farmlands:{density:.97,wet:.41,shade:.09,species:[['wheat',.49],['meadow',.15],['rye',.22],['bentgrass',.14]]},
+  bog:      {density:.88,wet:.99,shade:.26,species:[['rush',.38],['reed',.22],['sedge',.25],['fern',.15]]}
+});
+/** Callback convention: terrainHeight(x,z), trailAt(x,z) [0..1], obstacles(x,z),
+ * shadeAt(x,z) [0..1], moistureAt(x,z) [0..1], biomeAt(x,z) string.
+ * Avoid writing visual-only ecology: every sampled attribute is available to AI.
+ */
+function createEcology(options={}){
+  const seed=options.seed??316;
+  const biomeAt=options.biomeAt??(()=>options.biome??'meadow');
+  const trailAt=options.trailAt??(()=>0);
+  const shadeAt=options.shadeAt??(()=>0);
+  const moistureAt=options.moistureAt??(()=>null);
+  const obstacleAt=options.obstacleAt??(()=>false);
+  const heightAt=options.terrainHeight??(()=>0);
+  const season=options.season??'summer';
+  const seasonAt=options.seasonAt??(()=>season);
+  const substrateAt=options.substrateAt??(()=>null);
+  const biomeMixAt=options.biomeMixAt??(()=>null);
+  const growthAt=options.growthAt??(()=>null);
+  function sample(x,z){
+    const biome=biomeAt(x,z);
+    // Biome boundaries can be supplied as host-owned blend weights. The game
+    // remains authoritative: when no weights exist, the original biome is used.
+    const input=biomeMixAt(x,z),parts=[];
+    if(input && typeof input==='object' && !Array.isArray(input)){
+      for(const [key,val] of Object.entries(input)){
+        if(BIOMES[key] && Number.isFinite(val) && val>0)parts.push([key,Math.min(val,1)]);
+      }
+    }
+    if(!parts.length)parts.push([BIOMES[biome]?biome:'meadow',1]);
+    const total=parts.reduce((a,b)=>a+b[1],0);
+    const biomeMix=Object.fromEntries(parts.map(([key,w])=>[key,w/total]));
+    const profile={density:0,wet:0,shade:0};
+    for(const [key,w] of Object.entries(biomeMix))for(const k of ['density','wet','shade'])profile[k]+=BIOMES[key][k]*w;
+    const noise=fractal(x,z,seed),fine=valueNoise(x*.72,z*.72,seed+31);
+    const path=clamp(trailAt(x,z));
+    const shade=clamp(profile.shade+.65*shadeAt(x,z));
+    const override=moistureAt(x,z);
+    const state=growthAt(x,z);
+    const moisture=clamp((override==null? profile.wet+(noise-.5)*.39 : override) + clamp((state?.wet??0))*.35);
+    const obstruction=!!obstacleAt(x,z);
+    const growth=typeof state==='number'?{vigor:state}:state||{};
+    const vigor=clamp(growth.vigor??1);
+    const scorch=clamp(growth.scorch??0);
+    const flatten=clamp(growth.flatten??0);
+    const wet=clamp(growth.wet??0);
+    const growthPatch=smooth((noise-.32)*2.7);
+    const localSeason=seasonAt(x,z);
+    const seasonal=localSeason==='winter'?.24:localSeason==='autumn'?.76:localSeason==='spring'?.93:1;
+    const substrate=substrateAt(x,z)||{};
+    const suitability=clamp(substrate.vegetationSuitability??1);
+    const fuelFactor=clamp(substrate.fuelFactor??1,0,2);
+    // Path edges are feathered (trailAt itself should expose smooth values), no sharp grass squares.
+    const density=clamp(profile.density*(.27+1.16*growthPatch)*(.86+.28*fine)*(1-path*.97)*(1-shade*.35)*seasonal*vigor*suitability,0,1.5);
+    const heightFactor=clamp((.64+.68*noise)*(.76+.32*moisture)*(1-path*.68)*(1-flatten*.48),.06,1.5);
+    const cover=clamp(density*heightFactor*(.64+.28*shade),0,1);
+    const flammability=clamp((1-moisture)*density*(biome==='ashlands'?1.3:1)*(1-scorch*.8)*fuelFactor,0,1);
+    return {x,z,y:heightAt(x,z),biome,biomeMix,season:localSeason,moisture,shade,path,density:obstruction?0:density,
+      heightFactor,vigor,scorch,flatten,wet,suitability,blocked:obstruction,cover:obstruction?0:cover,flammability:obstruction?0:flammability,
+      flowerProbability:clamp((biome==='orchard'?.30:.11)*growthPatch*(1-path)*(1-shade*.6)),
+      forage:biome==='marsh'?'reed-fibre':biome==='aether'?'aether-frond':biome==='ashlands'?'cinder-seed':'meadow-herbs'};
+  }
+  function chooseSpecies(x,z,eco=sample(x,z),random=hash2(Math.floor(x*3),Math.floor(z*3),seed+46)){
+    // Blended ecotones mix the actual botanical distributions, not the renderer's palette.
+    const weights=new Map();
+    for(const [biome,fraction] of Object.entries(eco.biomeMix||{[eco.biome]:1})){
+      for(const [name,w] of (BIOMES[biome]||BIOMES.meadow).species){
+        const moistureWeight=name==='reed'||name==='sedge'||name==='rush'? .55+eco.moisture:
+          name==='straw'?1.48-eco.moisture:1;
+        weights.set(name,(weights.get(name)||0)+fraction*w*moistureWeight);
+      }
+    }
+    let total=0;for(const w of weights.values())total+=w;
+    let v=clamp(random,0,1-Number.EPSILON)*total;
+    for(const [name,w] of weights){v-=w;if(v<=0)return name;}
+    return [...weights.keys()].at(-1);
+  }
+  function gameplay(x,z){
+    const s=sample(x,z);
+    return {concealment:s.cover, movementCost:1+s.density*.16+s.moisture*.18-s.path*.18,
+      tracksPersistence:clamp((.25+s.moisture*.67)*(1-s.path*.33)),
+      fireSpreadPotential:s.flammability, forage:s.forage, traversable:!s.blocked};
+  }
+  return {sample,chooseSpecies,gameplay,seed};
+}
+
+return {clamp,smooth,hash2,valueNoise,fractal,SPECIES,BIOMES,createEcology};
+})();
+__aaModules['grass-appearance.mjs']=(()=>{
+/** Deterministic, purely visual morphology shared by A&A WebGL and Canvas.
+ * Inputs are sampled host-owned ecology; this never modifies gameplay outputs.
+ * Variation is locked to world cells, not frame count or camera position.
+ */
+const {hash2, valueNoise, clamp}=__aaModules['grass-ecology.mjs'];
+function sampleFoliageAppearance(ix,iz,seed,eco={}){
+  const x=Number.isFinite(eco.x)?eco.x:ix, z=Number.isFinite(eco.z)?eco.z:iz;
+  const patch=valueNoise(x*.19,z*.19,seed+109);
+  const crowded=valueNoise(x*.91,z*.91,seed+113);
+  const a=hash2(ix,iz,seed+141), b=hash2(ix,iz,seed+142);
+  const c=hash2(ix,iz,seed+143), d=hash2(ix,iz,seed+144);
+  const clump=clamp(.50+.92*patch+.22*(crowded-.5),.34,1.62);
+  return {
+    // Morphology is correlated by patch, with leaf-level randomness inside each tuft.
+    height:.64+clump*.35+.29*a,
+    width:.68+.67*b,
+    fan:.48+.9*c,
+    lean:(d-.5)*.6,
+    phase:(a*11.7+b*4.2),
+    colorIndex:hash2(ix,iz,seed+145),
+    bladeJitter:c,
+    // Crownlets form at selected fertile sites; disturbed ground suppresses them.
+    inflorescence:hash2(ix,iz,seed+146)<clamp((eco.moisture??.5)*.22+(eco.density??.5)*.12,0,.42),
+    patch,
+    shade:.83+.29*patch+.07*(b-.5),
+  };
+}
+function placementOffset(ix,iz,seed,child=0){
+  if(child===0)return {x:0,z:0};
+  const a=hash2(ix,iz,seed+190+child*7)*Math.PI*2;
+  const r=.11+.22*hash2(ix,iz,seed+191+child*7);
+  return {x:Math.cos(a)*r,z:Math.sin(a)*r};
+}
+
+return {sampleFoliageAppearance,placementOffset};
+})();
+__aaModules['grass-state.mjs']=(()=>{
+/** Ash & Aether — persistent, deterministic vegetation disturbances.
+ * Independent of renderer and save engine. Coordinates are metres; time is world-days.
+ * Events are explicitly invoked by the authoritative simulation (not visual proximity).
+ */
+const {clamp}=__aaModules['grass-ecology.mjs'];
+
+const safe = (x, fallback=0) => Number.isFinite(x) ? x : fallback;
+const bound = x => clamp(safe(x));
+const VEGETATION_SAVE_VERSION = 2;
+function createVegetationState({seed=316, cellSize=.8, maxCells=18000, initialDay=0}={}) {
+  if (!(cellSize>0 && cellSize<=8)) throw Error('cellSize must be between 0 and 8 metres');
+  const cells = new Map(); let day=Math.max(0,safe(initialDay));
+  const key=(i,j)=>`${i}:${j}`;
+  const indexes=(x,z)=>[Math.floor(x/cellSize),Math.floor(z/cellSize)];
+  const pristine=()=>({health:1,flatten:0,scorch:0,wet:0,harvested:0});
+  const evolve=(c,t)=>{
+    const delta=Math.max(0,t-c.day);
+    if(delta){
+      c.health=1-(1-c.health)*Math.exp(-.18*delta);
+      c.flatten*=Math.exp(-3.5*delta);
+      c.scorch*=Math.exp(-.045*delta);
+      c.wet*=Math.exp(-2.4*delta);
+      c.harvested*=Math.exp(-.11*delta);
+      c.day=t;
+    }
+    return c;
+  };
+  const nearPristine=c=>c.health>.999 && c.flatten<.001 && c.scorch<.001 && c.wet<.001 && c.harvested<.001;
+  function cell(i,j,create=false){
+    const k=key(i,j);let c=cells.get(k);
+    if(c){evolve(c,day); if(nearPristine(c)) {cells.delete(k);c=null;}}
+    if(!c && create && cells.size<maxCells){c={i,j,day,...pristine()};cells.set(k,c);}
+    return c;
+  }
+  function sample(x,z){
+    if(!Number.isFinite(x)||!Number.isFinite(z))return {...pristine(),vigor:1};
+    const [i,j]=indexes(x,z),c=cell(i,j);
+    const s=c?{health:c.health,flatten:c.flatten,scorch:c.scorch,wet:c.wet,harvested:c.harvested}:pristine();
+    return {...s,vigor:clamp(s.health*(1-.65*s.scorch)*(1-.32*s.flatten),0,1)};
+  }
+  /** effect(i,j,distanceWeight,currentState) mutates only a bounded area. */
+  function affect(x,z,radius,effect){
+    if(!Number.isFinite(x)||!Number.isFinite(z))return 0;
+    radius=clamp(safe(radius,.4),.05,6);
+    const i0=Math.floor((x-radius)/cellSize),i1=Math.floor((x+radius)/cellSize);
+    const j0=Math.floor((z-radius)/cellSize),j1=Math.floor((z+radius)/cellSize);
+    let changed=0;
+    for(let i=i0;i<=i1;i++)for(let j=j0;j<=j1;j++){
+      const xx=(i+.5)*cellSize,zz=(j+.5)*cellSize;
+      const distance=Math.hypot(xx-x,zz-z);
+      if(distance>radius+cellSize*.28)continue;
+      const weight=clamp(1-distance/(radius+cellSize*.28));
+      const c=cell(i,j,true);if(!c)continue;
+      if(effect(c,weight,i,j)!==false)changed++;
+    }
+    return changed;
+  }
+  function trample(x,z,{radius=.7,mass=1}={}){
+    return affect(x,z,radius,(c,w)=>{
+      const push=clamp(mass*.4*w,0,.88);
+      c.flatten=clamp(c.flatten+push);
+      c.health=clamp(c.health-push*.22);
+    });
+  }
+  function harvest(x,z,{radius=1,effort=1,biome='meadow'}={}){
+    const before=sample(x,z),strength=bound(effort);
+    const changed=affect(x,z,radius,(c,w)=>{
+      c.harvested=clamp(c.harvested+strength*w*.55);
+      c.health=clamp(c.health-strength*w*.45);
+      c.flatten=clamp(c.flatten+strength*w*.22);
+    });
+    const kind=biome==='marsh'?'reed-fibre':biome==='aether'?'aether-frond':biome==='ashlands'?'cinder-seed':biome==='tundra'?'frost-sedge':'meadow-herbs';
+    return {kind,quantity:changed ? Math.max(0,Math.floor((before.vigor*(1-before.harvested)*strength*changed)/3)):0,changed};
+  }
+  function ignite(x,z,{radius=1.2,strength=1,moistureAt=()=>.25}={}){
+    const amt=bound(strength);
+    return affect(x,z,radius,(c,w,i,j)=>{
+      const moisture=bound(moistureAt((i+.5)*cellSize,(j+.5)*cellSize));
+      const fuel=amt*w*Math.pow(1-moisture,.85)*(1-c.wet);
+      if(fuel<=.015)return false;
+      // A coherent burn scar, strongest at the epicentre, without random rectangular decals.
+      c.scorch=clamp(c.scorch+fuel*.8);
+      c.health=clamp(c.health-fuel*.93);
+      c.flatten=clamp(c.flatten+fuel*.4);
+      c.wet=0;
+    });
+  }
+  function water(x,z,{radius=1.2,amount=1}={}){
+    return affect(x,z,radius,(c,w)=>{c.wet=clamp(c.wet+bound(amount)*w);c.scorch=clamp(c.scorch-w*.10);});
+  }
+  function advanceDays(days){if(!Number.isFinite(days)||days<0)throw Error('world time must be nondecreasing');day+=days;return day;}
+  function setDay(t){if(!Number.isFinite(t)||t<day)throw Error('world time must be nondecreasing');day=t;return day;}
+  function serialize(){
+    const entries=[];
+    for(const c of cells.values()){
+      evolve(c,day);
+      if(!nearPristine(c))entries.push([c.i,c.j,+c.health.toFixed(5),+c.flatten.toFixed(5),+c.scorch.toFixed(5),+c.wet.toFixed(5),+c.harvested.toFixed(5)]);
+    }
+    entries.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+    return {version:VEGETATION_SAVE_VERSION,seed,cellSize,day,entries};
+  }
+  function restore(save){
+    if(!save||save.version!==VEGETATION_SAVE_VERSION||save.seed!==seed||save.cellSize!==cellSize || !Array.isArray(save.entries)) throw Error('incompatible vegetation save');
+    if(save.entries.length>maxCells || !Number.isFinite(save.day) || save.day<0) throw Error('invalid vegetation save');
+    const incoming=new Map();
+    for(const a of save.entries){
+      if(!Array.isArray(a)||a.length!==7||!a.every(Number.isFinite)||!Number.isSafeInteger(a[0])||!Number.isSafeInteger(a[1]))throw Error('invalid vegetation entry');
+      const [i,j,h,f,s,w,r]=a;
+      incoming.set(key(i,j),{i,j,health:bound(h),flatten:bound(f),scorch:bound(s),wet:bound(w),harvested:bound(r),day:save.day});
+    }
+    if(incoming.size>maxCells)throw Error('vegetation save exceeds capacity');
+    cells.clear();for(const [k,v] of incoming)cells.set(k,v);day=save.day;
+  }
+  function clear(){cells.clear();}
+  function getStats(){return {changedCells:cells.size,day,cellSize,maxCells,seed};}
+  function samplePatch(x,z,spacing=2,radius=2){
+    const out=[];for(let dx=-radius;dx<=radius;dx+=spacing)for(let dz=-radius;dz<=radius;dz+=spacing)out.push({x:x+dx,z:z+dz,...sample(x+dx,z+dz)});
+    return out;
+  }
+  return {sample,trample,harvest,ignite,water,advanceDays,setDay,serialize,restore,clear,getStats,samplePatch};
+}
+
+return {VEGETATION_SAVE_VERSION,createVegetationState};
+})();
+__aaModules['grass-renderer.mjs']=(()=>{
+/** WebGL2-friendly Three.js instanced vegetation for Ash & Aether.
+ * No postprocessing, transparency sorting, texture downloads, or per-blade CPU animation.
+ * Call createGrassField(THREE, scene, options).update(dt, player) each frame.
+ */
+const {clamp,hash2,createEcology,SPECIES,BIOMES}=__aaModules['grass-ecology.mjs'];
+const {sampleFoliageAppearance,placementOffset}=__aaModules['grass-appearance.mjs'];
+
+const TAU=Math.PI*2;
+// Spatial sampling uses concentric world-cell rings, so a quality cap cannot
+// cut the meadow off along the western edge of a traversal window.
+const cellOrderCache=new Map();
+function cellOrder(radius,cell){
+  const key=`${radius}:${cell}`;
+  if(cellOrderCache.has(key))return cellOrderCache.get(key);
+  const n=Math.ceil(radius/cell)+2,out=[];
+  for(let dx=-n;dx<=n;dx++)for(let dz=-n;dz<=n;dz++){
+    const r2=dx*dx+dz*dz;
+    if(r2<=(radius/cell+2)**2)out.push({dx,dz,r2});
+  }
+  out.sort((a,b)=>a.r2-b.r2||a.dx-b.dx||a.dz-b.dz);
+  cellOrderCache.set(key,out);return out;
+}
+const QUALITY={
+  low:   {radius:22,cell:.68,cap:9000, flowers:false},
+  medium:{radius:32,cell:.51,cap:18000,flowers:true},
+  high:  {radius:42,cell:.37,cap:38000,flowers:true},
+  ultra: {radius:52,cell:.30,cap:65000,flowers:true}
+};
+
+/** Camera gates are opt-in: the game owns projection, occlusion and gameplay.
+ * The conservative cone is a CPU work reduction, not a substitute for depth testing.
+ * No view => fully omnidirectional field (backwards-compatible).
+ */
+function normalizedView(v){
+  if(!v)return null;
+  const {x,z,forwardX,forwardZ}=v;
+  if(![x,z,forwardX,forwardZ].every(Number.isFinite))throw Error('cameraView needs finite world x,z and forwardXZ');
+  const mag=Math.hypot(forwardX,forwardZ);
+  if(mag<.000001)throw Error('cameraView forward must be nonzero');
+  const nearRadius=clamp(Number.isFinite(v.nearRadius)?v.nearRadius:10,4,30);
+  const halfAngle=clamp(Number.isFinite(v.halfAngleDegrees)?v.halfAngleDegrees:75,55,110)*Math.PI/180;
+  return {x,z,fx:forwardX/mag,fz:forwardZ/mag,nearRadius,cosAngle:Math.cos(halfAngle)};
+}
+function visibleFromView(v,x,z){
+  if(!v)return true;
+  const dx=x-v.x,dz=z-v.z,d=Math.hypot(dx,dz);
+  return d<=v.nearRadius || (dx*v.fx+dz*v.fz)>=d*v.cosAngle;
+}
+function terrainSlope(normal){
+  if(!normal)return [0,0];
+  const nx=normal.x??normal[0],ny=normal.y??normal[1],nz=normal.z??normal[2];
+  if(![nx,ny,nz].every(Number.isFinite)||ny<=.25)return [0,0];
+  return [clamp(-nx/ny,-1.3,1.3),clamp(-nz/ny,-1.3,1.3)];
+}
+function sameView(a,b){
+  if(!a||!b)return a===b;
+  return Math.hypot(a.x-b.x,a.z-b.z)<2 && a.fx*b.fx+a.fz*b.fz>Math.cos(12*Math.PI/180)
+    && a.cosAngle===b.cosAngle && a.nearRadius===b.nearRadius;
+}
+function tuftGeometry(THREE,type){
+  const spec=SPECIES[type];const positions=[],normals=[], tips=[],phases=[], indices=[];
+  const n=spec.leaves,segments=type==='moss'||type==='clover'?3:4;
+  function leaflet(px,py,pz,angle,length,width,phase){
+    // Four-point tapered, cupped leaf (not a rectangular grass billboard).
+    const ux=Math.cos(angle),uz=Math.sin(angle),vx=-uz,vz=ux;
+    const base=positions.length/3;
+    positions.push(px,py,pz,px+ux*length*.48+vx*width,py+length*.24,pz+uz*length*.48+vz*width,
+      px+ux*length,py+length*.35,pz+uz*length,px+ux*length*.48-vx*width,py+length*.24,pz+uz*length*.48-vz*width);
+    for(let k=0;k<4;k++){normals.push(vx,.52,vz);tips.push(.62+k*.11);phases.push(phase);}
+    indices.push(base,base+1,base+2,base,base+2,base+3);
+  }
+  for(let leaf=0;leaf<n;leaf++){
+    const yaw=leaf*2.39996323+(leaf%3)*.13;
+    const dx=Math.cos(yaw),dz=Math.sin(yaw),nx=-dz,nz=dx;
+    const variation=.73+.28*((leaf*7%11)/10);
+    const lean=.095 + .13*(leaf%4)/4;
+    const rootX=(leaf%3-1)*.029,rootZ=(leaf%4-1.5)*.026;
+    const base=positions.length/3;
+    for(let j=0;j<=segments;j++){
+      const t=j/segments;
+      const taper=Math.pow(Math.max(.003,1-t),.73)*(0.64+.3*Math.sin(t*Math.PI));
+      const bend=lean*t*t;
+      const centerX=rootX+dx*bend,centerZ=rootZ+dz*bend;
+      for(let side of [-1,1]){
+        const w=side*spec.width*taper*.5;
+        positions.push(centerX+nx*w,t*variation,centerZ+nz*w);
+        normals.push(nx, .15+t*.08, nz);
+        tips.push(t);
+        phases.push(leaf*.61+leaf%2);
+      }
+    }
+    for(let j=0;j<segments;j++){
+      const i=base+j*2;
+      indices.push(i,i+1,i+2,i+1,i+3,i+2);
+    }
+    // Real branching groundcover instead of a renamed grass-ribbon mesh.
+    if(type==='clover'){
+      for(let k=0;k<3;k++){
+        const a=yaw+k*TAU/3;
+        leaflet(rootX+dx*.025,variation*.64,rootZ+dz*.025,a,.12,.050,leaf*.61);
+      }
+    }
+    if(type==='fern'){
+      for(let k=1;k<=5;k++)for(const direction of [-1,1]){
+        const y=variation*(.12+k*.12);
+        leaflet(rootX+dx*lean*(k/6)**2,y,rootZ+dz*lean*(k/6)**2,
+          yaw+direction*(1.02+.07*k),.16+.03*(6-k)/5,.032,leaf*.41+k*.28);
+      }
+    }
+    if(type==='nettle'){
+      for(let k=1;k<=3;k++)for(const direction of [-1,1]){
+        leaflet(rootX+dx*.04*k,variation*(.28+.17*k),rootZ+dz*.04*k,
+          yaw+direction*1.12,.11+.02*k,.058,leaf*.51+k*.4);
+      }
+    }
+    if(type==='moss'){
+      for(let k=0;k<5;k++)leaflet(rootX,variation*.18,rootZ,yaw+k*TAU/5,.08,.032,leaf*.2+k);
+    }
+    // Narrow inflorescence on wild rye, dry grass, reeds: break the uniform grass silhouette.
+    if(['reed','straw','rye','sedge','wheat','rush','heather','lavender'].includes(type) && leaf%2===0){
+      const b=positions.length/3;
+      for(let k=0;k<3;k++){
+        const t=k/2,w=Math.sin(Math.PI*t)*spec.width*.65;
+        const yy=variation+(.08+.08*(leaf%3))*t;
+        for(const side of [-1,1]){
+          positions.push(rootX+dx*lean+nx*w*side,yy,rootZ+dz*lean+nz*w*side);
+          normals.push(nx,.18,nz);tips.push(1);phases.push(leaf*.61);
+        }
+      }
+      indices.push(b,b+1,b+2,b+1,b+3,b+2,b+2,b+3,b+4,b+3,b+5,b+4);
+    }
+  }
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+  geometry.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));
+  geometry.setAttribute('aTip',new THREE.Float32BufferAttribute(tips,1));
+  geometry.setAttribute('aPhase',new THREE.Float32BufferAttribute(phases,1));
+  geometry.setIndex(indices);geometry.computeBoundingSphere();
+  return geometry;
+}
+function flowerGeometry(THREE){
+  const vertices=[],normals=[],tips=[],phases=[],indices=[];
+  // Three small petals on each of four heads; no alpha cards / overdraw.
+  const addTri=(a,b,c,t=1)=>{
+    const base=vertices.length/3;vertices.push(...a,...b,...c);
+    for(let k=0;k<3;k++){normals.push(0,1,0);tips.push(t);phases.push(0);}
+    indices.push(base,base+1,base+2);
+  };
+  for(let h=0;h<3;h++){
+    const theta=h*TAU/3,x=Math.cos(theta)*.11,z=Math.sin(theta)*.11;
+    for(let petal=0;petal<4;petal++){
+      const a=theta+petal*TAU/4,ux=Math.cos(a),uz=Math.sin(a);
+      addTri([x,.80,z],[x+ux*.09,.82,z+uz*.09],[x+ux*.044,.93,z+uz*.044]);
+    }
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+  g.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));
+  g.setAttribute('aTip',new THREE.Float32BufferAttribute(tips,1));
+  g.setAttribute('aPhase',new THREE.Float32BufferAttribute(phases,1));
+  g.setIndex(indices);return g;
+}
+
+function makeMaterial(THREE,uniforms){
+  // Shared, opaque two-sided shader; instancing and world coordinates explicitly included.
+  // Undeclared THREE built-in uniforms: modelMatrix, viewMatrix, projectionMatrix, cameraPosition.
+  return new THREE.ShaderMaterial({
+    uniforms,side:THREE.DoubleSide,depthWrite:true,transparent:false,
+    vertexShader:`
+      // Three.js ShaderMaterial injects instanceMatrix and instanceColor attributes.
+      attribute float aTip;
+      attribute float aPhase;
+      attribute vec4 aVariation;
+      attribute vec2 aSlope;
+      attribute float aShade;
+      uniform float uTime; uniform float uWind;
+      uniform vec2 uWindDir; uniform vec2 uPlayer; uniform float uPlayerRadius;
+      uniform vec4 uTrails[6];
+      varying vec3 vColor; varying float vTip; varying float vSun; varying float vDistance;
+      void main(){
+        vec4 world=modelMatrix * instanceMatrix * vec4(position,1.0);
+        vec2 root=(modelMatrix * instanceMatrix * vec4(0.,0.,0.,1.)).xz;
+        float tip=aTip*aTip;
+        // Spatially correlated low-frequency wind, plus non-lockstep leaf motion.
+        float phase=aPhase*.61+aVariation.z*8.4;
+        float slow=sin(dot(root,vec2(.14,.22)) - uTime*(.68+aVariation.y*.21));
+        float eddy=sin(dot(root,vec2(.59,-.34)) + uTime*(1.51+aVariation.x*.31)+phase);
+        float flutter=sin(uTime*(3.0+aVariation.y*1.7)+phase+dot(root,vec2(.12,.08)));
+        float gust=.63+.37*sin(uTime*.27+root.x*.066+root.y*.047);
+        vec2 wind=uWindDir*((slow*.54+eddy*.33+flutter*.13)*gust*uWind*(.72+.50*aVariation.x));
+        vec2 delta=world.xz-uPlayer; float proximity=1.0-smoothstep(0.0,uPlayerRadius,length(delta));
+        vec2 push=normalize(delta+vec2(.0001)) * proximity*.33;
+        for(int i=0;i<6;i++){
+          vec4 trail=uTrails[i];
+          float fade=(1.0-smoothstep(0.0,2.2,trail.w)) * (1.0-smoothstep(0.0,max(.05,trail.z),distance(world.xz,trail.xy)));
+          push+=normalize(world.xz-trail.xy+vec2(.001)) * fade*.17;
+        }
+        world.xz+=(wind+push)*tip;
+        world.xz+=vec2(aVariation.w-.5,aVariation.y-.5)*tip*.095;
+        world.y+=tip*(aVariation.x-.5)*.075;
+        world.y-=min(.12,length(push)*.23)*tip;
+        // Follow the host terrain tangent without altering physics or collision.
+        world.y+=dot(aSlope,world.xz-root);
+        vec3 n=normalize(mat3(modelMatrix*instanceMatrix)*normal);
+        float sideLight=.55+.45*abs(dot(n,normalize(vec3(.55,.78,.38))));
+        // Different stems catch different light; roots stay comparatively dark.
+        vSun=sideLight*(.91+.15*aVariation.y)*(1.0-.54*aShade);
+        vTip=aTip;
+        vColor=instanceColor;
+        vDistance=length(world.xyz-cameraPosition);
+        gl_Position=projectionMatrix * viewMatrix * world;
+      }`,
+    fragmentShader:`
+      precision highp float;
+      uniform vec3 uFogColor; uniform float uFogNear; uniform float uFogFar;
+      uniform vec3 uLightTint; uniform float uRain; uniform float uContrast;
+      varying vec3 vColor; varying float vTip; varying float vSun; varying float vDistance;
+      void main(){
+        vec3 base=vColor*(.48+.75*pow(vTip,.80));
+        base*=.68+.42*vSun;
+        base+=vec3(.055,.064,.020)*pow(vTip,2.5);
+        base=mix(base,base*vec3(.79,.94,1.02),uRain*.36);
+        base*=uLightTint;
+        base=clamp((base-vec3(.48))*uContrast+vec3(.48),vec3(0.),vec3(1.));
+        float fog=smoothstep(uFogNear,uFogFar,vDistance);
+        gl_FragColor=vec4(mix(base,uFogColor,fog),1.0);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`
+  });
+}
+
+/** options: {seed,biome|biomeAt,terrainHeight,trailAt,shadeAt,moistureAt,obstacleAt,
+ * quality,season,density,wind,windDirection,playerRadius,origin,onPatchBuilt,
+ * terrainNormalAt, cameraView (optional conservative visual-only view filter)}.
+ * Renderer uses +Y up, horizontal terrain (x,z). No collision shapes are added.
+ */
+function createGrassField(THREE,scene,options={}){
+  const quality=options.quality||'medium',settings=QUALITY[quality]||QUALITY.medium;
+  const seed=options.seed??316;
+  const ecology=createEcology(options);
+  const radius=settings.radius,cell=settings.cell;
+  const maxCells=Math.ceil((radius*2/cell+2)**2);
+  const orderedCells=cellOrder(radius,cell);
+  const budget=Math.min(settings.cap,Number.isFinite(options.maxPlants)?Math.max(0,Math.floor(options.maxPlants)):Infinity);
+  // Give each plant family only the *maximum plausible share* of a biome, not
+  // the entire global tuft budget. In v2 sixteen full-sized buffers were
+  // reserved even where only four or five botanical families could appear.
+  const maxSpeciesShare={};
+  for(const type of Object.keys(SPECIES))maxSpeciesShare[type]=0;
+  for(const biome of Object.values(BIOMES))for(const moisture of [0,.5,1]){
+    const weighted=biome.species.map(([name,w])=>[name,w*(name==='reed'||name==='sedge'||name==='rush'?.55+moisture:name==='straw'?1.48-moisture:1)]);
+    const sum=weighted.reduce((v,p)=>v+p[1],0);
+    for(const [name,w] of weighted)maxSpeciesShare[name]=Math.max(maxSpeciesShare[name],w/sum);
+  }
+  let allocatedInstances=0;
+  const uniforms={
+    uTime:{value:0},uWind:{value:options.wind??.27},
+    uWindDir:{value:new THREE.Vector2(...(options.windDirection||[.9,.43])).normalize()},
+    uPlayer:{value:new THREE.Vector2(10000,10000)},uPlayerRadius:{value:options.playerRadius??1.4},
+    uTrails:{value:Array.from({length:6},()=>new THREE.Vector4(10000,10000,0,10))},
+    uFogColor:{value:new THREE.Color(options.fogColor??'#b0bba5')},
+    uFogNear:{value:options.fogNear??26},uFogFar:{value:options.fogFar??85},
+    uLightTint:{value:new THREE.Color('#ffffff')},uRain:{value:0},uContrast:{value:1}
+  };
+  const material=makeMaterial(THREE,uniforms),meshes=new Map(),palette=new Map();
+  const dummy=new THREE.Object3D();
+  let view=normalizedView(options.cameraView),pendingView=null,viewDirty=false,viewCooldown=0;
+  let lastBuildMs=0,buildCount=0,viewRejected=0;
+  const clock=()=>typeof performance!=='undefined'&&performance.now?performance.now():Date.now();
+  for(const [type,sp] of Object.entries(SPECIES)){
+    const capacity=Math.min(maxCells,budget,Math.ceil(budget*Math.min(1,maxSpeciesShare[type]*1.32+.035)));
+    const mesh=new THREE.InstancedMesh(tuftGeometry(THREE,type),material,capacity);
+    allocatedInstances+=capacity;
+    mesh.geometry.setAttribute('aVariation',new THREE.InstancedBufferAttribute(new Float32Array(capacity*4),4));
+    mesh.geometry.setAttribute('aSlope',new THREE.InstancedBufferAttribute(new Float32Array(capacity*2),2));
+    mesh.geometry.setAttribute('aShade',new THREE.InstancedBufferAttribute(new Float32Array(capacity),1));
+    mesh.name=`AA_Grass_${type}`;mesh.count=0;mesh.frustumCulled=false;mesh.castShadow=false;mesh.receiveShadow=false;
+    mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(mesh);meshes.set(type,mesh);
+    palette.set(type,sp.palette.map(c=>new THREE.Color(c)));
+  }
+  let flowers=null;
+  if(settings.flowers){
+    flowers=new THREE.InstancedMesh(flowerGeometry(THREE),material,Math.ceil(budget*.11));
+    flowers.geometry.setAttribute('aVariation',new THREE.InstancedBufferAttribute(new Float32Array(flowers.instanceMatrix.count*4),4));
+    flowers.geometry.setAttribute('aSlope',new THREE.InstancedBufferAttribute(new Float32Array(flowers.instanceMatrix.count*2),2));
+    flowers.geometry.setAttribute('aShade',new THREE.InstancedBufferAttribute(new Float32Array(flowers.instanceMatrix.count),1));
+    flowers.name='AA_Grass_Wildflower';flowers.count=0;flowers.frustumCulled=false;
+    flowers.instanceMatrix.setUsage(THREE.DynamicDrawUsage);scene.add(flowers);
+  }
+  const origin=options.origin||{x:0,z:0};
+  let center={x:Infinity,z:Infinity},disposed=false,plantCount=0,flowerCount=0;
+  let lastPlayer={x:10000,z:10000},regrowth=0,lastQuadrants=[0,0,0,0];
+  const trails=[];
+  function build(x=0,z=0){
+    const started=clock();viewRejected=0;
+    if(disposed)throw new Error('grass field disposed');
+    x=Math.round(x/cell)*cell;z=Math.round(z/cell)*cell;
+    center={x,z};let remaining=budget;const counts=Object.fromEntries([...meshes.keys()].map(k=>[k,0]));
+    if(flowers)flowers.count=0;
+    let fcount=0;
+    const ci=Math.floor(x/cell),cj=Math.floor(z/cell),quadrants=[0,0,0,0];
+    // Closest-first budget allocation prevents one-sided, squared-off bare zones.
+    // Every tuft is keyed to a fixed world coordinate: travel never rerolls it.
+    for(const {dx,dz} of orderedCells){
+      if(remaining<=0)break;
+      const ix=ci+dx,iz=cj+dz;
+      const jx=hash2(ix,iz,seed+51),jz=hash2(ix,iz,seed+53);
+      const px=(ix+.09+jx*.82)*cell,pz=(iz+.09+jz*.82)*cell;
+      const d=Math.hypot(px-x,pz-z);
+      if(d>radius)continue;
+      // Visual-only camera cone: preserve close vegetation even behind the camera.
+      // The margin keeps grass visible during quick turns and near screen edges.
+      if(!visibleFromView(view,px,pz)){viewRejected++;continue;}
+      const eco=ecology.sample(px,pz);
+      // Thin the far field gradually while keeping close stems richly populated.
+      const far=clamp((d-radius*.58)/(radius*.42));
+      const survive=(1-.70*far*far)*eco.density;
+      if(hash2(ix,iz,seed+59)>survive)continue;
+      const type=ecology.chooseSpecies(px,pz,eco,hash2(ix,iz,seed+61));
+      const mesh=meshes.get(type),idx=counts[type];if(idx>=mesh.instanceMatrix.count)continue;
+      const sp=SPECIES[type];
+      const appearance=sampleFoliageAppearance(ix,iz,seed,eco);
+      const variance=appearance.height;
+      const variation=mesh.geometry.getAttribute('aVariation');
+      if(variation?.array){variation.array.set([appearance.height-0.45,appearance.width-0.4,appearance.phase/16,appearance.fan/1.6],idx*4);}
+      const slope=terrainSlope(options.terrainNormalAt?.(px,pz));
+      mesh.geometry.getAttribute('aSlope')?.array?.set(slope,idx*2);
+      if(mesh.geometry.getAttribute('aShade')?.array)mesh.geometry.getAttribute('aShade').array[idx]=clamp(eco.shade);
+
+      const deadZone=1-.88*clamp((d-radius*.88)/(radius*.12));
+      const scale=variance*eco.heightFactor*deadZone;
+      dummy.position.set(px,eco.y-.025,pz);
+      dummy.rotation.set(0,TAU*hash2(ix,iz,seed+71)+appearance.lean,0);
+      dummy.scale.set(scale*appearance.width,scale*sp.height,scale*appearance.fan);
+      dummy.updateMatrix();mesh.setMatrixAt(idx,dummy.matrix);
+      const colors=palette.get(type);const col=colors[Math.floor(hash2(ix,iz,seed+73)*colors.length)];
+      const shade=appearance.shade;
+      const color=col.clone().multiplyScalar(shade*(.93+.15*eco.moisture));
+      if(eco.scorch)color.lerp(new THREE.Color('#493e30'),eco.scorch*.86);
+      if(eco.season==='autumn')color.lerp(new THREE.Color('#a28e59'),.30);
+      if(eco.season==='winter')color.lerp(new THREE.Color('#a4aea7'),.49);
+      if(eco.season==='spring')color.lerp(new THREE.Color('#77a657'),.12);
+      mesh.setColorAt(idx,color);
+      counts[type]++;quadrants[(px>=x?1:0)+(pz>=z?2:0)]++;remaining--;
+      if(flowers && eco.flowerProbability>hash2(ix,iz,seed+83) && fcount<flowers.instanceMatrix.count && d<radius*.85){
+        dummy.position.set(px,eco.y-.01,pz);dummy.rotation.set(0,jx*TAU,0);
+        const size=.19+.19*hash2(ix,iz,seed+89);
+        dummy.scale.set(size,size*1.35,size);dummy.updateMatrix();
+        flowers.setMatrixAt(fcount,dummy.matrix);
+        const flowerVariation=flowers.geometry.getAttribute('aVariation');
+        if(flowerVariation?.array)flowerVariation.array.set([appearance.height-0.45,appearance.width-0.4,appearance.phase/16,appearance.fan/1.6],fcount*4);
+        flowers.geometry.getAttribute('aSlope')?.array?.set(slope,fcount*2);
+        if(flowers.geometry.getAttribute('aShade')?.array)flowers.geometry.getAttribute('aShade').array[fcount]=clamp(eco.shade);
+        const colors=['#eee8c5','#ead3ad','#d9bfdc','#e4e7dc','#d9bc96'];
+        flowers.setColorAt(fcount,new THREE.Color(colors[Math.floor(hash2(ix,iz,seed+97)*colors.length)]));
+        fcount++;
+      }
+    }
+    for(const [type,mesh] of meshes){
+      mesh.count=counts[type];mesh.instanceMatrix.needsUpdate=true;
+      for(const attr of ['aVariation','aSlope','aShade']){const a=mesh.geometry.getAttribute(attr);if(a)a.needsUpdate=true;}
+      if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;
+    }
+    if(flowers){flowers.count=fcount;flowers.instanceMatrix.needsUpdate=true;const variant=flowers.geometry.getAttribute('aVariation');if(variant)variant.needsUpdate=true;if(flowers.instanceColor)flowers.instanceColor.needsUpdate=true;}
+    plantCount=Object.values(counts).reduce((a,b)=>a+b,0);flowerCount=fcount;lastQuadrants=quadrants;
+    lastBuildMs=Math.max(0,clock()-started);buildCount++;
+    const stats={plants:plantCount,flowers:flowerCount,quadrants,viewRejected,buildMs:lastBuildMs,drawCalls:[...meshes.values()].filter(m=>m.count>0).length+(flowers?.count>0?1:0),quality,counts:{...counts}};
+    options.onPatchBuilt?.(stats);return stats;
+  }
+  function step(x,z,radius=.65){
+    trails.unshift({x,z,radius:clamp(radius,.1,2.5),age:0});trails.length=Math.min(6,trails.length);
+  }
+  function update(dt=0,player=null){
+    if(disposed)return;
+    dt=clamp(dt,0,.1);uniforms.uTime.value+=dt;
+    viewCooldown=Math.max(0,viewCooldown-dt);
+    // A turn must not repeatedly trigger a costly full-buffer rebuild on every frame.
+    if(viewDirty&&viewCooldown<=0){view=pendingView;viewDirty=false;
+      build(Number.isFinite(lastPlayer.x)&&lastPlayer.x<9000?lastPlayer.x:center.x,
+        Number.isFinite(lastPlayer.z)&&lastPlayer.z<9000?lastPlayer.z:center.z);viewCooldown=.28;
+    }
+    if(player){
+      lastPlayer={x:player.x,z:player.z};uniforms.uPlayer.value.set(player.x,player.z);
+      if(Math.hypot(player.x-center.x,player.z-center.z)>radius*.23 && regrowth<=0){
+        build(player.x,player.z);regrowth=.33;
+      }
+    }
+    regrowth=Math.max(0,regrowth-dt);
+    for(const t of trails)t.age+=dt;
+    for(let i=0;i<6;i++){
+      const t=trails[i];uniforms.uTrails.value[i].set(t?.x??10000,t?.z??10000,t?.radius??0,t?.age??10);
+    }
+    while(trails.length && trails.at(-1).age>2.2)trails.pop();
+  }
+  function setCameraView(next){
+    if(disposed)throw Error('grass field disposed');
+    const normalized=normalizedView(next);
+    if(!sameView(view,normalized)){pendingView=normalized;viewDirty=true;}
+    else {pendingView=null;viewDirty=false;}
+  }
+  function setAtmosphere({wind,rain,fogColor,sunTint,windDirection,contrast}={}){
+    if(wind!=null)uniforms.uWind.value=clamp(wind,0,2.3);
+    if(contrast!=null)uniforms.uContrast.value=clamp(contrast,.7,1.5);
+    if(rain!=null)uniforms.uRain.value=clamp(rain);
+    if(fogColor)uniforms.uFogColor.value.set(fogColor);
+    if(sunTint)uniforms.uLightTint.value.set(sunTint);
+    if(windDirection)uniforms.uWindDir.value.set(...windDirection).normalize();
+  }
+  function dispose(){
+    if(disposed)return;disposed=true;
+    for(const m of meshes.values()){scene.remove(m);m.geometry.dispose();m.dispose?.();}
+    if(flowers){scene.remove(flowers);flowers.geometry.dispose();flowers.dispose?.();}
+    material.dispose();
+  }
+  build(origin.x,origin.z);
+  return {build,update,step,setAtmosphere,setCameraView,dispose,ecology,meshes,
+    getStats:()=>({plants:plantCount,flowers:flowerCount,quality,quadrants:[...lastQuadrants],allocatedInstances,viewRejected,buildMs:lastBuildMs,buildCount,cameraRebuildPending:viewDirty,drawCalls:[...meshes.values()].filter(m=>m.count>0).length+(flowers?.count>0?1:0)}),
+    getGameplay:(x,z)=>ecology.gameplay(x,z)};
+}
+
+return {normalizedView,visibleFromView,terrainSlope,createGrassField};
+})();
+__aaModules['canvas-grass-fallback.mjs']=(()=>{
+/** Ash & Aether — richly varied Canvas2D vegetation compositor.
+ * Host owns camera, geometry, collision, weather, ecology and timing. This
+ * module draws only; it does not assign loot, mutate saves or run encounters.
+ * All ornamental randomness is hashed from world coordinates and world seed.
+ */
+const {createEcology,SPECIES,hash2,clamp}=__aaModules['grass-ecology.mjs'];
+const {sampleFoliageAppearance}=__aaModules['grass-appearance.mjs'];
+const TAU=Math.PI*2;
+function tint(hex,season,scorch,wet,light=1){
+  const target=season==='autumn'?'#b8a06d':season==='winter'?'#b2beb3':season==='spring'?'#8eaf65':null;
+  const factor=season==='autumn'?.28:season==='winter'?.43:season==='spring'?.12:0;
+  const src=hex.slice(1).match(/../g).map(c=>parseInt(c,16));
+  function blend(dst,k){for(let i=0;i<3;i++)src[i]=src[i]*(1-k)+parseInt(dst.slice(1+2*i,3+2*i),16)*k;}
+  if(target)blend(target,factor);
+  if(scorch)blend('#4d3f2e',clamp(scorch*.86));
+  const rain=.10*clamp(wet);
+  for(let i=0;i<3;i++)src[i]*=(1-rain)*light;
+  return '#'+src.map(n=>Math.round(clamp(n,0,255)).toString(16).padStart(2,'0')).join('');
+}
+const PRESETS={
+  low:{cell:.78,cap:2100,blades:4,ornament:0},
+  medium:{cell:.53,cap:4300,blades:7,ornament:1},
+  high:{cell:.39,cap:8200,blades:10,ornament:2},
+};
+function leaf(ctx,x,y,dx,h,w){
+  ctx.beginPath();ctx.moveTo(x-w*.5,y);
+  ctx.quadraticCurveTo(x+dx*.35-w*.35,y-h*.52,x+dx,y-h);
+  ctx.quadraticCurveTo(x+dx*.63+w*.47,y-h*.62,x+w*.5,y);
+  ctx.closePath();ctx.fill();
+}
+function ellipse(ctx,x,y,rx,ry,rot=0){
+  ctx.beginPath();ctx.ellipse(x,y,Math.max(.35,rx),Math.max(.35,ry),rot,0,TAU);ctx.fill();
+}
+/** Optional scaleAt(x,z,y) enables camera-distance-aware foreshortening. */
+function createCanvasGrassFallback(options={}){
+  const seed=options.seed??316;
+  const config=PRESETS[options.quality]??PRESETS.medium;
+  const ecology=options.ecology??createEcology(options);
+  const project=options.worldToScreen??((x,z,y)=>({x,y:z-y}));
+  const scaleAt=options.scaleAt??(()=>1);
+  const alpha=options.alpha??.97;
+  let time=0;
+  function draw(ctx,{bounds,dt=0,wind=.3,player=null,pixelScale=24}={}){
+    if(!bounds||!['minX','maxX','minZ','maxZ'].every(k=>Number.isFinite(bounds[k])))throw Error('finite world bounds required');
+    if(bounds.maxX<=bounds.minX||bounds.maxZ<=bounds.minZ)throw Error('positive world bounds required');
+    time+=Math.max(0,Math.min(.1,dt));
+    const cell=config.cell;
+    const nx=Math.ceil((bounds.maxX-bounds.minX)/cell),nz=Math.ceil((bounds.maxZ-bounds.minZ)/cell);
+    const stride=Math.max(1,Math.ceil(Math.sqrt(nx*nz/(config.cap*1.75))));
+    const x0=Math.floor(bounds.minX/cell),x1=Math.ceil(bounds.maxX/cell);
+    const z0=Math.floor(bounds.minZ/cell),z1=Math.ceil(bounds.maxZ/cell);
+    let drawn=0,skipped=0;const ordered=[];
+    for(let j=z0;j<=z1;j+=stride)for(let i=x0;i<=x1;i+=stride){
+      const x=(i+.07+.84*hash2(i,j,seed+40))*cell,z=(j+.07+.84*hash2(i,j,seed+45))*cell;
+      if(x<bounds.minX||x>bounds.maxX||z<bounds.minZ||z>bounds.maxZ)continue;
+      const e=ecology.sample(x,z);
+      if(e.blocked||hash2(i,j,seed+51)>clamp(e.density,0,1)){skipped++;continue;}
+      const species=ecology.chooseSpecies(x,z,e,hash2(i,j,seed+54)),s=SPECIES[species];
+      const point=project(x,z,e.y),perspective=scaleAt(x,z,e.y);
+      if(!point||!Number.isFinite(point.x)||!Number.isFinite(point.y)||!Number.isFinite(perspective)||perspective<=0)continue;
+      const a=sampleFoliageAppearance(i,j,seed,e);
+      ordered.push({i,j,x,z,e,point,perspective,s,species,a});
+    }
+    // Correct overpaint in isometric and 3/4 cameras: far plants first.
+    ordered.sort((a,b)=>a.point.y-b.point.y);
+    ctx.save();ctx.globalAlpha=alpha;
+    const colorsUsed=new Map();
+    for(const t of ordered){
+      if(drawn>=config.cap)break;
+      const {i,j,x,z,e,point,perspective,s,species,a}=t;
+      const height=Math.max(.7,pixelScale*s.height*e.heightFactor*a.height*perspective);
+      const spread=Math.max(.8,Math.min(32,pixelScale*s.width*(4.2+2.0*a.fan)*a.width*perspective));
+      const shadowRadius=spread*(.8+.3*a.patch);
+      if(config.ornament>0&&ctx.ellipse){
+        ctx.fillStyle='rgba(14,29,18,.11)';ellipse(ctx,point.x+height*.1,point.y+.25,shadowRadius,shadowRadius*.31);
+      }
+      const p=player?Math.hypot(player.x-x,player.z-z):Infinity;
+      const push=p<1.7?(1-p/1.7)*1.3:0;
+      const slow=Math.sin(time*.69+x*.19+z*.21);
+      const eddy=Math.sin(time*1.53+x*.59-z*.34+a.phase);
+      const flutter=Math.sin(time*3.0+a.phase*2.1);
+      const bend=(slow*.50+eddy*.37+flutter*.13)*wind*height*.21+push*height*.22;
+      const count=Math.max(2,Math.round(config.blades*(.73+.42*a.fan)));
+      const palette=s.palette;
+      for(let blade=0;blade<count;blade++){
+        const r=hash2(i,j,seed+71+blade*2),r2=hash2(i,j,seed+72+blade*2);
+        const h=height*(.46+.69*r);
+        const spreadSign=((blade&1)?1:-1);
+        const startX=point.x+(r2-.5)*spread*1.23;
+        const drift=bend+(r-.45)*spread*(.64+.66*a.fan)+a.lean*h*.19+spreadSign*(blade%3)*.24*spread;
+        const width=Math.max(.35,spread*(.12+.105*r)*(species==='bentgrass'||species==='rush'?.55:1));
+        const leafColor=palette[Math.floor(hash2(i,j,seed+100+blade)*palette.length)];
+        let color=tint(leafColor,e.season,e.scorch,e.wet,.83+.27*r);
+        if(!colorsUsed.has(color))colorsUsed.set(color,color);
+        ctx.fillStyle=color;
+        leaf(ctx,startX,point.y,drift,h,width);
+        if(options.highContrast&&typeof ctx.stroke==='function'){
+          ctx.strokeStyle='rgba(10,28,21,.5)';ctx.lineWidth=Math.max(.45,width*.13);ctx.stroke();
+        }
+        if(config.ornament>0){
+          const xx=startX+drift*.74, yy=point.y-h*.74;
+          // Distinct botanical silhouettes rather than uniform ribbon-plus-dot impostors.
+          if(species==='clover' && blade%2===0){
+            for(let l=0;l<3;l++){const angle=l*TAU/3+.3;
+              ellipse(ctx,xx+Math.cos(angle)*width*1.6,yy+Math.sin(angle)*width*.9,width*1.3,width*.83,angle);}
+          }else if(species==='fern' && blade%2===0){
+            for(let l=0;l<3;l++){
+              const y2=point.y-h*(.35+l*.15),x2=startX+drift*(.35+l*.15);
+              ellipse(ctx,x2-width*1.15,y2,width*1.3,width*.52,-.4);
+              ellipse(ctx,x2+width*1.15,y2,width*1.3,width*.52,.4);
+            }
+          }else if(['heather','lavender'].includes(species)&&blade%3===0){
+            const bloom=species==='lavender'?'#bea5c7':'#b5a1b6';
+            ctx.fillStyle=tint(bloom,e.season,e.scorch,e.wet);
+            for(let k=0;k<3;k++)ellipse(ctx,xx+(k-1)*width*.5,yy-k*width*.85,width*.58,width*.76);
+          }else if(species==='nettle' && blade%2===0){
+            ellipse(ctx,xx-width,yy,width*1.1,width*.58,-.45);
+          }else if(['reed','rush','sedge'].includes(species)&&blade%3===0){
+            if(species==='reed'){ctx.fillStyle=tint('#786e49',e.season,e.scorch,e.wet);ellipse(ctx,startX+drift,point.y-h,width*.65,h*.11,.12);}
+          }else if(['rye','wheat','straw'].includes(species)&&blade%3===0){
+            ctx.fillStyle=tint(species==='wheat'?'#dbc17e':'#baaa76',e.season,e.scorch,e.wet);
+            for(let k=0;k<3;k++)ellipse(ctx,xx+(k-1)*width*.4,yy-k*h*.035,width*.32,width*.63,.32);
+          }
+        }
+      }
+      if(config.ornament>0&&a.inflorescence&&['meadow','clover','bentgrass','heather','lavender','bluegrass'].includes(species)){
+        const centerX=point.x+bend+spread*.17*(a.bladeJitter-.5),cy=point.y-height*.87;
+        const hue=species==='lavender'?'#bda5c7':species==='heather'?'#c29dbb':species==='clover'?'#f7edd3':'#e7d9a5';
+        ctx.fillStyle=tint(hue,e.season,e.scorch,e.wet);
+        const petals=config.ornament===2?5:3;
+        for(let k=0;k<petals;k++){
+          const angle=k*TAU/petals;ellipse(ctx,centerX+Math.cos(angle)*height*.065,cy+Math.sin(angle)*height*.052,Math.max(.5,height*.033),Math.max(.5,height*.025),angle);
+        }
+        ctx.fillStyle='#b99d57';ellipse(ctx,centerX,cy,Math.max(.5,height*.027),Math.max(.5,height*.027));
+      }
+      drawn++;
+    }
+    ctx.restore();
+    return {plants:drawn,candidates:ordered.length,skipped,quality:options.quality??'medium',paletteColors:colorsUsed.size};
+  }
+  return {draw,ecology};
+}
+
+return {createCanvasGrassFallback};
+})();
+__aaModules['ground-forge-compat.mjs']=(()=>{
+/**
+ * Ash & Aether living vegetation <-> Ground Forge compatibility seam.
+ * This file deliberately does NOT import the separately authored Ground Forge
+ * prototype or assume that its 48 ground materials have particular IDs.
+ * The authoritative terrain sampler is injected by the host.
+ * All callbacks use WORLD metres (x,z), +Y up. Values are dimensionless 0..1.
+ */
+const {clamp}=__aaModules['grass-ecology.mjs'];
+const finite=(v,otherwise)=>Number.isFinite(v)?v:otherwise;
+const unit=(v,d)=>clamp(finite(v,d));
+const shallowTags=v=>Array.isArray(v)?new Set(v.map(x=>String(x).toLowerCase())):new Set();
+const any=(tags, names)=>names.some(name=>tags.has(name));
+const asSample=v=>v&&typeof v==='object'?v:{};
+
+/** Material facts explicitly given by Ground Forge/host; no name-guessing.
+ * Accepts aliases only for descriptive field names, not invented material ids.
+ * E.g. materialAt(x,z) => {tags:['soil'], organic:0.7, porous:0.8,
+ * waterRetention:0.6, hardness:0.2, heat:0.1, moisture:0.5, grip:0.8}.
+ */
+function classifyGroundMaterial(input={}){
+  const m=asSample(input),tags=shallowTags(m.tags);
+  const interior=!!(m.isInterior??m.interior)||any(tags,['interior','indoor','inside']);
+  const deepWater=!!m.deepWater || finite(m.waterDepth,0)>.42;
+  const sealed=!!m.sealed||any(tags,['sealed','pavement','road','floor','metal','tile','glass','concrete']);
+  const explicitBlock=m.vegetationAllowed===false || m.foliageAllowed===false;
+  const organic=unit(m.organic??m.organicContent,.46), porous=unit(m.porous??m.permeability,.50);
+  const hardness=unit(m.hardness,.35),salinity=unit(m.salinity,0),heat=unit(m.heat??m.temperatureStress,0);
+  const wear=unit(m.wear??m.compaction,0),flood=unit(m.flood??m.flooding,0);
+  const waterRetention=unit(m.waterRetention??m.retention,porous*.7+.15);
+  const moisture=unit(m.moisture??m.wetness,waterRetention*.7+flood*.25);
+  const bare=interior||deepWater||explicitBlock||sealed;
+  const explicit=m.vegetationSuitability;
+  const base=clamp(.22+.52*organic+.29*porous-.26*hardness-.28*salinity-.35*heat-.32*wear,0,1);
+  const vegetationSuitability=bare?0:unit(explicit,base)*(1-.55*flood);
+  const trail=clamp(Math.max(unit(m.trail??m.pathWear,0),wear*.64, sealed?1:0));
+  const fuelFactor=clamp((.65+.54*organic)*(1-.38*moisture)*(1-.23*flood),.1,1.7);
+  return Object.freeze({materialId:m.id??null,tags:[...tags],blocked:bare,moisture,waterRetention,
+    organic,porous,hardness,salinity,heat,wear,flood,vegetationSuitability,trail,
+    fuelFactor,grip:unit(m.grip,.65),conductivity:unit(m.conductivity??m.electrical,.08),
+    resonance:unit(m.resonance,.10),shielding:unit(m.shielding,.08)});
+}
+
+/** Normalize Ground Forge material samples to foliage's existing APIs.
+ * Optional map samplers can be in the other sessions' own modules, but their
+ * values must be adapted by the host, never sampled twice from independent RNGs.
+ */
+function createGroundForgeVegetationBridge({
+  materialAt=()=>({}),regionAt=()=>({}),heightAt=()=>0,
+  pathAt=()=>0,obstacleAt=()=>false,shadeAt=()=>0,
+  seasonAt=()=> 'summer',weatherAt=()=>({})
+}={}){
+  const requireFinite=(x,z)=>{if(!Number.isFinite(x)||!Number.isFinite(z))throw Error('invalid world coordinates');};
+  let cache=null;
+  const invalidate=()=>{cache=null;};
+  const sample=(x,z)=>{
+    requireFinite(x,z);
+    if(cache && cache.x===x && cache.z===z)return cache.value;
+    const material=classifyGroundMaterial(materialAt(x,z));
+    const region=asSample(regionAt(x,z));
+    const weather=asSample(weatherAt(x,z));
+    const rain=unit(weather.rain??weather.precipitation,0);
+    const water=clamp(material.moisture+rain*.22);
+    const path=clamp(Math.max(material.trail,unit(pathAt(x,z),0)));
+    const blocked=material.blocked||!!obstacleAt(x,z)||region.outdoor===false;
+    const biome=region.biome??region.habitat??'meadow';
+    const altitude=finite(heightAt(x,z),0);
+    const value={x,z,material,biome,biomeMix:region.biomeMix??null,path,blocked,moisture:water,shade:unit(shadeAt(x,z),0),
+      height:altitude,season:seasonAt(x,z),rain,wind:unit(weather.wind,.25)};
+    cache={x,z,value};return value;
+  };
+  // The host remains the owner of material/biome/physics; vegetation receives
+  // normalized descriptive facts only. No Ground Forge names are required.
+  const ecologyOptions={
+    terrainHeight:(x,z)=>sample(x,z).height,
+    biomeAt:(x,z)=>sample(x,z).biome,
+    biomeMixAt:(x,z)=>sample(x,z).biomeMix,
+    trailAt:(x,z)=>sample(x,z).path,
+    obstacleAt:(x,z)=>sample(x,z).blocked,
+    moistureAt:(x,z)=>sample(x,z).moisture,
+    shadeAt:(x,z)=>sample(x,z).shade,
+    seasonAt:(x,z)=>sample(x,z).season,
+    substrateAt:(x,z)=>{
+      const {material}=sample(x,z);
+      return {vegetationSuitability:material.vegetationSuitability,fuelFactor:material.fuelFactor};
+    }
+  };
+  return {sample,invalidate,ecologyOptions};
+}
+
+/** Material and vegetation produce non-linear, bounded physical modifiers.
+ * The authoritative host must decide whether/how to apply them to its own rules.
+ * Renderer quality does not enter this function; changing settings cannot farm
+ * resources or change enemy detection.
+ */
+function evaluateVegetationMaterialEffects(ground, ecology, actor={}){
+  const m=ground.material??ground,e=ecology;
+  const wet=unit(e.moisture??m.moisture,0);
+  const cover=unit(e.cover,0);
+  const speed=unit(actor.speed,.5);
+  const mass=unit(actor.mass,.5);
+  const impact=clamp((1-m.grip)*(0.3+wet*.7)+m.wear*.12,0,1);
+  const acoustic=clamp((.12+speed*speed*.64)*(1-cover*.46)+m.hardness*.22+wet*.08,0,1.3);
+  const traction=clamp(m.grip*(1-wet*.38)*(1-m.wear*.19),.03,1);
+  const concealed=clamp(cover*(1-.45*speed*speed)*(1-.16*mass),0,1);
+  const electrical=clamp(m.conductivity*(.28+wet*.87)*(1+.31*cover),0,1.5);
+  const thermal=clamp(e.flammability*(1-.6*wet)+m.heat*.19,0,1);
+  const resonance=clamp(m.resonance*(1+.38*cover*cover),0,1.5);
+  const shielding=clamp(1-(1-unit(m.shielding,0))*(1-cover*.34),0,1);
+  return {concealment:concealed,footstepNoise:acoustic,slipRisk:impact,traction,
+    electricalTransfer:electrical,fireTransfer:thermal,resonanceTransfer:resonance,
+    environmentalShielding:shielding,trackVisibility:clamp(m.wear*.42+wet*.48+mass*.1)};
+}
+
+return {classifyGroundMaterial,createGroundForgeVegetationBridge,evaluateVegetationMaterialEffects};
+})();
+__aaModules['living-landscape.mjs']=(()=>{
+/** Game-facing coordinator for the Ash & Aether ecosystem.
+ * One shared source of truth supplies visuals, stealth, traversal, fire, harvesting, and saves.
+ * This is an integration API; host game must wire real world coordinates, NPCs and inventory.
+ */
+const {createGrassField}=__aaModules['grass-renderer.mjs'];
+const {createVegetationState}=__aaModules['grass-state.mjs'];
+function createLivingLandscape(THREE,scene,options={}){
+  const seed=options.seed??316;
+  const state=options.state??createVegetationState({seed,cellSize:options.stateCellSize??.8,
+    maxCells:options.stateMaxCells??18000,initialDay:options.initialDay??0});
+  if(state.getStats().seed!==seed)throw Error('external vegetation state seed mismatch');
+  if(options.initialSave)state.restore(options.initialSave);
+  let quality=options.quality??'medium';
+  let field=null,disposed=false,dirty=false,refreshClock=0;
+  let player={x:options.origin?.x??0,z:options.origin?.z??0};
+  const growthAt=(x,z)=>state.sample(x,z);
+  function makeField(){
+    field?.dispose();field=createGrassField(THREE,scene,{...options,seed,quality,growthAt,
+      origin:player});
+  }
+  makeField();
+  function ensure(){if(disposed)throw Error('living landscape disposed');}
+  function markDirty(){dirty=true;}
+  function requestRebuild(){ensure();markDirty();}
+  function update(dt=0,actor=null,{worldDay}={}){
+    ensure();
+    if(actor && Number.isFinite(actor.x) && Number.isFinite(actor.z))player={x:actor.x,z:actor.z};
+    if(worldDay!==undefined){const oldDay=state.getStats().day;state.setDay(worldDay);if(worldDay>oldDay)markDirty();}
+    refreshClock+=Math.max(0,Math.min(.15,dt));
+    field.update(dt,player);
+    if(dirty && refreshClock>=.55){field.build(player.x,player.z);refreshClock=0;dirty=false;}
+  }
+  function step(x,z,radius=.65,mass=1){ensure();field.step(x,z,radius);const changed=state.trample(x,z,{radius,mass});markDirty();return changed;}
+  function harvest(x,z,opts={}){
+    ensure();
+    const biome=field.ecology.sample(x,z).biome;
+    const result=state.harvest(x,z,{...opts,biome});markDirty();return result;
+  }
+  function ignite(x,z,opts={}){
+    ensure();const changed=state.ignite(x,z,{...opts,
+      moistureAt:opts.moistureAt??((a,b)=>field.ecology.sample(a,b).moisture)});
+    markDirty();return changed;
+  }
+  function water(x,z,opts={}){ensure();const changed=state.water(x,z,opts);markDirty();return changed;}
+  function advanceDays(days){ensure();const day=state.advanceDays(days);markDirty();return day;}
+  function restore(save){ensure();state.restore(save);markDirty();field.build(player.x,player.z);dirty=false;}
+  function setQuality(next){ensure();if(next===quality)return;quality=next;makeField();dirty=false;refreshClock=0;}
+  function getGameplay(x,z){ensure();return {...field.getGameplay(x,z),vegetation:state.sample(x,z)};}
+  function getStats(){return {...field.getStats(),state:state.getStats()};}
+  function dispose(){if(disposed)return;field.dispose();disposed=true;}
+  return {update,step,harvest,ignite,water,advanceDays,restore,serialize:()=>state.serialize(),
+    setQuality,requestRebuild,setCameraView:(camera)=>{ensure();field.setCameraView(camera);},setAtmosphere:(args)=>{ensure();field.setAtmosphere(args);},getGameplay,getStats,dispose,
+    state,get field(){return field;}};
+}
+
+return {createLivingLandscape};
+})();
+__aaModules['foliage-quality-governor.mjs']=(()=>{
+/** Optional device-adaptive vegetation detail. It never changes ecology samples,
+ * persistence, hitboxes, encounters, harvesting or terrain materials.
+ * Feed actual host frame deltas (seconds), not simulation-fixed timesteps.
+ */
+const FOLIAGE_TIERS=Object.freeze(['low','medium','high','ultra']);
+function createFoliageQualityGovernor({quality='medium',minimum='low',maximum=quality,
+  targetFrameMs=33.3,enabled=false}={}){
+  for(const t of [quality,minimum,maximum])if(!FOLIAGE_TIERS.includes(t))throw Error('unknown foliage detail tier');
+  if(!Number.isFinite(targetFrameMs)||targetFrameMs<8||targetFrameMs>150)throw Error('invalid target frame budget');
+  const lo=FOLIAGE_TIERS.indexOf(minimum),hi=FOLIAGE_TIERS.indexOf(maximum);
+  if(lo>hi)throw Error('minimum foliage detail exceeds maximum');
+  let index=Math.min(hi,Math.max(lo,FOLIAGE_TIERS.indexOf(quality)));
+  let badTime=0,goodTime=0,cooldown=0,average=targetFrameMs;
+  function observe(dt){
+    if(!enabled||!Number.isFinite(dt)||dt<=0||dt>.5)return null;
+    const ms=dt*1000;
+    // A sampled delta cannot by itself imply that the GPU caused the hitch.
+    // The governor only lowers this subsystem's visual allocations.
+    average=average*.90+ms*.10;
+    cooldown=Math.max(0,cooldown-dt);
+    if(average>targetFrameMs*1.16){badTime+=dt;goodTime=0;}
+    else if(average<targetFrameMs*.68){goodTime+=dt;badTime=0;}
+    else {badTime=0;goodTime=0;}
+    if(cooldown>0)return null;
+    if(badTime>=3 && index>lo){index--;badTime=goodTime=0;cooldown=7;return FOLIAGE_TIERS[index];}
+    if(goodTime>=14 && index<hi){index++;badTime=goodTime=0;cooldown=12;return FOLIAGE_TIERS[index];}
+    return null;
+  }
+  function setEnabled(v){enabled=!!v;badTime=goodTime=0;}
+  function setQuality(t){const i=FOLIAGE_TIERS.indexOf(t);if(i<lo||i>hi)throw Error('foliage tier outside allowed range');index=i;badTime=goodTime=0;cooldown=2;}
+  function getStats(){return {enabled,quality:FOLIAGE_TIERS[index],targetFrameMs,averageFrameMs:+average.toFixed(2),cooldownSeconds:+cooldown.toFixed(2)};}
+  return {observe,setEnabled,setQuality,getStats};
+}
+
+return {FOLIAGE_TIERS,createFoliageQualityGovernor};
+})();
+__aaModules['aa-game-integration.mjs']=(()=>{
+/** Ash & Aether v3 vegetation compatibility layer.
+ * Designed for 5.16+ game source, Ground Forge and Living World Laboratory.
+ * None of their source APIs are assumed: a game-owned terrain sampler, events,
+ * save slot, camera, and inventory/battle logic must be explicitly injected.
+ *
+ * Source-of-truth contract:
+ *   GAME  owns world/day, regions, doors/interiors, camera, mobs, inventory, saves.
+ *   GROUND FORGE owns soil/floor/weather/material facts and physical ground.
+ *   THIS  owns vegetation disturbances and derived gameplay-readable samples.
+ * Renderer selection NEVER changes simulation or inventory rewards.
+ */
+const {createVegetationState}=__aaModules['grass-state.mjs'];
+const {createEcology}=__aaModules['grass-ecology.mjs'];
+const {createLivingLandscape}=__aaModules['living-landscape.mjs'];
+const {createCanvasGrassFallback}=__aaModules['canvas-grass-fallback.mjs'];
+const {createGroundForgeVegetationBridge,evaluateVegetationMaterialEffects}=__aaModules['ground-forge-compat.mjs'];
+const {createFoliageQualityGovernor}=__aaModules['foliage-quality-governor.mjs'];
+
+const AA_VEGETATION_BRIDGE_VERSION=4;
+const PREVIOUS_BRIDGE_VERSION=3;
+const REWARD_RECEIPT_LIMIT=50000;
+const EVENT_LIMIT=768;
+const finite=(n)=>typeof n==='number' && Number.isFinite(n);
+const validId=(s)=>typeof s==='string'&&s.length>0&&s.length<=160;
+const safeString=(s)=>{if(!validId(s))throw Error('invalid timeline or event id');return s;};
+const ensure=(v)=>{if(!finite(v))throw Error('expected finite number');return v;};
+const cap=(v,lo,hi)=>Math.min(hi,Math.max(lo,ensure(v)));
+
+function createAAGameVegetationBridge(config={}){
+  const ground=config.groundBridge??createGroundForgeVegetationBridge(config.groundOptions??{});
+  if(typeof ground.sample!=='function'||!ground.ecologyOptions)throw Error('ground bridge missing sample/ecologyOptions');
+  const initialTimeline=config.timelineId??'main';safeString(initialTimeline);
+  const renderMode=config.renderMode??(config.THREE&&config.scene?'gpu':'canvas');
+  if(!['gpu','canvas','none'].includes(renderMode))throw Error('renderMode must be gpu, canvas or none');
+  if(renderMode==='gpu'&&(!config.THREE||!config.scene))throw Error('GPU mode requires THREE and scene');
+  const slots=new Map();
+  let current=null,disposed=false,quality=config.quality??'medium';
+  let settings={reducedMotion:!!config.reducedMotion,highContrast:!!config.highContrast};
+  const governor=createFoliageQualityGovernor({quality,minimum:config.minimumQuality??'low',
+    maximum:config.maximumQuality??'ultra',targetFrameMs:config.targetFrameMs??33.3,
+    enabled:!!config.autoQuality});
+  let unsubscribers=[];const counters={events:0,duplicates:0,harvests:0,timelineSwitches:0};
+  const assertLive=()=>{if(disposed)throw Error('vegetation bridge disposed');};
+
+  function createRuntime(id,seed,initialSave=null){
+    const state=createVegetationState({seed,cellSize:config.cellSize??.8,
+      maxCells:config.maxCells??18000,initialDay:config.initialDay??0});
+    const seen=[];const seenSet=new Set();
+    const rewardIds=[];const rewardSet=new Set();
+    // Validation occurs BEFORE any mutation, including unsupported saves.
+    if(initialSave){
+      let veg=initialSave;
+      if([PREVIOUS_BRIDGE_VERSION,AA_VEGETATION_BRIDGE_VERSION].includes(initialSave.bridgeVersion)){
+        if(initialSave.timelineId!==id||initialSave.seed!==seed || !Array.isArray(initialSave.recentEventIds) ||
+           initialSave.recentEventIds.length>EVENT_LIMIT || initialSave.recentEventIds.some(x=>!validId(x)))throw Error('incompatible vegetation timeline');
+        if(new Set(initialSave.recentEventIds).size!==initialSave.recentEventIds.length)throw Error('duplicate event ids in save');
+        veg=initialSave.vegetation;
+        seen.push(...initialSave.recentEventIds);seen.forEach(x=>seenSet.add(x));
+        if(initialSave.bridgeVersion===AA_VEGETATION_BRIDGE_VERSION){
+          const ids=initialSave.rewardEventIds;
+          if(!Array.isArray(ids)||ids.length>REWARD_RECEIPT_LIMIT || ids.some(x=>!validId(x)) ||
+             new Set(ids).size!==ids.length)throw Error('invalid persistent reward receipts');
+          rewardIds.push(...ids);ids.forEach(x=>rewardSet.add(x));
+        }
+      }
+      state.restore(veg);  // Accept old v2 bare grass-state snapshots.
+    }
+    const options={...ground.ecologyOptions,seed,quality,
+      growthAt:(x,z)=>state.sample(x,z),state,origin:config.origin??{x:0,z:0},
+      maxPlants:config.maxPlants,terrainNormalAt:config.groundOptions?.normalAt,
+      cameraView:config.cameraView,wind:settings.reducedMotion?0:(config.wind??.27)};
+    const ecology=createEcology(options);
+    const gpu=renderMode==='gpu'?createLivingLandscape(config.THREE,config.scene,options):null;
+    const canvas=renderMode==='canvas'?createCanvasGrassFallback({...options,
+      quality:quality==='ultra'?'high':quality,highContrast:settings.highContrast,ecology,
+      worldToScreen:config.worldToScreen,scaleAt:config.scaleAt}):null;
+    return {id,seed,state,seen,seenSet,rewardIds,rewardSet,options,ecology,gpu,canvas};
+  }
+  function remember(rt,id){
+    if(!id)return;
+    rt.seen.push(id);rt.seenSet.add(id);
+    while(rt.seen.length>EVENT_LIMIT){rt.seenSet.delete(rt.seen.shift());}
+  }
+  function snapshot(rt=current){return {bridgeVersion:AA_VEGETATION_BRIDGE_VERSION,timelineId:rt.id,
+    seed:rt.seed,vegetation:rt.state.serialize(),recentEventIds:[...rt.seen],rewardEventIds:[...rt.rewardIds]};}
+  function start(id,seed,save=null){
+    current=createRuntime(id,seed,save);
+  }
+  start(initialTimeline,config.seed??316,config.initialSave??null);
+
+  /** Only called after game confirms an authoritative event.
+   * Reward is returned to caller; we NEVER mutate game's inventory.
+   * `harvest` requires stable eventId for once-only rewards per saved timeline.
+   */
+  function applyEvent(event){
+    assertLive();ground.invalidate?.();if(!event||typeof event.type!=='string')throw Error('typed event required');
+    if(event.timelineId!==undefined && event.timelineId!==current.id)throw Error('event belongs to a different timeline');
+    const id=event.eventId;if(id!==undefined)safeString(id);
+    if(event.type==='harvest'&&!id)throw Error('harvest requires stable eventId to prevent repeat rewards');
+    if(id&&(current.seenSet.has(id)||current.rewardSet.has(id))){counters.duplicates++;return {duplicate:true,type:event.type,changed:0,quantity:0};}
+    // A full receipt journal fails closed rather than silently re-enabling old rewards.
+    if(event.type==='harvest' && current.rewardIds.length>=REWARD_RECEIPT_LIMIT)
+      throw Error('vegetation reward receipt limit reached; host must compact authoritative transactions');
+    let changed=0,result;
+    const x=event.x,z=event.z;
+    if(['footfall','harvest','fire','water'].includes(event.type)){
+      ensure(x);ensure(z);
+      if(ground.sample(x,z).blocked)return {type:event.type,blocked:true,changed:0,quantity:0};
+    }
+    switch(event.type){
+      case 'footfall':
+        changed=current.gpu?current.gpu.step(x,z,cap(event.radius??.65,.1,2),cap(event.mass??1,0,3)):
+          current.state.trample(x,z,{radius:cap(event.radius??.65,.1,2),mass:cap(event.mass??1,0,3)});
+        break;
+      case 'harvest': {
+        const biome=current.ecology.sample(x,z).biome;
+        result=current.gpu?current.gpu.harvest(x,z,{radius:cap(event.radius??1,.1,4),effort:cap(event.effort??1,0,1)}):
+          current.state.harvest(x,z,{radius:cap(event.radius??1,.1,4),effort:cap(event.effort??1,0,1),biome});
+        changed=result.changed;counters.harvests++;
+        break;
+      }
+      case 'fire': {
+        const cfg={radius:cap(event.radius??1.2,.1,6),strength:cap(event.strength??1,0,1),
+          moistureAt:(a,b)=>ground.sample(a,b).moisture};
+        changed=current.gpu?current.gpu.ignite(x,z,cfg):current.state.ignite(x,z,cfg);
+        break;
+      }
+      case 'water':{
+        const args={radius:cap(event.radius??1.2,.1,6),amount:cap(event.amount??1,0,1)};
+        changed=current.gpu?current.gpu.water(x,z,args):current.state.water(x,z,args);
+        break;
+      }
+      case 'day': {
+        const day=ensure(event.worldDay);
+        if(current.gpu)current.gpu.update(0,null,{worldDay:day});
+        else current.state.setDay(day);
+        break;
+      }
+      default: throw Error('unrecognized vegetation event type: '+event.type);
+    }
+    // Journal is committed after the effect, so a rejected event is not cached.
+    remember(current,id);
+    if(event.type==='harvest' && !result?.blocked){
+      current.rewardIds.push(id);current.rewardSet.add(id);
+    }
+    counters.events++;
+    return {type:event.type,changed,...(result||{}),duplicate:false};
+  }
+  function sample(x,z,actor={}){
+    assertLive();ensure(x);ensure(z);
+    const base=ground.sample(x,z);
+    const eco=current.ecology.sample(x,z),gameplay=current.ecology.gameplay(x,z);
+    return {ground:base,vegetation:eco,gameplay,
+      combined:evaluateVegetationMaterialEffects(base,eco,actor)};
+  }
+  function tick(dt=0,actor=null,{worldDay,wind,rain,fogColor,sunTint,windDirection,cameraView}={}){
+    assertLive();
+    if(worldDay!==undefined && !current.gpu){current.state.setDay(ensure(worldDay));}
+    ground.invalidate?.();
+    const tier=governor.observe(dt);
+    if(tier){quality=tier;current.gpu?.setQuality(tier);
+      if(current.canvas)current.canvas=createCanvasGrassFallback({...current.options,
+        quality:tier==='ultra'?'high':tier,highContrast:settings.highContrast,
+        ecology:current.ecology,worldToScreen:config.worldToScreen,scaleAt:config.scaleAt});}
+    if(current.gpu){
+      if(cameraView!==undefined)current.gpu.setCameraView(cameraView);
+      current.gpu.setAtmosphere({wind:settings.reducedMotion?0:wind,rain,fogColor,sunTint,windDirection});
+      current.gpu.update(cap(ensure(dt),0,.1),actor,{worldDay});
+    }
+  }
+  /** Call after the HOST updates material/biome/ground masks. Does not modify
+   * gameplay state or create a second terrain scheduler. Visuals rebuild on tick.
+   */
+  function notifyTerrainChanged(){assertLive();ground.invalidate?.();current.gpu?.requestRebuild();}
+  function draw(ctx,options){
+    assertLive();if(!current.canvas)throw Error('Canvas draw is not active for this renderer mode');
+    return current.canvas.draw(ctx,{...options,wind:settings.reducedMotion?0:options?.wind});
+  }
+  function setVisualSettings(next={}){
+    assertLive();settings={...settings,reducedMotion:next.reducedMotion??settings.reducedMotion,
+      highContrast:next.highContrast??settings.highContrast};
+    if(next.autoQuality!==undefined)governor.setEnabled(next.autoQuality);
+    if(next.quality && next.quality!==quality){
+      governor.setQuality(next.quality);
+      quality=next.quality;
+      if(current.gpu)current.gpu.setQuality(quality);
+    }
+    if(current.canvas)current.canvas=createCanvasGrassFallback({...current.options,
+      quality:quality==='ultra'?'high':quality,ecology:current.ecology,
+      highContrast:settings.highContrast,worldToScreen:config.worldToScreen,scaleAt:config.scaleAt});
+    current.gpu?.setAtmosphere({wind:settings.reducedMotion?0:config.wind??.27,
+      contrast:settings.highContrast?1.28:1});
+  }
+  function switchTimeline({timelineId,seed,initialSave=null}={}){
+    assertLive();safeString(timelineId);if(!Number.isSafeInteger(seed))throw Error('timeline world seed must be an integer');
+    const id=timelineId;
+    if(id===current.id&&seed===current.seed && !initialSave)return snapshot();
+    slots.set(current.id,snapshot());
+    const previous=current;
+    // Snapshot persisted before replacing anything. Invalid incoming data leaves current live.
+    let next;
+    try{
+      previous.gpu?.dispose();
+      next=createRuntime(id,seed,initialSave??slots.get(id)??null);
+    }catch(error){
+      current=createRuntime(previous.id,previous.seed,slots.get(previous.id));
+      throw error;
+    }
+    current=next;counters.timelineSwitches++;
+    return snapshot();
+  }
+  function restore(save){
+    assertLive();if(!save)return false; // Old saves lacking vegetation are untouched.
+    if([PREVIOUS_BRIDGE_VERSION,AA_VEGETATION_BRIDGE_VERSION].includes(save.bridgeVersion) && (save.timelineId!==current.id||save.seed!==current.seed)){
+      throw Error('vegetation save does not belong to this timeline');
+    }
+    // Validate using a fresh state first; failed restore does not corrupt progress.
+    const verified=createVegetationState({seed:current.seed,cellSize:config.cellSize??.8,maxCells:config.maxCells??18000});
+    const isBridge=[PREVIOUS_BRIDGE_VERSION,AA_VEGETATION_BRIDGE_VERSION].includes(save.bridgeVersion);
+    const entries=isBridge?save.vegetation:save;
+    verified.restore(entries);
+    if(isBridge){
+      if(!Array.isArray(save.recentEventIds)||save.recentEventIds.length>EVENT_LIMIT||
+        save.recentEventIds.some(x=>!validId(x))||new Set(save.recentEventIds).size!==save.recentEventIds.length)throw Error('invalid vegetation journal');
+      if(save.bridgeVersion===AA_VEGETATION_BRIDGE_VERSION &&
+        (!Array.isArray(save.rewardEventIds)||save.rewardEventIds.length>REWARD_RECEIPT_LIMIT||
+         save.rewardEventIds.some(x=>!validId(x)) ||
+         new Set(save.rewardEventIds).size!==save.rewardEventIds.length))throw Error('invalid persistent reward receipts');
+    }
+    current.state.restore(entries);
+    current.seen.splice(0,current.seen.length,...(save.recentEventIds??[]));
+    current.seenSet.clear();for(const x of current.seen)current.seenSet.add(x);
+    current.rewardIds.splice(0,current.rewardIds.length,...(save.rewardEventIds??[]));
+    current.rewardSet.clear();for(const x of current.rewardIds)current.rewardSet.add(x);
+    if(current.gpu)current.gpu.restore(entries);
+    return true;
+  }
+  /** Host events are not guessed. Explicit map keys are host event names;
+   * map values are synchronous converters to typed events, or null to skip.
+   */
+  function bindHostEvents(subscribe,mapping){
+    assertLive();if(typeof subscribe!=='function')throw Error('subscribe must be a function');
+    if(!mapping||typeof mapping!=='object')throw Error('explicit host event mapping required');
+    const offs=[];
+    try{
+      for(const [eventType,toVegetation] of Object.entries(mapping)){
+        if(typeof toVegetation!=='function')throw Error('event adapter must be a function');
+        const off=subscribe(eventType,payload=>{
+          const converted=toVegetation(payload);
+          if(converted)applyEvent(converted);
+        });
+        if(typeof off!=='function')throw Error('subscribe must return an unsubscriber');
+        offs.push(off);
+      }
+    }catch(error){offs.forEach(off=>off());throw error;}
+    unsubscribers.push(...offs);
+    return ()=>{for(const off of offs){off();unsubscribers=unsubscribers.filter(x=>x!==off);}};
+  }
+  function getStats(){assertLive();return {version:AA_VEGETATION_BRIDGE_VERSION,mode:renderMode,
+    quality,timelineId:current.id,materialAdapter:'injected',state:current.state.getStats(),
+    gpu:current.gpu?.getStats()??null,journalSize:current.seen.length,permanentRewardReceipts:current.rewardIds.length,...counters,
+    reducedMotion:settings.reducedMotion,adaptive:governor.getStats()};}
+  function dispose(){if(disposed)return;unsubscribers.forEach(fn=>fn());unsubscribers=[];
+    current.gpu?.dispose();slots.clear();disposed=true;}
+  return {applyEvent,sample,tick,draw,notifyTerrainChanged,snapshot,restore,switchTimeline,
+    bindHostEvents,setVisualSettings,getStats,dispose,
+    get timelineId(){return current.id;},get ground(){return ground;}};
+}
+
+return {AA_VEGETATION_BRIDGE_VERSION,createAAGameVegetationBridge};
+})();
+const {createAAGameVegetationBridge}=__aaModules["aa-game-integration.mjs"];
+const $=id=>document.getElementById(id);const cv=$('world'),ctx=cv.getContext('2d',{alpha:false});
+const habitats=['meadow','orchard','marsh','woodland','riverbank','moor','highlands','savanna','tundra','ashlands','aether','alpine','ruins','farmlands','bog'];
+const materials={
+ loam:{tags:['soil'],organic:.95,porous:.77,moisture:.42,grip:.88,resonance:.18},
+ clay:{tags:['soil'],organic:.55,porous:.35,moisture:.62,grip:.56,conductivity:.27},
+ peat:{tags:['soil'],organic:1,porous:.85,moisture:.87,grip:.47,resonance:.31},
+ gravel:{tags:['gravel'],organic:.22,porous:.87,moisture:.25,hardness:.75,grip:.78},
+ silt:{tags:['soil'],organic:.59,porous:.40,moisture:.97,grip:.34,conductivity:.52},
+ basalt:{tags:['stone'],organic:.05,porous:.12,hardness:.96,moisture:.13,heat:.36,grip:.79},
+ cinder:{tags:['ash'],organic:.13,porous:.65,moisture:.08,heat:.77,grip:.54},
+ flagstone:{tags:['floor','pavement'],organic:0,porous:.05,hardness:1,moisture:.18,grip:.72}
+};
+for(const b of habitats){const op=document.createElement('option');op.textContent=b[0].toUpperCase()+b.slice(1);op.value=b;$('habitat').appendChild(op)}
+for(const b of habitats){const op=document.createElement('option');op.textContent=b[0].toUpperCase()+b.slice(1);op.value=b;$('neighbor').appendChild(op)}
+$('neighbor').value='marsh';
+for(const name of Object.keys(materials)){const op=document.createElement('option');op.textContent=name[0].toUpperCase()+name.slice(1);op.value=name;$('material').appendChild(op)}
+$('habitat').value='orchard';$('material').value='loam';
+let W=innerWidth,H=innerHeight,DPR=1,pxPerM=21,player={x:0,z:1},day=0,region='orchard',neighbor='marsh',blend=0,materialKey='loam',season='summer',rain=.3,wind=.36,
+ timeline='original',seq=0,lastTime=0,lastPaint=0,gesture=false,dragX=0,dragY=0,lastHarvest='';
+let bridge;
+const seedFor=id=>id==='original'?62317:92471;
+const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+function heightAt(x,z){return Math.sin(x*.12+z*.07)*.1+Math.sin(z*.16)*.06}
+function roadX(z){return Math.sin(z*.11)*.78+2.7}
+function rocky(x,z){return Math.sin(x*.71+z*.43)*Math.cos(z*.55-x*.23)*.05}
+function materialAt(x,z){const b=materials[materialKey];return {...b,id:'example-'+materialKey,moisture:clamp(b.moisture+rocky(x,z)+rain*.16),wear:Math.abs(x-roadX(z))<.56?.71:.03}}
+function groundOptions(){return {materialAt,regionAt:()=>({biome:region,biomeMix:region===neighbor?{[region]:1}:{[region]:1-blend,[neighbor]:blend},outdoor:true}),heightAt,
+ pathAt:(x,z)=>clamp(1-Math.abs(x-roadX(z))/.93),obstacleAt:()=>false,
+ seasonAt:()=>season,weatherAt:()=>({rain,wind})};}
+function projection(x,z,y){return {x:W*.48+(x-player.x)*pxPerM,y:H*.51+(z-player.z)*pxPerM-y*pxPerM}}
+function create(saved=null){bridge?.dispose();bridge=createAAGameVegetationBridge({renderMode:'canvas',seed:seedFor(timeline),timelineId:timeline,
+ quality:$('quality').value,groundOptions:groundOptions(),initialSave:saved,worldToScreen:projection,reducedMotion:$('reduced').checked,highContrast:$('contrast').checked});}
+function resize(){W=innerWidth;H=innerHeight;DPR=Math.min(devicePixelRatio||1,1.5);cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);
+ ctx.setTransform(DPR,0,0,DPR,0,0);pxPerM=W<700?17:24;}
+addEventListener('resize',resize);resize();create();
+function grad(x,z){return .50*Math.sin(x*.09+Math.sin(z*.047)*1.2)+.25*Math.sin(z*.23-x*.12)+.15*Math.sin(x*.71+z*.32)}
+const soils={loam:['#566a42','#758450','#9b9964'],clay:['#654f3e','#897255','#af9973'],peat:['#344d40','#4c6048','#657257'],gravel:['#727369','#939789','#bdbaa3'],silt:['#5b6759','#798975','#a2a693'],basalt:['#3f4644','#646a60','#909184'],cinder:['#534f46','#7a6c59','#9c8970'],flagstone:['#5e6968','#7a8b83','#a8afa2']};
+function ground(){const pal=soils[materialKey];const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,pal[0]);g.addColorStop(.53,pal[1]);g.addColorStop(1,pal[2]);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ const spacing=34,ix0=Math.floor((player.x-W/pxPerM)/spacing*6),iz0=Math.floor((player.z-H/pxPerM)/spacing*6);
+ for(let j=-2;j<=H/34+2;j++)for(let i=-2;i<=W/34+2;i++){
+   const wx=player.x+(i*34-W*.52)/pxPerM,wz=player.z+(j*34-H*.52)/pxPerM;
+   const n=grad(wx,wz);const x=i*34+16,y=j*34+16;
+   const r=15+(n+1)*17;let g=ctx.createRadialGradient(x,y,2,x,y,r);
+   g.addColorStop(0,`rgba(${n>0?'185,186,118':'36,55,42'},${.06+.08*Math.abs(n)})`);g.addColorStop(1,'rgba(0,0,0,0)');
+   ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(x,y,r,r*.64,Math.sin(wx)*.5,0,Math.PI*2);ctx.fill();
+ }
+ // Real path mask is shared with ground ecology; visual and vegetation agree.
+ ctx.beginPath();for(let y=-20;y<H+25;y+=7){const z=player.z+(y-H*.51)/pxPerM;const pt=projection(roadX(z),z,heightAt(roadX(z),z));if(y===-20)ctx.moveTo(pt.x,pt.y);else ctx.lineTo(pt.x,pt.y)}
+ ctx.lineWidth=pxPerM*1.2;ctx.strokeStyle='rgba(73,67,55,.42)';ctx.stroke();ctx.lineWidth=pxPerM*.84;ctx.strokeStyle='rgba(165,149,110,.26)';ctx.stroke();
+}
+function drawPlayer(){const p=projection(player.x,player.z,heightAt(player.x,player.z));ctx.save();ctx.translate(p.x,p.y);ctx.fillStyle='#0008';ctx.beginPath();ctx.ellipse(0,7,12,5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#f2c57a';ctx.strokeStyle='#2d513e';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,-8,8,11,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.restore()}
+function stats(){const s=bridge.sample(player.x,player.z,{speed:.35,mass:.55});
+ $('cover').textContent=Math.round(s.gameplay.concealment*100)+'%';$('traction').textContent=Math.round(s.combined.traction*100)+'%';
+ $('fire').textContent=Math.round(s.combined.fireTransfer*100)+'%';$('shield').textContent=Math.round(s.combined.environmentalShielding*100)+'%';
+ $('details').textContent=`${region.toUpperCase()} ${blend?'+ '+Math.round(blend*100)+'% '+neighbor.toUpperCase():''} / ${materialKey.toUpperCase()} / ${timeline} / day ${Math.round(day)}\n`+
+ `Plant density ${s.vegetation.density.toFixed(2)} · Soil moisture ${s.vegetation.moisture.toFixed(2)}\n`+
+ `Footstep noise ${s.combined.footstepNoise.toFixed(2)} · Electric transfer ${s.combined.electricalTransfer.toFixed(2)} · Resonance ${s.combined.resonanceTransfer.toFixed(2)}`;
+}
+function paint(t){requestAnimationFrame(paint);const step=t-lastPaint;if(step<($('reduced').checked?130:45))return;lastPaint=t;const dt=Math.min(.1,(t-lastTime)/1000||.033);lastTime=t;
+ bridge.tick(dt,player);ctx.setTransform(DPR,0,0,DPR,0,0);ground();const bounds={minX:player.x-W*.52/pxPerM,maxX:player.x+W*.52/pxPerM,
+ minZ:player.z-H*.52/pxPerM,maxZ:player.z+H*.52/pxPerM};
+ bridge.draw(ctx,{bounds,dt,wind,player,pixelScale:pxPerM});drawPlayer();stats();}
+requestAnimationFrame(paint);
+function say(msg){$('status').textContent=msg;if(bridge)stats()}
+function action(type,more={}){const a=bridge.applyEvent({type,eventId:`${timeline}-${++seq}`,x:player.x,z:player.z,...more});
+ say(a.blocked?'Ground excludes vegetation here.':`${type}: ${a.changed??0} vegetation cells affected${a.kind?' · '+a.quantity+' '+a.kind:''}.`);}
+$('habitat').onchange=e=>{region=e.target.value;bridge.notifyTerrainChanged();say('Biome set to '+region)};
+$('neighbor').onchange=e=>{neighbor=e.target.value;bridge.notifyTerrainChanged();say('Ecotone neighbor: '+neighbor)};
+$('blend').oninput=e=>{blend=+e.target.value/100;bridge.notifyTerrainChanged()};
+$('material').onchange=e=>{materialKey=e.target.value;bridge.notifyTerrainChanged();say('Surface changed to '+materialKey)};
+$('season').onchange=e=>{season=e.target.value;bridge.notifyTerrainChanged();say('Season now '+season)};
+$('rain').oninput=e=>{rain=+e.target.value/100;bridge.notifyTerrainChanged()};
+$('wind').oninput=e=>{wind=+e.target.value/100};
+$('quality').onchange=e=>bridge.setVisualSettings({quality:e.target.value});
+$('adaptive').onchange=e=>bridge.setVisualSettings({autoQuality:e.target.checked});
+$('reduced').onchange=e=>bridge.setVisualSettings({reducedMotion:e.target.checked});
+$('contrast').onchange=e=>bridge.setVisualSettings({highContrast:e.target.checked});
+$('walk').onclick=()=>{player.z-=.9;action('footfall',{radius:.8})};
+$('trample').onclick=()=>action('footfall',{radius:1.8,mass:3});
+$('harvest').onclick=()=>action('harvest',{radius:2.2,effort:1});
+$('ignite').onclick=()=>action('fire',{radius:3.1,strength:1});
+$('water').onclick=()=>action('water',{radius:3.1,amount:1});
+$('day').onclick=()=>{day+=30;bridge.applyEvent({type:'day',eventId:`${timeline}-${++seq}`,worldDay:day});say('Vegetation recovered through 30 world days.')};
+$('timeline').onclick=()=>{timeline=timeline==='original'?'ng-plus':'original';bridge.switchTimeline({timelineId:timeline,seed:seedFor(timeline)});
+ day=bridge.snapshot().vegetation.day;$('timeline').textContent=timeline==='original'?'Enter NG+ timeline':'Return to original timeline';say('Now exploring '+timeline+'. Previous timeline growth and scars are preserved separately.')};
+$('save').onclick=()=>{const payload=JSON.stringify(bridge.snapshot(),null,2);const obj=URL.createObjectURL(new Blob([payload],{type:'application/json'}));
+ const a=document.createElement('a');a.href=obj;a.download='AA_vegetation_'+timeline+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(obj),8000);say('Exported vegetation world state for '+timeline)};
+$('import').onclick=()=>$('file').click();$('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const save=JSON.parse(await f.text());bridge.restore(save);day=save.vegetation?.day??save.day??day;say('Restored vegetation snapshot.')}catch(err){say('Import rejected: '+err.message)}e.target.value=''};
+$('reset').onclick=()=>{timeline='original';day=0;player={x:0,z:1};seq=0;create();$('timeline').textContent='Enter NG+ timeline';say('New untouched world created.')};
+addEventListener('keydown',e=>{if(['INPUT','SELECT','BUTTON'].includes(document.activeElement.tagName))return;
+ let dx=0,dz=0;if(e.key==='a'||e.key==='ArrowLeft')dx=-.6;if(e.key==='d'||e.key==='ArrowRight')dx=.6;
+ if(e.key==='w'||e.key==='ArrowUp')dz=-.6;if(e.key==='s'||e.key==='ArrowDown')dz=.6;
+ if(dx||dz){e.preventDefault();player.x+=dx;player.z+=dz;action('footfall',{radius:.5})}});
+cv.addEventListener('pointerdown',e=>{gesture=true;dragX=e.clientX;dragY=e.clientY;cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(!gesture)return;const dx=e.clientX-dragX,dz=e.clientY-dragY;if(Math.abs(dx)+Math.abs(dz)>3){player.x-=dx/pxPerM;player.z-=dz/pxPerM;dragX=e.clientX;dragY=e.clientY}});
+cv.addEventListener('pointerup',()=>gesture=false);
+say('Running the v5 visual layer with the v4-compatible ecology bridge · no network required.');
+</script></body></html>

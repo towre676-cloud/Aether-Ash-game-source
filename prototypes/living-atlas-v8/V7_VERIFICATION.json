@@ -1,0 +1,13 @@
+{
+  "release": "v7",
+  "standalone_tests": 227,
+  "standalone_test_status": "all passing",
+  "campaign_quests": 10,
+  "campaign_verified": true,
+  "ecology_counterfactual_verified": true,
+  "recorded_audio_assets": 244,
+  "source_files": 808,
+  "source_sha256_manifest": "MANIFEST_V7.sha256",
+  "renderer_browser_gpu_qa": "not run",
+  "production_site_deployment": "not performed"
+}

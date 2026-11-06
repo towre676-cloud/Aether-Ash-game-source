@@ -1,0 +1,139 @@
+{
+  "project": "Ash & Aether / Living Grass",
+  "version": "5.0.0",
+  "date": "2026-10-29",
+  "status": "standalone, not merged with live site",
+  "sourceBranch": "isolated checkpoint (no deployed A&A source available)",
+  "nodeTestsPassed": 50,
+  "browserSmoke": "2 previews x desktop/mobile = 4 successful workflows",
+  "contents": {
+    "package.json": {
+      "bytes": 341,
+      "sha256": "f0ffa63fbe678d306eba08dd056af9785bd010663fd696cef48dc59f3a47c449"
+    },
+    "README_V5.md": {
+      "bytes": 3988,
+      "sha256": "1a1da1ef7d532ed596190ab8c4c53276fcfe8b9c6bbf470aa8de2eac8dea3384"
+    },
+    "INTEGRATION_V5.md": {
+      "bytes": 4131,
+      "sha256": "f241ae265e4a717b5132265e3435ecc30452adec07ba7d373187ff923cafd096"
+    },
+    "build-offline-lab.py": {
+      "bytes": 1798,
+      "sha256": "c998fff83c2d1903e624d5932830bb3ea2aacd9c40a3b08b0eba96a41f0d488f"
+    },
+    "build-cinematic-lab.py": {
+      "bytes": 1315,
+      "sha256": "3336ed6840f89c1620b38b6c70df59807ae17a07382acc7baab210ba3b9c1f44"
+    },
+    "grass-ecology.mjs": {
+      "bytes": 9386,
+      "sha256": "739021457a13ee5315585140ebbee1d7f9734803cb7979b61bf55b407f98adc0"
+    },
+    "grass-appearance.mjs": {
+      "bytes": 1451,
+      "sha256": "f0fbff93e0e8df64beafd975948099b3c4438703dc1c9c6043610d2d663aa9a2"
+    },
+    "grass-state.mjs": {
+      "bytes": 6174,
+      "sha256": "4b3aaa5112f00b4a68cf9b2e2bb7be9194301974a50f4eb274b517c97eea1e28"
+    },
+    "grass-renderer.mjs": {
+      "bytes": 18871,
+      "sha256": "23ecca9f470fad7b9c1ffc1988e79ab978fc214a74f5777510671a7f7b65e0e5"
+    },
+    "canvas-grass-fallback.mjs": {
+      "bytes": 8252,
+      "sha256": "909c81e879510440741403c0eb6d3c73c42b3413185545b22d9a8604123cadab"
+    },
+    "ground-forge-compat.mjs": {
+      "bytes": 6234,
+      "sha256": "cb2ac08bf965bf57492e9f2b6d44a646ab20b042aa6163c33584bf3d56178359"
+    },
+    "living-landscape.mjs": {
+      "bytes": 3233,
+      "sha256": "6282ffdca31e46dc39b9084659cfcd0001625608333498abcf8798664b0ab871"
+    },
+    "foliage-quality-governor.mjs": {
+      "bytes": 2117,
+      "sha256": "6462b80036640658bf20f3e1eb8b1f1979f3cbbf4442fb36afc49be64c10de1a"
+    },
+    "aa-game-integration.mjs": {
+      "bytes": 15399,
+      "sha256": "4f384a67370d03eda029cae97468c44b638d6f04c0baef7b2514b50fdc3be0cb"
+    },
+    "grass.test.mjs": {
+      "bytes": 7176,
+      "sha256": "4666a46ac5c6d5edce7fcb0d03df9ddcf7fafba786340b3b1e53cfb6432a831d"
+    },
+    "grass-state.test.mjs": {
+      "bytes": 2703,
+      "sha256": "244f16342f415ce7444c6f5a766d9dcae2f5e2c4343e2cd427469ff3304bd2c1"
+    },
+    "gpu-integration.test.mjs": {
+      "bytes": 4336,
+      "sha256": "e60d3758af149ce4b11abc0b0712a051854b47cdbff25bcf2362c8d11c377896"
+    },
+    "reconciliation.test.mjs": {
+      "bytes": 8392,
+      "sha256": "c6fb9b43f365d7f0467b50614974f434e45fde524af9637a0642e72ee3f37307"
+    },
+    "offline-preview.test.mjs": {
+      "bytes": 1948,
+      "sha256": "648a0893ebb9ac14d25663e5c423396138279abdec519c4a422e9c133e62f745"
+    },
+    "v4-regressions.test.mjs": {
+      "bytes": 8674,
+      "sha256": "a4a7aae680c1b0eef9466ad6cb795cae611fce3999e868fc018512c1ff0c1e7a"
+    },
+    "v5-visual.test.mjs": {
+      "bytes": 5746,
+      "sha256": "0b3c4cb91633a830d3021fa65017172bd0ad107e884a031af1d97f436b688511"
+    },
+    "cinematic-grass.template.html": {
+      "bytes": 12668,
+      "sha256": "1e6ad54beff3b5dbd117740dd0c3d8f6cc8fbd559a65e2fee93befc1361c51d9"
+    },
+    "cinematic-grass-offline.html": {
+      "bytes": 84764,
+      "sha256": "d912d93917ba465bb32ad41d5601682ff240ae6ff24567b59e3b49ff82ebade8"
+    },
+    "reconciliation-lab.template.html": {
+      "bytes": 17103,
+      "sha256": "3aaa1e5e33060d7f1febb4629bdfedb497b011930bed95eb9dddb8eac3089764"
+    },
+    "reconciliation-lab-offline.html": {
+      "bytes": 89199,
+      "sha256": "2d5b0224c33bed8461de0848a5843dfa597ccb81d165385d921c1e15f597ea1c"
+    },
+    "preview-offline.html": {
+      "bytes": 13831,
+      "sha256": "7c0047679724acab5a213145e5aaaacaef7d7a9d1933852036eb55da388b9f05"
+    },
+    "demo.html": {
+      "bytes": 16364,
+      "sha256": "b90ba98c35448cd0fdef100ac496de9f238baef7cdfc75e6972356cd4f6d082e"
+    },
+    "browser-smoke.py": {
+      "bytes": 2616,
+      "sha256": "36907b4980ff22f6315fa8f83e56b40b422e31cbe6faa5541fe0300fd17aeb5b"
+    },
+    "scenic-1280.png": {
+      "bytes": 995681,
+      "sha256": "59b12d7fc7719af7b992fea13d7cb54ee5530c5ee6c472d4587daf11366cb309"
+    },
+    "scenic-390.png": {
+      "bytes": 299093,
+      "sha256": "77cfddc55c1870f29e021d5148bcadd22ff122601fe37f4744776978c586e87c"
+    },
+    "ecology-1280.png": {
+      "bytes": 1372539,
+      "sha256": "3739bb3adb9a33e61bdd5df8c7ac1d7da9512bddd0d7a6770c7eb7eb0a26c6ed"
+    },
+    "ecology-390.png": {
+      "bytes": 360585,
+      "sha256": "dc5ca6d60a1da3e350a9bb453fc6b58d980da31b09089af945e83414aecbd7e0"
+    }
+  }
+}

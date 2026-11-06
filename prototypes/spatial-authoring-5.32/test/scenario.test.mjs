@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {sampleLoop} from '../src/scenario-sim.mjs';
+test('sample loop links encounter identity to reward, discovery and world consequence',()=>{const x=sampleLoop('s1');assert.ok(x.encounter.actors.every(a=>a.identity));assert.equal(x.rewards.length,3);assert.equal(x.discoveries[0].id,'hidden-nest');assert.equal(x.world.traffic,1);});

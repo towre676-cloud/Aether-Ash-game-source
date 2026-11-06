@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {installMomentLayer} from '../src/host-adapter.example.mjs';
+test('adapter needs host-owned save and event bus',()=>assert.throws(()=>installMomentLayer({}),/host save/));
+test('adapter migrates save without replacing existing systems',()=>{const listeners={};const host={save:{chapter:4},events:{on:(n,f)=>{listeners[n]=f;return()=>delete listeners[n]}},ui:{showProgressionChoices:()=>{}},discovery:{reveal:()=>{}},worldState:{traffic:0}};const x=installMomentLayer(host);assert.equal(host.save.chapter,4);assert.ok(host.save.moment);assert.ok(listeners['encounter:spawn']);x.uninstall();});

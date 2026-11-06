@@ -1,0 +1,500 @@
+--- a/index.html
++++ b/index.html
+@@ -15,8 +15,8 @@
+ @media(max-width:850px){.tabs{top:0}#viewport{min-height:53dvh;height:59dvh}aside{padding:14px 14px 8px}#notice{bottom:2px}}
+ </style>
+ <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script></head>
+-<body><main class="layout"><header><div><div class="subtitle">Ash & Aether · The Living Atlas v7 · Numerical World Lab</div><h1>The Land Remembers</h1></div><p>Nine lands · 16 plant families · 48 materials · 244 world sounds · one causal world</p></header>
+-<div id="viewport"><div class="overlay"><strong id="region">Chapel of Rain</strong><div id="day">Day 0 · clear</div><p id="summary">World information is loading…</p></div><div class="bottomhint">Drag to orbit · scroll or pinch to zoom · tap the ground to inspect its rules</div></div>
++<body><main class="layout"><header><div><div class="subtitle">Ash & Aether · The Living Atlas v8 · Numerical World Lab</div><h1>The Land Remembers</h1></div><p>Nine lands · 16 plant families · 48 materials · 244 world sounds · one causal world</p></header>
++<div id="viewport"><div class="overlay"><strong id="region">Chapel of Rain</strong><div id="day">Day 0 · clear</div><p id="summary">World information is loading…</p></div><div class="bottomhint">Drag to orbit · tap a visible creature to select it · approach for lawful encounters</div></div>
+ <aside>
+ <nav class="tabs" role="tablist" aria-label="World systems">
+ <button class="active" role="tab" aria-selected="true" data-panel="world">World</button>
+@@ -30,9 +30,9 @@
+ <section class="section"><h2>Scientific overlays</h2><div class="modes"><button data-mode="scenery" class="active">Scenery</button><button data-mode="water">Water</button><button data-mode="growth">Growth</button><button data-mode="aether">Aether</button><button data-mode="hazard">Hazards</button></div></section>
+ </div>
+ <div data-panel-content="explore" hidden>
+-<section class="section"><h2>Land and life</h2><p>Persistent wildlife populations respond to weather, hunting and footfall disturbance. Track a species to learn its habitat and improve your defenses.</p><div id="hud"></div></section>
++<section class="section"><h2>Land and life</h2><p>Visible wildlife has persistent identities and matching battle coordinates. Approach physically to fight, or study tracks from a safe distance. All movement changes genuine ecology and audio.</p><div id="hud"></div></section>
+ <section class="section"><h2>Living residents</h2><p>Trade, work and dialogue respond to local conditions.</p><label class="field-label" for="npc-select">Citizen</label><select id="npc-select"></select><button data-action="talk">Speak to citizen</button></section>
+-<section class="section"><h2>Encounters and battles</h2><label class="field-label" for="monster-select">Local creature</label><select id="monster-select"></select><label class="field-label" for="element-select">Element to use</label><select id="element-select"><option value="water">Water</option><option value="fire">Fire</option><option value="earth">Earth</option><option value="aether">Aether</option></select><p id="encounter-status" class="resource"></p><p id="party-status" class="resource"></p><div class="actions"><button data-action="encounter" class="primary">Explore for encounter</button><button data-action="battle" class="primary">Battle engaged creature</button><button data-action="track-v7">Study tracks and habitat</button><button data-action="challenge">Challenge selected creature</button><button data-action="retreat">Retreat</button><button data-action="rest">Rest in town</button><button data-action="fire-skill">Fire skill on land</button><button data-action="water-skill">Water skill on land</button><button data-action="earth-skill">Earth skill</button><button data-action="aether-skill">Aether skill</button><button data-action="route">Calculate walkable route</button><button data-action="walk" class="primary">Walk toward survey point (up to 6 steps)</button><button data-action="repair-floor">Repair cracked floor (1 clay)</button></div></section>
++<section class="section"><h2>Encounters and battles</h2><label class="field-label" for="monster-select">Local creature</label><select id="monster-select"></select><label class="field-label" for="resident-select">Creature visible in the world (tap creature in 3D or choose here)</label><select id="resident-select"></select><p id="resident-status" class="resource"></p><label class="field-label" for="element-select">Element to use</label><select id="element-select"><option value="water">Water</option><option value="fire">Fire</option><option value="earth">Earth</option><option value="aether">Aether</option></select><p id="encounter-status" class="resource"></p><p id="party-status" class="resource"></p><div class="actions"><button data-action="encounter" class="primary">Explore for encounter</button><button data-action="battle" class="primary">Battle engaged creature</button><button data-action="track-v7">Study tracks and habitat</button><button data-action="approach-resident" class="primary">Approach visible creature</button><button data-action="study-resident">Study nearby creature</button><button data-action="engage-resident" class="primary">Engage nearby creature</button><button data-action="retreat">Retreat</button><button data-action="rest">Rest in town</button><button data-action="fire-skill">Fire skill on land</button><button data-action="water-skill">Water skill on land</button><button data-action="earth-skill">Earth skill</button><button data-action="aether-skill">Aether skill</button><button data-action="route">Calculate walkable route</button><button data-action="walk" class="primary">Walk toward survey point (up to 6 steps)</button><button data-action="repair-floor">Repair cracked floor (1 clay)</button></div></section>
+ </div>
+ <div data-panel-content="story" hidden>
+ <section class="section"><h2>The unfinished song</h2><p>Historical layers reveal themselves through coherent Hydrophone signals. Quest outcomes alter later timelines.</p><p id="epoch-display"></p><label class="field-label" for="quest-select">Quest in this region</label><select id="quest-select"></select><div class="actions"><button data-action="quest" class="primary">Resolve available quest</button><button data-action="ngplus">Begin New Game Plus</button></div></section>
+--- a/src/adventure.mjs
++++ b/src/adventure.mjs
+@@ -5,6 +5,7 @@
+ import {LivingWorld,gameEvent,N,HALF,iAt} from './world.mjs';
+ import {SurfaceLayer} from './surfaces.mjs';
+ import {WildlifeNetwork} from './wildlife-v7.mjs';
++import {residentRoster,residentDistance,residentInReach} from './residents-v8.mjs';
+ import {REGIONS,REGION_BY_ID,SPECIES,SPECIES_BY_ID,MATERIALS,RECIPES,RECIPE_BY_ID,QUESTS,QUEST_BY_ID,verifyContent,MORPHS} from './content.mjs';
+ const C=x=>Math.min(1,Math.max(0,x));
+ const fixed=x=>+x.toFixed(4);
+@@ -39,7 +40,7 @@
+   if(verifyContent().length)throw Error(verifyContent().join('; '));
+   this.seed=seed|0;this.age=0;this.epoch=0;this.activeRegion='hearthland';this.eventNumber=0;
+   this.worlds={};this.surfaces={};this.surfaceSaves={};this.ledger=[];this.completed=[];this.imprint={groves:0,scars:0,harmonic:0,bridges:0};
+-  this.wildlife=new WildlifeNetwork(this.seed,this.imprint);this.fieldGuide=[];
++  this.wildlife=new WildlifeNetwork(this.seed,this.imprint);this.fieldGuide=[];this.residentTick=0;this.retiredResidents={};
+   this.inventory={timber:4,clay:2,silt:1};this.equipment=[];this.reputation=0;this.characters=[{id:'iona',name:'Iona',hp:24,maxHp:24,level:1,position:{x:-16,z:-10},region:'hearthland',traits:['water','echo']}];
+   this.economies=Object.fromEntries(REGIONS.map(r=>[r.id,baselineEconomy(r.id)]));
+   this.npcShifts={};this.tradeRoutes=[];this.encounterIndex=0;this.flags={};this.activeEncounter=null;this.crowns=20;this.acousticState={flags:[]};this.acousticSurveyV2={epoch:0,survey:{discovered:[],samples:[]}};
+@@ -64,7 +65,7 @@
+  surfaceAt(x,z){return this.surface.sample(x,z);}
+  /** This is only called on a gameplay-accepted step, never from the render loop. */
+  stepAt(x,z,opts={}){if(!Number.isFinite(x)||!Number.isFinite(z)||Math.abs(x)>32||Math.abs(z)>32)return {ok:false,reason:'Step outside world'};const prev=this.characters[0].position;if(Math.hypot(x-prev.x,z-prev.z)>1.5)return {ok:false,reason:'Footfall is not adjacent to the current party location'};const env=this.world.evaluate(x,z);if(!env.traversalPassable)return {ok:false,reason:'The route is physically blocked'};
+-  const step=this.surface.step(x,z,opts);this.characters[0].position={x,z};
++  const step=this.surface.step(x,z,opts);this.characters[0].position={x,z};this.residentTick++;
+   this.wildlife.disturb(this.activeRegion,x,z,{kind:'footfall',strength:Math.min(1,Math.max(.05,(step.noise??.3)*.65)),radius:5});recordEvent(this,'FOOTFALL_CONFIRMED',{x,z,material:step.surface.material,noise:step.noise});
+   return {ok:true,...step};
+  }
+@@ -79,12 +80,12 @@
+  canEnter(id){return !!REGION_BY_ID[id]&&(id===this.activeRegion||this.region.neighbors.includes(id));}
+  travel(id){if(!this.canEnter(id))return {ok:false,reason:'No connected passage from '+this.region.name};
+   if(id===this.activeRegion)return {ok:true,region:this.region.name};
+-  this.activeRegion=id;this.activeEncounter=null;this.ensure(id);this.passDays(1);this.characters[0].region=id;this.characters[0].position={x:-16,z:-10};recordEvent(this,'TRAVEL',{destination:id});return {ok:true,region:this.region.name,age:this.age};
++  this.activeRegion=id;this.activeEncounter=null;this.ensure(id);this.residentTick+=3;this.passDays(1);this.characters[0].region=id;this.characters[0].position={x:-16,z:-10};recordEvent(this,'TRAVEL',{destination:id});return {ok:true,region:this.region.name,age:this.age};
+  }
+  passDays(days){if(!Number.isInteger(days)||days<1||days>90)throw Error('Days must be 1..90');
+   // Offscreen regions advance in the same deterministic fixed-step economy model.
+   for(const w of Object.values(this.worlds))w.dispatch({type:'advance',days});
+-  this.age+=days;
++  this.age+=days;this.residentTick+=days*3;
+   for(const surface of Object.values(this.surfaces))surface.advanceDays(days);
+   for(const r of REGIONS)this.updateEconomy(r.id,days);
+   this.wildlife.advance(days,this.worlds);
+@@ -168,7 +169,44 @@
+   if(event.triggered){const creature=SPECIES_BY_ID[event.creature];const maxHp=fixed(1.8+creature.level*.6+creature.armor*.9);this.activeEncounter={species:event.creature,x,z,age:this.age,hp:maxHp,maxHp,round:0};recordEvent(this,'ENCOUNTER_STARTED',{species:event.creature,x,z});}
+   return {ok:true,...event};
+  }
+- /** An actor visible on the map can be challenged directly; it still has a geographical identity. */
++ /** Spatially authoritative actors, shared with the renderer and UI. */
++ residents(){return residentRoster({world:this.world,region:this.region,wildlife:this.wildlife,tick:this.residentTick,retired:this.retiredResidents});}
++ resident(id){return this.residents().find(a=>a.id===id)||null;}
++ inspectResident(id){const r=this.resident(id),player=this.characters[0].position;
++  if(!r)return {ok:false,reason:'Creature no longer present in this habitat'};
++  const distance=residentDistance(r,player);if(distance>7)return {ok:false,reason:'Move closer to observe this creature'};
++  const result=this.trackSpecies(r.species,r.x,r.z);
++  if(!result.ok)return result;
++  recordEvent(this,'RESIDENT_STUDIED',{residentId:id,species:r.species,distance:fixed(distance)});
++  return {...result,residentId:id,distance:fixed(distance)};
++ }
++ /** No menu-triggered remote combat. A visible resident must be alive, present and reachable. */
++ engageResident(id){const r=this.resident(id),player=this.characters[0].position;
++  if(!r)return {ok:false,reason:'That creature is not physically present'};
++  if(this.activeEncounter)return {ok:false,reason:'Finish the existing encounter first'};
++  if(!residentInReach(r,player))return {ok:false,reason:`Move closer to ${r.name} (${residentDistance(r,player).toFixed(1)} m away)`};
++  const result=this.engageVisible(r.species,r.x,r.z);
++  if(result.ok){this.activeEncounter.residentId=id;recordEvent(this,'RESIDENT_ENGAGED',{residentId:id,species:r.species,x:r.x,z:r.z});}
++  return {...result,residentId:id,distance:fixed(residentDistance(r,player))};
++ }
++ /** Bounded guided approach uses lawful, noisy, persistent steps. No animation-driven teleport. */
++ approachResident(id,maxSteps=6){if(!Number.isInteger(maxSteps)||maxSteps<1||maxSteps>12)throw Error('Invalid approach step limit');
++  if(this.activeEncounter)return {ok:false,reason:'Finish the encounter before approaching'};
++  const steps=[];let last=null;
++  for(let j=0;j<maxSteps;j++){
++   const r=this.resident(id);if(!r)return {ok:false,reason:'Creature left this habitat',steps};
++   const p=this.characters[0].position;
++   if(residentInReach(r,p)){return {ok:true,near:true,steps,residentId:id,distance:fixed(residentDistance(r,p))};}
++   const path=this.pathfind(p,{x:Math.round(r.x),z:Math.round(r.z)});
++   if(!path.ok||path.steps.length<2)return {ok:false,reason:'Creature cannot be reached on foot',steps};
++   last=path.steps[1];const result=this.stepAt(last.x,last.z,{actor:'iona',weight:1,speed:1});
++   if(!result.ok)return {ok:false,reason:result.reason,steps};
++   steps.push({x:last.x,z:last.z,material:result.surface.material,noise:result.noise});
++  }
++  const r=this.resident(id),p=this.characters[0].position;
++  return {ok:true,near:!!r&&residentInReach(r,p),steps,residentId:id,distance:r?fixed(residentDistance(r,p)):null};
++ }
++ /** An actor visible on the map can be challenged directly; legacy scripted encounters only. */
+  engageVisible(speciesId,x,z){const s=SPECIES_BY_ID[speciesId];if(!s||s.region!==this.activeRegion)return {ok:false,reason:'That creature is not here'};
+   if(this.activeEncounter)return {ok:false,reason:'Another encounter is active'};
+   if(this.wildlife.cohort(speciesId).count<1)return {ok:false,reason:'This creature population has retreated from the region'};
+@@ -179,9 +217,10 @@
+  }
+  fight(x,z,speciesId,element,power=2){const species=SPECIES_BY_ID[speciesId];if(!species||species.region!==this.activeRegion)return {ok:false,reason:'Creature not present in region'};
+   if(!this.activeEncounter||this.activeEncounter.species!==speciesId)return {ok:false,reason:'Encounter this creature in the world before battling'};
+-  if(Math.hypot(x-this.activeEncounter.x,z-this.activeEncounter.z)>3.5)return {ok:false,reason:'The engaged creature is no longer within attack range'};
++  if(this.activeEncounter.residentId){const p=this.characters[0].position;if(Math.hypot(x-p.x,z-p.z)>3.5||!residentInReach(this.activeEncounter,p,3.6))return {ok:false,reason:'The engaged resident is beyond actual party reach'};}else if(Math.hypot(x-this.activeEncounter.x,z-this.activeEncounter.z)>3.5)return {ok:false,reason:'The engaged creature is no longer within attack range'};
+   if(this.characters[0].hp<=0)return {ok:false,reason:'Party incapacitated — recover in a settlement'};
+-  const attack=this.world.resolveAttack(x,z,element,power);const environment=this.world.evaluate(x,z),loc=this.world.sample(x,z),mat=MATERIALS[species.drop],morph=this.adaptationAt(species,x,z);
++  const targetX=this.activeEncounter.residentId?this.activeEncounter.x:x,targetZ=this.activeEncounter.residentId?this.activeEncounter.z:z;
++  const attack=this.world.resolveAttack(targetX,targetZ,element,power);const environment=this.world.evaluate(targetX,targetZ),loc=this.world.sample(targetX,targetZ),mat=MATERIALS[species.drop],morph=this.adaptationAt(species,targetX,targetZ);
+   const advantage=element===species.element?-.2:element==='water'&&species.element==='fire'?.28:element==='fire'&&species.element==='water'?-.27:0;
+   // The target's physical composition mediates elemental response. Products create nonlinear effects.
+   const wet=loc.moisture+loc.water*.5;
+@@ -189,17 +228,17 @@
+   const gear=this.equipment.reduce((a,item)=>{for(const [k,v] of Object.entries(item.effect)){a[k]=(a[k]||0)+v;}return a;},{});
+   const elementalBonus=element==='aether'?(gear.aether||0):element==='fire'?(gear.fire||0):0;
+   const adaptationDefense=morph?.resistances[element]||0;
+-  const surfaceBefore=this.surface.sample(x,z);
++  const surfaceBefore=this.surface.sample(targetX,targetZ);const defendingSurface=this.activeEncounter.residentId?this.surface.sample(x,z):surfaceBefore,defendingEnvironment=this.activeEncounter.residentId?this.world.evaluate(x,z):environment;
+   const final=fixed(Math.max(.1,attack.damage*(1-(species.armor+(morph?.armor||0))*.27)*matrix*(1+advantage)*(1-adaptationDefense)*(1+.12*this.reputation/20)*(1+elementalBonus*.42)*(1-.14*surfaceBefore.groundShield)*(element==='aether'?(1+.09*surfaceBefore.resonance):1)));
+-  this.world.dispatch({type:'cast',x,z,element,power});
+-  const surfaceImpact=this.surface.impact(x,z,element,Math.min(1,power/5));
+-  this.wildlife.disturb(this.activeRegion,x,z,{kind:'combat',strength:Math.min(2,.3+power*.22),radius:12});
++  this.world.dispatch({type:'cast',x:targetX,z:targetZ,element,power});
++  const surfaceImpact=this.surface.impact(targetX,targetZ,element,Math.min(1,power/5));
++  this.wildlife.disturb(this.activeRegion,targetX,targetZ,{kind:'combat',strength:Math.min(2,.3+power*.22),radius:12});
+   const engagement=this.activeEncounter;engagement.hp=fixed(Math.max(0,engagement.hp-final));engagement.round++;const victorious=engagement.hp<=0;
+   const knowledge=this.fieldGuide.filter(n=>n.species===species.id).reduce((v,n)=>Math.max(v,n.confidence),0);
+-  const defense=C(environment.cover*.35+surfaceBefore.groundShield*.24+(gear.cover||0)+((gear[species.element]||0)*.5)+knowledge*.07);
++  const defense=C(defendingEnvironment.cover*.35+defendingSurface.groundShield*.24+(gear.cover||0)+((gear[species.element]||0)*.5)+knowledge*.07);
+   const incoming=victorious?0:fixed(Math.max(.25,(species.level*.35+species.aggression*2.1)*(1-defense)));
+   this.characters[0].hp=fixed(Math.max(0,this.characters[0].hp-incoming));
+-  if(victorious){this.wildlife.defeat(species.id,x,z);this.inventory[species.drop]=(this.inventory[species.drop]||0)+species.loot.amount;if(morph)this.inventory[morph.material]=(this.inventory[morph.material]||0)+1;this.reputation++;}
++  if(victorious){if(engagement.residentId)this.retiredResidents[engagement.residentId]=this.residentTick;this.wildlife.defeat(species.id,targetX,targetZ);this.inventory[species.drop]=(this.inventory[species.drop]||0)+species.loot.amount;if(morph)this.inventory[morph.material]=(this.inventory[morph.material]||0)+1;this.reputation++;}
+   if(victorious||this.characters[0].hp<=0)this.activeEncounter=null;
+   if(victorious&&species.id==='basalt_rift.sentry')this.flags.guardianDefeated=true;
+   recordEvent(this,'BATTLE',{species:species.id,x,z,element,power,damage:final,incoming,remainingHp:engagement.hp,victorious,round:engagement.round});
+@@ -322,16 +361,18 @@
+   if(!this.history)this.history=[];this.history.push(history);
+   this.epoch++;this.acousticSurveyV2={epoch:this.epoch,survey:{discovered:[],samples:[]}};this.age=0;this.worlds={};this.surfaces={};this.surfaceSaves={};this.activeRegion='hearthland';this.activeEncounter=null;this.completed=[];this.flags={};this.imprint=imprint;
+   this.economies=Object.fromEntries(REGIONS.map(r=>[r.id,baselineEconomy(r.id)]));
+-  this.wildlife=new WildlifeNetwork(this.seed+this.epoch,this.imprint);
++  this.wildlife=new WildlifeNetwork(this.seed+this.epoch,this.imprint);this.residentTick=0;this.retiredResidents={};
+   this.fieldGuide=this.fieldGuide.filter(n=>n.confidence>.20).map(n=>({...n,confidence:fixed(n.confidence*.60)}));
+-  this.inventory={timber:4,clay:2,silt:1};this.equipment=[];this.crowns=20;this.characters[0].hp=this.characters[0].maxHp;this.characters[0].region='hearthland';
++  this.inventory={timber:4,clay:2,silt:1};this.equipment=[];this.crowns=20;this.characters[0].hp=this.characters[0].maxHp;this.characters[0].region='hearthland';this.characters[0].position={x:-16,z:-10};
+   this.ensure('hearthland');recordEvent(this,'NEW_GAME_PLUS',{parent:history.epoch,imprint});return {ok:true,epoch:this.epoch,imprint,history};
+  }
+  summary(){const s=this.world.summary(),region=this.region,e=this.economies[region.id];return {...s,region:region.id,regionName:region.name,age:this.age,epoch:this.epoch,imprint:this.imprint,quests:this.completed.length,possibleQuests:QUESTS.filter(q=>q.region===region.id&&!this.completed.includes(q.id)),reputation:this.reputation,crowns:this.crowns,activeEncounter:copy(this.activeEncounter),inventory:copy(this.inventory),economy:{wealth:e.wealth,hunger:fixed(e.hunger),condition:fixed(e.condition)},nearby:SPECIES.filter(v=>v.region===region.id).length,wildlife:this.wildlife.summary(region.id),fieldGuide:copy(this.fieldGuide.slice(-12)),characters:copy(this.characters)};}
+- snapshot(){return {version:3,wildlifeV7:this.wildlife.snapshot(),fieldGuideV7:copy(this.fieldGuide),seed:this.seed,age:this.age,epoch:this.epoch,activeRegion:this.activeRegion,eventNumber:this.eventNumber,worlds:Object.fromEntries(Object.entries(this.worlds).map(([id,w])=>[id,w.snapshot()])),surfaceStates:{...copy(this.surfaceSaves),...Object.fromEntries(Object.entries(this.surfaces).map(([id,layer])=>[id,layer.snapshot()]))},ledger:copy(this.ledger),completed:[...this.completed],imprint:copy(this.imprint),inventory:copy(this.inventory),equipment:copy(this.equipment),reputation:this.reputation,characters:copy(this.characters),economies:copy(this.economies),tradeRoutes:copy(this.tradeRoutes),encounterIndex:this.encounterIndex,activeEncounter:copy(this.activeEncounter),crowns:this.crowns,flags:copy(this.flags),acousticState:copy(this.acousticState),acousticSurveyV2:copy(this.acousticSurveyV2),history:copy(this.history||[])};}
++ snapshot(){return {version:3,residentTickV8:this.residentTick,retiredResidentsV8:copy(this.retiredResidents),wildlifeV7:this.wildlife.snapshot(),fieldGuideV7:copy(this.fieldGuide),seed:this.seed,age:this.age,epoch:this.epoch,activeRegion:this.activeRegion,eventNumber:this.eventNumber,worlds:Object.fromEntries(Object.entries(this.worlds).map(([id,w])=>[id,w.snapshot()])),surfaceStates:{...copy(this.surfaceSaves),...Object.fromEntries(Object.entries(this.surfaces).map(([id,layer])=>[id,layer.snapshot()]))},ledger:copy(this.ledger),completed:[...this.completed],imprint:copy(this.imprint),inventory:copy(this.inventory),equipment:copy(this.equipment),reputation:this.reputation,characters:copy(this.characters),economies:copy(this.economies),tradeRoutes:copy(this.tradeRoutes),encounterIndex:this.encounterIndex,activeEncounter:copy(this.activeEncounter),crowns:this.crowns,flags:copy(this.flags),acousticState:copy(this.acousticState),acousticSurveyV2:copy(this.acousticSurveyV2),history:copy(this.history||[])};}
+  static restore(data){if(data?.version!==3||!REGION_BY_ID[data.activeRegion]||!Number.isInteger(data.age)||data.age<0||data.age>100000)throw Error('Incompatible atlas save');const a=new AtlasWorld(data.seed);
+   a.wildlife=data.wildlifeV7?WildlifeNetwork.restore(data.wildlifeV7):new WildlifeNetwork(a.seed+Number(data.epoch||0),data.imprint||{});
+   a.fieldGuide=copy(data.fieldGuideV7??[]);
++  a.residentTick=data.residentTickV8??0;a.retiredResidents=copy(data.retiredResidentsV8??{});
++  if(!Number.isSafeInteger(a.residentTick)||a.residentTick<0||a.residentTick>50000000||!a.retiredResidents||Array.isArray(a.retiredResidents)||typeof a.retiredResidents!=='object'||Object.keys(a.retiredResidents).length>5000||Object.entries(a.retiredResidents).some(([id,t])=>!/^[-a-z0-9_:.]+$/i.test(id)||!Number.isSafeInteger(t)||t<0||t>a.residentTick))throw Error('Invalid v8 resident state');
+   if(!Array.isArray(a.fieldGuide)||a.fieldGuide.length>800||a.fieldGuide.some(n=>!n||!SPECIES_BY_ID[n.species]||n.region!==SPECIES_BY_ID[n.species].region||!Number.isFinite(n.confidence)||n.confidence<0||n.confidence>1||!Number.isFinite(n.x)||!Number.isFinite(n.z)||Math.abs(n.x)>32||Math.abs(n.z)>32||!Number.isInteger(n.age)||n.age<0||!Number.isInteger(n.epoch)||n.epoch<0||n.epoch>data.epoch||typeof n.material!=='string'))throw Error('Invalid field guide save');
+   a.surfaceSaves=copy(data.surfaceStates||{});for(const id of Object.keys(a.surfaceSaves))if(!REGION_BY_ID[id])throw Error('Unknown saved surface region');
+   for(const [id,raw] of Object.entries(data.worlds||{})){if(!REGION_BY_ID[id])throw Error('Save has unknown region');a.worlds[id]=LivingWorld.restore(raw);}
+@@ -344,6 +385,7 @@
+     a.acousticSurveyV2.survey.discovered.some(x=>typeof x!=='string'||x.length>160))throw Error('Invalid acoustic survey extension');
+   a.acousticState=copy(data.acousticState??{flags:[]});if(!a.acousticState||!Array.isArray(a.acousticState.flags)||a.acousticState.flags.some(x=>typeof x!=='string'||x.length>160))throw Error('Invalid acoustic save');
+   if(!a.worlds[a.activeRegion])throw Error('Save missing active region');
++  if(a.activeEncounter?.residentId){const rId=a.activeEncounter.residentId;if(typeof rId!=='string'||rId.length>160||!rId.startsWith(a.activeRegion+':')||!Object.values(SPECIES_BY_ID).some(s=>rId.startsWith(`${a.activeRegion}:${s.id}:`))||![a.activeEncounter.x,a.activeEncounter.z].every(Number.isFinite))throw Error('Invalid v8 encounter reference');}
+   // v6 and older saves may lack a census. Their world age remains authoritative.
+   if(!data.wildlifeV7)a.wildlife.day=a.age;
+   if(a.completed.some(id=>!QUEST_BY_ID[id]))throw Error('Unknown quest in save');
+--- a/src/actors.mjs
++++ b/src/actors.mjs
+@@ -3,7 +3,7 @@
+ import {iAt,riverX} from './world.mjs';
+ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+ function frac(v){return v-Math.floor(v);}
+-export function createFauna(THREE,world,region,group,quality='high',wildlife=null,partyPosition=()=>null){
++export function createFauna(THREE,world,region,group,quality='high',wildlife=null,partyPosition=()=>null,atlas=null){
+  const meshes=[],actors=[];const geom=[];const mat=[];
+  const species=SPECIES.filter(s=>s.region===region.id);
+  const palette={sentry:0x9b9b91,stalker:0xc3a481,chanter:0xa6d2d0,grazer:0x889f83,burrower:0xb49e80,forager:0xab8275};
+@@ -31,7 +31,7 @@
+   if(source.kind==='chanter')for(const s of [-1,1]){const w=piece(wingGeom,skin,s*.85,1.35,0,root);w.rotation.z=s*.85;w.scale.set(1.2,1,1.0);}
+   if(source.kind==='sentry'){for(const s of [-1,1]){const horn=piece(earGeom,skin,s*.35,1.97,.7,root);horn.rotation.z=s*.24;}}
+   if(source.kind==='stalker'||source.kind==='grazer'){for(const s of [-1,1]){const ear=piece(earGeom,skin,s*.28,1.88,.46,root);ear.scale.set(.7,.7,.7);}}
+-  root.scale.setScalar(size);root.userData={species:source.id,behavior:source.behavior,region:region.id,mechanic:'habitat_actor'};
++  root.scale.setScalar(size);root.userData={species:source.id,residentId:`${region.id}:${source.id}:${Math.floor(i/species.length)}`,behavior:source.behavior,region:region.id,mechanic:'habitat_actor'};
+   actors.push({root,legs,source,skin,baseSize:size,origin:{x,z},phase:i*1.479,velocity:.38+source.aggression*.5,index:i,spawnNumber:Math.floor(i/species.length)});
+  }
+  // Stable waypoints generated from the actual habitat, not camera/frame rate.
+@@ -46,53 +46,36 @@
+    if(!world.evaluate(px,pz).traversalPassable||Math.abs(px-riverX(pz))<2.7)return a.origin;}
+   return {x,z};
+  }
+- function update(time){for(const a of actors){
+-  const t=time*.001,period=a.source.behavior==='migrate'?8:10,stage=t/period+a.phase;
+-  const segment=Math.floor(stage),fraction=stage-segment;
+-  // The path's geometry is recomputed only when its segment or authoritative world changes.
+-  // This avoids hundreds of collision tests per video frame on mobile.
+-  const stamp=`${segment}|${world.day}|${world.events.length}`;
+-  if(a.routeStamp!==stamp){
+-   const from=destination(a,segment),candidate=destination(a,segment+1);
+-   let pathLegal=true;for(let k=0;k<=10;k++){const q=k/10,x=from.x+(candidate.x-from.x)*q,z=from.z+(candidate.z-from.z)*q;
+-    if(!world.evaluate(x,z).traversalPassable||Math.abs(x-riverX(z))<2.7){pathLegal=false;break;}}
+-   a.route={from,to:pathLegal?candidate:from};a.routeStamp=stamp;
++ // The authoritative roster is cached at accepted game transitions, not recomputed per frame.
++ let residentStamp='',byIndex=new Map();
++ function update(time){
++  if(atlas){const stamp=`${atlas.residentTick}:${atlas.eventNumber}:${atlas.activeRegion}:${quality}`;
++   if(stamp!==residentStamp){byIndex=new Map(atlas.residents().map(r=>[r.index,r]));residentStamp=stamp;}}
++  for(const a of actors){
++   const authoritative=atlas?byIndex.get(a.index):null;
++   if(atlas&&!authoritative){a.root.visible=false;continue;}
++   // This interpolation changes only rendered geometry. Clicks target the resident ID;
++   // combat always reads its exact authoritative position from AtlasWorld.
++   let xx=authoritative?.x??a.origin.x,zz=authoritative?.z??a.origin.z;
++   if(!atlas){const r=wildlife?.sample(a.source.id,xx,zz);if((r?.count??10)<(a.spawnNumber+1)*3){a.root.visible=false;continue;}}
++   a.root.visible=true;
++   const pos=a.root.position;
++   if(!a._visualInitialized||Math.hypot(pos.x-xx,pos.z-zz)>10){pos.x=xx;pos.z=zz;a._visualInitialized=true;}
++   const dx=xx-pos.x,dz=zz-pos.z,displacement=Math.hypot(dx,dz);
++   const easing=Math.min(.3,Math.max(.05, .15));pos.x+=dx*easing;pos.z+=dz*easing;
++   const loc=world.sample(xx,zz);pos.y=world.h[iAt(xx,zz)]-.12+(a.source.kind==='chanter'?.15:.025)*Math.sin(time*.002+a.phase);
++   const scales={tide:loc.moisture*.6+loc.water*.7,ash:loc.ash+loc.fire*.4,stone:loc.stone,echo:loc.resonance*.8+loc.aether*.55};
++   const sorted=Object.entries(scales).sort((a,b)=>b[1]-a[1]),form=sorted[0][1]>.64?sorted[0][0]:'native';
++   const tint=form==='tide'?0x8abfc1:form==='ash'?0xb76a4c:form==='stone'?0x85878a:form==='echo'?0xb7b5f3:palette[a.source.kind];
++   a.skin.color.setHex(palette[a.source.kind]).lerp(new THREE.Color(tint),form==='native'?0:.56);
++   a.root.scale.setScalar(a.baseSize*(form==='stone'?1.13:form==='echo'?.98:1));a.root.userData.morph=form;
++   a.root.userData.census=authoritative?.census??wildlife?.sample(a.source.id,xx,zz).count??null;
++   if(displacement>.008)a.root.rotation.y=Math.atan2(dx,dz);
++   const gait=displacement>.008?Math.min(1,displacement*.4+.3):.07;
++   for(const leg of a.legs)leg.pivot.rotation.x=Math.sin(time*.006+a.phase+((leg.side*leg.front)>0?0:Math.PI))*.38*gait;
+   }
+-  const {from,to}=a.route;
+-  const u=fraction*fraction*(3-2*fraction);
+-  let xx=from.x+(to.x-from.x)*u,zz=from.z+(to.z-from.z)*u;
+-  // Dynamic world changes may block a former animal route; stay at a legal habitat.
+-  if(!world.evaluate(xx,zz).traversalPassable){xx=a.origin.x;zz=a.origin.z;}
+-  const wildlifeSample=wildlife?.sample(a.source.id,xx,zz);
+-  const count=wildlifeSample?.count??10;
+-  a.root.visible=count>=(a.spawnNumber+1)*3 && world.sample(xx,zz).fire<.88;
+-  if(!a.root.visible)continue;
+-  const party=partyPosition();const dxp=party?.x-xx,dzp=party?.z-zz;
+-  const d=party?Math.hypot(dxp,dzp):Infinity;
+-  const skittish=a.source.behavior==='migrate'||a.source.behavior==='scavenge';
+-  const alarm=wildlifeSample?.disturbance??0;
+-  if(skittish&&d<5&&alarm>.15){
+-   const escape=Math.min(2.4,(5-d)*.24+alarm*.85);
+-   const ax=xx-(dxp/Math.max(d,.1))*escape,az=zz-(dzp/Math.max(d,.1))*escape;
+-   if(world.evaluate(ax,az).traversalPassable){xx=ax;zz=az;}
+-  }
+-  const loc=world.sample(xx,zz);
+-  const s=world.sample(a.origin.x,a.origin.z);
+-  const move=Math.hypot(to.x-from.x,to.z-from.z)/period;
+-  const gait=move>.1?(a.source.behavior==='defend'?.35:a.source.behavior==='ambush'?.9:.68):.06;
+-  const bob=a.source.kind==='chanter'?.2*Math.sin(t*2+a.phase):.024*Math.sin(t*7+a.phase);
+-  a.root.position.set(xx,world.h[iAt(xx,zz)]-.12+bob,zz);
+-  const scales={tide:loc.moisture*.6+loc.water*.7,ash:loc.ash+loc.fire*.4,stone:loc.stone,echo:loc.resonance*.8+loc.aether*.55};
+-  const sorted=Object.entries(scales).sort((a,b)=>b[1]-a[1]),form=sorted[0][1]>.64?sorted[0][0]:'native';
+-  const tint=form==='tide'?0x8abfc1:form==='ash'?0xb76a4c:form==='stone'?0x85878a:form==='echo'?0xb7b5f3:palette[a.source.kind];
+-  a.skin.color.setHex(palette[a.source.kind]).lerp(new THREE.Color(tint),form==='native'?0:.56);
+-  a.root.scale.setScalar(a.baseSize*(form==='stone'?1.13:form==='echo'?.98:1));a.root.userData.morph=form;
+-  a.root.userData.census=wildlifeSample?.count??null;
+-  const vx=to.x-from.x,vz=to.z-from.z;
+-  if(Math.hypot(vx,vz)>.05)a.root.rotation.y=Math.atan2(vx,vz);
+-  a.root.children[0].rotation.z=.03*Math.sin(t*3+a.phase);
+-  for(const leg of a.legs)leg.pivot.rotation.x=Math.sin(t*7*(.65+move)+a.phase+((leg.side*leg.front)>0?0:Math.PI))*.38*gait;
+- }}
++ }
++
+  return {actors,update,dispose(){for(const g of [...geom])g.dispose();for(const m of mat)m.dispose();group.clear();}};
+ }
+ 
+--- a/src/view.mjs
++++ b/src/view.mjs
+@@ -8,7 +8,8 @@
+ import {WorldAudio} from './sound.mjs';
+ import {AtlasAcousticBridge,perceiveAt} from './perception.mjs';
+ import {AtlasSurveyV6} from './acoustic-survey-v6.mjs';
+-import {createGrassField} from './grass-v4/grass-renderer.mjs';
++import {createGrassField as createGrassFieldV5} from './grass-v5/grass-renderer.mjs';
++import {createGrassField as createGrassFieldV4} from './grass-v4/grass-renderer.mjs';
+ import {createFoliageQualityGovernor} from './grass-v4/foliage-quality-governor.mjs';
+ import {terrainEcotone,visualSeason,substrateFor} from './world-ecotones-v6.mjs';
+ import {materialAt,biomeAt,vegetationObstacle} from './surfaces.mjs';
+@@ -28,7 +29,7 @@
+ acoustic.engine.init().catch(error=>console.warn('Recorded soundpack not yet available:',error));
+ let autosaveJob=Promise.resolve();
+ function save(){autosaveJob=autosaveJob.catch(()=>{}).then(()=>writeSave(atlas.snapshot())).catch(e=>announce('Save could not be written: '+e.message));return autosaveJob;}
+-let selected={x:-16,z:-10}, mode='scenery',summaryCache=null;
++let selected={x:-16,z:-10}, mode='scenery',summaryCache=null;let selectedResidentId=null,lastHudEvent=-1,lastHudAtlas=null;
+ const scene=new THREE.Scene();scene.background=new THREE.Color(0xadd2d6);scene.fog=new THREE.FogExp2(0xa9cacc,.006);
+ const camera=new THREE.OrthographicCamera(-47,47,35,-35,.1,350);
+ camera.position.set(58,65,72);camera.lookAt(0,0,0);
+@@ -78,7 +79,7 @@
+ function paintTerrain(){for(let i=0;i<N*N;i++){const c=terrainColor(i);colors[i*3]=c.r;colors[i*3+1]=c.g;colors[i*3+2]=c.b;}terra.attributes.color.needsUpdate=true;
+   terrain.material.vertexColors=mode!=='scenery';terrain.material.needsUpdate=true;
+  }
+-let surfaceGrass=null,groundKey='',groundTextures=[];
++let surfaceGrass=null,grassRoot=null,groundKey='',groundTextures=[];
+ function disposeGroundTextures(){for(const t of groundTextures)t.dispose();groundTextures=[];}
+ function groundMap(key){const maps=generateGroundMaps({seed:world.seed,width:qualityMode==='battery'?112:192,height:qualityMode==='battery'?112:192,
+  originX:0,originZ:0,metresX:64,metresZ:64,
+@@ -92,8 +93,8 @@
+  }
+ function rebuildGroundIfNeeded(){const key=`${atlas.region.id}:${world.seed}:${world.sky}:${qualityMode}:${Math.floor(atlas.age/21)}`;
+  if(key!==groundKey){disposeGroundTextures();groundMap(key);}}
+-function rebuildLivingGrass(){surfaceGrass?.dispose();surfaceGrass=null;
+- try{surfaceGrass=createGrassField(THREE,worldGroup,{
++function rebuildLivingGrass(){surfaceGrass?.dispose();surfaceGrass=null;if(grassRoot){worldGroup.remove(grassRoot);grassRoot=null;}
++ const options={
+   seed:world.seed,origin:{x:selected.x,z:selected.z},quality:foliageTier,maxPlants:qualityMode==='battery'?3500:9500,
+   terrainHeight:(x,z)=>height(x,z),biomeAt:(x,z)=>biomeAt(atlas.region,world,x,z),
+   obstacleAt:(x,z)=>vegetationObstacle(atlas.region,world,x,z),
+@@ -103,12 +104,19 @@
+   biomeMixAt:(x,z)=>terrainEcotone(atlas.region,world,x,z),
+   seasonAt:()=>visualSeason(atlas.age,atlas.region.heat),
+   substrateAt:(x,z)=>substrateFor(atlas.region,world,x,z),
+-  fogColor:atlas.region.sky,fogNear:20,fogFar:85,wind:.22});
+-  surfaceGrass.setAtmosphere({wind:world.sky==='rain'?.65:.27,rain:world.sky==='rain'?1:0,fogColor:atlas.region.sky});
+- }catch(e){console.warn('Living Grass fallback:',e);surfaceGrass=null;}
+- grasses.visible=!surfaceGrass;flowers.visible=!surfaceGrass;
++  fogColor:atlas.region.sky,fogNear:20,fogFar:85,wind:.22};
++ for(const [name,factory] of [['Grass v5',createGrassFieldV5],['Grass v4 fallback',createGrassFieldV4]]){
++  const staging=new THREE.Group();
++  try{surfaceGrass=factory(THREE,staging,options);grassRoot=staging;worldGroup.add(staging);
++    surfaceGrass.setAtmosphere({wind:world.sky==='rain'?.65:.27,rain:world.sky==='rain'?1:0,fogColor:atlas.region.sky});
++    if(name!=='Grass v5')console.warn('Using Grass v4 fallback after v5 failed');break;
++  }catch(e){console.warn(name+' could not initialize:',e);surfaceGrass?.dispose();surfaceGrass=null;
++    staging.traverse(child=>{if(child.geometry?.dispose)child.geometry.dispose();if(child.material?.dispose)child.material.dispose();});
++    staging.clear();grassRoot=null;}
+  }
+- 
++ grasses.visible=!surfaceGrass;flowers.visible=!surfaceGrass;
++}
++
+ // Preallocated instances: substantial ecology without one draw call per plant.
+ const TREE_MAX=580,GRASS_MAX=2600,ROCK_MAX=270,FLOWER_MAX=420;
+ const treeTrunks=new THREE.InstancedMesh(new THREE.CylinderGeometry(.095,.19,1,6),trunkMat,TREE_MAX);
+@@ -163,7 +171,7 @@
+ const faunaGroup=new THREE.Group();worldGroup.add(faunaGroup);const citizenGroup=new THREE.Group();worldGroup.add(citizenGroup);
+ let fauna=null,faunaWorld=null,citizens=null;
+ function rebuildArchitecture(){if(details)details.dispose();details=decorateRegion(THREE,world,atlas.region,architecturalGroup,atlas);
+- if(faunaWorld!==world){fauna?.dispose();citizens?.dispose();fauna=createFauna(THREE,world,atlas.region,faunaGroup,qualityMode==='battery'?'low':'high',atlas.wildlife,()=>atlas.characters[0].position);citizens=createCitizens(THREE,atlas,citizenGroup);faunaWorld=world;}
++ if(faunaWorld!==world){fauna?.dispose();citizens?.dispose();fauna=createFauna(THREE,world,atlas.region,faunaGroup,qualityMode==='battery'?'low':'high',atlas.wildlife,()=>atlas.characters[0].position,atlas);citizens=createCitizens(THREE,atlas,citizenGroup);faunaWorld=world;}
+ }
+ 
+ // Selection ring is a visible probe into actual field values.
+@@ -177,10 +185,11 @@
+ function refresh(rebuild=true){
+  if(rebuild){
+   paintTerrain();rebuildEcology();rebuildWater();rebuildArchitecture();rebuildGroundIfNeeded();rebuildLivingGrass();rainDrops.visible=world.sky==='rain';
+-  summaryCache=atlas.summary();const r=atlas.region;
++  summaryCache=atlas.summary();lastHudEvent=atlas.eventNumber;lastHudAtlas=atlas;const r=atlas.region;
+   scene.background.set(r.sky);scene.fog.color.set(r.sky);scene.fog.density=r.fog;
+   waterMaterial.color.set(r.biome==='volcanic'?0x49616b:r.biome==='coast'?0x5c9bbc:0x3f9ea8);
+  }
++ if(!rebuild&&(lastHudAtlas!==atlas||lastHudEvent!==atlas.eventNumber)){summaryCache=atlas.summary();lastHudEvent=atlas.eventNumber;lastHudAtlas=atlas;}
+  movePicker();const s=summaryCache,p=world.sample(selected.x,selected.z),g=world.evaluate(selected.x,selected.z),inspection=atlas.inspect(selected.x,selected.z),ground=inspection.surface;
+  audio.update(p,atlas.region);
+  document.getElementById('day').textContent=`Epoch ${s.epoch+1} · Day ${s.age} · ${s.sky}`;
+@@ -207,6 +216,13 @@
+  const q=document.getElementById('quest-select'),selectedQuest=q.value;
+  q.replaceChildren();for(const quest of s.possibleQuests){const opt=document.createElement('option');opt.value=quest.id;opt.textContent=quest.name+(quest.requires.some(n=>!atlas.completed.includes(n))?' (locked)':'');opt.disabled=quest.requires.some(n=>!atlas.completed.includes(n));q.append(opt);}
+  if([...q.options].some(o=>o.value===selectedQuest))q.value=selectedQuest;
++ const residentSelect=document.getElementById('resident-select');const previousResident=selectedResidentId||residentSelect.value;
++ const playerPosition=atlas.characters[0].position;
++ const residents=atlas.residents().sort((a,b)=>Math.hypot(a.x-playerPosition.x,a.z-playerPosition.z)-Math.hypot(b.x-playerPosition.x,b.z-playerPosition.z));
++ residentSelect.replaceChildren();for(const resident of residents){const option=document.createElement('option');option.value=resident.id;option.textContent=`${resident.name} · ${Math.hypot(resident.x-playerPosition.x,resident.z-playerPosition.z).toFixed(1)} m · ${resident.behavior}`;residentSelect.append(option);}
++ if(residents.some(r=>r.id===previousResident))residentSelect.value=previousResident;
++ selectedResidentId=residentSelect.value||null;
++ document.getElementById('resident-status').textContent=selectedResidentId?`Selected ${residents.find(r=>r.id===selectedResidentId)?.name}. Approach within 3.1 m to engage or 7 m to study. Field coordinates and visible creature share one ID.`:'No visible creature in this region at present.';
+  const candidates=inspection.habitats,monster=document.getElementById('monster-select'),before=monster.value;
+  monster.replaceChildren();for(const h of candidates){const opt=document.createElement('option');opt.value=h.id;opt.textContent=`${h.name} · Lv ${h.level}`;monster.append(opt);}if([...monster.options].some(o=>o.value===before))monster.value=before;
+  const craft=document.getElementById('recipe-select'),beforeCraft=craft.value;
+@@ -214,7 +230,7 @@
+  if(beforeCraft)craft.value=beforeCraft;
+  const market=document.getElementById('market');market.textContent=`${atlas.region.people} · your wallet ${s.crowns} crowns · town wealth ${s.economy.wealth} · land condition ${Math.round(100*s.economy.condition)}% · ${atlas.region.resource} price ${inspection.price}`;
+  const npc=document.getElementById('npc-select'),prevNpc=npc.value;const available=inspection.npcs;npc.replaceChildren();for(const v of available){const o=document.createElement('option');o.value=v.id;o.textContent=v.name+' · '+v.role;npc.append(o);}if([...npc.options].some(o=>o.value===prevNpc))npc.value=prevNpc;
+- document.getElementById('ecology-count').textContent=`Wildlife: ${s.wildlife.length} local species cohorts · ${s.wildlife.reduce((n,c)=>n+c.count,0).toFixed(1)} resident units · ${atlas.fieldGuide.length} field observations`;
++ document.getElementById('ecology-count').textContent=`Wildlife: ${atlas.residents().length} spatially encounterable residents · ${s.wildlife.length} local species cohorts · ${s.wildlife.reduce((n,c)=>n+c.count,0).toFixed(1)} resident units · ${atlas.fieldGuide.length} field observations`;
+  document.getElementById('party-status').textContent=s.characters.map(c=>`${c.name}: ${c.hp}/${c.maxHp} HP`).join(' · ');
+  document.getElementById('encounter-status').textContent=s.activeEncounter?`Engaged: ${s.activeEncounter.species} · HP ${s.activeEncounter.hp}/${s.activeEncounter.maxHp} · round ${s.activeEncounter.round}`:'No active encounter';
+  const tradeSelect=document.getElementById('material-select'),tradePrevious=tradeSelect.value;if(!tradeSelect.options.length){for(const m of Object.keys(atlas.economies[s.region].stock)){const opt=document.createElement('option');opt.value=m;opt.textContent=m;tradeSelect.append(opt);}}tradeSelect.value=tradePrevious||atlas.region.resource;
+@@ -256,10 +272,12 @@
+ case 'export':{const blob=new Blob([JSON.stringify(atlas.snapshot())],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='aa-living-world-atlas-v3.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);announce('Atlas state and world history exported.');}break;
+ case 'quest':{const id=document.getElementById('quest-select').value;const r=atlas.resolveQuest(id,selected.x,selected.z);if(!r.ok)return announce(r.reason);refresh();save();announce(r.consequence);break;}
+ case 'encounter':{const r=atlas.beginEncounter(selected.x,selected.z);if(!r.ok)return announce(r.reason);if(r.triggered)document.getElementById('monster-select').value=r.creature;refresh(false);save();announce(r.triggered?`Wild ${r.name} (level ${r.level}) arrived! ${r.behavior} · use Battle to engage.`:`No encounter this step · roll ${r.roll} vs threshold ${r.chance}. Explore again to roll another step.`);break;}
+-case 'battle':{const id=atlas.activeEncounter?.species||document.getElementById('monster-select').value,element=document.getElementById('element-select').value;const r=atlas.fight(selected.x,selected.z,id,element,3);if(!r.ok)return announce(r.reason);acoustic.acceptedBattle(atlas,element,selected.x,selected.z);refresh();save();announce(`${r.species}: ${r.damage} dealt, ${r.incoming} received. Monster ${r.remainingHp}/${r.maxHp} HP · party ${r.hp} HP. ${r.victorious?'Victory! '+r.loot.amount+' '+r.loot.material+' gathered.':'The battle continues. Cast again or retreat.'}`);break;}
++case 'battle':{const id=atlas.activeEncounter?.species||document.getElementById('monster-select').value,element=document.getElementById('element-select').value;const battlePoint=atlas.activeEncounter?.residentId?atlas.characters[0].position:selected;const r=atlas.fight(battlePoint.x,battlePoint.z,id,element,3);if(!r.ok)return announce(r.reason);acoustic.acceptedBattle(atlas,element,battlePoint.x,battlePoint.z);refresh();save();announce(`${r.species}: ${r.damage} dealt, ${r.incoming} received. Monster ${r.remainingHp}/${r.maxHp} HP · party ${r.hp} HP. ${r.victorious?'Victory! '+r.loot.amount+' '+r.loot.material+' gathered.':'The battle continues. Cast again or retreat.'}`);break;}
+ case 'talk':{const r=atlas.talk(document.getElementById('npc-select').value,selected.x,selected.z);if(!r.ok)return announce(r.reason);save();announce(`${r.name}: ${r.dialogue}`);break;}
+ case 'track-v7':{const id=document.getElementById('monster-select').value;const r=atlas.trackSpecies(id,selected.x,selected.z);if(!r.ok)return announce(r.reason);refresh(false);save();announce(`Tracked ${r.name} (${Math.round(r.confidence*100)}% evidence): ${r.behavior} · local ${r.material} · resident cohort ${r.population}. Field knowledge now influences your defenses.`);break;}
+-case 'challenge':{const id=document.getElementById('monster-select').value;const r=atlas.engageVisible(id,selected.x,selected.z);if(!r.ok)return announce(r.reason);refresh(false);save();announce(`Challenged ${r.name} at this habitat; enter battle.`);break;}
++case 'study-resident':{const id=document.getElementById('resident-select').value;const r=atlas.inspectResident(id);if(!r.ok)return announce(r.reason);refresh(false);save();announce(`Observed ${r.name}: ${Math.round(r.confidence*100)}% confidence. Distance ${r.distance} m; evidence saved.`);break;}
++case 'approach-resident':{const id=document.getElementById('resident-select').value;const r=atlas.approachResident(id,6);for(const p of r.steps||[]){surfaceGrass?.step(p.x,p.z,.65);acoustic.acceptedStep(atlas,p.x,p.z,{speed:1,mass:.65});}refresh();save();announce(r.ok?`${r.steps.length} actual steps toward resident. ${r.near?'Creature in engagement range.':'Approach again to close distance.'}`:`Approach stopped: ${r.reason}`);break;}
++case 'engage-resident':{const id=document.getElementById('resident-select').value;const r=atlas.engageResident(id);if(!r.ok)return announce(r.reason);selected={x:atlas.characters[0].position.x,z:atlas.characters[0].position.z};refresh(false);save();announce(`Engaged ${r.name} from ${r.distance} m. Fight, retreat, or use environmental skills.`);break;}
+ case 'retreat':{const r=atlas.abandonEncounter();if(!r.ok)return announce(r.reason);refresh(false);save();announce(r.reason);break;}
+ case 'walk':{const r=atlas.pathfind(atlas.characters[0].position,selected);if(!r.ok){announce('Route blocked: '+r.reason);break;}
+   let moved=0,stopped='';for(const pt of r.steps.slice(1,7)){
+@@ -282,7 +300,7 @@
+ document.querySelectorAll('[data-mode]').forEach(el=>el.addEventListener('click',()=>{mode=el.dataset.mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));paintTerrain();}));
+ const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();let pStart=null;
+ renderer.domElement.addEventListener('pointerdown',e=>{pStart={x:e.clientX,y:e.clientY};});
+-renderer.domElement.addEventListener('pointerup',e=>{if(!pStart||Math.hypot(e.clientX-pStart.x,e.clientY-pStart.y)>9)return;const rect=renderer.domElement.getBoundingClientRect();pointer.x=(e.clientX-rect.left)/rect.width*2-1;pointer.y=-(e.clientY-rect.top)/rect.height*2+1;ray.setFromCamera(pointer,camera);const hits=ray.intersectObject(terrain,false);if(hits.length){selected={x:THREE.MathUtils.clamp(hits[0].point.x,-32,32),z:THREE.MathUtils.clamp(hits[0].point.z,-32,32)};refresh(false);}});
++renderer.domElement.addEventListener('pointerup',e=>{if(!pStart||Math.hypot(e.clientX-pStart.x,e.clientY-pStart.y)>9)return;const rect=renderer.domElement.getBoundingClientRect();pointer.x=(e.clientX-rect.left)/rect.width*2-1;pointer.y=-(e.clientY-rect.top)/rect.height*2+1;ray.setFromCamera(pointer,camera);const creatureHits=ray.intersectObjects(faunaGroup.children,true);const picked=creatureHits.find(hit=>hit.object.visible&&hit.object.parent?.visible&&hit.object.parent?.parent?.visible);if(picked){let node=picked.object;while(node&&!node.userData?.residentId)node=node.parent;if(node?.userData?.residentId&&atlas.resident(node.userData.residentId)){selectedResidentId=node.userData.residentId;document.querySelector('[data-panel="explore"]').click();refresh(false);announce('Creature selected in the world. Approach, study or engage at its actual location.');return;}}const hits=ray.intersectObject(terrain,false);if(hits.length){selected={x:THREE.MathUtils.clamp(hits[0].point.x,-32,32),z:THREE.MathUtils.clamp(hits[0].point.z,-32,32)};refresh(false);}});
+ function resize(){const w=root.clientWidth,h=root.clientHeight;const aspect=w/h,view=48;camera.left=-view*aspect;camera.right=view*aspect;camera.top=view;camera.bottom=-view;camera.updateProjectionMatrix();renderer.setSize(w,h);}window.addEventListener('resize',resize);resize();
+ let lastTime=0,frameSample=0,frameCount=0;function render(t){const dt=Math.min(.05,(t-lastTime)/1000||.016);lastTime=t;orbit.update();
+  const rp=riverGeo.attributes.position;const arr=rp.array;for(let k=0;k<129;k++){const y=-.31+Math.sin(t*.0018+k*.29)*.027;arr[k*6+1]=y;arr[k*6+4]=y;}rp.needsUpdate=true;
+--- /dev/null
++++ b/src/residents-v8.mjs
+@@ -0,0 +1,44 @@
++/** Ash & Aether v8 — authoritative resident spatial projection.
++ * No DOM, animation clock, random-number generator state, or WebGL dependency.
++ * A resident's visible position and encounter hit target are the same point.
++ */
++import {SPECIES,REGION_BY_ID} from './content.mjs';
++import {riverX} from './world.mjs';
++const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
++const fract=x=>x-Math.floor(x);
++const safe=(world,p)=>Number.isFinite(p.x)&&Number.isFinite(p.z)&&Math.abs(p.x)<=30&&Math.abs(p.z)<=30&&world.evaluate(p.x,p.z).traversalPassable&&Math.abs(p.x-riverX(p.z))>3.4;
++function walkable(world,origin,dest){for(let j=0;j<=10;j++){const f=j/10,p={x:origin.x+(dest.x-origin.x)*f,z:origin.z+(dest.z-origin.z)*f};if(!safe(world,p))return false;}return true;}
++/** Stable positions derived from region seed, turn number, existing ecological cohort and surface physics. */
++export function residentRoster({world,region,wildlife,tick=0,retired={},quality='high'}={}){
++ if(!REGION_BY_ID[region?.id]||!world||!wildlife||!Number.isSafeInteger(tick)||tick<0)throw Error('Invalid resident roster inputs');
++ const species=SPECIES.filter(s=>s.region===region.id);
++ const max=quality==='low'?10:24;
++ const roster=[];
++ for(let i=0;i<max;i++){
++  const s=species[i%species.length],spawnNumber=Math.floor(i/species.length);
++  let x=-27+fract((i+2)*.61803398875)*54,z=-27+fract((i+3)*.41421356237)*54;
++  for(let k=0;k<16;k++){if(safe(world,{x,z}))break;x=-27+fract((i+2+k*7)*.61803398875)*54;z=-27+fract((i+3+k*11)*.41421356237)*54;}
++  const anchor={x,z};if(!safe(world,anchor))continue;
++  const id=`${region.id}:${s.id}:${spawnNumber}`;
++  const recentDefeat=retired[id]!==undefined && tick-retired[id]<18;
++  const census=wildlife.sample(s.id,x,z);
++  if(recentDefeat||census.count<(spawnNumber+1)*3||census.visible<.09)continue;
++  const segment=Math.floor(tick/3);
++  const radius=s.behavior==='migrate'?4.2:s.behavior==='ambush'?2.6:2.3;
++  const angle=fract(Math.sin((i+1)*91.71+(segment+1)*17.31+region.seed)*43758.5453)*Math.PI*2;
++  const factor=.35+.6*fract(Math.sin(segment*39.11+i*7.5)*24677.82);
++  const destination={x:clamp(x+Math.cos(angle)*radius*factor,-30,30),z:clamp(z+Math.sin(angle)*radius*factor,-30,30)};
++  // A movement segment is rejected if any intermediate crossing would be blocked.
++  const legal=walkable(world,anchor,destination);
++  const fraction=(tick%3)/3;
++  const eased=fraction*fraction*(3-2*fraction);
++  const position=legal?{x:x+(destination.x-x)*eased,z:z+(destination.z-z)*eased}:anchor;
++  const local=wildlife.sample(s.id,position.x,position.z);
++  roster.push({id,index:i,species:s.id,name:s.name,kind:s.kind,behavior:s.behavior,region:region.id,spawnNumber,
++   x:+position.x.toFixed(5),z:+position.z.toFixed(5),anchor,alert:local.alert,disturbance:local.disturbance,census:local.count,
++   aggression:local.aggression,level:s.level});
++ }
++ return roster;
++}
++export function residentDistance(resident,point){return Math.hypot(resident.x-point.x,resident.z-point.z);}
++export function residentInReach(resident,point,reach=3.1){return residentDistance(resident,point)<=reach+1e-9;}
+--- /dev/null
++++ b/production/RESIDENT_BRIDGE_V8.mjs
+@@ -0,0 +1,31 @@
++/** Ash & Aether — production-safe resident bridge.
++ * Does not own health, loot, NPCs, world locations, quests, saves or battle math.
++ * The live game's authoritative actor registry MUST supply actual identities.
++ * Host integration is deliberately explicit and fail-closed.
++ */
++const reachable=(a,b,r)=>Number.isFinite(a?.x)&&Number.isFinite(a?.z)&&Number.isFinite(b?.x)&&Number.isFinite(b?.z)&&Math.hypot(a.x-b.x,a.z-b.z)<=r+1e-9;
++export function createResidentBridge({getActor,getParty,canReach,guideTo,beginBattle,observeResident}={}){
++ for(const [key,fn] of Object.entries({getActor,getParty,canReach,guideTo,beginBattle,observeResident}))if(typeof fn!=='function')throw new TypeError('Missing authoritative host callback: '+key);
++ function resolve(id){if(typeof id!=='string'||!id||id.length>160)return {ok:false,reason:'Invalid resident ID'};
++  const actor=getActor(id),party=getParty();
++  if(!actor||!actor.alive||!actor.visible||actor.id!==id||!Number.isFinite(actor.x)||!Number.isFinite(actor.z)||!party||!Number.isFinite(party.x)||!Number.isFinite(party.z)||actor.region!==party.region)return {ok:false,reason:'Resident is not present on the current map'};
++  return {ok:true,actor,party};
++ }
++ function guard(resolved,maxDistance){if(!resolved.ok)return resolved;
++  if(!reachable(resolved.actor,resolved.party,maxDistance))return {ok:false,reason:'Move closer to this resident'};
++  if(!canReach(resolved.party,resolved.actor))return {ok:false,reason:'Resident obstructed by terrain or a closed passage'};
++  return resolved;
++ }
++ return Object.freeze({
++  inspect(id){const r=resolve(id);if(!r.ok)return r;return {ok:true,id,name:r.actor.name,distance:+Math.hypot(r.actor.x-r.party.x,r.actor.z-r.party.z).toFixed(2)};},
++  approach(id){const r=resolve(id);if(!r.ok)return r;return guideTo({actorId:id,region:r.actor.region,target:{x:r.actor.x,z:r.actor.z},stopDistance:3.1});},
++  engage(id,eventId){if(typeof eventId!=='string'||!eventId||eventId.length>160)return {ok:false,reason:'Canonical unique event ID required'};
++   const r=guard(resolve(id),3.1);if(!r.ok)return r;
++   return beginBattle({eventId,actorId:id,region:r.actor.region,target:{x:r.actor.x,z:r.actor.z}});
++  },
++  study(id,eventId){if(typeof eventId!=='string'||!eventId||eventId.length>160)return {ok:false,reason:'Canonical unique event ID required'};
++   const r=guard(resolve(id),7);if(!r.ok)return r;
++   return observeResident({eventId,actorId:id,region:r.actor.region,target:{x:r.actor.x,z:r.actor.z}});
++  }
++ });
++}

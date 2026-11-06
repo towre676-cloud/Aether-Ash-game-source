@@ -1,0 +1,1331 @@
+{
+  "version": "1.0.0",
+  "game": "Ash & Aether: Clay and Water",
+  "sampleRate": 24000,
+  "assets": [
+    {
+      "id": "ash_grove",
+      "file": "assets/audio/ambience/ash_grove.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "ash_grove",
+      "mode": "wind"
+    },
+    {
+      "id": "clay_forge",
+      "file": "assets/audio/ambience/clay_forge.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "clay_forge",
+      "mode": "hearth"
+    },
+    {
+      "id": "crystal_aqueduct",
+      "file": "assets/audio/ambience/crystal_aqueduct.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "crystal_aqueduct",
+      "mode": "cave"
+    },
+    {
+      "id": "ember_highland",
+      "file": "assets/audio/ambience/ember_highland.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "ember_highland",
+      "mode": "wind"
+    },
+    {
+      "id": "final_rift",
+      "file": "assets/audio/ambience/final_rift.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "final_rift",
+      "mode": "rift"
+    },
+    {
+      "id": "frozen_tundra",
+      "file": "assets/audio/ambience/frozen_tundra.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "frozen_tundra",
+      "mode": "wind"
+    },
+    {
+      "id": "limestone_cavern",
+      "file": "assets/audio/ambience/limestone_cavern.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "limestone_cavern",
+      "mode": "cave"
+    },
+    {
+      "id": "moss_cathedral",
+      "file": "assets/audio/ambience/moss_cathedral.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "moss_cathedral",
+      "mode": "insects"
+    },
+    {
+      "id": "night_grassland",
+      "file": "assets/audio/ambience/night_grassland.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "night_grassland",
+      "mode": "insects"
+    },
+    {
+      "id": "rain_market",
+      "file": "assets/audio/ambience/rain_market.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "rain_market",
+      "mode": "rain"
+    },
+    {
+      "id": "reed_marsh",
+      "file": "assets/audio/ambience/reed_marsh.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "reed_marsh",
+      "mode": "water"
+    },
+    {
+      "id": "salt_shore",
+      "file": "assets/audio/ambience/salt_shore.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "salt_shore",
+      "mode": "water"
+    },
+    {
+      "id": "storm_rooftops",
+      "file": "assets/audio/ambience/storm_rooftops.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "storm_rooftops",
+      "mode": "rain"
+    },
+    {
+      "id": "submerged_archive",
+      "file": "assets/audio/ambience/submerged_archive.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "submerged_archive",
+      "mode": "water"
+    },
+    {
+      "id": "sunlit_ruins",
+      "file": "assets/audio/ambience/sunlit_ruins.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "sunlit_ruins",
+      "mode": "wind"
+    },
+    {
+      "id": "wooden_inn",
+      "file": "assets/audio/ambience/wooden_inn.ogg",
+      "category": "ambience",
+      "loop": true,
+      "duration": 8.0,
+      "peak": 0.6858,
+      "biome": "wooden_inn",
+      "mode": "hearth"
+    },
+    {
+      "id": "clue_ash",
+      "file": "assets/audio/clues/clue_ash.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_ash",
+      "notes": [
+        "F",
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "clue_beast_near",
+      "file": "assets/audio/clues/clue_beast_near.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_beast_near",
+      "notes": [
+        "E",
+        "F",
+        "E"
+      ]
+    },
+    {
+      "id": "clue_clay",
+      "file": "assets/audio/clues/clue_clay.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_clay",
+      "notes": [
+        "D",
+        "G",
+        "F"
+      ]
+    },
+    {
+      "id": "clue_false_wall",
+      "file": "assets/audio/clues/clue_false_wall.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_false_wall",
+      "notes": [
+        "D",
+        "F",
+        "B"
+      ]
+    },
+    {
+      "id": "clue_future_echo",
+      "file": "assets/audio/clues/clue_future_echo.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_future_echo",
+      "notes": [
+        "B",
+        "F",
+        "A"
+      ]
+    },
+    {
+      "id": "clue_hydrophone",
+      "file": "assets/audio/clues/clue_hydrophone.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_hydrophone",
+      "notes": [
+        "D",
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "clue_kakeya_line",
+      "file": "assets/audio/clues/clue_kakeya_line.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_kakeya_line",
+      "notes": [
+        "D",
+        "B",
+        "F"
+      ]
+    },
+    {
+      "id": "clue_mako",
+      "file": "assets/audio/clues/clue_mako.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_mako",
+      "notes": [
+        "E",
+        "G",
+        "A"
+      ]
+    },
+    {
+      "id": "clue_past_echo",
+      "file": "assets/audio/clues/clue_past_echo.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_past_echo",
+      "notes": [
+        "A",
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "clue_secret_exit",
+      "file": "assets/audio/clues/clue_secret_exit.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_secret_exit",
+      "notes": [
+        "G",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "clue_shelter",
+      "file": "assets/audio/clues/clue_shelter.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_shelter",
+      "notes": [
+        "A",
+        "G",
+        "E"
+      ]
+    },
+    {
+      "id": "clue_water",
+      "file": "assets/audio/clues/clue_water.ogg",
+      "category": "clues",
+      "loop": false,
+      "duration": 1.56,
+      "peak": 0.6858,
+      "signal": "clue_water",
+      "notes": [
+        "D",
+        "A",
+        "E"
+      ]
+    },
+    {
+      "id": "ash_wolf_alert",
+      "file": "assets/audio/creatures/ash_wolf_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "ash_wolf",
+      "intent": "alert"
+    },
+    {
+      "id": "ash_wolf_attack",
+      "file": "assets/audio/creatures/ash_wolf_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "ash_wolf",
+      "intent": "attack"
+    },
+    {
+      "id": "ash_wolf_idle",
+      "file": "assets/audio/creatures/ash_wolf_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "ash_wolf",
+      "intent": "idle"
+    },
+    {
+      "id": "cavern_choir_alert",
+      "file": "assets/audio/creatures/cavern_choir_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "cavern_choir",
+      "intent": "alert"
+    },
+    {
+      "id": "cavern_choir_attack",
+      "file": "assets/audio/creatures/cavern_choir_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "cavern_choir",
+      "intent": "attack"
+    },
+    {
+      "id": "cavern_choir_idle",
+      "file": "assets/audio/creatures/cavern_choir_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "cavern_choir",
+      "intent": "idle"
+    },
+    {
+      "id": "clayback_alert",
+      "file": "assets/audio/creatures/clayback_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "clayback",
+      "intent": "alert"
+    },
+    {
+      "id": "clayback_attack",
+      "file": "assets/audio/creatures/clayback_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "clayback",
+      "intent": "attack"
+    },
+    {
+      "id": "clayback_idle",
+      "file": "assets/audio/creatures/clayback_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "clayback",
+      "intent": "idle"
+    },
+    {
+      "id": "echo_hare_alert",
+      "file": "assets/audio/creatures/echo_hare_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "echo_hare",
+      "intent": "alert"
+    },
+    {
+      "id": "echo_hare_attack",
+      "file": "assets/audio/creatures/echo_hare_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "echo_hare",
+      "intent": "attack"
+    },
+    {
+      "id": "echo_hare_idle",
+      "file": "assets/audio/creatures/echo_hare_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "echo_hare",
+      "intent": "idle"
+    },
+    {
+      "id": "ember_beetle_alert",
+      "file": "assets/audio/creatures/ember_beetle_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "ember_beetle",
+      "intent": "alert"
+    },
+    {
+      "id": "ember_beetle_attack",
+      "file": "assets/audio/creatures/ember_beetle_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "ember_beetle",
+      "intent": "attack"
+    },
+    {
+      "id": "ember_beetle_idle",
+      "file": "assets/audio/creatures/ember_beetle_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "ember_beetle",
+      "intent": "idle"
+    },
+    {
+      "id": "glass_moth_alert",
+      "file": "assets/audio/creatures/glass_moth_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "glass_moth",
+      "intent": "alert"
+    },
+    {
+      "id": "glass_moth_attack",
+      "file": "assets/audio/creatures/glass_moth_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "glass_moth",
+      "intent": "attack"
+    },
+    {
+      "id": "glass_moth_idle",
+      "file": "assets/audio/creatures/glass_moth_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "glass_moth",
+      "intent": "idle"
+    },
+    {
+      "id": "mineral_warden_alert",
+      "file": "assets/audio/creatures/mineral_warden_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "mineral_warden",
+      "intent": "alert"
+    },
+    {
+      "id": "mineral_warden_attack",
+      "file": "assets/audio/creatures/mineral_warden_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "mineral_warden",
+      "intent": "attack"
+    },
+    {
+      "id": "mineral_warden_idle",
+      "file": "assets/audio/creatures/mineral_warden_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "mineral_warden",
+      "intent": "idle"
+    },
+    {
+      "id": "reed_stalker_alert",
+      "file": "assets/audio/creatures/reed_stalker_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "reed_stalker",
+      "intent": "alert"
+    },
+    {
+      "id": "reed_stalker_attack",
+      "file": "assets/audio/creatures/reed_stalker_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "reed_stalker",
+      "intent": "attack"
+    },
+    {
+      "id": "reed_stalker_idle",
+      "file": "assets/audio/creatures/reed_stalker_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "reed_stalker",
+      "intent": "idle"
+    },
+    {
+      "id": "roof_glider_alert",
+      "file": "assets/audio/creatures/roof_glider_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "roof_glider",
+      "intent": "alert"
+    },
+    {
+      "id": "roof_glider_attack",
+      "file": "assets/audio/creatures/roof_glider_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "roof_glider",
+      "intent": "attack"
+    },
+    {
+      "id": "roof_glider_idle",
+      "file": "assets/audio/creatures/roof_glider_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "roof_glider",
+      "intent": "idle"
+    },
+    {
+      "id": "silt_serpent_alert",
+      "file": "assets/audio/creatures/silt_serpent_alert.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "species": "silt_serpent",
+      "intent": "alert"
+    },
+    {
+      "id": "silt_serpent_attack",
+      "file": "assets/audio/creatures/silt_serpent_attack.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "species": "silt_serpent",
+      "intent": "attack"
+    },
+    {
+      "id": "silt_serpent_idle",
+      "file": "assets/audio/creatures/silt_serpent_idle.ogg",
+      "category": "creatures",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "species": "silt_serpent",
+      "intent": "idle"
+    },
+    {
+      "id": "step_ash_heavy",
+      "file": "assets/audio/footsteps/step_ash_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "ash",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_ash_soft",
+      "file": "assets/audio/footsteps/step_ash_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "ash",
+      "weight": "soft"
+    },
+    {
+      "id": "step_dry_clay_heavy",
+      "file": "assets/audio/footsteps/step_dry_clay_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "dry_clay",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_dry_clay_soft",
+      "file": "assets/audio/footsteps/step_dry_clay_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "dry_clay",
+      "weight": "soft"
+    },
+    {
+      "id": "step_gravel_heavy",
+      "file": "assets/audio/footsteps/step_gravel_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "gravel",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_gravel_soft",
+      "file": "assets/audio/footsteps/step_gravel_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "gravel",
+      "weight": "soft"
+    },
+    {
+      "id": "step_limestone_heavy",
+      "file": "assets/audio/footsteps/step_limestone_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "limestone",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_limestone_soft",
+      "file": "assets/audio/footsteps/step_limestone_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "limestone",
+      "weight": "soft"
+    },
+    {
+      "id": "step_metal_grating_heavy",
+      "file": "assets/audio/footsteps/step_metal_grating_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "metal_grating",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_metal_grating_soft",
+      "file": "assets/audio/footsteps/step_metal_grating_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "metal_grating",
+      "weight": "soft"
+    },
+    {
+      "id": "step_polished_stone_heavy",
+      "file": "assets/audio/footsteps/step_polished_stone_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "polished_stone",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_polished_stone_soft",
+      "file": "assets/audio/footsteps/step_polished_stone_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "polished_stone",
+      "weight": "soft"
+    },
+    {
+      "id": "step_sand_heavy",
+      "file": "assets/audio/footsteps/step_sand_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "sand",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_sand_soft",
+      "file": "assets/audio/footsteps/step_sand_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "sand",
+      "weight": "soft"
+    },
+    {
+      "id": "step_shallow_water_heavy",
+      "file": "assets/audio/footsteps/step_shallow_water_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "shallow_water",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_shallow_water_soft",
+      "file": "assets/audio/footsteps/step_shallow_water_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "shallow_water",
+      "weight": "soft"
+    },
+    {
+      "id": "step_short_grass_heavy",
+      "file": "assets/audio/footsteps/step_short_grass_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "short_grass",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_short_grass_soft",
+      "file": "assets/audio/footsteps/step_short_grass_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "short_grass",
+      "weight": "soft"
+    },
+    {
+      "id": "step_snow_heavy",
+      "file": "assets/audio/footsteps/step_snow_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "snow",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_snow_soft",
+      "file": "assets/audio/footsteps/step_snow_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "snow",
+      "weight": "soft"
+    },
+    {
+      "id": "step_tall_grass_heavy",
+      "file": "assets/audio/footsteps/step_tall_grass_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "tall_grass",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_tall_grass_soft",
+      "file": "assets/audio/footsteps/step_tall_grass_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "tall_grass",
+      "weight": "soft"
+    },
+    {
+      "id": "step_wet_clay_heavy",
+      "file": "assets/audio/footsteps/step_wet_clay_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "wet_clay",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_wet_clay_soft",
+      "file": "assets/audio/footsteps/step_wet_clay_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "wet_clay",
+      "weight": "soft"
+    },
+    {
+      "id": "step_wet_moss_heavy",
+      "file": "assets/audio/footsteps/step_wet_moss_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "wet_moss",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_wet_moss_soft",
+      "file": "assets/audio/footsteps/step_wet_moss_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "wet_moss",
+      "weight": "soft"
+    },
+    {
+      "id": "step_wood_hollow_heavy",
+      "file": "assets/audio/footsteps/step_wood_hollow_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "wood_hollow",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_wood_hollow_soft",
+      "file": "assets/audio/footsteps/step_wood_hollow_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "wood_hollow",
+      "weight": "soft"
+    },
+    {
+      "id": "step_wood_planks_heavy",
+      "file": "assets/audio/footsteps/step_wood_planks_heavy.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.42,
+      "peak": 0.6858,
+      "surface": "wood_planks",
+      "weight": "heavy"
+    },
+    {
+      "id": "step_wood_planks_soft",
+      "file": "assets/audio/footsteps/step_wood_planks_soft.ogg",
+      "category": "footsteps",
+      "loop": false,
+      "duration": 0.3,
+      "peak": 0.6858,
+      "surface": "wood_planks",
+      "weight": "soft"
+    },
+    {
+      "id": "archive_page",
+      "file": "assets/audio/interaction/archive_page.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.52,
+      "peak": 0.6858,
+      "material": "paper"
+    },
+    {
+      "id": "bell_tower",
+      "file": "assets/audio/interaction/bell_tower.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 2.3,
+      "peak": 0.6858,
+      "material": "bell"
+    },
+    {
+      "id": "brass_key_turn",
+      "file": "assets/audio/interaction/brass_key_turn.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "ceramic_vessel",
+      "file": "assets/audio/interaction/ceramic_vessel.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.6,
+      "peak": 0.6858,
+      "material": "clay"
+    },
+    {
+      "id": "clay_pot_break",
+      "file": "assets/audio/interaction/clay_pot_break.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.85,
+      "peak": 0.6858,
+      "material": "clay"
+    },
+    {
+      "id": "close_wood_door",
+      "file": "assets/audio/interaction/close_wood_door.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "material": "wood"
+    },
+    {
+      "id": "critical_claystrike",
+      "file": "assets/audio/interaction/critical_claystrike.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.83,
+      "peak": 0.6858,
+      "material": "clay"
+    },
+    {
+      "id": "crystal_prism_pickup",
+      "file": "assets/audio/interaction/crystal_prism_pickup.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.2,
+      "peak": 0.6858,
+      "material": "glass"
+    },
+    {
+      "id": "dry_brush",
+      "file": "assets/audio/interaction/dry_brush.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.58,
+      "peak": 0.6858,
+      "material": "grass"
+    },
+    {
+      "id": "element_ember",
+      "file": "assets/audio/interaction/element_ember.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.84,
+      "peak": 0.6858,
+      "material": "fire"
+    },
+    {
+      "id": "element_gale",
+      "file": "assets/audio/interaction/element_gale.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.92,
+      "peak": 0.6858,
+      "material": "air"
+    },
+    {
+      "id": "element_mist",
+      "file": "assets/audio/interaction/element_mist.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.0,
+      "peak": 0.6858,
+      "material": "water"
+    },
+    {
+      "id": "element_resonance",
+      "file": "assets/audio/interaction/element_resonance.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.5,
+      "peak": 0.6858,
+      "material": "bell"
+    },
+    {
+      "id": "element_silt",
+      "file": "assets/audio/interaction/element_silt.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.96,
+      "peak": 0.6858,
+      "material": "earth"
+    },
+    {
+      "id": "enemy_patrol_warning",
+      "file": "assets/audio/interaction/enemy_patrol_warning.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "material": "air"
+    },
+    {
+      "id": "environmental_shield_break",
+      "file": "assets/audio/interaction/environmental_shield_break.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "material": "glass"
+    },
+    {
+      "id": "environmental_shield_form",
+      "file": "assets/audio/interaction/environmental_shield_form.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.4,
+      "peak": 0.6858,
+      "material": "rock"
+    },
+    {
+      "id": "forge_hammer",
+      "file": "assets/audio/interaction/forge_hammer.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "iron_latch",
+      "file": "assets/audio/interaction/iron_latch.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.55,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "item_craft",
+      "file": "assets/audio/interaction/item_craft.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.0,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "kiln_ignite",
+      "file": "assets/audio/interaction/kiln_ignite.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "material": "fire"
+    },
+    {
+      "id": "ledger_turn",
+      "file": "assets/audio/interaction/ledger_turn.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.66,
+      "peak": 0.6858,
+      "material": "paper"
+    },
+    {
+      "id": "open_wood_door",
+      "file": "assets/audio/interaction/open_wood_door.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.1,
+      "peak": 0.6858,
+      "material": "wood"
+    },
+    {
+      "id": "parry_bronze",
+      "file": "assets/audio/interaction/parry_bronze.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.59,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "perfect_dodge",
+      "file": "assets/audio/interaction/perfect_dodge.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.4,
+      "peak": 0.6858,
+      "material": "air"
+    },
+    {
+      "id": "refuge_repair",
+      "file": "assets/audio/interaction/refuge_repair.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.35,
+      "peak": 0.6858,
+      "material": "wood"
+    },
+    {
+      "id": "rope_tighten",
+      "file": "assets/audio/interaction/rope_tighten.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.75,
+      "peak": 0.6858,
+      "material": "wood"
+    },
+    {
+      "id": "ruin_pressure_plate",
+      "file": "assets/audio/interaction/ruin_pressure_plate.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.05,
+      "peak": 0.6858,
+      "material": "rock"
+    },
+    {
+      "id": "shore_splash",
+      "file": "assets/audio/interaction/shore_splash.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.8,
+      "peak": 0.6858,
+      "material": "water"
+    },
+    {
+      "id": "sluice_valve",
+      "file": "assets/audio/interaction/sluice_valve.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.3,
+      "peak": 0.6858,
+      "material": "metal"
+    },
+    {
+      "id": "stamina_empty",
+      "file": "assets/audio/interaction/stamina_empty.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.7,
+      "peak": 0.6858,
+      "material": "air"
+    },
+    {
+      "id": "stone_gate",
+      "file": "assets/audio/interaction/stone_gate.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.6,
+      "peak": 0.6858,
+      "material": "rock"
+    },
+    {
+      "id": "water_scoop",
+      "file": "assets/audio/interaction/water_scoop.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 0.88,
+      "peak": 0.6858,
+      "material": "water"
+    },
+    {
+      "id": "wooden_chest_unlock",
+      "file": "assets/audio/interaction/wooden_chest_unlock.ogg",
+      "category": "interaction",
+      "loop": false,
+      "duration": 1.0,
+      "peak": 0.6858,
+      "material": "wood"
+    },
+    {
+      "id": "ui_cancel",
+      "file": "assets/audio/ui/ui_cancel.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.09,
+      "peak": 0.6858,
+      "role": "ui_cancel"
+    },
+    {
+      "id": "ui_confirm",
+      "file": "assets/audio/ui/ui_confirm.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.12,
+      "peak": 0.6858,
+      "role": "ui_confirm"
+    },
+    {
+      "id": "ui_currency_gain",
+      "file": "assets/audio/ui/ui_currency_gain.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.34,
+      "peak": 0.6858,
+      "role": "ui_currency_gain"
+    },
+    {
+      "id": "ui_focus",
+      "file": "assets/audio/ui/ui_focus.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.07,
+      "peak": 0.6858,
+      "role": "ui_focus"
+    },
+    {
+      "id": "ui_page",
+      "file": "assets/audio/ui/ui_page.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.08,
+      "peak": 0.6858,
+      "role": "ui_page"
+    },
+    {
+      "id": "ui_quest_new",
+      "file": "assets/audio/ui/ui_quest_new.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.46,
+      "peak": 0.6858,
+      "role": "ui_quest_new"
+    },
+    {
+      "id": "ui_rare_loot",
+      "file": "assets/audio/ui/ui_rare_loot.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.65,
+      "peak": 0.6858,
+      "role": "ui_rare_loot"
+    },
+    {
+      "id": "ui_rest",
+      "file": "assets/audio/ui/ui_rest.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.4,
+      "peak": 0.6858,
+      "role": "ui_rest"
+    },
+    {
+      "id": "ui_rewind",
+      "file": "assets/audio/ui/ui_rewind.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.5,
+      "peak": 0.6858,
+      "role": "ui_rewind"
+    },
+    {
+      "id": "ui_tab",
+      "file": "assets/audio/ui/ui_tab.ogg",
+      "category": "ui",
+      "loop": false,
+      "duration": 0.05,
+      "peak": 0.6858,
+      "role": "ui_tab"
+    }
+  ]
+}

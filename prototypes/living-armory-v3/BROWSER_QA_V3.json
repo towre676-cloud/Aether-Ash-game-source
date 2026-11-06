@@ -1,0 +1,28 @@
+{
+  "desktop": {
+    "wide": 1490,
+    "viewport": 1490,
+    "title": "Ash & Aether \u2014 The Living Armory",
+    "painted": 11,
+    "decoded": 11,
+    "harmonics": "THE MATERIAL HARMONICSEquipment changes the worldEquipped element and socketed rune voices form true",
+    "imprints": true,
+    "screenshotWidth": 1490,
+    "engraveExecuted": true,
+    "engraveItems": 1,
+    "bossLootOpen": true,
+    "lootLabelsContained": true,
+    "jsErrors": []
+  },
+  "mobile": {
+    "wide": 390,
+    "viewport": 390,
+    "title": "Ash & Aether \u2014 The Living Armory",
+    "painted": 11,
+    "decoded": 11,
+    "harmonics": "THE MATERIAL HARMONICSEquipment changes the worldEquipped element and socketed rune voices form true",
+    "imprints": true,
+    "screenshotWidth": 390,
+    "jsErrors": []
+  }
+}

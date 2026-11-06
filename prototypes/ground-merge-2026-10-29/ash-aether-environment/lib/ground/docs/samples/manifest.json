@@ -1,0 +1,242 @@
+[
+  {
+    "id": "ash-cinder",
+    "name": "Cinder Drift",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-slag",
+    "name": "Pitted Furnace Slag",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-kiln",
+    "name": "Glazed Kiln Brick",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-basalt",
+    "name": "Riven Basalt",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-soot-cobble",
+    "name": "Sootwashed Cobbles",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-grate",
+    "name": "Iron Furnace Grate",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-emberglass",
+    "name": "Ember Glass",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-obsidian",
+    "name": "Splintered Obsidian",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-plaster",
+    "name": "Soot-Rubbed Plaster",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-charwood",
+    "name": "Charred Engine Timber",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-clinker",
+    "name": "Cooling Clinker Field",
+    "realm": "Ash"
+  },
+  {
+    "id": "ash-fire-mosaic",
+    "name": "Choir Furnace Mosaic",
+    "realm": "Ash"
+  },
+  {
+    "id": "water-silt",
+    "name": "River-Bed Silt",
+    "realm": "Water"
+  },
+  {
+    "id": "water-sand",
+    "name": "Tidal Gold Sand",
+    "realm": "Water"
+  },
+  {
+    "id": "water-pebbles",
+    "name": "Washed River Pebbles",
+    "realm": "Water"
+  },
+  {
+    "id": "water-limestone",
+    "name": "Wet Cut Limestone",
+    "realm": "Water"
+  },
+  {
+    "id": "water-slate",
+    "name": "Blue Channel Slate",
+    "realm": "Water"
+  },
+  {
+    "id": "water-dock",
+    "name": "Salt-Silvered Dockwood",
+    "realm": "Water"
+  },
+  {
+    "id": "water-coral",
+    "name": "Fossil Coralstone",
+    "realm": "Water"
+  },
+  {
+    "id": "water-salt",
+    "name": "Crystalline Salt Flats",
+    "realm": "Water"
+  },
+  {
+    "id": "water-canal",
+    "name": "Sunk Canal Brick",
+    "realm": "Water"
+  },
+  {
+    "id": "water-seep",
+    "name": "Glazed Seep Tiles",
+    "realm": "Water"
+  },
+  {
+    "id": "water-mud",
+    "name": "Reed-Mud Estuary",
+    "realm": "Water"
+  },
+  {
+    "id": "water-deep",
+    "name": "Submerged Temple Floor",
+    "realm": "Water"
+  },
+  {
+    "id": "clay-red",
+    "name": "Red Orchard Clay",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-earth",
+    "name": "Rammed Earthen Floor",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-loam",
+    "name": "Old Orchard Loam",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-road",
+    "name": "Worn Pilgrim Road",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-fieldstone",
+    "name": "Lichen Fieldstone",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-gravel",
+    "name": "Crushed Granite Path",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-terracotta",
+    "name": "Handcut Terracotta",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-herringbone",
+    "name": "Old Herringbone Brick",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-floorboards",
+    "name": "Hearth Oak Floorboards",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-thresh",
+    "name": "Threshing Court Stone",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-rug",
+    "name": "Woven Clayhouse Rug",
+    "realm": "Clay"
+  },
+  {
+    "id": "clay-mosaic",
+    "name": "Seven Lives Inlay",
+    "realm": "Clay"
+  },
+  {
+    "id": "aether-shale",
+    "name": "Luminous Split Shale",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-marble",
+    "name": "Sky-Etched Marble",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-enamel",
+    "name": "Pale Engine Enamel",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-brass",
+    "name": "Patinated Brass Inlay",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-glass",
+    "name": "Suspended Aether Glass",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-celestial",
+    "name": "Celestial Rota Mosaic",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-copper",
+    "name": "Oxidized Sky Copper",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-dust",
+    "name": "Prismatic Crystal Dust",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-cloudstone",
+    "name": "Drifting Cloudstone",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-silverash",
+    "name": "Starfall Silver Ash",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-chalk",
+    "name": "Ancient Star Chalk",
+    "realm": "Aether"
+  },
+  {
+    "id": "aether-phase",
+    "name": "Phase-Fault Basalt",
+    "realm": "Aether"
+  }
+]

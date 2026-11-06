@@ -1,0 +1,90 @@
+{
+  "scope": "structural Three mock only; not observed browser draw calls or GPU FPS",
+  "source": "A&A 5.32 source-aligned overlay, not Site source v38",
+  "measures": {
+    "low_static_batch_false": {
+      "kind": "settlement",
+      "meshes": 717,
+      "drawCalls": 717,
+      "grassInstances": 220,
+      "triangles": 2400,
+      "batching": {
+        "sourceMeshes": 0,
+        "batches": 0,
+        "removedDrawCalls": 0,
+        "sourceVertices": 0,
+        "retainedDynamic": 0
+      },
+      "textures": 0,
+      "landmarks": 6
+    },
+    "low_static_batch_true": {
+      "kind": "settlement",
+      "meshes": 29,
+      "drawCalls": 29,
+      "grassInstances": 220,
+      "triangles": 2327,
+      "batching": {
+        "sourceMeshes": 703,
+        "batches": 13,
+        "removedDrawCalls": 688,
+        "sourceVertices": 3056,
+        "retainedDynamic": 14
+      },
+      "textures": 0,
+      "landmarks": 6
+    },
+    "high_static_batch_false": {
+      "kind": "settlement",
+      "meshes": 2055,
+      "drawCalls": 2055,
+      "grassInstances": 1450,
+      "triangles": 8442,
+      "batching": {
+        "sourceMeshes": 0,
+        "batches": 0,
+        "removedDrawCalls": 0,
+        "sourceVertices": 0,
+        "retainedDynamic": 0
+      },
+      "textures": 0,
+      "landmarks": 6
+    },
+    "high_static_batch_true": {
+      "kind": "settlement",
+      "meshes": 29,
+      "drawCalls": 29,
+      "grassInstances": 1450,
+      "triangles": 8369,
+      "batching": {
+        "sourceMeshes": 2041,
+        "batches": 13,
+        "removedDrawCalls": 2026,
+        "sourceVertices": 9478,
+        "retainedDynamic": 14
+      },
+      "textures": 0,
+      "landmarks": 6
+    },
+    "dungeon_room": {
+      "kind": "dungeon",
+      "meshes": 10,
+      "drawCalls": 10,
+      "grassInstances": 0,
+      "triangles": 181,
+      "batching": {
+        "sourceMeshes": 176,
+        "batches": 5,
+        "removedDrawCalls": 171,
+        "sourceVertices": 528,
+        "retainedDynamic": 5
+      },
+      "textures": 0,
+      "landmarks": 0
+    }
+  },
+  "tests": {
+    "count": 54,
+    "passed": 54
+  }
+}

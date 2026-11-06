@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {inferDiscoveries} from '../src/discovery.mjs';
+test('requires multiple clue types',()=>{assert.equal(inferDiscoveries([{kind:'resonance',target:'door'}],[]).length,0);const d=inferDiscoveries([{kind:'resonance',target:'door'},{kind:'tracks',target:'door'}],[]);assert.equal(d[0].id,'door');assert.equal(d[0].marker,false);});

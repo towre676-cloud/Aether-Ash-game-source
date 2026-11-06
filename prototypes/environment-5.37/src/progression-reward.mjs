@@ -1,0 +1,2 @@
+import {mutationOffer} from './progression.mjs';
+export function postVictoryChoice({encounterId,region,owned=[],recent=[],gearDrop=null,worldUnlock=null}={}){const mutations=mutationOffer({seed:encounterId,owned,region,recent});const cards=[];if(gearDrop)cards.push({kind:'gear',value:gearDrop,why:'changes build'});if(mutations[0])cards.push({kind:'mutation',value:mutations[0],why:'changes action'});if(worldUnlock)cards.push({kind:'world',value:worldUnlock,why:'changes route or settlement'});return cards.slice(0,3);}

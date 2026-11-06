@@ -1,0 +1,11 @@
+{
+  "package": "Ash & Aether Living Atlas v5",
+  "sourceFiles": "standalone and additive production staging",
+  "testsPassed": 136,
+  "replayVerified": true,
+  "liveSiteModified": false,
+  "productionAccess": "profile sign-in required",
+  "siteProjectId": "appgprj_6adf63724e5c8191bd55637b8ecd8d9a",
+  "observedSiteSourceVersion": 21,
+  "productionStagingTest": "10 modules, dry run/atomic apply/idempotent (isolated test)"
+}
