@@ -1,0 +1,8 @@
+{
+  "package":"Ash & Aether 5.28 Moment-to-Moment Systems Pass",
+  "target":"A&A 5.27 authoritative host",
+  "deployment_claim":false,
+  "save_namespace":"moment",
+  "modules":["progression","progression-reward","enemy-identity","encounter-director","boss-phases","boss-catalog","animation","character-presentation","discovery","living-world","economy","context-ui","transitions","mobile-audit","fun-metrics","save-migration","integration"],
+  "forbidden_replacements":["movement","camera","combat","inventory","terrain","grass","audio","save","ng+"]
+}

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createMomentLayer} from '../src/integration.mjs';
+test('host integration is additive',()=>{const host={save:{mutations:[],discoveries:[]},worldState:{traffic:0,monsterPressure:1}};const layer=createMomentLayer(host);assert.equal(layer.hooks.afterVictory({encounterId:'e1',region:'ash'}).offers.length,3);assert.equal(host.worldState.traffic,0);assert.equal(layer.hooks.prepareEnemy({id:'x',archetype:'raptor'}).identity.behavior,'sound_hunter');});
