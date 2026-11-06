@@ -26,6 +26,17 @@ This repository also includes a **real, offline-capable interactive laboratory**
 
 The original game's opening and act names are drawn from the active site. Individual development branches are documented separately, without claiming that archived prototypes are production features.
 
+## Additional playable development prototypes
+
+These archived experiments are now browsable directly from the repository (and from the static showcase when Pages is enabled):
+
+- [**Living Armory v3**](prototypes/living-armory-v3/armory-playable.html) — an interactive equipment, loot, and inventory prototype with embedded artwork.
+- [**Atlas v8 Encounter QA**](prototypes/living-atlas-v8/ENCOUNTER_QA_V8.html) — a Canvas2D encounter test that imports the recovered world engine; serve the directory locally to use module imports reliably.
+- [**Environment 5.37 preview**](prototypes/environment-5.37/preview/standalone-environment-5.37.html) — a standalone visual environment experiment.
+- [**Full prototype source inventory**](prototypes/README.md) — 596 restored source/test/docs files, organized by version and subsystem.
+
+**These are distinct historical development builds, not the full live game.** Some depend on a local HTTP server or external assets and have not yet passed new browser-device QA.
+
 ## Quick start
 
 **Play the main game:** Open [the game site](https://ash-aether-clay-water.towre676.chatgpt.site/). This repository does not contain an export of its complete v5.42+ runtime.
