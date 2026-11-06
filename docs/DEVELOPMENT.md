@@ -35,3 +35,7 @@
 ## GitHub Pages
 
 The deploy workflow publishes the repository root. To enable it in a new repository, go to **Settings → Pages → Build and deployment → Source: GitHub Actions**. A Pages failure should not be reported as a working public URL. The repository and the external game are separate publication surfaces.
+
+## Actual visual captures and live-source status (November 5)
+
+The README and GitHub Pages hero now show a recovered playable Vista capture; a three-image gallery identifies the provenance of Vista, meadow and Armory frames. The current live Site's source cannot yet be accessed. Do not treat these screenshots or module archives as the Site's latest release. See [Live-source integration](LIVE_SOURCE_INTEGRATION.md).

@@ -21,3 +21,15 @@ The repository is **not currently a full export of the Site**. The current Live 
 ## Future verification rules
 
 For a release claim, specify the tested commit/version, the accessible build URL, device/browser checks, runtime assertions and a confirmed source-to-release link. For demo screenshots label *gameplay capture*, *development lab* or *illustration* distinctly. Do not silently replace the canonical runtime with an old prototype.
+
+## Recovered authentic prototype captures (November 5, 2026)
+
+The website and README now use actual A&A development screenshots, rather than the former custom illustrated SVG. The assets are web-optimized WebP encodings of the following original screenshot PNGs, with exact archive-source SHA-256 hashes:
+
+| Asset | Original member | Original PNG SHA-256 |
+| --- | --- | --- |
+| `assets/answering-city-vista.webp` | `Ash_Aether_Vista_Presentation_Upgrade_v1.zip` / `ash-aether-vista-overhaul/showcase-desktop.png` | `e4a496a5843fac384ca6b8f54827da656238aae34a81ddad3ae7010cfa024e48` |
+| `assets/living-meadow.webp` | `Ash_Aether_Living_Atlas_v8_Spatial_Encounters.zip` / `aa-living-world-v8/src/grass-v5/scenic-1280.png` | `59b12d7fc7719af7b992fea13d7cb54ee5530c5ee6c472d4587daf11366cb309` |
+| `assets/living-armory-v3.webp` | `Ash_Aether_Living_Armory_v3_Complete.zip` / `Ash_Aether_Living_Armory_v3/assets/v3-final-desktop.png` | `ec28ebbe01a814fa65d7265041b6d2639b8b6feaf57f157cbdb691bf18ee6787` |
+
+**Scope:** The Vista archive explicitly labels its playable 2.5D showcase as a composition study, **not integrated into the private Site**. These are genuine snapshots of our own runnable prototypes, **not authenticated live-site gameplay shots**. They were neither fabricated nor extracted from the current production host. The current live Site returned HTTP 401 for unauthenticated read access; see [live-source integration](LIVE_SOURCE_INTEGRATION.md).

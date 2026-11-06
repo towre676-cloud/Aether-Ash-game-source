@@ -15,7 +15,7 @@ needs(lab.includes('<!doctype html>')&&lab.includes('</html>'),'Living World HTM
 needs(/Walk forward/.test(lab)&&/Trample grass/.test(lab),'Missing lab controls');
 needs(/Export save JSON/.test(lab)&&/Import save JSON/.test(lab),'Missing lab save controls');
 needs(!/TODO_LINK|INSERT_URL|example\.com/.test(page+readme),'A placeholder link remains');
-const paths=['index.html','assets/cover.svg','labs/living-world.html','docs/GAME.md','docs/DEVELOPMENT.md','docs/ACCESSIBILITY.md','docs/PROVENANCE.md'];
+const paths=['index.html','assets/answering-city-vista.webp','assets/living-meadow.webp','assets/living-armory-v3.webp','labs/living-world.html','docs/GAME.md','docs/DEVELOPMENT.md','docs/ACCESSIBILITY.md','docs/PROVENANCE.md'];
 for(const p of paths)needs(fs.existsSync(path.join(root,p)),'Missing '+p);
 for(const match of page.matchAll(/\b(?:href|src)="([^"]+)"/g)){
   const href=match[1];
@@ -24,5 +24,8 @@ for(const match of page.matchAll(/\b(?:href|src)="([^"]+)"/g)){
   const file=href.split('#')[0].split('?')[0];
   needs(fs.existsSync(path.join(root,file)),'Missing homepage resource '+href);
 }
+needs(/<figure class="scene">/.test(page),'Hero must show the captured prototype instead of decorative illustration');
+needs(!page.includes('assets/cover.svg')&&!readme.includes('assets/cover.svg'),'Superseded cover still in use');
+needs(page.includes('id="captures"'),'Missing real-captures gallery');
 if(fail.length){console.error('Site check FAIL:\n'+fail.join('\n'));process.exit(1);}
 console.log('Site check OK: accessibility landmarks, internal links, lab integrity, expected resources.');

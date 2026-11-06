@@ -1,4 +1,6 @@
-![Ash & Aether illustrated city banner](assets/cover.svg)
+![A real Ash & Aether Vista prototype capture of the Answering City, with a traveler on the causeway](assets/answering-city-vista.webp)
+
+*The Answering City: screenshot from our actual playable Vista composition prototype, not a render of the current authenticated game build.*
 
 # Ash & Aether: Clay and Water
 
@@ -7,6 +9,15 @@
 > **The city burns its memories. The water remembers yours.**
 
 **[Enter the original game](https://ash-aether-clay-water.towre676.chatgpt.site/)** · **[Visit the public showcase](https://towre676-cloud.github.io/Aether-Ash-game-source/)** · **[Explore the standalone Living World lab](https://towre676-cloud.github.io/Aether-Ash-game-source/labs/living-world.html)**
+
+## Real captures from our playable development builds
+
+| The Answering City · Vista | The Living Meadow · ecology | The Living Armory · equipment |
+| :---: | :---: | :---: |
+| ![The Answering City and a traveler on a causeway](assets/answering-city-vista.webp) | ![Procedurally grown riverside grass and trees](assets/living-meadow.webp) | ![The inventory, character, and inspection UI](assets/living-armory-v3.webp) |
+| [Vista demo](prototypes/vista-v1/vista-showcase.html) | [Living World lab](labs/living-world.html) | [Living Armory](prototypes/living-armory-v3/armory-playable.html) |
+
+These are **original captures of independently runnable A&A prototypes**, not stock art or newly generated promotion. They are not presented as imagery from the authenticated live game.
 
 ## What visitors can explore
 
@@ -52,7 +63,9 @@ These archived experiments are now browsable directly from the repository (and f
 | Path | Description |
 | --- | --- |
 | [`index.html`](index.html) | Accessible, responsive, cinematic public project homepage |
-| [`assets/cover.svg`](assets/cover.svg) | Original illustrative cover graphic (not a gameplay screenshot) |
+| [`assets/answering-city-vista.webp`](assets/answering-city-vista.webp) | Captured playable Vista prototype image, web optimized |
+| [`assets/living-meadow.webp`](assets/living-meadow.webp) | Captured living-meadow prototype image, web optimized |
+| [`assets/living-armory-v3.webp`](assets/living-armory-v3.webp) | Captured armory UI image, web optimized |
 | [`labs/living-world.html`](labs/living-world.html) | Self-contained standalone ecology/vegetation laboratory |
 | [`docs/GAME.md`](docs/GAME.md) | Story, systems and playing notes |
 | [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) | Development strands and integration checkpoints |
@@ -63,9 +76,9 @@ These archived experiments are now browsable directly from the repository (and f
 ## Trust and release status
 
 - **Publicly accessible repository:** yes, including this source and the site documents.
-- **Original game:** deployed to a separate ChatGPT Site. GitHub and that Site are not synchronized automatically.
+- **Original game:** deployed to an access-controlled ChatGPT Site. The editable source has not been exported to GitHub. See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md).
 - **Living World lab:** a recovered, independent experiment; archive provenance recorded in [docs/PROVENANCE.md](docs/PROVENANCE.md). It does not establish production integration.
 - **Full game source:** **not yet mirrored** here. Additional archives exist but require deliberate source/version reconciliation before becoming a canonical game build.
 - **GitHub Pages:** deployment is configured through Actions; the repository owner may need to choose **Settings → Pages → Source: GitHub Actions** before the public project site is live.
 
-See [development status](docs/DEVELOPMENT.md) for the next honest integration milestones. This repository does not grant any license for third-party redistribution unless a license is subsequently added by the owner.
+See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md) and [development status](docs/DEVELOPMENT.md) for the next honest integration milestones. This repository does not grant any license for third-party redistribution unless a license is subsequently added by the owner.
