@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CISTERN,createCisternState,cisternWalkable,cisternRoute,advanceCistern,actionCistern,nearbyCisternTarget,cisternObjective,claimCisternRewards} from '../cistern-model.js';
+import {CISTERN,CISTERN_TRAVEL_SPEED,createCisternState,cisternWalkable,cisternRoute,advanceCistern,actionCistern,nearbyCisternTarget,cisternObjective,claimCisternRewards} from '../cistern-model.js';
 const hero=()=>({id:0,name:'Sable',hp:180,maxHp:180,mp:38,maxMp:38,power:24,level:1,strain:0});
 const silent=s=>{for(const e of s.enemies)e.hp=0;};
 const ticks=(s,n,input={},party=[])=>{const events=[];for(let i=0;i<n;i++)events.push(...advanceCistern(s,.1,input,party));return events;};
@@ -30,7 +30,7 @@ test('water, pillars and walls reject player footprints and swept motion cannot 
  assert.ok(s.player.z>=-13.5,'locked gate cannot be crossed');
  s.resonators=[true,true];ticks(s,15,{moveZ:-1,run:true});assert.ok(s.player.z<-14.5);
  const before=s.player.z;advanceCistern(s,Infinity,{moveZ:-1});assert.equal(s.player.z,before);
- advanceCistern(s,9,{moveZ:-1});assert.ok(before-s.player.z<=.326,'long elapsed time is capped');
+ advanceCistern(s,9,{moveZ:-1});assert.ok(before-s.player.z<=CISTERN_TRAVEL_SPEED.walk*.1+.001,'long elapsed time is capped');
 });
 
 test('two local resonators open the gate; interact at the entrance requests the overworld',()=>{
@@ -117,7 +117,7 @@ test('a complete walking campaign solves both tones, defeats the guardian, saves
    const p=route[0],dx=p.x-s.player.x,dz=p.z-s.player.z,d=Math.hypot(dx,dz);
    if(d<.06){route.shift();continue;}
    const guarding=s.enemies.some(e=>e.hp>0&&Math.hypot(e.x-s.player.x,e.z-s.player.z)<2.6);
-   const speed=3.25*(guarding?.45:1),scale=Math.min(1,d/(speed*.1));
+   const speed=CISTERN_TRAVEL_SPEED.walk*(guarding?.45:1),scale=Math.min(1,d/(speed*.1));
    frame({moveX:dx/d*scale,moveZ:dz/d*scale,guard:guarding});
   }
   assert.equal(route.length,0,'walking reaches the destination');assert.equal(s.defeats,0);

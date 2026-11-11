@@ -22,7 +22,7 @@ import {networkSceneView} from './answering-network.js?v=5.18.0';
 import {createNetworkAudio} from './network-audio.js?v=5.18.0';
 import {createPlaytestRecorder,mountPlaytestTools} from './playtest-recorder.js?v=5.27.0';
 import {axisDirections} from './direction-latch.js?v=5.14.0';
-import {movementDelta,advanceRoute} from './player-locomotion.js?v=5.14.0';
+import {movementDelta,movePlayer,advanceRoute} from './player-locomotion.js?v=5.14.0';
 import {techniqueIcon,commandIcon} from './technique-icons.js?v=5.13.0';
 import {createFieldPatrols,fieldPatrolPosition} from './field-patrols.js?v=5.33.0';
 import {createFieldJourneyDirector,fieldInteractionTargets,fieldApproach} from './field-journey-director.js?v=5.33.0';
@@ -383,7 +383,7 @@ function update(dt){
  world.reconciledGround?.update(dt);acoustics?.update(dt,{battle,velocity:renderer?.locomotion?.speed||0});if(!battle)world.townLife?.update(dt);if(!inPast(world))cinema?.observe(world,world.state.mode==='field'&&!battle);if(cinema?.busy)return;if(!battle)tickPhysical(world,dt);
  const dx=(buttons.has('right')?1:0)-(buttons.has('left')?1:0),dy=(buttons.has('down')?1:0)-(buttons.has('up')?1:0);
  if((dx||dy)&&uiMode!=='tech'){if(battle)combatOrders.manual();if(!battle){questGuide?.cancel();fieldJourney.hide();}path=[];arrivalAction=null;}
- if(uiMode!=='tech'&&(dx||dy)){const move=movementDelta(dx,dy,dt,{run:buttons.has('b')});renderer.locomotion=move;const scale=(world.trailLife?.speedMultiplier||1)*(world.reconciledGround?.movementScale()||1);world.move(move.x*scale,move.y*scale);}
+ if(uiMode!=='tech'&&(dx||dy)){const move=movementDelta(dx,dy,dt,{run:buttons.has('b')});renderer.locomotion=move;const scale=(world.trailLife?.speedMultiplier||1)*(world.reconciledGround?.movementScale()||1);movePlayer(world,move.x*scale,move.y*scale);}
  if(!battle&&path.length&&uiMode!=='tech'){
   if(tapRoute!==path){tapRoute=path;tapProgress={x:world.state.x,y:world.state.y,blocked:0};}
   renderer.locomotion=advanceRoute(world,path,dt);

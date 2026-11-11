@@ -1,5 +1,5 @@
 import {CisternRenderer} from './cistern-renderer.js?v=5.42';
-import {CISTERN,createCisternState,advanceCistern,actionCistern,cisternObjective,nearbyCisternTarget,cisternRoute,claimCisternRewards} from './cistern-model.js';
+import {CISTERN,CISTERN_TRAVEL_SPEED,createCisternState,advanceCistern,actionCistern,cisternObjective,nearbyCisternTarget,cisternRoute,claimCisternRewards} from './cistern-model.js';
 
 const CAMERA_KEY='ash-aether-cistern-camera';
 const QUALITY_KEY='ash-aether-cistern-quality';
@@ -282,7 +282,7 @@ export function mountCistern({parent=document.body,storage=localStorage,getWorld
     const guarding=guardPointer!==null||keys.has('KeyG')||pad.guard,before={x:state.player.x,z:state.player.z};
     if(route.length&&Math.hypot(mx,mz)<.01&&!gesture){
      while(route.length&&Math.hypot(route[0].x-state.player.x,route[0].z-state.player.z)<.055)route.shift();
-     if(route.length){const p=route[0],len=Math.hypot(p.x-state.player.x,p.z-state.player.z),stepSpeed=3.25*(guarding?.45:1),speedScale=Math.min(1,len/Math.max(.001,stepSpeed*dt));mx=(p.x-state.player.x)/Math.max(.001,len)*speedScale;mz=(p.z-state.player.z)/Math.max(.001,len)*speedScale;}
+     if(route.length){const p=route[0],len=Math.hypot(p.x-state.player.x,p.z-state.player.z),stepSpeed=CISTERN_TRAVEL_SPEED.walk*(guarding?.45:1),speedScale=Math.min(1,len/Math.max(.001,stepSpeed*dt));mx=(p.x-state.player.x)/Math.max(.001,len)*speedScale;mz=(p.z-state.player.z)/Math.max(.001,len)*speedScale;}
      else showMessage('You have reached the marked place. Use Interact, or Strike if a creature is in reach.');
     }
     processEvents(advanceCistern(state,dt,{moveX:mx,moveZ:mz,run:!route.length&&(pad.run||keys.has('ShiftLeft')||keys.has('ShiftRight')||Math.hypot(movement.x,movement.z)>.85),guard:guarding},heroes()));

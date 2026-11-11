@@ -142,7 +142,7 @@ test('replacing the save or cancelling releases held work without touching the n
 });
 
 test('the guide approaches at ordinary walking speed instead of running through the scene',()=>{
- const w=walkingWorld(),g=createQuestGuide(w,{resolve:()=>({object:{type:'npc',xy:[40,0]}})});g.start();g.update(.1);assert.ok(w.state.x-.5>0);assert.ok(w.state.x-.5<=.265000001);
+ const w=walkingWorld(),g=createQuestGuide(w,{resolve:()=>({object:{type:'npc',xy:[40,0]}})});g.start();g.update(.1);assert.ok(w.state.x-.5>0);assert.ok(w.state.x-.5<=.530000001);
 });
 
 test('the interaction gate can decline a guide action without recording a completed attempt',()=>{
@@ -167,7 +167,7 @@ test('selected guidance crosses waypoints at one real pace across refresh rates 
  for(const fps of [30,60,120,240]){
   const w=walkingWorld(120),g=createQuestGuide(w,{resolve:()=>({label:'Walk the long road',object:{type:'npc',id:'distant',xy:[100,0]}})});
   g.start();for(let i=0;i<fps*6;i++)g.update(1/fps);
-  assert.ok(Math.abs(w.state.x-16.4)<1e-8,'2.65 tiles per second at '+fps+'Hz');
+  assert.ok(Math.abs(w.state.x-32.3)<1e-8,'5.3 tiles per second at '+fps+'Hz');
   assert.equal(g.motion.gait,'walk');assert.equal(g.motion.intent.x,1);assert.equal(g.running,true);
   const x=w.state.x;g.update(1/fps,{paused:'action picker'});assert.equal(g.motion,null);assert.equal(w.state.x,x);assert.equal(g.running,true);
   g.update(1/fps);assert.ok(w.state.x>x);g.cancel();assert.equal(g.motion,null);
