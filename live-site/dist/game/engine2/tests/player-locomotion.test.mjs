@@ -1,27 +1,27 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {World} from '../world.js';
-import {movementDelta,advanceRoute,TRAVEL_SPEED} from '../player-locomotion.js';
+import {movementDelta,movePlayer,advanceRoute,TRAVEL_SPEED} from '../player-locomotion.js';
 
 const close=(a,b,message='')=>assert.ok(Math.abs(a-b)<1e-8,message||`${a} ≠ ${b}`);
 function world(floor=['....................']){
  return {state:{x:.5,y:.5,scene:1,mode:'field'},walkable(x,y){return floor[Math.floor(y)]?.[Math.floor(x)]==='.';},move:World.prototype.move};
 }
 
-test('manual diagonals, reversals and release preserve immediate unchanged movement speeds',()=>{
+test('manual diagonals, reversals and release preserve immediate movement at the faster speeds',()=>{
  for(const run of [false,true])for(const [dx,dy]of [[1,0],[-1,0],[1,1],[-1,-1],[0,-1]]){
-  const p=movementDelta(dx,dy,1/60,{run}),speed=run?4.2:2.65;
+  const p=movementDelta(dx,dy,1/60,{run}),speed=run?8.4:5.3;
   close(Math.hypot(p.x,p.y),speed/60);close(Math.hypot(p.intent.x,p.intent.y),1);
   const reverse=movementDelta(-dx,-dy,1/60,{run});close(reverse.x,-p.x);close(reverse.y,-p.y);
   const stopped=movementDelta(0,0,1/60,{run});assert.equal(stopped.moving,false);assert.deepEqual(stopped.intent,{x:0,y:0});close(stopped.x,0);close(stopped.y,0);
  }
- assert.deepEqual(TRAVEL_SPEED,{walk:2.65,run:4.2,route:2.65});
+ assert.deepEqual(TRAVEL_SPEED,{walk:5.3,run:8.4,route:5.3});
 });
 
 test('manual motion is invariant across normal refresh rates and ignores invalid elapsed time',()=>{
  for(const fps of [30,60,120,240]){
   let x=0,y=0;for(let i=0;i<fps*3;i++){const p=movementDelta(1,-1,1/fps,{run:true});x+=p.x;y+=p.y;}
-  close(Math.hypot(x,y),4.2*3);
+  close(Math.hypot(x,y),8.4*3);
  }
  for(const dt of [-1,Infinity,NaN]){const p=movementDelta(1,0,dt);assert.equal(p.x,0);assert.equal(p.y,0);}
  assert.equal(movementDelta(NaN,1,.05).moving,false);
@@ -36,12 +36,12 @@ test('route movement spends the full frame budget through cardinal turns at ever
  }
 });
 
-test('ordinary routes cover15.9tiles in6seconds at every refresh rate, with an explicit fast route option',()=>{
- for(const speed of [undefined,4])for(const fps of [30,60,120,240]){
-  const w=world(['.'.repeat(120)]),path=Array.from({length:100},(_,i)=>[i+1.5,.5]),rate=speed??2.65;
+test('ordinary routes cover 31.8 tiles in 6 seconds at every refresh rate, with an explicit fast route option',()=>{
+ for(const speed of [undefined,7])for(const fps of [30,60,120,240]){
+  const w=world(['.'.repeat(120)]),path=Array.from({length:100},(_,i)=>[i+1.5,.5]),rate=speed??5.3;
   let total=0,last;for(let i=0;i<fps*6;i++){last=advanceRoute(w,path,1/fps,speed===undefined?{}:{speed});total+=last.distance;}
   close(total,rate*6);close(w.state.x,.5+rate*6);assert.equal(path.length,100-Math.floor(rate*6));
-  assert.equal(last.gait,speed===4?'run':'walk');
+  assert.equal(last.gait,speed===7?'run':'walk');
  }
 });
 
@@ -76,4 +76,15 @@ test('dialogue, battle, scene and state replacement interrupt stale routes witho
   const r=advanceRoute(w,path,.1);assert.equal(r.interrupted,true);assert.equal(r.arrived,false);assert.equal(path.length,2);assert.equal(r.consumed,0);
  }
  for(const mode of ['dialog','battle','paused']){const w=world();w.state.mode=mode;const path=[[1.5,.5]],r=advanceRoute(w,path,.1);assert.equal(r.interrupted,true);close(w.state.x,.5);assert.equal(path.length,1);}
+});
+
+
+test('fast manual movement respects narrow walls even with a movement bonus',()=>{
+ const w=world(['.#..']);
+ const run=movementDelta(1,0,.1,{run:true});
+ movePlayer(w,run.x*2,run.y);
+ assert.ok(w.state.x<1);
+ const open=world();
+ movePlayer(open,run.x,run.y);
+ close(open.state.x,.5+.84);
 });

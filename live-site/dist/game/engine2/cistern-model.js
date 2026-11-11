@@ -4,6 +4,8 @@
  * Enemy attacks lock their warning circle before striking. Call advance only
  * while the dungeon is active; all action functions return presentation events.
  */
+export const CISTERN_TRAVEL_SPEED=Object.freeze({walk:6.5,run:9.6});
+
 export const CISTERN = Object.freeze({
  id:'remembering-cistern', title:'The Remembering Cistern',
  entry:{x:0,z:12}, exit:{x:0,z:14}, playerRadius:.28,
@@ -144,7 +146,7 @@ export function advanceCistern(state,dt,input={},party=[]){
  s.effects=s.effects.filter(f=>(f.t+=dt)<f.life);
  const mx=clamp(finite(input.moveX),-1,1),mz=clamp(finite(input.moveZ),-1,1),len=Math.hypot(mx,mz);
  s.player.moving=!!len;
- if(len){const speed=(input.run?4.8:3.25)*(s.guard?.45:1),before={...s.player};moveActor(s.player,mx/Math.max(1,len)*speed*dt,mz/Math.max(1,len)*speed*dt,s);s.player.facing=Math.atan2(mx,mz);s.player.moving=dist(before,s.player)>.0001;}
+ if(len){const speed=(input.run?CISTERN_TRAVEL_SPEED.run:CISTERN_TRAVEL_SPEED.walk)*(s.guard?.45:1),before={...s.player};moveActor(s.player,mx/Math.max(1,len)*speed*dt,mz/Math.max(1,len)*speed*dt,s);s.player.facing=Math.atan2(mx,mz);s.player.moving=dist(before,s.player)>.0001;}
  const heroes=liveParty(party);if(s.guard)for(const h of heroes)h.mp=Math.min(finite(h.maxMp,38),finite(h.mp)+dt*2.2);if(!heroes.length&&party?.length){defeat(s,party,events);return events;}
  let inCombat=false;
  for(const e of s.enemies){

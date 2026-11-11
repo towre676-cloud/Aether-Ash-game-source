@@ -87,10 +87,10 @@ export function createEmbodiedFeedback({getWorld=()=>null,getRenderer=()=>null,g
   const world=getWorld(),player={x:world?.state?.x||0,y:world?.state?.y||0};
   return {pan:clamp((finite(x,player.x)-player.x)/8,-.85,.85),gain:1/(1+Math.hypot(finite(x,player.x)-player.x,finite(y,player.y)-player.y)*.12)};
  }
- function voice({frequency=180,endFrequency=frequency,duration=.15,gain=.16,type='sine',noise=false,x,y,filter=1800}){
+ function voice({frequency=180,endFrequency=frequency,duration=.15,gain=.16,type='sine',noise=false,x,y,filter=1800,delay=0}){
   if(!context||context.state!=='running'||!master)return;
   const pref=preferences();if(!pref.active||pref.volume<=0)return;
-  const time=context.currentTime,{pan,gain:distance}=panAt(x,y),node=noise?context.createBufferSource():context.createOscillator();
+  const time=context.currentTime+delay,{pan,gain:distance}=panAt(x,y),node=noise?context.createBufferSource():context.createOscillator();
   if(noise)node.buffer=noiseBuffer;else{node.type=type;node.frequency.setValueAtTime(Math.max(18,frequency),time);node.frequency.exponentialRampToValueAtTime(Math.max(18,endFrequency),time+duration);}
   const band=context.createBiquadFilter();band.type='lowpass';band.frequency.value=filter;
   const envelope=context.createGain();envelope.gain.setValueAtTime(.0001,time);envelope.gain.exponentialRampToValueAtTime(Math.max(.0002,gain*distance),time+.008);envelope.gain.exponentialRampToValueAtTime(.0001,time+duration);
@@ -106,6 +106,16 @@ export function createEmbodiedFeedback({getWorld=()=>null,getRenderer=()=>null,g
    voice({...where,frequency:kind==='cable'?290:83,endFrequency:kind==='cable'?170:120,duration:.09,gain:.08,type:'triangle',filter:900});return;
   }
   if(e.type==='cancel'){voice({...where,frequency:150,endFrequency:85,duration:.09,gain:.06,type:'triangle'});return;}
+  if(kind==='reed-call'){
+   voice({...where,frequency:294,endFrequency:291,duration:.22,gain:.12,type:'triangle'});
+   if(e.echo)voice({...e.echo,frequency:440,endFrequency:432,duration:.44,gain:.09,type:'triangle'});
+   return;
+  }
+  if(e.type==='complete'&&kind==='lure'&&e.object?.originId==='sable-reed'){
+   voice({...where,frequency:440,duration:.38,gain:.10,type:'triangle'});
+   voice({...where,frequency:660,duration:.30,gain:.045,type:'triangle',delay:.14});
+   return;
+  }
   if(e.type==='signal'||key.includes('signal')||kind==='receiver'){
    voice({...where,frequency:620,endFrequency:720,duration:.2,gain:.045});voice({...where,frequency:930,endFrequency:880,duration:.28,gain:.025});return;
   }
@@ -125,11 +135,11 @@ export function createEmbodiedFeedback({getWorld=()=>null,getRenderer=()=>null,g
   if(destroyed)return;
   const kind=String(e.kind||e.object?.manipulation||'switch'),xy=e.xy||e.object?.xy,world=getWorld(),position={x:finite(e.x,xy?xy[0]+.5:finite(world?.state?.x)),y:finite(e.y,xy?xy[1]+.5:finite(world?.state?.y))};
   if(e.type!=='progress'){
-   effects.push({type:e.type,kind,id:e.id||'feedback-'+effectSequence++,object:e.object,x:position.x,y:position.y,t:0,life:e.duration|| (e.type==='complete'?1.3:.65),duration:e.duration||.7,progress:e.progress??0,open:e.open,color:e.color||'#a9ddbd'});if(effects.length>20)effects.shift();
+   effects.push({type:e.type,kind,id:e.id||'feedback-'+effectSequence++,object:e.object,x:position.x,y:position.y,t:0,life:e.duration|| (e.type==='complete'?1.3:.65),duration:e.duration||.7,progress:e.progress??0,open:e.open,echo:e.echo,peaceful:e.peaceful,color:e.color||'#a9ddbd'});if(effects.length>20)effects.shift();
   }
   sound({...e,...position,kind});
   if(e.type==='complete'||e.type==='choice'||e.type==='signal'){
-   flash={x:position.x,y:position.y,kind,label:e.type==='signal'?'Signal clear':e.object?.actuatorId?({receiver:'Sounded',gauge:'Control aligned',roller:'Record turned',lever:'Mechanism set',work:'Work set',lamp:'Light set',coil:'Circuit set'}[kind]||'Set'):completed[kind]||'Set',progress:1,remaining:1.8};
+   flash={x:position.x,y:position.y,kind,label:e.caption||(e.type==='signal'?'Signal clear':e.object?.actuatorId?({receiver:'Sounded',gauge:'Control aligned',roller:'Record turned',lever:'Mechanism set',work:'Work set',lamp:'Light set',coil:'Circuit set'}[kind]||'Set'):completed[kind]||'Set'),progress:1,remaining:1.8};
    if(cueLive)cueLive.textContent=flash.label;
    try{onSave();}catch{}
   }

@@ -1,5 +1,5 @@
-/** Responsive movement uses the existing traversal speeds, with no release drift. */
-export const TRAVEL_SPEED=Object.freeze({walk:2.65,run:4.2,route:2.65});
+/** Responsive movement has no release drift. */
+export const TRAVEL_SPEED=Object.freeze({walk:5.3,run:8.4,route:5.3});
 const frameTime=dt=>Number.isFinite(dt)?Math.max(0,Math.min(.1,dt)):0;
 const origin=()=>({x:0,y:0});
 
@@ -11,12 +11,21 @@ export function movementDelta(dx,dy,dt,{run=false}={}){
  return {x:intent.x*speed*time,y:intent.y*speed*time,speed,moving:speed*time>0,intent,gait:run?'run':'walk'};
 }
 
+// Keep fast manual steps short enough for narrow walls and floor overrides.
+export function movePlayer(world,x,y){
+ const steps=Math.max(1,Math.ceil(Math.hypot(x,y)/.2));
+ const state=world.state,scene=state.scene,mode=state.mode;
+ for(let i=0;i<steps&&world.state===state&&state.scene===scene&&state.mode===mode;i++){
+  world.move(x/steps,y/steps);
+ }
+}
+
 /** Spend one frame's distance across consecutive route vertices. Reaching a
  * vertex does not cost an extra frame, and turns pass through the actual vertex
  * rather than skipping the last part of the segment. World.move remains the only
  * position writer, so its collision and mode rules stay authoritative. */
 export function advanceRoute(world,path,dt,{speed=TRAVEL_SPEED.route}={}){
- const rate=Number.isFinite(speed)?Math.max(0,speed):0,result={distance:0,consumed:0,arrived:false,blocked:false,interrupted:false,intent:origin(),gait:rate>=3.6?'run':'walk'};
+ const rate=Number.isFinite(speed)?Math.max(0,speed):0,result={distance:0,consumed:0,arrived:false,blocked:false,interrupted:false,intent:origin(),gait:rate>TRAVEL_SPEED.walk?'run':'walk'};
  if(!Array.isArray(path)||!world?.state||typeof world.move!=='function'){result.interrupted=true;return result;}
  const state=world.state,scene=state.scene,mode=state.mode;
  if(mode!=='field'||!Number.isFinite(state.x)||!Number.isFinite(state.y)){result.interrupted=true;return result;}

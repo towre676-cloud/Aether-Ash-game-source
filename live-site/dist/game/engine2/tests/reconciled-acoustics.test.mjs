@@ -5,10 +5,11 @@ import crypto from 'node:crypto';
 import {createReconciledAcoustics,acousticBiomeFor,acousticSurfaceFor,acousticDeviceFor,acousticRoleFor} from '../reconciled-acoustics.js';
 import {V4_BOSSES,V4_BOSS_PHASES,V4_NPCS,V4_NPC_ACTIONS,V4_DEVICES,V4_DEVICE_ACTIONS,V4_ZONES,V4_TIMELINE_STATES} from '../reconciled-content/acoustics/src/acoustic-events-v4.js';
 const base=new URL('../reconciled-content/acoustics/',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('manifest.json',base))),ids=new Set(manifest.assets.map(a=>a.id));
-function harness({texture=false}={}){
+function harness({texture=false,ground=null}={}){
  const calls=[],captions=[],handles=[],stems=[],w={scene:{location:1,key:'field',theme:0,chapter:1,objects:[],doors:[]},state:{scene:1,chapter:1,x:2.5,y:2.5,party:[0],mode:'field',flags:{}},objects(){return this.scene.objects;},available(){return true;},done(o){return !!this.state.flags[o.id];},interact(o){if(o.resolve)this.state.flags[o.id]=true;}};
  const gain=()=>({connect(){},gain:{setValueAtTime(){},linearRampToValueAtTime(){},setTargetAtTime(){},cancelScheduledValues(){}}});
  const audio={ctx:null,buses:{music:gain()},index:new Map(manifest.assets.map(a=>[a.id,a])),volume:{},init:async()=>{},unlock:async()=>{audio.ctx={currentTime:0,resume:async()=>{},createGain:gain,createBufferSource(){const stem={connect(){},start(){this.started=true;},stop(){this.stopped=true;}};stems.push(stem);return stem;}};},async load(id){assert.ok(ids.has(id));calls.push(['load',id]);return {duration:16};},setVolume(k,v){this.volume[k]=v;calls.push(['volume',k,v]);},setMuted(v){calls.push(['muted',v]);},setListener(){},async play(id){assert.ok(ids.has(id),'shipped cue '+id);calls.push(['play',id]);const source=new EventTarget();source.stopped=false;source.stop=()=>{source.stopped=true;source.dispatchEvent(new Event('ended'));};const handle={source};handles.push(handle);return handle;},async ambience(id){assert.ok(ids.has(id));calls.push(['ambience',id]);},footstep:async p=>calls.push(['footstep',p]),dispose(){}};
+ w.reconciledGround=ground;
  const a=createReconciledAcoustics({getWorld:()=>w,transport:audio,storage:{getItem:key=>key==='aa-acoustic-score'&&texture?'on':null},onCaption:e=>captions.push(e)});return {a,w,audio,calls,captions,handles,stems};
 }
 const turn=()=>new Promise(r=>setTimeout(r,0));
@@ -58,5 +59,19 @@ test('ambience-only pacing stops optional score stems while keeping world and Hy
  const n=h.calls.length;for(let i=0;i<120;i++)h.a.sync({active:true,musicEnabled:false});assert.equal(h.calls.length,n);
  let release;const pending=new Promise(resolve=>release=resolve);h.audio.load=async()=>pending;
  h.a.sync({active:true,musicEnabled:true});h.a.sync({active:true,musicEnabled:false});release({duration:16});await turn();assert.equal(h.stems.length,4,'a late score decode cannot start after the gate closes');
+ h.a.dispose();
+});
+
+
+test('campaign walking and running make no footstep audio with world effects enabled',async()=>{
+ const listeners=new Set();
+ const h=harness({ground:{subscribe(listener){listeners.add(listener);return ()=>listeners.delete(listener);}}});
+ h.a.sync({active:true});
+ await h.a.unlock();
+ for(const sprinting of [false,true])for(const listener of listeners)
+  listener({type:'campaign-footstep',x:3,y:2,material:{id:'wood'},sprinting});
+ await turn();
+ assert.ok(h.calls.some(call=>call[0]==='ambience'));
+ assert.ok(h.calls.every(call=>call[0]!=='footstep'));
  h.a.dispose();
 });

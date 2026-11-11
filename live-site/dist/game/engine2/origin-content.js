@@ -5,7 +5,7 @@ export const ORIGINS=[
  witness:'MARA: Your mother promised Rook a reed. She also promised she would rest. Help me keep at least one of those promises.\nSABLE: Which one am I delivering?\nMARA: Ask her before you decide.',
  clue:'A reed speaks when its narrow end can move. The loudspeaker clamps it at both ends. Someone has mistaken keeping a voice for keeping it alive.',
  repair:['Free the reed; let the sound fade naturally.','Build a removable sleeve; keep a private copy.'],repairText:['The note fades. His mother laughs at the sudden, ordinary quiet.','The sleeve holds one phrase. She writes her name on the case herself.'],
- threat:'A clay scavenger has nested under the relay. Its shell is packed with discarded speaker wire.',peace:'Unwind the wire and leave the relay unpowered.',
+ threat:'A clay scavenger has nested under the relay. Its shell is packed with discarded speaker wire.',peace:'Ring the side speaker to draw the scavenger away.',
  dilemma:'MOTHER: If anyone hears this years from now, I want them to know I meant to leave it. Who should keep the case?',
  choices:['Entrust the case to the family.','Let the workshop keep it under a signed loan.'],
  consequences:['Mara keeps a family reed shelf; its remedies remain freely available.','Rook keeps a lending bench; its spare conductors remain freely available.'],effects:['family-remedies','workshop-conductors'],
@@ -83,7 +83,7 @@ ORIGINS.forEach((origin,index)=>Object.assign(origin,ORIGIN_GUIDANCE[index]));
 const ORIGIN_JOURNEYS=[
  {aim:'Carry the reed without deciding for the person whose voice it holds.',before:'The first public speaker can keep a phrase. Sable must ask his mother what she wants kept, and who may keep it.',
   promise:['Bring the reed case back to Mara, and come home with it.','Bring the reed case back to Mara, and come home with it.'],
-  arrival:['Three years later, Mara takes the case from the family shelf. Rook needs the reed for the Festival of Mended Things. Sable has promised to bring the case home before dark.','Three years later, the workshop’s loan is over and the case is back with Mara. Rook asks to borrow the reed for the festival. This time, too, Sable will bring it home.'],
+  arrival:['Three years later, Mara takes the case from the family shelf. Rook needs the reed for the Festival of Mended Things. The case now bears a recording date from after his mother died. Sable takes it to Rook.','Three years later, the workshop’s loan is over and the case is back with Mara. Rook asks to borrow the reed for the festival. The case now bears a recording date from after his mother died. Sable takes it to Rook.'],
   concern:['Sable follows the copy of his mother’s voice, but Nell’s father and the other prisoners need him now.','Sable cannot call the rescue finished while the people behind his old deliveries are still paying for them.','Sable still wants to hear his mother. He must not make that longing a rule for everyone else.'],
   home:['','',''],
   homecoming:['Sable puts the carrying strap beside the case. For once, he does not reach for the next delivery.','Sable puts the carrying strap beside the case. For once, he does not reach for the next delivery.']},

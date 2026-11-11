@@ -73,7 +73,7 @@ export function createReconciledAcoustics({getWorld,onCaption=()=>{},onNotice=()
  const score=new AdaptiveScore(audio),arbiter=new CueArbiter({maxVoices:8});
  const preferences={enabled:read(storage,'aa-acoustic-enabled','on')!=='off',volume:clamp(Number(read(storage,'aa-acoustic-volume','.55'))),captions:read(storage,'aa-acoustic-captions','on')!=='off',texture:read(storage,'aa-acoustic-score','off')==='on'};
  const activeHandles=new Set(),tokenHandles=new Map(),attached=new WeakSet(),seenBattleEvents=new WeakSet(),pendingDevices=new Map();
- let active=false,ducked=false,musicEnabled=true,unlocked=false,unlocking=null,worldRef=null,stateRef=null,sceneId=null,biome=null,cycle=null,stepUnsubscribe=null,observationDebt=0,npcClock=0,lastSpot=0,frameTime=0,captionNode=null,captionTimer=null,captionText='',generation=0,lastCue=null,failures=0,lastGain=null,lastMuted=null;
+ let active=false,ducked=false,musicEnabled=true,unlocked=false,unlocking=null,worldRef=null,stateRef=null,sceneId=null,biome=null,cycle=null,observationDebt=0,npcClock=0,lastSpot=0,frameTime=0,captionNode=null,captionTimer=null,captionText='',generation=0,lastCue=null,failures=0,lastGain=null,lastMuted=null;
  const write=(key,value)=>{try{storage?.setItem(key,String(value));}catch{}};
  const caption=(text,category='world')=>{
   if(!preferences.captions||!text||category==='environment'&&getWorld()?.scene?.originId==='veyr-storm')return;
@@ -104,12 +104,7 @@ export function createReconciledAcoustics({getWorld,onCaption=()=>{},onNotice=()
  function attach(world){
   if(!world)return;
   world.reconciledAcoustics=api;
-  if(worldRef!==world){stepUnsubscribe?.();worldRef=world;sceneId=null;cycle=null;pendingDevices.clear();stepUnsubscribe=world.reconciledGround?.subscribe(event=>{
-   if(event.type!=='campaign-footstep'||!active||!preferences.enabled||!unlocked)return;
-   const surface=acousticSurfaceFor(event.material,event.scene),cover=world.livingAtlas?.sample?.(event.x,event.y)?.vegetation?.cover||0;
-   audio.setListener(event.x,event.y);
-   audio.footstep({surface,velocity:event.sprinting?1.65:1,sprinting:event.sprinting,sneaking:event.stealth>.4,position:{x:event.x,z:event.y},cover}).catch(()=>failures++);
-  });}
+  if(worldRef!==world){worldRef=world;sceneId=null;cycle=null;pendingDevices.clear();}
   if(attached.has(world))return;attached.add(world);
   const original=world.interact.bind(world);
   world.interact=(object,...rest)=>{
@@ -197,12 +192,12 @@ export function createReconciledAcoustics({getWorld,onCaption=()=>{},onNotice=()
    if(captionParent&&!captionNode){captionNode=document.createElement('div');captionNode.id='aa-acoustic-caption';captionNode.hidden=true;captionNode.setAttribute('role','status');captionNode.setAttribute('aria-live','polite');captionParent.append(captionNode);}
    const box=document.createElement('section');box.className='aa-acoustic-options';box.setAttribute('aria-label','Acoustic world');
    const title=document.createElement('strong');title.textContent='Acoustic world';box.append(title);
-   for(const [key,label,storeKey] of [['enabled','Material footsteps, creatures and mechanisms','aa-acoustic-enabled'],['captions','Visible sound cues','aa-acoustic-captions'],['texture','Quiet adaptive music textures','aa-acoustic-score']]){const row=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.checked=preferences[key];input.onchange=()=>{preferences[key]=input.checked;write(storeKey,input.checked?'on':'off');if(key==='texture'){audio.setVolume('music',input.checked&&musicEnabled?.095:0);if(input.checked&&musicEnabled&&unlocked&&biome)score.setScene(scoreSceneForBiome(biome)).catch(()=>failures++);else score.stop();}if(key==='enabled'){audio.setMuted(!input.checked||!active);if(!input.checked)stopTransient();else api.unlock();}if(key==='captions'&&!input.checked&&captionNode)captionNode.hidden=true;};row.append(input,document.createTextNode(label));box.append(row);}
+   for(const [key,label,storeKey] of [['enabled','Creature and mechanism sounds','aa-acoustic-enabled'],['captions','Visible sound cues','aa-acoustic-captions'],['texture','Quiet adaptive music textures','aa-acoustic-score']]){const row=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.checked=preferences[key];input.onchange=()=>{preferences[key]=input.checked;write(storeKey,input.checked?'on':'off');if(key==='texture'){audio.setVolume('music',input.checked&&musicEnabled?.095:0);if(input.checked&&musicEnabled&&unlocked&&biome)score.setScene(scoreSceneForBiome(biome)).catch(()=>failures++);else score.stop();}if(key==='enabled'){audio.setMuted(!input.checked||!active);if(!input.checked)stopTransient();else api.unlock();}if(key==='captions'&&!input.checked&&captionNode)captionNode.hidden=true;};row.append(input,document.createTextNode(label));box.append(row);}
    const volumeRow=document.createElement('label'),volume=document.createElement('input');volume.type='range';volume.min=0;volume.max=1;volume.step=.01;volume.value=preferences.volume;volume.setAttribute('aria-label','Acoustic world volume');volume.oninput=()=>{preferences.volume=Number(volume.value);write('aa-acoustic-volume',preferences.volume);audio.setVolume('master',preferences.volume*(ducked?.28:1));};volumeRow.append(document.createTextNode('World effects'),volume);box.append(volumeRow);
-   const note=document.createElement('p');note.textContent='Footsteps follow the actual floor. Guardian rhythms follow their visible warnings. Listening points toward placed mechanisms; sound is optional.';box.append(note);parent.append(box);return box;
+   const note=document.createElement('p');note.textContent='Guardian rhythms follow their visible warnings. Listening points toward placed mechanisms; sound is optional.';box.append(note);parent.append(box);return box;
   },
   stats(){return {assets:audio.index?.size||0,enabled:preferences.enabled,musicEnabled,unlocked,active,lastCue,failures,scene:sceneId,caption:captionText};},
-  dispose(){stopTransient();stepUnsubscribe?.();score.stop();audio.dispose();clearTimeout(captionTimer);captionNode?.remove();}
+  dispose(){stopTransient();score.stop();audio.dispose();clearTimeout(captionTimer);captionNode?.remove();}
  };
  attach(getWorld?.());return api;
 }
