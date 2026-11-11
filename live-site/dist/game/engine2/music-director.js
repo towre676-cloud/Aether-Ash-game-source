@@ -32,13 +32,16 @@ export function createMusicDirector({player,library,programFor,storage,now=()=>p
  function clock(){const at=now(),delta=Number.isFinite(at-lastTime)?clamp(at-lastTime,0,3600):0;lastTime=at;if(!active)return;if(phase==='resting')restRemaining=Math.max(0,restRemaining-delta);if(phase==='playing')dwell+=delta;}
  function persist(){write(storage,MUSIC_HISTORY_KEY,JSON.stringify({version:1,counter,history}));}
  function normalized(program){
-  const ids=[...new Set((program?.ids||[]).filter(id=>typeof id==='string'&&library.has(id)))];
+  const resolve=ids=>[...new Set((ids||[]).filter(id=>typeof id==='string'&&library.has(id)))];
+  const ids=resolve(program?.ids),fallbackIds=resolve(program?.fallbackIds);
   const kind=['field','battle','boss','performance'].includes(program?.kind)?program.kind:'field';
   const rest=Array.isArray(program?.rest)?program.rest:[16,30];
-  return {key:String(program?.key||kind),label:String(program?.label||'The world'),kind,ids,rest:[clamp(Number(rest[0])||0,0,90),clamp(Number(rest[1])||0,0,90)]};
+  return {key:String(program?.key||kind),label:String(program?.label||'The world'),kind,ids:ids.length?ids:fallbackIds,fallbackIds:ids.length?fallbackIds:[],rest:[clamp(Number(rest[0])||0,0,90),clamp(Number(rest[1])||0,0,90)]};
  }
  function pool(program=desired){
-  const seen=new Set();return (program?.ids||[]).map(id=>library.get(id)).filter(track=>{const key=recording(track);if(!track||!key||failed.has(key)||seen.has(key))return false;seen.add(key);return true;});
+  const available=ids=>{const seen=new Set();return (ids||[]).map(id=>library.get(id)).filter(track=>{const key=recording(track);if(!track||!key||failed.has(key)||seen.has(key))return false;seen.add(key);return true;});};
+  const primary=available(program?.ids);
+  return primary.length?primary:available(program?.fallbackIds);
  }
  function choose(){
   let candidates=pool();if(!candidates.length)return null;
@@ -56,7 +59,7 @@ export function createMusicDirector({player,library,programFor,storage,now=()=>p
  }
  function remembered(track){counter=(counter+1)%1e9;history.push({recordingKey:recording(track),id:track.id,family:track.family||track.id});history=history.slice(-HISTORY_LIMIT);persist();}
  function quietLength(){if(mode==='continuous'||combat(desired))return 0;const [a,b]=desired?.rest||[16,30],low=Math.min(a,b),high=Math.max(a,b);return low+(hash((desired?.key||'field')+':rest:'+counter)%1001)/1000*(high-low);}
- function sameProgram(a,b){return a?.key===b?.key&&a?.kind===b?.kind&&a?.ids.join('|')===b?.ids.join('|');}
+ function sameProgram(a,b){return a?.key===b?.key&&a?.kind===b?.kind&&a?.ids.join('|')===b?.ids.join('|')&&a?.fallbackIds.join('|')===b?.fallbackIds.join('|');}
  function includesCurrent(){return !!current&&pool().some(track=>recording(track)===recording(current));}
  function switchNeeded(){
   if(!current)return true;if(forceNext)return true;
