@@ -36,6 +36,7 @@ import * as architecture from './adventure-3d-geometry.js?v=5.42';
 import {createFollowerFormation} from './follower-motion.js?v=5.41';
 import {characterPose,spriteFacingFlip} from './character-motion.js';
 import {personFor} from './presentation.js?v=5.41';
+import {findPath} from './navigation.js';
 import {fieldPatrolPosition} from './field-patrols.js?v=5.33.0';
 import {decorateEnemy,frontierEnemy} from './repertoire.js?v=5.38';
 import {patrolFormationEnemies} from './patrol-formations.js?v=5.38';
@@ -309,11 +310,40 @@ export class Adventure3DRenderer extends CisternRenderer {
     this.updateMesh('dynamic',m);this.updateMesh('shadows',shadow);this.updateMesh('glow',glow);
   }
   updateDepartures(){
-    const snapshot=this.feedbackSnapshot();for(const e of snapshot?.effects||[]){if(snapshot.originId!=='veyr-storm'||e.kind!=='lure'||e.type!=='complete'&&!e.peaceful)continue;const key=[this.world.state.scene,snapshot.originId,e.id||'lure'].join(':');if(this.departureKeys.has(key))continue;const native=this.world.scene.objects.find(o=>o.originId===snapshot.originId&&o.type==='patrol'&&o.originStep===2);if(!native)continue;const start=this.originThreatSnapshot?.sceneId===this.world.state.scene?this.originThreatSnapshot:{x:(native.enemies?.[0]?.[1]?.[0]??native.xy[0])+.5,y:(native.enemies?.[0]?.[1]?.[1]??native.xy[1])+.5,sprite:(this.world.scene.chapter||1)%4,boss:false,object:native};const actor=frontierEnemy({...start,hp:1,maxHp:1},native.originSpecies);this.departures.push({key,scene:this.world.state.scene,actor,x:start.x,z:start.y,toX:finite(e.x,start.x-3),toZ:finite(e.y,start.y),started:this.adventureTime});this.departureKeys.add(key);}
+    const snapshot=this.feedbackSnapshot(),world=this.world;
+    const walking=snapshot?.originId==='sable-reed';
+    if(walking||snapshot?.originId==='veyr-storm')for(const effect of snapshot.effects||[]){
+      if(effect.kind!=='lure'||effect.type!=='complete'||!effect.peaceful)continue;
+      const key=[world.state.scene,snapshot.originId,effect.id||'lure'].join(':');
+      if(this.departureKeys.has(key))continue;
+      const native=world.scene.objects.find(o=>o.originId===snapshot.originId&&o.type==='patrol'&&o.originStep===2);
+      if(!native)continue;
+      const [x,y]=native.enemies?.[0]?.[1]||native.xy;
+      const start=this.originThreatSnapshot?.sceneId===world.state.scene?this.originThreatSnapshot:{x:x+.5,y:y+.5,sprite:(world.scene.chapter||1)%4,boss:false,object:native};
+      const actor=frontierEnemy({...start,hp:1,maxHp:1},native.originSpecies);
+      const toX=finite(effect.x,start.x-3),toZ=finite(effect.y,start.y);
+      const route=walking?[[start.x,start.y],...findPath(world.scene,[start.x,start.y],[toX,toZ],1)]:null;
+      this.departures.push({key,scene:world.state.scene,actor,x:start.x,z:start.y,toX,toZ,route,started:this.adventureTime});
+      this.departureKeys.add(key);
+    }
     this.departures=this.departures.filter(d=>d.scene===this.world.state.scene&&this.adventureTime-d.started<2);
   }
   drawDepartures(shadow,time){
-    for(const d of this.departures){const q=clamp((time-d.started)/2,0,1),approach=Math.min(1,q/.70),ease=approach*approach*(3-2*approach),tail=Math.max(0,(q-.70)/.30),dx=d.toX-d.x,dz=d.toZ-d.z,length=Math.hypot(dx,dz)||1,x=d.x+dx*ease+dx/length*tail*2.4,z=d.z+dz*ease+dz/length*tail*2.4,before=this.sprites.length;this.actorSprite({...d.actor,hp:1,pose:0,intent:null},x,z,this.drawDt,{enemy:true,fieldMoving:true,facing:Math.sign(dx)||1});if(this.sprites.length>before){const sprite=this.sprites.at(-1);sprite.y=.9+Math.sin(approach*Math.PI)*.9+tail*2.8+Math.sin(time*8)*.035;sprite.alpha=1-tail;}shadow.disc(x,.065,z,.38*(1-q*.5),.25*(1-q*.5),[.005,.015,.02],8,.28*(1-q));}
+    for(const d of this.departures){
+      if(!d.route){
+        const q=clamp((time-d.started)/2,0,1),approach=Math.min(1,q/.70),ease=approach*approach*(3-2*approach),tail=Math.max(0,(q-.70)/.30),dx=d.toX-d.x,dz=d.toZ-d.z,length=Math.hypot(dx,dz)||1,x=d.x+dx*ease+dx/length*tail*2.4,z=d.z+dz*ease+dz/length*tail*2.4,before=this.sprites.length;this.actorSprite({...d.actor,hp:1,pose:0,intent:null},x,z,this.drawDt,{enemy:true,fieldMoving:true,facing:Math.sign(dx)||1});if(this.sprites.length>before){const sprite=this.sprites.at(-1);sprite.y=.9+Math.sin(approach*Math.PI)*.9+tail*2.8+Math.sin(time*8)*.035;sprite.alpha=1-tail;}shadow.disc(x,.065,z,.38*(1-q*.5),.25*(1-q*.5),[.005,.015,.02],8,.28*(1-q));
+        continue;
+      }
+      const elapsed=clamp((time-d.started)/2,0,1);
+      const segment=Math.min(elapsed/.8,1)*(d.route.length-1);
+      const a=d.route[Math.floor(segment)],b=d.route[Math.ceil(segment)],fraction=segment%1;
+      const x=a[0]+(b[0]-a[0])*fraction,z=a[1]+(b[1]-a[1])*fraction,before=this.sprites.length;
+      const next=d.route[Math.min(d.route.length-1,Math.floor(segment)+1)];
+      this.actorSprite({...d.actor,hp:1,pose:0,intent:null},x,z,this.drawDt,{enemy:true,fieldMoving:elapsed<.8,facing:Math.sign(next[0]-a[0])||1});
+      const alpha=1-clamp((elapsed-.8)/.2,0,1);
+      if(this.sprites.length>before)this.sprites.at(-1).alpha=alpha;
+      shadow.disc(x,.065,z,.38,.25,[.005,.015,.02],8,.28*alpha);
+    }
   }
   buildAffordances(m,glow,time){
     const w=this.world,blocked=new Set((w.scene.affordanceBlocked||[]).map(p=>p.join(','))),wood=C.brass.map(n=>n*.57);
@@ -366,12 +396,28 @@ export class Adventure3DRenderer extends CisternRenderer {
     const snapshot=this.feedbackSnapshot();if(!snapshot)return;const pending=snapshot.pending,devices=snapshot.devices||{},staged=!!originStagingSpec(this.world);
     const physicalObjects=this.sceneObjects.filter(o=>o.type==='embodied-action'||o.embodiedAction);if(snapshot.originId==='veyr-storm'&&devices.receiver&&!physicalObjects.some(o=>o.manipulation==='receiver')){const receiver=this.world.scene.objects.find(o=>o.originId===snapshot.originId&&o.originStep===0&&o.xy);if(receiver)physicalObjects.push({...receiver,id:'remembered-receiver',manipulation:'receiver'});}
     for(const o of physicalObjects){const at=objectPoint(o);if(!at)continue;const kind=o.manipulation||o.kind||o.embodiedAction,active=pending&&(pending.id===o.id||pending.kind===kind),progress=active?clamp(pending.progress||0,0,1):0;
+      if(o.originId==='sable-reed'&&['witness','divert'].includes(o.embodiedAction)){
+        if(o.embodiedAction==='witness'){
+          m.box(at.x,.24,at.z,.52,.44,.35,C.brass,1);
+          m.tube([at.x-.23,.50,at.z-.13],[at.x+.23,.51,at.z+.13],.033,.026,C.teal,1,7);
+        }else{
+          m.tube([at.x,.03,at.z],[at.x,.65,at.z],.04,.04,C.metal,1,7);
+          m.box(at.x,.75,at.z,.48,.34,.32,C.dark,1);
+          m.box(at.x,.75,at.z+.165,.30,.20,.035,C.brass,1);
+        }
+      }
       if(kind==='receiver'&&!staged){m.cylinder(at.x,.98,at.z,.36,.10,C.brass,1,12);const angle=time*(devices.receiver?.22:.035);m.tube([at.x+Math.cos(angle)*.38,1.05,at.z+Math.sin(angle)*.38],[at.x-Math.cos(angle)*.38,1.05,at.z-Math.sin(angle)*.38],.035,.035,C.edge,1,6);if(devices.receiver)glow.ring(at.x,.06,at.z,.5,.55,C.teal,9,1,.25);}
       if(kind==='cable'){const grounded=devices.grounded||progress>.98,from=o.from||pending?.from||{x:at.x,y:at.z},to=o.to||pending?.to||{x:at.x+1.5,y:at.z},drag=active?pending?.dragPoint:null,end=grounded?to:drag||{x:from.x+(to.x-from.x)*progress*.9+.30*(1-progress),y:from.y+(to.y-from.y)*progress*.9};const a=[from.x,.26,from.y],b=[(from.x+end.x)/2,.15+(1-progress)*.13,(from.y+end.y)/2],c=[end.x,grounded?.08:.13,end.y];m.tube(a,b,.045,.045,grounded?C.teal:C.brass,1,8,grounded?.24:0);m.tube(b,c,.045,.045,grounded?C.teal:C.brass,1,8,grounded?.24:0);m.cylinder(to.x,.035,to.y,.17,.05,C.brass,1,12);glow.ring(to.x,.07,to.y,.17,.22,C.teal,9,1,active?.5:.15);m.sphere(end.x,c[1],end.y,.075,grounded?C.teal:C.edge,1,grounded?.5:0,8,5);}
       if(kind==='lever'&&!staged){const a=(devices.vaneRaised?1:progress)*1.2-.6;m.tube([at.x,.45,at.z],[at.x+Math.sin(a)*.6,.45+Math.cos(a)*.6,at.z],.045,.045,C.brass,1,8);m.sphere(at.x+Math.sin(a)*.6,.45+Math.cos(a)*.6,at.z,.09,C.edge,1,0,8,5);}
       if(kind==='coil'&&!staged){const split=devices.coilSeparated?.35:progress*.35;for(const side of[-1,1])for(let ring=0;ring<5;ring++)m.cylinder(at.x+side*(.22+split),.4+ring*.12,at.z,.19,.045,C.brass,1,10);}
       if(kind==='lure'&&devices.diverted)for(let i=0;i<5;i++){const phase=(time*.2+i*.2)%1;m.sphere(at.x+Math.sin(time+i)*phase,.35+phase*.8,at.z-phase*1.5,.025,C.teal,4,1,5,4);}
       if(active)glow.ring(at.x,.09,at.z,.66,.74,C.teal,9,1,.7,48,progress);
+    }
+    for(const effect of snapshot.effects||[]){
+      const echo=effect.echo,age=effect.t??effect.age??0;
+      if(!echo||age<echo.delay)continue;
+      const q=clamp((age-echo.delay)/1.1,0,1),r=.28+q*1.3;
+      glow.ring(echo.x,.11,echo.y,r,r+.06,C.teal,9,1,(1-q)*.72);
     }
     for(const effect of snapshot.effects||[]){const x=effect.x,z=effect.y;if(!Number.isFinite(x)||!Number.isFinite(z))continue;const q=clamp((effect.t??effect.age??0)/(effect.life||effect.duration||1),0,1),r=.4+q*1.1,col=color(effect.color,C.teal);glow.ring(x,.1,z,r,r+.045,col,9,1,(1-q)*.5);for(let i=0;i<5;i++){const phase=(q+i*.17)%1,a=i*TAU/5+time*.6;m.sphere(x+Math.cos(a)*phase*.45,.15+phase*1.2,z+Math.sin(a)*phase*.45,.025*(1-q),col,4,.6,5,3);}if(['puzzle','switch','signal','vane'].includes(effect.kind)){const a=time*3*(1-q);m.tube([x+Math.cos(a)*.32,.85,z+Math.sin(a)*.32],[x-Math.cos(a)*.32,.85,z-Math.sin(a)*.32],.025,.025,C.brass,1,6);}}
   }

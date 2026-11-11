@@ -12,11 +12,11 @@ const INSTALL=Symbol.for('ash-aether.embodied-origins.install');
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const finite=(n,f=0)=>Number.isFinite(n)?n:f;
 const copy=v=>JSON.parse(JSON.stringify(v));
-const V='veyr-storm';
+const V='veyr-storm',SABLE='sable-reed';
 const IDS=new Set(ORIGINS.map(o=>o.id));
 const FLAGS=['receiver','grounded','vaneRaised','coilSeparated','diverted','witnessed'];
 const CONTENT={
- 'sable-reed':{witness:'Set the reed on Mara’s table',signal:'Mara points to the speaker clamp.',repair:['Release the reed clamp','Fit the removable sleeve'],repairKinds:['lever','coil'],destiny:['Place the case on the family shelf','Place the case on the workshop loan bench'],peace:'Unwind the scavenger’s discarded wire'},
+ [SABLE]:{witness:'Sound the tuning reed',signal:'Sound the reed. The relay is listening.',repair:['Release the reed clamp','Fit the removable sleeve'],repairKinds:['lever','coil'],destiny:['Place the case on the family shelf','Place the case on the workshop loan bench'],peace:'Ring the side speaker'},
  'iona-lowbank':{witness:'Lift the shelter bed above the waterline',signal:'Dara steadies the bed. The old doorstep marks are still visible.',repair:['Restore the doorstep gauge','Run the shelter’s bell rope'],repairKinds:['gauge','cable'],destiny:['Stock the neighbourhood clinic','Load the travelling relief boat'],peace:'Float the spare plank downstream'},
  'rook-regulator':{witness:'Open the heater’s voice intake',signal:'The microphone is on the intake. Rook reaches for the release tools.',repair:['Fit the external pressure release','Unclip the removable voice plate'],repairKinds:['lever','panel'],destiny:['Pin the release drawings to the public bench','Store the duplicate plate with the unsigned contract'],peace:'Open the crawler’s cold escape line'},
  'brass-rail':{witness:'Hold the crossing gate for the porter',signal:'The porter carries a stretcher through. The signal still runs through the lock.',repair:['Ground the gate signal independently','Mount the low hand crank'],repairKinds:['cable','lever'],destiny:['Turn the public crossing sign outward','Raise the protected relief-platform sign'],peace:'Roll the maintenance trolley onto the siding'},
@@ -81,11 +81,17 @@ export function embodiedOriginObjects(world){
  if(world.scene.originPart!==(step<2?0:1))return[];
  const marker=nativeMarker(world,step,step===2?'puzzle':undefined);if(!marker?.xy)return[];
  const xy=marker.xy;
+ if(step===0&&o.id===SABLE){
+  const [x,y]=world.scene.arrive;
+  const table=clearCell(world,x+1,y)?[x+1,y]:xy;
+  return [descriptor(world,'witness',step,table,text.witness,'receiver',{duration:.35})];
+ }
  if(step===0)return [descriptor(world,'witness',step,xy,text.witness,o.id===V?'receiver':'work')];
  if(step===1){
   if(o.id===V&&!r.grounded)return [descriptor(world,'ground',step,xy,'Attach the mast’s ground conductor','cable',{hint:'Connect the loose cable to the grounding socket before raising the vane.'})];
   return nearbyCells(world,xy,2).map((p,i)=>descriptor(world,'repair-'+i,step,p,text.repair[i],text.repairKinds[i],{choiceIndex:i,requiresChoice:true,choiceGroup:'repair',hint:o.repair[i]}));
  }
+ if(step===2&&o.id===SABLE)return [descriptor(world,'divert',step,xy,text.peace,'lure',{choiceIndex:0,peaceful:true,duration:.55,hint:'The Wireback follows the sound. Ring here to draw it off the relay.'})];
  if(step===2)return [descriptor(world,'divert',step,xy,text.peace,o.id===V?'cable':'lure',{choiceIndex:0,peaceful:true,hint:'Change the worksite so the creature can leave without a fight.'})];
  if(step===3)return nearbyCells(world,xy,2).map((p,i)=>descriptor(world,'destiny-'+i,step,p,text.destiny[i],'switch',{choiceIndex:i,requiresChoice:true,choiceGroup:'destiny',hint:o.choices[i]}));
  if(step===4)return [descriptor(world,'depart',step,xy,'Step into the festival','departure',{choiceIndex:0})];
@@ -132,9 +138,19 @@ export function installEmbodiedOrigins(world,{onFeedback=()=>{},onSave=()=>{},on
   nativePresentation(()=>originals.interact.call(world,native),object.choiceIndex??null);
   migrateEmbodiedOrigins(world.state);
   const after=world.state.chronicle;
-  if(kind==='witness')emit('signal','receiver',object,CONTENT[o.id].signal,{progress:1});
+  if(kind==='witness'&&o.id===SABLE){
+   const speaker=nativeMarker(world,1,'puzzle');
+   const echo=speaker?.xy?{x:speaker.xy[0]+.5,y:speaker.xy[1]+.5,delay:.28}:null;
+   emit('signal','reed-call',object,'The relay answers in your mother’s voice.',{progress:1,duration:1.6,echo,caption:'The relay answers in your mother’s voice'});
+  }
+  else if(kind==='witness')emit('signal','receiver',object,CONTENT[o.id].signal,{progress:1});
+  else if(kind.startsWith('repair-')&&o.id===SABLE){
+   const released=object.choiceIndex===0;
+   const caption=released?'The relay falls quiet':'The sleeve holds her voice';
+   emit('complete',object.manipulation,object,caption,{progress:1,choiceIndex:object.choiceIndex,caption});
+  }
   else if(kind.startsWith('repair-'))emit('complete',o.id===V?(object.choiceIndex===0?'vane':'coil'):object.manipulation,object,object.choiceIndex===0?'The mechanism settles into its new position.':'The alternate connection is secure.',{progress:1,from:0,to:1,choiceIndex:object.choiceIndex});
-  else if(kind==='divert')emit('complete','lure',object,o.id===V?'The Storm Kite settles on the grounded spare vane.':'The creature follows the changed worksite away.',{progress:1,peaceful:true});
+  else if(kind==='divert')emit('complete','lure',object,o.id===V?'The Storm Kite settles on the grounded spare vane.':'The creature follows the changed worksite away.',{progress:1,peaceful:true,...(o.id===SABLE?{id:'wireback-lure-'+sequence++,duration:2,caption:'The Wireback follows the speaker'}:{})});
   else if(kind.startsWith('destiny-'))emit('choice','choice',object,o.id===V?(object.choiceIndex===0?'The channel falls quiet. A distant station answers.':'Independent reply lamps begin taking turns.'):o.consequences[object.choiceIndex],{progress:1,choiceIndex:object.choiceIndex});
   else if(kind==='depart')emit('complete','departure',object,'Your choice travels with you.',{progress:1,originId:o.id});
   save();onScene(world.scene);return after?.step!==step||after?.phase!=='past';
@@ -200,7 +216,7 @@ export function installEmbodiedOrigins(world,{onFeedback=()=>{},onSave=()=>{},on
   winBattle(...args){
    const originBattle=inPast(world)&&world.currentBattle?.object?.originId;
    const result=originBattle?nativePresentation(()=>originals.winBattle.apply(world,args)):originals.winBattle.apply(world,args);
-   if(originBattle){migrateEmbodiedOrigins(world.state);emit('complete','encounter',null,'The creature withdraws. The worksite is clear.');save();onScene(world.scene);}return result;
+   if(originBattle){migrateEmbodiedOrigins(world.state);emit('complete','encounter',null,'The creature withdraws. The worksite is clear.',world.state.chronicle.originId===SABLE?{caption:'Wireback driven off · relay clear'}:{});save();onScene(world.scene);}return result;
   }
  };
  for(const[name,method]of Object.entries(wrappers))world[name]=method;

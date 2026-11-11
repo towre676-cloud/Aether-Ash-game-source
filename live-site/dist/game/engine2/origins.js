@@ -70,6 +70,7 @@ export function originObjective(w){
  if(wrongPart){const direction=here===0?-1:1;return{label:o.title+' · '+(direction===1?o.passage:o.returnPath),object:objects.find(v=>v.originTravel===direction)};}
  const labels=[o.guidance[0],o.guidance[1],o.guidance[2]+' · fight or find another way',o.guidance[3],'Carry this history into the festival'];
  const object=objects.find(v=>v.originStep===c.step&&v.type!=='patrol')||objects.find(v=>v.originTravel);
+ if(c.originId==='sable-reed'&&c.step===2)return {label:'Face the Wireback or ring the side speaker',object};
  return{label:object?.role==='embodiedAction'?(object.requiresChoice?'Choose a physical control':object.label):o.title+' · '+labels[Math.min(c.step,4)],object};
 }
 const advance=(w,step,title,text)=>{const c=w.state.chronicle;c.step=step;w.state.story.journal.push({id:'origin:'+c.originId+':'+step,title,text,chapter:1});};

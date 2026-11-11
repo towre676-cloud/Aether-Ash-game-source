@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {flow,source} from './opening-flow.mjs';
 import {ORIGINS,originById} from '../origin-content.js';
 import {legacyFrom,originLocation,validateOriginSave} from '../origins.js';
+import {clearInteractionApproach} from '../quest-navigation.js';
 import {findPath} from '../navigation.js';
 import {validateSave} from '../save-validation.js';
 import {resolveGuidedObjective} from '../guided-objective.js';
@@ -138,4 +139,31 @@ test('fresh Veyr arrival faces the mast without relocating restores, map returns
  travel(h,1);assert.deepEqual([h.w.state.x,h.w.state.y],h.w.scene.arrive.map(n=>n+.5),'the second map retains its native spawn');
  travel(h,0);assert.deepEqual([h.w.state.x,h.w.state.y],canonical.map(n=>n+.5),'returning uses the canonical first-map entrance');
  const other=setup('mira-archive');assert.deepEqual([other.w.state.x,other.w.state.y],other.w.scene.arrive.map(n=>n+.5),'another origin retains its arrival');
+});
+
+
+test('Sable sounds the reed from spawn and the relay answers from a second location',()=>{
+ const h=setup('sable-reed'),{w}=h;
+ const reed=h.controller.objects()[0];
+ assert.equal(reed.label,'Sound the tuning reed');
+ assert.ok(clearInteractionApproach(w.scene,[w.state.x,w.state.y],reed));
+ assert.ok(reed.duration<.5);
+ w.interact(reed);
+ for(let i=0;i<5;i++)h.controller.advance(.1);
+ const call=h.events.find(event=>event.kind==='reed-call');
+ assert.equal(w.state.chronicle.step,1);
+ assert.equal(call.caption,'The relay answers in your mother’s voice');
+ assert.ok(call.echo.delay>0&&Math.hypot(call.echo.x-call.x,call.echo.y-call.y)>1);
+ assert.equal(h.dialog,null);
+ action(h,'repair-0');
+ travel(h,1);
+ assert.ok(resolveGuidedObjective(w).label.includes('Face the Wireback'));
+ const patrol=w.objects().find(object=>object.type==='patrol'&&object.originId==='sable-reed');
+ const speaker=h.controller.objects()[0];
+ assert.equal(speaker.label,'Ring the side speaker');
+ assert.ok(findPath(w.scene,patrol.xy,speaker.xy,1).length>0);
+ action(h,'divert');
+ assert.equal(w.state.chronicle.choices.approach,'diversion');
+ assert.equal(w.currentBattle,null);
+ assert.ok(h.events.some(event=>event.caption==='The Wireback follows the speaker'));
 });

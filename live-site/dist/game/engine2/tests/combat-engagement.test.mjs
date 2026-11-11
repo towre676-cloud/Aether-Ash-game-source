@@ -136,3 +136,23 @@ test('Letter Attic and Storm Anchorage reinforcements enter distinct reachable c
   assert.equal(battle.reinforcements,2);
  }
 });
+
+
+test('the Wireback locks its charge lane and exposes its shell only on a miss',()=>{
+ for(const dodge of [true,false]){
+  const {battle,hero,enemy}=setup();
+  battle.context.openingWireback=true;
+  battle.planEnemy(enemy);
+  const intent=enemy.intent;
+  assert.equal(intent.label,'Wireback charge');
+  assert.equal(intent.shape,'line');
+  assert.equal(intent.total,1.9);
+  const hp=hero.hp;
+  if(dodge)hero.y+=2;
+  battle.executeIntent(enemy,intent);
+  assert.equal(battle.events.some(event=>event.type==='wireback-opening'),dodge);
+  assert.equal(!!enemy.status.exposed,dodge);
+  if(dodge)assert.equal(hero.hp,hp);
+  else assert.ok(hero.hp<hp);
+ }
+});
