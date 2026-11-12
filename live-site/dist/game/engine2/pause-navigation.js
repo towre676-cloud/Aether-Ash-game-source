@@ -1,7 +1,6 @@
 /** Reorganize the existing pause actions without replacing their callbacks. */
 const mounted=new WeakMap();
-const PRIMARY=['resume','preparation-button','party-button','bag-button','story-button','save'];
-const ALIASES=new Set(['equip-mako','skill-grid-button']);
+const PRIMARY=['resume','equip-mako','skill-grid-button','preparation-button','party-button','bag-button','story-button','save'];
 const GROUPS=[
  ['tools','Field tools & equipment','Key items, keepsakes and battle preparation'],
  ['world','Travellers & the world','Companions, dispatch and the Wayglass'],
@@ -11,7 +10,7 @@ const GROUPS=[
 ];
 export function pauseActionGroup(node){
  const id=node.id||'',text=(node.textContent||'').trim().toLowerCase(),href=node.getAttribute?.('href')||'';
- if(PRIMARY.includes(id)||ALIASES.has(id))return 'primary';
+ if(PRIMARY.includes(id))return 'primary';
  if(['load','export','import'].includes(id)||node.querySelector?.('#import')||/classic\.html/.test(href))return 'files';
  if(id==='fullscreen'||node.classList?.contains('setting')||node.classList?.contains('player-comfort')||node.classList?.contains('touch-layout-setting')||node.classList?.contains('aa-acoustic-options'))return 'settings';
  if(['origin-button','frontier-button','observatory-button'].includes(id)||/another listening/.test(text))return 'world';
@@ -31,11 +30,11 @@ export function mountPauseNavigation({root=document.querySelector('#pause')}={})
  const groups=new Map();
  for(const [key,title,description]of GROUPS){
   const details=doc.createElement('details'),summary=doc.createElement('summary'),heading=doc.createElement('strong'),hint=doc.createElement('span'),content=doc.createElement('div');
-  details.className='pause-group';details.dataset.pauseGroup=key;summary.setAttribute('aria-controls','pause-group-'+key);heading.textContent=title;hint.textContent=description;summary.append(heading,hint);content.className='pause-action-grid';content.id='pause-group-'+key;details.append(summary,content);body.append(details);groups.set(key,{details,content});
+  details.className='pause-group';details.setAttribute('name','pause-sections');details.dataset.pauseGroup=key;summary.setAttribute('aria-controls','pause-group-'+key);heading.textContent=title;hint.textContent=description;summary.append(heading,hint);content.className='pause-action-grid';content.id='pause-group-'+key;details.append(summary,content);body.append(details);groups.set(key,{details,content});
  }
  let queued=false;
  function revealAction(id,{focus=false}={}){
-  const action=doc.getElementById(id);if(!action||!body.contains(action)||action.hidden||ALIASES.has(id))return false;
+  const action=doc.getElementById(id);if(!action||!body.contains(action)||action.hidden)return false;
   const group=action.closest('.pause-group');if(group)group.open=true;
   if(focus)action.focus({preventScroll:true});return true;
  }
@@ -46,11 +45,11 @@ export function mountPauseNavigation({root=document.querySelector('#pause')}={})
  }
  function refresh(){
   queued=false;
-  const setup=doc.getElementById('preparation-button')||doc.getElementById('equip-mako');
-  if(setup){if(setup.hidden)setup.hidden=false;setup.classList.remove('pause-alias');if(setup.textContent!=='Crew setup')setup.textContent='Crew setup';setup.title='Moves, growth and equipment in one place';}
-  for(const id of ALIASES){const node=doc.getElementById(id);if(node&&node!==setup){if(!node.hidden)node.hidden=true;node.classList.add('pause-alias');}}
-  const names={'party-button':'Characters','bag-button':'Supply bag','story-button':'Story journal','save':'Save game'};
+  const setup=doc.getElementById('preparation-button');
+  if(setup){if(setup.hidden)setup.hidden=false;if(setup.textContent!=='Crew setup')setup.textContent='Crew setup';setup.title='Moves, growth and equipment in one place';}
+  const names={'equip-mako':'Equip gear','skill-grid-button':'Upgrade skills','party-button':'Characters','bag-button':'Supply bag','story-button':'Story journal','save':'Save game'};
   for(const [id,text]of Object.entries(names)){const n=doc.getElementById(id);if(n&&n.textContent!==text)n.textContent=text;}
+  for(const id of ['equip-mako','skill-grid-button']){const button=doc.getElementById(id);if(button?.hidden)button.hidden=false;}
   for(const node of [...primary.children])route(node);
   // These were direct siblings of the old unbounded action grid.
   for(const node of [...body.children]){
@@ -68,7 +67,7 @@ export function mountPauseNavigation({root=document.querySelector('#pause')}={})
  const observer=Observer?new Observer(records=>{
   for(const record of records){
    if(record.type==='attributes'&&record.oldValue!==null&&!record.target[record.attributeName])revealAction(record.target.id);
-   if(record.type==='childList'&&record.target===primary)for(const node of record.addedNodes)if(node.nodeType===1&&!PRIMARY.includes(node.id)&&!ALIASES.has(node.id)){const key=pauseActionGroup(node);groups.get(key)?.details.setAttribute('open','');}
+   if(record.type==='childList'&&record.target===primary)for(const node of record.addedNodes)if(node.nodeType===1&&!PRIMARY.includes(node.id)){const key=pauseActionGroup(node);groups.get(key)?.details.setAttribute('open','');}
   }
   schedule();
  }):null;

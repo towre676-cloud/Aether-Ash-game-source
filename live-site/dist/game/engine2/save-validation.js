@@ -10,9 +10,20 @@ import {validWildEncounter} from './wild-combat.js?v=5.38';
 import {World} from './world.js?v=5.41';
 import {Battle} from './battle.js?v=5.38';
 import {APPROACHES} from './battle-approaches.js';
+import {installRivals} from './npc-challenges.js?v=5.38';
 import {migrateObservatoryBattleSnapshot,validateObservatoryBattleFloor} from './observatory-battle-migration.js?v=5.38';
 import {migrateFrontierBattleSnapshot,validateFrontierBattleFloor} from './frontier-battle-541.js?v=5.41';
-export function savedEncounter(world,parsed){const source=parsed.origin;if(!source)return null;const rival=source.rivalId?world.objects().find(o=>o.rivalId===source.rivalId):null;return source.practice?.type==='wild'?(validWildEncounter(source.practice)?source.practice:null):rival?{...rival,type:'rival'}:['practice','origin'].includes(source.practice?.type)?source.practice:world.objects().find(o=>o.type===source.type&&o.bit===source.bit&&o.flag_address===source.flag);}
+export function savedEncounter(world,parsed){
+ const source=parsed.origin;
+ if(!source)return null;
+ if(source.rivalId){
+  const rival=world.objects().find(o=>o.rivalId===source.rivalId);
+  return rival?{...rival,type:'rival'}:null;
+ }
+ if(source.practice?.type==='wild')return validWildEncounter(source.practice)?source.practice:null;
+ if(['practice','origin'].includes(source.practice?.type))return source.practice;
+ return world.objects().find(o=>o.type===source.type&&o.bit===source.bit&&o.flag_address===source.flag);
+}
 const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const finiteRecord=value=>record(value)&&Object.values(value).every(Number.isFinite);
 const crewId=id=>Number.isInteger(id)&&id>=0&&id<7;
@@ -47,10 +58,12 @@ export function validateSave(sourceData,value){
  if(parsed?.schema!=='ash-aether.enhanced-save/1'||!parsed.world)throw Error('Choose an Ash & Aether enhanced save.');
  validateWorldShape(parsed.world);
  const probe=new World(sourceData);probe.restore(parsed.world);let b=parsed.battle;
+ if(parsed.world.mode==='battle'&&!b)throw Error('The saved encounter is incomplete.');
  const trial=probe.state.fieldOrigins?.active;
  if(trial){const returnJourney=new World(sourceData);returnJourney.restore(trial.base);trial.base=JSON.parse(returnJourney.save());}
  else if(probe.scene.fieldOrigin!==undefined)throw Error('The saved field trial has lost its return route.');
  if(b){
+  if(parsed.origin?.rivalId)installRivals(probe);
   validateBattleShape(b,probe);
   if(parsed.origin?.scene!==probe.scene.location||!savedEncounter(probe,parsed))throw Error('The saved encounter is not in this campaign.');
   if(!validCreatureEcology(b.ecology,b.enemies)||!validAnatomy(b.anatomy,b.enemies,b.field)||!validLegacyBattle(b.legacy,b.heroes))throw Error('The saved creature tactics or legacy are invalid.');

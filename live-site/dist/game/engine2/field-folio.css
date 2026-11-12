@@ -171,3 +171,34 @@
  #game #pause .menu-return-bar button{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){#game #pause *{transition:none!important;animation:none!important}}
+
+#game #pause[data-menu-view=main] .menu-return-bar{display:none}
+#game #pause #pause-body .pause-primary > :is(#equip-mako,#skill-grid-button){
+ color:#f2d9a5;
+ background:linear-gradient(90deg,#6d633735,transparent);
+}
+#game #pause .crew-quick{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+ gap:12px;
+ margin:16px 0;
+}
+#game #pause .crew-quick > section{
+ min-width:0;
+ padding:12px;
+ background:#101d1bcc;
+ border:1px solid #b8a57355;
+}
+#game #pause .crew-quick h4{margin:0 0 8px;color:#ecd5a4}
+#game #pause .crew-quick button{min-height:44px;touch-action:manipulation}
+#game #pause .crew-quick .crew-gear{
+ display:flex;
+ flex-wrap:wrap;
+ align-items:center;
+ gap:6px 12px;
+ margin:8px 0;
+ padding:8px;
+ border-top:1px solid #b8a57344;
+}
+#game #pause .crew-quick .crew-gear strong{flex:1 1 105px}
+#game #pause .crew-quick .crew-gear small{flex:1 1 100%;order:1}
