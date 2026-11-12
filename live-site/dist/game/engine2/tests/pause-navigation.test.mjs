@@ -32,11 +32,11 @@ function fixture(){
  const guide=add('field-link','Creatures & supplies','a');guide.setAttribute('href','./field-guide/');
  return {doc,root,body,grid,actions,add,checkbox,setting,classic,guide};
 }
-test('pause keeps one unified setup and six primary actions while preserving callbacks and IDs',()=>{
+test('pause keeps gear and skill upgrades in the primary actions while preserving callbacks and IDs',()=>{
  const f=fixture();let visits=0;f.actions['preparation-button'].onclick=()=>visits++;
  const all=Object.values(f.actions),api=mountPauseNavigation({root:f.root});
- assert.deepEqual(f.grid.children.filter(n=>!n.hidden).map(n=>n.id),['resume','preparation-button','party-button','bag-button','story-button','save']);
- f.actions['preparation-button'].click();assert.equal(visits,1);assert.equal(f.actions['equip-mako'].hidden,true);assert.equal(f.actions['skill-grid-button'].hidden,true);
+ assert.deepEqual(f.grid.children.filter(n=>!n.hidden).map(n=>n.id),['resume','equip-mako','skill-grid-button','preparation-button','party-button','bag-button','story-button','save']);
+ f.actions['preparation-button'].click();assert.equal(visits,1);assert.equal(f.actions['equip-mako'].textContent,'Equip gear');assert.equal(f.actions['skill-grid-button'].textContent,'Upgrade skills');
  for(const action of all)assert.ok(f.body.contains(action),action.id+' dropped');
  assert.equal(f.doc.getElementById('preparation-button'),f.actions['preparation-button']);assert.equal(api.status.id,'save-status');assert.equal(api.status.getAttribute('role'),'status');
  assert.equal(mountPauseNavigation({root:f.root}),api,'mounting twice duplicated navigation');
@@ -49,8 +49,8 @@ test('settings retain their controls and values; import and old edition remain a
 });
 test('future appended actions remain reachable and revealing one opens only its own disclosure',()=>{
  const f=fixture(),api=mountPauseNavigation({root:f.root}),newAction=f.add('new-expedition','New expedition');let started=false;newAction.onclick=()=>started=true;
- api.refresh();assert.ok(api.groups.get('world').content.contains(newAction));assert.equal(api.revealAction('new-expedition',{focus:true}),true);assert.equal(api.groups.get('world').details.open,true);assert.equal(api.groups.get('files').details.open,undefined);assert.equal(f.doc.activeElement,newAction);newAction.click();assert.equal(started,true);
- assert.equal(api.revealAction('equip-mako'),false);assert.equal(api.revealAction('missing'),false);
+ api.refresh();assert.ok(api.groups.get('world').content.contains(newAction));assert.equal(api.revealAction('new-expedition',{focus:true}),true);assert.equal(api.groups.get('world').details.open,true);assert.equal(api.groups.get('world').details.getAttribute('name'),api.groups.get('files').details.getAttribute('name'));assert.equal(api.groups.get('files').details.open,undefined);assert.equal(f.doc.activeElement,newAction);newAction.click();assert.equal(started,true);
+ assert.equal(api.revealAction('equip-mako'),true);assert.equal(api.revealAction('missing'),false);
  api.destroy();
 });
 test('group classification recognizes dynamically authored buttons without losing unknown features',()=>{

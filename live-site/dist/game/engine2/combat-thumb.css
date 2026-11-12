@@ -215,3 +215,10 @@
  #game.battle-on #hud #encounter-goal .encounter-goal-bottom>span:first-child{display:none}
  #game.battle-on #hud #encounter-goal progress{position:absolute;left:0;right:0;bottom:-3px;width:100%;height:2px;margin:0;border-radius:0}
 }
+
+/* Leave the rightmost action cell within the attacking thumb's reach. */
+#game.battle-on #commands .command-grid > #cmd-attack{
+ grid-column:-2/-1;
+ grid-row:1;
+ min-height:44px;
+}
