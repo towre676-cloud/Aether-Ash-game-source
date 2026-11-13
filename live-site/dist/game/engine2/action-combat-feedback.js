@@ -19,13 +19,10 @@ export function createActionCombatFeedback({root=document}={}){
  function emit(event){
    if (!event || root.hidden) return;
    const type=event.type;
-   const value=Number(event.amount ?? event.damage ?? event.value);
    let label='',kind='';
-   if(type==='damage' && Number.isFinite(value) && value>0){
-     label=String(Math.round(value));kind='damage';
-   } else if(type==='heal' && Number.isFinite(value) && value>0){
-     label='+'+Math.round(value);kind='heal';
-   } else if(type==='interrupt'){
+   // Renderer.event already paints world-space damage/healing numbers.
+   // Only display exceptional announcements here to avoid duplicate overlays.
+   if(type==='interrupt'){
      label='INTERRUPT';kind='warning';
    } else if(type==='guardian-reward' && event.label){
      label=String(event.label).slice(0,72);kind='loot';
@@ -37,9 +34,6 @@ export function createActionCombatFeedback({root=document}={}){
    const offset=((count++%5)-2)*11;
    el.style.left=(50+offset)+'%';
    layer.append(el);
-   if(typeof el.animate==='function' && globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches){
-     // Reduced motion: static text remains until removed.
-   }
    const cleanup=()=>el.remove();
    el.addEventListener('animationend',cleanup,{once:true});
    // Fallback for reduced motion and suspended animations.
