@@ -171,8 +171,8 @@ export class CisternRenderer {
   resize() { if (this.destroyed) return; const rect = this.canvas.getBoundingClientRect(), low = this.effectiveQuality() === 'low', ratio = Math.min(typeof devicePixelRatio === 'number' ? devicePixelRatio : 1, this.software ? 1 : low ? 1.25 : 1.75); const w = Math.max(1, Math.round(rect.width * ratio)), h = Math.max(1, Math.round(rect.height * ratio)); if (this.canvas.width !== w || this.canvas.height !== h) { this.canvas.width = w; this.canvas.height = h; this.forceRender=true; } this.stats.quality = low ? 'low' : 'high'; }
   buildArchitecture() { return buildCisternArchitecture(Geometry,C,CISTERN); }
   loadMaterialImage(){
-    if(typeof Image==='undefined')return;const image=new Image();let retry=false;
-    image.onload=()=>{if(this.destroyed)return;this.materialImage=image;this.forceRender=true;if(this.gl&&!this.lost)this.uploadMaterial();};
+    if(typeof Image==='undefined')return;const image=new Image();image.crossOrigin='anonymous';let retry=false;
+    image.onload=()=>{if(this.destroyed)return;this.materialImage=image;this.forceRender=true;if(this.gl&&!this.lost){try{this.uploadMaterial();}catch(error){this.materialImage=null;this.materialUploadError=String(error?.message||error);this.forceRender=true;}}};
     image.onerror=()=>{if(this.destroyed)return;if(!retry){retry=true;image.src=new URL('./art/cistern/material-atlas-v2.jpg',import.meta.url).href;}};
     image.src=new URL('./art/cistern/material-atlas-v2.webp',import.meta.url).href;
   }
