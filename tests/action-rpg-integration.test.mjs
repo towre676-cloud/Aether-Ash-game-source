@@ -53,3 +53,11 @@ test('training shortcut uses the existing story-gated practice encounter',()=>{
  assert.match(main,/!world\.state\.story\?\.weapon\|\|!world\.state\.story\?\.firstCore/);
  assert.match(main,/type:'practice'/);
 });
+
+test('training HUD shortcut is hidden until unlocked and cannot start over overlays',()=>{
+ const main=read('../live-site/dist/game/engine2/main.js');
+ assert.match(main,/trainingQuick\.hidden=true/);
+ assert.match(main,/trainingButton\.hidden=!\(started&&!paused&&!battle&&!dialog/);
+ assert.match(main,/world\?\.state\?\.story\?\.weapon&&!!world\?\.state\?\.story\?\.firstCore/);
+ assert.match(main,/if\(trainingQuick\.hidden\|\|paused\|\|battle\|\|dialog\)return/);
+});
