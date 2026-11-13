@@ -26,3 +26,12 @@ test('canonical battle events feed feedback without changing battle ownership',(
  assert.doesNotMatch(feedback,/type==='damage'/);
  assert.doesNotMatch(feedback,/type==='interrupt'/);
 });
+
+test('world-space reward effects only follow canonical successful armory awards',()=>{
+ const main=read('../live-site/dist/game/engine2/main.js');
+ const renderer=read('../live-site/dist/game/engine2/renderer.js');
+ assert.match(main,/award\?\.ok&&Array\.isArray\(award\.items\)/);
+ assert.match(main,/renderer\?\.event\(\{type:'armory-drop'/);
+ assert.match(renderer,/e\.type==='armory-drop'/);
+ assert.match(renderer,/kind:'spell'/);
+});
