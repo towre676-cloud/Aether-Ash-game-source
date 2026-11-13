@@ -49,7 +49,7 @@ test('training shortcut uses the existing story-gated practice encounter',()=>{
  const main=read('../live-site/dist/game/engine2/main.js');
  assert.match(main,/training\.id='practice-skirmish'/);
  assert.match(main,/trainingQuick\.id='training-quick'/);
- assert.match(main,/trainingQuick\.onclick=\(\)=>training\.click\(\)/);
+ assert.match(main,/trainingQuick\.onclick=\(\)=>\{if\(trainingQuick\.hidden\|\|paused\|\|battle\|\|dialog\)return;training\.click\(\);\}/);
  assert.match(main,/!world\.state\.story\?\.weapon\|\|!world\.state\.story\?\.firstCore/);
  assert.match(main,/type:'practice'/);
 });
