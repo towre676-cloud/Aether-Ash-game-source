@@ -35,6 +35,17 @@ try {
   const text=document.body.innerText;
   return {canvases,failed:text.includes('The 3D scene could not draw safely'),hasCistern:text.includes('Remembering Cistern')||text.includes('west resonator'),crossOriginError:text.includes('cross-origin data')};
  });
+ const characterArt=await page.evaluate(()=>{
+  const sources=[...document.images].filter(i=>/crew|character|sprite|run/i.test(i.src)).slice(0,8);
+  return sources.map(img=>{
+   const canvas=document.createElement('canvas'),gl=canvas.getContext('webgl');
+   if(!gl)return {src:img.src,webgl:false};
+   const tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);
+   try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);return {src:img.src,uploaded:gl.getError()===gl.NO_ERROR};}
+   catch(error){return {src:img.src,uploaded:false,error:String(error)};}
+  });
+ });
+ console.log(JSON.stringify({characterArt},null,2));
  console.log(JSON.stringify({dungeon},null,2));
  assert.equal(dungeon.failed,false,'Cistern entered graphics failure overlay');
  assert.equal(dungeon.crossOriginError,false,'Cistern has WebGL cross-origin failure');
