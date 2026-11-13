@@ -25,6 +25,20 @@ try {
    return {webgl:true,loaded:true,uploaded:gl.getError()===gl.NO_ERROR,url:img.src};
   }catch(error){return {webgl:true,loaded:true,uploaded:false,error:String(error),url:img.src};}
  });
+ // Exercise the actual Cistern entry, not only a synthetic WebGL upload.
+ const entry=page.locator('#dev-cistern');
+ await entry.waitFor({state:'visible',timeout:30000});
+ await entry.click();
+ await page.waitForTimeout(4500);
+ const dungeon=await page.evaluate(()=>{
+  const canvases=[...document.querySelectorAll('canvas')].map(c=>({width:c.width,height:c.height,visible:!!(c.getClientRects().length&&getComputedStyle(c).visibility!=='hidden'),id:c.id}));
+  const text=document.body.innerText;
+  return {canvases,failed:text.includes('The 3D scene could not draw safely'),hasCistern:text.includes('Remembering Cistern')||text.includes('west resonator'),crossOriginError:text.includes('cross-origin data')};
+ });
+ console.log(JSON.stringify({dungeon},null,2));
+ assert.equal(dungeon.failed,false,'Cistern entered graphics failure overlay');
+ assert.equal(dungeon.crossOriginError,false,'Cistern has WebGL cross-origin failure');
+ assert.ok(dungeon.canvases.some(c=>c.visible&&c.width>100&&c.height>100),'No visible dungeon canvas');
  console.log(JSON.stringify({preview:base,graphics,pageErrors:errors.slice(0,10)},null,2));
  assert.equal(graphics.webgl,true,'WebGL unavailable on CI browser');
  assert.equal(graphics.loaded,true,'Cistern material atlas failed to load');
