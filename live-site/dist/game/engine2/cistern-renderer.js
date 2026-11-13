@@ -147,7 +147,7 @@ export class CisternRenderer {
   initialize() {
     const g = this.gl;
     if (!g) { this.meshes = {}; this.makeMesh('static', this.buildArchitecture().data(), false); for (const name of ['dynamic','shadows','glow']) this.makeMesh(name,new Float32Array(0),true); return; }
-    this.spriteTextures=new WeakMap();this.spriteTextureHandles=[];
+    this.spriteTextures=new WeakMap();this.spriteTextureHandles=[];this.spriteFallbacks=new WeakSet();this.spriteFallbackCount=0;this.canvas.dataset.spriteFallbacks='0';
     this.mainProgram = program(g, VS, FS); this.shadowProgram = program(g, SHADOW_VS, SHADOW_FS);
     this.locations = { pos: g.getAttribLocation(this.mainProgram, 'aPosition'), norm: g.getAttribLocation(this.mainProgram, 'aNormal'), color: g.getAttribLocation(this.mainProgram, 'aColor'), material: g.getAttribLocation(this.mainProgram, 'aMaterial') };
     this.uniforms = {}; for (const n of ['uVP', 'uLightVP', 'uEye', 'uLightPosition[0]', 'uLightColor[0]', 'uTime', 'uShadowTexel', 'uResolution', 'uShadow','uMaterialAtlas','uMaterialReady','uAmbient','uKey','uFog','uFogDensity','uCutawayCenter','uCutawayRadius','uCutawayDepth']) this.uniforms[n] = g.getUniformLocation(this.mainProgram, n);
@@ -230,7 +230,7 @@ export class CisternRenderer {
           c.fillStyle='#9e866a';c.fillRect(8,38,8,27);c.fillRect(48,38,8,27);
           g.texImage2D(g.TEXTURE_2D,0,g.RGBA,g.RGBA,g.UNSIGNED_BYTE,tile);
         }else g.texImage2D(g.TEXTURE_2D,0,g.RGBA,1,1,0,g.RGBA,g.UNSIGNED_BYTE,new Uint8Array([0,0,0,0]));
-        this.spriteFallbacks??=new WeakSet();this.spriteFallbacks.add(sprite.image);
+        this.spriteFallbacks??=new WeakSet();this.spriteFallbacks.add(sprite.image);this.spriteFallbackCount=(this.spriteFallbackCount||0)+1;this.canvas.dataset.spriteFallbacks=String(this.spriteFallbackCount);
         this.spriteUploadError=String(error?.message||error);
       }
       this.configureTexture();this.spriteTextures.set(sprite.image,texture);this.spriteTextureHandles.push(texture);}else g.bindTexture(g.TEXTURE_2D,texture);const src=sprite.source,iw=sprite.image.width,ih=sprite.image.height,u0=this.spriteFallbacks?.has(sprite.image)?0:src.x/iw,u1=this.spriteFallbacks?.has(sprite.image)?1:(src.x+src.w)/iw,v0=this.spriteFallbacks?.has(sprite.image)?0:src.y/ih,v1=this.spriteFallbacks?.has(sprite.image)?1:(src.y+src.h)/ih,ax=sprite.flip?1-sprite.anchorX:sprite.anchorX,ay=sprite.anchorY;const point=(u,v)=>[sprite.x+right[0]*(u-ax)*sprite.width+up[0]*(ay-v)*sprite.height,sprite.y+right[1]*(u-ax)*sprite.width+up[1]*(ay-v)*sprite.height,sprite.z+right[2]*(u-ax)*sprite.width+up[2]*(ay-v)*sprite.height];const out=[];for(const[u,v]of [[0,1],[1,1],[1,0],[0,1],[1,0],[0,0]])out.push(...point(u,v),sprite.flip?(u?u0:u1):(u?u1:u0),v?v1:v0);g.bindBuffer(g.ARRAY_BUFFER,this.spriteBuffer);g.bufferData(g.ARRAY_BUFFER,new Float32Array(out),g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc.position);g.vertexAttribPointer(loc.position,3,g.FLOAT,false,20,0);g.enableVertexAttribArray(loc.uv);g.vertexAttribPointer(loc.uv,2,g.FLOAT,false,20,12);const tint=resolveActorTint(sprite.tint,[.94,.96,.95]);g.uniform3f(loc.tint,...tint);g.uniform1f(loc.alpha,sprite.alpha??1);g.drawArrays(g.TRIANGLES,0,6);this.stats.drawCalls++;this.stats.triangles+=2;}g.disableVertexAttribArray(loc.uv);g.disable(g.BLEND);
