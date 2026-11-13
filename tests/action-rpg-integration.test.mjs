@@ -72,3 +72,11 @@ test('QA battle is dev-only and uses isolated save plus practice rewards',()=>{
  const armory=read('../live-site/dist/game/engine2/living-armory/campaign.js');
  assert.match(armory,/\['practice','rival'\]\.includes\(o\.type\)/);
 });
+
+test('failed Cistern sprite uploads use transparent silhouette and full fallback UVs',()=>{
+ const renderer=read('../live-site/dist/game/engine2/cistern-renderer.js');
+ assert.match(renderer,/tile\.width=64;tile\.height=96/);
+ assert.match(renderer,/this\.spriteFallbacks\.add\(sprite\.image\)/);
+ assert.match(renderer,/this\.spriteFallbacks\?\.has\(sprite\.image\)\?0:src\.x\/iw/);
+ assert.doesNotMatch(renderer,/190,190,190,255/);
+});
