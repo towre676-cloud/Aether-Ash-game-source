@@ -61,3 +61,14 @@ test('training HUD shortcut is hidden until unlocked and cannot start over overl
  assert.match(main,/world\?\.state\?\.story\?\.weapon&&!!world\?\.state\?\.story\?\.firstCore/);
  assert.match(main,/if\(trainingQuick\.hidden\|\|paused\|\|battle\|\|dialog\)return/);
 });
+
+test('QA battle is dev-only and uses isolated save plus practice rewards',()=>{
+ const main=read('../live-site/dist/game/engine2/main.js');
+ assert.match(main,/STORE=DEV_MODE\?'ash-aether-playtest-v1':'ash-aether-enhanced-v2'/);
+ assert.match(main,/if\(DEV_MODE\)\{\s*const qa=document\.createElement\('button'\)/);
+ assert.match(main,/qa\.id='action-rpg-qa-battle'/);
+ assert.match(main,/const object=\{type:'practice'/);
+ assert.match(main,/startBattle\(world\.currentBattle\)/);
+ const armory=read('../live-site/dist/game/engine2/living-armory/campaign.js');
+ assert.match(armory,/\['practice','rival'\]\.includes\(o\.type\)/);
+});
