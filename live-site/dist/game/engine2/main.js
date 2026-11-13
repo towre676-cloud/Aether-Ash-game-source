@@ -282,7 +282,7 @@ function settleFieldVictory(origin){
 }
 
 function rpgCue(id){if(!soundtrackActive()||musicDirector?.state.mode==='ambient'||!scoreCueAllowed('score:'+id))return;const eventId={victory:'victory_sting',stinger:'combat_exit',discovery:'revelation',transition:'chapter_ending',rest:'rest',boss_arrival:'boss_arrival'}[id];const track=(eventId&&musicLibrary?.get('orchestra:'+eventId))||musicLibrary?.get('rpg:'+id);if(track)audio.cue(track).catch(()=>{});}
-function rememberCombatOutcome(result){if(!battle)return;if(result==='win'){const award=claimLivingArmoryVictory(world,battle);showArmoryReward(award);
+function rememberCombatOutcome(result){if(!battle)return;if(result==='win'){const award=claimLivingArmoryVictory(world,battle);showArmoryReward(award,{onInspect:()=>openLivingArmory({returnToField:true})});
  if(award?.ok&&Array.isArray(award.items)&&award.items.length){
   const defeated=battle.enemies?.find(enemy=>enemy.hp<=0&&Number.isFinite(enemy.x)&&Number.isFinite(enemy.y));
   if(defeated)for(const [index,item] of award.items.slice(0,4).entries())
