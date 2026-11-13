@@ -45,11 +45,13 @@ export function mountActionBar({ root = document, onAction } = {}) {
   const style=root.createElement('style');
   style.id='action-rpg-bar-style';
   style.textContent=`
-#commands.action-rpg-mounted .command-grid{display:none}\n#action-rpg-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px auto 0;max-width:440px}
+#commands.action-rpg-mounted .command-grid{display:none}
+#action-rpg-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px auto 0;max-width:440px}
 #action-rpg-bar .action-rpg-slot{min-width:0;min-height:48px;position:relative;display:grid;place-items:center;background:linear-gradient(155deg,#30404b,#111c28);color:#f3e4c5;border:1px solid #9b8663;border-radius:8px;box-shadow:inset 0 1px #ffffff28;cursor:pointer;touch-action:manipulation}
 #action-rpg-bar .action-rpg-slot span{font-size:23px;line-height:1}
 #action-rpg-bar .action-rpg-slot small{position:absolute;bottom:1px;right:4px;font:10px system-ui;color:#d3c5a6}
-#action-rpg-bar .action-rpg-slot:disabled{opacity:.4;cursor:not-allowed}\n#action-rpg-bar .action-rpg-slot:focus-visible{outline:3px solid #f4cb75;outline-offset:2px}
+#action-rpg-bar .action-rpg-slot:disabled{opacity:.4;cursor:not-allowed}
+#action-rpg-bar .action-rpg-slot:focus-visible{outline:3px solid #f4cb75;outline-offset:2px}
 @media(max-width:600px){#action-rpg-bar{gap:3px}#action-rpg-bar .action-rpg-slot{min-height:42px}#action-rpg-bar .action-rpg-slot span{font-size:20px}}
 @media(prefers-reduced-motion:reduce){#action-rpg-bar *{transition:none!important;animation:none!important}}
 `;
