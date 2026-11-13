@@ -20,11 +20,9 @@ export function createActionCombatFeedback({root=document}={}){
    if (!event || root.hidden) return;
    const type=event.type;
    let label='',kind='';
-   // Renderer.event already paints world-space damage/healing numbers.
-   // Only display exceptional announcements here to avoid duplicate overlays.
-   if(type==='interrupt'){
-     label='INTERRUPT';kind='warning';
-   } else if(type==='guardian-reward' && event.label){
+   // Renderer.event already paints damage, healing and interrupt effects.
+   // Only display short reward announcements here.
+   if(type==='guardian-reward' && event.label){
      label=String(event.label).slice(0,72);kind='loot';
    } else return;
    if(layer.childElementCount>=8)layer.firstElementChild?.remove();
