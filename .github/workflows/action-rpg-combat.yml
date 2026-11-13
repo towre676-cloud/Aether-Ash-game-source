@@ -8,6 +8,7 @@ on:
       - 'live-site/dist/game/engine2/main.js'
       - 'live-site/dist/game/engine2/renderer.js'
       - 'live-site/dist/game/engine2/action-creature-motion.js'
+      - 'live-site/dist/game/engine2/action-armory-reward.js'
       - 'tests/action-rpg-combat-core.test.mjs'
       - 'tests/action-rpg-integration.test.mjs'
       - 'tests/action-creature-motion.test.mjs'
@@ -21,6 +22,7 @@ on:
       - 'live-site/dist/game/engine2/main.js'
       - 'live-site/dist/game/engine2/renderer.js'
       - 'live-site/dist/game/engine2/action-creature-motion.js'
+      - 'live-site/dist/game/engine2/action-armory-reward.js'
       - 'tests/action-rpg-combat-core.test.mjs'
       - 'tests/action-rpg-integration.test.mjs'
       - 'tests/action-creature-motion.test.mjs'
@@ -41,5 +43,6 @@ jobs:
           node --check live-site/dist/game/engine2/main.js
           node --check live-site/dist/game/engine2/renderer.js
           node --check live-site/dist/game/engine2/action-creature-motion.js
+          node --check live-site/dist/game/engine2/action-armory-reward.js
       - name: Run deterministic combat tests
         run: node --test tests/action-rpg-combat-core.test.mjs tests/action-rpg-integration.test.mjs tests/action-creature-motion.test.mjs
