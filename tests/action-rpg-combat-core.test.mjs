@@ -29,3 +29,21 @@ test('seeded loot is reproducible and invalid dt rejected', () => {
   assert.deepEqual(drainCombatEvents(a),drainCombatEvents(b));
   assert.throws(()=>advanceCombat(a,1),RangeError);
 });
+
+test('guard halves telegraphed damage, and cooldown prevents repeat guarding', () => {
+  const s=createCombatState({player:{x:0,y:0,hp:100,mana:100},enemies:[{id:'guard-test',x:1,y:0,hp:100,attackWindup:0.2,damage:15}]});
+  advanceCombat(s,0.1);
+  assert.equal(s.enemies[0].state,'windup');
+  assert.equal(useAction(s,'guard').ok,true);
+  assert.equal(useAction(s,'guard').reason,'cooldown');
+  advanceCombat(s,0.2);
+  assert.equal(s.player.hp,92);
+  assert.equal(s.player.mana,90);
+});
+test('moving out of range during windup avoids damage', () => {
+  const s=createCombatState({player:{x:0,y:0,hp:100,mana:100},enemies:[{id:'kite',x:1,y:0,hp:100,attackWindup:0.2,damage:20}]});
+  advanceCombat(s,0.1);
+  s.player.x=8;
+  advanceCombat(s,0.2);
+  assert.equal(s.player.hp,100);
+});
