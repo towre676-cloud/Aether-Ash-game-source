@@ -218,10 +218,22 @@ export class CisternRenderer {
         // Remote preview hosts can deliver cross-origin-tainted sprite images.
         // Keep geometry renderable with an opaque neutral texture rather than
         // aborting the entire dungeon draw; no pixel readback is attempted.
-        g.texImage2D(g.TEXTURE_2D,0,g.RGBA,1,1,0,g.RGBA,g.UNSIGNED_BYTE,new Uint8Array([190,190,190,255]));
+        // Draw a transparent character silhouette instead of an opaque white rectangle.
+        // This fallback is intentionally distinguishable from the actual artwork.
+        const tile=document.createElement('canvas');tile.width=64;tile.height=96;
+        const c=tile.getContext('2d');
+        if(c){
+          c.fillStyle='#253447';c.beginPath();c.ellipse(32,16,13,15,0,0,Math.PI*2);c.fill();
+          c.fillStyle='#bca98c';c.beginPath();c.ellipse(32,16,9,11,0,0,Math.PI*2);c.fill();
+          c.fillStyle='#385d77';c.beginPath();c.moveTo(18,35);c.lineTo(46,35);c.lineTo(51,67);c.lineTo(13,67);c.closePath();c.fill();
+          c.fillStyle='#293b50';c.fillRect(16,64,13,28);c.fillRect(35,64,13,28);
+          c.fillStyle='#9e866a';c.fillRect(8,38,8,27);c.fillRect(48,38,8,27);
+          g.texImage2D(g.TEXTURE_2D,0,g.RGBA,g.RGBA,g.UNSIGNED_BYTE,tile);
+        }else g.texImage2D(g.TEXTURE_2D,0,g.RGBA,1,1,0,g.RGBA,g.UNSIGNED_BYTE,new Uint8Array([0,0,0,0]));
+        this.spriteFallbacks??=new WeakSet();this.spriteFallbacks.add(sprite.image);
         this.spriteUploadError=String(error?.message||error);
       }
-      this.configureTexture();this.spriteTextures.set(sprite.image,texture);this.spriteTextureHandles.push(texture);}else g.bindTexture(g.TEXTURE_2D,texture);const src=sprite.source,iw=sprite.image.width,ih=sprite.image.height,u0=src.x/iw,u1=(src.x+src.w)/iw,v0=src.y/ih,v1=(src.y+src.h)/ih,ax=sprite.flip?1-sprite.anchorX:sprite.anchorX,ay=sprite.anchorY;const point=(u,v)=>[sprite.x+right[0]*(u-ax)*sprite.width+up[0]*(ay-v)*sprite.height,sprite.y+right[1]*(u-ax)*sprite.width+up[1]*(ay-v)*sprite.height,sprite.z+right[2]*(u-ax)*sprite.width+up[2]*(ay-v)*sprite.height];const out=[];for(const[u,v]of [[0,1],[1,1],[1,0],[0,1],[1,0],[0,0]])out.push(...point(u,v),sprite.flip?(u?u0:u1):(u?u1:u0),v?v1:v0);g.bindBuffer(g.ARRAY_BUFFER,this.spriteBuffer);g.bufferData(g.ARRAY_BUFFER,new Float32Array(out),g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc.position);g.vertexAttribPointer(loc.position,3,g.FLOAT,false,20,0);g.enableVertexAttribArray(loc.uv);g.vertexAttribPointer(loc.uv,2,g.FLOAT,false,20,12);const tint=resolveActorTint(sprite.tint,[.94,.96,.95]);g.uniform3f(loc.tint,...tint);g.uniform1f(loc.alpha,sprite.alpha??1);g.drawArrays(g.TRIANGLES,0,6);this.stats.drawCalls++;this.stats.triangles+=2;}g.disableVertexAttribArray(loc.uv);g.disable(g.BLEND);
+      this.configureTexture();this.spriteTextures.set(sprite.image,texture);this.spriteTextureHandles.push(texture);}else g.bindTexture(g.TEXTURE_2D,texture);const src=sprite.source,iw=sprite.image.width,ih=sprite.image.height,u0=this.spriteFallbacks?.has(sprite.image)?0:src.x/iw,u1=this.spriteFallbacks?.has(sprite.image)?1:(src.x+src.w)/iw,v0=this.spriteFallbacks?.has(sprite.image)?0:src.y/ih,v1=this.spriteFallbacks?.has(sprite.image)?1:(src.y+src.h)/ih,ax=sprite.flip?1-sprite.anchorX:sprite.anchorX,ay=sprite.anchorY;const point=(u,v)=>[sprite.x+right[0]*(u-ax)*sprite.width+up[0]*(ay-v)*sprite.height,sprite.y+right[1]*(u-ax)*sprite.width+up[1]*(ay-v)*sprite.height,sprite.z+right[2]*(u-ax)*sprite.width+up[2]*(ay-v)*sprite.height];const out=[];for(const[u,v]of [[0,1],[1,1],[1,0],[0,1],[1,0],[0,0]])out.push(...point(u,v),sprite.flip?(u?u0:u1):(u?u1:u0),v?v1:v0);g.bindBuffer(g.ARRAY_BUFFER,this.spriteBuffer);g.bufferData(g.ARRAY_BUFFER,new Float32Array(out),g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc.position);g.vertexAttribPointer(loc.position,3,g.FLOAT,false,20,0);g.enableVertexAttribArray(loc.uv);g.vertexAttribPointer(loc.uv,2,g.FLOAT,false,20,12);const tint=resolveActorTint(sprite.tint,[.94,.96,.95]);g.uniform3f(loc.tint,...tint);g.uniform1f(loc.alpha,sprite.alpha??1);g.drawArrays(g.TRIANGLES,0,6);this.stats.drawCalls++;this.stats.triangles+=2;}g.disableVertexAttribArray(loc.uv);g.disable(g.BLEND);
   }
   bindMesh(mesh, shadow = false) {
     const g = this.gl; g.bindBuffer(g.ARRAY_BUFFER, mesh.buffer);
