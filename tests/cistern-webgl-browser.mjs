@@ -31,7 +31,7 @@ try {
  await entry.click();
  await page.waitForTimeout(4500);
  const dungeon=await page.evaluate(()=>{
-  const canvases=[...document.querySelectorAll('canvas')].map(c=>({width:c.width,height:c.height,visible:!!(c.getClientRects().length&&getComputedStyle(c).visibility!=='hidden'),id:c.id}));
+  const canvases=[...document.querySelectorAll('canvas')].map(c=>({width:c.width,height:c.height,visible:!!(c.getClientRects().length&&getComputedStyle(c).visibility!=='hidden'),id:c.id,spriteFallbacks:c.dataset.spriteFallbacks??null}));
   const text=document.body.innerText;
   return {canvases,failed:text.includes('The 3D scene could not draw safely'),hasCistern:text.includes('Remembering Cistern')||text.includes('west resonator'),crossOriginError:text.includes('cross-origin data')};
  });
@@ -47,6 +47,9 @@ try {
  });
  console.log(JSON.stringify({characterArt},null,2));
  console.log(JSON.stringify({dungeon},null,2));
+ const renderedCistern=dungeon.canvases.find(c=>c.spriteFallbacks!==null);
+ assert.ok(renderedCistern,'Cistern renderer did not publish character texture status');
+ assert.equal(Number(renderedCistern.spriteFallbacks),0,'Character atlas fell back to silhouette/white block in same-origin browser');
  assert.equal(dungeon.failed,false,'Cistern entered graphics failure overlay');
  assert.equal(dungeon.crossOriginError,false,'Cistern has WebGL cross-origin failure');
  assert.ok(dungeon.canvases.some(c=>c.visible&&c.width>100&&c.height>100),'No visible dungeon canvas');
