@@ -4,6 +4,8 @@ on:
     paths:
       - 'live-site/dist/game/action-rpg-combat-core.mjs'
       - 'live-site/dist/game/engine2/action-rpg-bar.js'
+      - 'live-site/dist/game/engine2/action-combat-feedback.js'
+      - 'live-site/dist/game/engine2/main.js'
       - 'tests/action-rpg-combat-core.test.mjs'
       - '.github/workflows/action-rpg-combat.yml'
   push:
@@ -11,6 +13,8 @@ on:
     paths:
       - 'live-site/dist/game/action-rpg-combat-core.mjs'
       - 'live-site/dist/game/engine2/action-rpg-bar.js'
+      - 'live-site/dist/game/engine2/action-combat-feedback.js'
+      - 'live-site/dist/game/engine2/main.js'
       - 'tests/action-rpg-combat-core.test.mjs'
       - '.github/workflows/action-rpg-combat.yml'
 jobs:
@@ -25,5 +29,7 @@ jobs:
         run: |
           node --check live-site/dist/game/action-rpg-combat-core.mjs
           node --check live-site/dist/game/engine2/action-rpg-bar.js
+          node --check live-site/dist/game/engine2/action-combat-feedback.js
+          node --check live-site/dist/game/engine2/main.js
       - name: Run deterministic combat tests
         run: node --test tests/action-rpg-combat-core.test.mjs
