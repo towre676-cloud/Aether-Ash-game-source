@@ -1,3 +1,4 @@
+import {installGraphicsDiagnostics} from './action-graphics-diagnostic.js?v=1';
 import {showArmoryReward} from './action-armory-reward.js?v=1';
 import {createActionCombatFeedback} from './action-combat-feedback.js?v=1';
 import {mountFieldHUD} from './field-hud.js?v=5.38';
@@ -422,6 +423,9 @@ const training=document.createElement('button');training.id='practice-skirmish';
 // Explicit QA-only battle access. DEV_MODE uses an isolated save namespace.
 // Never bypass the story gate in the ordinary campaign.
 if(DEV_MODE){
+ const diagnostic=installGraphicsDiagnostics({canvas,getRenderer:()=>renderer});
+ $('#pause-body .menu-grid').append(diagnostic.button);
+ $('#pause-body').append(diagnostic.status);
  const qa=document.createElement('button');
  qa.id='action-rpg-qa-battle';
  qa.type='button';
