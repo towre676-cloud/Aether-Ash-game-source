@@ -1,0 +1,27 @@
+name: Release 1 combat UI checks
+on:
+  pull_request:
+    paths:
+      - 'live-site/dist/game/index.html'
+      - 'live-site/dist/game/engine2/main.js'
+      - 'live-site/dist/game/engine2/action-rpg-bar.js'
+      - 'live-site/dist/game/engine2/action-combat-feedback.js'
+      - 'live-site/dist/game/engine2/action-armory-reward.js'
+      - '.github/workflows/release-combat-ui.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check live-site/dist/game/engine2/main.js
+          node --check live-site/dist/game/engine2/action-rpg-bar.js
+          node --check live-site/dist/game/engine2/action-combat-feedback.js
+          node --check live-site/dist/game/engine2/action-armory-reward.js
+      - name: Wiring contracts
+        run: |
+          node --input-type=module -e "import fs from 'node:fs';import assert from 'node:assert/strict';const html=fs.readFileSync('live-site/dist/game/index.html','utf8');const main=fs.readFileSync('live-site/dist/game/engine2/main.js','utf8');assert.match(html,/mountActionBar/);assert.match(main,/showArmoryReward\(award/);assert.match(main,/createActionCombatFeedback/);assert.match(main,/claimLivingArmoryVictory\(world,battle\)/);"
