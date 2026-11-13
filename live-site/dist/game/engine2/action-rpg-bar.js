@@ -24,6 +24,7 @@ export function mountActionBar({ root = document, onAction } = {}) {
     bar.append(button);
   }
   commands.append(bar);
+  commands.classList.add('action-rpg-mounted');
   // Preserve canonical button availability and expose it in the quick slots.
   const sync = () => {
     for (const [id] of entries) {
@@ -44,7 +45,7 @@ export function mountActionBar({ root = document, onAction } = {}) {
   const style=root.createElement('style');
   style.id='action-rpg-bar-style';
   style.textContent=`
-#action-rpg-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px auto 0;max-width:440px}
+#commands.action-rpg-mounted .command-grid{display:none}\n#action-rpg-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:8px auto 0;max-width:440px}
 #action-rpg-bar .action-rpg-slot{min-width:0;min-height:48px;position:relative;display:grid;place-items:center;background:linear-gradient(155deg,#30404b,#111c28);color:#f3e4c5;border:1px solid #9b8663;border-radius:8px;box-shadow:inset 0 1px #ffffff28;cursor:pointer;touch-action:manipulation}
 #action-rpg-bar .action-rpg-slot span{font-size:23px;line-height:1}
 #action-rpg-bar .action-rpg-slot small{position:absolute;bottom:1px;right:4px;font:10px system-ui;color:#d3c5a6}
@@ -65,5 +66,5 @@ export function mountActionBar({ root = document, onAction } = {}) {
     onAction(entry[0]);
   };
   root.addEventListener('keydown',keydown,true);
-  return () => {observer?.disconnect();root.removeEventListener('keydown',keydown);bar.remove();style.remove();};
+  return () => {observer?.disconnect();root.removeEventListener('keydown',keydown,true);commands.classList.remove('action-rpg-mounted');bar.remove();style.remove();};
 }
