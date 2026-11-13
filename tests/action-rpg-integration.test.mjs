@@ -35,3 +35,12 @@ test('world-space reward effects only follow canonical successful armory awards'
  assert.match(renderer,/e\.type==='armory-drop'/);
  assert.match(renderer,/kind:'spell'/);
 });
+
+test('loot inspect forwards to canonical Living Armory without granting another item',()=>{
+ const main=read('../live-site/dist/game/engine2/main.js');
+ const ui=read('../live-site/dist/game/engine2/action-armory-reward.js');
+ assert.match(main,/showArmoryReward\(award,\{onInspect:\(\)=>openLivingArmory/);
+ assert.match(ui,/onInspect\(\)/);
+ assert.doesNotMatch(ui,/grantItem\(/);
+ assert.doesNotMatch(ui,/claimLivingArmoryVictory\(/);
+});
