@@ -18,7 +18,10 @@ export function expandVastScenes(data){
  const rewardChapters=new Set(),rewardSceneLocations=new Set();
  for(const s of data.scenes){if(Number.isInteger(s.chapter)&&s.chapter>=2&&s.chapter%2===0&&s.location<700&&!rewardChapters.has(s.chapter)){rewardChapters.add(s.chapter);rewardSceneLocations.add(s.location);}}
  for(const scene of data.scenes){
-  if(!Number.isInteger(scene.location)||scene.location>=700||scene.key==='home'||scene.spatialExpansion?.version===1)continue;
+  const frontier=scene.location>=2000&&scene.location<2060&&scene.frontierAuthoring541?.version===1;
+  const fieldTrial=scene.location>=4700&&scene.location<4707&&scene.fieldOrigin!==undefined&&scene.frontierAuthoring541?.version===1;
+  const native=Number.isInteger(scene.location)&&scene.location<700;
+  if(!Number.isInteger(scene.location)||!(native||frontier||fieldTrial)||scene.key==='home'||scene.spatialExpansion?.version===1)continue;
   const oldW=scene.width|0,oldH=scene.height|0;
   if(oldW<12||oldH<12||oldW>96||oldH>96||!Array.isArray(scene.floor)||scene.floor.length!==oldH||scene.floor.some(s=>typeof s!=='string'||s.length!==oldW))continue;
   const old=scene.floor.map(row=>row.split('')),before=bfs(old,scene.arrive);
@@ -109,8 +112,10 @@ export function expandVastScenes(data){
   const newObjects=[];
   for(const i of [1,3,5,6]){
    const [x,y]=nodes[i];
-   const record=i===1||i===6;
-   newObjects.push({type:record?'clue':'furnishing',...(record?{exploreId:'vast:'+scene.location+':landmark:'+i}:{}),xy:[x,y],label:names[i],text:place+' — '+names[i]+'. '+details[(i+scene.location)%details.length]});
+   const record=native&&(i===1||i===6);
+   const regional=scene.biome?.description?(' '+scene.biome.description+(i===6&&scene.biome.rule?' The local safety rule is: '+scene.biome.rule:'')):'';
+   const label=scene.biome?.name?scene.biome.name+' · '+names[i]:names[i];
+   newObjects.push({type:record?'clue':'furnishing',...(record?{exploreId:'vast:'+scene.location+':landmark:'+i}:{}),xy:[x,y],label,text:place+' — '+names[i]+'. '+details[(i+scene.location)%details.length]+regional});
   }
   // One hard-to-find cache in alternate chapters, not free powerful gear per room.
   if(rewardSceneLocations.has(scene.location)){
@@ -123,6 +128,10 @@ export function expandVastScenes(data){
     const [x,y]=nodes[7],enemies=prior.enemies.slice(0,2).map((e,i)=>[e[0],[x-2+i*3,y]]);
     newObjects.push({type:'patrol',flag_address:0x7e0000+scene.location,bit:0,enemies,gold:12+(scene.chapter||1)*2,label:'Far-road watch',text:'An alert group holds the wider route. You can approach and fight or circle back through the connected galleries.',win_text:'The far-road watch yields. The return route remains open.'});
    }
+  }
+  if(frontier&&scene.location%5%2===0){
+   const [x,y]=nodes[7];const enemies=[[0,[x-2,y]],[1,[x+2,y]]];
+   newObjects.push({type:'patrol',xy:[x,y],flag_address:0x7d0000+scene.location,bit:0,enemies,gold:8+Math.floor((scene.chapter||1)/4)*4,label:'Outer wilderness patrol',text:'Scavengers are feeding near the far lookout. The side circuit provides room to pass without triggering them.',win_text:'The distant patrol yields the lookout. The crew recovers only modest supplies.'});
   }
   scene.width=W;scene.height=H;scene.floor=finalFloor;scene.objects=[...(scene.objects||[]),...newObjects];
   scene.spatialExpansion={version:1,archetype:kind,originalWidth:oldW,originalHeight:oldH,walkableBefore:before.length,walkableAfter:after.length,outerReachable:newCells,entrances,alcoves,landmarks:nodes.map((xy,i)=>({name:names[i],xy})),routeLoops:3,originalCoordinatesPreserved:true};
