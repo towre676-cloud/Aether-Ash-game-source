@@ -7,6 +7,7 @@ import {appendAdventureLandscape} from './adventure-landscape.js?v=5.42';
 import {appendInteriorSurround} from './interior-scene-shell-541.js?v=5.41';
 import {originArtOwnsFurnishing541} from './origin-art-541.js?v=5.41';
 import {paintNativeGroundFinish} from './native-ground-537.js?v=5.37.0';
+import {appendSpatialLandmarks} from './spatial-landmark-art.mjs?v=1';
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255);
 const tint = (c, s) => c.map(v => Math.min(1, v * s));
@@ -470,5 +471,6 @@ export function buildAdventureGeometry(Geometry, C, world, {exteriorSites=[],ter
     m.cylinder(f.x,.91,f.z,.038,1.82,colors.metal,1,7);m.box(f.x,1.98,f.z,.27,.38,.27,colors.brass,1);
     m.box(f.x,2.01,f.z,.20,.25,.20,colors.warm,4,.4);m.cylinder(f.x,2.23,f.z,.23,.09,colors.metal,1,8,.13);
   }
+  appendSpatialLandmarks(m,{world});
   return m;
 }
