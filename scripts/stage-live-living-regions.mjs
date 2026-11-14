@@ -83,7 +83,7 @@ function patchRoomMap(source){
  s=replaceOnce(s,append,`const follow=document.createElement('button');follow.type='button';follow.textContent='Follow selected waypoint';follow.hidden=true;
  panel.append(header,map,list,status,follow);`,'native map optional follow button');
  s=replaceOnce(s,'let view=null;','let view=null,selected=null;','native map selected waypoint');
- const old=/function choose\\(x,z\\)\\{\\s*if\\(onWalk\\(x,z\\)\\)panel\\.close\\(\\);\\s*else status\\.textContent='That spot is out of reach\\.';\\s*\\}/g;
+ const old=/function choose\(x,z\)\{\s*if\(onWalk\(x,z\)\)panel\.close\(\);\s*else status\.textContent='That spot is out of reach\.';\s*\}/g;
  const changed=`function choose(x,z){
  selected=[x,z];follow.hidden=false;
  const w=getWorld(),distance=Math.round(Math.hypot(w.state.x-x-.5,w.state.y-z-.5));
