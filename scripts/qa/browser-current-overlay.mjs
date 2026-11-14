@@ -103,7 +103,9 @@ try{
    if(count<4)throw Error('Current map lacks accessible journey and ecological landmarks: '+count);
    const text=await marks.allTextContents();
    if(!text.some(x=>/Fieldwork|Uncharted habitat/i.test(x)))throw Error('New ecological stations absent from current native room map');
-   await marks.first().click();
+   const markRect=await marks.first().boundingBox();
+   if(!markRect)throw Error('Native map label is not on screen');
+   await page.mouse.click(markRect.x+markRect.width/2,markRect.y+markRect.height/2);
    const status=await page.locator('#room-map-panel p[role="status"]').textContent();
    if(!status.includes('Waypoint selected'))throw Error('Choosing map label did not provide manual waypoint preview: '+status);
    const follow=page.getByRole('button',{name:'Follow selected waypoint'});
@@ -111,7 +113,9 @@ try{
    const still=await page.locator('#screen').getAttribute('data-position');
    if(position!==still)throw Error('Selecting a map marker automatically walked the party');
    await page.locator('#room-map-panel').screenshot({path:join(artifactRoot,label+'-map.png')});
-   await page.locator('#room-map-panel header button').click();
+   const closeRect=await page.locator('#room-map-panel header button').boundingBox();
+   if(!closeRect)throw Error('Native map close button is missing');
+   await page.mouse.click(closeRect.x+closeRect.width/2,closeRect.y+closeRect.height/2);
    step='manual movement';
    let moved=false,last=position;
    for(const key of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
