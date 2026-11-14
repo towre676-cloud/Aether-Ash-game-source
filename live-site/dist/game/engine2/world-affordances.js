@@ -77,6 +77,33 @@ export function worldAffordanceBounds(scene,object){
  const scale=object.compactArt?.72:1;
  return {x:x-w*scale/96,y:y-(h-bottom)*scale/48,w:w*scale/48,h:h*scale/48};
 }
+/** Exact O(V+E) articulation detection for optional repair sites.
+ * Iterative lowlinks avoid recursion overflow on expanded 100x100 maps. */
+export function articulationCells(scene,patch){
+ const cells=patch?.cells||[],index=new Map(cells.map((p,i)=>[p[0]+','+p[1],i])),n=cells.length;
+ const disc=new Int32Array(n),low=new Int32Array(n),parent=new Int32Array(n).fill(-1),children=new Int32Array(n),cut=new Set();
+ const directions=[[1,0],[-1,0],[0,1],[0,-1]];let clock=0;
+ for(let root=0;root<n;root++){
+  if(disc[root])continue;
+  disc[root]=low[root]=++clock;
+  const stack=[{v:root,next:0}];
+  while(stack.length){
+   const frame=stack[stack.length-1],v=frame.v;
+   if(frame.next<4){
+    const [dx,dy]=directions[frame.next++],u=index.get((cells[v][0]+dx)+','+(cells[v][1]+dy));
+    if(u===undefined)continue;
+    if(!disc[u]){parent[u]=v;children[v]++;disc[u]=low[u]=++clock;stack.push({v:u,next:0});}
+    else if(u!==parent[v])low[v]=Math.min(low[v],disc[u]);
+   }else{
+    stack.pop();const p=parent[v];
+    if(p>=0){low[p]=Math.min(low[p],low[v]);if(parent[p]>=0&&low[v]>=disc[p])cut.add(p);}
+    else if(children[v]>1)cut.add(v);
+   }
+  }
+ }
+ return new Set([...cut].map(i=>cells[i][0]+','+cells[i][1]));
+}
+
 function layout(world){
  const scene=world.scene;if(!scene?.floor)return null;
  if(SCENE_CACHE.has(scene))return SCENE_CACHE.get(scene);
@@ -105,13 +132,11 @@ function layout(world){
  const anchors=preferred.length?preferred.map(g=>[g.anchor.x-.5,g.anchor.y-.5]):[];
  const scores=new Map(),score=p=>{const k=key(p);if(!scores.has(k))scores.set(k,edgeDistance(p)*3+(anchors.length?Math.min(...anchors.map(q=>dist(p,q)))*.3:0)+dist(p,start)*.15+(routes.has(k)?15:0));return scores.get(k);};
  const candidates=patch.cells.filter(clearRoot).sort((a,b)=>score(a)-score(b)||a[1]-b[1]||a[0]-b[0]);
- const needScout=!!encounterHabitat(scene),connected=new Map();
+ const needScout=!!encounterHabitat(scene),critical=articulationCells(scene,patch);
  const optional=p=>{
-  const k=key(p);if(connected.has(k))return connected.get(k);
   const degree=[[1,0],[-1,0],[0,1],[0,-1]].filter(([dx,dy])=>floor(scene,p[0]+dx,p[1]+dy)).length;
-  // Closing this one optional tile must leave every other original floor cell
-  // in the arrival component reachable. No story route is a repair dependency.
-  const safe=degree>=3&&flood(scene,start,p).seen.size===patch.seen.size-1;connected.set(k,safe);return safe;
+  // A non-articulation tile cannot sever any existing story or repair route.
+  return degree>=3&&!critical.has(key(p));
  };
  function cluster(site,{compactArt=false,compactStock=false,allowRoute=false,radius=4.5}={}){
   const used=[{xy:site,bounds:worldAffordanceBounds(scene,{xy:site,affordanceKind:'site',art:profile.art,compactArt})}],sources=[];
