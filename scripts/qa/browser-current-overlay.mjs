@@ -84,7 +84,8 @@ try{
    console.log('QA-MAP-PRECLICK '+label+' '+JSON.stringify(mapDiagnostic));
    if(mapDiagnostic.hidden||mapDiagnostic.display==='none'||mapDiagnostic.dialogVisible||mapDiagnostic.modal)throw Error('Native Map blocked by field state: '+JSON.stringify(mapDiagnostic));
    const position=await page.locator('#screen').getAttribute('data-position');
-   await page.locator('#room-map-button').click();
+   const hit=mapDiagnostic.rect;
+   await page.mouse.click(hit.x+hit.w/2,hit.y+hit.h/2);
    await page.locator('#room-map-panel[open]').waitFor({state:'visible',timeout:12000});
    const marks=page.locator('#room-map-panel .room-map-destinations button'),count=await marks.count();
    if(count<4)throw Error('Current map lacks accessible journey and ecological landmarks: '+count);
