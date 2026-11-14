@@ -42,6 +42,7 @@ test('all 60 native frontier environments have true outdoor expansion, without m
   for(const o of s.objects.filter(o=>o.type==='frontier-landmark'||o.type==='portal'||o.type==='camp'||o.type==='frontier-board'))assert.ok(actual.has(id(o.xy)));
   originalReach+=old.size;expandedReach+=actual.size;
  }
+ console.info('FRONTIER_AREA',JSON.stringify({scenes:areas.length,originalReach,expandedReach,ratio:expandedReach/originalReach}));
  assert.ok(expandedReach>originalReach*5,'true enormous reachable frontier increase');
 });
 
@@ -88,6 +89,7 @@ test('mandatory routes grow wider, yet original gated components and story coord
   for(const c of s.mainlineCourts.centers)assert.ok(after.has(id(c)));
  }
  assert.ok(count>=1,'at least one existing mainline broadened');
+ console.info('MAINLINE_COURTS',JSON.stringify({scenes:count,addedWalkable:area,baseline:original.scenes.length}));
  assert.ok(area>=20,'detectably wider, not just one tile');
  const once=JSON.stringify(composed);broadenMainline(composed);assert.equal(JSON.stringify(composed),once);
 });
