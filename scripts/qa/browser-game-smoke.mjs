@@ -42,7 +42,10 @@ try{
    const url=origin+'/game/?dev=1&browserQA='+label;
    await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
    await page.locator('#play:enabled').waitFor({state:'visible',timeout:110000});
-   stage='developer portal';await page.locator('#play').click();
+   stage='developer portal';
+   // Dev sessions open the chapter chooser automatically during boot; don't
+   // click the now-obscured title button behind an already modal dialog.
+   if(!await page.locator('#dev-portal[open]').isVisible())await page.locator('#play').click();
    await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:18000});
    stage='chapter select';await page.locator('#dev-portal [data-chapter="10"]').click();
    stage='enter scene';await page.getByRole('button',{name:'Explore this chapter'}).click();
