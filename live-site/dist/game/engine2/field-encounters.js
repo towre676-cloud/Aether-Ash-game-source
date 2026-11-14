@@ -2,6 +2,7 @@
  * The opening contact is short; later intervals leave room to explore and recover.
  * These tile budgets are authored pacing choices, not a universal RPG rate. */
 import {isInteriorScene} from './scene-identity.js?v=4.0.0';
+import {spatialEcologyEncounterPace} from './spatial-ecology.mjs?v=1';
 
 const ORIGIN_HABITATS={
  'sable-reed':'meadow','iona-lowbank':'wetland','rook-regulator':'workshop',
@@ -66,6 +67,12 @@ export function encounterProtected(world){
  const scene=world.scene,s=world.state;if(!scene||!s)return true;
  const near=(o,r)=>Array.isArray(o.xy)&&Math.hypot(s.x-o.xy[0]-.5,s.y-o.xy[1]-.5)<r;
  if((scene.doors||[]).some(o=>near(o,1.1)))return true;
+ // Do not trigger a random fight while the party reads or adjusts a fieldwork
+ // station. Protection is strictly local; the rest of the basin stays dangerous.
+ if(scene.spatialExpansion?.version===1&&[1,3,5,6,7].some(i=>{
+  const xy=scene.spatialExpansion.landmarks?.[i]?.xy;
+  return Array.isArray(xy)&&Math.hypot(s.x-xy[0]-.5,s.y-xy[1]-.5)<2.4;
+ }))return true;
  return (scene.objects||[]).some(o=>o.type==='portal'?near(o,1.1):['npc','guide','shop','camp','transport','frontier-board'].includes(o.type)&&near(o,1.15));
 }
 
@@ -85,7 +92,7 @@ export function advanceEncounters(world,distance,{dt=0,rng=Math.random,onWarning
  if(encounterProtected(world))return null;
  if(ledger.remaining===null)ledger.remaining=profile.minTiles+random(rng)*(profile.maxTiles-profile.minTiles);
  const ecologyPace=Number(world.livingAtlas?.encounterPace?.()??1);
- const consumed=distance*(Number.isFinite(ecologyPace)?clamp(ecologyPace,.65,1.3):1);
+ const consumed=distance*(Number.isFinite(ecologyPace)?clamp(ecologyPace,.65,1.3):1)*spatialEcologyEncounterPace(world);
  ledger.travelled+=distance;ledger.remaining=Math.max(0,ledger.remaining-consumed);
  if(ledger.remaining<=3&&!ledger.warned){ledger.warned=true;onWarning({habitat:profile.habitat,indoor:profile.indoor,text:profile.indoor?'Scratching nearby · creatures are stirring.':'Movement nearby · creatures are closing in.'});}
  if(ledger.remaining>0||beforeGrace>distance)return null;

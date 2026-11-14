@@ -1,0 +1,33 @@
+name: Chrome end-to-end game smoke
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  game:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install ephemeral browser driver
+        run: |
+          cd scripts/qa
+          npm install --no-package-lock --no-save --ignore-scripts playwright-core@1.56.1
+          test -x /usr/bin/google-chrome
+      - name: Exercise full game canvas, chapter travel, Map, and manual movement
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+          QA_MOBILE: '1'
+        run: node scripts/qa/browser-game-smoke.mjs
+      - name: Preserve actual gameplay screenshots and failure reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-actual-browser-qa
+          path: qa-artifacts/
+          if-no-files-found: ignore
+          retention-days: 7

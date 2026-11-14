@@ -15,3 +15,12 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/check-site.mjs
+      - run: node --test live-site/dist/game/engine2/tests/vast-spatial-expansion.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/macro-region-phase2.test.mjs live-site/dist/game/engine2/tests/spatial-landmark-art.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/world-affordance-articulation.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/frontiers.test.mjs live-site/dist/game/engine2/tests/field-origins.test.mjs live-site/dist/game/engine2/tests/quest-navigation.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/adventure-dungeon-architecture.test.mjs live-site/dist/game/engine2/tests/world-affordance-layout.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/spatial-ecology.test.mjs live-site/dist/game/engine2/tests/spatial-region-map.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/spatial-wildlife.test.mjs
+      - run: node --test scripts/tests/stage-live-spatial-integration.test.mjs
+      - run: node --test scripts/tests/stage-live-living-regions.test.mjs

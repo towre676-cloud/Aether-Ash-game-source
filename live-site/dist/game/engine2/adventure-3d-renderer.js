@@ -4,6 +4,7 @@ import {appendSceneGroundArt541} from './scene-ground-art-541.js?v=5.41';
 import {nativeSpatialPlan} from './native-spatial-authoring.js?v=5.33.0';
 import {appendNativeDungeonLegibility} from './native-dungeon-director.js?v=5.41';
 import {adventureLandscapeSprites,adventureLandscapePlan,appendAdventureLandscapeDynamics} from './adventure-landscape.js?v=5.42';
+import {appendSpatialWildlifeMotion} from './spatial-wildlife.mjs?v=1';
 import {originStagingActors,originStagingSpec,originStagingPlan} from './adventure-origin-staging.js?v=5.41';
 import {appendOriginArt541,appendOriginArtDynamics541} from './origin-art-541.js?v=5.41';
 import {appendOriginArrivalArt541} from './origin-arrival-art-541.js?v=5.42';
@@ -297,7 +298,7 @@ export class Adventure3DRenderer extends CisternRenderer {
     if(!architecture.adventureSceneStyle(w).indoor)appendAdventureLandscapeDynamics(m,glow,options);
     appendOriginArtDynamics541(m,glow,options);appendDungeonDynamics(m,glow,options);appendDungeonArtDynamics541(m,glow,options);appendExteriorArtDynamics(m,glow,options);appendExteriorWorksiteDynamics(m,glow,options);
     if(architecture.adventureSceneStyle(w).indoor)appendAdventureSetDynamics(m,glow,options);
-    appendAdventureContentDynamic(m,glow,options);appendAdventureLivingDynamic(m,glow,options);appendAdventureSurfaceStates(m,glow,options);appendAdventureEncounterContent(m,shadow,glow,{world:w,battle:b,time});
+    appendAdventureContentDynamic(m,glow,options);appendAdventureLivingDynamic(m,glow,options);appendSpatialWildlifeMotion(m,glow,options);appendAdventureSurfaceStates(m,glow,options);appendAdventureEncounterContent(m,shadow,glow,{world:w,battle:b,time});
     this.nativeDungeonFrame=appendNativeDungeonLegibility(m,glow,options);
     this.sprites.push(...adventureLandscapeSprites({...options,assets:this.art.assets}));
     }

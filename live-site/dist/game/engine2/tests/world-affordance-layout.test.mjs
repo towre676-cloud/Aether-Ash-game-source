@@ -35,7 +35,9 @@ test('finite IDs survive on all 165 generated scenes while authored observatorie
   if(objects.some(o=>o.affordanceKind==='site'))sites++;
   assert.equal(JSON.stringify([scene.floor,scene.objects,scene.doors]),before);
  }
- assert.equal(authored,2);assert.equal(generated,165);assert.equal(sites,164);
+ // Every baseline affordance ID above remains present. The additional open area
+  // makes a previously unavailable but safe optional repair site placeable.
+  assert.equal(authored,2);assert.equal(generated,165);assert.equal(sites,165);
 });
 
 test('every repair closes only an optional tile while keeping all other original reachable floor',()=>{
