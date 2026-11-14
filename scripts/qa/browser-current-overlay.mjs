@@ -1,6 +1,7 @@
 /**
  * Non-destructive Chrome preview of the actual current public Site with
- * exactly fourteen staged source files substituted in-browser.
+ * staged source files substituted in-browser, or an unchanged 15-file snapshot
+ * when the current Site already contains the integration.
  * Unmodified JS/assets continue loading from the original public Site.
  * The real Site is never written, published, or granted account credentials.
  */
@@ -16,9 +17,12 @@ const patch=join(review,'game/engine2');
 const artifactRoot=resolve(process.env.QA_ARTIFACT_ROOT||'qa-artifacts-live-overlay');
 mkdirSync(artifactRoot,{recursive:true});
 const manifest=JSON.parse(readFileSync(join(review,'LIVING-REGIONS-STAGING.json'),'utf8'));
-if(manifest.kind!=='review-only'||manifest.deployed||manifest.files.length!==14||new Set(manifest.files.map(f=>f.file)).size!==14)throw Error('Stage verification missing or not review-only');
+const installed=manifest.mode==='existing-installation',expectedCount=installed?15:14;
+if(manifest.kind!=='review-only'||manifest.deployed||manifest.files.length!==expectedCount||new Set(manifest.files.map(f=>f.file)).size!==expectedCount)throw Error('Stage verification missing or not review-only');
+if(installed&&(manifest.sourceFilesChanged!==0||manifest.files.some(f=>!f.oldSha256||f.oldSha256!==f.newSha256)))throw Error('Installed verification must not modify current sources');
 const files=new Set(manifest.files.map(x=>x.file));
 const required=['world.js','main.js','room-map.js','spatial-ecology.mjs','vast-spatial-expansion.mjs','spatial-wildlife.mjs'];
+if(installed)required.push('floor-connectivity.mjs');
 if(required.some(x=>!files.has(x)||!existsSync(join(patch,x))))throw Error('Not the complete approved modern overlay');
 for(const entry of manifest.files){
  const bytes=readFileSync(join(patch,entry.file));
@@ -26,7 +30,7 @@ for(const entry of manifest.files){
 }
 const report=[];
 const persist=()=>writeFileSync(join(artifactRoot,'report.json'),JSON.stringify({deployed:false,
- source:'current public Site with hash-verified review-only source overrides',browserVersion:browser?.version(),manifest,report},null,2)+'\n');
+ source:installed?'current installed integration with byte-identical source snapshot':'current public Site with hash-verified review-only source overrides',browserVersion:browser?.version(),manifest,report},null,2)+'\n');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let browser;
 try{
