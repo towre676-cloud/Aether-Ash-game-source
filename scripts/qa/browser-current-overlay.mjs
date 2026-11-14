@@ -44,6 +44,18 @@ try{
    await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:20000});
    await page.locator('#dev-portal [data-chapter="10"]').click();
    await page.getByRole('button',{name:'Explore this chapter'}).click();
+   await sleep(7000);
+   const early=await page.evaluate(()=>({
+    modal:document.querySelector('#dev-portal')?.open,
+    error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim(),
+    badgeVisible:!!document.querySelector('#dev-session-badge')&&!document.querySelector('#dev-session-badge').hidden,
+    chapterTen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
+    canvasMode:document.querySelector('#screen')?.dataset.mode,
+    canvasDrawMs:document.querySelector('#screen')?.dataset.drawMs,
+    startup:document.querySelector('#startup-message')?.textContent,
+    title:document.querySelector('#chapter-title')?.textContent
+   }));
+   console.log('CURRENT-DEV-EARLY '+label+' '+JSON.stringify(early));
    await page.waitForFunction(()=>{
     const badge=document.getElementById('dev-session-badge'),error=document.querySelector('#dev-portal .dev-error')?.textContent?.trim();
     return badge&&!badge.hidden||error&&!/^Preparing this chapter/.test(error);
