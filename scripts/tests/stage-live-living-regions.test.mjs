@@ -96,7 +96,7 @@ test('modern live overlay preserves newer systems and extends the current native
 });
 test('staging refuses changed, duplicate, missing and incompatible current Site sources',()=>{
  assert.throws(()=>stageLivingSources({...source,world:source.world.replaceAll('fractureObjects','oldFracture')}),/modern live/);
- assert.throws(()=>stageLivingSources({...source,roomMap:source.roomMap.replace('onWalk','retiredWalk')}),/current native/);
+ assert.throws(()=>stageLivingSources({...source,roomMap:source.roomMap.replaceAll('onWalk','retiredWalk')}),/current native/);
  assert.throws(()=>stageLivingSources({...source,encounters:source.encounters.replace('const consumed=','const cost=')}),/Fail closed/);
  const staged=stageLivingSources(source);
  assert.throws(()=>stageLivingSources({...source,world:staged.world}),/already present|Fail closed/);
