@@ -30,8 +30,8 @@ test('landmark mesh creates finite bounded geometry, read-only to world and save
   const before=JSON.stringify([scene.floor,scene.objects,scene.spatialExpansion,scene.mainlineCourts]);
   const m=new Geometry();assert.equal(appendSpatialLandmarks(m,{world:{scene}}),m);
   const geometry=m.data();
-  assert.ok(geometry.v.length>0&&geometry.v.length<150000,'bounded single-scene detail '+scene.location);
-  for(const value of geometry.v)assert.ok(Number.isFinite(value),'finite vertex in '+scene.location);
+  assert.ok(geometry.length>0&&geometry.length<150000,'bounded single-scene detail '+scene.location);
+  for(const value of geometry)assert.ok(Number.isFinite(value),'finite vertex in '+scene.location);
   assert.equal(JSON.stringify([scene.floor,scene.objects,scene.spatialExpansion,scene.mainlineCourts]),before);
  }
 });
