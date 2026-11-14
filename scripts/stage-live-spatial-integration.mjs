@@ -7,7 +7,7 @@
  * node scripts/stage-live-spatial-integration.mjs /path/to/current-site/dist /path/to/new-empty-staging
  */
 import {readFileSync,writeFileSync,mkdirSync,existsSync,copyFileSync} from 'node:fs';
-import {resolve,join,dirname} from 'node:path';
+import {resolve,join,dirname,relative,isAbsolute,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 
@@ -29,7 +29,7 @@ export function stageSpatialSources({world,geometry,main,journey}){
  for(const [name,value] of Object.entries({world,geometry,main,journey}))if(typeof value!=='string'||value.length<40)throw Error('Missing current Site source '+name);
  const signatures={
   world:['migrateHeroGrowth','grantCrewExperience','fractureObjects','composeCinderfallLayout','validateCampaignHandoff'],
-  main:['fractureUI','mineral-resonance.js','skipCinderfallTutorial','journeyExperience']
+  main:['fractureUI','mineral-resonance.js','skipCinderfallTutorial','journey-experience.js']
  };
  for(const [name,keys]of Object.entries(signatures))for(const token of keys)if(!({world,main}[name]).includes(token))throw Error('Not the verified modern live '+name+' version: '+token);
  if(world.includes('expandVastScenes(')||geometry.includes('appendSpatialLandmarks('))throw Error('Spatial integration already present; refusing duplicate');
@@ -63,7 +63,7 @@ export function stageSpatialSources({world,geometry,main,journey}){
 /** Creates a patch bundle only. Does not change the current Site source root. */
 export function stageSpatialSnapshot(sourceRoot,outputRoot){
  const source=resolve(sourceRoot),out=resolve(outputRoot),local=resolve(dirname(fileURLToPath(import.meta.url)),'../live-site/dist/game/engine2');
- if(source===out||out.startsWith(source+'/'))throw Error('Output must not be inside or equal to the current Site source');
+ const location=relative(source,out);if(!location||location!== '..'&&!location.startsWith('..'+sep)&&!isAbsolute(location))throw Error('Output must not be inside or equal to the current Site source');
  if(existsSync(out))throw Error('Output exists; choose a new directory. No overwriting.');
  const texts=Object.fromEntries(Object.entries(names).map(([key,file])=>[key,readFileSync(join(source,'game/engine2',file),'utf8')]));
  const patched=stageSpatialSources(texts),receipts=[];
