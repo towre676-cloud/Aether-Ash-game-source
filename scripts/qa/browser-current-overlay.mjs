@@ -40,7 +40,7 @@ try{
    // The modern Site provides a read-only scene-art practice entry; using it
    // bypasses expensive 24-chapter synthetic developer-fixture replay.
    await page.goto(publicGame+'?dev=1&reviewScene=2000&review-only=1',{waitUntil:'domcontentloaded',timeout:70000});
-   await page.locator('#play:enabled').waitFor({state:'visible',timeout:120000});
+   // Direct reviewScene entry hides the title; wait for the active field instead.
    step='modern scene-art review';
    await page.waitForFunction(()=>{
     const badge=document.getElementById('dev-session-badge'),canvas=document.getElementById('screen');
