@@ -39,3 +39,22 @@ jobs:
           path: qa-live-review/
           if-no-files-found: error
           retention-days: 7
+
+      - name: Install lightweight Chrome test driver
+        run: |
+          cd scripts/qa
+          npm install --no-package-lock --no-save --ignore-scripts playwright-core@1.56.1
+          test -x /usr/bin/google-chrome
+      - name: Run modern actual-Site browser with staged overlay, no publication
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+          QA_MOBILE: '1'
+        run: node scripts/qa/browser-current-overlay.mjs
+      - name: Archive desktop and mobile preview receipts, even on failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: living-regions-modern-inbrowser-qa
+          path: qa-artifacts-live-overlay/
+          if-no-files-found: ignore
+          retention-days: 7
