@@ -14,5 +14,5 @@ jobs:
           node-version: '22'
       - run: node --test live-site/dist/game/engine2/tests/spatial-ecology.test.mjs live-site/dist/game/engine2/tests/spatial-region-map.test.mjs live-site/dist/game/engine2/tests/spatial-wildlife.test.mjs
       - run: node --test live-site/dist/game/engine2/tests/dev-session.test.mjs live-site/dist/game/engine2/tests/save-validation.test.mjs live-site/dist/game/engine2/tests/graphics-health.test.mjs
-      - run: node --test scripts/tests/stage-live-living-regions.test.mjs
+      - run: node --test scripts/tests/*.test.mjs
       - run: node --check scripts/qa/browser-game-smoke.mjs && node --check scripts/qa/browser-current-overlay.mjs

@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {affordances} from './fixtures/modern-affordances.mjs';
 import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,existsSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
@@ -6,6 +7,7 @@ import {join} from 'node:path';
 import {stageSpatialSources,stageSpatialSnapshot} from '../stage-live-spatial-integration.mjs';
 
 const sources={
+ affordances,
  world:[
   "import {expandAuthoredOpenings} from './authored-openings.js?v=5.38';",
   "const migrateHeroGrowth=1,grantCrewExperience=2,fractureObjects=3,validateCampaignHandoff=4;",
@@ -58,13 +60,14 @@ test('staging creates new SHA-256 patch bundle and never edits authenticated sou
  try{
   const src=join(base,'source'),out=join(base,'review');
   mkdirSync(join(src,'game/engine2'),{recursive:true});
-  for(const[key,file]of Object.entries({world:'world.js',geometry:'adventure-3d-geometry.js',main:'main.js',journey:'field-journey-ui.js'}))writeFileSync(join(src,'game/engine2',file),sources[key]);
+  for(const[key,file]of Object.entries({world:'world.js',geometry:'adventure-3d-geometry.js',main:'main.js',journey:'field-journey-ui.js',affordances:'world-affordances.js'}))writeFileSync(join(src,'game/engine2',file),sources[key]);
   const manifest=stageSpatialSnapshot(src,out);
-  assert.equal(manifest.deployed,false);assert.equal(manifest.files.length,7);
+  assert.equal(manifest.deployed,false);assert.equal(manifest.files.length,8);
   assert.ok(existsSync(join(out,'game/engine2','vast-spatial-expansion.mjs')));
+  assert.ok(readFileSync(join(out,'game/engine2/world-affordances.js'),'utf8').includes('export function articulationCells('));
   assert.equal(readFileSync(join(src,'game/engine2/world.js'),'utf8'),sources.world);
   assert.ok(readFileSync(join(out,'game/engine2/world.js'),'utf8').includes('expandVastScenes('));
-  assert.throws(()=>stageSpatialSnapshot(src,out),/Output exists/);
-  assert.throws(()=>stageSpatialSnapshot(src,join(src,'patch')),/Output must not/);
+  assert.throws(()=>stageSpatialSnapshot(src,out),/destination exists/);
+  assert.throws(()=>stageSpatialSnapshot(src,join(src,'patch')),/destination must not/);
  }finally{rmSync(base,{recursive:true,force:true});}
 });

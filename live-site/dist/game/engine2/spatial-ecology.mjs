@@ -32,6 +32,25 @@ const isPlain=x=>!!x&&typeof x==='object'&&!Array.isArray(x);
 const int=(n,a,b)=>Number.isInteger(n)&&n>=a&&n<=b;
 const siteKey=scene=>String(scene?.location??'');
 const names=s=>s?.spatialExpansion?.landmarks||[];
+const stationCache=new WeakMap();
+function stationPositions(scene){
+ if(stationCache.has(scene))return stationCache.get(scene);
+ const occupied=(scene.objects||[]).flatMap(o=>[o.xy,...(o.enemies||[]).map(e=>e[1])])
+  .filter(p=>Array.isArray(p)&&p.length===2&&p.every(Number.isFinite));
+ const chosen=[];
+ for(const {index} of STOPS){
+  const anchor=names(scene)[index]?.xy,candidates=[];
+  if(Array.isArray(anchor))for(let dy=-6;dy<=6;dy++)for(let dx=-6;dx<=6;dx++){
+   const xy=[anchor[0]+dx,anchor[1]+dy],distance=Math.hypot(dx,dy);
+   if(distance>6||scene.floor[xy[1]]?.[xy[0]]!=='.')continue;
+   if([...occupied,...chosen.filter(Boolean)].some(p=>Math.hypot(xy[0]-p[0],xy[1]-p[1])<3))continue;
+   candidates.push({xy,distance});
+  }
+  candidates.sort((a,b)=>a.distance-b.distance||a.xy[1]-b.xy[1]||a.xy[0]-b.xy[0]);
+  chosen.push(candidates[0]?.xy||null);
+ }
+ stationCache.set(scene,chosen);return chosen;
+}
 export function spatialEcologyStory(scene){
  const style=scene?.biome?.style||({wild:'village',civic:'village',dungeon:'dungeon'}[scene?.spatialExpansion?.archetype]||'dungeon');
  return STORIES[style]||STORIES.dungeon;
@@ -43,9 +62,9 @@ function locationPhrase(scene){
 }
 export function spatialEcologySites(scene){
  if(scene?.spatialExpansion?.version!==1)return[];
- const list=names(scene),profile=spatialEcologyStory(scene),place=locationPhrase(scene);
+ const list=names(scene),profile=spatialEcologyStory(scene),place=locationPhrase(scene),positions=stationPositions(scene);
  return STOPS.map(({index,role},number)=>{
-  const node=list[index],xy=node?.xy;
+  const node=list[index],xy=positions[number];
   if(!Array.isArray(xy)||xy.length!==2||!xy.every(Number.isFinite)||scene.floor[xy[1]]?.[xy[0]]!=='.')return null;
   const label=role==='trace'?'Follow '+profile.subject:role==='evidence'?'Read the land':role==='work'?'Repair '+profile.work:role==='return'?'Far-route stewardship':'Observe the habitat';
   return {type:'spatial-fieldwork',spatialId:'eco:'+scene.location+':'+role,spatialRole:role,
@@ -143,7 +162,9 @@ export function interactSpatialEcology(world,object){
   return true;
  }
  if(role==='work'){
+  const state=world.state;
   world.choose('ENVIRONMENTAL WORK — '+profile.work+'\n'+stepText(scene,'work')+'\nWhich intervention protects the surrounding habitat?',profile.choices.map((label,i)=>[label,()=>{
+   if(world.state!==state||world.scene!==scene||spatialEcologyRecord(world)?.stage!==2)return;
    if(i!==profile.answer){world.text('The evidence suggests this would cause damage. Nothing has been spent. Re-examine the clue and choose another approach.');return;}
    ensureRecord(world).stage=3;
    world.text(['The adjustment holds. '+profile.effect,'The far route remains open. Return through the outer reach to decide what should be kept or recovered.']);
@@ -151,13 +172,20 @@ export function interactSpatialEcology(world,object){
   return true;
  }
  if(role==='return'){
+  const state=world.state;
+  const claim=choice=>{
+   if(world.state!==state||world.scene!==scene)return false;
+   const r=spatialEcologyRecord(world);
+   if(!r||r.stage!==3||r.choice!==null)return false;
+   r.stage=4;r.choice=choice;return true;
+  };
   world.choose('REGIONAL STEWARDSHIP — '+profile.subject+'\n'+stepText(scene,'return')+'\nYour work is complete. Choose the lasting result.',[
    ['Protect the habitat · fewer disturbances here',()=>{
-    const r=ensureRecord(world);r.stage=4;r.choice='protect';
+    if(!claim('protect'))return;
     world.text('You mark the habitat for protection and leave its living resources untouched. Nearby spontaneous creature disturbances become slightly less frequent in this region. No combat statistics change.');
    }],
    ['Salvage loose material · modest trade credits',()=>{
-    const r=ensureRecord(world);r.stage=4;r.choice='salvage';
+    if(!claim('salvage'))return;
     const credit=8+Math.floor((scene.chapter||1)/5)*3;
     world.state.gold+=credit;
     world.text('You pack only recoverable, discarded material. Earned: '+credit+' credits. The wildlife remains at its normal encounter pace. This claim cannot be repeated.');

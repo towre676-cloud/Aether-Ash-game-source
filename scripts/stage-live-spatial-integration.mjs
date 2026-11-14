@@ -7,12 +7,14 @@
  * node scripts/stage-live-spatial-integration.mjs /path/to/current-site/dist /path/to/new-empty-staging
  */
 import {readFileSync,writeFileSync,mkdirSync,existsSync,copyFileSync} from 'node:fs';
-import {resolve,join,dirname,relative,isAbsolute,sep} from 'node:path';
+import {resolve,join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {patchLiveAffordances} from './stage-live-affordances.mjs';
+import {reviewDestination} from './review-destination.mjs';
 
 const names=Object.freeze({
- world:'world.js',geometry:'adventure-3d-geometry.js',main:'main.js',journey:'field-journey-ui.js'
+ world:'world.js',geometry:'adventure-3d-geometry.js',main:'main.js',journey:'field-journey-ui.js',affordances:'world-affordances.js'
 });
 const modules=['vast-spatial-expansion.mjs','mainline-courts.mjs','spatial-landmark-art.mjs'];
 const hash=x=>createHash('sha256').update(x).digest('hex');
@@ -63,11 +65,11 @@ export function stageSpatialSources({world,geometry,main,journey}){
 
 /** Creates a patch bundle only. Does not change the current Site source root. */
 export function stageSpatialSnapshot(sourceRoot,outputRoot){
- const source=resolve(sourceRoot),out=resolve(outputRoot),local=resolve(dirname(fileURLToPath(import.meta.url)),'../live-site/dist/game/engine2');
- const location=relative(source,out);if(!location||location!== '..'&&!location.startsWith('..'+sep)&&!isAbsolute(location))throw Error('Output must not be inside or equal to the current Site source');
- if(existsSync(out))throw Error('Output exists; choose a new directory. No overwriting.');
+ const {source,out}=reviewDestination(sourceRoot,outputRoot),local=resolve(dirname(fileURLToPath(import.meta.url)),'../live-site/dist/game/engine2');
+ for(const file of modules)if(existsSync(join(source,'game/engine2',file)))
+  throw Error('Fail closed: additive module already exists in current source: '+file);
  const texts=Object.fromEntries(Object.entries(names).map(([key,file])=>[key,readFileSync(join(source,'game/engine2',file),'utf8')]));
- const patched=stageSpatialSources(texts),receipts=[];
+ const patched={...stageSpatialSources(texts),affordances:patchLiveAffordances(texts.affordances)},receipts=[];
  for(const[key,file]of Object.entries(names)){
   const bytes=patched[key],target=join(out,'game/engine2',file);
   mkdirSync(dirname(target),{recursive:true});writeFileSync(target,bytes,'utf8');
@@ -82,5 +84,5 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const [input,output]=process.argv.slice(2);
  if(!input||!output)throw Error('Usage: node stage-live-spatial-integration.mjs <authenticated-Site-dist> <new-staging-dir>');
  const receipt=stageSpatialSnapshot(input,output);
- console.log('Staged seven patch files; live Site untouched. SHA-256 receipts:',receipt.files.length);
+ console.log('Staged eight patch files; live Site untouched. SHA-256 receipts:',receipt.files.length);
 }

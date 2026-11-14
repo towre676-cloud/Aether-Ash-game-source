@@ -1,11 +1,12 @@
 /**
  * Non-destructive Chrome preview of the actual current public Site with
- * fourteen? No: exactly thirteen staged source files substituted in-browser.
+ * exactly fourteen staged source files substituted in-browser.
  * Unmodified JS/assets continue loading from the original public Site.
  * The real Site is never written, published, or granted account credentials.
  */
 import {readFileSync,writeFileSync,existsSync,mkdirSync} from 'node:fs';
-import {resolve,join,basename} from 'node:path';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
 import {chromium} from 'playwright-core';
 
 const publicGame='https://ash-aether-clay-water.towre676.chatgpt.site/game/';
@@ -13,10 +14,14 @@ const patch=resolve(process.cwd(),'qa-live-review/game/engine2');
 const artifactRoot=resolve(process.cwd(),'qa-artifacts-live-overlay');
 mkdirSync(artifactRoot,{recursive:true});
 const manifest=JSON.parse(readFileSync(resolve(process.cwd(),'qa-live-review/LIVING-REGIONS-STAGING.json'),'utf8'));
-if(manifest.deployed||manifest.files.length!==13)throw Error('Stage verification missing or not review-only');
+if(manifest.deployed||manifest.files.length!==14)throw Error('Stage verification missing or not review-only');
 const files=new Set(manifest.files.map(x=>x.file));
-const required=['world.js','main.js','room-map.js','spatial-ecology.mjs','vast-spatial-expansion.mjs','spatial-wildlife.mjs'];
-if(required.some(x=>!files.has(x)||!existsSync(join(patch,x))))throw Error('Not the complete approved modern overlay');
+const required=['world.js','main.js','room-map.js','world-affordances.js','spatial-ecology.mjs','vast-spatial-expansion.mjs','spatial-wildlife.mjs'];
+if(required.some(x=>!files.has(x)||!existsSync(join(patch,x))))throw Error('Not the complete modern review overlay');
+for(const item of manifest.files){
+ const digest=createHash('sha256').update(readFileSync(join(patch,item.file))).digest('hex');
+ if(digest!==item.newSha256)throw Error('Staged source no longer matches receipt: '+item.file);
+}
 const report=[];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let browser;
@@ -84,7 +89,7 @@ try{
    if(!await follow.isVisible())throw Error('Explicit route-follow action missing');
    const still=await page.locator('#screen').getAttribute('data-position');
    if(position!==still)throw Error('Selecting a map marker automatically walked the party');
-   await page.locator('#room-map-panel').screenshot({path:join(artifactRoot,label+'-map.png')});
+   await page.screenshot({path:join(artifactRoot,label+'-map.png'),fullPage:false});
    const closeRect=await page.locator('#room-map-panel header button').boundingBox();
    if(!closeRect)throw Error('Native map close button is missing');
    await page.mouse.click(closeRect.x+closeRect.width/2,closeRect.y+closeRect.height/2);
@@ -96,7 +101,7 @@ try{
     if(last&&last!==position){moved=true;break;}
    }
    if(!moved)throw Error('Manual player movement missing in all directions after leaving map');
-   await page.locator('#screen').screenshot({path:join(artifactRoot,label+'-field.png')});
+   await page.screenshot({path:join(artifactRoot,label+'-field.png'),fullPage:false});
    const metrics=await page.locator('#screen').evaluate(el=>({
     mode:el.dataset.mode,position:el.dataset.position,scene:el.dataset.scene,
     drawMs:el.dataset.drawMs||null,cameraZoom:el.dataset.cameraZoom||null,
@@ -105,7 +110,7 @@ try{
    if(failed.length)throw Error('Live dependency failures: '+failed.join(' | ').slice(0,350));
    const relevant=exceptions.filter(e=>/SyntaxError|TypeError|ReferenceError|import|module/i.test(e));
    if(relevant.length)throw Error('Runtime code error: '+relevant.join(' | ').slice(0,600));
-   const mustLoad=['world.js','main.js','room-map.js','spatial-ecology.mjs','spatial-wildlife.mjs'];
+   const mustLoad=['world.js','main.js','room-map.js','world-affordances.js','spatial-ecology.mjs','spatial-wildlife.mjs'];
    if(mustLoad.some(x=>!served.includes(x)))throw Error('Browser did not load all expected modern patched modules: '+served.join(','));
    const output={label,pass:true,marks:count,moved,metrics,overrides:[...new Set(served)].sort(),exceptions:exceptions.slice(0,8),failed};
    report.push(output);console.log('CURRENT-OVERLAY-BROWSER '+JSON.stringify(output));
@@ -118,6 +123,6 @@ try{
  }
  await run('modern-desktop',{width:1280,height:800});
  if(process.env.QA_MOBILE==='1')await run('modern-mobile',{width:390,height:844},true);
- writeFileSync(join(artifactRoot,'report.json'),JSON.stringify({deployed:false,source:'real publicly served modern Site with thirteen read-only in-browser source overrides',report},null,2)+'\n');
+ writeFileSync(join(artifactRoot,'report.json'),JSON.stringify({deployed:false,source:'real publicly served modern Site with fourteen read-only in-browser source overrides',report},null,2)+'\n');
  if(report.some(x=>!x.pass))process.exitCode=1;
 }finally{await browser?.close();}

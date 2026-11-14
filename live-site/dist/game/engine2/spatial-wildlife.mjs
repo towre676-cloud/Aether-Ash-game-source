@@ -30,7 +30,7 @@ export function spatialWildlifeProfile(scene){
 /** Pure positions; this remains deterministic for all clients and frame rates. */
 export function spatialWildlifeActors(world,time=0,{range=21}={}){
  const scene=world?.scene,meta=scene?.spatialExpansion,p=world?.state,at=meta?.landmarks?.[6]?.xy;
- if(!p||meta?.version!==1||!Array.isArray(at)||!Number.isFinite(time))return [];
+ if(!p||p.mode!=='field'||meta?.version!==1||!Array.isArray(at)||!Number.isFinite(time))return [];
  const x=at[0]+.5,z=at[1]+.5;
  if(Math.hypot(x-p.x,z-p.y)>range)return[];
  const species=spatialWildlifeProfile(scene),settled=spatialEcologyRecord(world)?.choice==='protect',out=[];
