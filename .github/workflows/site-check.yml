@@ -23,3 +23,4 @@ jobs:
       - run: node --test live-site/dist/game/engine2/tests/spatial-ecology.test.mjs live-site/dist/game/engine2/tests/spatial-region-map.test.mjs
       - run: node --test live-site/dist/game/engine2/tests/spatial-wildlife.test.mjs
       - run: node --test scripts/tests/stage-live-spatial-integration.test.mjs
+      - run: node --test scripts/tests/stage-live-living-regions.test.mjs
