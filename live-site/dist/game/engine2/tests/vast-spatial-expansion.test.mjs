@@ -46,6 +46,13 @@ test('new landmarks and optional encounters have real paths, bounded cells and t
   for(const o of s.objects.filter(o=>o.exploreId?.startsWith('vast:')||o.flag_address===0x7e0000+s.location))assert.ok(seen.has(key(o.xy||o.enemies[0][1])),'unreachable object in '+s.location);
  }
 });
+test('only bounded permanent discovery entries are added to save history',()=>{
+ const clues=expanded.scenes.flatMap(s=>s.objects.filter(o=>o.type==='clue'&&o.exploreId?.startsWith('vast:')));
+ const unrecorded=expanded.scenes.flatMap(s=>s.objects.filter(o=>o.type==='furnishing'&&o.label&&o.text&&s.spatialExpansion?.landmarks.some(l=>l.name===o.label)));
+ assert.equal(clues.length,120);
+ assert.equal(unrecorded.length,120);
+ assert.ok(clues.length+24<256,'leave ample room for existing and future discovery history');
+});
 test('reward caches are sparse, unique and idempotent; source fixture is unchanged',()=>{
  const goodies=expanded.scenes.flatMap(s=>s.objects.filter(o=>o.exploreId?.startsWith('vast:')&&o.type==='secret'));
  assert.ok(goodies.length<=12&&goodies.length>=10,'only one optional cache per two chapters');
