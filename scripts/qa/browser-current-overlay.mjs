@@ -71,6 +71,18 @@ try{
    }
    step='native live map and manual waypoint selection';
    await page.locator('#room-map-button:visible').waitFor({state:'visible',timeout:30000});
+   const mapDiagnostic=await page.evaluate(()=>{
+    const e=document.querySelector('#room-map-button'),r=e.getBoundingClientRect(),
+     hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2),dialog=document.querySelector('#dialog'),
+     canvas=document.querySelector('#screen');
+    return {hidden:e.hidden,display:getComputedStyle(e).display,
+     rect:{x:r.x,y:r.y,w:r.width,h:r.height},hit:hit?.id||hit?.className?.toString().slice(0,90)||hit?.tagName,
+     modal:document.querySelector('#dev-portal')?.open,dialogVisible:dialog&&!dialog.hidden,
+     pauseVisible:!document.querySelector('#pause')?.hidden,
+     mode:canvas?.dataset.mode,drawMs:canvas?.dataset.drawMs,scene:canvas?.dataset.scene};
+   });
+   console.log('QA-MAP-PRECLICK '+label+' '+JSON.stringify(mapDiagnostic));
+   if(mapDiagnostic.hidden||mapDiagnostic.display==='none'||mapDiagnostic.dialogVisible||mapDiagnostic.modal)throw Error('Native Map blocked by field state: '+JSON.stringify(mapDiagnostic));
    const position=await page.locator('#screen').getAttribute('data-position');
    await page.locator('#room-map-button').click();
    await page.locator('#room-map-panel[open]').waitFor({state:'visible',timeout:12000});
