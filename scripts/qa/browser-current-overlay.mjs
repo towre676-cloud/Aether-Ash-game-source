@@ -37,50 +37,22 @@ try{
   });
   let step='current site load';
   try{
-   await page.goto(publicGame+'?dev=1&review-only=1',{waitUntil:'domcontentloaded',timeout:70000});
+   // The modern Site provides a read-only scene-art practice entry; using it
+   // bypasses expensive 24-chapter synthetic developer-fixture replay.
+   await page.goto(publicGame+'?dev=1&reviewScene=2000&review-only=1',{waitUntil:'domcontentloaded',timeout:70000});
    await page.locator('#play:enabled').waitFor({state:'visible',timeout:120000});
-   step='developer chapter';
-   if(!await page.locator('#dev-portal[open]').isVisible())await page.locator('#play').click();
-   await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:20000});
-   await page.locator('#dev-portal [data-chapter="10"]').click();
-   await page.getByRole('button',{name:'Explore this chapter'}).click();
-   await sleep(7000);
-   const early=await page.evaluate(()=>({
-    modal:document.querySelector('#dev-portal')?.open,
-    error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim(),
-    badgeVisible:!!document.querySelector('#dev-session-badge')&&!document.querySelector('#dev-session-badge').hidden,
-    chapterTen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
-    canvasMode:document.querySelector('#screen')?.dataset.mode,
-    canvasDrawMs:document.querySelector('#screen')?.dataset.drawMs,
-    startup:document.querySelector('#startup-message')?.textContent,
-    title:document.querySelector('#chapter-title')?.textContent
-   }));
-   console.log('CURRENT-DEV-EARLY '+label+' '+JSON.stringify(early));
+   step='modern scene-art review';
    await page.waitForFunction(()=>{
-    const badge=document.getElementById('dev-session-badge'),error=document.querySelector('#dev-portal .dev-error')?.textContent?.trim();
-    return badge&&!badge.hidden||error&&!/^Preparing this chapter/.test(error);
-   },null,{timeout:70000});
-   const entry=await page.evaluate(()=>({badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
-     portalOpen:document.getElementById('dev-portal')?.open,
-     chosen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
-     error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim()}));
-   console.log('QA-DEV-ENTRY '+label+' '+JSON.stringify(entry));
-   if(!entry.badgeVisible)throw Error('Current Site developer scene launch failed: '+entry.error);
-
-   step='render and initialize';
-   await page.waitForFunction(()=>{
-    const c=document.getElementById('screen'),opening=document.getElementById('opening');
-    return c?.dataset?.mode==='field'&&opening?.hidden===true;
+    const badge=document.getElementById('dev-session-badge'),canvas=document.getElementById('screen');
+    return badge&&!badge.hidden&&canvas?.dataset.mode==='field'&&canvas?.dataset.scene==='2000'&&
+      document.getElementById('opening')?.hidden===true;
    },null,{timeout:120000});
-   if(await page.locator('#dev-portal[open]').isVisible()){
-    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});
-    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});
-   }
-   for(let i=0;i<7;i++){
-    if(!await page.locator('#dialog').isVisible())break;
-    if(await page.locator('#dialog-next').isVisible())await page.locator('#dialog-next').click();else break;
-    await sleep(350);
-   }
+   const entry=await page.evaluate(()=>({scene:document.getElementById('screen')?.dataset.scene,
+     badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
+     modal:document.getElementById('dev-portal')?.open,
+     drawMs:document.getElementById('screen')?.dataset.drawMs}));
+   console.log('CURRENT-REVIEW-SCENE '+label+' '+JSON.stringify(entry));
+   if(entry.modal)throw Error('Unexpected developer modal in direct modern scene review');
    step='native live map and manual waypoint selection';
    await page.locator('#room-map-button:visible').waitFor({state:'visible',timeout:30000});
    const mapDiagnostic=await page.evaluate(()=>{
