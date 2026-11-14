@@ -53,7 +53,8 @@ export function stageSpatialSources({world,geometry,main,journey}){
  const newExplore="onExplore(){currentVictoryReport=null;release();questGuide?.cancel();path=[];arrivalAction=null;notice('Free exploration: move anywhere. Tap the objective only when you want optional story guidance.');hud(true);}";
  const nextMain=single(main,oldExplore,newExplore,'free exploration control');
  keep(main,nextMain,signatures.main,'main');
- let nextJourney=single(journey,"Continue route resumes guidance.","Following the story path is optional; Explore keeps movement in your hands.",'journey hint');
+ const hint='Continue route resumes guidance.';if(journey.split(hint).length-1!==2)throw Error('Fail closed: modern live journey hint changed');
+ let nextJourney=journey.replaceAll(hint,'Following the story path is optional; Explore keeps movement in your hands.');
  // This preserves the live fractured-run-specific continueLabel when present.
  nextJourney=single(nextJourney,"button(value.continueLabel||'Continue route','continue',onContinue)",
   "button(value.continueLabel||'Follow story path','continue',onContinue)",'optional guided movement label');
