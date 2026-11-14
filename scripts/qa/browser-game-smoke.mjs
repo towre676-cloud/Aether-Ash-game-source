@@ -92,7 +92,10 @@ try{
    console.log('QA-MAP-PRECLICK '+label+' '+JSON.stringify(mapDiagnostic));
    if(mapDiagnostic.hidden||mapDiagnostic.display==='none'||mapDiagnostic.dialogVisible||mapDiagnostic.modal)throw Error('Map inaccessible because field is blocked: '+JSON.stringify(mapDiagnostic));
    const before=(await page.locator('#screen').getAttribute('data-position'))||'';
-   await page.locator('#spatial-map-button').click();
+   // A real pointer click at the verified visible hit-target avoids Playwright's
+   // unstable-layout actionability heuristic without dispatching a fake DOM event.
+   const hit=mapDiagnostic.rect;
+   await page.mouse.click(hit.x+hit.w/2,hit.y+hit.h/2);
    await page.locator('#spatial-region-map:not([hidden])').waitFor({state:'visible',timeout:8000});
    const points=await page.locator('#spatial-region-map .spatial-region-point').count();
    if(points!==8)throw Error('Expected eight reachable-survey map pins, found '+points);
