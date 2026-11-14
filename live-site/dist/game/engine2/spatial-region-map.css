@@ -1,0 +1,39 @@
+/* The field atlas is part of the journey, not a nested paperwork menu. */
+#game #spatial-map-button{min-width:44px;min-height:44px;white-space:nowrap;font:600 12px/1.2 Georgia,serif;letter-spacing:.04em;color:#e5d6b4;background:linear-gradient(145deg,#254338db,#102a2dc8);border:1px solid #c2b18273;border-radius:50%;padding:8px;flex:0 0 auto}
+#game #spatial-map-button[hidden]{display:none!important}
+#game #spatial-map-button:hover,#game #spatial-map-button:focus-visible{outline:2px solid #e9d59b;outline-offset:2px;background:#34584a}
+#game .spatial-region-veil[hidden]{display:none!important}
+#game .spatial-region-veil{position:fixed;inset:0;z-index:800;display:grid;place-items:center;overflow:auto;padding:clamp(12px,3vw,32px);background:#071518ea;backdrop-filter:blur(9px);pointer-events:auto}
+#game .spatial-region-panel{width:min(1100px,100%);max-height:min(92dvh,900px);display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(130deg,#283a37 0%,#162725 53%,#0d1c20 100%);border:1px solid #c6ab748f;box-shadow:0 14px 48px #000a,inset 0 0 0 5px #09171785;border-radius:5px;padding:clamp(12px,2.5vw,24px)}
+#game .spatial-region-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 0 9px;border-bottom:1px solid #c8b07e54}
+#game .spatial-region-header h2{font:400 clamp(20px,3vw,30px)/1.2 Georgia,serif;color:#f4dbab;margin:0;letter-spacing:.025em}
+#game .spatial-region-header button{min-height:44px;border:1px solid #ac9a7473;border-radius:3px;color:#e0d4b3;background:#162f30;padding:9px 15px}
+#game .spatial-region-description{margin:7px 0 12px;font:11px/1.4 system-ui,sans-serif;letter-spacing:.12em;color:#b7c6ae;text-transform:uppercase}
+#game .spatial-region-content{display:grid;grid-template-columns:minmax(250px,1.2fr) minmax(260px,.8fr);min-height:0;gap:clamp(10px,2.2vw,26px);overflow:hidden}
+#game .spatial-region-canvas{display:block;width:100%;height:auto;max-height:min(68dvh,640px);object-fit:contain;align-self:center;border:1px solid #a6916763;background:#233a35;image-rendering:pixelated}
+#game .spatial-region-sidebar{min-width:0;min-height:0;display:flex;flex-direction:column;overflow:auto;padding-right:4px}
+#game .spatial-region-progress{font:italic 14px/1.4 Georgia,serif;margin:0 0 8px;color:#e7d2a6}
+#game .spatial-region-list{display:grid;grid-template-columns:1fr;gap:3px}
+#game .spatial-region-point{display:block;min-height:39px;text-align:left;padding:8px 10px;border:1px solid transparent;border-bottom-color:#a9ae9254;background:#0d20221c;color:#d8ddc9;font:13px/1.35 Georgia,serif}
+#game .spatial-region-point[aria-pressed=true]{border-color:#baa36d;background:#314943;color:#fff1c6}
+#game .spatial-region-point:focus-visible{outline:2px solid #ebd7a7;outline-offset:1px}
+#game .spatial-region-selection{padding:10px 0 0;margin:8px 0;color:#e7ddb9;font:13px/1.45 Georgia,serif;border-top:1px solid #b9a4785c}
+#game .spatial-region-footer{margin:6px 0 4px;color:#bac6b7;font:12px/1.45 system-ui,sans-serif}
+@media(max-width:690px){
+ #game .spatial-region-veil{padding:8px}
+ #game .spatial-region-panel{max-height:98dvh;padding:12px}
+ #game .spatial-region-header h2{font-size:20px}
+ #game .spatial-region-content{display:flex;flex-direction:column;overflow:auto;gap:9px}
+ #game .spatial-region-canvas{max-height:37dvh;width:min(100%,480px);align-self:center}
+ #game .spatial-region-sidebar{overflow:visible}
+ #game .spatial-region-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 6px}
+ #game .spatial-region-point{min-height:44px;font:11px/1.3 Georgia,serif;padding:6px}
+}
+@media(max-height:500px){
+ #game .spatial-region-panel{max-height:98dvh}
+ #game .spatial-region-content{display:grid;grid-template-columns:minmax(210px,1fr) minmax(205px,.85fr);overflow:auto}
+ #game .spatial-region-canvas{max-height:61dvh}
+ #game .spatial-region-list{grid-template-columns:1fr}
+ #game .spatial-region-point{min-height:35px}
+}
+@media(prefers-reduced-motion:reduce){#game .spatial-region-veil{backdrop-filter:none}}
