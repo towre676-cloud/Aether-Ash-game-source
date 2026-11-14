@@ -16,7 +16,7 @@ export function spatialRegionMapModel(world){
   index:i,xy:p.xy.slice(),known:!!(mask&(1<<i)),label:mask&(1<<i)?p.name:'Uncharted site',
   role:byIndex.get(i)?.spatialRole||'landmark',site:byIndex.get(i)||null,
   next:byIndex.get(i)?.spatialStage===summary.stage&&summary.stage<4,
-  complete:byIndex.get(i)?.spatialStage<summary.stage,
+  complete:byIndex.get(i)?.spatialRole==='fauna'?!!record?.fauna:byIndex.get(i)?.spatialStage<summary.stage,
   detail:mask&(1<<i)?byIndex.get(i)?.description||'A surveyed passage and its return paths.':'Walk near this site to reveal its field notes.'
  }));
  return {scene:scene.location,title:scene.title||scene.key.replaceAll('_',' '),
@@ -65,7 +65,7 @@ function draw(map,model,chosen){
 }
 /** The map is a normal dialog and is intentionally absent on nonexpanded
  * scenes. It never moves the party or chooses quest/puzzle actions. */
-export function mountSpatialRegionMap(game,{getWorld=()=>null,canOpen=()=>true}={}){
+export function mountSpatialRegionMap(game,{getWorld=()=>null,canOpen=()=>true,onOpen=()=>{},onClose=()=>{}}={}){
  if(!game||typeof document==='undefined')return null;
  const header=game.querySelector('#hud header'),menu=header?.querySelector('#menu-button');
  if(!header||!menu)throw Error('Region map requires the canonical game HUD');
@@ -89,7 +89,7 @@ export function mountSpatialRegionMap(game,{getWorld=()=>null,canOpen=()=>true}=
  let opened=false,selected=null,previousKey='',returnFocus=null;
  function closeMap(){
   if(!opened)return;
-  opened=false;overlay.hidden=true;previousKey='';
+  opened=false;overlay.hidden=true;previousKey='';onClose();
   if(returnFocus?.isConnected)returnFocus.focus({preventScroll:true});
  }
  function render(){
@@ -119,12 +119,13 @@ export function mountSpatialRegionMap(game,{getWorld=()=>null,canOpen=()=>true}=
  function openMap(){
   if(opened)return true;
   const model=spatialRegionMapModel(getWorld());if(!model||!canOpen())return false;
-  returnFocus=document.activeElement;opened=true;overlay.hidden=false;selected=model.points.find(p=>p.next)?.index??0;
+  returnFocus=document.activeElement;onOpen();opened=true;overlay.hidden=false;selected=model.points.find(p=>p.next)?.index??0;
   previousKey='';render();close.focus();return true;
  }
  button.onclick=()=>{if(opened)closeMap();else openMap();};
  close.onclick=closeMap;
  overlay.addEventListener('keydown',e=>{
+  e.stopPropagation();
   if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeMap();return;}
   if(e.key==='Tab'){
    const controls=[close,...list.querySelectorAll('button')],index=controls.indexOf(document.activeElement);
@@ -132,6 +133,7 @@ export function mountSpatialRegionMap(game,{getWorld=()=>null,canOpen=()=>true}=
    else if(!e.shiftKey&&index===controls.length-1){e.preventDefault();controls[0].focus();}
   }
  });
+ overlay.addEventListener('keyup',e=>e.stopPropagation());
  overlay.addEventListener('pointerdown',e=>{if(e.target===overlay)closeMap();});
  function refresh(){
   const available=!!spatialRegionMapModel(getWorld())&&!!canOpen();
