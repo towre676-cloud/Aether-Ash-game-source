@@ -30,7 +30,7 @@ const STORIES=Object.freeze({
 const STOPS=Object.freeze([{index:1,role:'trace'},{index:3,role:'evidence'},{index:5,role:'work'},{index:7,role:'return'},{index:6,role:'fauna'}]);
 const isPlain=x=>!!x&&typeof x==='object'&&!Array.isArray(x);
 const int=(n,a,b)=>Number.isInteger(n)&&n>=a&&n<=b;
-const siteKey=scene=>String(scene.location);
+const siteKey=scene=>String(scene?.location??'');
 const names=s=>s?.spatialExpansion?.landmarks||[];
 export function spatialEcologyStory(scene){
  const style=scene?.biome?.style||({wild:'village',civic:'village',dungeon:'dungeon'}[scene?.spatialExpansion?.archetype]||'dungeon');
@@ -168,7 +168,7 @@ export function interactSpatialEcology(world,object){
 }
 /** Habitat stewardship is a narrow local encounter-frequency change only. */
 export function spatialEcologyEncounterPace(world){
- return spatialEcologyRecord(world)?.choice==='protect'?.82:1;
+ return spatialEcologyRecord(world)?.choice==='protect' ? 0.82 : 1;
 }
 export function spatialEcologySummary(world){
  const scene=world?.scene,record=spatialEcologyRecord(world),stage=record?.stage||0;
