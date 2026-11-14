@@ -6,18 +6,19 @@
  * adapter extends those, rather than installing a duplicate map or reverting
  * newer fracture, reward, tutorial, inventory or movement features.
  *
- * Input must be a separately obtained *authenticated owner export* of the
- * current Site's dist directory, not the old GitHub v45 snapshot. Staging is
+ * Input must be the current Site's separately obtained source (owner export
+ * or exact public scripts), not the old GitHub v45 snapshot. Staging is
  * create-only, SHA-256 receipted and refuses unknown source signatures.
  */
 import {readFileSync,writeFileSync,mkdirSync,copyFileSync,existsSync} from 'node:fs';
 import {resolve,join,dirname,relative,isAbsolute,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {patchCurrentAffordances} from './stage-current-affordances.mjs';
 import {stageSpatialSources} from './stage-live-spatial-integration.mjs';
 
 const inputs=['world.js','main.js','adventure-3d-geometry.js','field-journey-ui.js',
- 'field-encounters.js','adventure-3d-renderer.js','renderer.js','room-map.js'];
+ 'field-encounters.js','adventure-3d-renderer.js','renderer.js','room-map.js','world-affordances.js'];
 const modules=['vast-spatial-expansion.mjs','mainline-courts.mjs','spatial-landmark-art.mjs','spatial-ecology.mjs','spatial-wildlife.mjs'];
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 function replaceOnce(text,from,to,name){
@@ -108,9 +109,9 @@ follow.onclick=()=>{if(selected&&onWalk(...selected))panel.close();else status.t
  preserve(source,s,['onWalk','roomWayfinding','panel.showModal()'],'room map');return s;
 }
 export function stageLivingSources({
- world,main,geometry,journey,encounters,adventure,renderer,roomMap
+ world,main,geometry,journey,encounters,adventure,renderer,roomMap,affordances
 }){
- const input={world,main,geometry,journey,encounters,adventure,renderer,roomMap};
+ const input={world,main,geometry,journey,encounters,adventure,renderer,roomMap,affordances};
  for(const[k,v]of Object.entries(input))if(typeof v!=='string'||v.length<50)throw Error('Missing current Site source '+k);
  const base=stageSpatialSources({world,main,geometry,journey});
  // Keep the *current native* room map, including its M shortcut, and add
@@ -118,13 +119,13 @@ export function stageLivingSources({
  const out={
   world:patchWorld(base.world),main:base.main,geometry:base.geometry,
   journey:base.journey,encounters:patchFieldEncounters(encounters),
-  adventure:patch3D(adventure),renderer:patch2D(renderer),roomMap:patchRoomMap(roomMap)
+  adventure:patch3D(adventure),renderer:patch2D(renderer),roomMap:patchRoomMap(roomMap),affordances:patchCurrentAffordances(affordances)
  };
  if(out.main.includes('mountSpatialRegionMap'))throw Error('Duplicate map installation in modern Site');
  return out;
 }
 const key={world:'world.js',main:'main.js',geometry:'adventure-3d-geometry.js',journey:'field-journey-ui.js',
- encounters:'field-encounters.js',adventure:'adventure-3d-renderer.js',renderer:'renderer.js',roomMap:'room-map.js'};
+ encounters:'field-encounters.js',adventure:'adventure-3d-renderer.js',renderer:'renderer.js',roomMap:'room-map.js',affordances:'world-affordances.js'};
 export function stageLivingSnapshot(sourceRoot,outputRoot){
  const source=resolve(sourceRoot),out=resolve(outputRoot),rel=relative(source,out);
  if(!rel||rel!=='..'&&!rel.startsWith('..'+sep)&&!isAbsolute(rel))throw Error('Review destination must not overwrite current source');
@@ -138,7 +139,7 @@ export function stageLivingSnapshot(sourceRoot,outputRoot){
  }
  for(const p of modules){const from=join(origin,p),to=join(out,'game/engine2',p);copyFileSync(from,to);
   const bytes=readFileSync(to);receipt.push({file:p,oldSha256:null,newSha256:sha(bytes),bytes:bytes.length});}
- const manifest={schema:'ash-aether.live-region-overlay/1',kind:'review-only',deployed:false,
+ const manifest={schema:'ash-aether.live-region-overlay/2',kind:'review-only',deployed:false,
   sourceRoot:source,files:receipt,checks:['current live source version verified','full region integration tests','phone/desktop browser test','save and battle regression','explicit approval']};
  writeFileSync(join(out,'LIVING-REGIONS-STAGING.json'),JSON.stringify(manifest,null,2)+'\n');return manifest;
 }
