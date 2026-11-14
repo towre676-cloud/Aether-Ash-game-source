@@ -48,7 +48,7 @@ try{
    await page.waitForFunction(()=>{
     const c=document.getElementById('screen'),opening=document.getElementById('opening');
     return c?.dataset?.mode==='field'&&opening?.hidden===true;
-   },{timeout:120000});
+   },null,{timeout:120000});
    for(let i=0;i<7;i++){
     if(!await page.locator('#dialog').isVisible())break;
     if(await page.locator('#dialog-next').isVisible())await page.locator('#dialog-next').click();else break;
