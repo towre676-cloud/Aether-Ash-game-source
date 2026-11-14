@@ -14,9 +14,9 @@ The original game is recorded under Site project `appgprj_6adf63724e5c8191bd5563
 
 Other recovered work includes **Ash_Aether_Living_Armory_v3_Complete.zip**, **AA_Acoustic_World_v4.zip**, **Ash_Aether_5.32_Spatial_Authoring_3D_Pass.zip**, **Ash_Aether_5_37_Environment_Production_Upgrade.zip**, and **Ash_Aether_5_37_Production_Integration_Modules.zip**. These files must be checked against a current editable game-source export before being represented as one merged runnable game.
 
-## What's not mirrored
+## Authenticated Site export
 
-The repository is **not currently a full export of the Site**. The current Live Site source, original sound masters, full playable campaign and all archive members are not claimed to be present. Links to private ChatGPT Library archives have deliberately not been presented as public-download URLs.
+The November 6 import preserves the tracked source and built game from saved Site version 45 under `live-site/`. The [export record](SITE-EXPORT.md) identifies the exact source commit and the [browser QA record](SITE-V45-BROWSER-QA.md) covers the local build. The latest hosted deployment version is unverified. Original sound masters, untracked files, and external assets are outside the tracked export.
 
 ## Future verification rules
 
@@ -32,4 +32,4 @@ The website and README now use actual A&A development screenshots, rather than t
 | `assets/living-meadow.webp` | `Ash_Aether_Living_Atlas_v8_Spatial_Encounters.zip` / `aa-living-world-v8/src/grass-v5/scenic-1280.png` | `59b12d7fc7719af7b992fea13d7cb54ee5530c5ee6c472d4587daf11366cb309` |
 | `assets/living-armory-v3.webp` | `Ash_Aether_Living_Armory_v3_Complete.zip` / `Ash_Aether_Living_Armory_v3/assets/v3-final-desktop.png` | `ec28ebbe01a814fa65d7265041b6d2639b8b6feaf57f157cbdb691bf18ee6787` |
 
-**Scope:** The Vista archive explicitly labels its playable 2.5D showcase as a composition study, **not integrated into the private Site**. These are genuine snapshots of our own runnable prototypes, **not authenticated live-site gameplay shots**. They were neither fabricated nor extracted from the current production host. The current live Site returned HTTP 401 for unauthenticated read access; see [live-source integration](LIVE_SOURCE_INTEGRATION.md).
+**Scope:** The Vista archive explicitly labels its playable 2.5D showcase as a composition study, **not integrated into the private Site**. These are genuine snapshots of our own runnable prototypes, **not authenticated live-site gameplay shots**. They were neither fabricated nor extracted from the current production host. The November 5 unauthenticated retrieval returned HTTP 401; see [live-source integration](LIVE_SOURCE_INTEGRATION.md).

@@ -133,7 +133,7 @@ export function orchestratedProgram(legacyProgram,manifest){
   const variants=manifest.cues.filter(c=>c.loop&&c.category===category);
   const offset=(context.state?.chapter||0)%3;
   const ids=variants.map((_,i)=>'orchestra:'+variants[(i+offset)%variants.length].id);
-  return {...legacy,key:legacy.key+':orchestra:'+category,ids:ids.length?ids:legacy.ids};
+  return {...legacy,key:legacy.key+':orchestra:'+category,ids:ids.length?ids:legacy.ids,fallbackIds:ids.length?legacy.ids:[]};
  };
 }
 export function gameplayIntensity({battle,scene,state}={}){
