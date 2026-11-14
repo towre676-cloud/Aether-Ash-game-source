@@ -37,7 +37,7 @@ function preserve(before,after,tokens,name){
 function patchWorld(world){
  const expected=['migrateHeroGrowth','grantCrewExperience','fractureObjects','validateCampaignHandoff','composeCinderfallLayout'];
  let out=insertImport(world,"import {spatialEcologyObjects,interactSpatialEcology,validateSpatialEcology,discoverSpatialEcology} from './spatial-ecology.mjs?v=1';",'field-expeditions.js');
- out=replaceOnce(out,'...expeditionObjects(this)]','...expeditionObjects(this),...spatialEcologyObjects(this)]','spatial sites in dynamic objects');
+ out=replaceOnce(out,'...expeditionObjects(this)','...expeditionObjects(this),...spatialEcologyObjects(this)','spatial sites in dynamic objects');
  const load='this.state.mode=\'field\';settleHouseholdPosition(this);applyAffordanceScene(this);';
  out=replaceOnce(out,load,load+'discoverSpatialEcology(this,{quiet:true});','modern scene-entry discovery');
  const movement='if(this.walkable(s.x,s.y+dy))s.y+=dy;';
@@ -83,14 +83,16 @@ function patchRoomMap(source){
  s=replaceOnce(s,append,`const follow=document.createElement('button');follow.type='button';follow.textContent='Follow selected waypoint';follow.hidden=true;
  panel.append(header,map,list,status,follow);`,'native map optional follow button');
  s=replaceOnce(s,'let view=null;','let view=null,selected=null;','native map selected waypoint');
- const old="function choose(x,z){\nif(onWalk(x,z))panel.close();\nelse status.textContent='That spot is out of reach.';\n}";
+ const old=/function choose\\(x,z\\)\\{\\s*if\\(onWalk\\(x,z\\)\\)panel\\.close\\(\\);\\s*else status\\.textContent='That spot is out of reach\\.';\\s*\\}/g;
  const changed=`function choose(x,z){
  selected=[x,z];follow.hidden=false;
  const w=getWorld(),distance=Math.round(Math.hypot(w.state.x-x-.5,w.state.y-z-.5));
  status.textContent='Waypoint selected · '+distance+' tiles straight-line away. Walk manually, or explicitly choose Follow selected waypoint.';
 }
 follow.onclick=()=>{if(selected&&onWalk(...selected))panel.close();else status.textContent='That route is out of reach.';};`;
- s=replaceOnce(s,old,changed,'native map explicit-route consent');
+ const matches=[...s.matchAll(old)];
+ if(matches.length!==1)throw Error('Fail closed: native map explicit-route consent changed');
+ s=s.replace(old,changed);
  const reset="list.replaceChildren();status.textContent='';";
  s=replaceOnce(s,reset,"list.replaceChildren();status.textContent='';selected=null;follow.hidden=true;",'selected native waypoint reset');
  const marker="const marks=p.marks.filter(m=>cells.has(m.x+','+m.z));";
