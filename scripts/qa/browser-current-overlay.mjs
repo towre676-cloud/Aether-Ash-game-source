@@ -60,7 +60,11 @@ try{
     const c=document.getElementById('screen'),opening=document.getElementById('opening');
     return c?.dataset?.mode==='field'&&opening?.hidden===true;
    },null,{timeout:120000});
-   if(await page.locator('#dev-portal[open]').isVisible()){\n    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});\n    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});\n   }\n   for(let i=0;i<7;i++){
+   if(await page.locator('#dev-portal[open]').isVisible()){
+    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});
+    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});
+   }
+   for(let i=0;i<7;i++){
     if(!await page.locator('#dialog').isVisible())break;
     if(await page.locator('#dialog-next').isVisible())await page.locator('#dialog-next').click();else break;
     await sleep(350);
