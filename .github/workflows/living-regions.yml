@@ -1,0 +1,15 @@
+name: Living regions gameplay and map verification
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ecology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test live-site/dist/game/engine2/tests/spatial-ecology.test.mjs live-site/dist/game/engine2/tests/spatial-region-map.test.mjs live-site/dist/game/engine2/tests/spatial-wildlife.test.mjs
