@@ -78,6 +78,19 @@ try{
    }
    stage='expanded map';
    await page.locator('#spatial-map-button:visible').waitFor({state:'visible',timeout:30000});
+   const mapDiagnostic=await page.evaluate(()=>{
+    const e=document.querySelector('#spatial-map-button'),r=e.getBoundingClientRect(),
+     hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2),dialog=document.querySelector('#dialog'),
+     game=document.querySelector('#game'),canvas=document.querySelector('#screen');
+    return {hidden:e.hidden,display:getComputedStyle(e).display,visibility:getComputedStyle(e).visibility,
+     rect:{x:r.x,y:r.y,w:r.width,h:r.height},hit:hit?.id||hit?.className?.toString().slice(0,90)||hit?.tagName,
+     modal:document.querySelector('#dev-portal')?.open,dialogVisible:dialog&&!dialog.hidden,
+     openingVisible:!document.querySelector('#opening')?.hidden,
+     pauseVisible:!document.querySelector('#pause')?.hidden,game:game?.className,
+     mode:canvas?.dataset.mode,drawMs:canvas?.dataset.drawMs,scene:canvas?.dataset.scene};
+   });
+   console.log('QA-MAP-PRECLICK '+label+' '+JSON.stringify(mapDiagnostic));
+   if(mapDiagnostic.hidden||mapDiagnostic.display==='none'||mapDiagnostic.dialogVisible||mapDiagnostic.modal)throw Error('Map inaccessible because field is blocked: '+JSON.stringify(mapDiagnostic));
    const before=(await page.locator('#screen').getAttribute('data-position'))||'';
    await page.locator('#spatial-map-button').click();
    await page.locator('#spatial-region-map:not([hidden])').waitFor({state:'visible',timeout:8000});
