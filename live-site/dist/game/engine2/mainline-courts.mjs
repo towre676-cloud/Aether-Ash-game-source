@@ -54,6 +54,12 @@ export function broadenMainline(data){
   if(before.queue.length<25)continue;
   const inaccessible=[];
   for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(traversable(original,x,y)&&!before.seen.has(id(x,y)))inaccessible.push([x,y]);
+  const inaccessibleMask=new Set(inaccessible.map(p=>id(...p)));
+  const nearInaccessible=([x,y],radius)=>{
+   const n=Math.ceil(radius),r2=radius*radius;
+   for(let dy=-n;dy<=n;dy++)for(let dx=-n;dx<=n;dx++)if(dx*dx+dy*dy<r2&&inaccessibleMask.has(id(x+dx,y+dy)))return true;
+   return false;
+  };
   const protectedPoints=coordinates(s);
   const points=[...(s.doors||[]),...(s.objects||[])].filter(o=>o.xy||o.enemies?.[0]?.[1])
    .map(o=>({o,xy:o.xy||o.enemies[0][1]}))
@@ -67,7 +73,7 @@ export function broadenMainline(data){
    if(x<2||y<2||x>=w-2||y>=h-2)return false;
    if(traversable(original,x,y))return true;
    if(closeTo([x,y],protectedPoints,2.8))return false;
-   if(closeTo([x,y],inaccessible,2.4))return false;
+   if(nearInaccessible([x,y],2.4))return false;
    return true;
   };
   for(const item of points){
@@ -76,7 +82,7 @@ export function broadenMainline(data){
    if(path.length<14)continue;
    for(let i=8;i<path.length-8;i+=9){
     const center=path[i],k=id(...center);
-    if(selected.has(k)||closeTo(center,protectedPoints,4.8)||closeTo(center,inaccessible,4.5)||centers.some(c=>d2(c,center)<64))continue;
+    if(selected.has(k)||closeTo(center,protectedPoints,4.8)||nearInaccessible(center,4.5)||centers.some(c=>d2(c,center)<64))continue;
     let count=0;
     for(let yy=center[1]-3;yy<=center[1]+3;yy++)for(let xx=center[0]-3;xx<=center[0]+3;xx++){
      if(!canCarve(xx,yy)||((xx-center[0])/3)**2+((yy-center[1])/2.7)**2>1)continue;
