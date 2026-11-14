@@ -51,7 +51,7 @@ try{
    stage='enter scene';await page.getByRole('button',{name:'Explore this chapter'}).click();
    await page.waitForFunction(()=>document.querySelector('#screen')?.dataset.mode==='field'&&
     document.querySelector('#opening')?.hidden===true,null,{timeout:110000});
-   // An authored entry may present a brief dialogue; dismiss only dialog,
+   // Developer chapter tests sometimes re-open their chapter picker after\n   // the canvas initializes. Dismiss the test picker, not the real game.\n   if(await page.locator('#dev-portal[open]').isVisible()){\n    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});\n    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});\n   }\n   // An authored entry may present a brief dialogue; dismiss only dialog,
    // never guess any story choices or spend currency.
    for(let i=0;i<6;i++){
     const visible=await page.locator('#dialog').isVisible().catch(()=>false);
