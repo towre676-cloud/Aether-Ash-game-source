@@ -18,7 +18,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p qa-live-current/game/engine2
-          for file in world.js main.js adventure-3d-geometry.js field-journey-ui.js field-encounters.js adventure-3d-renderer.js renderer.js room-map.js; do
+          for file in world.js main.js adventure-3d-geometry.js field-journey-ui.js field-encounters.js adventure-3d-renderer.js renderer.js room-map.js world-affordances.js; do
             curl --fail --silent --show-error --location --retry 2 --connect-timeout 15 --max-time 60 \
               "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$file" \
               --output "qa-live-current/game/engine2/$file"
@@ -30,7 +30,7 @@ jobs:
           for file in qa-live-review/game/engine2/*; do
             case "$file" in *.js|*.mjs) node --check "$file";; esac
           done
-          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('qa-live-review/LIVING-REGIONS-STAGING.json'));if(m.deployed||m.files.length!==13||m.files.some(x=>!x.newSha256))process.exit(1);console.log('Actual current Site 13-file staging verified; no deployment')"
+          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('qa-live-review/LIVING-REGIONS-STAGING.json'));if(m.deployed||m.files.length!==14||m.files.some(x=>!x.newSha256))process.exit(1);console.log('Actual current Site 14-file staging verified; no deployment')"
       - name: Retain patched current Site sources with provenance for review
         if: success()
         uses: actions/upload-artifact@v4
