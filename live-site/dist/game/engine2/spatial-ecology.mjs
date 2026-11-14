@@ -115,6 +115,7 @@ export function interactSpatialEcology(world,object){
  if(!canonical)return true;
  const distance=Math.hypot(world.state.x-canonical.xy[0]-.5,world.state.y-canonical.xy[1]-.5);
  if(distance>2.3){world.notice('Walk closer to the site before examining it.');return true;}
+ discoverSpatialEcology(world,{quiet:true});
  const role=canonical.spatialRole,profile=spatialEcologyStory(scene),record=spatialEcologyRecord(world);
  if(role==='fauna'){
   if(!record?.fauna)ensureRecord(world).fauna=true;
