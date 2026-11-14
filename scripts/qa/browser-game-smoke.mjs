@@ -43,7 +43,7 @@ try{
    // frontier scene without replaying all 24 campaign chapters as dev fixtures.
    const url=origin+'/game/?dev=1&reviewScene=2000&browserQA='+label;
    await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
-   await page.locator('#play:enabled').waitFor({state:'visible',timeout:110000});
+   // Direct reviewScene entry hides the title; wait for the active field instead.
    stage='isolated frontier scene';
    await page.waitForFunction(()=>{
     const badge=document.getElementById('dev-session-badge'),canvas=document.getElementById('screen');
