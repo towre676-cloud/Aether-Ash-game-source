@@ -49,6 +49,17 @@ try{
    await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:18000});
    stage='chapter select';await page.locator('#dev-portal [data-chapter="10"]').click();
    stage='enter scene';await page.getByRole('button',{name:'Explore this chapter'}).click();
+   await page.waitForFunction(()=>{
+    const badge=document.getElementById('dev-session-badge'),error=document.querySelector('#dev-portal .dev-error')?.textContent?.trim();
+    return badge&&!badge.hidden||error&&!/^Preparing this chapter/.test(error);
+   },null,{timeout:70000});
+   const entry=await page.evaluate(()=>({badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
+     portalOpen:document.getElementById('dev-portal')?.open,
+     chosen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
+     error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim()}));
+   console.log('QA-DEV-ENTRY '+label+' '+JSON.stringify(entry));
+   if(!entry.badgeVisible)throw Error('Developer scene launch failed: '+entry.error);
+
    await page.waitForFunction(()=>document.querySelector('#screen')?.dataset.mode==='field'&&
     document.querySelector('#opening')?.hidden===true,null,{timeout:110000});
    // Developer chapter tests sometimes re-open their chapter picker after\n   // the canvas initializes. Dismiss the test picker, not the real game.\n   if(await page.locator('#dev-portal[open]').isVisible()){\n    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});\n    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});\n   }\n   // An authored entry may present a brief dialogue; dismiss only dialog,
