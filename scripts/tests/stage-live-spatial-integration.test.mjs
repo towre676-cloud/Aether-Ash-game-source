@@ -47,7 +47,7 @@ test('pure current-live overlay preserves fracture, tutorial, campaign and miner
  assert.ok(patch.journey.includes('value.continueLabel'),'special fracture continuation preserved');
 });
 test('bridge fails closed on missing new systems, mismatched anchors and duplicate installation',()=>{
- assert.throws(()=>stageSpatialSources({...sources,main:sources.main.replace('fractureUI','retiredUI')}),/modern live/);
+ assert.throws(()=>stageSpatialSources({...sources,main:sources.main.replaceAll('fractureUI','retiredUI')}),/modern live/);
  assert.throws(()=>stageSpatialSources({...sources,world:sources.world.replace('composeCinderfallLayout(this.preparedHouseholds)','this.preparedHouseholds')}),/modern live|Fail closed/);
  const patched=stageSpatialSources(sources);
  assert.throws(()=>stageSpatialSources(patched),/already present/);
