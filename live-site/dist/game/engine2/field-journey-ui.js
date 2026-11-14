@@ -115,7 +115,7 @@ export function mountFieldJourneyUI({onContinue=()=>{},onExplore=()=>{},onSetup=
   const handoff=value.kind==='handoff';current=value;card.dataset.kind=value.kind;card.dataset.pack=String(!!value.pack);card.dataset.active='true';eyebrow.textContent=handoff?'ON THE TRAIL':'WHAT YOUR ENCOUNTER CHANGED';title.textContent=value.title;
   summary.textContent=value.summary;summary.hidden=!value.summary;list(rewardList,value.rewards);list(progressList,value.progress);change.textContent=value.worldChange;change.hidden=!value.worldChange;
   renderGear();
-  hint.textContent=game.classList.contains('touch-on')?'Use the stick or tap the ground to explore. Continue route resumes guidance.':'Move with the arrows or click the ground to explore. Continue route resumes guidance.';
+  hint.textContent=game.classList.contains('touch-on')?'Use the stick or tap the ground to explore. Following the story path is optional; Explore keeps movement in your hands.':'Move with the arrows or click the ground to explore. Following the story path is optional; Explore keeps movement in your hands.';
   handoffDetails.hidden=!handoff;handoffDetails.open=false;detailActions.replaceChildren();hint.hidden=handoff;
   if(handoff){
    // The first complete sentence is the invitation; full counterplay and
@@ -125,7 +125,7 @@ export function mountFieldJourneyUI({onContinue=()=>{},onExplore=()=>{},onSetup=
   }
   actions.replaceChildren();button('Explore here','explore',onExplore,{primary:true});
   if(value.pack)button('Approach pack','engage',onEngage);
-  button('Continue route','continue',onContinue);button('Crew setup','setup',onSetup,{close:false,container:handoff?detailActions:actions});
+  button('Follow story path','continue',onContinue);button('Crew setup','setup',onSetup,{close:false,container:handoff?detailActions:actions});
   if(value.kind==='victory'&&!value.gear?.items?.length)button('Open Armory','armory',onArmory,{close:false});
   card.hidden=blocked;measure();
  }
