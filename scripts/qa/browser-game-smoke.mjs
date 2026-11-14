@@ -47,9 +47,9 @@ try{
    stage='isolated frontier scene';
    await page.waitForFunction(()=>{
     const badge=document.getElementById('dev-session-badge'),canvas=document.getElementById('screen');
-    return badge&&!badge.hidden&&canvas?.dataset.mode==='field'&&canvas?.dataset.scene==='2000'&&
-      document.getElementById('opening')?.hidden===true;
-   },null,{timeout:110000});
+    return badge&&!badge.hidden&&badge.textContent.includes('Amber Dunes')&&
+      canvas?.getBoundingClientRect().width>100&&document.getElementById('opening')?.hidden===true;
+   },null,{timeout:50000});
    const entry=await page.evaluate(()=>({scene:document.getElementById('screen')?.dataset.scene,
      badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
      modal:document.getElementById('dev-portal')?.open,
