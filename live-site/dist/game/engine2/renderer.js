@@ -1,4 +1,5 @@
 import {drawReconciledGround} from './reconciled-ground.js?v=5.41';
+import {drawSpatialWildlife2D} from './spatial-wildlife.mjs?v=1';
 import {drawLivingAtlas} from './living-atlas.js?v=5.41';
 import {drawTrailObject,drawMossbackRider,drawBellrun} from './reconciled-travel.js?v=5.38';
 import {canopyVariationGeometry} from './environment-canopies-v19.js?v=5.18.1';
@@ -93,7 +94,7 @@ export class Renderer{
  paintEnvironmentWater(this,this.environmentDepth,{x0,y0,x1,y1});
  drawReconciledGround(c,world,{x0,y0,x1,y1,time:this.time,compatibility:this.compatibility});
  paintSceneCraftGround(this,this.craftPlan,{x0,y0,x1,y1});
- drawLivingAtlas(this,world,battle,{x0,y0,x1,y1},dt);drawBellrun(this,world);this.vistaScene?.drawGround(c,{view:{x0,y0,x1,y1},day:this.daylight,trees:this.treeSites,compatibility:this.compatibility,steady});this.vistaCombat?.drawGround(c,T);
+ drawLivingAtlas(this,world,battle,{x0,y0,x1,y1},dt);drawBellrun(this,world);if(!battle)drawSpatialWildlife2D(c,world,this.time);this.vistaScene?.drawGround(c,{view:{x0,y0,x1,y1},day:this.daylight,trees:this.treeSites,compatibility:this.compatibility,steady});this.vistaCombat?.drawGround(c,T);
  if(!battle){drawPhysicalTraces(c,active,s,scene,T);drawNetworkConnections(c,world,T,this.time,{steady:!!this.comfort?.steadyLighting});if(!paintAuthoredConsequences(this,world,active))drawBellArc(c,world,T,this.time);}
  // Furniture occupies blocked wall cells, leaving every walking route intact.
  if(indoor&&!scene.interior&&!scene.household)for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(!floor(x,y)&&floor(x,y+1)&&hash(x,y)%3===0&&!active.some(o=>o.xy&&Math.hypot(o.xy[0]-x,o.xy[1]-y)<2)&&!scene.doors.some(d=>Math.hypot(d.xy[0]-x,d.xy[1]-y)<2)){objects.push({y:y+.8,draw:()=>this.furnishing(x+.5,y+1,hash(x,y)%4,scene.key)});}
