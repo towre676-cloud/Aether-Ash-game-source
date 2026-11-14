@@ -44,6 +44,17 @@ try{
    await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:20000});
    await page.locator('#dev-portal [data-chapter="10"]').click();
    await page.getByRole('button',{name:'Explore this chapter'}).click();
+   await page.waitForFunction(()=>{
+    const badge=document.getElementById('dev-session-badge'),error=document.querySelector('#dev-portal .dev-error')?.textContent?.trim();
+    return badge&&!badge.hidden||error&&!/^Preparing this chapter/.test(error);
+   },null,{timeout:70000});
+   const entry=await page.evaluate(()=>({badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
+     portalOpen:document.getElementById('dev-portal')?.open,
+     chosen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
+     error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim()}));
+   console.log('QA-DEV-ENTRY '+label+' '+JSON.stringify(entry));
+   if(!entry.badgeVisible)throw Error('Current Site developer scene launch failed: '+entry.error);
+
    step='render and initialize';
    await page.waitForFunction(()=>{
     const c=document.getElementById('screen'),opening=document.getElementById('opening');
