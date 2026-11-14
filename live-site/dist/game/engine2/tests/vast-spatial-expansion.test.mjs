@@ -55,3 +55,23 @@ test('reward caches are sparse, unique and idempotent; source fixture is unchang
  assert.equal(JSON.stringify(expanded),roundTrip);
  assert.equal(original.scenes.length,62);
 });
+
+test('complete campaign composition, scene rendering inputs and existing saves use the same expanded world',async()=>{
+ const {World}=await import('../world.js');
+ const world=new World(original);
+ const ids=[230,229,228,5,17,135,47,19,70,66,359,259,404];
+ for(const id of ids){
+  const scene=world.scenes.get(id),base=original.scenes.find(s=>s.location===id);
+  assert.ok(scene,'scene exists '+id);
+  assert.ok(scene.spatialExpansion?.version===1,'spatial data survives all campaign authoring '+id);
+  assert.ok(scene.width>base.width&&scene.height>base.height,'larger real runtime geometry '+id);
+  for(const landmark of scene.spatialExpansion.landmarks)assert.equal(scene.floor[landmark.xy[1]][landmark.xy[0]],'.','actual collision must be walkable '+id);
+ }
+ const scene=world.scenes.get(5);world.state.scene=5;world.state.x=scene.arrive[0]+.5;world.state.y=scene.arrive[1]+.5;world.state.mode='field';
+ const save=world.save(),copy=new World(original);copy.restore(save);
+ assert.equal(copy.scene.location,scene.location);
+ assert.equal(copy.scene.width,scene.width);
+ assert.deepEqual([copy.state.x,copy.state.y],[world.state.x,world.state.y]);
+ assert.equal(copy.walkable(copy.state.x,copy.state.y),true);
+ assert.equal(copy.state.schema,world.state.schema);
+});
