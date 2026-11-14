@@ -16,3 +16,4 @@ jobs:
           node-version: '22'
       - run: node scripts/check-site.mjs
       - run: node --test live-site/dist/game/engine2/tests/vast-spatial-expansion.test.mjs
+      - run: node --test live-site/dist/game/engine2/tests/macro-region-phase2.test.mjs live-site/dist/game/engine2/tests/spatial-landmark-art.test.mjs
