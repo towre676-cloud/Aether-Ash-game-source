@@ -39,43 +39,23 @@ try{
   page.on('response',r=>{if(r.status()>=400&&r.url().includes('/game/engine2/'))missing.push(r.status()+' '+r.url().replace(origin,''));});
   let stage='load';
   try{
-   const url=origin+'/game/?dev=1&browserQA='+label;
+   // The game's native reviewScene entry directly opens an isolated, genuine
+   // frontier scene without replaying all 24 campaign chapters as dev fixtures.
+   const url=origin+'/game/?dev=1&reviewScene=2000&browserQA='+label;
    await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
    await page.locator('#play:enabled').waitFor({state:'visible',timeout:110000});
-   stage='developer portal';
-   // Dev sessions open the chapter chooser automatically during boot; don't
-   // click the now-obscured title button behind an already modal dialog.
-   if(!await page.locator('#dev-portal[open]').isVisible())await page.locator('#play').click();
-   await page.locator('#dev-portal[open]').waitFor({state:'visible',timeout:18000});
-   stage='chapter select';await page.locator('#dev-portal [data-chapter="10"]').click();
-   stage='enter scene';await page.getByRole('button',{name:'Explore this chapter'}).click();
+   stage='isolated frontier scene';
    await page.waitForFunction(()=>{
-    const badge=document.getElementById('dev-session-badge'),error=document.querySelector('#dev-portal .dev-error')?.textContent?.trim();
-    return badge&&!badge.hidden||error&&!/^Preparing this chapter/.test(error);
-   },null,{timeout:70000});
-   const entry=await page.evaluate(()=>({badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
-     portalOpen:document.getElementById('dev-portal')?.open,
-     chosen:document.querySelector('#dev-portal [data-chapter="10"]')?.getAttribute('aria-pressed'),
-     error:document.querySelector('#dev-portal .dev-error')?.textContent?.trim()}));
-   console.log('QA-DEV-ENTRY '+label+' '+JSON.stringify(entry));
-   if(!entry.badgeVisible)throw Error('Developer scene launch failed: '+entry.error);
-
-   await page.waitForFunction(()=>document.querySelector('#screen')?.dataset.mode==='field'&&
-    document.querySelector('#opening')?.hidden===true,null,{timeout:110000});
-   // Developer chapter tests sometimes re-open their chapter picker after
-   // the canvas initializes. Dismiss the test picker, not the real game.
-   if(await page.locator('#dev-portal[open]').isVisible()){
-    await page.getByRole('button',{name:'Return to test'}).click({timeout:12000});
-    await page.locator('#dev-portal[open]').waitFor({state:'hidden',timeout:12000});
-   }
-   // An authored entry may present a brief dialogue; dismiss only dialog,
-   // never guess any story choices or spend currency.
-   for(let i=0;i<6;i++){
-    const visible=await page.locator('#dialog').isVisible().catch(()=>false);
-    if(!visible)break;
-    const btn=page.locator('#dialog-next');if(await btn.isVisible())await btn.click();else break;
-    await sleep(300);
-   }
+    const badge=document.getElementById('dev-session-badge'),canvas=document.getElementById('screen');
+    return badge&&!badge.hidden&&canvas?.dataset.mode==='field'&&canvas?.dataset.scene==='2000'&&
+      document.getElementById('opening')?.hidden===true;
+   },null,{timeout:110000});
+   const entry=await page.evaluate(()=>({scene:document.getElementById('screen')?.dataset.scene,
+     badgeVisible:!document.getElementById('dev-session-badge')?.hidden,
+     modal:document.getElementById('dev-portal')?.open,
+     drawMs:document.getElementById('screen')?.dataset.drawMs}));
+   console.log('QA-REVIEW-SCENE '+label+' '+JSON.stringify(entry));
+   if(entry.modal)throw Error('Unexpected modal during direct scene review');
    stage='expanded map';
    await page.locator('#spatial-map-button:visible').waitFor({state:'visible',timeout:30000});
    const mapDiagnostic=await page.evaluate(()=>{
