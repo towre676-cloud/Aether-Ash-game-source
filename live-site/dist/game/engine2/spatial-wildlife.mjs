@@ -56,9 +56,9 @@ export function appendSpatialWildlifeMotion(mesh,glow,{world,time=0}={}){
   const {x,z,y,body,light,kind,heading,wing}=a,forward=[Math.cos(heading),Math.sin(heading)],
     right=[-forward[1],forward[0]],side=(sign,d)=>[x+right[0]*sign*d,z+right[1]*sign*d];
   const size=kind==='runner'?.21:kind==='bird'?.17:.13;
-  mesh.sphere(x,y,z,size,body,0,0,9,6);
+  mesh.sphere(x,y,z,size,body,0,0,7,5);
   const face=[x+forward[0]*size*.87,z+forward[1]*size*.87];
-  mesh.sphere(face[0],y+size*.3,face[1],size*.44,light,0,0,7,5);
+  mesh.sphere(face[0],y+size*.3,face[1],size*.44,light,0,0,5,4);
   if(kind==='moth'||kind==='bird'){
    const span=kind==='bird'?.52:.38,flap=.10+.19*wing;
    for(const sign of [-1,1]){
