@@ -50,7 +50,7 @@ try{
    stage='chapter select';await page.locator('#dev-portal [data-chapter="10"]').click();
    stage='enter scene';await page.getByRole('button',{name:'Explore this chapter'}).click();
    await page.waitForFunction(()=>document.querySelector('#screen')?.dataset.mode==='field'&&
-    document.querySelector('#opening')?.hidden===true,{timeout:110000});
+    document.querySelector('#opening')?.hidden===true,null,{timeout:110000});
    // An authored entry may present a brief dialogue; dismiss only dialog,
    // never guess any story choices or spend currency.
    for(let i=0;i<6;i++){
