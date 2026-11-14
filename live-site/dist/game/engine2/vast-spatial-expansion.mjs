@@ -109,7 +109,8 @@ export function expandVastScenes(data){
   const newObjects=[];
   for(const i of [1,3,5,6]){
    const [x,y]=nodes[i];
-   newObjects.push({type:'clue',exploreId:'vast:'+scene.location+':landmark:'+i,xy:[x,y],label:names[i],text:place+' — '+names[i]+'. '+details[(i+scene.location)%details.length]});
+   const record=i===1||i===6;
+   newObjects.push({type:record?'clue':'furnishing',...(record?{exploreId:'vast:'+scene.location+':landmark:'+i}:{}),xy:[x,y],label:names[i],text:place+' — '+names[i]+'. '+details[(i+scene.location)%details.length]});
   }
   // One hard-to-find cache in alternate chapters, not free powerful gear per room.
   if(rewardSceneLocations.has(scene.location)){
