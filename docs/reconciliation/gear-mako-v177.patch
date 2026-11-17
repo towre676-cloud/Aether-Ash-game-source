@@ -1,0 +1,759 @@
+diff --git a/dist/game/engine2/cinema-director.js b/dist/game/engine2/cinema-director.js
+index cdca23a8..4c25bdac 100644
+--- a/dist/game/engine2/cinema-director.js
++++ b/dist/game/engine2/cinema-director.js
+@@ -1,3 +1,5 @@
++import {composeEquippedCrop,equippedAppearance} from './equipped-appearance.js';
++import {loadEquipmentArt} from './equipment-art-loader.js';
+ import {readingTime} from '../travel/story-pacing.mjs';
+ import {drawSupply} from './supply-art.js';
+ import {cinematicRegistry,cinematicKey,seenCinematic,markCinematic,canShowArrival} from './cinema-content.js?v=chapel-150';
+@@ -13,6 +15,19 @@ export function cinematicFrame(width,height,frameWidth=1280,frameHeight=660){
+  const w=width*scale,h=height*scale;
+  return [(frameWidth-w)/2,30+(frameHeight-h)/2,w,h];
+ }
++/** Dynamic actor shots read the campaign's current equipment. Authored scene
++ * paintings and videos remain their deliberately fixed story illustrations.
++ * Keep the original body scale and foot placement when weapons add overscan. */
++export function paintCinematicSprite(ctx,{renderer,world,kind,index,frame,x,y,height,alpha=1,compose=composeEquippedCrop}={}){
++ let selectedKind=kind,row=index;
++ if(kind==='crew'&&(!Number.isInteger(index)||index<0||index>6))return false;
++ if(kind==='crew'&&index===0&&world?.state?.story&&!world.state.story.armor){selectedKind='starter';row=0;}
++ const image=renderer?.assets?.[selectedKind],cols=selectedKind==='crew'||selectedKind==='starter'?8:4,source=renderer?.bounds?.[selectedKind]?.[selectedKind.startsWith('bestiary')?row:row*cols+frame];
++ if(!ctx||!image||!source)return false;
++ const profile=kind==='crew'?equippedAppearance(world?.state,index):null,drawn=profile?compose(image,source,profile,{heroId:index,kind:selectedKind,row,frame}):null;
++ const crop=drawn?.source||source,art=drawn?.image||image,scale=height/source.h,left=drawn?.allocation?.left||0,top=drawn?.allocation?.top||0;
++ ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(art,crop.x,crop.y,crop.w,crop.h,x-source.w*scale/2-left*scale,y-height-top*scale,crop.w*scale,crop.h*scale);ctx.restore();return true;
++}
+ /** Runs short camera/pose animatics. Artwork stays upright; gameplay never advances beneath a full scene. */
+ export class CinemaDirector{
+  constructor({data,renderer,onOpen=()=>{},onClose=()=>{},onTurn=()=>{},volume=()=>.68,contextFor=()=>'',musicFor=()=>null,externalScore=false}){
+@@ -40,7 +55,7 @@ export class CinemaDirector{
+   this.root.hidden=false;this.root.classList.toggle('compact',!!entry.compact);this.root.style.setProperty('--cinema-color',entry.color||'#e6c78f');this.root.setAttribute('role',entry.compact?'status':'dialog');this.root.setAttribute('aria-modal',String(!entry.compact));
+   this.root.querySelector('small').textContent=({arrival:'THE JOURNEY CONTINUES',guardian:'GUARDIAN',victory:'AFTER THE STORM',creature:'CREATURE DISCOVERED',supply:'SUPPLY',crew:'A NEW COMPANION',technique:'MAKO',assault:'GUARDIAN TECHNIQUE','creature-move':'CREATURE TECHNIQUE'}[entry.kind]||'CLAY & WATER');this.root.querySelector('h2').textContent=entry.title;this.root.querySelector('p').textContent=entry.subtitle;const context=this.root.querySelector('.cinematic-context');context.textContent=this.contextFor(entry,world)||'';context.hidden=!context.textContent;
+   if(!entry.compact&&!entry.turns)this.entry={...entry,duration:Math.max(entry.duration,readingTime([entry.title,entry.subtitle,context.textContent].filter(Boolean).join(' '))/1000)};
+-  this.image(entry.art);this.hero=entry.hero??world.state.party[0];this.actor=entry.actor;this.backdrop=null;try{const source=this.renderer.canvas.toDataURL('image/jpeg',.65);if(source&&source!=='data:,'){this.backdrop=new Image();this.backdrop.src=source;}}catch{/* Scene art and sprite fallback remain available after a canvas export failure. */}
++  this.image(entry.art);this.hero=entry.hero??world.state.party[0];if(world.state.heroes?.[this.hero]&&equippedAppearance(world.state,this.hero).active)void loadEquipmentArt({assets:this.renderer.assets}).catch(()=>{});this.actor=entry.actor;this.backdrop=null;try{const source=this.renderer.canvas.toDataURL('image/jpeg',.65);if(source&&source!=='data:,'){this.backdrop=new Image();this.backdrop.src=source;}}catch{/* Scene art and sprite fallback remain available after a canvas export failure. */}
+   if(this.active){this.onOpen();this.root.querySelector('button').focus({preventScroll:true});if(!this.externalScore){const recording=cinematicScoreUrl(entry,this.musicFor(entry));if(recording){this.music=new Audio(recording);this.music.volume=0;this.music.play().catch(()=>{});}}}
+   if(entry.video&&!this.reduced&&!this.renderer?.compatibility){this.video=document.createElement('video');this.video.src=new URL('../cinema/'+entry.video,import.meta.url);this.video.muted=true;this.video.playsInline=true;this.video.play().catch(()=>{});}
+   cancelAnimationFrame(this.raf);this.tick();return true;
+@@ -56,7 +71,7 @@ export class CinemaDirector{
+   this.onTurn(turn);
+  }
+  }if(this.music)this.music.volume=clamp(this.volume()*.7*Math.min(1,t/.9)*Math.min(1,Math.max(0,(this.entry.duration-t)/1.2)),0,1);this.draw(t);this.root.querySelector('.cinematic-progress').style.width=(100*clamp(t/this.entry.duration,0,1))+'%';if(t>=this.entry.duration){this.finish();return;}this.raf=requestAnimationFrame(()=>this.tick());}
+- sprite(kind,index,frame,x,y,height,alpha=1){const r=this.renderer,a=r.assets[kind],cols=kind==='crew'?8:4,b=r.bounds[kind]?.[kind.startsWith('bestiary')?index:index*cols+frame];if(!a||!b)return;const c=this.ctx,w=height*b.w/b.h;c.save();c.globalAlpha=alpha;c.drawImage(a,b.x,b.y,b.w,b.h,x-w/2,y-height,w,height);c.restore();}
++ sprite(kind,index,frame,x,y,height,alpha=1){return paintCinematicSprite(this.ctx,{renderer:this.renderer,world:this.world,kind,index,frame,x,y,height,alpha});}
+  draw(t){const c=this.ctx,W=1280,H=720,e=this.entry,p=clamp(t/e.duration,0,1),motion=this.reduced?0:1;c.fillStyle='#08131d';c.fillRect(0,0,W,H);
+   if(this.backdrop?.complete&&this.backdrop.naturalWidth){c.save();c.globalAlpha=.25;if(!this.renderer?.compatibility)c.filter='blur(14px)';c.drawImage(this.backdrop,-30,-30,W+60,H+60);c.restore();}
+   const g=c.createRadialGradient(840,270,20,640,350,760);g.addColorStop(0,(e.color||'#e8c88f')+'33');g.addColorStop(1,'#040a13dd');c.fillStyle=g;c.fillRect(0,0,W,H);
+diff --git a/dist/game/engine2/equipped-appearance.js b/dist/game/engine2/equipped-appearance.js
+index ff321e12..c37276bd 100644
+--- a/dist/game/engine2/equipped-appearance.js
++++ b/dist/game/engine2/equipped-appearance.js
+@@ -1,4 +1,6 @@
+ import {npcEquipmentRig} from './npc-equipment-rig.js';
++import {AUTHORED_MOTION_ATLASES} from './authored-art.js';
++import {CREW_MOTION} from './crew-motion-data.js';
+ import {BOSS_GEAR} from './boss-gear.js';
+ import {GUARDIAN_EQUIPMENT_VISUALS,RIVAL_EQUIPMENT_VISUALS,CREW_KIT_VISUALS,ensurePlayerAppearance,equippedAppearanceSourceExists,validateAppearanceSources} from './player-equipment-appearance.js';
+ import {EQUIP_SLOTS,SLOT_GROUPS,SLOT_LABELS} from './living-armory/src/catalog.mjs?v=fractures-4';
+@@ -210,14 +212,30 @@ export function clearEquippedAppearanceArt(){artCache.clear();cachedPixels=0;}
+ export function equippedAppearanceArtStats(){return {entries:artCache.size,limit:EQUIPMENT_ART_CACHE_LIMIT,pixels:cachedPixels,pixelLimit:EQUIPMENT_ART_CACHE_PIXELS};}
+ const imageId=image=>{if(!imageIds.has(image))imageIds.set(image,++imageSerial);return imageIds.get(image);};
+ function surface(w,h){if(typeof document==='undefined')return null;const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.ceil(w));canvas.height=Math.max(1,Math.ceil(h));return canvas;}
++/** The compositor must not borrow another bearer's measurements. Explicit
++ * civilian indices use their registered wardrobe fit; synthetic player crops
++ * without authored metadata retain the existing explicit-rig test contract. */
++function supportedEquipmentSource(profile,source,options){
++ const civilianIndex=options.humanIndex??profile.humanIndex,authored=options.authored;
++ if(civilianIndex!=null){
++  if(profile.heroId!=null||options.heroId!=null||!Number.isInteger(civilianIndex)||profile.humanIndex!=null&&profile.humanIndex!==civilianIndex||authored?.atlas!=null||authored?.heroId!=null)return null;
++  const rig=npcEquipmentRig(source,civilianIndex,{bodyType:profile.bodyType||'adult',bodyHeight:options.bodyHeight||source.bodyHeight||source.h});
++  if(!rig)return null;return options.rig?options:{...options,rig,humanIndex:civilianIndex};
++ }
++ if(!Number.isInteger(profile.heroId)||profile.heroId<0||profile.heroId>6||options.kind==='starter'&&profile.heroId!==0)return null;
++ if(options.heroId!==undefined&&options.heroId!==profile.heroId||authored?.heroId!==undefined&&authored.heroId!==profile.heroId)return null;
++ if(authored?.atlas!==undefined){
++  const frames=authored.atlas==='sable'&&profile.heroId===0?AUTHORED_MOTION_ATLASES.sable.frames:authored.atlas==='crewActions'?CREW_MOTION[profile.heroId]?.frames:null;
++  if(!frames||!Number.isInteger(authored.frame)||!frames[authored.frame])return null;
++ }
++ return options;
++}
+ /** Compose a selected native source crop. Metadata is kept in source pixels so
+  * the same bitmap and fitted limbs can be used by both renderers and portraits. */
+ export function composeEquippedCrop(image,source,profile,options={}){
+  if(!profile?.active||!image?.width||image.complete===false||!source||typeof document==='undefined')return null;
+- options=identifyEquipmentPose({source,authored:options.authored},profile.heroId,options);
++ options=supportedEquipmentSource(profile,source,identifyEquipmentPose({source,authored:options.authored},profile.heroId,options));if(!options)return null;
+  const visible=Object.values(profile.slots||{}).some(item=>item.display!=='hidden'&&equipmentVisualSelection(item,{back:!!options.back,assets:options.assets,manifest:options.artManifest})?.ready);if(!visible)return null;
+- const civilianIndex=options.humanIndex??profile.humanIndex;
+- if(!options.rig&&Number.isInteger(civilianIndex)){const rig=npcEquipmentRig(source,civilianIndex,{bodyType:profile.bodyType||'adult',bodyHeight:options.bodyHeight||source.bodyHeight||source.h});if(rig)options={...options,rig,humanIndex:civilianIndex};}
+  const bh=options.bodyHeight||source.bodyHeight||source.h,ax=options.anchorX??source.anchorX??source.w/2,ay=options.anchorY??source.anchorY??source.h,key=[equipmentArtRevision(),options.artManifest?.id||'',imageId(image),source.x,source.y,source.w,source.h,ax,ay,bh,profile.key,profile.bodyType||'',options.kind||'crew',options.row??'',options.frame||0,options.authored?.atlas||'',options.authored?.frame??'',options.back?1:0,options.replacementMainhandReady===true?1:0,options.humanIndex??profile.humanIndex??'',options.motion?.state||'',options.rig?JSON.stringify(options.rig):''].join(':');
+  if(artCache.has(key)){const result=artCache.get(key);artCache.delete(key);artCache.set(key,result);return result;}
+  const planOptions={source,anchorX:ax,anchorY:ay,bodyHeight:bh,...options},measuredRig=equipmentPoseRig({heroId:profile.heroId,humanIndex:profile.humanIndex??null,bodyType:profile.bodyType,...planOptions}),rig=fitPlayerFootwearRig(image,source,profile,measuredRig,options),plan=equipmentRasterPlan(profile,rig,planOptions),allocation=equipmentCanvasBounds(source,plan,{bodyHeight:bh});if(!plan.painted||!allocation)return null;
+diff --git a/dist/game/engine2/main.js b/dist/game/engine2/main.js
+index cb158a5e..9940a6a5 100644
+--- a/dist/game/engine2/main.js
++++ b/dist/game/engine2/main.js
+@@ -686,7 +686,7 @@ function openMako(makoId=null,heroId=null,schoolId=null,nodeId=null){
+  if(battle)return showSpells();if(!started||dialog||cinema?.busy||observatory?.active)return;
+  if(!world.state.cores.length)return notice('Recover your first Mako core from Rook, then build your moves here.');
+  togglePause(true);$('#pause-title').textContent='Mako · builds & progression';$('#pause-body').hidden=true;$('#mako-panel').hidden=true;const panel=$('#party-panel');panel.hidden=false;
+- panel.replaceChildren(makoStudio({world,data,initialHero:Number.isInteger(heroId)?heroId:null,initialMakoId:typeof makoId==='string'?makoId:null,initialSchoolId:schoolId,initialNodeId:nodeId,onSave:()=>{save();hud(true);},onBack:()=>togglePause(false),onGear:id=>openCrewSetup(id),onAdvanced:id=>openAdvancedSkillGrid(null,null,id)}));
++ panel.replaceChildren(makoStudio({world,data,assets,bounds:renderer?.bounds,initialHero:Number.isInteger(heroId)?heroId:null,initialMakoId:typeof makoId==='string'?makoId:null,initialSchoolId:schoolId,initialNodeId:nodeId,onSave:()=>{save();hud(true);},onBack:()=>togglePause(false),onGear:id=>openCrewSetup(id),onAdvanced:id=>openAdvancedSkillGrid(null,null,id)}));
+  requestAnimationFrame(()=>panel.querySelector('button[aria-pressed="true"]')?.focus({preventScroll:true}));
+ }
+ function openSkillGrid(makoId=null,schoolId=null,heroId=null,nodeId=null){return openMako(makoId,heroId,schoolId,nodeId);}
+@@ -957,7 +957,7 @@ async function launchOuting(kind){
+  if(!save()||!await journeyStorage.confirm(STORE))return notice('Could not save before departure. Your journey is still open.');
+  try{beginExperienceTrip(localStorage,world.state,profileHero(saveValue()));}catch{return notice('Could not preserve journey experience before departure.');}
+  try{
+-  openOuting(sessionStorage,{chapter:world.state.chapter,lead:world.state.party[0],traveller:profileHero(saveValue()),kind,journeyId:world.state.story?.roadId,party:world.state.party,wardrobeClock:world.state.townLife});
++  openOuting(sessionStorage,{chapter:world.state.chapter,lead:world.state.party[0],traveller:profileHero(saveValue()),kind,journeyId:world.state.story?.roadId,party:world.state.party,wardrobeClock:world.state.townLife,equipmentState:world.state});
+   location.assign(kind==='roads'?'./travel/?outing':'./expeditions/?outing');
+  }catch{notice('Could not open the outing from this browser.');}
+ }
+diff --git a/dist/game/engine2/mako-studio.css b/dist/game/engine2/mako-studio.css
+index 650f7ece..e5b102e8 100644
+--- a/dist/game/engine2/mako-studio.css
++++ b/dist/game/engine2/mako-studio.css
+@@ -1,5 +1,157 @@
+-.mako-studio{--mako-ink:#0b1b23;--mako-gold:#d6bd83;--mako-text:#e7ece5;--mako-soft:#adbfbd;max-width:1240px;margin:auto;color:var(--mako-text);font:15px/1.55 system-ui;min-width:0;text-align:left}.mako-studio *{box-sizing:border-box}.mako-studio button,.mako-studio input{font:inherit}.mako-studio button{cursor:pointer;border:1px solid #607b7b66;background:#122d36;color:var(--mako-text);border-radius:9px;min-height:44px;padding:10px 14px;text-align:left}.mako-studio button:focus-visible,.mako-studio input:focus-visible{outline:3px solid #e2c17e;outline-offset:3px}.mako-studio button:disabled{cursor:default;opacity:.48}.mako-studio button[aria-pressed=true]{border-color:var(--mako-gold);background:#244249;box-shadow:inset 0 0 0 1px #d6bd8344}.mako-studio h2,.mako-studio h4,.mako-studio p{margin:0}.mako-studio small{font-size:13px;line-height:1.5;letter-spacing:normal}.mako-topbar{display:flex;gap:14px;align-items:center;justify-content:space-between;padding-bottom:14px}.mako-crew{display:flex;flex-wrap:wrap;gap:7px}.mako-hero{display:flex;align-items:center;gap:7px}.mako-hero img{width:26px;height:34px;object-fit:contain}.mako-back{flex-shrink:0}.mako-banner{position:relative;overflow:hidden;background:radial-gradient(ellipse at 20% 110%,#46656255,transparent 60%),linear-gradient(110deg,#142e39,#10232d);border-top:2px solid var(--mako-gold);display:flex;align-items:center;gap:22px;padding:20px 28px;border-radius:14px}.mako-large-portrait{width:100px;height:126px;object-fit:contain;filter:drop-shadow(0 6px 16px #0008)}.mako-identity h2{font:clamp(27px,4vw,42px)/1.15 Georgia,serif;color:#f0e0bb;margin:6px 0 12px}.mako-identity p{color:var(--mako-soft)}.mako-eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:.15em;color:var(--mako-gold)}.mako-points{margin-left:auto;display:flex;flex-direction:column;align-items:center;white-space:nowrap;min-width:125px}.mako-points strong{font:52px/1 Georgia;color:#f1d79e}.mako-points small{color:var(--mako-soft);margin-top:7px}.mako-how{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#44646a55;margin:15px 0;border-radius:9px;overflow:hidden}.mako-how p{background:#10252f;padding:15px}.mako-how strong{display:block;color:var(--mako-gold);margin-bottom:5px}.mako-how span{font-size:14px;color:#c5d2cd}.mako-next,.mako-receipt{display:flex;gap:16px;background:#203d36;border-left:3px solid #95cbaa;padding:14px 18px;border-radius:6px}.mako-next strong{white-space:nowrap;color:#d3eac9}.mako-receipt{margin:12px 0}.mako-receipt[hidden]{display:none}.mako-jump{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0;position:sticky;top:0;z-index:4;background:#0b1b23f0;backdrop-filter:blur(10px)}.mako-jump button{font-size:14px;background:transparent;min-height:38px;padding:7px 12px;border-color:#78918a33}.mako-section{padding:24px 0;border-bottom:1px solid #6e8a842f;scroll-margin-top:70px}.mako-section-title{display:flex;align-items:center;gap:12px;font:26px Georgia;color:#ecdfc2;margin-bottom:10px}.mako-step{font:12px system-ui;letter-spacing:.1em;background:#263b3d;color:var(--mako-gold);padding:7px 9px;border:1px solid #d5bc8044;border-radius:5px}.mako-section-copy{color:#aebfba;max-width:90ch;margin-bottom:18px!important}.mako-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.mako-slot{position:relative;display:grid;grid-template-columns:46px 1fr;align-items:center;gap:5px 10px;min-height:120px!important}.mako-slot .mako-eyebrow{grid-column:1/-1}.mako-slot .technique-icon{grid-row:2/4}.mako-slot strong{font-size:16px}.mako-slot>span:last-child{font-size:13px;color:#bdccc6}.mako-builder{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.85fr);gap:20px;align-items:start}.mako-choices h4{font-size:15px;color:#c7cfbd;margin:16px 0 10px}.mako-core-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.mako-core{display:grid;grid-template-columns:36px 1fr;gap:2px 9px;align-items:center;padding:11px!important}.mako-core .technique-icon{grid-row:1/3}.mako-core small{color:#b5c6bf}.mako-shape-options{display:flex;flex-wrap:wrap;gap:7px}.mako-shape{font-size:14px!important;flex:1 0 110px;text-align:center!important}.mako-result{border:1px solid color-mix(in srgb,var(--core-color),transparent 55%);background:radial-gradient(ellipse at 50% 0,color-mix(in srgb,var(--core-color),transparent 85%),transparent 70%),#10262e;border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:13px;align-items:flex-start;position:sticky;top:60px}.mako-move-copy{font:25px/1.2 Georgia;color:#f0e6cf}.mako-mp{background:#0a2029;border:1px solid #c5ddda33;padding:5px 11px;border-radius:20px;color:#d4e6df}.mako-effect{color:#d0dcd4;font-size:15px}.mako-active{color:#a8d7bb;font-size:14px}.mako-comparison{border-top:1px solid #a6beb93a;padding-top:13px;font-size:14px}.mako-cost-warning{color:#e4c191;font-size:14px;margin:7px 0!important}.mako-primary{background:#b5d8b7!important;color:#112a23!important;border-color:#c8e2c5!important;font-weight:700!important;text-align:center!important}.mako-result .mako-primary{width:100%;margin-top:8px}.mako-secondary{background:#213c43!important;border-color:#90b1a844!important;font-size:14px!important}.mako-role-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.mako-role{display:flex;flex-direction:column;gap:7px;padding:16px!important}.mako-role strong{font:20px Georgia;color:#eddcb7}.mako-role small{color:#bdcec6}.mako-role-preview{background:#122d32;border-radius:10px;padding:18px;margin-top:15px}.mako-role-preview h4{font:23px Georgia;margin-bottom:8px}.mako-move-mini{display:flex;flex-direction:column;gap:7px;border-left:2px solid var(--core-color);padding:12px;background:#10252e}.mako-move-mini .mako-move-copy{font-size:19px}.mako-mastery-grid,.mako-saved-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mako-mastery-card{background:#122a32;border:1px solid #a3c0b129;padding:17px;border-radius:10px;display:flex;flex-direction:column;gap:9px}.mako-mastery-card progress{width:100%;height:10px;accent-color:#a3d1b5;border:0;border-radius:5px;margin-top:5px}.mako-studio h4{font-size:17px}.mako-specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}.mako-specimen{background:#182e35;padding:14px;border-radius:9px;display:flex;flex-direction:column;gap:7px}.mako-muted{color:var(--mako-soft);font-size:14px;margin:12px 0!important}.mako-art-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.mako-art{background:#122a32;border:1px solid #647f773b;border-radius:10px;padding:15px;display:flex;flex-direction:column;gap:9px}.mako-art p{font-size:14px;color:#bacdc7}.mako-art button{margin-top:auto}.mako-art.learned{border-color:#94cbaa55}.mako-art.available{border-top:2px solid var(--mako-gold)}.mako-art.locked,.mako-art.story,.mako-art.choice{opacity:.75}.mako-active-styles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}.mako-active-styles article{display:flex;flex-direction:column;gap:7px;padding:16px;border:1px solid #a5bfa742;background:#1b3439;border-radius:9px}.mako-active-styles strong{font:21px Georgia}.mako-active-styles article>span{font-size:14px;color:#b8cfc4}.mako-style-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.mako-style-choice{display:grid;grid-template-columns:34px 1fr;gap:3px 8px}.mako-style-choice .technique-icon{grid-row:1/3}.mako-style-choice small{grid-column:2;color:#a9c0b7}.mako-style-detail{margin-top:15px;padding:18px;background:#142e37;border-radius:10px;display:flex;flex-direction:column;gap:12px}.mako-style-detail>h4{font:24px Georgia;color:#e5d1a8}.mako-inline-actions{display:flex;flex-wrap:wrap;gap:10px}.mako-style-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.mako-training-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.mako-training{display:flex;flex-direction:column;gap:11px;padding:15px;background:#122a32;border-radius:9px}.mako-training p{color:#c8dacd}.mako-training small{color:#9cb6ac}.mako-ledger{display:flex;gap:8px 18px;flex-wrap:wrap;padding:14px;margin-top:14px;background:#101f28;border-radius:8px}.mako-ledger h4{width:100%}.mako-ledger p{font-size:14px;color:#b0c5bd}.mako-rare{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:16px;background:#282f2d;border:1px solid #d6bd8344;border-radius:9px;margin:12px 0}.mako-rare p{flex:1 1 250px}.mako-saved{display:flex;flex-direction:column;gap:10px;background:#142d35;padding:15px;border-radius:9px}.mako-saved input{width:100%;border:1px solid #90b1a855;padding:9px;border-radius:7px;background:#0e212a;color:#ecdfc2}.mako-text-button{background:transparent!important;color:#bdcfc3!important;font-size:14px!important;margin-top:10px}.mako-footer{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:25px 0}.mako-footer .mako-primary{margin-left:auto}.mako-studio .technique-icon{flex-shrink:0}@media(max-width:900px){.mako-art-grid,.mako-style-list{grid-template-columns:repeat(2,minmax(0,1fr))}.mako-training-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mako-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.mako-topbar{flex-direction:column;align-items:stretch}.mako-crew{display:grid;grid-template-columns:repeat(3,1fr)}.mako-hero{font-size:13px!important;padding:7px!important}.mako-hero img{width:22px}.mako-banner{gap:10px;padding:16px 12px;flex-wrap:wrap}.mako-large-portrait{width:60px;height:86px}.mako-identity{flex:1;min-width:150px}.mako-identity h2{font-size:27px}.mako-identity p{font-size:13px}.mako-points{margin-left:0;flex-direction:row;gap:9px;width:100%;justify-content:flex-end}.mako-points strong{font-size:30px}.mako-points small{margin:0}.mako-how{grid-template-columns:1fr}.mako-how p{padding:11px 14px}.mako-how strong{display:inline;margin-right:8px}.mako-jump{position:static}.mako-builder{grid-template-columns:1fr}.mako-result{position:static}.mako-slots{grid-template-columns:1fr}.mako-slot{min-height:94px!important}.mako-mastery-grid,.mako-saved-grid{grid-template-columns:1fr}.mako-art-grid{grid-template-columns:1fr 1fr}.mako-style-nodes{grid-template-columns:1fr}.mako-training-grid{grid-template-columns:1fr 1fr}.mako-section-title{font-size:24px}.mako-section{padding-top:22px}.mako-next{flex-direction:column;gap:7px}.mako-active-styles{grid-template-columns:1fr}.mako-style-list{grid-template-columns:1fr 1fr}.mako-studio button{padding:10px}.mako-footer .mako-primary{margin-left:0;flex:1}}@media(prefers-reduced-motion:reduce){.mako-studio *{scroll-behavior:auto!important}}
+-
++/* Component scope beats inherited field-folio menu controls. */
++:is(.mako-studio,#game #pause #party-panel .mako-studio){--mako-ink:#0b1b23;--mako-gold:#d6bd83;--mako-text:#e7ece5;--mako-soft:#adbfbd;max-width:1240px;margin:auto;color:var(--mako-text);font:15px/1.55 system-ui;min-width:0;text-align:left}
++:is(.mako-studio *,#game #pause #party-panel .mako-studio *){box-sizing:border-box}
++:is(.mako-studio button,#game #pause #party-panel .mako-studio button),:is(.mako-studio input,#game #pause #party-panel .mako-studio input){font:inherit}
++:is(.mako-studio button,#game #pause #party-panel .mako-studio button){cursor:pointer;border:1px solid #607b7b66;background:#122d36;color:var(--mako-text);border-radius:9px;min-height:44px;padding:10px 14px;text-align:left}
++:is(.mako-studio button:focus-visible,#game #pause #party-panel .mako-studio button:focus-visible),:is(.mako-studio input:focus-visible,#game #pause #party-panel .mako-studio input:focus-visible){outline:3px solid #e2c17e;outline-offset:3px}
++:is(.mako-studio button:disabled,#game #pause #party-panel .mako-studio button:disabled){cursor:default;opacity:.48}
++:is(.mako-studio button[aria-pressed=true],#game #pause #party-panel .mako-studio button[aria-pressed=true]){border-color:var(--mako-gold);background:#244249;box-shadow:inset 0 0 0 1px #d6bd8344}
++:is(.mako-studio h2,#game #pause #party-panel .mako-studio h2),:is(.mako-studio h4,#game #pause #party-panel .mako-studio h4),:is(.mako-studio p,#game #pause #party-panel .mako-studio p){margin:0}
++:is(.mako-studio small,#game #pause #party-panel .mako-studio small){font-size:13px;line-height:1.5;letter-spacing:normal}
++:is(.mako-topbar,#game #pause #party-panel .mako-studio .mako-topbar){display:flex;gap:14px;align-items:center;justify-content:space-between;padding-bottom:14px}
++:is(.mako-crew,#game #pause #party-panel .mako-studio .mako-crew){display:flex;flex-wrap:wrap;gap:7px}
++:is(.mako-hero,#game #pause #party-panel .mako-studio .mako-hero){display:flex;align-items:center;gap:7px}
++:is(.mako-hero img,#game #pause #party-panel .mako-studio .mako-hero img){width:26px;height:34px;object-fit:contain}
++:is(.mako-back,#game #pause #party-panel .mako-studio .mako-back){flex-shrink:0}
++:is(.mako-banner,#game #pause #party-panel .mako-studio .mako-banner){position:relative;overflow:hidden;background:radial-gradient(ellipse at 20% 110%,#46656255,transparent 60%),linear-gradient(110deg,#142e39,#10232d);border-top:2px solid var(--mako-gold);display:flex;align-items:center;gap:22px;padding:20px 28px;border-radius:14px}
++:is(.mako-large-portrait,#game #pause #party-panel .mako-studio .mako-large-portrait){width:100px;height:126px;object-fit:contain;filter:drop-shadow(0 6px 16px #0008)}
++:is(.mako-identity h2,#game #pause #party-panel .mako-studio .mako-identity h2){font:clamp(27px,4vw,42px)/1.15 Georgia,serif;color:#f0e0bb;margin:6px 0 12px}
++:is(.mako-identity p,#game #pause #party-panel .mako-studio .mako-identity p){color:var(--mako-soft)}
++:is(.mako-eyebrow,#game #pause #party-panel .mako-studio .mako-eyebrow){text-transform:uppercase;font-size:12px;letter-spacing:.15em;color:var(--mako-gold)}
++:is(.mako-points,#game #pause #party-panel .mako-studio .mako-points){margin-left:auto;display:flex;flex-direction:column;align-items:center;white-space:nowrap;min-width:125px}
++:is(.mako-points strong,#game #pause #party-panel .mako-studio .mako-points strong){font:52px/1 Georgia;color:#f1d79e}
++:is(.mako-points small,#game #pause #party-panel .mako-studio .mako-points small){color:var(--mako-soft);margin-top:7px}
++:is(.mako-how,#game #pause #party-panel .mako-studio .mako-how){display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#44646a55;margin:15px 0;border-radius:9px;overflow:hidden}
++:is(.mako-how p,#game #pause #party-panel .mako-studio .mako-how p){background:#10252f;padding:15px}
++:is(.mako-how strong,#game #pause #party-panel .mako-studio .mako-how strong){display:block;color:var(--mako-gold);margin-bottom:5px}
++:is(.mako-how span,#game #pause #party-panel .mako-studio .mako-how span){font-size:14px;color:#c5d2cd}
++:is(.mako-next,#game #pause #party-panel .mako-studio .mako-next),:is(.mako-receipt,#game #pause #party-panel .mako-studio .mako-receipt){display:flex;gap:16px;background:#203d36;border-left:3px solid #95cbaa;padding:14px 18px;border-radius:6px}
++:is(.mako-next strong,#game #pause #party-panel .mako-studio .mako-next strong){white-space:nowrap;color:#d3eac9}
++:is(.mako-receipt,#game #pause #party-panel .mako-studio .mako-receipt){margin:12px 0}
++:is(.mako-receipt[hidden],#game #pause #party-panel .mako-studio .mako-receipt[hidden]){display:none}
++:is(.mako-jump,#game #pause #party-panel .mako-studio .mako-jump){display:flex;flex-wrap:wrap;gap:6px;padding:12px 0;position:sticky;top:0;z-index:4;background:#0b1b23f0;backdrop-filter:blur(10px)}
++:is(.mako-jump button,#game #pause #party-panel .mako-studio .mako-jump button){font-size:14px;background:transparent;min-height:38px;padding:7px 12px;border-color:#78918a33}
++:is(.mako-section,#game #pause #party-panel .mako-studio .mako-section){padding:24px 0;border-bottom:1px solid #6e8a842f;scroll-margin-top:70px}
++:is(.mako-section-title,#game #pause #party-panel .mako-studio .mako-section-title){display:flex;align-items:center;gap:12px;font:26px Georgia;color:#ecdfc2;margin-bottom:10px}
++:is(.mako-step,#game #pause #party-panel .mako-studio .mako-step){font:12px system-ui;letter-spacing:.1em;background:#263b3d;color:var(--mako-gold);padding:7px 9px;border:1px solid #d5bc8044;border-radius:5px}
++:is(.mako-section-copy,#game #pause #party-panel .mako-studio .mako-section-copy){color:#aebfba;max-width:90ch;margin-bottom:18px!important}
++:is(.mako-slots,#game #pause #party-panel .mako-studio .mako-slots){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
++:is(.mako-slot,#game #pause #party-panel .mako-studio .mako-slot){position:relative;display:grid;grid-template-columns:46px 1fr;align-items:center;gap:5px 10px;min-height:120px!important}
++:is(.mako-slot .mako-eyebrow,#game #pause #party-panel .mako-studio .mako-slot .mako-eyebrow){grid-column:1/-1}
++:is(.mako-slot .technique-icon,#game #pause #party-panel .mako-studio .mako-slot .technique-icon){grid-row:2/4}
++:is(.mako-slot strong,#game #pause #party-panel .mako-studio .mako-slot strong){font-size:16px}
++:is(.mako-slot>span:last-child,#game #pause #party-panel .mako-studio .mako-slot>span:last-child){font-size:13px;color:#bdccc6}
++:is(.mako-builder,#game #pause #party-panel .mako-studio .mako-builder){display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.85fr);gap:20px;align-items:start}
++:is(.mako-choices h4,#game #pause #party-panel .mako-studio .mako-choices h4){font-size:15px;color:#c7cfbd;margin:16px 0 10px}
++:is(.mako-core-options,#game #pause #party-panel .mako-studio .mako-core-options){display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
++:is(.mako-core,#game #pause #party-panel .mako-studio .mako-core){display:grid;grid-template-columns:36px 1fr;gap:2px 9px;align-items:center;padding:11px!important}
++:is(.mako-core .technique-icon,#game #pause #party-panel .mako-studio .mako-core .technique-icon){grid-row:1/3}
++:is(.mako-core small,#game #pause #party-panel .mako-studio .mako-core small){color:#b5c6bf}
++:is(.mako-shape-options,#game #pause #party-panel .mako-studio .mako-shape-options){display:flex;flex-wrap:wrap;gap:7px}
++:is(.mako-shape,#game #pause #party-panel .mako-studio .mako-shape){font-size:14px!important;flex:1 0 110px;text-align:center!important}
++:is(.mako-result,#game #pause #party-panel .mako-studio .mako-result){border:1px solid color-mix(in srgb,var(--core-color),transparent 55%);background:radial-gradient(ellipse at 50% 0,color-mix(in srgb,var(--core-color),transparent 85%),transparent 70%),#10262e;border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:13px;align-items:flex-start;position:sticky;top:60px}
++:is(.mako-move-copy,#game #pause #party-panel .mako-studio .mako-move-copy){font:25px/1.2 Georgia;color:#f0e6cf}
++:is(.mako-mp,#game #pause #party-panel .mako-studio .mako-mp){background:#0a2029;border:1px solid #c5ddda33;padding:5px 11px;border-radius:20px;color:#d4e6df}
++:is(.mako-effect,#game #pause #party-panel .mako-studio .mako-effect){color:#d0dcd4;font-size:15px}
++:is(.mako-active,#game #pause #party-panel .mako-studio .mako-active){color:#a8d7bb;font-size:14px}
++:is(.mako-comparison,#game #pause #party-panel .mako-studio .mako-comparison){border-top:1px solid #a6beb93a;padding-top:13px;font-size:14px}
++:is(.mako-cost-warning,#game #pause #party-panel .mako-studio .mako-cost-warning){color:#e4c191;font-size:14px;margin:7px 0!important}
++:is(.mako-primary,#game #pause #party-panel .mako-studio .mako-primary){background:#b5d8b7!important;color:#112a23!important;border-color:#c8e2c5!important;font-weight:700!important;text-align:center!important}
++:is(.mako-result .mako-primary,#game #pause #party-panel .mako-studio .mako-result .mako-primary){width:100%;margin-top:8px}
++:is(.mako-secondary,#game #pause #party-panel .mako-studio .mako-secondary){background:#213c43!important;border-color:#90b1a844!important;font-size:14px!important}
++:is(.mako-role-grid,#game #pause #party-panel .mako-studio .mako-role-grid){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
++:is(.mako-role,#game #pause #party-panel .mako-studio .mako-role){display:flex;flex-direction:column;gap:7px;padding:16px!important}
++:is(.mako-role strong,#game #pause #party-panel .mako-studio .mako-role strong){font:20px Georgia;color:#eddcb7}
++:is(.mako-role small,#game #pause #party-panel .mako-studio .mako-role small){color:#bdcec6}
++:is(.mako-role-preview,#game #pause #party-panel .mako-studio .mako-role-preview){background:#122d32;border-radius:10px;padding:18px;margin-top:15px}
++:is(.mako-role-preview h4,#game #pause #party-panel .mako-studio .mako-role-preview h4){font:23px Georgia;margin-bottom:8px}
++:is(.mako-move-mini,#game #pause #party-panel .mako-studio .mako-move-mini){display:flex;flex-direction:column;gap:7px;border-left:2px solid var(--core-color);padding:12px;background:#10252e}
++:is(.mako-move-mini .mako-move-copy,#game #pause #party-panel .mako-studio .mako-move-mini .mako-move-copy){font-size:19px}
++:is(.mako-mastery-grid,#game #pause #party-panel .mako-studio .mako-mastery-grid),:is(.mako-saved-grid,#game #pause #party-panel .mako-studio .mako-saved-grid){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
++:is(.mako-mastery-card,#game #pause #party-panel .mako-studio .mako-mastery-card){background:#122a32;border:1px solid #a3c0b129;padding:17px;border-radius:10px;display:flex;flex-direction:column;gap:9px}
++:is(.mako-mastery-card progress,#game #pause #party-panel .mako-studio .mako-mastery-card progress){width:100%;height:10px;accent-color:#a3d1b5;border:0;border-radius:5px;margin-top:5px}
++:is(.mako-studio h4,#game #pause #party-panel .mako-studio h4){font-size:17px}
++:is(.mako-specimens,#game #pause #party-panel .mako-studio .mako-specimens){display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
++:is(.mako-specimen,#game #pause #party-panel .mako-studio .mako-specimen){background:#182e35;padding:14px;border-radius:9px;display:flex;flex-direction:column;gap:7px}
++:is(.mako-muted,#game #pause #party-panel .mako-studio .mako-muted){color:var(--mako-soft);font-size:14px;margin:12px 0!important}
++:is(.mako-art-grid,#game #pause #party-panel .mako-studio .mako-art-grid){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
++:is(.mako-art,#game #pause #party-panel .mako-studio .mako-art){background:#122a32;border:1px solid #647f773b;border-radius:10px;padding:15px;display:flex;flex-direction:column;gap:9px}
++:is(.mako-art p,#game #pause #party-panel .mako-studio .mako-art p){font-size:14px;color:#bacdc7}
++:is(.mako-art button,#game #pause #party-panel .mako-studio .mako-art button){margin-top:auto}
++:is(.mako-art.learned,#game #pause #party-panel .mako-studio .mako-art.learned){border-color:#94cbaa55}
++:is(.mako-art.available,#game #pause #party-panel .mako-studio .mako-art.available){border-top:2px solid var(--mako-gold)}
++:is(.mako-art.locked,#game #pause #party-panel .mako-studio .mako-art.locked),:is(.mako-art.story,#game #pause #party-panel .mako-studio .mako-art.story),:is(.mako-art.choice,#game #pause #party-panel .mako-studio .mako-art.choice){opacity:.75}
++:is(.mako-active-styles,#game #pause #party-panel .mako-studio .mako-active-styles){display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}
++:is(.mako-active-styles article,#game #pause #party-panel .mako-studio .mako-active-styles article){display:flex;flex-direction:column;gap:7px;padding:16px;border:1px solid #a5bfa742;background:#1b3439;border-radius:9px}
++:is(.mako-active-styles strong,#game #pause #party-panel .mako-studio .mako-active-styles strong){font:21px Georgia}
++:is(.mako-active-styles article>span,#game #pause #party-panel .mako-studio .mako-active-styles article>span){font-size:14px;color:#b8cfc4}
++:is(.mako-style-list,#game #pause #party-panel .mako-studio .mako-style-list){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
++:is(.mako-style-choice,#game #pause #party-panel .mako-studio .mako-style-choice){display:grid;grid-template-columns:34px 1fr;gap:3px 8px}
++:is(.mako-style-choice .technique-icon,#game #pause #party-panel .mako-studio .mako-style-choice .technique-icon){grid-row:1/3}
++:is(.mako-style-choice small,#game #pause #party-panel .mako-studio .mako-style-choice small){grid-column:2;color:#a9c0b7}
++:is(.mako-style-detail,#game #pause #party-panel .mako-studio .mako-style-detail){margin-top:15px;padding:18px;background:#142e37;border-radius:10px;display:flex;flex-direction:column;gap:12px}
++:is(.mako-style-detail>h4,#game #pause #party-panel .mako-studio .mako-style-detail>h4){font:24px Georgia;color:#e5d1a8}
++:is(.mako-inline-actions,#game #pause #party-panel .mako-studio .mako-inline-actions){display:flex;flex-wrap:wrap;gap:10px}
++:is(.mako-style-nodes,#game #pause #party-panel .mako-studio .mako-style-nodes){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
++:is(.mako-training-grid,#game #pause #party-panel .mako-studio .mako-training-grid){display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
++:is(.mako-training,#game #pause #party-panel .mako-studio .mako-training){display:flex;flex-direction:column;gap:11px;padding:15px;background:#122a32;border-radius:9px}
++:is(.mako-training p,#game #pause #party-panel .mako-studio .mako-training p){color:#c8dacd}
++:is(.mako-training small,#game #pause #party-panel .mako-studio .mako-training small){color:#9cb6ac}
++:is(.mako-ledger,#game #pause #party-panel .mako-studio .mako-ledger){display:flex;gap:8px 18px;flex-wrap:wrap;padding:14px;margin-top:14px;background:#101f28;border-radius:8px}
++:is(.mako-ledger h4,#game #pause #party-panel .mako-studio .mako-ledger h4){width:100%}
++:is(.mako-ledger p,#game #pause #party-panel .mako-studio .mako-ledger p){font-size:14px;color:#b0c5bd}
++:is(.mako-rare,#game #pause #party-panel .mako-studio .mako-rare){display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:16px;background:#282f2d;border:1px solid #d6bd8344;border-radius:9px;margin:12px 0}
++:is(.mako-rare p,#game #pause #party-panel .mako-studio .mako-rare p){flex:1 1 250px}
++:is(.mako-saved,#game #pause #party-panel .mako-studio .mako-saved){display:flex;flex-direction:column;gap:10px;background:#142d35;padding:15px;border-radius:9px}
++:is(.mako-saved input,#game #pause #party-panel .mako-studio .mako-saved input){width:100%;border:1px solid #90b1a855;padding:9px;border-radius:7px;background:#0e212a;color:#ecdfc2}
++:is(.mako-text-button,#game #pause #party-panel .mako-studio .mako-text-button){background:transparent!important;color:#bdcfc3!important;font-size:14px!important;margin-top:10px}
++:is(.mako-footer,#game #pause #party-panel .mako-studio .mako-footer){display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:25px 0}
++:is(.mako-footer .mako-primary,#game #pause #party-panel .mako-studio .mako-footer .mako-primary){margin-left:auto}
++:is(.mako-studio .technique-icon,#game #pause #party-panel .mako-studio .technique-icon){flex-shrink:0}
++@media(max-width:900px){:is(.mako-art-grid,#game #pause #party-panel .mako-studio .mako-art-grid),:is(.mako-style-list,#game #pause #party-panel .mako-studio .mako-style-list){grid-template-columns:repeat(2,minmax(0,1fr))}
++:is(.mako-training-grid,#game #pause #party-panel .mako-studio .mako-training-grid){grid-template-columns:repeat(3,minmax(0,1fr))}
++:is(.mako-role-grid,#game #pause #party-panel .mako-studio .mako-role-grid){grid-template-columns:repeat(2,minmax(0,1fr))}}
++@media(max-width:650px){:is(.mako-topbar,#game #pause #party-panel .mako-studio .mako-topbar){flex-direction:column;align-items:stretch}
++:is(.mako-crew,#game #pause #party-panel .mako-studio .mako-crew){display:grid;grid-template-columns:repeat(3,1fr)}
++:is(.mako-hero,#game #pause #party-panel .mako-studio .mako-hero){font-size:13px!important;padding:7px!important}
++:is(.mako-hero img,#game #pause #party-panel .mako-studio .mako-hero img){width:22px}
++:is(.mako-banner,#game #pause #party-panel .mako-studio .mako-banner){gap:10px;padding:16px 12px;flex-wrap:wrap}
++:is(.mako-large-portrait,#game #pause #party-panel .mako-studio .mako-large-portrait){width:60px;height:86px}
++:is(.mako-identity,#game #pause #party-panel .mako-studio .mako-identity){flex:1;min-width:150px}
++:is(.mako-identity h2,#game #pause #party-panel .mako-studio .mako-identity h2){font-size:27px}
++:is(.mako-identity p,#game #pause #party-panel .mako-studio .mako-identity p){font-size:13px}
++:is(.mako-points,#game #pause #party-panel .mako-studio .mako-points){margin-left:0;flex-direction:row;gap:9px;width:100%;justify-content:flex-end}
++:is(.mako-points strong,#game #pause #party-panel .mako-studio .mako-points strong){font-size:30px}
++:is(.mako-points small,#game #pause #party-panel .mako-studio .mako-points small){margin:0}
++:is(.mako-how,#game #pause #party-panel .mako-studio .mako-how){grid-template-columns:1fr}
++:is(.mako-how p,#game #pause #party-panel .mako-studio .mako-how p){padding:11px 14px}
++:is(.mako-how strong,#game #pause #party-panel .mako-studio .mako-how strong){display:inline;margin-right:8px}
++:is(.mako-jump,#game #pause #party-panel .mako-studio .mako-jump){position:static}
++:is(.mako-builder,#game #pause #party-panel .mako-studio .mako-builder){grid-template-columns:1fr}
++:is(.mako-result,#game #pause #party-panel .mako-studio .mako-result){position:static}
++:is(.mako-slots,#game #pause #party-panel .mako-studio .mako-slots){grid-template-columns:1fr}
++:is(.mako-slot,#game #pause #party-panel .mako-studio .mako-slot){min-height:94px!important}
++:is(.mako-mastery-grid,#game #pause #party-panel .mako-studio .mako-mastery-grid),:is(.mako-saved-grid,#game #pause #party-panel .mako-studio .mako-saved-grid){grid-template-columns:1fr}
++:is(.mako-art-grid,#game #pause #party-panel .mako-studio .mako-art-grid){grid-template-columns:1fr 1fr}
++:is(.mako-style-nodes,#game #pause #party-panel .mako-studio .mako-style-nodes){grid-template-columns:1fr}
++:is(.mako-training-grid,#game #pause #party-panel .mako-studio .mako-training-grid){grid-template-columns:1fr 1fr}
++:is(.mako-section-title,#game #pause #party-panel .mako-studio .mako-section-title){font-size:24px}
++:is(.mako-section,#game #pause #party-panel .mako-studio .mako-section){padding-top:22px}
++:is(.mako-next,#game #pause #party-panel .mako-studio .mako-next){flex-direction:column;gap:7px}
++:is(.mako-active-styles,#game #pause #party-panel .mako-studio .mako-active-styles){grid-template-columns:1fr}
++:is(.mako-style-list,#game #pause #party-panel .mako-studio .mako-style-list){grid-template-columns:1fr 1fr}
++:is(.mako-studio button,#game #pause #party-panel .mako-studio button){padding:10px}
++:is(.mako-footer .mako-primary,#game #pause #party-panel .mako-studio .mako-footer .mako-primary){margin-left:0;flex:1}}
++@media(prefers-reduced-motion:reduce){:is(.mako-studio *,#game #pause #party-panel .mako-studio *){scroll-behavior:auto!important}}
+ /* Isolate the build cards from legacy party-panel article rules. */
+-#party-panel .mako-studio article{margin:0}#party-panel .mako-studio .mako-result{padding:22px}#party-panel .mako-studio .mako-move-mini{padding:14px}#party-panel .mako-studio .mako-mastery-card{padding:17px}#party-panel .mako-studio .mako-specimen{padding:14px}#party-panel .mako-studio .mako-art,#party-panel .mako-studio .mako-training,#party-panel .mako-studio .mako-saved{padding:15px}#party-panel .mako-studio .mako-active-styles article,#party-panel .mako-studio .mako-rare{padding:16px}#party-panel .mako-studio article p{font:14px/1.55 system-ui;margin:0;color:#bacdc7}
+-#game #pause .menu-card:has(.mako-studio){width:min(1320px,96vw);max-width:1320px;text-align:left}#game #party-panel .mako-studio small{letter-spacing:normal}@media(max-width:650px){#game #pause .menu-card:has(.mako-studio){width:100%;padding:12px}}
++#party-panel .mako-studio article{margin:0}
++#party-panel .mako-studio .mako-result{padding:22px}
++#party-panel .mako-studio .mako-move-mini{padding:14px}
++#party-panel .mako-studio .mako-mastery-card{padding:17px}
++#party-panel .mako-studio .mako-specimen{padding:14px}
++#party-panel .mako-studio .mako-art,#party-panel .mako-studio .mako-training,#party-panel .mako-studio .mako-saved{padding:15px}
++#party-panel .mako-studio .mako-active-styles article,#party-panel .mako-studio .mako-rare{padding:16px}
++#party-panel .mako-studio article p{font:14px/1.55 system-ui;margin:0;color:#bacdc7}
++#game #pause .menu-card:has(.mako-studio){width:min(1320px,96vw);max-width:1320px;text-align:left}
++#game #party-panel .mako-studio small{letter-spacing:normal}
++@media(max-width:650px){#game #pause .menu-card:has(.mako-studio){width:100%;padding:12px}}
+diff --git a/dist/game/engine2/mako-studio.js b/dist/game/engine2/mako-studio.js
+index ed248d6b..9e58ba37 100644
+--- a/dist/game/engine2/mako-studio.js
++++ b/dist/game/engine2/mako-studio.js
+@@ -7,17 +7,30 @@ import {tuneMineral,MINERAL_CORES} from './mineral-resonance.js';
+ import {mineralResource} from './mineral-resources.js';
+ import {techniqueIcon} from './technique-icons.js';
+ import {materialIcon} from './material-icons.js';
+-import {portraitImage} from './painted-ui.js';
++import {paintCharacterPortrait} from './character-screen.js';
++import {equippedAppearance} from './equipped-appearance.js';
++import {registerEquipmentArtAssets,loadEquipmentArt} from './equipment-art-loader.js';
+ import {selectedEquipmentHero,rememberEquipmentHero} from './crew-equipment-selection.js';
+ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+ const button=(text,fn,cls='',disabled=false)=>{const n=el('button',cls,text);n.type='button';n.disabled=disabled;n.onclick=fn;return n;};
+ const status={learned:'Learned',available:'Ready to learn',locked:'Learn the earlier stage first',unaffordable:'Need more training points',story:'Opens later in the story',undiscovered:'Find this crystal first',pattern:'Discover its core first',choice:'Other fork chosen'};
+ function styles(){if(document.querySelector('link[data-mako-studio]'))return;const n=el('link');n.rel='stylesheet';n.href=new URL('./mako-studio.css',import.meta.url).href;n.dataset.makoStudio='';document.head.append(n);}
++/** The Mako view reads the same live equipment projection as character inspection.
++ * A late artwork refresh repaints this canvas; it never owns another gear copy. */
++export function paintMakoEquipmentPortrait(canvas,options){
++ canvas.setAttribute('role','img');const painted=paintCharacterPortrait(canvas,options);canvas.hidden=!painted;
++ if(painted){canvas.dataset.makoEquipmentHero=String(options.heroId);canvas.dataset.equipmentAppearance=equippedAppearance(options.state,options.heroId).key;}
++ return painted;
++}
+ /** One progression destination. All previews call the combat compiler; writes
+  * remain guarded campaign transactions and never replace the inventory. */
+-export function makoStudio({world,data,onSave=()=>{},onBack=()=>{},onGear=null,onAdvanced=null,initialHero=null,initialMakoId=null,initialSchoolId=null,initialNodeId=null}={}){
++export function makoStudio({world,data,assets={},bounds=null,onSave=()=>{},onBack=()=>{},onGear=null,onAdvanced=null,initialHero=null,initialMakoId=null,initialSchoolId=null,initialNodeId=null}={}){
+  styles();const s=world.state,root=el('section','mako-studio');let hero=selectedEquipmentHero(s,initialHero),slot=0,core=null,shape=null,role=null,school=initialSchoolId,message='';
+- settleCrewSetup(s);rememberEquipmentHero(s,hero);
++ settleCrewSetup(s);rememberEquipmentHero(s,hero);registerEquipmentArtAssets(assets);
++ const portraits=new Map();
++ const paintPortrait=(canvas,id)=>paintMakoEquipmentPortrait(canvas,{state:s,heroId:id,assets,bounds});
++ function portrait(id,className,compact=false){const canvas=el('canvas',className);canvas.width=400;canvas.height=480;if(compact){canvas.setAttribute('aria-hidden','true');canvas.style.width='26px';canvas.style.height='34px';canvas.style.objectFit='contain';}portraits.set(canvas,id);paintPortrait(canvas,id);return canvas;}
++ if(bounds&&assets.crew)void loadEquipmentArt({assets}).then(()=>{for(const [canvas,id]of portraits)if(canvas.isConnected)paintPortrait(canvas,id);}).catch(()=>{});
+  const readOnly=()=>s.mode!=='field';
+  function resetDraft(){const v=s.heroes[hero].loadout[slot]||s.heroes[hero].loadout[0];core=v?.core||s.cores[0];shape=v?.support||s.supports[0];role=null;}
+  resetDraft();
+@@ -30,10 +43,10 @@ export function makoStudio({world,data,onSave=()=>{},onBack=()=>{},onGear=null,o
+  if(view.rare)n.append(el('small','mako-active',view.rare.name+' attuned'));
+  return n;}
+  function paint(){
+-  const v=makoProgressionView(s,hero,data),h=v.hero;root.replaceChildren();
++  const v=makoProgressionView(s,hero,data),h=v.hero;portraits.clear();root.replaceChildren();
+   const bar=el('header','mako-topbar'),rail=el('nav','mako-crew');rail.setAttribute('aria-label','Mako character');
+-  for(const id of s.recruited){const b=button(CREW[id].name,()=>{hero=id;slot=0;school=null;rememberEquipmentHero(s,id);resetDraft();message='';paint();onSave();},'mako-hero');b.dataset.makoHero=id;b.setAttribute('aria-pressed',String(id===hero));b.prepend(portraitImage(document,{crewIndex:id}));rail.append(b);}bar.append(rail,button('Back to the road',onBack,'mako-back'));root.append(bar);
+-  const banner=el('header','mako-banner'),identity=el('div','mako-identity');identity.append(el('small','mako-eyebrow','MAKO · YOUR NEXT MOVE'),el('h2','',h.name+'’s Mako build'),el('p','',v.affinity.name+' affinity · '+h.loadout.length+' equipped moves · '+v.styleUsed+'/'+v.styleCapacity+' style capacity'));banner.append(portraitImage(document,{crewIndex:hero},'mako-large-portrait'),identity);const points=el('div','mako-points');points.append(el('strong','',String(v.ledger.available)),el('span','','training points'),el('small','',v.ledger.earned+' earned · '+v.ledger.spent+' spent'));banner.append(points);root.append(banner);
++  for(const id of s.recruited){const b=button(CREW[id].name,()=>{hero=id;slot=0;school=null;rememberEquipmentHero(s,id);resetDraft();message='';paint();onSave();},'mako-hero');b.dataset.makoHero=id;b.setAttribute('aria-pressed',String(id===hero));b.prepend(portrait(id,'mako-crew-portrait',true));rail.append(b);}bar.append(rail,button('Back to the road',onBack,'mako-back'));root.append(bar);
++  const banner=el('header','mako-banner'),identity=el('div','mako-identity');identity.append(el('small','mako-eyebrow','MAKO · YOUR NEXT MOVE'),el('h2','',h.name+'’s Mako build'),el('p','',v.affinity.name+' affinity · '+h.loadout.length+' equipped moves · '+v.styleUsed+'/'+v.styleCapacity+' style capacity'));banner.append(portrait(hero,'mako-large-portrait'),identity);const points=el('div','mako-points');points.append(el('strong','',String(v.ledger.available)),el('span','','training points'),el('small','',v.ledger.earned+' earned · '+v.ledger.spent+' spent'));banner.append(points);root.append(banner);
+   const legend=el('div','mako-how');for(const [title,text]of [['Build','Core = element. Shape = how it behaves. Fit a move to use it in battle.'],['Mastery','Successful casts earn core AP. Ranks arrive at 35 and 120 AP.'],['Training','Spend training points on personal arts, character stats or equipped styles.']]){const p=el('p');p.append(el('strong','',title),el('span','',text));legend.append(p);}root.append(legend);const jump=el('nav','mako-jump');jump.setAttribute('aria-label','Mako sections');for(const [id,label]of [['01','Moves'],['02','Combat roles'],['03','Mastery'],['04','Personal arts'],['05','Styles'],['06','Training'],['SAVE','Saved builds']])jump.append(button(label,()=>root.querySelector('#mako-section-'+id)?.scrollIntoView({behavior:globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})));root.append(jump);
+   const live=el('p','mako-receipt',message);live.setAttribute('role','status');live.hidden=!message;root.append(live);
+   if(readOnly())root.append(el('p','mako-cost-warning','Inspect freely. Change your build and spend points between battles.'));
+diff --git a/dist/game/expeditions/app.mjs b/dist/game/expeditions/app.mjs
+index 4632a75f..22420fd0 100644
+--- a/dist/game/expeditions/app.mjs
++++ b/dist/game/expeditions/app.mjs
+@@ -372,6 +372,7 @@ function start(record){
+   $('field').classList.toggle('campaign-field',!!record.mission);
+   $('chapter-scene').hidden=true;
+   loadGrowth(lead);growthLedger.runs++;saveGrowth();huntUI.close();state=expedition({...record,lead,huntSerial:growthLedger.runs,party:outing?.party},growthLedger);
++  state.equipmentState=outing?.equipmentState||null;
+   state.wardrobeClock=params.has('civicMinute')?wardrobeClock({townLife:{minutes:Number(params.get('civicMinute')),day:Number(params.get('civicDay'))}}):outing?.wardrobeClock||readWardrobeClock(localStorage,params.get('journey')||'hero:'+params.get('campaignHero'));state.miningLedger=miningLedger;
+   $('field').dataset.biome=record.biome;
+   $('lead-name').textContent=campaignCrew[lead].name;keys.clear();pad.reset();last=0;simulationAt=0;nextHud=0;
+diff --git a/dist/game/expeditions/campaign-art.mjs b/dist/game/expeditions/campaign-art.mjs
+index 018bdb4b..3e91364d 100644
+--- a/dist/game/expeditions/campaign-art.mjs
++++ b/dist/game/expeditions/campaign-art.mjs
+@@ -1,4 +1,6 @@
+ import {actorMotion} from '../engine2/battle-motion.js';
++import {dressEquippedSprite} from '../engine2/equipped-appearance.js';
++import {loadEquipmentArt} from '../engine2/equipment-art-loader.js';
+ import {registeredSceneSprite,expeditionSpriteFromRegistered} from '../engine2/scene-view-bridge.js?v=aim-128';
+ import {dressNpcCrop} from '../engine2/npc-wardrobe-art.mjs?v=wardrobe-125';
+ import {advanceWardrobeClock} from '../engine2/npc-wardrobe.mjs?v=wardrobe-125';
+@@ -104,8 +106,12 @@ function propSprite(id){
+ const strengthArt=new Map();
+ function strengthSprite(source,stage){if(!source||!stage||stage==='wild')return source;let rows=strengthArt.get(source.image);if(!rows){rows=new Map();strengthArt.set(source.image,rows);}const key=source.rect.join(',')+':'+stage;if(rows.has(key))return rows.get(key);const [x,y,w,h]=source.rect,canvas=document.createElement('canvas');canvas.width=Math.ceil(w);canvas.height=Math.ceil(h);const c=canvas.getContext('2d');c.filter=stage==='apex'?'hue-rotate(26deg) saturate(1.3) brightness(1.12)':'saturate(1.2) brightness(1.08)';c.drawImage(source.image,x,y,w,h,0,0,w,h);const out={...source,image:canvas,rect:[0,0,w,h]};rows.set(key,out);return out;}
+ 
++const equipmentAssets={};let equipmentRequest;
+ export function loadCampaignArt(){
+   for(const [file] of Object.values(assets))image(file);image('wardrobe-v125.webp');
++  // The shared loader registers only decoded sheets; pending or unavailable
++  // pieces leave the corresponding original garment intact until ready.
++  return equipmentRequest??=(loadEquipmentArt({assets:equipmentAssets}).catch(()=>{equipmentRequest=null;return null;}));
+ }
+ 
+ const objectArt={
+@@ -142,10 +148,14 @@ function objectSprite(object,index,biome){
+   return choices?propSprite(choices[index%choices.length]):null;
+ }
+ 
+-export function campaignSprites(state){
++export function campaignSprites(state,{spriteProvider=sprite,equipment=equipmentAssets}={}){
+   const sprites=[], t=state.terrain;
+-  const add=(art,x,z,height,lift=0,flip=false,scenery=false)=> {
+-    if(art){const registered=art.registration&&registeredSceneSprite(art.image,art.source,art.registration,height,{x,y:t.height(x,z)+lift,z,flip});sprites.push({...art,x,z,y:t.height(x,z)+lift,height,flip,scenery,...(registered?expeditionSpriteFromRegistered(registered):{})});}
++  const add=(art,x,z,height,lift=0,flip=false,scenery=false,heroId=null,kind=null,frame=0)=> {
++    if(art){
++      let registered=art.registration&&registeredSceneSprite(art.image,art.source,art.registration,height,{x,y:t.height(x,z)+lift,z,flip});
++      if(registered&&Number.isInteger(heroId)&&state.equipmentState)registered=dressEquippedSprite(registered,state.equipmentState,heroId,{kind,frame,back:kind==='run'?frame>=4:frame>=5,assets:equipment,bodyHeight:height});
++      sprites.push({...art,x,z,y:t.height(x,z)+lift,height,flip,scenery,...(registered?{...expeditionSpriteFromRegistered(registered),source:registered.source}:{}),...(Number.isInteger(heroId)?{heroId,...(registered?.equipmentAppearance?{equipmentAppearance:registered.equipmentAppearance,equipmentRasterPieces:registered.equipmentRasterPieces,equipmentCanvasBounds:registered.equipmentCanvasBounds}: {})}: {})});
++    }
+   };
+   for(const [i,o] of t.objects.entries()){
+     if(!usesSceneryArt(o.type))continue;
+@@ -153,7 +163,7 @@ export function campaignSprites(state){
+     if(distance>(state.overview?160:state.travel?64:53))continue;
+     add(objectSprite(o,i,state.record.biome),o.x,o.z,o.height??o.size,0,i%2===0,true);
+   }
+-  for(const o of t.settlements??[])add(sprite('buildings',Math.floor(o.art/4),o.art%4),o.x,o.z,o.size,0,false,true);
++  for(const o of t.settlements??[])add(spriteProvider('buildings',Math.floor(o.art/4),o.art%4),o.x,o.z,o.size,0,false,true);
+   for(const o of t.regionalProps){
+     const set=regions[o.biome??state.record.biome]||regions.clearing;
+     add(propSprite(set[o.variant+1]),o.x,o.z,setDressingHeight(o.size,state.travel),0,o.flip,true);
+@@ -167,7 +177,7 @@ export function campaignSprites(state){
+   if(passenger||waiting){
+     const [x,z]=passenger?[passenger.x,passenger.z]:waiting;
+     const before=sprites.length;
+-    const base=sprite('npcs',0,1),clock=advanceWardrobeClock(state.wardrobeClock,state.clock||0),source=base&&{x:base.rect[0],y:base.rect[1],w:base.rect[2],h:base.rect[3]},dressed=base&&dressNpcCrop(base.image,source,image('wardrobe-v125.webp'),{name:'Nell'},{name:'Nell',child:true,npcKind:'npcs',row:1},{wardrobeClock:clock},state.record);add(dressed?{...base,image:dressed.image,rect:[0,0,source.w,source.h]}:base,x,z,1.35);
++    const base=spriteProvider('npcs',0,1),clock=advanceWardrobeClock(state.wardrobeClock,state.clock||0),source=base&&{x:base.rect[0],y:base.rect[1],w:base.rect[2],h:base.rect[3]},dressed=base&&dressNpcCrop(base.image,source,image('wardrobe-v125.webp'),{name:'Nell'},{name:'Nell',child:true,npcKind:'npcs',row:1},{wardrobeClock:clock},state.record);add(dressed?{...base,image:dressed.image,rect:[0,0,source.w,source.h]}:base,x,z,1.35);
+     if(passenger?.moving&&sprites.length>before)sprites.at(-1).lean=.045*Math.sin(passenger.travel*7);
+   }
+   const lead=state.record.lead??0;
+@@ -177,17 +187,17 @@ export function campaignSprites(state){
+   const column=running?4+stride:5;
+   const flip=spriteFacingFlip(running?'run':'crew',column,true,lead);
+   if(!state.travel||state.vehicle==='foot'||state.vehicle==='bike')
+-    add(sprite(running?'run':'crew',lead,column),state.x,state.z,state.travel?regionalActorHeight:fieldActorHeight,running?Math.sin(phase*Math.PI*2)**2*.045*(state.pace??1):0,flip);
++    add(spriteProvider(running?'run':'crew',lead,column),state.x,state.z,state.travel?regionalActorHeight:fieldActorHeight,running?Math.sin(phase*Math.PI*2)**2*.045*(state.pace??1):0,flip,false,lead,running?'run':'crew',column);
+   for(const [i,id] of (state.crewParty||[]).slice(1).entries()){
+     const point=state.crewTrail.sample((i+1)*1.85),col=state.moving?column:5;
+-    add(sprite(state.moving?'run':'crew',id,col),point.x,point.y,fieldActorHeight,0,
+-      spriteFacingFlip(state.moving?'run':'crew',col,true,id));
++    add(spriteProvider(state.moving?'run':'crew',id,col),point.x,point.y,fieldActorHeight,0,
++      spriteFacingFlip(state.moving?'run':'crew',col,true,id),false,id,state.moving?'run':'crew',col);
+   }
+   for(const [i,name] of (state.record.story?.crew??[]).entries()){
+     const actor=CREW.findIndex(entry=>entry.name===name);
+     if(actor<0)continue;
+     const [x,z]=state.record.story.steps[0].at;
+-    add(sprite('crew',actor,0),x+(i?2.7:-2.3),z+1.45+i,fieldActorHeight);
++    add(spriteProvider('crew',actor,0),x+(i?2.7:-2.3),z+1.45+i,fieldActorHeight,0,false,false,actor,'crew',0);
+   }
+   for(const enemy of state.enemies){
+     const falling=enemy.hp<=0;
+@@ -197,7 +207,7 @@ export function campaignSprites(state){
+     const left=enemy.x>state.x;
+     const height=[1.12,1.54,1.93][enemy.phase]*(enemy.visualScale||1)*(1+pose.breath)*(1-fall*.42);
+     const before=sprites.length,idx=enemy.artIndex;
+-    add(strengthSprite(sprite(enemy.artKind||'foes',Math.floor(idx/6),idx%6),enemy.strength),enemy.x,enemy.z,height,pose.lift+(pose.profile==='wing'&&!falling?.22:0),left);
++    add(strengthSprite(spriteProvider(enemy.artKind||'foes',Math.floor(idx/6),idx%6),enemy.strength),enemy.x,enemy.z,height,pose.lift+(pose.profile==='wing'&&!falling?.22:0),left);
+     if(sprites.length>before)sprites.at(-1).lean=(left?-1:1)*(pose.lean+pose.flex+pose.strideSwing+fall*.36);
+   }
+   return sprites;
+diff --git a/dist/game/expeditions/campaign-link.mjs b/dist/game/expeditions/campaign-link.mjs
+index eb6a6c6d..80458a3c 100644
+--- a/dist/game/expeditions/campaign-link.mjs
++++ b/dist/game/expeditions/campaign-link.mjs
+@@ -55,9 +55,27 @@ export function settleChapterOuting(state,outing,traveller){
+ const linkKey='ash-aether-campaign-outing-v1';
+ const store=(storage,value)=>storage.setItem(linkKey,JSON.stringify(value));
+ 
+-export function openOuting(storage,{chapter,lead,traveller,kind,party,journeyId,wardrobeClock}) {
++// A read-only journey snapshot transports the same owned gear, appearance
++// preferences and earned sources. Outing receipts never write this back to the
++// host save; equipping is still owned exclusively by the campaign.
++export function outingEquipmentSnapshot(state){
++  const record=value=>!!value&&typeof value==='object'&&!Array.isArray(value);
++  if(!record(state)||!Array.isArray(state.heroes)||state.heroes.length>7||state.heroes.some((hero,id)=>!record(hero)||hero.id!==id))return null;
++  const armory=state.livingArmory,snapshot=armory?.snapshot;
++  if(armory!=null&&!record(armory)||snapshot!=null&&!record(snapshot)||armory?.gearByHero!=null&&!record(armory.gearByHero)||snapshot?.placements!=null&&!Array.isArray(snapshot.placements)||snapshot?.overflow!=null&&!Array.isArray(snapshot.overflow)||state.bossGear?.owned!=null&&!Array.isArray(state.bossGear.owned)||state.rivals?.gear!=null&&!Array.isArray(state.rivals.gear))return null;
++  // Keep every source used by equippedAppearance, including owned cosmetic
++  // donors and guardian/rival choices, without copying map or quest ledgers.
++  let copy;try{copy=JSON.parse(JSON.stringify({mode:state.mode,heroes:state.heroes,recruited:state.recruited,party:state.party,
++    livingArmory:state.livingArmory,bossGear:state.bossGear,rivals:state.rivals?{gear:state.rivals.gear}:undefined,
++    inheritance:state.inheritance?{appearance:state.inheritance.appearance,factions:state.inheritance.factions,warrants:state.inheritance.warrants}:undefined}));}catch{return null;}
++  const freeze=value=>{if(value&&typeof value==='object'){for(const child of Object.values(value))freeze(child);Object.freeze(value);}return value;};
++  return freeze(copy);
++}
++
++export function openOuting(storage,{chapter,lead,traveller,kind,party,journeyId,wardrobeClock,equipmentState}) {
+   const tripId=Array.from(crypto.getRandomValues(new Uint8Array(12)),n=>n.toString(16).padStart(2,'0')).join('');
+   const outing={chapter,lead,traveller,kind,tripId,journeyId,party:Array.isArray(party)?party.filter(id=>Number.isInteger(id)&&id>=0&&id<7).slice(0,3):[lead],notes:[],...(wardrobeClock?{wardrobeClock:{minutes:wardrobeClock.minutes,day:wardrobeClock.day}}:{})};
++  const equipment=outingEquipmentSnapshot(equipmentState);if(equipment)outing.equipmentState=equipment;
+   store(storage,outing);
+   return outing;
+ }
+@@ -68,7 +86,10 @@ export function readOuting(storage) {
+     if(Number.isInteger(value?.chapter)&&value.chapter>=1&&value.chapter<=24
+       &&Number.isInteger(value.lead)&&value.lead>=0&&value.lead<7
+       &&Number.isInteger(value.traveller)&&value.traveller>=0&&value.traveller<7
+-      &&['chapter','atlas','roads'].includes(value.kind)&&Array.isArray(value.notes))return value;
++      &&['chapter','atlas','roads'].includes(value.kind)&&Array.isArray(value.notes)){
++        if(value.equipmentState!==undefined){const equipment=outingEquipmentSnapshot(value.equipmentState);if(equipment)value.equipmentState=equipment;else delete value.equipmentState;}
++        return value;
++      }
+   }catch{}
+   return null;
+ }
+diff --git a/dist/game/engine2/tests/cinema-equipment.test.mjs b/dist/game/engine2/tests/cinema-equipment.test.mjs
+new file mode 100644
+index 00000000..512d6880
+--- /dev/null
++++ b/dist/game/engine2/tests/cinema-equipment.test.mjs
+@@ -0,0 +1,50 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {paintCinematicSprite} from '../cinema-director.js';
++import {defaultHero} from '../mako.js';
++import {ensureLivingArmory,transactLivingArmory,transferLivingArmory} from '../living-armory/campaign.js';
++import {rollItem} from '../living-armory/src/armory.mjs';
++
++function fixture(){
++ const state={mode:'field',chapter:12,story:{armor:true},heroes:Array.from({length:7},(_,id)=>defaultHero(id,12)),recruited:[0,1,2,3,4,5,6],party:[0,1,2],gold:0,xp:0,timeline:{id:'cinema-gear-test',era:'present'}};
++ const p=ensureLivingArmory(state),items=state.recruited.map(id=>rollItem({seed:'cinema-gear',eventId:String(id),level:12,forceSlot:'chest',region:'clay'}));p.snapshot.overflow.push(...items);p.revision++;
++ for(const [id,item]of items.entries())assert.equal(transactLivingArmory(state,id,'equip',[item.id]).ok,true);
++ const renderer={assets:{crew:{id:'crew'},starter:{id:'starter'},creatures:{id:'creatures'}},bounds:{crew:Array.from({length:56},(_,i)=>({x:i*100,y:0,w:100,h:160,anchorX:50,anchorY:155})),starter:Array.from({length:8},(_,i)=>({x:i*80,y:7,w:80,h:140,anchorX:40,anchorY:135})),creatures:[{x:5,y:9,w:150,h:170}]}};
++ const draws=[],ctx={save(){},restore(){},drawImage(...args){draws.push(args);}};
++ return {world:{state},renderer,items,ctx,draws};
++}
++
++test('dynamic crew cinema shots project all seven heroes and requested action poses through canonical equipment',()=>{
++ const f=fixture(),before=JSON.stringify(f.world.state);
++ for(let index=0;index<7;index++)for(const frame of [0,3,4,5,7]){
++  let call;const image={composed:index,frame};
++  assert.equal(paintCinematicSprite(f.ctx,{...f,kind:'crew',index,frame,x:850,y:580,height:460,compose:(base,source,profile,options)=>{call={base,source,profile,options};return {image,source};}}),true);
++  assert.equal(call.profile.slots.chest.itemId,f.items[index].id);assert.equal(call.options.heroId,index);assert.equal(call.options.frame,frame);assert.equal(call.source,f.renderer.bounds.crew[index*8+frame]);assert.equal(f.draws.at(-1)[0],image);
++ }
++ assert.equal(JSON.stringify(f.world.state),before,'cinema projection does not copy or mutate gear ownership');
++});
++
++test('weapon overscan keeps the original body scale and foot pivot instead of shrinking or recentering the actor',()=>{
++ const f=fixture(),source=f.renderer.bounds.crew[0],allocation={left:34,top:25},expanded={x:0,y:0,w:240,h:230};
++ paintCinematicSprite(f.ctx,{...f,kind:'crew',index:0,frame:0,x:850,y:580,height:400,compose:()=>({image:{composed:true},source:expanded,allocation})});
++ const draw=f.draws.at(-1),scale=400/source.h;
++ assert.deepEqual(draw.slice(1,5),[0,0,240,230]);assert.equal(draw[7]/expanded.w,scale);assert.equal(draw[8]/expanded.h,scale);
++ assert.equal(draw[5]+(source.anchorX+allocation.left)*scale,850-source.w*scale/2+source.anchorX*scale);
++ assert.equal(draw[6]+(source.anchorY+allocation.top)*scale,580-400+source.anchorY*scale);
++});
++
++test('dynamic shots read transfers and removal immediately and use story-correct starter Sable',()=>{
++ const f=fixture(),profiles=[],render=index=>paintCinematicSprite(f.ctx,{...f,kind:'crew',index,frame:4,x:10,y:100,height:200,compose:(image,source,profile,options)=>{profiles.push({image,source,profile,options});return {image,source};}});
++ render(0);assert.equal(profiles.at(-1).profile.slots.chest.itemId,f.items[0].id);
++ assert.equal(transferLivingArmory(f.world.state,0,6,f.items[0].id).ok,true);render(0);assert.equal(profiles.at(-1).profile.slots.chest,undefined);render(6);assert.equal(profiles.at(-1).profile.slots.chest.itemId,f.items[0].id);
++ assert.equal(transactLivingArmory(f.world.state,6,'unequip',['chest']).ok,true);render(6);assert.equal(profiles.at(-1).profile.slots.chest,undefined);
++ f.world.state.story.armor=false;render(0);assert.equal(profiles.at(-1).image,f.renderer.assets.starter);assert.equal(profiles.at(-1).source,f.renderer.bounds.starter[4]);assert.equal(profiles.at(-1).options.kind,'starter');
++});
++
++test('noncrew sprite shots retain their existing art and invalid or unavailable crew sources do not draw another hero',()=>{
++ const f=fixture(),compose=()=>{throw Error('Noncrew shots must not use player equipment');};
++ assert.equal(paintCinematicSprite(f.ctx,{...f,kind:'creatures',index:0,frame:0,x:100,y:200,height:170,alpha:.6,compose}),true);
++ assert.equal(f.draws.at(-1)[0],f.renderer.assets.creatures);assert.deepEqual(f.draws.at(-1).slice(1),[5,9,150,170,25,30,150,170]);
++ const count=f.draws.length;for(const index of [-1,7,2.5])assert.equal(paintCinematicSprite(f.ctx,{...f,kind:'crew',index,frame:0,x:10,y:100,height:200}),false);
++ assert.equal(paintCinematicSprite(f.ctx,{...f,renderer:{assets:{},bounds:{}},kind:'crew',index:0,frame:0,x:10,y:100,height:200}),false);assert.equal(f.draws.length,count);
++});
+diff --git a/dist/game/engine2/tests/equipment-identity-contract.test.mjs b/dist/game/engine2/tests/equipment-identity-contract.test.mjs
+new file mode 100644
+index 00000000..784a1397
+--- /dev/null
++++ b/dist/game/engine2/tests/equipment-identity-contract.test.mjs
+@@ -0,0 +1,83 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import path from 'node:path';
++import {createRequire} from 'node:module';
++import {fileURLToPath} from 'node:url';
++import {loadPlayerEquipmentArt} from '../../../../scripts/lib/player-equipment-native-host.mjs';
++import {CIVILIANS,CIVILIAN_ATLAS} from '../civilian-catalog.mjs';
++import {cutoutAtlas} from '../sprite-cutout.js';
++import {gameArtDefinitions} from '../art-definitions.js';
++import {npcEquipmentRig} from '../npc-equipment-rig.js';
++import {equipmentPoseRig} from '../equipment-rig.js';
++import {CREW_MOTION} from '../crew-motion-data.js';
++import {AUTHORED_MOTION_ATLASES} from '../authored-art.js';
++import {composeEquippedCrop,dressAppearanceSprite,clearEquippedAppearanceArt,setEquipmentArtAssets} from '../equipped-appearance.js';
++
++const source={x:0,y:0,w:100,h:140,anchorX:50,anchorY:138,bodyHeight:140};
++const profile=heroId=>({heroId,active:true,key:'identity:'+heroId,slots:{chest:{shape:'armor',condition:100}}});
++
++test('unsupported player or civilian identities return the original sprite before allocating a crop',()=>{
++ const previous=globalThis.document;let allocations=0;globalThis.document={createElement(){allocations++;throw Error('Rejected identity allocated a crop');}};
++ try{
++  const image={width:100,height:140},sprite={image,source,height:1.4,width:1,anchorX:.5,anchorY:138/140};
++  for(const id of [-1,7,99,NaN,null,undefined,'0',1.5]){
++   assert.equal(composeEquippedCrop(image,source,profile(id)),null,'unsupported player '+id);
++   assert.equal(dressAppearanceSprite(sprite,profile(id)),sprite,'source sprite is preserved');
++  }
++  for(const index of [-1,CIVILIANS.length,'0',.5])assert.equal(composeEquippedCrop(image,source,{...profile(null),humanIndex:index},{kind:'npcs'}),null,'unsupported civilian '+index);
++  assert.equal(composeEquippedCrop(image,source,{...profile(0),humanIndex:0},{kind:'npcs'}),null,'a player cannot use a civilian body');
++  assert.equal(composeEquippedCrop(image,source,{...profile(null),humanIndex:0},{kind:'npcs',humanIndex:1}),null,'two explicit civilian identities cannot disagree');
++  assert.equal(allocations,0);
++ }finally{globalThis.document=previous;}
++});
++
++test('another body’s authored manifest and unsupported source frames cannot borrow a fitted player rig',()=>{
++ const previous=globalThis.document;let allocations=0;globalThis.document={createElement(){allocations++;throw Error('Mismatched source allocated a crop');}};
++ try{
++  const image={width:100,height:140};
++  for(const [heroId,options] of [
++   [1,{authored:{atlas:'sable',frame:0}}],
++   [1,{heroId:0}],
++   [0,{authored:{atlas:'crewActions',heroId:1,frame:0}}],
++   [0,{authored:{atlas:'herald',frame:0}}],
++   [0,{authored:{atlas:'moonveil',frame:0}}],
++   [0,{authored:{atlas:'missing-bank',frame:0}}],
++   [0,{authored:{atlas:'sable',frame:16}}],
++   [0,{authored:{atlas:'sable',frame:-1}}],
++   [2,{authored:{atlas:'crewActions',heroId:2,frame:4}}],
++   [1,{kind:'starter',frame:0}]
++  ])assert.equal(composeEquippedCrop(image,source,profile(heroId),options),null,JSON.stringify([heroId,options]));
++  assert.equal(composeEquippedCrop(image,source,{...profile(null),humanIndex:0},{kind:'npcs',authored:{atlas:'sable',frame:0}}),null);
++  const sprite={image,source,width:1,height:1.4,anchorX:.5,anchorY:138/140,authored:{atlas:'sable',frame:0}};
++  assert.equal(dressAppearanceSprite(sprite,profile(1)),sprite,'sprite-authored metadata is checked too');
++  assert.equal(allocations,0);
++ }finally{globalThis.document=previous;}
++});
++
++test('all seven player bodies, explicit synthetic rigs and registered adult, child and elder civilians still compose real equipment',async()=>{
++ const root=fileURLToPath(new URL('../../../../',import.meta.url)),require=createRequire(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES||root,'identity-contract.cjs'));
++ const {createCanvas,loadImage}=require('@napi-rs/canvas'),previous=globalThis.document;
++ globalThis.document={createElement:()=>createCanvas(1,1)};
++ try{
++  const {art}=await loadPlayerEquipmentArt({root,loadImage});clearEquippedAppearanceArt();
++  for(let heroId=0;heroId<7;heroId++){
++   const s=art.bounds.crew[heroId*8],p=profile(heroId),before=JSON.stringify(p),result=composeEquippedCrop(art.assets.crew,s,p,{kind:'crew',frame:0});
++   assert.ok(result&&result.rasterPieces>0,'registered player '+heroId);assert.equal(JSON.stringify(p),before);
++   const rig=equipmentPoseRig({heroId,source:s,kind:'crew',frame:0});
++   assert.ok(composeEquippedCrop(art.assets.crew,s,{...p,key:p.key+':synthetic'},{rig}), 'source-less explicit fixture rig remains supported');
++  }
++  for(let heroId=0;heroId<7;heroId++)for(const [frame,pose]of CREW_MOTION[heroId].frames.entries()){
++   const s={...pose.source,anchorX:pose.anchor.x,anchorY:pose.anchor.y,bodyHeight:CREW_MOTION[heroId].referenceHeight};
++   assert.ok(composeEquippedCrop(art.assets.crewActions,s,{...profile(heroId),key:'action:'+heroId+':'+frame},{kind:'crewActions',authored:{atlas:'crewActions',heroId,frame}}),'matching authored action '+heroId+':'+frame);
++  }
++  const sable=AUTHORED_MOTION_ATLASES.sable,pose=sable.frames[0],sableSource={x:pose.source[0],y:pose.source[1],w:pose.source[2],h:pose.source[3],anchorX:pose.anchor[0]-pose.source[0],anchorY:pose.anchor[1]-pose.source[1],bodyHeight:sable.referenceHeight};
++  assert.ok(composeEquippedCrop(art.assets.sableMotion,sableSource,{...profile(0),key:'sable-authored'},{authored:{atlas:'sable',frame:0}}),'Sable keeps her own authored rig');
++  const bank=gameArtDefinitions().find(row=>row.name==='npcs'),image=await loadImage(fileURLToPath(bank.src)),civilian=cutoutAtlas(image,CIVILIAN_ATLAS.cols,CIVILIAN_ATLAS.rows);
++  assert.equal(CIVILIANS.length,CIVILIAN_ATLAS.count);
++  for(const entry of CIVILIANS)assert.ok(npcEquipmentRig(civilian.bounds[entry.index],entry.index),'civilian catalog has an exact measured fit: '+entry.index);
++  for(const [index,bodyType] of [[0,'adult'],[1,'child'],[13,'elder'],[CIVILIANS.length-1,'adult']]){
++   const s=civilian.bounds[index],p={...profile(null),humanIndex:index,bodyType,key:'civilian:'+index},expected=npcEquipmentRig(s,index,{bodyType}),result=composeEquippedCrop(civilian.image,s,p,{kind:'npcs'});
++   assert.ok(result&&result.rasterPieces>0,bodyType+' equipment remains visible');assert.deepEqual(result.rig.hands,expected.hands);assert.equal(result.rig.bodyType,bodyType);
++  }
++ }finally{globalThis.document=previous;clearEquippedAppearanceArt();setEquipmentArtAssets({},{id:'identity-contract-reset',version:1,entries:{}});}
++});
+diff --git a/dist/game/engine2/tests/expedition-equipment.test.mjs b/dist/game/engine2/tests/expedition-equipment.test.mjs
+new file mode 100644
+index 00000000..985be27e
+--- /dev/null
++++ b/dist/game/engine2/tests/expedition-equipment.test.mjs
+@@ -0,0 +1,76 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {createRequire} from 'node:module';
++import path from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {loadPlayerEquipmentArt} from '../../../../scripts/lib/player-equipment-native-host.mjs';
++import {defaultHero,CREW} from '../mako.js';
++import {equippedAppearance,clearEquippedAppearanceArt,setEquipmentArtAssets} from '../equipped-appearance.js';
++import {inheritanceState} from '../inheritance-state.js';
++import {fieldActorHeight} from '../../expeditions/field-scale.mjs';
++import {campaignSprites} from '../../expeditions/campaign-art.mjs';
++import {openOuting,readOuting,recordOuting,applyOuting,outingEquipmentSnapshot,recordOutingArmory} from '../../expeditions/campaign-link.mjs';
++
++const storage=()=>{const data=new Map();return {getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};};
++function campaign(){
++ const s={mode:'field',chapter:8,heroes:Array.from({length:7},(_,id)=>defaultHero(id,12)),recruited:[0,1,2,3,4,5,6],party:[0,1,2],gold:137,items:{tonic:4},story:{roadId:'test-journey-123',journal:[]},bossGear:{owned:['guardian-1']},rivals:{gear:['kiln-bracer'],unrelatedHugeLedger:['not part of appearance']},livingArmory:{revision:1,snapshot:{placements:[],overflow:[]},gearByHero:{}}};
++ for(let id=0;id<7;id++)s.livingArmory.gearByHero[id]=Object.fromEntries([['chest','armor'],['head','helm'],['feet','boots'],['mainhand','sword']].map(([slot,icon])=>[slot,{id:'field:'+id+':'+slot,slot,icon,material:'Cindersteel',rarity:'rare'}]));
++ const donor={id:'owned-cosmetic-coat',slot:'chest',icon:'robe',material:'Tideglass'};s.livingArmory.snapshot.overflow.push(donor);
++ s.heroes[0].guardianGear={weapon:{id:'guardian-1',era:'present'}};s.heroes[1].rivalGear='kiln-bracer';
++ const w=inheritanceState(s);w.factions.durn.standing=30;w.appearance={version:1,revision:1,byHero:{0:{chest:{itemId:donor.id,insignia:'durn'}}},conditionByItem:{'field:0:chest':60},sourcesByHero:{0:{mainhand:{source:'guardian',itemId:'guardian-1'}}}};
++ return s;
++}
++
++test('an outing transports every appearance source through reload and receipts without becoming a gear return authority',()=>{
++ const host=campaign(),before=JSON.stringify(host),store=storage(),outing=openOuting(store,{chapter:8,lead:0,traveller:0,kind:'atlas',party:host.party,journeyId:host.story.roadId,equipmentState:host});
++ for(let id=0;id<7;id++)assert.deepEqual(equippedAppearance(outing.equipmentState,id),equippedAppearance(host,id));
++ assert.ok(Object.isFrozen(outing.equipmentState));assert.ok(Object.isFrozen(outing.equipmentState.livingArmory.gearByHero[0]));
++ assert.equal(outing.equipmentState.story,undefined,'unrelated quest/map ledgers are not duplicated');assert.equal(outing.equipmentState.rivals.unrelatedHugeLedger,undefined);
++ assert.throws(()=>{outing.equipmentState.heroes[0].level=99;},TypeError);
++ recordOuting(store,outing,'ore-note','Mineral sample','A collected sample.');
++ assert.ok(recordOutingArmory(store,outing,{record:{biome:'ridge'},enemies:[{id:'defeated',name:'Guardian',hp:0,boss:true,artIndex:1}],huntSerial:1}));
++ const loaded=readOuting(store);assert.deepEqual(loaded.equipmentState,outing.equipmentState);assert.equal(loaded.notes.length,1);assert.equal(loaded.armory.length,1);
++ for(let id=0;id<7;id++)assert.deepEqual(equippedAppearance(loaded.equipmentState,id),equippedAppearance(host,id));
++ const journal=[];applyOuting(journal,{...loaded,equipmentState:{heroes:[{level:999}],livingArmory:{gearByHero:{0:{mainhand:{id:'forged'}}}}}});assert.equal(journal.length,1);assert.equal(JSON.stringify(host),before,'receipts never change campaign gear, AP, stats or inventory');
++ host.livingArmory.gearByHero[0].chest=null;assert.notDeepEqual(loaded.equipmentState.livingArmory.gearByHero[0].chest,host.livingArmory.gearByHero[0].chest,'snapshot cannot become a live inventory alias');
++});
++
++test('old outings and corrupt optional visual snapshots preserve the existing journey link safely',()=>{
++ const store=storage(),old=openOuting(store,{chapter:8,lead:0,traveller:0,kind:'chapter'});assert.equal(readOuting(store).equipmentState,undefined);
++ for(const bad of [null,{}, {heroes:'bad'}, {heroes:Array(8).fill({})},{heroes:[{id:0}],livingArmory:{snapshot:{placements:'bad'}}},{heroes:[{id:0}],bossGear:{owned:'bad'}}]){
++  store.setItem('ash-aether-campaign-outing-v1',JSON.stringify({...old,equipmentState:bad}));const value=readOuting(store);assert.equal(value.tripId,old.tripId);assert.equal(value.equipmentState,undefined);
++ }
++ const cycle={heroes:[]};cycle.loop=cycle;assert.equal(outingEquipmentSnapshot({heroes:[{cycle}]}),null);
++});
++
++function field(snapshot,{lead=0,moving=false,staged=false}={}){
++ return {equipmentState:snapshot,terrain:{height:()=>2,objects:[],settlements:[],regionalProps:[]},record:{lead,biome:'clearing',...(staged?{story:{crew:CREW.map(x=>x.name),steps:[{at:[100,100]}]}}:{})},x:10,z:20,step:0,gait:.3,pace:1,moving,crewParty:[lead,(lead+1)%7,(lead+2)%7],crewTrail:{sample:d=>({x:10-d,y:20-d})},enemies:[]};
++}
++
++test('the actual expedition sprite list fits the lead, followers and staged crew in all seven identities and retains their foot pivots',async()=>{
++ const root=fileURLToPath(new URL('../../../../',import.meta.url)),require=createRequire(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES||root,'expedition-equipment.cjs'));
++ const {createCanvas,loadImage}=require('@napi-rs/canvas'),previous=globalThis.document;globalThis.document={createElement:()=>createCanvas(1,1)};
++ try{
++  const {art}=await loadPlayerEquipmentArt({root,loadImage});clearEquippedAppearanceArt();
++  const provider=(kind,row,col)=>{if(!['crew','run'].includes(kind))return null;const s=art.bounds[kind][row*8+col];return {image:art.assets[kind],source:s,rect:[s.x,s.y,s.w,s.h],anchor:s.anchorX/s.w,anchorY:s.anchorY/s.h,registration:art.registrations[kind][row]};};
++  const host=campaign(),snapshot=outingEquipmentSnapshot(host),before=JSON.stringify(snapshot);
++  for(let lead=0;lead<7;lead++)for(const moving of [false,true]){
++   const s=field(snapshot,{lead,moving,staged:true}),options={spriteProvider:provider,equipment:art.assets},sprites=campaignSprites(s,options),raw=campaignSprites({...s,equipmentState:null},options);
++   assert.equal(sprites.length,10);assert.equal(sprites[0].heroId,lead);assert.equal(sprites[1].heroId,(lead+1)%7);assert.equal(sprites[2].heroId,(lead+2)%7);
++   assert.deepEqual(sprites.slice(3).map(x=>x.heroId),[0,1,2,3,4,5,6]);
++   for(const [index,actor]of sprites.entries()){
++    const original=raw[index],pad=actor.equipmentCanvasBounds;assert.ok(actor.equipmentRasterPieces>=4,'fitted lead/follower/staged actor '+actor.heroId);assert.notEqual(actor.image,original.image);assert.equal(actor.equipmentAppearance,equippedAppearance(snapshot,actor.heroId).key);
++    for(const p of ['x','y','z','flip'])assert.equal(actor[p],original[p],p+' survives the appearance projection');
++    const scale=original.height/original.rect[3];assert.ok(Math.abs(actor.height/actor.rect[3]-scale)<1e-9,'body scale is unchanged');
++    assert.ok(Math.abs(actor.anchor*actor.rect[2]-pad.left-original.anchor*original.rect[2])<1e-8,'horizontal source pivot is retained');
++    assert.ok(Math.abs(actor.anchorY*actor.rect[3]-pad.top-original.anchorY*original.rect[3])<1e-8,'sole pivot is retained');
++    assert.ok(actor.height>=fieldActorHeight*.6);
++   }
++  }
++  const one=field(snapshot),options={spriteProvider:provider,equipment:art.assets},first=campaignSprites(one,options)[0];
++  const unequipped=JSON.parse(JSON.stringify(snapshot));unequipped.livingArmory.gearByHero[0]={};unequipped.heroes[0].guardianGear={};
++  const removed=campaignSprites({...one,equipmentState:unequipped},options)[0],original=campaignSprites({...one,equipmentState:null},options)[0];
++  assert.equal(removed.equipmentAppearance,undefined);assert.equal(removed.image,original.image,'removing every worn source restores the original actor');assert.notEqual(first.image,removed.image);
++  assert.equal(JSON.stringify(snapshot),before,'drawing never edits campaign gear or progression');
++ }finally{globalThis.document=previous;clearEquippedAppearanceArt();setEquipmentArtAssets({},{id:'expedition-equipment-reset',version:1,entries:{}});}
++});
+diff --git a/dist/game/engine2/tests/mako-equipment-portrait.test.mjs b/dist/game/engine2/tests/mako-equipment-portrait.test.mjs
+new file mode 100644
+index 00000000..5de7829d
+--- /dev/null
++++ b/dist/game/engine2/tests/mako-equipment-portrait.test.mjs
+@@ -0,0 +1,45 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {defaultHero} from '../mako.js';
++import {paintMakoEquipmentPortrait} from '../mako-studio.js';
++import {ensureLivingArmory,transactLivingArmory,transferLivingArmory} from '../living-armory/campaign.js';
++import {rollItem} from '../living-armory/src/armory.mjs';
++import {equippedAppearance} from '../equipped-appearance.js';
++
++function fixture(){
++ const state={mode:'field',chapter:12,story:{armor:true},heroes:Array.from({length:7},(_,id)=>defaultHero(id,12)),recruited:[0,1,2,3,4,5,6],party:[0,1,2],gold:300,xp:0,timeline:{id:'mako-portrait-test',era:'present'}};
++ const assets={crew:{id:'crew-sheet'},starter:{id:'starter-sheet'}},bounds={crew:Array.from({length:56},(_,i)=>({x:i*10,y:0,w:100,h:160})),starter:[{x:5,y:6,w:100,h:140}]};
++ const p=ensureLivingArmory(state),items=state.recruited.map(id=>rollItem({seed:'mako-portrait',eventId:String(id),level:12,forceSlot:'chest',forceRarity:'rare',region:'clay'}));
++ p.snapshot.overflow.push(...items);p.revision++;
++ for(const [id,item]of items.entries())assert.equal(transactLivingArmory(state,id,'equip',[item.id]).ok,true);
++ return {state,assets,bounds,items};
++}
++function canvas(){const draws=[],labels=[],node={width:400,height:480,dataset:{},hidden:false,getContext:()=>({clearRect(){},drawImage(...args){draws.push(args);}}),setAttribute(...args){labels.push(args);}};return {node,draws,labels};}
++
++test('Mako portraits paint the same equipped source for all seven heroes rather than the identity atlas alone',()=>{
++ const f=fixture(),before=JSON.stringify(f.state);
++ for(const heroId of f.state.recruited){
++  const c=canvas(),calls=[],image={composed:heroId},source={x:0,y:0,w:240,h:260};
++  assert.equal(paintMakoEquipmentPortrait(c.node,{...f,heroId,compose:(base,crop,profile,options)=>{calls.push({base,crop,profile,options});return {image,source};}}),true);
++  assert.equal(calls[0].profile.slots.chest.itemId,f.items[heroId].id);assert.equal(calls[0].crop,f.bounds.crew[heroId*8]);assert.equal(calls[0].options.heroId,heroId);
++  assert.equal(c.draws[0][0],image);assert.deepEqual(c.draws[0].slice(1,5),[0,0,240,260]);
++  assert.equal(c.node.dataset.equipmentAppearance,equippedAppearance(f.state,heroId).key);assert.deepEqual(c.labels.find(row=>row[0]==='role'),['role','img']);assert.match(c.labels.find(row=>row[0]==='aria-label')[1],/equipped appearance/);
++ }
++ assert.equal(JSON.stringify(f.state),before,'painting never changes inventory, progression or equipment');
++});
++
++test('repainting after a canonical transfer and removal reads live gear without retaining the old portrait state',()=>{
++ const f=fixture(),c=canvas(),profiles=[],compose=(image,source,profile)=>{profiles.push(profile);return {image,source};},paint=heroId=>paintMakoEquipmentPortrait(c.node,{...f,heroId,compose});
++ paint(0);const before=c.node.dataset.equipmentAppearance;assert.equal(profiles.at(-1).slots.chest.itemId,f.items[0].id);
++ assert.equal(transferLivingArmory(f.state,0,6,f.items[0].id).ok,true);paint(0);assert.equal(profiles.at(-1).slots.chest,undefined);assert.notEqual(c.node.dataset.equipmentAppearance,before);
++ paint(6);assert.equal(profiles.at(-1).slots.chest.itemId,f.items[0].id);assert.equal(c.node.dataset.makoEquipmentHero,'6');
++ assert.equal(transactLivingArmory(f.state,6,'unequip',['chest']).ok,true);paint(6);assert.equal(profiles.at(-1).slots.chest,undefined);assert.equal(c.node.dataset.equipmentAppearance,equippedAppearance(f.state,6).key);
++});
++
++test('late portrait readiness uses current equipment and the story-correct body instead of displaying a stale identity picture',()=>{
++ const f=fixture(),c=canvas();f.state.story.armor=false;
++ assert.equal(paintMakoEquipmentPortrait(c.node,{...f,heroId:0,assets:{}}),false);assert.equal(c.node.hidden,true);
++ assert.equal(transactLivingArmory(f.state,0,'unequip',['chest']).ok,true);let used;
++ assert.equal(paintMakoEquipmentPortrait(c.node,{...f,heroId:0,compose:(image,source,profile,options)=>{used={image,source,profile,options};return {image,source};}}),true);
++ assert.equal(c.node.hidden,false);assert.equal(used.image,f.assets.starter);assert.equal(used.source,f.bounds.starter[0]);assert.equal(used.profile.slots.chest,undefined);assert.equal(used.options.kind,'starter');
++});
