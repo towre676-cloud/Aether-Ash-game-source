@@ -61,6 +61,14 @@ jobs:
               "flight-metrics/index-$width-$height.json" \
               "flight-metrics/comparison-$width-$height.json"
           done
+      - name: Optional asynchronous GPU stage timing (candidate, 1024x576)
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          xvfb-run -a python prototypes/continuous-world-flight-slice/test_perf_trip.py \
+            --source prototypes/continuous-world-flight-slice/index.html \
+            --width 1024 --height 576 --hold-ms 2300 --gpu-stages \
+            --out flight-metrics/gpu-stages-1024-576.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
