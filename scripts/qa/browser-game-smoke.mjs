@@ -118,10 +118,13 @@ try{
     if(!moved)throw Error('Mobile joystick pointer-hold did not move the avatar from the arrival tile');
    }else{
     await page.evaluate(()=>{window.__qaKeys=[];window.addEventListener('keydown',e=>{window.__qaKeys.push({code:e.code,key:e.key,target:e.target?.id,defaultPrevented:e.defaultPrevented});},{capture:true});});
+    const pressSnapshots=[];
     for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
      // Await actual position change, rather than a fixed delay that can
      // expire before a software-rendered frame completes.
      await page.keyboard.down(direction);
+     await sleep(150);
+     pressSnapshots.push({direction,probe:await page.evaluate(()=>window.__qaInputProbe?.())});
      try {await page.waitForFunction(initial=>{
        const el=document.getElementById('screen');
        return !!el?.dataset.position&&el.dataset.position!==initial;
@@ -139,6 +142,7 @@ try{
       pauseVisible:!document.getElementById('pause')?.hidden,
       mapVisible:!document.getElementById('spatial-region-map')?.hidden,
       keyboardEvents:window.__qaKeys||[],
+      pressSnapshots,
       visible:document.visibilityState,
       hasFocus:document.hasFocus()
      }));
