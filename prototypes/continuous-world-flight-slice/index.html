@@ -145,7 +145,7 @@ function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,fa
    // Conservative back-camera exclusion: close objects are always retained.
    const eX=chunk.cx-eye[0],eZ=chunk.cz-eye[2],ahead=(eX*forwardX+eZ*forwardZ)/norm;
    if(ahead<-margin-115&&dist2>170*170){culled++;continue;}
-   draw(chunk,identity);drawn++;
+   gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);drawn++;
    if(keys)keys.add(chunk.key);
   }
   vis.culledChunks+=culled;
@@ -182,6 +182,8 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  // Keep a generous airborne horizon, while vegetation has two distance LODs.
  const distance=mode==='flight'?950:mode==='ground'?620:510;
  const keys=window.__flightPerf?new Set():null;
+ // All static chunks share one model matrix; uniform updates belong to actors.
+ gl.uniformMatrix4fv(uModel,false,identity);
  vis.terrainChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
  drawChunkGroup(terrainChunks,p,distance,'terrain',eye,target,keys);
  drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
@@ -195,7 +197,7 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  for(const chunk of farFoliageChunks){
   const dx=chunk.cx-p.x,dz=chunk.cz-p.z,d2=dx*dx+dz*dz;
   if(d2<=(near+35)*(near+35)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
-  draw(chunk,identity);vis.vegetationChunks++;
+  gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);vis.vegetationChunks++;
   if(keys)keys.add(chunk.key);
  }
  if(keys){const sorted=[...keys].sort();vis.visibleCells=sorted.length;
