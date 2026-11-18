@@ -20,6 +20,9 @@ function templates(data,branch){
  function use(o,index=0){w.interact(o);if(dialog?.choices)choose(index);else drain();}
  drain();use(w.objects().find(o=>o.type==='npc'));use(w.objects().find(o=>o.type==='portal'));
  use(w.objects().find(o=>o.type==='puzzle'&&o.bit===0),branch);use(w.objects().find(o=>o.type==='puzzle'&&o.bit===1),branch);
+ // Practice fixtures follow the same saved civilian rescue and return-relay work
+ // before entering Rook's shop. They do not invent completion flags.
+ for(const step of ['nell','baker','relay'])use(w.objects().find(o=>o.festivalCrisis===step));
  use(w.objects().find(o=>o.type==='portal'&&o.to==='workshop'));use(w.objects().find(o=>o.type==='cache'&&o.bit===1));use(w.objects().find(o=>o.type==='puzzle'&&o.bit===3));
  use(w.objects().find(o=>o.type==='portal'&&o.to==='security'));use(w.objects().find(o=>o.storyEvent==='iona'));
  function visit(entry){for(const flag of entry.scene.access_requires||[])ensureFlag(...flag);w.loadScene(entry.scene.location,entry.scene.arrive);drain();}
