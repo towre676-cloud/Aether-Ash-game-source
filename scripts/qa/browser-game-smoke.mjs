@@ -93,12 +93,28 @@ try{
    await page.locator('#spatial-region-map[hidden]').waitFor({state:'attached',timeout:6000});
    stage='movement';
    let moved=false,after=before;
-   for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
-    await page.keyboard.down(direction);await sleep(350);await page.keyboard.up(direction);await sleep(200);
+   if(mobile){
+    // On phones test the actual pointer-owned stick, not desktop arrow keys.
+    const box=await page.locator('#joystick').boundingBox();
+    if(!box||box.width<30||box.height<30)throw Error('Mobile joystick has no touch target');
+    const cx=box.x+box.width/2,cy=box.y+box.height/2;
+    await page.mouse.move(cx,cy);
+    await page.mouse.down();
+    await page.mouse.move(cx,cy-box.height*.38,{steps:6});
+    await sleep(700);
+    await page.mouse.up();
+    await sleep(250);
     after=(await page.locator('#screen').getAttribute('data-position'))||'';
-    if(after&&after!==before){moved=true;break;}
+    moved=!!after&&after!==before;
+    if(!moved)throw Error('Mobile joystick pointer-hold did not move the avatar from the arrival tile');
+   }else{
+    for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
+     await page.keyboard.down(direction);await sleep(350);await page.keyboard.up(direction);await sleep(200);
+     after=(await page.locator('#screen').getAttribute('data-position'))||'';
+     if(after&&after!==before){moved=true;break;}
+    }
+    if(!moved)throw Error('No manual movement in any arrow-key direction at arrival');
    }
-   if(!moved)throw Error('No manual movement in any arrow-key direction at arrival');
    await page.screenshot({path:path.join(artifacts,label+'-field.png'),fullPage:false});
    const metrics=await page.locator('#screen').evaluate(canvas=>({
     scene:canvas.dataset.scene,mode:canvas.dataset.mode,renderMs:Number(canvas.dataset.drawMs)||null,
