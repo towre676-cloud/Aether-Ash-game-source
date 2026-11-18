@@ -57,10 +57,10 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
   },null,{timeout:85000});
   await page.waitForTimeout(1700);
   const samples=await page.evaluate(()=>new Promise(resolve=>{
-   const values=[],end=performance.now()+2600;
+   const values=[],end=performance.now()+10500;let previous=null;
    const timer=setInterval(()=>{
     const n=Number(document.querySelector('#screen')?.dataset.drawMs);
-    if(Number.isFinite(n)&&n>0)values.push(n);
+    if(Number.isFinite(n)&&n>0&&n!==previous){values.push(n);previous=n;}
     if(performance.now()>=end){clearInterval(timer);resolve(values);}
    },220);
   }));
@@ -109,3 +109,8 @@ writeFileSync(path.join(out,'report.json'),JSON.stringify({productionSiteUnmodif
 const baseline=report[0],candidate=report.slice(1);
 if(candidate.some(x=>!x.pass))process.exitCode=1;
 if(!baseline.pass)console.warn('Baseline public Site failed; no claim of production-wide game stability');
+if(baseline.pass&&candidate[0]?.pass&&baseline.metrics.frameSampleCount>=4&&candidate[0].metrics.frameSampleCount>=4){
+ const ratio=candidate[0].metrics.p50RenderMs/baseline.metrics.p50RenderMs;
+ console.log('HD-SOFTWARE-RENDER-RATIO '+JSON.stringify({baselineP50:baseline.metrics.p50RenderMs,hdP50:candidate[0].metrics.p50RenderMs,ratio,independentFrames:[baseline.metrics.frameSampleCount,candidate[0].metrics.frameSampleCount]}));
+ if(ratio>1.5){console.error('HD renderer severe software regression: '+ratio.toFixed(2)+'x');process.exitCode=1;}
+}
