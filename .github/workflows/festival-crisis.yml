@@ -36,4 +36,4 @@ jobs:
           node --check live-site/dist/game/engine2/world.js
           node --check live-site/dist/game/engine2/adventure-world-props.js
       - name: Test rescued civilians, relay, saved progress and dynamic scene geometry
-        run: node --test live-site/dist/game/engine2/tests/festival-crisis.test.mjs live-site/dist/game/engine2/tests/festival-crisis-render.test.mjs
+        run: node --test live-site/dist/game/engine2/tests/festival-crisis.test.mjs live-site/dist/game/engine2/tests/festival-crisis-render.test.mjs live-site/dist/game/engine2/tests/festival-crisis-integration.test.mjs
