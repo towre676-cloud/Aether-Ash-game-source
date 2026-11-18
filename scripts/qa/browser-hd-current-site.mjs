@@ -69,6 +69,7 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
    const c=document.querySelector('#screen'),badge=document.querySelector('#dev-session-badge');
    return {canvasWidth:c.width,canvasHeight:c.height,
     renderBackend:c.dataset.renderBackend||c.dataset.renderer||null,
+    hdRendererMode:c.dataset.hdRendererMode||null,
     mode:c.dataset.mode||'',scene:c.dataset.scene||'',drawMs:Number(c.dataset.drawMs)||null,
     fps:document.querySelector('#fps')?.textContent?.slice(0,40)||null,
     bodyText:document.body?.innerText?.slice(0,180)||null,
@@ -76,7 +77,7 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
     documentReady:document.readyState,
     timing:performance.getEntriesByType('resource').length};
   });
-  metrics.frameSamplesMs=samples;
+  metrics.frameSamplesMs=samples;metrics.frameSampleCount=samples.length;
   metrics.p50RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.5)]:null;
   metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
   const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
