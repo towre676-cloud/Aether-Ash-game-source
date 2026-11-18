@@ -8,9 +8,9 @@
 
 Open `index.html` in a recent WebGL2-enabled Chrome, Edge or Firefox browser with hardware acceleration enabled. No install, network access, external CDN, or server is required.
 
-- **Foot:** W / Up forward, S / Down backward, A/D steer, E enter nearby vehicle, F gather near a resource site. Mouse drag changes the chase-camera look; mouse wheel changes follow distance.
-- **Rover:** W throttle, S reverse/brake, A/D steer, Space handbrake; stop before pressing E to exit.
-- **Skylark aircraft:** W throttle, S slow, A/D bank, Arrow Up/Down pitch, Space vertical lift, Shift descend. Press L near the second airfield for approach and landing assistance. Press E after landing and stopping to leave.
+- **Foot:** W / Up forward, S / Down backward, A/D steer, E enter nearby vehicle, F gather near a resource site, R follow a nearby journey objective automatically. Mouse drag changes the chase-camera look; mouse wheel changes follow distance.
+- **Rover:** W throttle, S reverse/brake, A/D steer, Space handbrake, R follow the winding road to the airfield; stop before pressing E to exit.
+- **Skylark aircraft:** W throttle, S slow, A/D bank, Arrow Up/Down pitch, Space vertical lift, Shift descend. Press L for automatic navigation and landing at the Ridgehaven runway (also works from the departure airfield). Press E after landing and stopping to leave.
 - **Map:** M toggles the geographic map. Touch controls appear on touchscreens. The tiny red FPS display is deliberately retained.
 
 ## Authored content in this slice
@@ -24,7 +24,9 @@ Terrain, road, river and scenery are generated deterministically from seeded fun
 - JavaScript parse: `node --check embedded.js` (JS extraction from the HTML; no dependency).
 - Browser logic smoke: `python test_slice.py` using Playwright with a simulated WebGL API: boot, rover boarding/acceleration, resource gathering, aircraft takeoff, autoland near Ridgehaven, disembark, arrival/delivery, map toggle, no uncaught script errors.
 
-**Not verified:** Real WebGL rendering quality in the current test environment, measured frame-time distribution/60 FPS, native device input, integration with live v198 vehicle engine, actual persistent save data, map correctness for all 127 published regions, or absence of regressions in the published game. This prototype does not modify the live Site.
+The separate `python test_full_trip.py` test passes the **entire foot → road-driven rover → aircraft → landing → foot** route without any test teleports, using the same simulated rendering API. A real WebGL2 render was also executed under Chromium/SwiftShader software graphics: it drew the world with no uncaught JS errors but showed **about 13 FPS** on the virtual software display at 1280×720 with automatic 0.7 rendering scale; this is below the desired target and does not predict performance on a real GPU.
+
+**Not verified:** Premium visual fidelity, measured frame-time distribution/60 FPS on target hardware, native device input, integration with live v198 vehicle engine, actual persistent save data, map correctness for all 127 published regions, or absence of regressions in the published game. This prototype does not modify the live Site.
 
 ## Production integration route
 
