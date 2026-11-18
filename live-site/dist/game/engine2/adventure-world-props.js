@@ -35,7 +35,12 @@ function frontierStage(world){
  return matching.reduce((n,c)=>Math.max(n,Number(f.stages?.[c.id])||0),-1);
 }
 export function adventurePropFamily(world,o){
- if(!o||!TYPES.has(o.type)||!Array.isArray(o.xy)||o.hidden||o.physicalId||o.originId)return null;
+ if(!o||!Array.isArray(o.xy)||o.hidden||o.physicalId||o.originId)return null;
+ // Late-appearing rescue objects must be rendered dynamically, not scene-baked.
+ if(o.festivalCrisis==='baker')return 'festival-cart';
+ if(o.festivalCrisis==='nell')return 'festival-shelter';
+ if(o.festivalCrisis==='relay')return 'relay';
+ if(!TYPES.has(o.type))return null;
  if(o.actuatorFamily)return o.actuatorFamily;
  if(['puzzle','switch','note','project','lore-device'].includes(o.type))return campaignActuatorSpec(world,o).actuatorFamily;
  if(o.type==='boss')return'guardian';
@@ -127,6 +132,29 @@ function crates(g,c,x,y,z){
 }
 function palette(world){const style=world.scene.biome?.style||'',c={...COLORS};if(/salt|coral|ice|aurora/.test(style))c.stone=[.44,.53,.53];if(/lava|caldera/.test(style)){c.stone=[.22,.20,.19];c.warm=[1,.35,.13];}if(/archive|vault/.test(world.scene.key))c.cloth=[.28,.23,.37];return c;}
 function staticBody(g,c,family,o,p){
+ if(family==='festival-cart'){
+  // Framed merchant cart, two spoked wheels, locked axle and actual cargo.
+  g.box(0,.47,0,1.30,.12,.78,c.wood,2);
+  for(const dx of[-.55,.55]){
+   wheel(g,c,dx,.34,.45,.29,0);
+   g.box(dx*.78,.46,.34,.065,.28,.075,c.metal,1);
+  }
+  for(const dz of[-.33,.33])g.box(0,.55,dz,1.28,.11,.08,c.wood,2);
+  for(const dx of[-.56,.56])g.box(dx,.57,0,.08,.22,.80,c.wood,2);
+  g.tube([.55,.47,-.20],[.90,.13,-.55],.055,.04,c.metal,1,6);
+  for(const dx of[-.36,.25])g.box(dx,.79,-.08,.45,.42,.43,c.wood,2);
+  g.box(-.35,1.03,-.09,.41,.055,.32,c.cloth,6);
+  g.box(.26,1.06,-.09,.35,.06,.27,c.paper,6);return;
+ }
+ if(family==='festival-shelter'){
+  // Covered lantern steps give a readable place to lead Nell.
+  g.box(0,.12,0,1.34,.24,.80,c.stone,0);
+  for(const dx of[-.53,.53])g.box(dx,.87,0,.07,1.38,.09,c.wood,2);
+  g.box(0,1.60,0,1.37,.09,.94,c.cloth,6,0,-.04);
+  g.cylinder(-.29,1.35,.10,.13,.17,c.brass,1,8);
+  g.sphere(-.29,1.35,.10,.078,c.warm,4,.18,7,4);
+  g.box(.32,.38,-.21,.45,.28,.38,c.wood,2);return;
+ }
  if(family==='guardian'){g.cylinder(0,.10,0,.63,.20,c.stone,0,12);g.ring(0,.215,0,.47,.54,c.brass,1,0,1,24);for(let i=0;i<4;i++){const a=i*TAU/4;g.box(Math.cos(a)*.53,.27,Math.sin(a)*.53,.14,.19,.14,c.stone,0);}return;}
  if(family==='refuge'){foundation(g,c,'square');for(const side of[-1,1])g.box(side*.48,.82,0,.055,1.05,.055,c.wood,2);crates(g,c,-.25,.35,.12);g.box(.25,.43,.13,.39,.12,.42,c.cloth,6);return;}
  if(['camp','market','board','waypost','instrument','clinic'].includes(family)){
@@ -213,6 +241,12 @@ function semanticState(world,o,time,feedback){
 }
 function movingBody(g,gl,c,family,o,s,time,detail){
  const amount=s.value,lit=s.done?c.teal:s.pending?c.warm:c.edge;
+ if(family==='festival-cart'){
+  gl.sphere(0,1.23,0,.052,c.warm,4,.12,6,4);return;
+ }
+ if(family==='festival-shelter'){
+  gl.sphere(-.29,1.35,.10,.075,c.warm,4,.16+Math.sin(time*4)*.045,7,4);return;
+ }
  if(family==='guardian'){for(let i=0;i<4;i++){const a=i*TAU/4;g.sphere(Math.cos(a)*.53,.38,Math.sin(a)*.53,.035,s.done?c.teal:c.warm,4,.18,5,3);}return;}
  if(family==='refuge'){const h=s.done?1.48:.52,col=s.done?c.cloth:c.wood;g.quad([-.58,h-.25,-.32],[-.58,h-.25,.32],[0,h,.32],[0,h,-.32],col,6);g.quad([.58,h-.25,.32],[.58,h-.25,-.32],[0,h,-.32],[0,h,.32],col,6);for(let i=0;i<3;i++)g.sphere(-.22+i*.22,.35,.34,.04,i<(o.wins||0)?c.teal:c.dark,i<(o.wins||0)?4:1,.16,5,3);return;}
  if(family==='relay'||family==='reactor'){
@@ -303,7 +337,7 @@ function remoteControl(mesh,glow,p,c,family,state){
 
 export function appendAdventureStaticProps(mesh,{world,objects}={}){
  if(!world?.scene||!mesh)return{props:0,families:{}};const c=palette(world),families={},list=propObjects(world,objects);
- for(const o of list){const family=adventurePropFamily(world,o),p=planFor(world,o),g=translated(mesh,p);staticBody(g,c,family,o,p);families[family]=(families[family]||0)+1;
+ for(const o of list){if(o.festivalCrisis)continue;const family=adventurePropFamily(world,o),p=planFor(world,o),g=translated(mesh,p);staticBody(g,c,family,o,p);families[family]=(families[family]||0)+1;
   if(!p.inset&&Math.hypot(p.x-p.atX,p.z-p.atZ)>.4){mesh.tube([p.atX,.035,p.atZ],[p.x,.035,p.z],.012,.012,c.brass,1,5);mesh.box(p.atX,.04,p.atZ,.48,.06,.38,c.metal,1);for(const side of[-1,1])mesh.box(p.atX+side*.215,.078,p.atZ,.025,.018,.34,c.brass,1);mesh.ring(p.atX,.079,p.atZ,.24,.265,c.brass,1,0,1,16);}
  }
  return{props:list.length,families};
@@ -314,7 +348,9 @@ export function appendAdventureWorldProps(mesh,glow,{world,time=0,feedback=null,
  for(const o of propObjects(world,objects)){
   const p=planFor(world,o),distance=Math.hypot(p.x-world.state.x,p.z-world.state.y);if(distance>range)continue;
   const family=adventurePropFamily(world,o),s=semanticState(world,o,time,feedback);s.inside=p.inside;
-  movingBody(translated(mesh,p),translated(glow,p),c,family,o,s,time,distance<8);if(!p.inset&&Math.hypot(p.x-p.atX,p.z-p.atZ)>.4)remoteControl(mesh,glow,p,c,family,s);families[family]=(families[family]||0)+1;count++;
+  const g=translated(mesh,p),light=translated(glow,p);
+   if(o.festivalCrisis)staticBody(g,c,family,o,p);
+   movingBody(g,light,c,family,o,s,time,distance<8);if(!p.inset&&Math.hypot(p.x-p.atX,p.z-p.atZ)>.4)remoteControl(mesh,glow,p,c,family,s);families[family]=(families[family]||0)+1;count++;
   if(o.type==='frontier-board'){const f=world.state.frontiers,stages=world.scene.biome?frontierStage(world):f?.active?(Number(f.stages?.[f.active])||0):-1,g=translated(mesh,p);for(let i=0;i<4;i++)g.sphere(-.27+i*.18,1.06,.075,.035,i<stages?c.teal:c.dark,i<stages?4:1,i<stages?.22:0,5,3);}
   if(o.type==='project'&&s.done){const bits=world.state.project||0,branch=(bits>>o.project_bit)&3;const g=translated(mesh,p);for(let i=0;i<2;i++)g.box(-.24+i*.48,.80,.16,.19,.035,.24,branch&(1<<i)?c.teal:c.paper,6,branch&(1<<i)?.08:0);}
  }
