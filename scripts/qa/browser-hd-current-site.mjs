@@ -107,6 +107,7 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
   if(patched&&(missing.some(x=>x.includes('hd-environment-models.mjs'))))throw Error('HD model script missing: '+missing.join(' | '));
   if(patched){
    if(metrics.liveWorldCanvas.length===0)throw Error('Native adventure world canvas never mounted');
+   if(!metrics.liveWorldCanvas.some(x=>x.mode==='software-lowcost'))throw Error('HD performance shader was not actually selected on SwiftShader: '+JSON.stringify(metrics.liveWorldCanvas));
    const bad=missing.filter(x=>x.includes('hd-material-atlas-compatible.webp'));
    if(bad.length)throw Error('Required HD compatible atlas fetch failed: '+bad.join('; '));
   }
