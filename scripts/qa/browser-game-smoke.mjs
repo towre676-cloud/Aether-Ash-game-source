@@ -142,11 +142,10 @@ try{
       pauseVisible:!document.getElementById('pause')?.hidden,
       mapVisible:!document.getElementById('spatial-region-map')?.hidden,
       keyboardEvents:window.__qaKeys||[],
-      pressSnapshots,
       visible:document.visibilityState,
       hasFocus:document.hasFocus()
      }));
-     throw Error('No manual movement in any arrow-key direction at arrival '+JSON.stringify(detail));
+     throw Error('No manual movement in any arrow-key direction at arrival '+JSON.stringify({...detail,pressSnapshots}));
     }
    }
    await page.screenshot({path:path.join(artifacts,label+'-field.png'),fullPage:false,timeout:12000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' field: '+String(e).slice(0,180)));
