@@ -14,11 +14,11 @@ const patchedLandscape=readFileSync(path.join(root,'adventure-landscape.js'));
 const hdModels=readFileSync(path.join(root,'hd-environment-models.mjs'));
 const patchedCistern=readFileSync(path.join(root,'cistern-renderer.js'));
 const hdCompatAtlas=readFileSync(path.join(root,'art/hd-materials/hd-material-atlas-compatible.webp'));
-const hdLandscapeInstrumented=patchedLandscape.toString('utf8')
+const hdLandscapeInstrumented='globalThis.__ashHDLandscapeModuleLoaded=(globalThis.__ashHDLandscapeModuleLoaded||0)+1;\n'+patchedLandscape.toString('utf8')
  .replace('return appendHDTree(m,p,c,','globalThis.__ashHDTreeCalls=(globalThis.__ashHDTreeCalls||0)+1;return appendHDTree(m,p,c,')
  .replace('return appendHDRock(m,p,c,','globalThis.__ashHDRockCalls=(globalThis.__ashHDRockCalls||0)+1;return appendHDRock(m,p,c,')
  .replace('return appendHDFungus(m,p,c,','globalThis.__ashHDFungusCalls=(globalThis.__ashHDFungusCalls||0)+1;return appendHDFungus(m,p,c,');
-const hdCisternInstrumented=patchedCistern.toString('utf8')
+const hdCisternInstrumented='globalThis.__ashHDCisternModuleLoaded=(globalThis.__ashHDCisternModuleLoaded||0)+1;\n'+patchedCistern.toString('utf8')
  .replace('if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=',
    'globalThis.__ashHDRendererConstructs=(globalThis.__ashHDRendererConstructs||0)+1;if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=');
 if(hdLandscapeInstrumented===patchedLandscape.toString('utf8')||
@@ -82,6 +82,8 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
     hdRendererMode:c.dataset.hdRendererMode||null,
     hdRendererConstructs:globalThis.__ashHDRendererConstructs||0,
     hdLandscapeCalls:{tree:globalThis.__ashHDTreeCalls||0,rock:globalThis.__ashHDRockCalls||0,fungus:globalThis.__ashHDFungusCalls||0},
+    hdModuleLoaded:{landscape:globalThis.__ashHDLandscapeModuleLoaded||0,cistern:globalThis.__ashHDCisternModuleLoaded||0},
+    liveWorldCanvas:[...document.querySelectorAll('canvas.adventure-world-canvas')].map(x=>({width:x.width,height:x.height,mode:x.dataset.hdRendererMode||null,backend:x.dataset.renderBackend||null})),
     mode:c.dataset.mode||'',scene:c.dataset.scene||'',drawMs:Number(c.dataset.drawMs)||null,
     fps:document.querySelector('#fps')?.textContent?.slice(0,40)||null,
     bodyText:document.body?.innerText?.slice(0,180)||null,
@@ -94,7 +96,8 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
   metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
   const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
   if(png.byteLength<110000)throw Error('World screenshot was probably captured before 3D world draw: '+png.byteLength+' bytes');
-  if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load BOTH exact HD source overrides: '+served);
+  if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load the required HD source overrides: '+served);
+  if(patched&&(!metrics.hdModuleLoaded?.landscape||!metrics.hdModuleLoaded?.cistern))throw Error('HD JS responses fetched but production modules were not evaluated: '+JSON.stringify(metrics.hdModuleLoaded));
   if(patched&&(missing.some(x=>x.includes('hd-environment-models.mjs'))))throw Error('HD model script missing: '+missing.join(' | '));
   if(patched){
    const bad=missing.filter(x=>x.includes('hd-material-atlas-compatible.webp'));
