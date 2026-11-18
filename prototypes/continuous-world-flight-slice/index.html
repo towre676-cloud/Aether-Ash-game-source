@@ -43,7 +43,7 @@ const FS=`#version 300 es\nprecision highp float;in vec3 vColor;in vec3 vPos;in 
 void main(){vec3 texel=texture(uNoise,vPos.xz*.018).rgb;float grain=texture(uNoise,vPos.xz*.11).g;
  vec3 color=vColor*(.88+texel.r*.20+grain*.095);
  color=mix(color,color*vec3(1.04,1.025,.96),clamp((vHt+2.)/75.,0.,.7));
- float fog=1.-exp(-pow(vDist/590.,1.65));vec3 fogColor=mix(vec3(.76,.71,.58),vec3(.48,.64,.72),clamp(vHt/95.,0.,1.));
+ float q=clamp(vDist/590.,0.,3.5);float x2=q*q;float fogCurve=x2*(1.46+.24*q);float fog=fogCurve/(1.+fogCurve);vec3 fogColor=mix(vec3(.76,.71,.58),vec3(.48,.64,.72),clamp(vHt/95.,0.,1.));
  fragColor=vec4(mix(color,fogColor,clamp(fog,0.,.94)),1.);}`;
 function shader(type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VS));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const uVP=gl.getUniformLocation(program,'uVP'),uModel=gl.getUniformLocation(program,'uModel'),uEye=gl.getUniformLocation(program,'uEye');gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(0,0,0,0);
 // Baked material noise: amortize texture detail generation instead of expensive per-fragment procedural octaves.
