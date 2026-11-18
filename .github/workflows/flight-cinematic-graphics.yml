@@ -1,0 +1,20 @@
+name: Flight cinematic graphics checks
+on:
+  pull_request:
+    paths:
+      - 'prototypes/continuous-world-flight-slice/index.html'
+      - 'prototypes/continuous-world-flight-slice/test_cinematic_graphics.mjs'
+      - '.github/workflows/flight-cinematic-graphics.yml'
+  workflow_dispatch:
+jobs:
+  graphics-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Material and aircraft contract tests
+        run: |
+          node --test prototypes/continuous-world-flight-slice/test_cinematic_graphics.mjs
+          node --test prototypes/continuous-world-flight-slice/test_adaptive_resolution.mjs

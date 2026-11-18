@@ -38,14 +38,54 @@ for(let i=1;i<roadPoints.length;i++){
 function closestRoad(x,z){let best=Infinity;const candidates=roadBuckets.get(Math.floor(x/bucketSize)+':'+Math.floor(z/bucketSize));if(!candidates)return best;for(const i of candidates){const a=roadPoints[i-1],b=roadPoints[i],dx=b.x-a.x,dz=b.z-a.z,len=dx*dx+dz*dz,t=clamp(((x-a.x)*dx+(z-a.z)*dz)/len,0,1),d=Math.hypot(x-a.x-t*dx,z-a.z-t*dz);best=Math.min(best,d);}return best;}
 function height(x,z){const base=7*Math.sin(x/135)*Math.cos(z/168)+3.1*Math.sin((x+z)/61)+1.2*Math.sin(z/19+x/38)+.7*Math.sin(x/11+z/19);const river=Math.abs(z-riverZ(x));let h=base-Math.max(0,1-river/39)*11;const road=closestRoad(x,z);if(road<13)h=lerp(h,base*.4+1.1,Math.pow(1-road/13,2)*.78);return h;}
 // Vertex-colored geometric world. Triangles use flat diffuse lighting; no external libraries or textures.
-const VS=`#version 300 es\nprecision highp float;layout(location=0) in vec3 aP;layout(location=1) in vec3 aN;layout(location=2) in vec3 aC;uniform mat4 uVP;uniform mat4 uModel;uniform vec3 uEye;out vec3 vColor;out vec3 vPos;out float vDist;out float vHt;void main(){vec4 p=uModel*vec4(aP,1.);vec3 normal=normalize(mat3(uModel)*aN);float lum=.35+max(dot(normal,normalize(vec3(-.52,.88,.38))),0.)*.59;vColor=aC*lum+max(dot(normal,normalize(vec3(.6,.58,-.4))),0.)*aC*.12;vDist=distance(p.xyz,uEye);vHt=p.y;vPos=p.xyz;gl_Position=uVP*p;}`;
-const FS=`#version 300 es\nprecision highp float;in vec3 vColor;in vec3 vPos;in float vDist;in float vHt;uniform sampler2D uNoise;out vec4 fragColor;
-void main(){vec3 texel=texture(uNoise,vPos.xz*.018).rgb;float grain=texel.g;
- vec3 color=vColor*(.88+texel.r*.20+grain*.095);
- color=mix(color,color*vec3(1.04,1.025,.96),clamp((vHt+2.)/75.,0.,.7));
- float q=clamp(vDist/590.,0.,3.5);float x2=q*q;float fogCurve=x2*(1.46+.24*q);float fog=fogCurve/(1.+fogCurve);vec3 fogColor=mix(vec3(.76,.71,.58),vec3(.48,.64,.72),clamp(vHt/95.,0.,1.));
- fragColor=vec4(mix(color,fogColor,clamp(fog,0.,.94)),1.);}`;
-function shader(type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VS));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const uVP=gl.getUniformLocation(program,'uVP'),uModel=gl.getUniformLocation(program,'uModel'),uEye=gl.getUniformLocation(program,'uEye');gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(0,0,0,0);
+const VS=`#version 300 es
+precision highp float;
+layout(location=0) in vec3 aP; layout(location=1) in vec3 aN; layout(location=2) in vec3 aC;
+uniform mat4 uVP;uniform mat4 uModel;uniform vec3 uEye;
+out vec3 vColor;out vec3 vPos;out float vDist;out float vHt;out float vSun;out float vRim;
+void main(){
+ vec4 p=uModel*vec4(aP,1.);vec3 normal=normalize(mat3(uModel)*aN);
+ vec3 sun=normalize(vec3(-.48,.79,.42)),fill=normalize(vec3(.65,.36,-.45));
+ float ndl=max(dot(normal,sun),0.0),bounce=max(dot(normal,fill),0.0);
+ float ambient=.37+.10*clamp(normal.y,0.,1.);
+ vColor=aC*(ambient+ndl*.53+bounce*.13);
+ vSun=ndl;vRim=pow(1.-max(dot(normal,normalize(uEye-p.xyz)),0.),2.);
+ vDist=distance(p.xyz,uEye);vHt=p.y;vPos=p.xyz;gl_Position=uVP*p;
+}`;
+const FS=`#version 300 es
+precision highp float;
+in vec3 vColor;in vec3 vPos;in float vDist;in float vHt;in float vSun;in float vRim;
+uniform sampler2D uNoise;uniform float uTime;uniform float uMaterial;
+out vec4 fragColor;
+void main(){
+ vec3 fine=texture(uNoise,vPos.xz*.052).rgb;
+ vec3 coarse=texture(uNoise,vPos.xz*.006).rgb;
+ float variation=mix(coarse.r,fine.r,.35);
+ vec3 color=vColor*(.86+variation*.24+fine.g*.075);
+ color+=vColor*vRim*.065;
+ if(uMaterial>.5){
+   vec2 flow=vec2(uTime*.014,-uTime*.026);
+   vec2 uv=vPos.xz*.082;
+   float a=texture(uNoise,uv+flow).r;
+   float b=texture(uNoise,uv*.62-flow*.7).g;
+   float wave=sin(vPos.x*.115+uTime*1.3)*sin(vPos.z*.18-uTime*.93);
+   float sparkle=pow(max(0.,a*.62+b*.38+.13*wave-.58),5.)*2.1;
+   float shore=clamp((vHt+7.)*.07,0.,1.);
+   color=mix(vec3(.045,.16,.19),vec3(.18,.43,.49),clamp(a*.52+b*.3+shore*.14,0.,1.));
+   color+=vec3(.16,.23,.23)*sparkle;
+   color+=vec3(.13,.16,.13)*pow(max(vSun,0.),4.)*.2;
+ }else{
+   color=mix(color,color*vec3(1.055,1.03,.965),clamp((vHt+2.)/86.,0.,.65));
+ }
+ float q=clamp(vDist/590.,0.,3.5);
+ float haze=(q*q*(1.38+.20*q))/(1.+q*q*(1.38+.20*q));
+ float altitude=clamp((vHt+12.)/150.,0.,1.);
+ vec3 horizon=mix(vec3(.77,.705,.60),vec3(.49,.65,.75),altitude);
+ vec3 finalColor=mix(color,horizon,clamp(haze,0.,.94));
+ finalColor=finalColor/(finalColor+vec3(.20));
+ fragColor=vec4(pow(finalColor,vec3(.92)),1.);
+}`;
+function shader(type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VS));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const uVP=gl.getUniformLocation(program,'uVP'),uModel=gl.getUniformLocation(program,'uModel'),uEye=gl.getUniformLocation(program,'uEye');const uMaterial=gl.getUniformLocation(program,'uMaterial'),uTime=gl.getUniformLocation(program,'uTime');gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(0,0,0,0);
 // Baked material noise: amortize texture detail generation instead of expensive per-fragment procedural octaves.
 const texSize=128,bytes=new Uint8Array(texSize*texSize*4);let seed=0x31415926;
 const rand=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
@@ -137,7 +177,27 @@ const terrainChunks=ground.finishChunks(192),coarseTerrainChunks=coarseGround.fi
    places.some(p=>Math.hypot(p.x-mesh.cx,p.z-mesh.cz)<p.radius+80)||
    Math.abs(mesh.cz-riverZ(mesh.cx))<102]));
 const roverMesh=new Mesh();roverMesh.box(0,.8,0,3.9,1.25,6.7,[.21,.26,.28]);roverMesh.box(0,2.0,-.1,3.2,1.5,3.5,[.17,.24,.29]);roverMesh.box(0,2.2,1.75,3.25,.6,1.8,[.25,.38,.4]);roverMesh.box(0,1.9,-3.3,3.7,.55,.45,[.35,.33,.31]);roverMesh.box(0,1.3,3.4,3.2,.6,.3,[.35,.32,.28]);for(const x of [-2.0,2.0])for(const z of [-2.1,2.25]){roverMesh.box(x,.3,z,1.15,1.55,1.5,[.14,.15,.14]);roverMesh.box(x*1.30,.3,z,.13,.65,.7,[.62,.56,.44]);}for(const x of [-1.3,1.3]){roverMesh.box(x,1.35,3.55,.7,.4,.13,GOLD);roverMesh.box(x,1.1,-3.58,.7,.35,.12,[.7,.16,.11]);}roverMesh.box(0,2.9,.0,2.9,.18,3,WOOD);const carMesh=roverMesh.finish();
-const planeMesh=new Mesh();planeMesh.box(0,1.5,0,2.8,1.5,9.5,[.36,.47,.50]);planeMesh.box(0,2.7,1.2,2.05,1.15,3.3,[.29,.43,.50]);planeMesh.box(0,1.95,1.7,2.1,.7,1.7,[.23,.37,.46]);planeMesh.box(0,1.5,-3.7,10,.35,2,[.39,.43,.39]);planeMesh.box(0,1.8,.8,16,.45,3.1,[.47,.49,.43]);planeMesh.box(0,1.6,4.1,1.5,3,1.4,[.37,.46,.45]);for(const x of [-6.6,6.6]){planeMesh.box(x,1.65,.8,1.5,.7,2,[.26,.34,.33]);planeMesh.box(x,2.2,.8,2.3,.17,2.6,GOLD);}for(const x of [-1.2,1.2]){planeMesh.box(x,-.2,-2.1,.6,1.6,.6,[.22,.21,.2]);planeMesh.box(x,-.4,-2.2,.9,.65,1.7,[.18,.2,.2]);}planeMesh.box(0,1.45,-5.0,1.4,.4,1.2,GOLD);const craftMesh=planeMesh.finish();
+const planeMesh=new Mesh();planeMesh.box(0,1.5,0,2.8,1.5,9.5,[.36,.47,.50]);planeMesh.box(0,2.7,1.2,2.05,1.15,3.3,[.29,.43,.50]);planeMesh.box(0,1.95,1.7,2.1,.7,1.7,[.23,.37,.46]);planeMesh.box(0,1.5,-3.7,10,.35,2,[.39,.43,.39]);planeMesh.box(0,1.8,.8,16,.45,3.1,[.47,.49,.43]);planeMesh.box(0,1.6,4.1,1.5,3,1.4,[.37,.46,.45]);for(const x of [-6.6,6.6]){planeMesh.box(x,1.65,.8,1.5,.7,2,[.26,.34,.33]);planeMesh.box(x,2.2,.8,2.3,.17,2.6,GOLD);}for(const x of [-1.2,1.2]){planeMesh.box(x,-.2,-2.1,.6,1.6,.6,[.22,.21,.2]);planeMesh.box(x,-.4,-2.2,.9,.65,1.7,[.18,.2,.2]);}planeMesh.box(0,1.45,-5.0,1.4,.4,1.2,GOLD);
+// Articulated-looking aerodynamic silhouette: tapered tips, glazed cockpit,
+// wing spars, flaps, navigation lamps, tail bracing and panel seams.
+// Baked into a single VAO, so flight adds no draw calls or scenegraph churn.
+const SKY=[.12,.27,.33],STEEL=[.52,.58,.55],LIGHT=[.82,.82,.72],DARK=[.13,.19,.22],BRASS=[.76,.58,.28];
+planeMesh.box(0,2.98,1.25,1.82,.14,3.25,STEEL);
+planeMesh.box(0,2.96,1.75,1.70,.06,1.8,SKY);
+for(const s of [-1,1]){
+ planeMesh.quad([s*1.25,1.88,2.05],[s*8.0,1.83,1.35],[s*8.75,1.65,-.8],[s*1.25,1.77,-.15],STEEL);
+ planeMesh.box(s*4.2,1.89,.32,5.25,.055,.11,BRASS);
+ planeMesh.box(s*3.15,1.65,-.5,2.9,.06,.26,DARK);
+ planeMesh.box(s*7.75,2.15,.7,.70,.25,.35,s===-1?[.66,.14,.10]:[.12,.66,.36]);
+ planeMesh.box(s*6.1,1.18,.55,.13,1.15,.15,STEEL);
+ planeMesh.quad([s*.8,2.6,3.0],[s*1.15,2.95,1.9],[s*1.15,2.95,.45],[s*.8,2.6,.5],SKY);
+ planeMesh.box(s*.92,2.95,1.2,.09,.32,2.75,BRASS);
+ planeMesh.box(s*1.1,1.16,-3.5,.10,.10,3.1,DARK);
+}
+planeMesh.box(0,1.6,-4.95,1.15,.10,1.2,BRASS);
+planeMesh.box(0,2.68,4.1,.20,.25,1.0,BRASS);
+planeMesh.box(0,3.23,1.25,.06,.09,1.65,LIGHT);
+const craftMesh=planeMesh.finish();
 const pawnMesh=new Mesh();pawnMesh.cone(0,.7,0,.72,1.6,[.39,.27,.29],9);pawnMesh.box(0,2.45,0,.95,.95,.75,[.69,.56,.42]);pawnMesh.cone(0,3.0,0,.75,.35,[.24,.29,.30],9);const avatarMesh=pawnMesh.finish();
 const caravanMesh=new Mesh();caravanMesh.box(0,.9,0,3.0,1.6,5.8,[.43,.31,.2]);caravanMesh.roof(0,2.5,0,3.4,6.3,1.7,[.68,.55,.38]);for(const x of [-1.5,1.5])for(const z of [-2.3,2.3])caravanMesh.box(x,.35,z,.55,1.2,1.2,[.18,.18,.17]);const cartMesh=caravanMesh.finish();
 const fauna=new Mesh();fauna.box(0,.8,0,1.35,1,2.3,[.5,.36,.23]);fauna.box(0,1.1,1.3,.73,.75,1,[.45,.32,.23]);for(const x of [-.48,.48])for(const z of [-.78,.8])fauna.box(x,-.08,z,.21,1.1,.21,[.3,.25,.19]);fauna.cone(0,1.65,1.5,.43,.5,[.4,.32,.2],7);const deerMesh=fauna.finish();
@@ -207,7 +267,7 @@ function drawMap(){if(!mapOpen)return;const c=id('map').getContext('2d'),w=660,h
 function updateHud(){const p=getPose(),city=[...places].sort((a,b)=>Math.hypot(a.x-p.x,a.z-p.z)-Math.hypot(b.x-p.x,b.z-p.z))[0];id('location').textContent=Math.hypot(city.x-p.x,city.z-p.z)<city.radius?city.name:'The living lowlands';id('modeTag').textContent=mode==='ground'?`Rover · ${Math.round(Math.abs(car.speed)*3.6)} km/h`:mode==='flight'?`Skylark · ${Math.round(plane.speed*3.6)} km/h · ${Math.max(0,Math.round(plane.y-height(plane.x,plane.z)))} m AGL`:'A country without chapter gates';const messages=['The rover is waiting beside Lowbank.','Follow the road to Southreach Airfield.','Leave the rover and board the Skylark.','Cross the valley and land near Ridgehaven.','Walk from the airstrip to Ridgehaven.','The road carries on. Explore as you wish.'];id('direction').textContent=messages[stage];id('controls').textContent=mode==='foot'?'W forward · A/D turn · R follow route · E board · F gather · M map':mode==='ground'?'W throttle · S reverse/brake · A/D steer · R road assist · Space handbrake · E exit':'W throttle · A/D bank · Space lift · Shift descend · L auto-land · E exit · M map';id('prompt').style.display=(mode!=='foot'||dist(player,car)<15||dist(player,plane)<16)?'block':'none';id('prompt').textContent=mode==='foot'?(resources.some(r=>!harvested.has(r.id)&&Math.hypot(player.x-r.x,player.z-r.z)<25)?'F  —  Gather local materials':dist(player,plane)<16?'E  —  Board Skylark aircraft':'E  —  Board rover'):mode==='flight'?(plane.landed?'E  —  Disembark (stopped)':'Space ascend  ·  L landing assist'):'E  —  Exit when stopped';}
 const npcPaths=[{offset:23,speed:1.6},{offset:75,speed:1.1},{offset:120,speed:1.4}];
 function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=now;acc=Math.min(.12,acc+raw);let ticks=0;while(acc>=1/60&&ticks<5){simulate(1/60);acc-=1/60;ticks++;}
- const p=getPose(),fy=mode==='flight'?plane.y+4:p.y+3.2,d=mode==='flight'?35*zoom:mode==='ground'?24*zoom:16*zoom,l=mode==='flight'?13:mode==='ground'?8:5,a=(p.yaw||0)+orbit,desX=p.x-Math.sin(a)*d,desZ=p.z-Math.cos(a)*d,desY=fy+l*zoom,c=.095;camera.x=lerp(camera.x,desX,clamp(raw*5.1,0,1));camera.z=lerp(camera.z,desZ,clamp(raw*5.1,0,1));camera.y=lerp(camera.y,desY,clamp(raw*5.1,0,1));camera.y=Math.max(camera.y,height(camera.x,camera.z)+3.8);const eye=[camera.x,camera.y,camera.z],target=[p.x,fy,p.z],proj=persp(65*pi/180,canvas.width/canvas.height,.1,2200),vp=mat4mul(proj,lookAt(eye,target));gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(uVP,false,vp);gl.uniform3fv(uEye,new Float32Array(eye));// Static world meshes are never recreated as the player crosses a region.
+ const p=getPose(),fy=mode==='flight'?plane.y+4:p.y+3.2,d=mode==='flight'?35*zoom:mode==='ground'?24*zoom:16*zoom,l=mode==='flight'?13:mode==='ground'?8:5,a=(p.yaw||0)+orbit,desX=p.x-Math.sin(a)*d,desZ=p.z-Math.cos(a)*d,desY=fy+l*zoom,c=.095;camera.x=lerp(camera.x,desX,clamp(raw*5.1,0,1));camera.z=lerp(camera.z,desZ,clamp(raw*5.1,0,1));camera.y=lerp(camera.y,desY,clamp(raw*5.1,0,1));camera.y=Math.max(camera.y,height(camera.x,camera.z)+3.8);const eye=[camera.x,camera.y,camera.z],target=[p.x,fy,p.z],proj=persp(65*pi/180,canvas.width/canvas.height,.1,2200),vp=mat4mul(proj,lookAt(eye,target));gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(uVP,false,vp);gl.uniform3fv(uEye,new Float32Array(eye));gl.uniform1f(uTime,now*.001);gl.uniform1f(uMaterial,0);// Static world meshes are never recreated as the player crosses a region.
  // Keep a generous airborne horizon, while vegetation has two distance LODs.
  const distance=mode==='flight'?950:mode==='ground'?620:510;
  const keys=window.__flightPerf?new Set():null;
@@ -217,7 +277,7 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  if(window.__flightPerf)window.__flightPerf.markGpuStage('terrain');
  drawTerrainLOD(p,distance,mode==='flight'?400:mode==='ground'?320:265,eye,target,keys);
  if(window.__flightPerf)window.__flightPerf.markGpuStage('water');
- drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
+ gl.uniform1f(uMaterial,1);drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);gl.uniform1f(uMaterial,0);
  if(window.__flightPerf)window.__flightPerf.markGpuStage('decor');
  drawChunkGroup(decChunks,p,distance*.86,'decor',eye,target,keys);
  if(window.__flightPerf)window.__flightPerf.markGpuStage('town');
