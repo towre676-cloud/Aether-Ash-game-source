@@ -1,4 +1,4 @@
-import {appendHDTree,appendHDRock} from './hd-environment-models.mjs?v=live-hd-1';
+import {appendHDTree,appendHDRock,appendHDFungus} from './hd-environment-models.mjs?v=live-hd-1';
 /** Contiguous landscape around the actual playable footprint. Closed ground is
  * a bank, wood, cliff, shore or garden belonging to this place, never an empty
  * display pad. This layer neither moves actors nor opens a route. */
@@ -160,9 +160,8 @@ function rock(m,p,c){
  return appendHDRock(m,p,c,{quality:p.near?'low':'medium'});
 }
 function fungus(m,p,c){
- const y=p.y;for(let i=0;i<2;i++){const x=p.x+(i-.5)*.65,z=p.z+(i%2)*.35,h=(p.near?.45:1.45)+(i%2)*.50,r=.47+(i%2)*.22;m.cylinder(x,y+h*.5,z,.085,h,[.65,.66,.51],6,7,.065);m.sphere(x,y+h,z,r,tint(c.leaf,.80+i*.06),5,0,7,3,[1,.31,1]);m.cylinder(x,y+h-.015,z,r*.88,.020,[.67,.68,.53],6,7);}
+ return appendHDFungus(m,p,c,{quality:p.near?'low':'medium'});
 }
-
 export function appendAdventureLandscape(mesh,{world,exteriorSites=[],terrainCraft=true}={}){
  if(!world?.scene)return mesh;const p=adventureLandscapePlan(world),values=MATERIALS[p.family]||MATERIALS.village,c={family:p.family,masonry:rgb('#46545a'),base:rgb(values[0]),top:rgb(values[1]),leaf:rgb(values[2]),water:rgb(p.family==='coral'?'#347574':p.family==='salt'?'#6d918c':'#345d59')},b=p.bounds,extent=64;
  // This buried continuity surface only appears beyond the composed terrain.
