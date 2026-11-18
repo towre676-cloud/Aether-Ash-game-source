@@ -62,3 +62,62 @@ jobs:
           name: ash-aether-hd-materials
           path: build/hd-materials/
           retention-days: 30
+
+  current-site-overlay-package:
+    needs: [geometry-and-live-compatibility, material-atlas-generation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ash-aether-hd-materials
+          path: build/hd-materials/
+      - name: Patch exact current public Site source to staged overlay
+        run: |
+          mkdir -p build/live-overlay/game/engine2/art/hd-materials
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-landscape.js' \
+            -o /tmp/current-live-landscape.js
+          node tools/hd-assets/apply-live-landscape.mjs \
+            /tmp/current-live-landscape.js build/live-overlay/game/engine2/adventure-landscape.js
+          cp live-site/dist/game/engine2/hd-environment-models.mjs build/live-overlay/game/engine2/
+          cp build/hd-materials/* build/live-overlay/game/engine2/art/hd-materials/
+          sha256sum /tmp/current-live-landscape.js > build/live-overlay/current-site-source.sha256
+          node --check build/live-overlay/game/engine2/adventure-landscape.js
+          node --check build/live-overlay/game/engine2/hd-environment-models.mjs
+          test -s build/live-overlay/game/engine2/art/hd-materials/hd-normal.webp
+      - name: Write deployment guard and ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, zipfile
+          p=Path('build/live-overlay')
+          source=p/'game/engine2/adventure-landscape.js'
+          guard={'release_type':'staged-overlay-not-deployed',
+                 'target':'https://ash-aether-clay-water.towre676.chatgpt.site',
+                 'project_id':'appgprj_6adf63724e5c8191bd55637b8ecd8d9a',
+                 'source_revision_required':'remaining-scenes-34b52c72d826',
+                 'patched_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+                 'changes':['adventure-landscape.js tree/rock/fungus geometry only',
+                            'new hd-environment-models.mjs',
+                            'original 2048px PBR texture maps (not bound in game shader)'],
+                 'missing':['authenticated Sites deployment',
+                            'production vehicle/aircraft mesh bindings',
+                            'production texture shader binding',
+                            'real GPU profiling and visual browser validation'],
+                 'never_overwrite_other_site_files':True}
+          (p/'overlay-manifest.json').write_text(json.dumps(guard,indent=2))
+          with zipfile.ZipFile('build/Ash-Aether-Current-Site-HD-Overlay.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for f in sorted(p.rglob('*')):
+                  if f.is_file():z.write(f,f.relative_to(p))
+          print('Assembled staged current-source overlay, bytes',Path('build/Ash-Aether-Current-Site-HD-Overlay.zip').stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-current-site-hd-overlay
+          path: build/Ash-Aether-Current-Site-HD-Overlay.zip
+          retention-days: 30
