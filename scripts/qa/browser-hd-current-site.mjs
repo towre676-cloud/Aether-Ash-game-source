@@ -13,11 +13,14 @@ const out=path.resolve('qa-artifacts-hd-browser');
 const patchedLandscape=readFileSync(path.join(root,'adventure-landscape.js'));
 const hdModels=readFileSync(path.join(root,'hd-environment-models.mjs'));
 const patchedCistern=readFileSync(path.join(root,'cistern-renderer.js'));
+const patchedAdventureRenderer=readFileSync(path.join(root,'adventure-3d-renderer.js'));
+
 const hdCompatAtlas=readFileSync(path.join(root,'art/hd-materials/hd-material-atlas-compatible.webp'));
 const hdLandscapeInstrumented='globalThis.__ashHDLandscapeModuleLoaded=(globalThis.__ashHDLandscapeModuleLoaded||0)+1;\n'+patchedLandscape.toString('utf8')
  .replace('return appendHDTree(m,p,c,','globalThis.__ashHDTreeCalls=(globalThis.__ashHDTreeCalls||0)+1;return appendHDTree(m,p,c,')
  .replace('return appendHDRock(m,p,c,','globalThis.__ashHDRockCalls=(globalThis.__ashHDRockCalls||0)+1;return appendHDRock(m,p,c,')
  .replace('return appendHDFungus(m,p,c,','globalThis.__ashHDFungusCalls=(globalThis.__ashHDFungusCalls||0)+1;return appendHDFungus(m,p,c,');
+const hdAdventureInstrumented='globalThis.__ashHDAdventureModuleLoaded=(globalThis.__ashHDAdventureModuleLoaded||0)+1;\n'+patchedAdventureRenderer.toString('utf8');
 const hdCisternInstrumented='globalThis.__ashHDCisternModuleLoaded=(globalThis.__ashHDCisternModuleLoaded||0)+1;\n'+patchedCistern.toString('utf8')
  .replace('if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=',
    'globalThis.__ashHDRendererConstructs=(globalThis.__ashHDRendererConstructs||0)+1;if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=');
@@ -43,6 +46,9 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/art/hd-materials/hd-material-atlas-compatible.webp'){
    served.push('hd-material-atlas-compatible.webp');
    return route.fulfill({status:200,body:hdCompatAtlas,contentType:'image/webp',headers:{'cache-control':'no-store'}});
+  }
+  if(u.host===canonicalHost&&u.pathname==='/game/engine2/adventure-3d-renderer.js'){
+    served.push('adventure-3d-renderer.js');return route.fulfill({status:200,body:hdAdventureInstrumented,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/cistern-renderer.js'){
    served.push('cistern-renderer.js');return route.fulfill({status:200,body:hdCisternInstrumented,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
@@ -82,7 +88,7 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
     hdRendererMode:c.dataset.hdRendererMode||null,
     hdRendererConstructs:globalThis.__ashHDRendererConstructs||0,
     hdLandscapeCalls:{tree:globalThis.__ashHDTreeCalls||0,rock:globalThis.__ashHDRockCalls||0,fungus:globalThis.__ashHDFungusCalls||0},
-    hdModuleLoaded:{landscape:globalThis.__ashHDLandscapeModuleLoaded||0,cistern:globalThis.__ashHDCisternModuleLoaded||0},
+    hdModuleLoaded:{landscape:globalThis.__ashHDLandscapeModuleLoaded||0,cistern:globalThis.__ashHDCisternModuleLoaded||0,adventure:globalThis.__ashHDAdventureModuleLoaded||0},
     liveWorldCanvas:[...document.querySelectorAll('canvas.adventure-world-canvas')].map(x=>({width:x.width,height:x.height,mode:x.dataset.hdRendererMode||null,backend:x.dataset.renderBackend||null})),
     mode:c.dataset.mode||'',scene:c.dataset.scene||'',drawMs:Number(c.dataset.drawMs)||null,
     fps:document.querySelector('#fps')?.textContent?.slice(0,40)||null,
@@ -96,10 +102,11 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
   metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
   const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:55000,animations:'disabled'});
   if(png.byteLength<110000)throw Error('World screenshot was probably captured before 3D world draw: '+png.byteLength+' bytes');
-  if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load the required HD source overrides: '+served);
-  if(patched&&(!metrics.hdModuleLoaded?.landscape||!metrics.hdModuleLoaded?.cistern))throw Error('HD JS responses fetched but production modules were not evaluated: '+JSON.stringify(metrics.hdModuleLoaded));
+  if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js','adventure-3d-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load the required HD source overrides: '+served);
+  if(patched&&(!metrics.hdModuleLoaded?.landscape||!metrics.hdModuleLoaded?.cistern||!metrics.hdModuleLoaded?.adventure))throw Error('HD JS responses fetched but production modules were not evaluated: '+JSON.stringify(metrics.hdModuleLoaded));
   if(patched&&(missing.some(x=>x.includes('hd-environment-models.mjs'))))throw Error('HD model script missing: '+missing.join(' | '));
   if(patched){
+   if(metrics.liveWorldCanvas.length===0)throw Error('Native adventure world canvas never mounted');
    const bad=missing.filter(x=>x.includes('hd-material-atlas-compatible.webp'));
    if(bad.length)throw Error('Required HD compatible atlas fetch failed: '+bad.join('; '));
   }
