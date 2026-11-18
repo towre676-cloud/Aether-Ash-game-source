@@ -97,6 +97,13 @@ jobs:
             /tmp/current-live-cistern-renderer.js build/live-overlay/game/engine2/cistern-renderer.js
           node --check build/live-overlay/game/engine2/cistern-renderer.js
           sha256sum /tmp/current-live-cistern-renderer.js > build/live-overlay/current-renderer-source.sha256
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-3d-renderer.js' \
+            -o /tmp/current-live-adventure-3d-renderer.js
+          python tools/hd-assets/patch_live_adventure_renderer.py \
+            /tmp/current-live-adventure-3d-renderer.js build/live-overlay/game/engine2/adventure-3d-renderer.js
+          node --check build/live-overlay/game/engine2/adventure-3d-renderer.js
+          sha256sum /tmp/current-live-adventure-3d-renderer.js > build/live-overlay/current-adventure-renderer-source.sha256
           test -s build/live-overlay/game/engine2/art/hd-materials/hd-normal.webp
           test -s build/live-overlay/game/engine2/art/hd-materials/hd-material-atlas-compatible.webp
       - name: Write deployment guard and ZIP
@@ -114,6 +121,7 @@ jobs:
                  'changes':['adventure-landscape.js tree/rock/fungus geometry only',
                             'new hd-environment-models.mjs',
                             'current-Site-matched cistern-renderer.js with quality-adaptive shading and optional HD material atlas',
+                            'current-Site-matched adventure-3d-renderer.js with actual scene-owned material detail enhancement',
                             'original 2048px PBR texture maps (not bound in game shader)'],
                  'missing':['authenticated Sites deployment',
                             'production vehicle/aircraft mesh bindings',
@@ -151,6 +159,7 @@ jobs:
           unzip -q build/Ash-Aether-Current-Site-HD-Overlay.zip -d build/current-hd-overlay
           test -s build/current-hd-overlay/game/engine2/adventure-landscape.js
           test -s build/current-hd-overlay/game/engine2/hd-environment-models.mjs
+          test -s build/current-hd-overlay/game/engine2/adventure-3d-renderer.js
       - name: Install the existing QA browser driver
         run: |
           cd scripts/qa
