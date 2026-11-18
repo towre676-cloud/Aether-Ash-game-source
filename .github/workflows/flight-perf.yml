@@ -1,0 +1,81 @@
+name: Flight full-trip performance / paired SwiftShader measurements
+
+on:
+  pull_request:
+    paths:
+      - 'prototypes/continuous-world-flight-slice/**'
+      - 'live-site/dist/game/engine2/continuous-world-core*'
+      - '.github/workflows/flight-perf.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'prototypes/continuous-world-flight-slice/**'
+      - '.github/workflows/flight-perf.yml'
+  workflow_dispatch:
+
+jobs:
+  software-realgl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Chromium and repeatable baseline
+        run: |
+          set -euo pipefail
+          python -m pip install playwright==1.56.0
+          command -v google-chrome
+          command -v xvfb-run || (sudo apt-get update && sudo apt-get install -y xvfb)
+          curl --fail --location --retry 3 \
+            https://raw.githubusercontent.com/towre676-cloud/Aether-Ash-game-source/46497b71d156efd145898bd2c62c7d9eb537bda5/prototypes/continuous-world-flight-slice/index.html \
+            -o prototypes/continuous-world-flight-slice/baseline-pinned.html
+          node -e "const fs=require('fs');const p='prototypes/continuous-world-flight-slice/baseline-pinned.html';if(!fs.readFileSync(p,'utf8').includes('requestAnimationFrame(render)'))process.exit(1)"
+          node --check live-site/dist/game/engine2/continuous-world-core.mjs
+      - name: Verify unchanged route logic via browser
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          set -euo pipefail
+          xvfb-run -a python prototypes/continuous-world-flight-slice/test_full_trip.py
+          xvfb-run -a python prototypes/continuous-world-flight-slice/test_realgl_trip.py
+      - name: Matched WebGL2 profiles (1024x576 and 1280x720)
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          set -euo pipefail
+          mkdir -p flight-metrics
+          for geometry in "1024 576" "1280 720"; do
+            set -- $geometry
+            width=$1
+            height=$2
+            for variant in baseline-pinned index; do
+              xvfb-run -a python prototypes/continuous-world-flight-slice/test_perf_trip.py \
+                --source "prototypes/continuous-world-flight-slice/$variant.html" \
+                --width "$width" --height "$height" --hold-ms 1800 \
+                --out "flight-metrics/$variant-$width-$height.json"
+            done
+            python prototypes/continuous-world-flight-slice/compare_perf_trip.py \
+              "flight-metrics/baseline-pinned-$width-$height.json" \
+              "flight-metrics/index-$width-$height.json" \
+              "flight-metrics/comparison-$width-$height.json"
+          done
+      - name: Optional asynchronous GPU stage timing (candidate, 1024x576)
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: |
+          xvfb-run -a python prototypes/continuous-world-flight-slice/test_perf_trip.py \
+            --source prototypes/continuous-world-flight-slice/index.html \
+            --width 1024 --height 576 --hold-ms 2300 --gpu-stages \
+            --out flight-metrics/gpu-stages-1024-576.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: flight-realgl-perf-raw-comparison
+          path: |
+            flight-metrics
+            prototypes/continuous-world-flight-slice/flight-preview.png
+            prototypes/continuous-world-flight-slice/destination-preview.png
+          if-no-files-found: warn
+          retention-days: 14

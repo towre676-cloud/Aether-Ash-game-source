@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ash & Aether — Continuous World Flight Slice</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(ellipse at 70% 36%,#d6c6a6 0%,#9bb4ba 38%,#536d7e 95%);font-family:Georgia,'Palatino Linotype',serif;color:#f5e8cd}#scene{display:block;width:100vw;height:100vh;touch-action:none}#vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 52% 48%,transparent 47%,rgba(16,20,26,.50) 100%)}.panel{position:fixed;pointer-events:none;text-shadow:0 2px 7px #12161a,0 1px 2px #12161a}#place{left:28px;top:23px;line-height:1.18}#place .eyebrow{font:600 10px system-ui, sans-serif;letter-spacing:4px;color:#ccb287;text-transform:uppercase}#place h1{font-size:24px;letter-spacing:.04em;font-weight:normal;margin:8px 0 7px}#place p{font:12px system-ui,sans-serif;letter-spacing:.1em;opacity:.8;margin:0}#fps{right:16px;top:12px;color:#f2554c;font:600 10px ui-monospace,monospace;letter-spacing:.04em}#quest{left:28px;bottom:42px;max-width:520px}#quest .small{font:600 10px system-ui,sans-serif;letter-spacing:3px;color:#c9a476;text-transform:uppercase;margin-bottom:9px}#quest .main{font-size:17px;letter-spacing:.015em}#quest .help{font:11px/1.5 system-ui,sans-serif;opacity:.7;letter-spacing:.02em;margin-top:9px}#prompt{position:fixed;bottom:126px;left:50%;transform:translateX(-50%);font:12px system-ui,sans-serif;letter-spacing:.06em;display:none;color:#f6e3b4;text-shadow:0 2px 5px #111;text-align:center}#toast{position:fixed;top:20%;left:50%;transform:translateX(-50%);color:#ffdfaa;max-width:360px;text-align:center;font:italic 18px Georgia,serif;text-shadow:0 2px 5px #131a1a;pointer-events:none;transition:opacity .4s;opacity:0}#map{position:fixed;right:18px;bottom:18px;width:min(330px,52vw);height:min(330px,52vw);border:1px solid #ac9d78a3;background:#1a262c;display:none;box-shadow:0 8px 28px #0007}#map.open{display:block}#mapNote{position:fixed;right:18px;bottom:355px;display:none;letter-spacing:.15em;font:11px system-ui,sans-serif;color:#e6d4ac;text-shadow:0 1px 4px black}#mapNote.open{display:block}#mobile{position:fixed;right:20px;bottom:20px;display:none;grid-template-columns:repeat(3,51px);gap:8px}#mobile button{font-size:19px;color:#f7e6cb;border:1px solid #dec39c77;border-radius:50%;width:51px;height:51px;background:#1a2534b9;touch-action:none}#mobile button.action{color:#f0bc68;border-color:#f0bc68a0}@media(pointer:coarse){#mobile{display:grid}#quest{bottom:193px}#quest .help{display:none}#map{bottom:200px}#mapNote{bottom:539px}}@media(max-width:650px){#place{left:16px;top:18px}#place h1{font-size:18px}#quest{left:16px;max-width:85vw}#quest .main{font-size:14px}#quest .help{font-size:10px}#prompt{bottom:165px}}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="3D interactive continuous world exploration"></canvas><div id="vignette"></div>
+<div id="place" class="panel"><div class="eyebrow">Ash & Aether</div><h1 id="location">Lowbank Vale</h1><p id="modeTag">The road beyond the gates</p></div><div id="fps" class="panel">-- FPS</div>
+<div id="quest" class="panel"><div class="small">A Journey Through Living Country</div><div class="main" id="direction">Walk to the waiting rover</div><div class="help" id="controls">W A S D move · E board/exit · M map · drag to look</div></div><div id="prompt">E — Board vehicle</div><div id="toast"></div>
+<canvas id="map" width="660" height="660"></canvas><div id="mapNote">ATLAS / M TO CLOSE</div>
+<div id="mobile"><button data-key="a" aria-label="steer left">◀</button><button data-key="w" aria-label="forward">▲</button><button data-key="d" aria-label="steer right">▶</button><button data-key="s" aria-label="reverse">▼</button><button class="action" data-key="e" aria-label="enter or exit">E</button><button class="action" data-key=" " aria-label="lift or brake">⤒</button><button class="action" data-key="shift" aria-label="descend">⤓</button><button class="action" data-key="l" aria-label="landing assist">L</button><button class="action" data-key="m" aria-label="map">⌖</button></div>
+<script>
+'use strict';
+// Playable, single-file, self-contained development slice. NOT the authoritative Ash & Aether live game.
+(()=>{
+const canvas=document.getElementById('scene'),gl=canvas.getContext('webgl2',{alpha:true,antialias:true,depth:true,powerPreference:'high-performance'}),id=x=>document.getElementById(x);
+if(!gl){document.getElementById('direction').textContent='This interactive preview requires WebGL2 on your device.';document.getElementById('controls').textContent='Try a recent desktop or mobile browser with hardware acceleration enabled.';return;}
+const T=Math.PI*2,pi=Math.PI,clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),lerp=(a,b,t)=>a+(b-a)*t,dist=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z),smooth=(a,b,t)=>a+(b-a)*clamp(t,0,1);
+const BLUE=[.29,.49,.48],SAND=[.71,.61,.41],RIVER=[.22,.42,.49],ROAD=[.62,.52,.36],ROAD_EDGE=[.43,.36,.26],FIELD=[.47,.53,.27],STRAW=[.76,.61,.32],STUCCO=[.69,.60,.47],PLASTER=[.83,.73,.55],ROOF=[.39,.25,.23],WOOD=[.31,.21,.16],GOLD=[1,.73,.39],SNOW=[.82,.79,.73];
+const places=[{id:'lowbank',name:'Lowbank Vale',x:-340,z:-370,radius:92},{id:'mill',name:'The Red Mill',x:-235,z:-230,radius:45},{id:'bridge',name:'Slatewater Bridge',x:-140,z:-105,radius:45},{id:'fields',name:'Miller’s Meadows',x:-84,z:38,radius:55},{id:'airfield',name:'Southreach Airfield',x:25,z:143,radius:66},{id:'cairn',name:'The Three-Stone Cairn',x:117,z:230,radius:45},{id:'landing',name:'Ridgehaven Airstrip',x:316,z:332,radius:55},{id:'ridgehaven',name:'Ridgehaven',x:398,z:420,radius:100}];
+const resources=[{id:'timber',name:'Mill timber',x:-235,z:-230,kind:'timber',quantity:3},{id:'reeds',name:'River reeds',x:-141,z:-104,kind:'reeds',quantity:4},{id:'grain',name:'Meadow grain',x:-84,z:38,kind:'grain',quantity:4},{id:'ore',name:'Cairn stone',x:117,z:230,kind:'stone',quantity:2}];
+const roadKnots=[[-355,-390],[-320,-343],[-277,-284],[-235,-230],[-177,-166],[-139,-104],[-118,-42],[-83,38],[-22,107],[25,143],[105,213],[158,259],[240,303],[317,340],[381,403],[415,431]],roadPoints=[];
+function catmull(p0,p1,p2,p3,t){const t2=t*t,t3=t2*t;return .5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t2+(-p0+3*p1-3*p2+p3)*t3);}
+for(let i=0;i<roadKnots.length-1;i++)for(let k=0;k<10;k++){const t=k/10,p=roadKnots;roadPoints.push({x:catmull(p[Math.max(0,i-1)][0],p[i][0],p[i+1][0],p[Math.min(p.length-1,i+2)][0],t),z:catmull(p[Math.max(0,i-1)][1],p[i][1],p[i+1][1],p[Math.min(p.length-1,i+2)][1],t)});}roadPoints.push({x:415,z:431});
+const riverZ=x=>-106+25*Math.sin((x+200)/123)+9*Math.sin(x/37),noise=(x,z)=>Math.sin(x*12.9898+z*78.233)*43758.5453%1,hash=(x,z)=>{const n=Math.sin(x*127.1+z*311.7)*43758.5453123;return n-Math.floor(n);};
+const roadBuckets=new Map(),bucketSize=50;
+for(let i=1;i<roadPoints.length;i++){
+ const a=roadPoints[i-1],b=roadPoints[i];
+ for(let bx=Math.floor((Math.min(a.x,b.x)-20)/bucketSize);bx<=Math.floor((Math.max(a.x,b.x)+20)/bucketSize);bx++)
+ for(let bz=Math.floor((Math.min(a.z,b.z)-20)/bucketSize);bz<=Math.floor((Math.max(a.z,b.z)+20)/bucketSize);bz++){
+ const k=bx+':'+bz;if(!roadBuckets.has(k))roadBuckets.set(k,[]);roadBuckets.get(k).push(i);
+ }
+}
+function closestRoad(x,z){let best=Infinity;const candidates=roadBuckets.get(Math.floor(x/bucketSize)+':'+Math.floor(z/bucketSize));if(!candidates)return best;for(const i of candidates){const a=roadPoints[i-1],b=roadPoints[i],dx=b.x-a.x,dz=b.z-a.z,len=dx*dx+dz*dz,t=clamp(((x-a.x)*dx+(z-a.z)*dz)/len,0,1),d=Math.hypot(x-a.x-t*dx,z-a.z-t*dz);best=Math.min(best,d);}return best;}
+function height(x,z){const base=7*Math.sin(x/135)*Math.cos(z/168)+3.1*Math.sin((x+z)/61)+1.2*Math.sin(z/19+x/38)+.7*Math.sin(x/11+z/19);const river=Math.abs(z-riverZ(x));let h=base-Math.max(0,1-river/39)*11;const road=closestRoad(x,z);if(road<13)h=lerp(h,base*.4+1.1,Math.pow(1-road/13,2)*.78);return h;}
+// Vertex-colored geometric world. Triangles use flat diffuse lighting; no external libraries or textures.
+const VS=`#version 300 es\nprecision highp float;layout(location=0) in vec3 aP;layout(location=1) in vec3 aN;layout(location=2) in vec3 aC;uniform mat4 uVP;uniform mat4 uModel;uniform vec3 uEye;out vec3 vColor;out vec3 vPos;out float vDist;out float vHt;void main(){vec4 p=uModel*vec4(aP,1.);vec3 normal=normalize(mat3(uModel)*aN);float lum=.35+max(dot(normal,normalize(vec3(-.52,.88,.38))),0.)*.59;vColor=aC*lum+max(dot(normal,normalize(vec3(.6,.58,-.4))),0.)*aC*.12;vDist=distance(p.xyz,uEye);vHt=p.y;vPos=p.xyz;gl_Position=uVP*p;}`;
+const FS=`#version 300 es\nprecision highp float;in vec3 vColor;in vec3 vPos;in float vDist;in float vHt;uniform sampler2D uNoise;out vec4 fragColor;
+void main(){vec3 texel=texture(uNoise,vPos.xz*.018).rgb;float grain=texel.g;
+ vec3 color=vColor*(.88+texel.r*.20+grain*.095);
+ color=mix(color,color*vec3(1.04,1.025,.96),clamp((vHt+2.)/75.,0.,.7));
+ float q=clamp(vDist/590.,0.,3.5);float x2=q*q;float fogCurve=x2*(1.46+.24*q);float fog=fogCurve/(1.+fogCurve);vec3 fogColor=mix(vec3(.76,.71,.58),vec3(.48,.64,.72),clamp(vHt/95.,0.,1.));
+ fragColor=vec4(mix(color,fogColor,clamp(fog,0.,.94)),1.);}`;
+function shader(type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}const program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,VS));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const uVP=gl.getUniformLocation(program,'uVP'),uModel=gl.getUniformLocation(program,'uModel'),uEye=gl.getUniformLocation(program,'uEye');gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(0,0,0,0);
+// Baked material noise: amortize texture detail generation instead of expensive per-fragment procedural octaves.
+const texSize=128,bytes=new Uint8Array(texSize*texSize*4);let seed=0x31415926;
+const rand=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
+for(let y=0;y<texSize;y++)for(let x=0;x<texSize;x++){
+ const k=(y*texSize+x)*4,macro=(Math.sin(x*.14)+Math.sin(y*.12)+Math.sin((x+y)*.09)+3)/6;
+ bytes[k]=Math.floor(255*macro);bytes[k+1]=Math.floor(255*rand());bytes[k+2]=Math.floor(255*rand());bytes[k+3]=255;
+}
+const noiseTexture=gl.createTexture();gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,noiseTexture);
+gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,texSize,texSize,0,gl.RGBA,gl.UNSIGNED_BYTE,bytes);
+gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.REPEAT);
+gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+gl.uniform1i(gl.getUniformLocation(program,'uNoise'),0);
+function mat4mul(a,b){const o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r<4;r++){let v=0;for(let k=0;k<4;k++)v+=a[k*4+r]*b[c*4+k];o[c*4+r]=v;}return o;}
+const ident=()=>new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
+function persp(fov,aspect,near,far){const f=1/Math.tan(fov/2),o=new Float32Array(16);o[0]=f/aspect;o[5]=f;o[10]=(far+near)/(near-far);o[11]=-1;o[14]=2*far*near/(near-far);return o;}
+function lookAt(eye,target){let z=[eye[0]-target[0],eye[1]-target[1],eye[2]-target[2]],len=Math.hypot(...z);z=z.map(x=>x/len);let x=[z[2],0,-z[0]];len=Math.hypot(...x);x=x.map(v=>v/Math.max(.00001,len));const y=[z[1]*x[2]-z[2]*x[1],z[2]*x[0]-z[0]*x[2],z[0]*x[1]-z[1]*x[0]];const o=ident();for(let i=0;i<3;i++){o[i*4]=x[i];o[i*4+1]=y[i];o[i*4+2]=z[i];}o[12]=-x[0]*eye[0]-x[1]*eye[1]-x[2]*eye[2];o[13]=-y[0]*eye[0]-y[1]*eye[1]-y[2]*eye[2];o[14]=-z[0]*eye[0]-z[1]*eye[1]-z[2]*eye[2];return o;}
+function model(x,y,z,yaw=0,pitch=0,roll=0){const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch),cr=Math.cos(roll),sr=Math.sin(roll),m=ident();m[0]=cy*cr+sy*sp*sr;m[1]=cp*sr;m[2]=-sy*cr+cy*sp*sr;m[4]=-cy*sr+sy*sp*cr;m[5]=cp*cr;m[6]=sy*sr+cy*sp*cr;m[8]=sy*cp;m[9]=-sp;m[10]=cy*cp;m[12]=x;m[13]=y;m[14]=z;return m;}
+class Mesh {constructor(){this.arr=[];}tri(a,b,c,color){const n0=[(b[1]-a[1])*(c[2]-a[2])-(b[2]-a[2])*(c[1]-a[1]),(b[2]-a[2])*(c[0]-a[0])-(b[0]-a[0])*(c[2]-a[2]),(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])],l=Math.hypot(...n0)||1,n=n0.map(v=>v/l);for(const p of [a,b,c])this.arr.push(...p,...n,...color);}quad(a,b,c,d,color){this.tri(a,b,c,color);this.tri(a,c,d,color);}box(x,y,z,sx,sy,sz,col){const a=x-sx/2,b=x+sx/2,d=z-sz/2,e=z+sz/2,f=y,g=y+sy;this.quad([a,f,d],[a,f,e],[b,f,e],[b,f,d],col);this.quad([a,g,e],[a,g,d],[b,g,d],[b,g,e],col);this.quad([a,f,e],[a,g,e],[b,g,e],[b,f,e],col);this.quad([b,f,d],[b,g,d],[a,g,d],[a,f,d],col);this.quad([a,f,d],[a,g,d],[a,g,e],[a,f,e],col);this.quad([b,f,e],[b,g,e],[b,g,d],[b,f,d],col);}cone(x,y,z,r,h,col,sides=7){for(let j=0;j<sides;j++){const a=j/sides*T,b=(j+1)/sides*T;this.tri([x+Math.sin(a)*r,y,z+Math.cos(a)*r],[x+Math.sin(b)*r,y,z+Math.cos(b)*r],[x,y+h,z],col);}}roof(x,y,z,w,d,h,col){const a=x-w/2,b=x+w/2,c=z-d/2,e=z+d/2;this.quad([a,y,c],[a,y,e],[x,y+h,e],[x,y+h,c],col);this.quad([x,y+h,c],[x,y+h,e],[b,y,e],[b,y,c],col);this.tri([a,y,c],[x,y+h,c],[b,y,c],col);this.tri([b,y,e],[x,y+h,e],[a,y,e],col);}finishChunks(cellSize=192){
+  // Triangle ownership is assigned ONCE, during world construction. Unchanging
+  // geometry and vertex buffers are reused for the entire continuous trip.
+  const buckets=new Map(),arr=this.arr;
+  for(let i=0;i<arr.length;i+=27){
+    const x=(arr[i]+arr[i+9]+arr[i+18])/3,z=(arr[i+2]+arr[i+11]+arr[i+20])/3;
+    const ix=Math.floor(x/cellSize),iz=Math.floor(z/cellSize),key=ix+':'+iz;
+    let list=buckets.get(key);if(!list){list=[];buckets.set(key,list);}
+    for(let k=0;k<27;k++)list.push(arr[i+k]);
+  }
+  this.arr=null;
+  const chunks=[];
+  for(const [key,vertices] of buckets){
+    const [ix,iz]=key.split(':').map(Number),chunkMesh=new Mesh();
+    chunkMesh.arr=vertices;
+    const uploaded=chunkMesh.finish();
+    chunks.push({...uploaded,key,cx:(ix+.5)*cellSize,cz:(iz+.5)*cellSize,
+      padding:cellSize*.78+36,cellSize});
+  }
+  return chunks;
+ }
+ finish(){const data=new Float32Array(this.arr),vao=gl.createVertexArray();gl.bindVertexArray(vao);const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);const stride=36;for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,stride,i*12);}gl.bindVertexArray(null);const count=data.length/9;this.arr=null;return{vao,buf,count};}}
+const ground=new Mesh(),coarseGround=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh(),foliage=new Mesh(),farFoliage=new Mesh();
+function sampleColor(x,z,y){const h=hash(Math.floor(x/19),Math.floor(z/19)),grass=clamp((y+12)/25,0,1),farm=Math.hypot(x+320,z+365)<170? .11:0;return [.23+.12*grass+.07*h+farm,.39+.14*grass+.06*h-farm*.2,.20+.05*h+grass*.02];}
+// One connected, prebuilt landscape; no scene transitions or blank proxy tiles.
+const quality=(navigator.hardwareConcurrency<=4||matchMedia('(pointer:coarse)').matches)?'mobile':'desktop';
+const min=-720,max=760,res=quality==='mobile'?24:15;for(let z=min;z<max;z+=res)for(let x=min;x<max;x+=res){const local=closestRoad(x+res*.5,z+res*.5)<26?3:1,side=res/local;for(let j=0;j<local;j++)for(let i=0;i<local;i++){const xx=x+i*side,zz=z+j*side,y0=height(xx,zz),y1=height(xx+side,zz),y2=height(xx+side,zz+side),y3=height(xx,zz+side),cc=sampleColor(xx,zz,y0);ground.quad([xx,y0,zz],[xx,y3,zz+side],[xx+side,y2,zz+side],[xx+side,y1,zz],cc);}}
+// Coarse fallback is baked once from the SAME height and material functions.
+ // Roadside, riverbank and inhabited terrain always retain fine triangles.
+ for(let z=min;z<max;z+=48)for(let x=min;x<max;x+=48){
+   const step=48, y0=height(x,z),y1=height(x+step,z),
+      y2=height(x+step,z+step),y3=height(x,z+step);
+   coarseGround.quad([x,y0,z],[x,y3,z+step],[x+step,y2,z+step],[x+step,y1,z],sampleColor(x,z,y0));
+ }
+ function roadStrip(points,halfWidth,col,raise=.10,out=decor){for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],dx=b.x-a.x,dz=b.z-a.z,l=Math.hypot(dx,dz),nx=dz/l,nz=-dx/l;out.quad([a.x-nx*halfWidth,height(a.x-nx*halfWidth,a.z-nz*halfWidth)+raise,a.z-nz*halfWidth],[b.x-nx*halfWidth,height(b.x-nx*halfWidth,b.z-nz*halfWidth)+raise,b.z-nz*halfWidth],[b.x+nx*halfWidth,height(b.x+nx*halfWidth,b.z+nz*halfWidth)+raise,b.z+nz*halfWidth],[a.x+nx*halfWidth,height(a.x+nx*halfWidth,a.z+nz*halfWidth)+raise,a.z+nz*halfWidth],col);}}
+roadStrip(roadPoints,7.1,ROAD_EDGE,.38);roadStrip(roadPoints,5.85,ROAD,.44);
+// Thin wagon ruts read as a used road; not a dotted guidance line.
+roadStrip(roadPoints,1.45,[.49,.42,.30],.48);
+for(let x=min;x<max;x+=10){const z=riverZ(x);const ww=17+4*Math.sin(x/68),a=x,b=x+10,za=riverZ(a),zb=riverZ(b);const c=height(x,za)-.9,d=height(b,zb)-.9;water.quad([a,c,za-ww],[b,d,zb-ww],[b,d,zb+ww],[a,c,za+ww],RIVER);}
+// Riverbank rock and freshwater reeds.
+for(let k=0;k<140;k++){const x=min+hash(k,11)*(max-min),z=riverZ(x)+(hash(k,12)>.5?1:-1)*(20+hash(k,13)*17),y=height(x,z);decor.box(x,y,z,1+hash(k,14)*2,2+hash(k,15)*4,1.4,[.40,.44,.38]);}
+const airfields=[{x:25,z:143,name:'Southreach'},{x:316,z:332,name:'Ridgehaven'}];for(const a of airfields){const y=height(a.x,a.z)+.23;decor.box(a.x,y,a.z,20,.12,67,[.43,.44,.41]);for(let k=-2;k<=2;k++)decor.box(a.x,y+.13,a.z+k*12,.8,.1,6,[.85,.77,.57]);decor.box(a.x-13,y,a.z-35,2,.15,11,[.75,.60,.40]);decor.box(a.x+13,y,a.z+35,2,.15,11,[.75,.60,.40]);}
+function fence(x,z,segments=6,axis=0){const y=height(x,z);for(let i=0;i<=segments;i++){const dx=axis?i*5:0,dz=axis?0:i*5;decor.box(x+dx,y-.4,z+dz,.8,2.2,.8,WOOD);}for(let j=0;j<2;j++)decor.box(x+(axis?segments*2.5:0),y+.3+j*.6,z+(axis?0:segments*2.5),axis?segments*5:0.45,.20,axis?.45:segments*5,WOOD);}
+const blockedBuildings=[];
+function cottage(x,z,s=1,heading=0){blockedBuildings.push({x,z,radius:6.8*s});const y=height(x,z),w=11*s,d=8*s,wall=hash(x,z)>.5?STUCCO:PLASTER,roof=hash(z,x)>.5?ROOF:[.35,.37,.32];landmarks.box(x,y-.15,z,w,5.3*s,d,wall);landmarks.box(x,y-.20,z,w+.3*s,.55*s,d+.3*s,[.52,.49,.42]);landmarks.roof(x,y+5*s,z,w+1.8*s,d+2*s,3.1*s,roof);landmarks.box(x+3*s,y+4*s,z+1*s,1.6*s,4.0*s,1.5*s,[.46,.38,.31]);for(let k=0;k<7;k++){const zz=z-d/2+(k+.5)*(d/7);landmarks.box(x,y+5.05*s,zz,w*.93,.10*s,.14*s,k%2?[.43,.32,.27]:[.48,.35,.29]);}landmarks.box(x,y+.02,z+d*.51,2*s,3.4*s,.2*s,[.25,.22,.18]);for(const dx of [-3.6,3.6]){landmarks.box(x+dx*s,y+2.2*s,z+d*.515,1.7*s,1.5*s,.2*s,[.39,.49,.49]);landmarks.box(x+(dx-.8)*s,y+2.2*s,z+d*.53,.15*s,2*s,.15*s,WOOD);landmarks.box(x+(dx+.8)*s,y+2.2*s,z+d*.53,.15*s,2*s,.15*s,WOOD);}for(const dx of [-3.5,3.5]){landmarks.box(x+dx*s,y+2.45*s,z-d*.515,1.8*s,1.45*s,.18*s,[.34,.48,.50]);landmarks.box(x+dx*s,y+2.45*s,z-d*.54,.14*s,1.8*s,.22*s,WOOD);landmarks.box(x+dx*s,y+2.45*s,z-d*.54,2.0*s,.13*s,.22*s,WOOD);}for(const dx of [-w/2,w/2])landmarks.box(x+dx,y-.1,z,.5*s,5.3*s,d+.1,WOOD);landmarks.box(x,y+4.8*s,z+d*.51,w,.4*s,.3*s,WOOD);landmarks.box(x,y+4.8*s,z-d*.51,w,.4*s,.3*s,WOOD);for(const side of [-1,1])for(let k=0;k<3;k++)landmarks.box(x+side*(w/2+.08*s),y+(.8+k*1.5)*s,z,.16*s,.18*s,d,WOOD);}
+function outpost(cx,cz,variant){const buildings=variant===0?[[-50,-28,1.25],[-27,37,.9],[2,-36,.95],[49,21,1.3],[53,-11,1],[-12,66,.86],[61,53,1.2],[-67,32,.9]]:[[-39,-21,1.3],[-50,24,.8],[19,-42,1.05],[39,22,1.25],[73,9,.9],[-15,57,1.15],[52,62,1.0],[-69,-55,.84]];for(const [dx,dz,s] of buildings)cottage(cx+dx,cz+dz,s);const y=height(cx,cz);landmarks.box(cx-24,y,cz-8,4,10,4,[.46,.42,.35]);landmarks.roof(cx-24,y+10,cz-8,6,6,3,ROOF);for(let i=0;i<3;i++){const bx=cx-77+i*11,bz=cz-70;for(let j=0;j<13;j++){const xx=bx+j*.6,zz=bz+j*3;landmarks.box(xx,height(xx,zz),zz,.3,.7,.3,j%2?FIELD:STRAW);}}fence(cx-83,cz-81,14,1);fence(cx-80,cz-78,13,0);}
+outpost(-340,-370,0);outpost(398,420,1);
+// Farms, working sites, cairns, signal towers and a purpose-built airfield hangar.
+cottage(-207,-246,1.25);cottage(-39,56,.85);cottage(28,195,1.2);cottage(325,265,.95);
+for(const a of airfields){const y=height(a.x+35,a.z);landmarks.box(a.x+35,y,a.z,25,8,30,[.48,.49,.43]);landmarks.roof(a.x+35,y+7.9,a.z,26,32,5,[.31,.34,.32]);landmarks.box(a.x+35,y,a.z+15.4,15,6,.5,[.35,.40,.4]);landmarks.box(a.x-18,height(a.x-18,a.z),a.z+25,3,11,3,WOOD);}
+function cairn(x,z){let y=height(x,z);for(let i=0;i<4;i++){const sz=6-i*1.12;landmarks.box(x+(hash(i,31)-.5)*2,y,z,sz,2.6,sz,[.45+i*.04,.45+i*.03,.40+i*.03]);y+=2.5;}}
+cairn(117,230);cairn(-212,-108);cairn(190,330);
+// Living woodland: stable seeds, varying size/age/species and exclusions from the used roads.
+let trees=0;for(let k=0;k<(quality==='mobile'?780:1900);k++){const x=min+hash(k,1)*(max-min),z=min+hash(k,2)*(max-min);if(Math.hypot(x+340,z+370)<115||Math.hypot(x-398,z-420)<128||Math.hypot(x-25,z-143)<95||Math.hypot(x-316,z-332)<81||closestRoad(x,z)<16||Math.abs(z-riverZ(x))<37||hash(k,3)<.31)continue;const y=height(x,z),r=2.2+hash(k,5)*2.5,h=13+hash(k,7)*15,evergreen=hash(k,9)<.7;const cc=evergreen?[.14+hash(k,13)*.09,.27+hash(k,11)*.18,.20+hash(k,15)*.11]:[.31+hash(k,13)*.15,.38+hash(k,11)*.2,.21+hash(k,15)*.1];foliage.box(x,y,z,1.4,h*.45,1.4,[.31,.24,.18]);if(k%3===0){const shadeY=height(x+3,z+4)+.06;foliage.quad([x-2,shadeY,z-2],[x+3,shadeY,z-2],[x+8,shadeY,z+6],[x+2,shadeY,z+7],[.19,.27,.19]);}if(evergreen){for(let t=0;t<3;t++)foliage.cone(x,y+2+t*h*.21,z,r*(1.9-t*.36),h*.55,cc,8);}else{for(const dx of [-1,1])foliage.cone(x+dx*r*.3,y+h*.35,z,r*1.5,h*.65,cc,8);}// Reduced distant canopy geometry keeps the same position, canopy palette and height.
+ // These are drawn only beyond the detailed-tree distance.
+ farFoliage.box(x,y,z,1.25,h*.43,1.25,[.31,.24,.18]);
+ farFoliage.cone(x,y+h*.17,z,r*1.65,h*.82,cc,5);
+ trees++;}
+// Field furrows and orchard groups, physically cultivated rather than blank grass.
+for(let row=0;row<12;row++)for(let j=0;j<25;j++){const x=-430+row*8,z=-230+j*6;if(closestRoad(x,z)<13)continue;const y=height(x,z);decor.box(x,y+.03,z,1.7,.12,4,[.42+.09*hash(row,j),.43,.24]);if(j%2===0)decor.box(x,y+.13,z,.55,.55,.45,FIELD);}
+// Populated roads with carts, supplies, stones, waymarks and animal shelters.
+for(let i=12;i<roadPoints.length-6;i+=8){const p=roadPoints[i],n=roadPoints[Math.min(i+1,roadPoints.length-1)],dir=Math.atan2(n.x-p.x,n.z-p.z),px=p.x+Math.cos(dir)*13,pz=p.z-Math.sin(dir)*13;if(i%3===0){decor.box(px,height(px,pz),pz,6,2,4,WOOD);decor.roof(px,height(px,pz)+2,pz,7,5,2,[.41,.33,.27]);}else if(i%3===1){decor.box(px,height(px,pz),pz,3,2,3,[.44,.43,.35]);decor.box(px+4,height(px+4,pz),pz+2,2,1.8,2,[.38,.39,.36]);}else{decor.box(px,height(px,pz),pz,1,4,1,WOOD);decor.box(px,height(px,pz)+3,pz,2,1.1,2,GOLD);}}
+// Bridge boards are a concrete traversable crossing, not a disconnected region gate.
+for(let i=0;i<15;i++){const x=-171+i*4,z=-126+i*3.2,y=height(x,z)+2;decor.box(x,y,z,11,.45,5,[.42,.31,.22]);for(const dx of [-5,5])decor.box(x+dx,y,z,.6,2.1,.6,WOOD);}
+const terrainChunks=ground.finishChunks(192),coarseTerrainChunks=coarseGround.finishChunks(192),decChunks=decor.finishChunks(192),
+ waterChunks=water.finishChunks(192),townChunks=landmarks.finishChunks(192),
+ foliageChunks=foliage.finishChunks(192),farFoliageChunks=farFoliage.finishChunks(192);
+ const meshChunkCount=[terrainChunks,coarseTerrainChunks,decChunks,waterChunks,townChunks,foliageChunks,farFoliageChunks].reduce((n,g)=>n+g.length,0);
+ const coarseTerrainByKey=new Map(coarseTerrainChunks.map(mesh=>[mesh.key,mesh]));
+ const terrainRoles=new Map(terrainChunks.map(mesh=>[mesh.key,
+   roadPoints.some(p=>Math.abs(p.x-mesh.cx)<136&&Math.abs(p.z-mesh.cz)<136)||
+   places.some(p=>Math.hypot(p.x-mesh.cx,p.z-mesh.cz)<p.radius+80)||
+   Math.abs(mesh.cz-riverZ(mesh.cx))<102]));
+const roverMesh=new Mesh();roverMesh.box(0,.8,0,3.9,1.25,6.7,[.21,.26,.28]);roverMesh.box(0,2.0,-.1,3.2,1.5,3.5,[.17,.24,.29]);roverMesh.box(0,2.2,1.75,3.25,.6,1.8,[.25,.38,.4]);roverMesh.box(0,1.9,-3.3,3.7,.55,.45,[.35,.33,.31]);roverMesh.box(0,1.3,3.4,3.2,.6,.3,[.35,.32,.28]);for(const x of [-2.0,2.0])for(const z of [-2.1,2.25]){roverMesh.box(x,.3,z,1.15,1.55,1.5,[.14,.15,.14]);roverMesh.box(x*1.30,.3,z,.13,.65,.7,[.62,.56,.44]);}for(const x of [-1.3,1.3]){roverMesh.box(x,1.35,3.55,.7,.4,.13,GOLD);roverMesh.box(x,1.1,-3.58,.7,.35,.12,[.7,.16,.11]);}roverMesh.box(0,2.9,.0,2.9,.18,3,WOOD);const carMesh=roverMesh.finish();
+const planeMesh=new Mesh();planeMesh.box(0,1.5,0,2.8,1.5,9.5,[.36,.47,.50]);planeMesh.box(0,2.7,1.2,2.05,1.15,3.3,[.29,.43,.50]);planeMesh.box(0,1.95,1.7,2.1,.7,1.7,[.23,.37,.46]);planeMesh.box(0,1.5,-3.7,10,.35,2,[.39,.43,.39]);planeMesh.box(0,1.8,.8,16,.45,3.1,[.47,.49,.43]);planeMesh.box(0,1.6,4.1,1.5,3,1.4,[.37,.46,.45]);for(const x of [-6.6,6.6]){planeMesh.box(x,1.65,.8,1.5,.7,2,[.26,.34,.33]);planeMesh.box(x,2.2,.8,2.3,.17,2.6,GOLD);}for(const x of [-1.2,1.2]){planeMesh.box(x,-.2,-2.1,.6,1.6,.6,[.22,.21,.2]);planeMesh.box(x,-.4,-2.2,.9,.65,1.7,[.18,.2,.2]);}planeMesh.box(0,1.45,-5.0,1.4,.4,1.2,GOLD);const craftMesh=planeMesh.finish();
+const pawnMesh=new Mesh();pawnMesh.cone(0,.7,0,.72,1.6,[.39,.27,.29],9);pawnMesh.box(0,2.45,0,.95,.95,.75,[.69,.56,.42]);pawnMesh.cone(0,3.0,0,.75,.35,[.24,.29,.30],9);const avatarMesh=pawnMesh.finish();
+const caravanMesh=new Mesh();caravanMesh.box(0,.9,0,3.0,1.6,5.8,[.43,.31,.2]);caravanMesh.roof(0,2.5,0,3.4,6.3,1.7,[.68,.55,.38]);for(const x of [-1.5,1.5])for(const z of [-2.3,2.3])caravanMesh.box(x,.35,z,.55,1.2,1.2,[.18,.18,.17]);const cartMesh=caravanMesh.finish();
+const fauna=new Mesh();fauna.box(0,.8,0,1.35,1,2.3,[.5,.36,.23]);fauna.box(0,1.1,1.3,.73,.75,1,[.45,.32,.23]);for(const x of [-.48,.48])for(const z of [-.78,.8])fauna.box(x,-.08,z,.21,1.1,.21,[.3,.25,.19]);fauna.cone(0,1.65,1.5,.43,.5,[.4,.32,.2],7);const deerMesh=fauna.finish();
+function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,false,M);gl.drawArrays(gl.TRIANGLES,0,mesh.count);}
+ const identity=ident();
+ const vis={cellSize:192,meshCount:meshChunkCount,visibleCells:0,terrainChunks:0,terrainDetailChunks:0,terrainCoarseChunks:0,vegetationChunks:0,
+   culledChunks:0,streamingCount:0,keys:[]};
+ window.__sliceVisibility=vis;
+ let lastStreamSignature='';
+ function drawTerrainLOD(center,range,detailRange,eye,target,keys){
+  const margin=192*.78+36,limit=(range+margin)*(range+margin),
+    detailSquared=(detailRange+65)*(detailRange+65);
+  const fX=target[0]-eye[0],fZ=target[2]-eye[2],norm=Math.hypot(fX,fZ)||1;
+  for(const original of terrainChunks){
+    const dx=original.cx-center.x,dz=original.cz-center.z,d2=dx*dx+dz*dz;
+    if(d2>limit){vis.culledChunks++;continue;}
+    const eX=original.cx-eye[0],eZ=original.cz-eye[2],ahead=(eX*fX+eZ*fZ)/norm;
+    if(ahead<-margin-115&&d2>170*170){vis.culledChunks++;continue;}
+    const detailed=d2<=detailSquared||terrainRoles.get(original.key);
+    const chunk=detailed?original:(coarseTerrainByKey.get(original.key)||original);
+    gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);
+    vis.terrainChunks++;
+    if(detailed)vis.terrainDetailChunks++;else vis.terrainCoarseChunks++;
+    if(keys)keys.add(original.key);
+  }
+ }
+ function drawChunkGroup(chunks,center,range,kind,eye,target,keys){
+  const margin=192*.78+36,edge=kind==='foliage'?35:margin,limit=(range+edge)*(range+edge);
+  const forwardX=target[0]-eye[0],forwardZ=target[2]-eye[2],norm=Math.hypot(forwardX,forwardZ)||1;
+  let drawn=0,culled=0;
+  for(let i=0;i<chunks.length;i++){
+   const chunk=chunks[i],dx=chunk.cx-center.x,dz=chunk.cz-center.z,dist2=dx*dx+dz*dz;
+   if(dist2>limit){culled++;continue;}
+   // Conservative back-camera exclusion: close objects are always retained.
+   const eX=chunk.cx-eye[0],eZ=chunk.cz-eye[2],ahead=(eX*forwardX+eZ*forwardZ)/norm;
+   if(ahead<-margin-115&&dist2>170*170){culled++;continue;}
+   gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);drawn++;
+   if(keys)keys.add(chunk.key);
+  }
+  vis.culledChunks+=culled;
+  if(kind==='terrain')vis.terrainChunks+=drawn;
+  if(kind==='foliage')vis.vegetationChunks+=drawn;
+  return drawn;
+ }
+const car={x:-345,z:-389,y:height(-345,-389),yaw:.55,speed:0,steer:0},plane={x:25,z:143,y:height(25,143)+.8,yaw:0,speed:0,vy:0,pitch:0,roll:0,landed:true},rover2={x:325,z:350,y:height(325,350),yaw:-.6,speed:0},player={x:-346,z:-366,y:height(-346,-366),yaw:0},camera={x:-358,y:20,z:-400},keys={},touch={};let mode='foot',stage=0,flightTo=1,autoland=false,roadAssist=false,footAssist=false,mapOpen=false,drag=false,previousX=0,orbit=0,zoom=1.0,elapsed=0,frameCount=0,frames=0,lastFpsAt=0,lastT=performance.now(),acc=0,lastTip=0,toastUntil=0,visited=new Set(),harvested=new Set(),inventory={timber:0,reeds:0,grain:0,stone:0},delivered=false;
+const getPose=()=>mode==='ground'?car:mode==='flight'?plane:player;
+function announce(msg,hold=3.5){id('toast').textContent=msg;id('toast').style.opacity='1';toastUntil=performance.now()+hold*1000;}
+function updateStage(){if(stage===0&&mode==='ground'){stage=1;announce('The valley road leads east.');}if(stage===1&&Math.hypot(car.x-25,car.z-143)<34){stage=2;announce('Southreach Airfield — an aircraft waits beside the hangar.');}if(stage===2&&mode==='flight'){stage=3;announce('The southern ridge opens toward Ridgehaven.');}if(stage===3&&mode==='foot'&&Math.hypot(player.x-316,player.z-332)<90){stage=4;announce('Ridgehaven lies ahead. The world continues beyond the runway.');}if(stage===4&&Math.hypot(player.x-398,player.z-420)<52){stage=5;delivered=true;const n=Object.values(inventory).reduce((a,b)=>a+b,0);announce('Arrived in Ridgehaven. '+(n?`${n} gathered supplies reach the market.`:'The road carries on beyond the town.'),6);}}
+function gather(){if(mode!=='foot')return;const near=resources.find(r=>!harvested.has(r.id)&&Math.hypot(player.x-r.x,player.z-r.z)<25);if(!near){announce('Look for material sites along the trade road.',1.8);return;}harvested.add(near.id);inventory[near.kind]+=near.quantity;announce(`${near.quantity} ${near.kind} packed for the Ridgehaven market.`,3.4);}
+function interact(){if(mode==='foot'){const nearCar=dist(player,car)<13,nearPlane=dist(player,plane)<14;if(nearPlane){mode='flight';plane.landed=true;announce('W accelerate · A/D bank · Space lift · Shift descend · L landing assist.');}else if(nearCar){mode='ground';announce('W accelerate · S brake/reverse · A/D steer · Space handbrake.');}else announce('There is nothing to board here.',1.6);}else if(mode==='ground'){if(Math.abs(car.speed)<2.4){mode='foot';player.x=car.x+5;player.z=car.z+4;player.y=height(player.x,player.z);announce('Back on foot.');}else announce('Stop the rover before getting out.',1.6);}else if(mode==='flight'){if(plane.landed&&plane.speed<6){mode='foot';player.x=plane.x+5;player.z=plane.z+4;player.y=height(player.x,player.z);announce('Touchdown. You can explore on foot.');}else announce('Land and slow down before disembarking.',1.7);}updateStage();}
+function keydown(e){const k=e.key.toLowerCase();if([' ','arrowup','arrowdown','arrowleft','arrowright'].includes(k))e.preventDefault();if(!keys[k]){if(k==='e')interact();if(k==='f')gather();if(k==='m'){mapOpen=!mapOpen;id('map').classList.toggle('open',mapOpen);id('mapNote').classList.toggle('open',mapOpen);}if(k==='r'&&mode==='foot'){footAssist=!footAssist;announce(footAssist?'Following the visible route on foot.':'Walking route guidance disengaged.',2.3);}if(k==='r'&&mode==='ground'){roadAssist=!roadAssist;announce(roadAssist?'Following the trade road to Southreach.':'Road guidance disengaged.',2.4);}if(k==='l'&&mode==='flight'){autoland=!autoland;announce(autoland?'Approach stabilization engaged.':'Manual flight restored.',2.4);}}keys[k]=true;}
+addEventListener('keydown',keydown);addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);addEventListener('blur',()=>{for(const k in keys)keys[k]=false;});
+canvas.addEventListener('pointerdown',e=>{drag=true;previousX=e.clientX;canvas.setPointerCapture(e.pointerId);});canvas.addEventListener('pointermove',e=>{if(drag){orbit=clamp(orbit+(e.clientX-previousX)*.004,-1.7,1.7);previousX=e.clientX;}});canvas.addEventListener('pointerup',()=>drag=false);canvas.addEventListener('wheel',e=>{zoom=clamp(zoom+Math.sign(e.deltaY)*.12,.65,2.0);},{passive:true});
+for(const b of document.querySelectorAll('#mobile button')){const k=b.dataset.key;b.addEventListener('pointerdown',e=>{e.preventDefault();touch[k]=true;if(k==='e'||k==='m'||k==='l')keydown({key:k,preventDefault(){}});b.setPointerCapture(e.pointerId);});b.addEventListener('pointerup',e=>{e.preventDefault();touch[k]=false;keys[k]=false;});b.addEventListener('pointercancel',()=>{touch[k]=false;keys[k]=false;});}
+const down=k=>!!(keys[k]||touch[k]);
+function collision(x,z,allowWater=false){if(blockedBuildings.some(o=>Math.hypot(x-o.x,z-o.z)<o.radius+(mode==='ground'?2:0)))return true;if(x<min+30||z<min+30||x>max-30||z>max-30)return true;for(const p of places){if(p.id==='lowbank'||p.id==='ridgehaven')continue;if(p.id==='cairn'&&Math.hypot(x-p.x,z-p.z)<5)return true;}const inRiver=Math.abs(z-riverZ(x))<17,nearBridge=Math.hypot(x+140,z+105)<45;return !allowWater&&inRiver&&!nearBridge;}
+function simulate(dt){elapsed+=dt;let steer=(down('a')||down('arrowleft')?-1:0)+(down('d')||down('arrowright')?1:0),fwd=(down('w')||down('arrowup')?1:0)-(down('s')||down('arrowdown')?1:0);if(mode==='ground'&&roadAssist){let near=0,best=Infinity;for(let i=0;i<roadPoints.length;i++){const d=Math.hypot(car.x-roadPoints[i].x,car.z-roadPoints[i].z);if(d<best){best=d;near=i;}}const target=roadPoints[Math.min(roadPoints.length-1,near+5)],bearing=Math.atan2(target.x-car.x,target.z-car.z),error=Math.atan2(Math.sin(bearing-car.yaw),Math.cos(bearing-car.yaw)),toAirfield=Math.hypot(car.x-25,car.z-143),desiredSpeed=clamp((toAirfield-9)*.45,0,15);steer=clamp(error*1.8,-1,1);fwd=car.speed>desiredSpeed?-1:1;if(toAirfield<17&&Math.abs(car.speed)<1.7){roadAssist=false;fwd=0;car.speed=0;announce('The rover is parked by the runway.');}}if(mode==='foot'){if(footAssist){const goal=stage===0?car:stage<=2?plane:stage>=4?places[7]:places[6],d=Math.hypot(goal.x-player.x,goal.z-player.z);if(d<10){footAssist=false;fwd=0;}else{const target=Math.atan2(goal.x-player.x,goal.z-player.z),diff=Math.atan2(Math.sin(target-player.yaw),Math.cos(target-player.yaw));player.yaw+=diff*clamp(dt*5.5,0,1);steer=0;fwd=1;}}const a=player.yaw=(player.yaw+(steer*.95)*dt),nX=player.x+Math.sin(a)*fwd*7.4*dt,nZ=player.z+Math.cos(a)*fwd*7.4*dt;if(!collision(nX,nZ)){player.x=nX;player.z=nZ;}player.y=height(player.x,player.z);}
+else if(mode==='ground'){car.steer=smooth(car.steer,steer,dt*12);const slip=down(' ')? .34:1,acc=fwd*12-(down(' ')?Math.sign(car.speed)*16:0)-car.speed*.9;car.speed=clamp(car.speed+acc*dt,-11,32);if(Math.abs(car.speed)<.3&&fwd===0)car.speed=0;car.yaw+=car.steer*car.speed*dt/(5+Math.abs(car.speed)*.28)*slip;const nx=car.x+Math.sin(car.yaw)*car.speed*dt,nz=car.z+Math.cos(car.yaw)*car.speed*dt;if(collision(nx,nz)){car.speed=0;}else{car.x=nx;car.z=nz;}car.y=height(car.x,car.z);}
+else if(mode==='flight'){
+ const lift=down(' ')?1:0,descend=down('shift')?1:0;
+ plane.speed=clamp(plane.speed+(fwd*13-.0065*plane.speed*plane.speed)*dt,0,64);
+ if(autoland){const p=airfields[flightTo],dx=p.x-plane.x,dz=p.z-plane.z,targetHeading=Math.atan2(dx,dz),diff=Math.atan2(Math.sin(targetHeading-plane.yaw),Math.cos(targetHeading-plane.yaw)),d=Math.hypot(dx,dz);plane.roll=smooth(plane.roll,clamp(diff*.8,-.45,.45),dt*2.2);plane.yaw+=clamp(diff,-1.2,1.2)*dt*.7;plane.pitch=smooth(plane.pitch,clamp((Math.min(20,d*.11)+height(p.x,p.z)+1-plane.y)*.035,-.32,.2),dt*1.2);plane.speed=smooth(plane.speed,clamp(d*.70,2.5,28),dt*1.8);plane.vy=clamp((height(p.x,p.z)+1.1+Math.min(20,d*.12)-plane.y)*.43,-7,5);if(d<11&&Math.abs(plane.y-height(p.x,p.z)-1.1)<2.2){plane.landed=true;autoland=false;plane.vy=0;plane.speed=0;plane.x=p.x;plane.z=p.z;plane.y=height(p.x,p.z)+1;announce('Landing secured at '+p.name+'. Press E to disembark.');}}
+ else{plane.roll=smooth(plane.roll,steer*.58,dt*3.1);plane.pitch=smooth(plane.pitch,(down('arrowup')?.23:0)-(down('arrowdown')?.23:0),dt*2.4);plane.yaw+=(steer*.30+plane.roll*.4)*dt;const rise=lift*8-descend*8+Math.sin(plane.pitch)*plane.speed*.5+Math.max(0,plane.speed-14)*.04-2.1;plane.vy=clamp(plane.vy+(rise-plane.vy*.65)*dt,-15,15);if(plane.landed&&lift)plane.landed=false;}
+ plane.x+=Math.sin(plane.yaw)*plane.speed*dt;plane.z+=Math.cos(plane.yaw)*plane.speed*dt;const groundY=height(plane.x,plane.z)+1.0;plane.y+=plane.vy*dt;if(plane.y<=groundY){plane.y=groundY;plane.vy=0;plane.landed=true;if(plane.speed>14)plane.speed*=.994;else plane.speed*=.975;}else plane.landed=false;if(plane.landed&&Math.hypot(plane.x-316,plane.z-332)<54)flightTo=1;}
+ const p=getPose();for(const item of places){const d=Math.hypot(item.x-p.x,item.z-p.z);if(d<item.radius*.55&&!visited.has(item.id)){visited.add(item.id);if(performance.now()-lastTip>3200){lastTip=performance.now();if(item.id==='mill')announce('The mill turns where the road meets the water.');if(item.id==='bridge')announce('A bridge carries freight across the Slatewater.');if(item.id==='cairn')announce('An old cairn still marks the ridge path.');}}}updateStage();}
+function drawMap(){if(!mapOpen)return;const c=id('map').getContext('2d'),w=660,h=660,tx=x=>((x-min)/(max-min))*w,ty=z=>h-((z-min)/(max-min))*h;c.fillStyle='#203238';c.fillRect(0,0,w,h);for(let i=0;i<42;i++){for(let j=0;j<42;j++){const x=min+i*(max-min)/42,z=min+j*(max-min)/42,y=height(x,z);c.fillStyle=y>6?'#4b5b42':y>0?'#46583a':'#344c42';c.fillRect(tx(x),ty(z),17,17);}}c.beginPath();for(let x=min;x<=max;x+=6){const z=riverZ(x);if(x===min)c.moveTo(tx(x),ty(z));else c.lineTo(tx(x),ty(z));}c.strokeStyle='#598da2';c.lineWidth=12;c.stroke();c.beginPath();for(let i=0;i<roadPoints.length;i++){const p=roadPoints[i];if(i===0)c.moveTo(tx(p.x),ty(p.z));else c.lineTo(tx(p.x),ty(p.z));}c.strokeStyle='#c19d69';c.lineWidth=5;c.stroke();c.font='21px Georgia';c.fillStyle='#f6e3c1';for(const p of places.filter(x=>['lowbank','airfield','landing','ridgehaven'].includes(x.id))){c.fillText(p.name,tx(p.x)+12,ty(p.z)-12);c.fillStyle='#dbc08a';c.fillRect(tx(p.x)-5,ty(p.z)-5,10,10);c.fillStyle='#f6e3c1';}const p=getPose();c.beginPath();c.arc(tx(p.x),ty(p.z),8,0,T);c.fillStyle='#fae3a1';c.fill();c.strokeStyle='#141b1f';c.lineWidth=3;c.stroke();}
+function updateHud(){const p=getPose(),city=[...places].sort((a,b)=>Math.hypot(a.x-p.x,a.z-p.z)-Math.hypot(b.x-p.x,b.z-p.z))[0];id('location').textContent=Math.hypot(city.x-p.x,city.z-p.z)<city.radius?city.name:'The living lowlands';id('modeTag').textContent=mode==='ground'?`Rover · ${Math.round(Math.abs(car.speed)*3.6)} km/h`:mode==='flight'?`Skylark · ${Math.round(plane.speed*3.6)} km/h · ${Math.max(0,Math.round(plane.y-height(plane.x,plane.z)))} m AGL`:'A country without chapter gates';const messages=['The rover is waiting beside Lowbank.','Follow the road to Southreach Airfield.','Leave the rover and board the Skylark.','Cross the valley and land near Ridgehaven.','Walk from the airstrip to Ridgehaven.','The road carries on. Explore as you wish.'];id('direction').textContent=messages[stage];id('controls').textContent=mode==='foot'?'W forward · A/D turn · R follow route · E board · F gather · M map':mode==='ground'?'W throttle · S reverse/brake · A/D steer · R road assist · Space handbrake · E exit':'W throttle · A/D bank · Space lift · Shift descend · L auto-land · E exit · M map';id('prompt').style.display=(mode!=='foot'||dist(player,car)<15||dist(player,plane)<16)?'block':'none';id('prompt').textContent=mode==='foot'?(resources.some(r=>!harvested.has(r.id)&&Math.hypot(player.x-r.x,player.z-r.z)<25)?'F  —  Gather local materials':dist(player,plane)<16?'E  —  Board Skylark aircraft':'E  —  Board rover'):mode==='flight'?(plane.landed?'E  —  Disembark (stopped)':'Space ascend  ·  L landing assist'):'E  —  Exit when stopped';}
+const npcPaths=[{offset:23,speed:1.6},{offset:75,speed:1.1},{offset:120,speed:1.4}];
+function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=now;acc=Math.min(.12,acc+raw);let ticks=0;while(acc>=1/60&&ticks<5){simulate(1/60);acc-=1/60;ticks++;}
+ const p=getPose(),fy=mode==='flight'?plane.y+4:p.y+3.2,d=mode==='flight'?35*zoom:mode==='ground'?24*zoom:16*zoom,l=mode==='flight'?13:mode==='ground'?8:5,a=(p.yaw||0)+orbit,desX=p.x-Math.sin(a)*d,desZ=p.z-Math.cos(a)*d,desY=fy+l*zoom,c=.095;camera.x=lerp(camera.x,desX,clamp(raw*5.1,0,1));camera.z=lerp(camera.z,desZ,clamp(raw*5.1,0,1));camera.y=lerp(camera.y,desY,clamp(raw*5.1,0,1));camera.y=Math.max(camera.y,height(camera.x,camera.z)+3.8);const eye=[camera.x,camera.y,camera.z],target=[p.x,fy,p.z],proj=persp(65*pi/180,canvas.width/canvas.height,.1,2200),vp=mat4mul(proj,lookAt(eye,target));gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(uVP,false,vp);gl.uniform3fv(uEye,new Float32Array(eye));// Static world meshes are never recreated as the player crosses a region.
+ // Keep a generous airborne horizon, while vegetation has two distance LODs.
+ const distance=mode==='flight'?950:mode==='ground'?620:510;
+ const keys=window.__flightPerf?new Set():null;
+ // All static chunks share one model matrix; uniform updates belong to actors.
+ gl.uniformMatrix4fv(uModel,false,identity);
+ vis.terrainChunks=0;vis.terrainDetailChunks=0;vis.terrainCoarseChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('terrain');
+ drawTerrainLOD(p,distance,mode==='flight'?400:mode==='ground'?320:265,eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('water');
+ drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('decor');
+ drawChunkGroup(decChunks,p,distance*.86,'decor',eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('town');
+ drawChunkGroup(townChunks,p,distance*.9,'town',eye,target,keys);
+ const near=mode==='flight'?340:mode==='ground'?260:190;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('foliage-near');
+ drawChunkGroup(foliageChunks,p,near,'foliage',eye,target,keys);
+ // Coarse canopies beyond the near band avoid the full leaf/trunk polygon load.
+ const far=mode==='flight'?750:mode==='ground'?530:410;
+ const margin=192*.78+36;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('foliage-far');
+ for(const chunk of farFoliageChunks){
+  const dx=chunk.cx-p.x,dz=chunk.cz-p.z,d2=dx*dx+dz*dz;
+  if(d2<=(near+35)*(near+35)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
+  gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);vis.vegetationChunks++;
+  if(keys)keys.add(chunk.key);
+ }
+ if(keys){const sorted=[...keys].sort();vis.visibleCells=sorted.length;
+  vis.keys=sorted;
+  const signature=sorted.join('|');
+  if(signature!==lastStreamSignature){vis.streamingCount++;lastStreamSignature=signature;}
+ }if(window.__flightPerf)window.__flightPerf.markGpuStage('actors');
+ draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
+ if(window.__flightPerf)window.__flightPerf.endGpuStage();
+ frameCount++;frames++;if(now-lastFpsAt>850){id('fps').textContent=Math.round(frames*1000/(now-lastFpsAt||1000))+' FPS';frames=0;lastFpsAt=now;updateHud();drawMap();}if(toastUntil&&now>toastUntil){id('toast').style.opacity='0';toastUntil=0;}requestAnimationFrame(render);}
+if(window.__ENABLE_SLICE_TEST__===true)window.__sliceTest={state:()=>({mode,stage,player:{...player},car:{...car},plane:{...plane},visited:[...visited],inventory:{...inventory},delivered}),stopCar:()=>{car.speed=0;},roadAssist:()=>{roadAssist=true;},footAssist:()=>{footAssist=true;},teleport:(x,z)=>{if(mode==='foot'){player.x=x;player.z=z;player.y=height(x,z);}else if(mode==='ground'){car.x=x;car.z=z;car.y=height(x,z);}else{plane.x=x;plane.z=z;plane.y=Math.max(plane.y,height(x,z)+1);}},interact,step:simulate,autoland:()=>{autoland=true;}};
+const debugRenderer=gl.getExtension('WEBGL_debug_renderer_info'),rendererName=debugRenderer?String(gl.getParameter(debugRenderer.UNMASKED_RENDERER_WEBGL)):'',softwareRenderer=/swiftshader|llvmpipe|software/i.test(rendererName);
+function resize(){const dpr=Math.min(window.devicePixelRatio||1,1.5)*(softwareRenderer?.7:1);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);}addEventListener('resize',resize);resize();announce('The world is one place. Follow the road, then take to the air.',5);requestAnimationFrame(render);
+})();
+</script>
+</body></html>
