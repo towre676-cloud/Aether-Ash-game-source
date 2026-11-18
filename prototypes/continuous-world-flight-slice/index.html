@@ -63,8 +63,29 @@ const ident=()=>new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
 function persp(fov,aspect,near,far){const f=1/Math.tan(fov/2),o=new Float32Array(16);o[0]=f/aspect;o[5]=f;o[10]=(far+near)/(near-far);o[11]=-1;o[14]=2*far*near/(near-far);return o;}
 function lookAt(eye,target){let z=[eye[0]-target[0],eye[1]-target[1],eye[2]-target[2]],len=Math.hypot(...z);z=z.map(x=>x/len);let x=[z[2],0,-z[0]];len=Math.hypot(...x);x=x.map(v=>v/Math.max(.00001,len));const y=[z[1]*x[2]-z[2]*x[1],z[2]*x[0]-z[0]*x[2],z[0]*x[1]-z[1]*x[0]];const o=ident();for(let i=0;i<3;i++){o[i*4]=x[i];o[i*4+1]=y[i];o[i*4+2]=z[i];}o[12]=-x[0]*eye[0]-x[1]*eye[1]-x[2]*eye[2];o[13]=-y[0]*eye[0]-y[1]*eye[1]-y[2]*eye[2];o[14]=-z[0]*eye[0]-z[1]*eye[1]-z[2]*eye[2];return o;}
 function model(x,y,z,yaw=0,pitch=0,roll=0){const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch),cr=Math.cos(roll),sr=Math.sin(roll),m=ident();m[0]=cy*cr+sy*sp*sr;m[1]=cp*sr;m[2]=-sy*cr+cy*sp*sr;m[4]=-cy*sr+sy*sp*cr;m[5]=cp*cr;m[6]=sy*sr+cy*sp*cr;m[8]=sy*cp;m[9]=-sp;m[10]=cy*cp;m[12]=x;m[13]=y;m[14]=z;return m;}
-class Mesh {constructor(){this.arr=[];}tri(a,b,c,color){const n0=[(b[1]-a[1])*(c[2]-a[2])-(b[2]-a[2])*(c[1]-a[1]),(b[2]-a[2])*(c[0]-a[0])-(b[0]-a[0])*(c[2]-a[2]),(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])],l=Math.hypot(...n0)||1,n=n0.map(v=>v/l);for(const p of [a,b,c])this.arr.push(...p,...n,...color);}quad(a,b,c,d,color){this.tri(a,b,c,color);this.tri(a,c,d,color);}box(x,y,z,sx,sy,sz,col){const a=x-sx/2,b=x+sx/2,d=z-sz/2,e=z+sz/2,f=y,g=y+sy;this.quad([a,f,d],[a,f,e],[b,f,e],[b,f,d],col);this.quad([a,g,e],[a,g,d],[b,g,d],[b,g,e],col);this.quad([a,f,e],[a,g,e],[b,g,e],[b,f,e],col);this.quad([b,f,d],[b,g,d],[a,g,d],[a,f,d],col);this.quad([a,f,d],[a,g,d],[a,g,e],[a,f,e],col);this.quad([b,f,e],[b,g,e],[b,g,d],[b,f,d],col);}cone(x,y,z,r,h,col,sides=7){for(let j=0;j<sides;j++){const a=j/sides*T,b=(j+1)/sides*T;this.tri([x+Math.sin(a)*r,y,z+Math.cos(a)*r],[x+Math.sin(b)*r,y,z+Math.cos(b)*r],[x,y+h,z],col);}}roof(x,y,z,w,d,h,col){const a=x-w/2,b=x+w/2,c=z-d/2,e=z+d/2;this.quad([a,y,c],[a,y,e],[x,y+h,e],[x,y+h,c],col);this.quad([x,y+h,c],[x,y+h,e],[b,y,e],[b,y,c],col);this.tri([a,y,c],[x,y+h,c],[b,y,c],col);this.tri([b,y,e],[x,y+h,e],[a,y,e],col);}finish(){const data=new Float32Array(this.arr),vao=gl.createVertexArray();gl.bindVertexArray(vao);const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);const stride=36;for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,stride,i*12);}gl.bindVertexArray(null);const count=data.length/9;this.arr=null;return{vao,buf,count};}}
-const ground=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh();
+class Mesh {constructor(){this.arr=[];}tri(a,b,c,color){const n0=[(b[1]-a[1])*(c[2]-a[2])-(b[2]-a[2])*(c[1]-a[1]),(b[2]-a[2])*(c[0]-a[0])-(b[0]-a[0])*(c[2]-a[2]),(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])],l=Math.hypot(...n0)||1,n=n0.map(v=>v/l);for(const p of [a,b,c])this.arr.push(...p,...n,...color);}quad(a,b,c,d,color){this.tri(a,b,c,color);this.tri(a,c,d,color);}box(x,y,z,sx,sy,sz,col){const a=x-sx/2,b=x+sx/2,d=z-sz/2,e=z+sz/2,f=y,g=y+sy;this.quad([a,f,d],[a,f,e],[b,f,e],[b,f,d],col);this.quad([a,g,e],[a,g,d],[b,g,d],[b,g,e],col);this.quad([a,f,e],[a,g,e],[b,g,e],[b,f,e],col);this.quad([b,f,d],[b,g,d],[a,g,d],[a,f,d],col);this.quad([a,f,d],[a,g,d],[a,g,e],[a,f,e],col);this.quad([b,f,e],[b,g,e],[b,g,d],[b,f,d],col);}cone(x,y,z,r,h,col,sides=7){for(let j=0;j<sides;j++){const a=j/sides*T,b=(j+1)/sides*T;this.tri([x+Math.sin(a)*r,y,z+Math.cos(a)*r],[x+Math.sin(b)*r,y,z+Math.cos(b)*r],[x,y+h,z],col);}}roof(x,y,z,w,d,h,col){const a=x-w/2,b=x+w/2,c=z-d/2,e=z+d/2;this.quad([a,y,c],[a,y,e],[x,y+h,e],[x,y+h,c],col);this.quad([x,y+h,c],[x,y+h,e],[b,y,e],[b,y,c],col);this.tri([a,y,c],[x,y+h,c],[b,y,c],col);this.tri([b,y,e],[x,y+h,e],[a,y,e],col);}finishChunks(cellSize=192){
+  // Triangle ownership is assigned ONCE, during world construction. Unchanging
+  // geometry and vertex buffers are reused for the entire continuous trip.
+  const buckets=new Map(),arr=this.arr;
+  for(let i=0;i<arr.length;i+=27){
+    const x=(arr[i]+arr[i+9]+arr[i+18])/3,z=(arr[i+2]+arr[i+11]+arr[i+20])/3;
+    const ix=Math.floor(x/cellSize),iz=Math.floor(z/cellSize),key=ix+':'+iz;
+    let list=buckets.get(key);if(!list){list=[];buckets.set(key,list);}
+    for(let k=0;k<27;k++)list.push(arr[i+k]);
+  }
+  this.arr=null;
+  const chunks=[];
+  for(const [key,vertices] of buckets){
+    const [ix,iz]=key.split(':').map(Number),chunkMesh=new Mesh();
+    chunkMesh.arr=vertices;
+    const uploaded=chunkMesh.finish();
+    chunks.push({...uploaded,key,cx:(ix+.5)*cellSize,cz:(iz+.5)*cellSize,
+      padding:cellSize*.78+36,cellSize});
+  }
+  return chunks;
+ }
+ finish(){const data=new Float32Array(this.arr),vao=gl.createVertexArray();gl.bindVertexArray(vao);const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);const stride=36;for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,stride,i*12);}gl.bindVertexArray(null);const count=data.length/9;this.arr=null;return{vao,buf,count};}}
+const ground=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh(),foliage=new Mesh(),farFoliage=new Mesh();
 function sampleColor(x,z,y){const h=hash(Math.floor(x/19),Math.floor(z/19)),grass=clamp((y+12)/25,0,1),farm=Math.hypot(x+320,z+365)<170? .11:0;return [.23+.12*grass+.07*h+farm,.39+.14*grass+.06*h-farm*.2,.20+.05*h+grass*.02];}
 // One connected, prebuilt landscape; no scene transitions or blank proxy tiles.
 const quality=(navigator.hardwareConcurrency<=4||matchMedia('(pointer:coarse)').matches)?'mobile':'desktop';
@@ -88,20 +109,50 @@ for(const a of airfields){const y=height(a.x+35,a.z);landmarks.box(a.x+35,y,a.z,
 function cairn(x,z){let y=height(x,z);for(let i=0;i<4;i++){const sz=6-i*1.12;landmarks.box(x+(hash(i,31)-.5)*2,y,z,sz,2.6,sz,[.45+i*.04,.45+i*.03,.40+i*.03]);y+=2.5;}}
 cairn(117,230);cairn(-212,-108);cairn(190,330);
 // Living woodland: stable seeds, varying size/age/species and exclusions from the used roads.
-let trees=0;for(let k=0;k<(quality==='mobile'?780:1900);k++){const x=min+hash(k,1)*(max-min),z=min+hash(k,2)*(max-min);if(Math.hypot(x+340,z+370)<115||Math.hypot(x-398,z-420)<128||Math.hypot(x-25,z-143)<95||Math.hypot(x-316,z-332)<81||closestRoad(x,z)<16||Math.abs(z-riverZ(x))<37||hash(k,3)<.31)continue;const y=height(x,z),r=2.2+hash(k,5)*2.5,h=13+hash(k,7)*15,evergreen=hash(k,9)<.7;const cc=evergreen?[.14+hash(k,13)*.09,.27+hash(k,11)*.18,.20+hash(k,15)*.11]:[.31+hash(k,13)*.15,.38+hash(k,11)*.2,.21+hash(k,15)*.1];decor.box(x,y,z,1.4,h*.45,1.4,[.31,.24,.18]);if(k%3===0){const shadeY=height(x+3,z+4)+.06;decor.quad([x-2,shadeY,z-2],[x+3,shadeY,z-2],[x+8,shadeY,z+6],[x+2,shadeY,z+7],[.19,.27,.19]);}if(evergreen){for(let t=0;t<3;t++)decor.cone(x,y+2+t*h*.21,z,r*(1.9-t*.36),h*.55,cc,8);}else{for(const dx of [-1,1])decor.cone(x+dx*r*.3,y+h*.35,z,r*1.5,h*.65,cc,8);}trees++;}
+let trees=0;for(let k=0;k<(quality==='mobile'?780:1900);k++){const x=min+hash(k,1)*(max-min),z=min+hash(k,2)*(max-min);if(Math.hypot(x+340,z+370)<115||Math.hypot(x-398,z-420)<128||Math.hypot(x-25,z-143)<95||Math.hypot(x-316,z-332)<81||closestRoad(x,z)<16||Math.abs(z-riverZ(x))<37||hash(k,3)<.31)continue;const y=height(x,z),r=2.2+hash(k,5)*2.5,h=13+hash(k,7)*15,evergreen=hash(k,9)<.7;const cc=evergreen?[.14+hash(k,13)*.09,.27+hash(k,11)*.18,.20+hash(k,15)*.11]:[.31+hash(k,13)*.15,.38+hash(k,11)*.2,.21+hash(k,15)*.1];foliage.box(x,y,z,1.4,h*.45,1.4,[.31,.24,.18]);if(k%3===0){const shadeY=height(x+3,z+4)+.06;foliage.quad([x-2,shadeY,z-2],[x+3,shadeY,z-2],[x+8,shadeY,z+6],[x+2,shadeY,z+7],[.19,.27,.19]);}if(evergreen){for(let t=0;t<3;t++)foliage.cone(x,y+2+t*h*.21,z,r*(1.9-t*.36),h*.55,cc,8);}else{for(const dx of [-1,1])foliage.cone(x+dx*r*.3,y+h*.35,z,r*1.5,h*.65,cc,8);}// Reduced distant canopy geometry keeps the same position, canopy palette and height.
+ // These are drawn only beyond the detailed-tree distance.
+ farFoliage.box(x,y,z,1.25,h*.43,1.25,[.31,.24,.18]);
+ farFoliage.cone(x,y+h*.17,z,r*1.65,h*.82,cc,5);
+ trees++;}
 // Field furrows and orchard groups, physically cultivated rather than blank grass.
 for(let row=0;row<12;row++)for(let j=0;j<25;j++){const x=-430+row*8,z=-230+j*6;if(closestRoad(x,z)<13)continue;const y=height(x,z);decor.box(x,y+.03,z,1.7,.12,4,[.42+.09*hash(row,j),.43,.24]);if(j%2===0)decor.box(x,y+.13,z,.55,.55,.45,FIELD);}
 // Populated roads with carts, supplies, stones, waymarks and animal shelters.
 for(let i=12;i<roadPoints.length-6;i+=8){const p=roadPoints[i],n=roadPoints[Math.min(i+1,roadPoints.length-1)],dir=Math.atan2(n.x-p.x,n.z-p.z),px=p.x+Math.cos(dir)*13,pz=p.z-Math.sin(dir)*13;if(i%3===0){decor.box(px,height(px,pz),pz,6,2,4,WOOD);decor.roof(px,height(px,pz)+2,pz,7,5,2,[.41,.33,.27]);}else if(i%3===1){decor.box(px,height(px,pz),pz,3,2,3,[.44,.43,.35]);decor.box(px+4,height(px+4,pz),pz+2,2,1.8,2,[.38,.39,.36]);}else{decor.box(px,height(px,pz),pz,1,4,1,WOOD);decor.box(px,height(px,pz)+3,pz,2,1.1,2,GOLD);}}
 // Bridge boards are a concrete traversable crossing, not a disconnected region gate.
 for(let i=0;i<15;i++){const x=-171+i*4,z=-126+i*3.2,y=height(x,z)+2;decor.box(x,y,z,11,.45,5,[.42,.31,.22]);for(const dx of [-5,5])decor.box(x+dx,y,z,.6,2.1,.6,WOOD);}
-const terrainMesh=ground.finish(),decMesh=decor.finish(),waterMesh=water.finish(),townMesh=landmarks.finish();
+const terrainChunks=ground.finishChunks(192),decChunks=decor.finishChunks(192),
+ waterChunks=water.finishChunks(192),townChunks=landmarks.finishChunks(192),
+ foliageChunks=foliage.finishChunks(192),farFoliageChunks=farFoliage.finishChunks(192);
+ const meshChunkCount=[terrainChunks,decChunks,waterChunks,townChunks,foliageChunks,farFoliageChunks].reduce((n,g)=>n+g.length,0);
 const roverMesh=new Mesh();roverMesh.box(0,.8,0,3.9,1.25,6.7,[.21,.26,.28]);roverMesh.box(0,2.0,-.1,3.2,1.5,3.5,[.17,.24,.29]);roverMesh.box(0,2.2,1.75,3.25,.6,1.8,[.25,.38,.4]);roverMesh.box(0,1.9,-3.3,3.7,.55,.45,[.35,.33,.31]);roverMesh.box(0,1.3,3.4,3.2,.6,.3,[.35,.32,.28]);for(const x of [-2.0,2.0])for(const z of [-2.1,2.25]){roverMesh.box(x,.3,z,1.15,1.55,1.5,[.14,.15,.14]);roverMesh.box(x*1.30,.3,z,.13,.65,.7,[.62,.56,.44]);}for(const x of [-1.3,1.3]){roverMesh.box(x,1.35,3.55,.7,.4,.13,GOLD);roverMesh.box(x,1.1,-3.58,.7,.35,.12,[.7,.16,.11]);}roverMesh.box(0,2.9,.0,2.9,.18,3,WOOD);const carMesh=roverMesh.finish();
 const planeMesh=new Mesh();planeMesh.box(0,1.5,0,2.8,1.5,9.5,[.36,.47,.50]);planeMesh.box(0,2.7,1.2,2.05,1.15,3.3,[.29,.43,.50]);planeMesh.box(0,1.95,1.7,2.1,.7,1.7,[.23,.37,.46]);planeMesh.box(0,1.5,-3.7,10,.35,2,[.39,.43,.39]);planeMesh.box(0,1.8,.8,16,.45,3.1,[.47,.49,.43]);planeMesh.box(0,1.6,4.1,1.5,3,1.4,[.37,.46,.45]);for(const x of [-6.6,6.6]){planeMesh.box(x,1.65,.8,1.5,.7,2,[.26,.34,.33]);planeMesh.box(x,2.2,.8,2.3,.17,2.6,GOLD);}for(const x of [-1.2,1.2]){planeMesh.box(x,-.2,-2.1,.6,1.6,.6,[.22,.21,.2]);planeMesh.box(x,-.4,-2.2,.9,.65,1.7,[.18,.2,.2]);}planeMesh.box(0,1.45,-5.0,1.4,.4,1.2,GOLD);const craftMesh=planeMesh.finish();
 const pawnMesh=new Mesh();pawnMesh.cone(0,.7,0,.72,1.6,[.39,.27,.29],9);pawnMesh.box(0,2.45,0,.95,.95,.75,[.69,.56,.42]);pawnMesh.cone(0,3.0,0,.75,.35,[.24,.29,.30],9);const avatarMesh=pawnMesh.finish();
 const caravanMesh=new Mesh();caravanMesh.box(0,.9,0,3.0,1.6,5.8,[.43,.31,.2]);caravanMesh.roof(0,2.5,0,3.4,6.3,1.7,[.68,.55,.38]);for(const x of [-1.5,1.5])for(const z of [-2.3,2.3])caravanMesh.box(x,.35,z,.55,1.2,1.2,[.18,.18,.17]);const cartMesh=caravanMesh.finish();
 const fauna=new Mesh();fauna.box(0,.8,0,1.35,1,2.3,[.5,.36,.23]);fauna.box(0,1.1,1.3,.73,.75,1,[.45,.32,.23]);for(const x of [-.48,.48])for(const z of [-.78,.8])fauna.box(x,-.08,z,.21,1.1,.21,[.3,.25,.19]);fauna.cone(0,1.65,1.5,.43,.5,[.4,.32,.2],7);const deerMesh=fauna.finish();
-function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,false,M);gl.drawArrays(gl.TRIANGLES,0,mesh.count);}const identity=ident();
+function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,false,M);gl.drawArrays(gl.TRIANGLES,0,mesh.count);}
+ const identity=ident();
+ const vis={cellSize:192,meshCount:meshChunkCount,visibleCells:0,terrainChunks:0,vegetationChunks:0,
+   culledChunks:0,streamingCount:0,keys:[]};
+ window.__sliceVisibility=vis;
+ let lastStreamSignature='';
+ function drawChunkGroup(chunks,center,range,kind,eye,target,keys){
+  const margin=192*.78+36,limit=(range+margin)*(range+margin);
+  const forwardX=target[0]-eye[0],forwardZ=target[2]-eye[2],norm=Math.hypot(forwardX,forwardZ)||1;
+  let drawn=0,culled=0;
+  for(let i=0;i<chunks.length;i++){
+   const chunk=chunks[i],dx=chunk.cx-center.x,dz=chunk.cz-center.z,dist2=dx*dx+dz*dz;
+   if(dist2>limit){culled++;continue;}
+   // Conservative back-camera exclusion: close objects are always retained.
+   const eX=chunk.cx-eye[0],eZ=chunk.cz-eye[2],ahead=(eX*forwardX+eZ*forwardZ)/norm;
+   if(ahead<-margin-115&&dist2>170*170){culled++;continue;}
+   draw(chunk,identity);drawn++;
+   if(keys)keys.add(chunk.key);
+  }
+  vis.culledChunks+=culled;
+  if(kind==='terrain')vis.terrainChunks+=drawn;
+  if(kind==='foliage')vis.vegetationChunks+=drawn;
+  return drawn;
+ }
 const car={x:-345,z:-389,y:height(-345,-389),yaw:.55,speed:0,steer:0},plane={x:25,z:143,y:height(25,143)+.8,yaw:0,speed:0,vy:0,pitch:0,roll:0,landed:true},rover2={x:325,z:350,y:height(325,350),yaw:-.6,speed:0},player={x:-346,z:-366,y:height(-346,-366),yaw:0},camera={x:-358,y:20,z:-400},keys={},touch={};let mode='foot',stage=0,flightTo=1,autoland=false,roadAssist=false,footAssist=false,mapOpen=false,drag=false,previousX=0,orbit=0,zoom=1.0,elapsed=0,frameCount=0,frames=0,lastFpsAt=0,lastT=performance.now(),acc=0,lastTip=0,toastUntil=0,visited=new Set(),harvested=new Set(),inventory={timber:0,reeds:0,grain:0,stone:0},delivered=false;
 const getPose=()=>mode==='ground'?car:mode==='flight'?plane:player;
 function announce(msg,hold=3.5){id('toast').textContent=msg;id('toast').style.opacity='1';toastUntil=performance.now()+hold*1000;}
@@ -127,7 +178,31 @@ function drawMap(){if(!mapOpen)return;const c=id('map').getContext('2d'),w=660,h
 function updateHud(){const p=getPose(),city=[...places].sort((a,b)=>Math.hypot(a.x-p.x,a.z-p.z)-Math.hypot(b.x-p.x,b.z-p.z))[0];id('location').textContent=Math.hypot(city.x-p.x,city.z-p.z)<city.radius?city.name:'The living lowlands';id('modeTag').textContent=mode==='ground'?`Rover · ${Math.round(Math.abs(car.speed)*3.6)} km/h`:mode==='flight'?`Skylark · ${Math.round(plane.speed*3.6)} km/h · ${Math.max(0,Math.round(plane.y-height(plane.x,plane.z)))} m AGL`:'A country without chapter gates';const messages=['The rover is waiting beside Lowbank.','Follow the road to Southreach Airfield.','Leave the rover and board the Skylark.','Cross the valley and land near Ridgehaven.','Walk from the airstrip to Ridgehaven.','The road carries on. Explore as you wish.'];id('direction').textContent=messages[stage];id('controls').textContent=mode==='foot'?'W forward · A/D turn · R follow route · E board · F gather · M map':mode==='ground'?'W throttle · S reverse/brake · A/D steer · R road assist · Space handbrake · E exit':'W throttle · A/D bank · Space lift · Shift descend · L auto-land · E exit · M map';id('prompt').style.display=(mode!=='foot'||dist(player,car)<15||dist(player,plane)<16)?'block':'none';id('prompt').textContent=mode==='foot'?(resources.some(r=>!harvested.has(r.id)&&Math.hypot(player.x-r.x,player.z-r.z)<25)?'F  —  Gather local materials':dist(player,plane)<16?'E  —  Board Skylark aircraft':'E  —  Board rover'):mode==='flight'?(plane.landed?'E  —  Disembark (stopped)':'Space ascend  ·  L landing assist'):'E  —  Exit when stopped';}
 const npcPaths=[{offset:23,speed:1.6},{offset:75,speed:1.1},{offset:120,speed:1.4}];
 function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=now;acc=Math.min(.12,acc+raw);let ticks=0;while(acc>=1/60&&ticks<5){simulate(1/60);acc-=1/60;ticks++;}
- const p=getPose(),fy=mode==='flight'?plane.y+4:p.y+3.2,d=mode==='flight'?35*zoom:mode==='ground'?24*zoom:16*zoom,l=mode==='flight'?13:mode==='ground'?8:5,a=(p.yaw||0)+orbit,desX=p.x-Math.sin(a)*d,desZ=p.z-Math.cos(a)*d,desY=fy+l*zoom,c=.095;camera.x=lerp(camera.x,desX,clamp(raw*5.1,0,1));camera.z=lerp(camera.z,desZ,clamp(raw*5.1,0,1));camera.y=lerp(camera.y,desY,clamp(raw*5.1,0,1));camera.y=Math.max(camera.y,height(camera.x,camera.z)+3.8);const eye=[camera.x,camera.y,camera.z],target=[p.x,fy,p.z],proj=persp(65*pi/180,canvas.width/canvas.height,.1,2200),vp=mat4mul(proj,lookAt(eye,target));gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(uVP,false,vp);gl.uniform3fv(uEye,new Float32Array(eye));draw(terrainMesh,identity);draw(waterMesh,identity);draw(decMesh,identity);draw(townMesh,identity);draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
+ const p=getPose(),fy=mode==='flight'?plane.y+4:p.y+3.2,d=mode==='flight'?35*zoom:mode==='ground'?24*zoom:16*zoom,l=mode==='flight'?13:mode==='ground'?8:5,a=(p.yaw||0)+orbit,desX=p.x-Math.sin(a)*d,desZ=p.z-Math.cos(a)*d,desY=fy+l*zoom,c=.095;camera.x=lerp(camera.x,desX,clamp(raw*5.1,0,1));camera.z=lerp(camera.z,desZ,clamp(raw*5.1,0,1));camera.y=lerp(camera.y,desY,clamp(raw*5.1,0,1));camera.y=Math.max(camera.y,height(camera.x,camera.z)+3.8);const eye=[camera.x,camera.y,camera.z],target=[p.x,fy,p.z],proj=persp(65*pi/180,canvas.width/canvas.height,.1,2200),vp=mat4mul(proj,lookAt(eye,target));gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(uVP,false,vp);gl.uniform3fv(uEye,new Float32Array(eye));// Static world meshes are never recreated as the player crosses a region.
+ // Keep a generous airborne horizon, while vegetation has two distance LODs.
+ const distance=mode==='flight'?950:mode==='ground'?620:510;
+ const keys=window.__flightPerf?new Set():null;
+ vis.terrainChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
+ drawChunkGroup(terrainChunks,p,distance,'terrain',eye,target,keys);
+ drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
+ drawChunkGroup(decChunks,p,distance*.86,'decor',eye,target,keys);
+ drawChunkGroup(townChunks,p,distance*.9,'town',eye,target,keys);
+ const near=mode==='flight'?340:mode==='ground'?260:190;
+ drawChunkGroup(foliageChunks,p,near,'foliage',eye,target,keys);
+ // Coarse canopies beyond the near band avoid the full leaf/trunk polygon load.
+ const far=mode==='flight'?750:mode==='ground'?530:410;
+ const margin=192*.78+36;
+ for(const chunk of farFoliageChunks){
+  const dx=chunk.cx-p.x,dz=chunk.cz-p.z,d2=dx*dx+dz*dz;
+  if(d2<(near-margin)*(near-margin)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
+  draw(chunk,identity);vis.vegetationChunks++;
+  if(keys)keys.add(chunk.key);
+ }
+ if(keys){const sorted=[...keys].sort();vis.visibleCells=sorted.length;
+  vis.keys=sorted;
+  const signature=sorted.join('|');
+  if(signature!==lastStreamSignature){vis.streamingCount++;lastStreamSignature=signature;}
+ }draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
  frameCount++;frames++;if(now-lastFpsAt>850){id('fps').textContent=Math.round(frames*1000/(now-lastFpsAt||1000))+' FPS';frames=0;lastFpsAt=now;updateHud();drawMap();}if(toastUntil&&now>toastUntil){id('toast').style.opacity='0';toastUntil=0;}requestAnimationFrame(render);}
 if(window.__ENABLE_SLICE_TEST__===true)window.__sliceTest={state:()=>({mode,stage,player:{...player},car:{...car},plane:{...plane},visited:[...visited],inventory:{...inventory},delivered}),stopCar:()=>{car.speed=0;},roadAssist:()=>{roadAssist=true;},footAssist:()=>{footAssist=true;},teleport:(x,z)=>{if(mode==='foot'){player.x=x;player.z=z;player.y=height(x,z);}else if(mode==='ground'){car.x=x;car.z=z;car.y=height(x,z);}else{plane.x=x;plane.z=z;plane.y=Math.max(plane.y,height(x,z)+1);}},interact,step:simulate,autoland:()=>{autoland=true;}};
 const debugRenderer=gl.getExtension('WEBGL_debug_renderer_info'),rendererName=debugRenderer?String(gl.getParameter(debugRenderer.UNMASKED_RENDERER_WEBGL)):'',softwareRenderer=/swiftshader|llvmpipe|software/i.test(rendererName);
