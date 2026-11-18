@@ -95,6 +95,13 @@ try{
    await page.locator('#spatial-region-map[hidden]').waitFor({state:'attached',timeout:6000});
    stage='movement';
    let moved=false,after=before;
+   // Closing an overlay leaves focus on its now-hidden map control in some
+   // Chromium/SwiftShader sessions. Restore focus to the accessible play
+   // canvas before sending the actual keyboard (desktop) or pointer (phone).
+   await page.locator('#screen').evaluate(canvas=>{
+    if(!canvas.hasAttribute('tabindex'))canvas.setAttribute('tabindex','0');
+    canvas.focus({preventScroll:true});
+   });
    if(mobile){
     // On phones test the actual pointer-owned stick, not desktop arrow keys.
     const box=await page.locator('#joystick').boundingBox();
@@ -111,11 +118,28 @@ try{
     if(!moved)throw Error('Mobile joystick pointer-hold did not move the avatar from the arrival tile');
    }else{
     for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
-     await page.keyboard.down(direction);await sleep(800);await page.keyboard.up(direction);await sleep(300);
+     // Await actual position change, rather than a fixed delay that can
+     // expire before a software-rendered frame completes.
+     await page.keyboard.down(direction);
+     try {await page.waitForFunction(initial=>{
+       const el=document.getElementById('screen');
+       return !!el?.dataset.position&&el.dataset.position!==initial;
+      },before,{timeout:3200,polling:100});}catch{}
+     await page.keyboard.up(direction);await sleep(160);
      after=(await page.locator('#screen').getAttribute('data-position'))||'';
      if(after&&after!==before){moved=true;break;}
     }
-    if(!moved)throw Error('No manual movement in any arrow-key direction at arrival');
+    if(!moved){
+     const detail=await page.evaluate(()=>({
+      active:document.activeElement?.id,scene:document.getElementById('screen')?.dataset.scene,
+      mode:document.getElementById('screen')?.dataset.mode,
+      drawMs:document.getElementById('screen')?.dataset.drawMs,
+      dialogVisible:!document.getElementById('dialog')?.hidden,
+      pauseVisible:!document.getElementById('pause')?.hidden,
+      mapVisible:!document.getElementById('spatial-region-map')?.hidden
+     }));
+     throw Error('No manual movement in any arrow-key direction at arrival '+JSON.stringify(detail));
+    }
    }
    await page.screenshot({path:path.join(artifacts,label+'-field.png'),fullPage:false,timeout:12000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' field: '+String(e).slice(0,180)));
    const metrics=await page.locator('#screen').evaluate(canvas=>({
