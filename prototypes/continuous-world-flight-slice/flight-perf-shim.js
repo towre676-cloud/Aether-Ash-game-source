@@ -5,7 +5,7 @@
   const maxFrames=4000, enableGpuStages=window.__FLIGHT_GPU_STAGES__===true;
   const measurements={};
   const totals={buffers:0,bufferBytes:0,textureUploads:0,programs:0,shaderSwitches:0};
-  const phases=[], longTasks=[], gpuSamples=[], pendingQueries=[];
+  const phases=[],frameHistory={}, longTasks=[], gpuSamples=[], pendingQueries=[];
   let phase='boot', frames=[], previous=0, current=null, glContext=null, lastCellKeys='', timerExt=null;
   let frameSerial=0, selectedGpuStage='', activeGpuQuery=null;
   const stages=['terrain','water','decor','town','foliage-near','foliage-far','actors'];
@@ -122,6 +122,8 @@
       meshCount:stats?.meshCount??null,
       vegetationChunks:stats?.vegetationChunks??null,
       terrainChunks:stats?.terrainChunks??null,
+      terrainDetailChunks:stats?.terrainDetailChunks??null,
+      terrainCoarseChunks:stats?.terrainCoarseChunks??null,
       culledChunks:stats?.culledChunks??null,
       streamingChanged:changed,
       heapBytes:frames.length%6===0?m?.usedJSHeapSize||null:null
@@ -145,7 +147,7 @@
       meanVaoBinds:mean(frames.map(f=>f.vaoBinds)),meanProgramBinds:mean(frames.map(f=>f.programBinds)),
       meanMaterialUniformChanges:mean(frames.map(f=>f.materialChanges)),meanTextureBinds:mean(frames.map(f=>f.textureBinds)),
       meanVisibleCells:mean(frames.map(f=>f.visibleCells)),meanVegetationChunks:mean(frames.map(f=>f.vegetationChunks)),
-      meanTerrainChunks:mean(frames.map(f=>f.terrainChunks)),meanCulledChunks:mean(frames.map(f=>f.culledChunks)),
+      meanTerrainChunks:mean(frames.map(f=>f.terrainChunks)),meanTerrainDetailChunks:mean(frames.map(f=>f.terrainDetailChunks)),meanTerrainCoarseChunks:mean(frames.map(f=>f.terrainCoarseChunks)),meanCulledChunks:mean(frames.map(f=>f.culledChunks)),
       streamingChanges:frames.filter(f=>f.streamingChanged).length,heapSamples:distribution(frames.map(f=>f.heapBytes)),
       aggregateStreamCells:statsSnapshot(),
       gpuStages:Object.fromEntries(stages.map(label=>[label,distribution(gpuSamples.filter(x=>x.phase===phase&&x.label===label).map(x=>x.ms))])),
@@ -158,12 +160,12 @@
       // Between phases only: synchronize outstanding sampled queries so the
       // completed phase includes its own GPU results. Never inside a frame.
       if(timerExt&&pendingQueries.length){glContext.finish();pollGpu();}
-      phases.push(summarize());
+      phases.push(summarize());frameHistory[phase]=frames.slice();
     }phase=name;frames=[];previous=0;lastCellKeys='';},
     markGpuStage(label){stopGpu();startGpu(label);},
     endGpuStage(){stopGpu();},
     result(){if(timerExt&&pendingQueries.length){glContext.finish();pollGpu();}
-      if(phase!=='boot')return {phases:[...phases,summarize()],renderer:measurements,uploads:{...totals},viewport:{width:innerWidth,height:innerHeight},pixelRatio:devicePixelRatio};
+      if(phase!=='boot')return {phases:[...phases,summarize()],samplesByPhase:{...frameHistory,[phase]:frames.slice()},renderer:measurements,uploads:{...totals},viewport:{width:innerWidth,height:innerHeight},pixelRatio:devicePixelRatio};
       return {phases,renderer:measurements,uploads:{...totals}};},
     raw(){return frames.slice();},
     phase:()=>phase
