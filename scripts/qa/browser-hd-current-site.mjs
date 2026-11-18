@@ -41,7 +41,20 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
    const canvas=document.querySelector('#screen');
    return canvas&&canvas.width>200&&canvas.height>200&&document.querySelector('#opening')?.hidden===true;
   },null,{timeout:70000});
-  await page.waitForTimeout(1650);
+  stage='wait until 3D frame is actually painted';
+  await page.waitForFunction(()=>{
+   const canvas=document.querySelector('#screen');
+   return canvas&&Number(canvas.dataset.drawMs)>0&&canvas.dataset.mode==='field';
+  },null,{timeout:85000});
+  await page.waitForTimeout(1700);
+  const samples=await page.evaluate(()=>new Promise(resolve=>{
+   const values=[],end=performance.now()+2600;
+   const timer=setInterval(()=>{
+    const n=Number(document.querySelector('#screen')?.dataset.drawMs);
+    if(Number.isFinite(n)&&n>0)values.push(n);
+    if(performance.now()>=end){clearInterval(timer);resolve(values);}
+   },220);
+  }));
   stage='scene screenshot';
   metrics=await page.evaluate(()=>{
    const c=document.querySelector('#screen'),badge=document.querySelector('#dev-session-badge');
@@ -54,7 +67,11 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
     documentReady:document.readyState,
     timing:performance.getEntriesByType('resource').length};
   });
-  await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
+  metrics.frameSamplesMs=samples;
+  metrics.p50RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.5)]:null;
+  metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
+  const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
+  if(png.byteLength<110000)throw Error('World screenshot was probably captured before 3D world draw: '+png.byteLength+' bytes');
   if(patched&&['adventure-landscape.js','hd-environment-models.mjs'].some(x=>!served.includes(x)))throw Error('Browser did not load BOTH exact HD source overrides: '+served);
   if(patched&&(missing.some(x=>x.includes('hd-environment-models.mjs'))))throw Error('HD model script missing: '+missing.join(' | '));
   const fatal=errors.filter(x=>/SyntaxError|ReferenceError|TypeError|Failed to fetch dynamically imported module|module specifier|Cannot find module/i.test(x));
