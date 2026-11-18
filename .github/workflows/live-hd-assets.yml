@@ -6,6 +6,7 @@ on:
       - 'live-site/dist/game/engine2/adventure-landscape.js'
       - 'live-site/dist/game/engine2/tests/hd-environment-models.test.mjs'
       - 'tools/hd-assets/**'
+      - 'scripts/qa/browser-hd-current-site.mjs'
       - '.github/workflows/live-hd-assets.yml'
   workflow_dispatch:
 jobs:
