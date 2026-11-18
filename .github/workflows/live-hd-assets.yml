@@ -1,0 +1,32 @@
+name: Live-compatible HD asset geometry
+on:
+  pull_request:
+    paths:
+      - 'live-site/dist/game/engine2/hd-environment-models.mjs'
+      - 'live-site/dist/game/engine2/adventure-landscape.js'
+      - 'live-site/dist/game/engine2/tests/hd-environment-models.test.mjs'
+      - 'tools/hd-assets/**'
+      - '.github/workflows/live-hd-assets.yml'
+  workflow_dispatch:
+jobs:
+  geometry-and-live-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test authored HD asset geometry and LOD
+        run: |
+          node --check live-site/dist/game/engine2/hd-environment-models.mjs
+          node --test live-site/dist/game/engine2/tests/hd-environment-models.test.mjs
+      - name: Validate against current public Site source (read-only)
+        run: |
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-landscape.js' \
+            -o /tmp/current-live-landscape.js
+          node tools/hd-assets/apply-live-landscape.mjs /tmp/current-live-landscape.js /tmp/patched-live-landscape.js
+          node --check /tmp/patched-live-landscape.js
+          grep -q 'appendHDTree(m,p,c' /tmp/patched-live-landscape.js
+          grep -q 'appendHDRock(m,p,c' /tmp/patched-live-landscape.js
