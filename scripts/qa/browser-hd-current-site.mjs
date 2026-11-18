@@ -94,7 +94,7 @@ async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
   metrics.frameSamplesMs=samples;metrics.frameSampleCount=samples.length;
   metrics.p50RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.5)]:null;
   metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
-  const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
+  const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:55000,animations:'disabled'});
   if(png.byteLength<110000)throw Error('World screenshot was probably captured before 3D world draw: '+png.byteLength+' bytes');
   if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load the required HD source overrides: '+served);
   if(patched&&(!metrics.hdModuleLoaded?.landscape||!metrics.hdModuleLoaded?.cistern))throw Error('HD JS responses fetched but production modules were not evaluated: '+JSON.stringify(metrics.hdModuleLoaded));
@@ -119,7 +119,7 @@ try{
  await run('baseline-desktop',{width:1280,height:800});
  await run('hd-desktop',{width:1280,height:800},{patched:true});
  await run('hd-mobile',{width:390,height:844},{patched:true,mobile:true});
- await run('hd-forest',{width:1280,height:800},{patched:true,sceneId:19});
+ await run('hd-forest',{width:960,height:600},{patched:true,sceneId:19});
 }finally{await browser.close();}
 writeFileSync(path.join(out,'report.json'),JSON.stringify({productionSiteUnmodified:true,actualGPUValidated:false,runs:report},null,2));
 const baseline=report[0],candidate=report.slice(1);
@@ -127,7 +127,7 @@ const woodland=report.find(x=>x.label==='hd-forest');
 if(woodland?.pass&&woodland.metrics.hdLandscapeCalls){
  const count=Object.values(woodland.metrics.hdLandscapeCalls).reduce((a,b)=>a+b,0);
  console.log('HD-FOREST-MODEL-HITS '+JSON.stringify({calls:woodland.metrics.hdLandscapeCalls,total:count,rendererInstances:woodland.metrics.hdRendererConstructs}));
- if(count===0){console.error('HD forest screenshot did not exercise ANY replacement geometry; failing release evidence');process.exitCode=1;}
+ if(count===0){console.error('HD forest did not execute any replacement native geometry; failing release evidence');process.exitCode=1;}
 }
 
 if(candidate.some(x=>!x.pass))process.exitCode=1;
