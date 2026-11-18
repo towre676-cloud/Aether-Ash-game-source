@@ -73,6 +73,9 @@ jobs:
         if: always()
         with:
           name: flight-realgl-perf-raw-comparison
-          path: flight-metrics
+          path: |
+            flight-metrics
+            prototypes/continuous-world-flight-slice/flight-preview.png
+            prototypes/continuous-world-flight-slice/destination-preview.png
           if-no-files-found: warn
           retention-days: 14
