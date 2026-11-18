@@ -19,7 +19,7 @@ const onlyOne=(marker)=>{
  if(first<0||source.indexOf(marker,first+marker.length)!==-1)throw Error('Unknown production landscape layout: '+marker);
  return first;
 };
-const a=onlyOne(treeMarker),b=onlyOne(rockMarker),d=onlyOne(fungusMarker),e=onlyOne('export function appendAdventureLandscape');
+const a=onlyOne(treeMarker),b=onlyOne(rockMarker),d=onlyOne(fungusMarker),e=onlyOne('export function appendAdventureLandscape(');
 if(!(a>=0&&a<b&&b<d&&d<e&&source.includes('export function appendAdventureLandscape')&&source.includes('appendLandscapeBackdrop')))throw Error('Production landscape structure changed; refusing to patch');
 if(source.includes(signature))throw Error('Site source already contains the HD renderer import; refusing duplicate application');
 const originalBodies=source.slice(a,d);
