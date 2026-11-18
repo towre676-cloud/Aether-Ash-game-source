@@ -13,6 +13,7 @@ const out=path.resolve('qa-artifacts-hd-browser');
 const patchedLandscape=readFileSync(path.join(root,'adventure-landscape.js'));
 const hdModels=readFileSync(path.join(root,'hd-environment-models.mjs'));
 const patchedCistern=readFileSync(path.join(root,'cistern-renderer.js'));
+const hdCompatAtlas=readFileSync(path.join(root,'art/hd-materials/hd-material-atlas-compatible.webp'));
 mkdirSync(out,{recursive:true});
 const args=['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||'/usr/bin/google-chrome',headless:true,args});
@@ -24,10 +25,14 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
  page.on('pageerror',e=>errors.push(String(e.message).slice(0,1000)));
  page.on('console',e=>{if(e.type()==='error')warnings.push(e.text().slice(0,400));});
  page.on('response',r=>{if(r.status()>=400&&r.url().includes('/game/engine2/'))missing.push(r.status()+' '+r.url());});
- if(patched)await page.route('**/game/engine2/*',async route=>{
+ if(patched)await page.route('**/game/engine2/**',async route=>{
   const u=new URL(route.request().url());
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/adventure-landscape.js'){
    served.push('adventure-landscape.js');return route.fulfill({status:200,body:patchedLandscape,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
+  }
+  if(u.host===canonicalHost&&u.pathname==='/game/engine2/art/hd-materials/hd-material-atlas-compatible.webp'){
+   served.push('hd-material-atlas-compatible.webp');
+   return route.fulfill({status:200,body:hdCompatAtlas,contentType:'image/webp',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/cistern-renderer.js'){
    served.push('cistern-renderer.js');return route.fulfill({status:200,body:patchedCistern,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
