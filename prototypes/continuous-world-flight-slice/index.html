@@ -85,12 +85,19 @@ class Mesh {constructor(){this.arr=[];}tri(a,b,c,color){const n0=[(b[1]-a[1])*(c
   return chunks;
  }
  finish(){const data=new Float32Array(this.arr),vao=gl.createVertexArray();gl.bindVertexArray(vao);const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);const stride=36;for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,stride,i*12);}gl.bindVertexArray(null);const count=data.length/9;this.arr=null;return{vao,buf,count};}}
-const ground=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh(),foliage=new Mesh(),farFoliage=new Mesh();
+const ground=new Mesh(),coarseGround=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh(),foliage=new Mesh(),farFoliage=new Mesh();
 function sampleColor(x,z,y){const h=hash(Math.floor(x/19),Math.floor(z/19)),grass=clamp((y+12)/25,0,1),farm=Math.hypot(x+320,z+365)<170? .11:0;return [.23+.12*grass+.07*h+farm,.39+.14*grass+.06*h-farm*.2,.20+.05*h+grass*.02];}
 // One connected, prebuilt landscape; no scene transitions or blank proxy tiles.
 const quality=(navigator.hardwareConcurrency<=4||matchMedia('(pointer:coarse)').matches)?'mobile':'desktop';
 const min=-720,max=760,res=quality==='mobile'?24:15;for(let z=min;z<max;z+=res)for(let x=min;x<max;x+=res){const local=closestRoad(x+res*.5,z+res*.5)<26?3:1,side=res/local;for(let j=0;j<local;j++)for(let i=0;i<local;i++){const xx=x+i*side,zz=z+j*side,y0=height(xx,zz),y1=height(xx+side,zz),y2=height(xx+side,zz+side),y3=height(xx,zz+side),cc=sampleColor(xx,zz,y0);ground.quad([xx,y0,zz],[xx,y3,zz+side],[xx+side,y2,zz+side],[xx+side,y1,zz],cc);}}
-function roadStrip(points,halfWidth,col,raise=.10,out=decor){for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],dx=b.x-a.x,dz=b.z-a.z,l=Math.hypot(dx,dz),nx=dz/l,nz=-dx/l;out.quad([a.x-nx*halfWidth,height(a.x-nx*halfWidth,a.z-nz*halfWidth)+raise,a.z-nz*halfWidth],[b.x-nx*halfWidth,height(b.x-nx*halfWidth,b.z-nz*halfWidth)+raise,b.z-nz*halfWidth],[b.x+nx*halfWidth,height(b.x+nx*halfWidth,b.z+nz*halfWidth)+raise,b.z+nz*halfWidth],[a.x+nx*halfWidth,height(a.x+nx*halfWidth,a.z+nz*halfWidth)+raise,a.z+nz*halfWidth],col);}}
+// Coarse fallback is baked once from the SAME height and material functions.
+ // Roadside, riverbank and inhabited terrain always retain fine triangles.
+ for(let z=min;z<max;z+=48)for(let x=min;x<max;x+=48){
+   const step=48, y0=height(x,z),y1=height(x+step,z),
+      y2=height(x+step,z+step),y3=height(x,z+step);
+   coarseGround.quad([x,y0,z],[x,y3,z+step],[x+step,y2,z+step],[x+step,y1,z],sampleColor(x,z,y0));
+ }
+ function roadStrip(points,halfWidth,col,raise=.10,out=decor){for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],dx=b.x-a.x,dz=b.z-a.z,l=Math.hypot(dx,dz),nx=dz/l,nz=-dx/l;out.quad([a.x-nx*halfWidth,height(a.x-nx*halfWidth,a.z-nz*halfWidth)+raise,a.z-nz*halfWidth],[b.x-nx*halfWidth,height(b.x-nx*halfWidth,b.z-nz*halfWidth)+raise,b.z-nz*halfWidth],[b.x+nx*halfWidth,height(b.x+nx*halfWidth,b.z+nz*halfWidth)+raise,b.z+nz*halfWidth],[a.x+nx*halfWidth,height(a.x+nx*halfWidth,a.z+nz*halfWidth)+raise,a.z+nz*halfWidth],col);}}
 roadStrip(roadPoints,7.1,ROAD_EDGE,.38);roadStrip(roadPoints,5.85,ROAD,.44);
 // Thin wagon ruts read as a used road; not a dotted guidance line.
 roadStrip(roadPoints,1.45,[.49,.42,.30],.48);
@@ -120,10 +127,15 @@ for(let row=0;row<12;row++)for(let j=0;j<25;j++){const x=-430+row*8,z=-230+j*6;i
 for(let i=12;i<roadPoints.length-6;i+=8){const p=roadPoints[i],n=roadPoints[Math.min(i+1,roadPoints.length-1)],dir=Math.atan2(n.x-p.x,n.z-p.z),px=p.x+Math.cos(dir)*13,pz=p.z-Math.sin(dir)*13;if(i%3===0){decor.box(px,height(px,pz),pz,6,2,4,WOOD);decor.roof(px,height(px,pz)+2,pz,7,5,2,[.41,.33,.27]);}else if(i%3===1){decor.box(px,height(px,pz),pz,3,2,3,[.44,.43,.35]);decor.box(px+4,height(px+4,pz),pz+2,2,1.8,2,[.38,.39,.36]);}else{decor.box(px,height(px,pz),pz,1,4,1,WOOD);decor.box(px,height(px,pz)+3,pz,2,1.1,2,GOLD);}}
 // Bridge boards are a concrete traversable crossing, not a disconnected region gate.
 for(let i=0;i<15;i++){const x=-171+i*4,z=-126+i*3.2,y=height(x,z)+2;decor.box(x,y,z,11,.45,5,[.42,.31,.22]);for(const dx of [-5,5])decor.box(x+dx,y,z,.6,2.1,.6,WOOD);}
-const terrainChunks=ground.finishChunks(192),decChunks=decor.finishChunks(192),
+const terrainChunks=ground.finishChunks(192),coarseTerrainChunks=coarseGround.finishChunks(192),decChunks=decor.finishChunks(192),
  waterChunks=water.finishChunks(192),townChunks=landmarks.finishChunks(192),
  foliageChunks=foliage.finishChunks(192),farFoliageChunks=farFoliage.finishChunks(192);
- const meshChunkCount=[terrainChunks,decChunks,waterChunks,townChunks,foliageChunks,farFoliageChunks].reduce((n,g)=>n+g.length,0);
+ const meshChunkCount=[terrainChunks,coarseTerrainChunks,decChunks,waterChunks,townChunks,foliageChunks,farFoliageChunks].reduce((n,g)=>n+g.length,0);
+ const coarseTerrainByKey=new Map(coarseTerrainChunks.map(mesh=>[mesh.key,mesh]));
+ const terrainRoles=new Map(terrainChunks.map(mesh=>[mesh.key,
+   roadPoints.some(p=>Math.abs(p.x-mesh.cx)<136&&Math.abs(p.z-mesh.cz)<136)||
+   places.some(p=>Math.hypot(p.x-mesh.cx,p.z-mesh.cz)<p.radius+80)||
+   Math.abs(mesh.cz-riverZ(mesh.cx))<102]));
 const roverMesh=new Mesh();roverMesh.box(0,.8,0,3.9,1.25,6.7,[.21,.26,.28]);roverMesh.box(0,2.0,-.1,3.2,1.5,3.5,[.17,.24,.29]);roverMesh.box(0,2.2,1.75,3.25,.6,1.8,[.25,.38,.4]);roverMesh.box(0,1.9,-3.3,3.7,.55,.45,[.35,.33,.31]);roverMesh.box(0,1.3,3.4,3.2,.6,.3,[.35,.32,.28]);for(const x of [-2.0,2.0])for(const z of [-2.1,2.25]){roverMesh.box(x,.3,z,1.15,1.55,1.5,[.14,.15,.14]);roverMesh.box(x*1.30,.3,z,.13,.65,.7,[.62,.56,.44]);}for(const x of [-1.3,1.3]){roverMesh.box(x,1.35,3.55,.7,.4,.13,GOLD);roverMesh.box(x,1.1,-3.58,.7,.35,.12,[.7,.16,.11]);}roverMesh.box(0,2.9,.0,2.9,.18,3,WOOD);const carMesh=roverMesh.finish();
 const planeMesh=new Mesh();planeMesh.box(0,1.5,0,2.8,1.5,9.5,[.36,.47,.50]);planeMesh.box(0,2.7,1.2,2.05,1.15,3.3,[.29,.43,.50]);planeMesh.box(0,1.95,1.7,2.1,.7,1.7,[.23,.37,.46]);planeMesh.box(0,1.5,-3.7,10,.35,2,[.39,.43,.39]);planeMesh.box(0,1.8,.8,16,.45,3.1,[.47,.49,.43]);planeMesh.box(0,1.6,4.1,1.5,3,1.4,[.37,.46,.45]);for(const x of [-6.6,6.6]){planeMesh.box(x,1.65,.8,1.5,.7,2,[.26,.34,.33]);planeMesh.box(x,2.2,.8,2.3,.17,2.6,GOLD);}for(const x of [-1.2,1.2]){planeMesh.box(x,-.2,-2.1,.6,1.6,.6,[.22,.21,.2]);planeMesh.box(x,-.4,-2.2,.9,.65,1.7,[.18,.2,.2]);}planeMesh.box(0,1.45,-5.0,1.4,.4,1.2,GOLD);const craftMesh=planeMesh.finish();
 const pawnMesh=new Mesh();pawnMesh.cone(0,.7,0,.72,1.6,[.39,.27,.29],9);pawnMesh.box(0,2.45,0,.95,.95,.75,[.69,.56,.42]);pawnMesh.cone(0,3.0,0,.75,.35,[.24,.29,.30],9);const avatarMesh=pawnMesh.finish();
@@ -131,10 +143,27 @@ const caravanMesh=new Mesh();caravanMesh.box(0,.9,0,3.0,1.6,5.8,[.43,.31,.2]);ca
 const fauna=new Mesh();fauna.box(0,.8,0,1.35,1,2.3,[.5,.36,.23]);fauna.box(0,1.1,1.3,.73,.75,1,[.45,.32,.23]);for(const x of [-.48,.48])for(const z of [-.78,.8])fauna.box(x,-.08,z,.21,1.1,.21,[.3,.25,.19]);fauna.cone(0,1.65,1.5,.43,.5,[.4,.32,.2],7);const deerMesh=fauna.finish();
 function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,false,M);gl.drawArrays(gl.TRIANGLES,0,mesh.count);}
  const identity=ident();
- const vis={cellSize:192,meshCount:meshChunkCount,visibleCells:0,terrainChunks:0,vegetationChunks:0,
+ const vis={cellSize:192,meshCount:meshChunkCount,visibleCells:0,terrainChunks:0,terrainDetailChunks:0,terrainCoarseChunks:0,vegetationChunks:0,
    culledChunks:0,streamingCount:0,keys:[]};
  window.__sliceVisibility=vis;
  let lastStreamSignature='';
+ function drawTerrainLOD(center,range,detailRange,eye,target,keys){
+  const margin=192*.78+36,limit=(range+margin)*(range+margin),
+    detailSquared=(detailRange+65)*(detailRange+65);
+  const fX=target[0]-eye[0],fZ=target[2]-eye[2],norm=Math.hypot(fX,fZ)||1;
+  for(const original of terrainChunks){
+    const dx=original.cx-center.x,dz=original.cz-center.z,d2=dx*dx+dz*dz;
+    if(d2>limit){vis.culledChunks++;continue;}
+    const eX=original.cx-eye[0],eZ=original.cz-eye[2],ahead=(eX*fX+eZ*fZ)/norm;
+    if(ahead<-margin-115&&d2>170*170){vis.culledChunks++;continue;}
+    const detailed=d2<=detailSquared||terrainRoles.get(original.key);
+    const chunk=detailed?original:(coarseTerrainByKey.get(original.key)||original);
+    gl.bindVertexArray(chunk.vao);gl.drawArrays(gl.TRIANGLES,0,chunk.count);
+    vis.terrainChunks++;
+    if(detailed)vis.terrainDetailChunks++;else vis.terrainCoarseChunks++;
+    if(keys)keys.add(original.key);
+  }
+ }
  function drawChunkGroup(chunks,center,range,kind,eye,target,keys){
   const margin=192*.78+36,edge=kind==='foliage'?35:margin,limit=(range+edge)*(range+edge);
   const forwardX=target[0]-eye[0],forwardZ=target[2]-eye[2],norm=Math.hypot(forwardX,forwardZ)||1;
@@ -184,9 +213,9 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  const keys=window.__flightPerf?new Set():null;
  // All static chunks share one model matrix; uniform updates belong to actors.
  gl.uniformMatrix4fv(uModel,false,identity);
- vis.terrainChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
+ vis.terrainChunks=0;vis.terrainDetailChunks=0;vis.terrainCoarseChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
  if(window.__flightPerf)window.__flightPerf.markGpuStage('terrain');
- drawChunkGroup(terrainChunks,p,distance,'terrain',eye,target,keys);
+ drawTerrainLOD(p,distance,mode==='flight'?400:mode==='ground'?320:265,eye,target,keys);
  if(window.__flightPerf)window.__flightPerf.markGpuStage('water');
  drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
  if(window.__flightPerf)window.__flightPerf.markGpuStage('decor');
