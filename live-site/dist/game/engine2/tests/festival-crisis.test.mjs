@@ -27,7 +27,8 @@ test('rescue, food relief, journal, objective and relay completion are idempoten
  assert.deepEqual(festivalCrisisObjects(w).map(o=>o.festivalCrisis),['relay']);
  festivalCrisisInteraction(w,festivalCrisisObjects(w)[0]);w.choices[0][1]();
  assert.equal(w.state.story.festivalCrisis.phase,'complete');
- assert.equal(festivalCrisisObjects(w).length,0);assert.equal(festivalCrisisBlocksWorkshop(w,{key:'workshop'}),false);
+ assert.deepEqual(festivalCrisisObjects(w).map(o=>o.festivalCrisis),['relay-restored']);assert.equal(festivalCrisisBlocksWorkshop(w,{key:'workshop'}),false);
+ festivalCrisisInteraction(w,festivalCrisisObjects(w)[0]);assert.match(w.texts.at(-1),/return vane stays open/i);
  assert.equal(w.state.items.tonic,1);assert.equal(new Set(w.state.story.journal.map(x=>x.id)).size,w.state.story.journal.length);
  assert.equal(validateFestivalCrisis(w.state),true);
 });
