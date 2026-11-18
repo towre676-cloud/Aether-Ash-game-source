@@ -18,11 +18,12 @@ def main():
  p.add_argument('--height',type=int,default=576)
  p.add_argument('--hold-ms',type=int,default=2000)
  p.add_argument('--headless',action='store_true')
+ p.add_argument('--gpu-stages',action='store_true',help='separate diagnostic run; GPU query overhead excluded from paired results')
  args=p.parse_args()
  html=args.source.read_text(encoding='utf-8')
  shim=(ROOT/'flight-perf-shim.js').read_text(encoding='utf-8')
  assert html.count('<script>')==1, 'Expected a self-contained flight slice'
- html=html.replace('<script>','<script>'+shim+'</script><script>',1)
+ html=html.replace('<script>','<script>'+('window.__FLIGHT_GPU_STAGES__=true;' if args.gpu_stages else '')+shim+'</script><script>',1)
  phases=[]
  with sync_playwright() as playwright:
   browser=playwright.chromium.launch(
@@ -104,6 +105,9 @@ def main():
   args.out.write_text(json.dumps(result,indent=2,sort_keys=True),encoding='utf-8')
   print('PROFILE '+str(args.out)+' '+json.dumps(phases),flush=True)
   print('RENDERER',result['renderer'], 'UPLOADS',result['uploads'],flush=True)
+  if args.gpu_stages:
+   for phase in result['phases']:
+    print('GPU_STAGES',phase['phase'],phase['gpuStages'],flush=True)
   browser.close()
 
 if __name__=='__main__': main()
