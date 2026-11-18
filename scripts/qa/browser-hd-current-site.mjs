@@ -12,6 +12,7 @@ const root=path.resolve('build/current-hd-overlay/game/engine2');
 const out=path.resolve('qa-artifacts-hd-browser');
 const patchedLandscape=readFileSync(path.join(root,'adventure-landscape.js'));
 const hdModels=readFileSync(path.join(root,'hd-environment-models.mjs'));
+const patchedCistern=readFileSync(path.join(root,'cistern-renderer.js'));
 mkdirSync(out,{recursive:true});
 const args=['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||'/usr/bin/google-chrome',headless:true,args});
@@ -27,6 +28,9 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
   const u=new URL(route.request().url());
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/adventure-landscape.js'){
    served.push('adventure-landscape.js');return route.fulfill({status:200,body:patchedLandscape,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
+  }
+  if(u.host===canonicalHost&&u.pathname==='/game/engine2/cistern-renderer.js'){
+   served.push('cistern-renderer.js');return route.fulfill({status:200,body:patchedCistern,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/hd-environment-models.mjs'){
    served.push('hd-environment-models.mjs');return route.fulfill({status:200,body:hdModels,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
@@ -72,8 +76,12 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
   metrics.p95RenderMs=samples.length?[...samples].sort((a,b)=>a-b)[Math.floor((samples.length-1)*.95)]:null;
   const png=await page.screenshot({path:path.join(out,label+'.png'),timeout:20000});
   if(png.byteLength<110000)throw Error('World screenshot was probably captured before 3D world draw: '+png.byteLength+' bytes');
-  if(patched&&['adventure-landscape.js','hd-environment-models.mjs'].some(x=>!served.includes(x)))throw Error('Browser did not load BOTH exact HD source overrides: '+served);
+  if(patched&&['adventure-landscape.js','hd-environment-models.mjs','cistern-renderer.js'].some(x=>!served.includes(x)))throw Error('Browser did not load BOTH exact HD source overrides: '+served);
   if(patched&&(missing.some(x=>x.includes('hd-environment-models.mjs'))))throw Error('HD model script missing: '+missing.join(' | '));
+  if(patched){
+   const bad=missing.filter(x=>x.includes('hd-material-atlas-compatible.webp'));
+   if(bad.length)throw Error('Required HD compatible atlas fetch failed: '+bad.join('; '));
+  }
   const fatal=errors.filter(x=>/SyntaxError|ReferenceError|TypeError|Failed to fetch dynamically imported module|module specifier|Cannot find module/i.test(x));
   if(fatal.length)throw Error('Browser runtime errors: '+fatal.join(' | ').slice(0,900));
   success=true;
