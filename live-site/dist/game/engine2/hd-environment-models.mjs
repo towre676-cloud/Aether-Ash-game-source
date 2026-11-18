@@ -188,4 +188,69 @@ export function appendHDHouse(m,{x=0,y=0,z=0,heading=0,width=7,length=6,height=4
  g.box(-width*.25,height*1.27,-length*.24,.65,height*.65,.76,stone,6);
  return n;
 }
-export const HD_ASSET_SCHEMA=Object.freeze({version:1,terrain:true,water:false,assets:['tree','rock','aircraft','rover','house'],materials:['stone','foliage','glass','metal','wood'],collisionOwner:'world',saveOwner:'world',cameraOwner:'renderer'});
+/** Clustered fungi with ribbed caps, gills and irregular rooted stalks. */
+export function appendHDFungus(m,p,c,{quality='medium'}={}){
+ if(!m||!p||!c)return 0;
+ const detail=hdDetail(quality,0),seed=seedAt(p.x,p.z,p.index),n=detail===2?13:detail===1?9:6;
+ for(let k=0;k<(detail===0?1:3);k++){
+  const a=k*2.399+hash(seed),x=p.x+Math.cos(a)*.39,z=p.z+Math.sin(a)*.36,y=p.y||0;
+  const h=(p.near?.45:1.15)*(1+(k%2)*.42),r=.32+.17*hash(seed+k*13);
+  const stem0=ring(x,y+.02,z,.10,.10,n),stem1=ring(x+.07,y+h*.88,z+.02,.06,.08,n);
+  skin(m,stem0,stem1,[.65,.62,.46],2);
+  const rim=ring(x+.08,y+h,z,r,r*.83,n),upper=ring(x+.08,y+h+r*.23,z,r*.53,r*.52,n);
+  skin(m,rim,upper,tint(c.leaf||[.4,.44,.31],.85+k*.08),5);
+  for(let i=0;i<n;i++){
+   const j=(i+1)%n;
+   m.tri(upper[i],upper[j],[x+.08,y+h+r*.35,z],tint(c.leaf||[.4,.44,.31],1.06),5);
+   m.tri(rim[i],rim[j],[x+.08,y+h-r*.07,z],tint(c.top||[.7,.65,.48],.92),2);
+  }
+  if(detail>0)for(let i=0;i<n;i+=2){
+   const t=rim[i],center=[x+.08,y+h-r*.07,z];
+   m.tube(center,t,.007,.002,tint(c.top||[.7,.65,.48],1.04),2,4);
+  }
+ }
+ return n;
+}
+/** Purposeful cairn made from interlocking dressed stones, not loose orbs. */
+export function appendHDCairn(m,{x=0,y=0,z=0,quality='high',seed=9}={}){
+ if(!m)return 0;
+ const d=hdDetail(quality,0),n=d===2?10:7,c=[.51,.54,.48];
+ for(let j=0;j<(d===0?4:7);j++){
+  const h=.28+.08*hash(seed+j*31),rx=.65-j*.065,rz=.57-j*.057,xx=x+Math.sin(j*2.39)*.1,zz=z+Math.cos(j*1.62)*.09,yy=y+j*.33;
+  const bottom=ring(xx,yy,zz,Math.max(.18,rx),Math.max(.18,rz),n,j*.12);
+  const top=ring(xx,yy+h,zz,Math.max(.13,rx*.8),Math.max(.13,rz*.82),n,j*.12+.16);
+  skin(m,bottom,top,tint(c,.85+hash(seed+j*13)*.27),7);
+  for(let i=0;i<n;i++)m.tri(top[i],top[(i+1)%n],[xx,yy+h+.07,zz],tint(c,.91),7);
+ }
+ return n;
+}
+/** High-frequency riverbank reeds, staged at existing bank anchors only. */
+export function appendHDReeds(m,{x=0,y=0,z=0,count=12,quality='medium',seed=31}={}){
+ if(!m)return 0;const d=hdDetail(quality,0),n=Math.max(1,Math.min(count,d===0?6:d===1?18:32));
+ for(let i=0;i<n;i++){
+  const a=hash(seed+i*19)*TAU,r=.1+.8*hash(seed+i*47),px=x+Math.cos(a)*r,pz=z+Math.sin(a)*r,h=.8+1.15*hash(seed+i*67);
+  const top=[px+Math.cos(a)*.18,y+h,pz+Math.sin(a)*.16];
+  m.tube([px,y,pz],top,.027,.007,[.33,.48,.25],2,5);
+  if(d>0)m.quad([px,y+h*.44,pz],[px+.22,y+h*.69,pz+.16],
+   [px+.33,y+h*.86,pz+.22],[px+.08,y+h*.56,pz+.04],[.42,.56,.27],5);
+  if(i%3===0)m.tube(top,[top[0]+.05,top[1]+.24,top[2]],.038,.025,[.53,.36,.22],2,6);
+ }
+ return n;
+}
+/** Authored stone-bridge mesh: banks / paths still own collision and transport. */
+export function appendHDStoneBridge(m,{x=0,y=0,z=0,heading=0,span=12,width=4,quality='high'}={}){
+ if(!m)return 0;const g=posed(m,x,y,z,heading),d=hdDetail(quality,0),n=d===2?22:d===1?14:8,stone=[.51,.52,.48];
+ for(let side of[-1,1])for(let i=0;i<n;i++){
+  const u0=i/n,u1=(i+1)/n;
+  const arc=u=>.9+1.4*(1-Math.pow(2*u-1,2)),z0=(u0-.5)*span,z1=(u1-.5)*span;
+  const h0=arc(u0),h1=arc(u1),edgeX=side*width*.5;
+  g.quad([edgeX,0,z0],[edgeX,0,z1],[edgeX,h1,z1],[edgeX,h0,z0],tint(stone,.88+.18*(i%3)/3),6);
+  g.box(edgeX,h0+.15,(z0+z1)/2,.24,.24,(z1-z0)*.98,BRASS,1);
+ }
+ for(let i=0;i<5;i++)g.box(0,2.25,-span*.5+span*(i+.5)/5,width+.5,.26,span/5-.05,tint(stone,.8+.07*(i%3)),6);
+ for(let side of[-1,1])for(let i=0;i<=8;i++){
+  const z0=-span*.5+span*i/8;g.box(side*width*.51,3.13,z0,.20,1.58,.21,stone,6);
+ }
+ return n;
+}
+export const HD_ASSET_SCHEMA=Object.freeze({version:1,terrain:true,water:false,assets:['tree','rock','fungus','cairn','reeds','stone-bridge','aircraft','rover','house'],materials:['stone','foliage','glass','metal','wood'],collisionOwner:'world',saveOwner:'world',cameraOwner:'renderer'});
