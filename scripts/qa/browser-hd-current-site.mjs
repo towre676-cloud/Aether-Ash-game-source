@@ -14,6 +14,16 @@ const patchedLandscape=readFileSync(path.join(root,'adventure-landscape.js'));
 const hdModels=readFileSync(path.join(root,'hd-environment-models.mjs'));
 const patchedCistern=readFileSync(path.join(root,'cistern-renderer.js'));
 const hdCompatAtlas=readFileSync(path.join(root,'art/hd-materials/hd-material-atlas-compatible.webp'));
+const hdLandscapeInstrumented=patchedLandscape.toString('utf8')
+ .replace('return appendHDTree(m,p,c,','globalThis.__ashHDTreeCalls=(globalThis.__ashHDTreeCalls||0)+1;return appendHDTree(m,p,c,')
+ .replace('return appendHDRock(m,p,c,','globalThis.__ashHDRockCalls=(globalThis.__ashHDRockCalls||0)+1;return appendHDRock(m,p,c,')
+ .replace('return appendHDFungus(m,p,c,','globalThis.__ashHDFungusCalls=(globalThis.__ashHDFungusCalls||0)+1;return appendHDFungus(m,p,c,');
+const hdCisternInstrumented=patchedCistern.toString('utf8')
+ .replace('if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=',
+   'globalThis.__ashHDRendererConstructs=(globalThis.__ashHDRendererConstructs||0)+1;if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=');
+if(hdLandscapeInstrumented===patchedLandscape.toString('utf8')||
+   hdCisternInstrumented===patchedCistern.toString('utf8'))throw Error('HD test instrumentation anchors missing');
+
 mkdirSync(out,{recursive:true});
 const args=['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||'/usr/bin/google-chrome',headless:true,args});
@@ -28,14 +38,14 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
  if(patched)await page.route('**/game/engine2/**',async route=>{
   const u=new URL(route.request().url());
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/adventure-landscape.js'){
-   served.push('adventure-landscape.js');return route.fulfill({status:200,body:patchedLandscape,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
+   served.push('adventure-landscape.js');return route.fulfill({status:200,body:hdLandscapeInstrumented,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/art/hd-materials/hd-material-atlas-compatible.webp'){
    served.push('hd-material-atlas-compatible.webp');
    return route.fulfill({status:200,body:hdCompatAtlas,contentType:'image/webp',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/cistern-renderer.js'){
-   served.push('cistern-renderer.js');return route.fulfill({status:200,body:patchedCistern,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
+   served.push('cistern-renderer.js');return route.fulfill({status:200,body:hdCisternInstrumented,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
   }
   if(u.host===canonicalHost&&u.pathname==='/game/engine2/hd-environment-models.mjs'){
    served.push('hd-environment-models.mjs');return route.fulfill({status:200,body:hdModels,contentType:'text/javascript',headers:{'cache-control':'no-store'}});
@@ -70,6 +80,8 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
    return {canvasWidth:c.width,canvasHeight:c.height,
     renderBackend:c.dataset.renderBackend||c.dataset.renderer||null,
     hdRendererMode:c.dataset.hdRendererMode||null,
+    hdRendererConstructs:globalThis.__ashHDRendererConstructs||0,
+    hdLandscapeCalls:{tree:globalThis.__ashHDTreeCalls||0,rock:globalThis.__ashHDRockCalls||0,fungus:globalThis.__ashHDFungusCalls||0},
     mode:c.dataset.mode||'',scene:c.dataset.scene||'',drawMs:Number(c.dataset.drawMs)||null,
     fps:document.querySelector('#fps')?.textContent?.slice(0,40)||null,
     bodyText:document.body?.innerText?.slice(0,180)||null,
