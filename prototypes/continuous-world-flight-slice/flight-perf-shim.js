@@ -2,7 +2,7 @@
  * Identical for baseline and candidate. Does not mutate physics or gameplay.
  * Browser/driver timings are NOT hardware-independent GPU timestamps. */
 (() => {
-  const maxFrames=4000;
+  const maxFrames=4000, enableGpuStages=window.__FLIGHT_GPU_STAGES__===true;
   const measurements={};
   const totals={buffers:0,bufferBytes:0,textureUploads:0,programs:0,shaderSwitches:0};
   const phases=[], longTasks=[], gpuSamples=[], pendingQueries=[];
@@ -10,7 +10,7 @@
   let frameSerial=0, selectedGpuStage='', activeGpuQuery=null;
   const stages=['terrain','water','decor','town','foliage-near','foliage-far','actors'];
   function startGpu(label){
-    if(!timerExt||!glContext||phase==='boot'||activeGpuQuery||label!==selectedGpuStage)return;
+    if(!enableGpuStages||!timerExt||!glContext||phase==='boot'||activeGpuQuery||label!==selectedGpuStage)return;
     const q=glContext.createQuery();
     glContext.beginQuery(timerExt.TIME_ELAPSED_EXT,q);
     activeGpuQuery={q,phase,label};
@@ -87,6 +87,7 @@
       measurements.vendor=ext?String(gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)):'unknown';
       timerExt=gl.getExtension('EXT_disjoint_timer_query_webgl2');
       measurements.gpuTimerAvailable=!!timerExt;
+      measurements.gpuStageTimingEnabled=enableGpuStages;
     }catch(e){measurements.renderer='GPU metadata unavailable: '+String(e);}
     return gl;
   };
@@ -102,9 +103,9 @@
     current=counts();
     // One asynchronous GPU timer per frame; rotate stages to avoid query
     // nesting and prohibit a blocking gl.finish() in the hot render loop.
-    const legacy=!window.__sliceVisibility?.meshCount;
-    const available=legacy?stages.slice(0,4):stages;
-    selectedGpuStage=available[(frameSerial++)%available.length];
+    if(enableGpuStages){const legacy=!window.__sliceVisibility?.meshCount;
+      const available=legacy?stages.slice(0,4):stages;
+      selectedGpuStage=available[(frameSerial++)%available.length];}
     callback(timestamp);
     if(activeGpuQuery)stopGpu();
     pollGpu();
