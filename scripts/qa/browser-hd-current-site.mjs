@@ -29,7 +29,7 @@ const args=['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-ang
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||'/usr/bin/google-chrome',headless:true,args});
 const report=[];
 const canonicalHost=new URL(site).host;
-async function run(label,viewport,{mobile=false,patched=false}={}){
+async function run(label,viewport,{mobile=false,patched=false,sceneId=2000}={}){
  const ctx=await browser.newContext({viewport,isMobile:mobile,hasTouch:mobile,deviceScaleFactor:mobile?2:1,serviceWorkers:'block',permissions:[]});
  const page=await ctx.newPage(),errors=[],missing=[],served=[],warnings=[];
  page.on('pageerror',e=>errors.push(String(e.message).slice(0,1000)));
@@ -54,7 +54,7 @@ async function run(label,viewport,{mobile=false,patched=false}={}){
  });
  let stage='start',success=false,metrics={};
  try{
-  await page.goto(site+'?dev=1&reviewScene=2000&hdAssetQA='+label,{waitUntil:'domcontentloaded',timeout:90000});
+  await page.goto(site+'?dev=1&reviewScene='+encodeURIComponent(sceneId)+'&hdAssetQA='+label,{waitUntil:'domcontentloaded',timeout:90000});
   stage='field loaded';
   await page.waitForFunction(()=>{
    const canvas=document.querySelector('#screen');
@@ -116,9 +116,17 @@ try{
  await run('baseline-desktop',{width:1280,height:800});
  await run('hd-desktop',{width:1280,height:800},{patched:true});
  await run('hd-mobile',{width:390,height:844},{patched:true,mobile:true});
+ await run('hd-forest',{width:1280,height:800},{patched:true,sceneId:19});
 }finally{await browser.close();}
 writeFileSync(path.join(out,'report.json'),JSON.stringify({productionSiteUnmodified:true,actualGPUValidated:false,runs:report},null,2));
 const baseline=report[0],candidate=report.slice(1);
+const woodland=report.find(x=>x.label==='hd-forest');
+if(woodland?.pass&&woodland.metrics.hdLandscapeCalls){
+ const count=Object.values(woodland.metrics.hdLandscapeCalls).reduce((a,b)=>a+b,0);
+ console.log('HD-FOREST-MODEL-HITS '+JSON.stringify({calls:woodland.metrics.hdLandscapeCalls,total:count,rendererInstances:woodland.metrics.hdRendererConstructs}));
+ if(count===0)console.warn('Forest scene did not invoke the replacement native geometry; visual coverage not established');
+}
+
 if(candidate.some(x=>!x.pass))process.exitCode=1;
 if(!baseline.pass)console.warn('Baseline public Site failed; no claim of production-wide game stability');
 if(baseline.pass&&candidate[0]?.pass&&baseline.metrics.frameSampleCount>=4&&candidate[0].metrics.frameSampleCount>=4){
