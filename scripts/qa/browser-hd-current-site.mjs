@@ -127,7 +127,7 @@ const woodland=report.find(x=>x.label==='hd-forest');
 if(woodland?.pass&&woodland.metrics.hdLandscapeCalls){
  const count=Object.values(woodland.metrics.hdLandscapeCalls).reduce((a,b)=>a+b,0);
  console.log('HD-FOREST-MODEL-HITS '+JSON.stringify({calls:woodland.metrics.hdLandscapeCalls,total:count,rendererInstances:woodland.metrics.hdRendererConstructs}));
- if(count===0)console.warn('Forest scene did not invoke the replacement native geometry; visual coverage not established');
+ if(count===0){console.error('HD forest screenshot did not exercise ANY replacement geometry; failing release evidence');process.exitCode=1;}
 }
 
 if(candidate.some(x=>!x.pass))process.exitCode=1;
