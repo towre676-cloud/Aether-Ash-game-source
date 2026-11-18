@@ -86,7 +86,9 @@ try{
    if(selected!=='true')throw Error('Region atlas did not select waypoint');
    const during=(await page.locator('#screen').getAttribute('data-position'))||'';
    if(before!==during)throw Error('Selecting a map pin moved the party');
-   await page.screenshot({path:path.join(artifacts,label+'-map.png'),fullPage:false,timeout:12000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' map: '+String(e).slice(0,180)));
+   // Map state is asserted above. Software-canvas capture is optional and
+   // must never stall the subsequent manual-movement test by 12–30 seconds.
+   if(process.env.QA_CAPTURE_MAP==='1')await page.screenshot({path:path.join(artifacts,label+'-map.png'),fullPage:false,timeout:6000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' map: '+String(e).slice(0,180)));
    const closeRect=await page.getByRole('button',{name:'Return to journey'}).boundingBox();
    if(!closeRect)throw Error('Atlas close button is not on screen');
    await page.mouse.click(closeRect.x+closeRect.width/2,closeRect.y+closeRect.height/2);
@@ -109,7 +111,7 @@ try{
     if(!moved)throw Error('Mobile joystick pointer-hold did not move the avatar from the arrival tile');
    }else{
     for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
-     await page.keyboard.down(direction);await sleep(350);await page.keyboard.up(direction);await sleep(200);
+     await page.keyboard.down(direction);await sleep(800);await page.keyboard.up(direction);await sleep(300);
      after=(await page.locator('#screen').getAttribute('data-position'))||'';
      if(after&&after!==before){moved=true;break;}
     }
