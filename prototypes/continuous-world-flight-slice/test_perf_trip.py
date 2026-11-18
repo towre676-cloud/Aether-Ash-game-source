@@ -43,10 +43,9 @@ def main():
   def measure(name):
    page.evaluate('(name)=>window.__flightPerf.select(name)',name)
    page.wait_for_timeout(args.hold_ms)
-   snapshot=page.evaluate('window.__flightPerf.result().phases.at(-1)')
    # The current phase is summarized in result() but not otherwise touched.
    snapshot=page.evaluate('window.__flightPerf.result().phases.at(-1)')
-   assert snapshot['frameCount']>=4,(name,snapshot),'Browser stopped rendering'
+   assert snapshot['frameCount']>=4, (name,snapshot,'Browser stopped rendering')
    phases.append({'phase':name,'frameCount':snapshot['frameCount'],'p50':snapshot['raf']['p50'],'p95':snapshot['raf']['p95'],'p99':snapshot['raf']['p99'],'drawCalls':snapshot['meanDrawCalls'],'triangles':snapshot['meanTriangles']})
   # A six-stage unteleported route, replayed unchanged for both builds.
   page.keyboard.press('r')
