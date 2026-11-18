@@ -1,3 +1,4 @@
+import {appendHDTree,appendHDRock} from './hd-environment-models.mjs?v=live-hd-1';
 /** Contiguous landscape around the actual playable footprint. Closed ground is
  * a bank, wood, cliff, shore or garden belonging to this place, never an empty
  * display pad. This layer neither moves actors nor opens a route. */
@@ -153,28 +154,10 @@ function terrace(m,p,c){
  m.quad([x,y,z],[x,y,z1],[x1,y,z1],[x1,y,z],top,mat,0,1,[0,1,0]);
 }
 function tree(m,p,c,trunkOnly=false){
- const x=p.x,z=p.z,y=p.y,h=p.near?.72:2.6+(p.index%3)*.32,r=p.near?.56:1.25;
- m.cylinder(x,y+h*.45,z,.13,h*.90,[.24,.25,.17],2,7,.08);
- if(trunkOnly)return;
- for(let i=0;i<2;i++){const a=i*Math.PI+.35,px=x+Math.cos(a)*r*.31,pz=z+Math.sin(a)*r*.31;
-  m.tube([x,y+h*.6,z],[px,y+h*.91,pz],.07,.025,[.24,.25,.17],2,5);
-  m.sphere(px,y+h*(.88+i*.09),pz,r*.88,tint(c.leaf,.82+i*.09),5,0,8,4,[1,.78,1]);
- }
- if(c.family==='mangrove')for(let i=0;i<3;i++){const a=i*TAU/3;m.tube([x,y+.85,z],[x+Math.cos(a)*.95,y,z+Math.sin(a)*.95],.06,.025,[.28,.31,.20],2,4);}
+ return appendHDTree(m,p,c,{quality:p.near?'low':'medium',trunkOnly});
 }
 function rock(m,p,c){
- const x=p.x,z=p.z,y=p.y,h=p.near?.25:1.2+(p.index%3)*.22;
- if(['crystal','ice','aurora'].includes(c.family)){
-  // A mineral wall grows from one shared ledge rather than isolated needles.
-  m.box(x,y+.10,z,2.15,.20,1.45,tint(c.base,.9),7);
-  for(let i=0;i<3;i++){const xx=x+(i-1)*.47,zz=z+(i%2)*.25,r=.23+(i%2)*.08,hh=h*(.8+i*.18);m.cylinder(xx,y+hh*.45,zz,r,hh*.9,tint(c.leaf,.82+i*.08),6,5,r*.85);m.cylinder(xx,y+hh,zz,r*.85,hh*.2,tint(c.leaf,1.10),6,5,0);}
- }else if(c.family==='sand'||c.family==='cactus'){
-  m.sphere(x,y+.21,z,1.25,tint(c.top,.95),7,0,9,4,[1,.35,.75]);
-  if(c.family==='cactus'&&!p.near){m.cylinder(x,y+.95,z,.15,1.8,c.leaf,5,7,.10);for(const side of[-1,1]){m.tube([x,y+.8,z],[x+side*.46,y+.86,z],.09,.07,c.leaf,5,6);m.cylinder(x+side*.46,y+1.15,z,.075,.62,c.leaf,5,6,.055);}}
- }else{
-  m.sphere(x,y+h*.36,z,1.2,tint(c.top,.86),7,0,8,4,[1,h*.60,.76]);
-  if(!p.near)m.sphere(x-.40,y+h*.72,z-.22,.70,tint(c.top,1.02),7,0,7,4,[1,.65,1]);
- }
+ return appendHDRock(m,p,c,{quality:p.near?'low':'medium'});
 }
 function fungus(m,p,c){
  const y=p.y;for(let i=0;i<2;i++){const x=p.x+(i-.5)*.65,z=p.z+(i%2)*.35,h=(p.near?.45:1.45)+(i%2)*.50,r=.47+(i%2)*.22;m.cylinder(x,y+h*.5,z,.085,h,[.65,.66,.51],6,7,.065);m.sphere(x,y+h,z,r,tint(c.leaf,.80+i*.06),5,0,7,3,[1,.31,1]);m.cylinder(x,y+h-.015,z,r*.88,.020,[.67,.68,.53],6,7);}
