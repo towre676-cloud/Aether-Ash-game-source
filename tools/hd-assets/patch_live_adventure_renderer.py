@@ -24,8 +24,9 @@ replacement=r"""setMaterialImage(image){
     const extension=g?.getExtension?.('WEBGL_debug_renderer_info');
     const model=g?String(g.getParameter(extension?.UNMASKED_RENDERER_WEBGL||g.RENDERER)||''):'';
     this.lowCostRenderer=!!this.software||/swiftshader|llvmpipe|software|softpipe/i.test(model);
-    this.hdMaterialAllowed=!!g&&!this.lowCostRenderer&&this.effectiveQuality()==='high'&&g.getParameter(g.MAX_TEXTURE_SIZE)>=2048;
   }
+  // This is a user graphics option; re-evaluate after quality changes.
+  this.hdMaterialAllowed=!!g&&!this.lowCostRenderer&&this.effectiveQuality()==='high'&&g.getParameter(g.MAX_TEXTURE_SIZE)>=2048;
   if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=this.lowCostRenderer?'software-lowcost':this.hdMaterialAllowed?'hardware-2048':'compat-legacy';
   let selected=image;
   if(this.hdMaterialAllowed&&this.hdDetailTexture?.complete&&this.hdDetailTexture.naturalWidth===2048){
