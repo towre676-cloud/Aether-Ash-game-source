@@ -136,7 +136,7 @@ function draw(mesh,M){gl.bindVertexArray(mesh.vao);gl.uniformMatrix4fv(uModel,fa
  window.__sliceVisibility=vis;
  let lastStreamSignature='';
  function drawChunkGroup(chunks,center,range,kind,eye,target,keys){
-  const margin=192*.78+36,limit=(range+margin)*(range+margin);
+  const margin=192*.78+36,edge=kind==='foliage'?35:margin,limit=(range+edge)*(range+edge);
   const forwardX=target[0]-eye[0],forwardZ=target[2]-eye[2],norm=Math.hypot(forwardX,forwardZ)||1;
   let drawn=0,culled=0;
   for(let i=0;i<chunks.length;i++){
@@ -194,7 +194,7 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  const margin=192*.78+36;
  for(const chunk of farFoliageChunks){
   const dx=chunk.cx-p.x,dz=chunk.cz-p.z,d2=dx*dx+dz*dz;
-  if(d2<(near-margin)*(near-margin)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
+  if(d2<=(near+35)*(near+35)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
   draw(chunk,identity);vis.vegetationChunks++;
   if(keys)keys.add(chunk.key);
  }
