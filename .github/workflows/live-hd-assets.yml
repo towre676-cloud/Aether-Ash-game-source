@@ -6,6 +6,7 @@ on:
       - 'live-site/dist/game/engine2/adventure-landscape.js'
       - 'live-site/dist/game/engine2/tests/hd-environment-models.test.mjs'
       - 'tools/hd-assets/**'
+      - 'scripts/qa/browser-hd-current-site.mjs'
       - '.github/workflows/live-hd-assets.yml'
   workflow_dispatch:
 jobs:
@@ -49,7 +50,7 @@ jobs:
           import json
           from pathlib import Path
           p=Path('build/hd-materials')
-          for f in ('hd-albedo.webp','hd-normal.webp','hd-roughness.webp'):
+          for f in ('hd-albedo.webp','hd-normal.webp','hd-roughness.webp','hd-material-atlas-compatible.webp'):
               with Image.open(p/f) as im:
                   assert im.size==(2048,2048), (f,im.size)
                   assert im.mode=='RGB', (f,im.mode)
@@ -89,7 +90,22 @@ jobs:
           sha256sum /tmp/current-live-landscape.js > build/live-overlay/current-site-source.sha256
           node --check build/live-overlay/game/engine2/adventure-landscape.js
           node --check build/live-overlay/game/engine2/hd-environment-models.mjs
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/cistern-renderer.js' \
+            -o /tmp/current-live-cistern-renderer.js
+          python tools/hd-assets/patch_live_renderer.py \
+            /tmp/current-live-cistern-renderer.js build/live-overlay/game/engine2/cistern-renderer.js
+          node --check build/live-overlay/game/engine2/cistern-renderer.js
+          sha256sum /tmp/current-live-cistern-renderer.js > build/live-overlay/current-renderer-source.sha256
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-3d-renderer.js' \
+            -o /tmp/current-live-adventure-3d-renderer.js
+          python tools/hd-assets/patch_live_adventure_renderer.py \
+            /tmp/current-live-adventure-3d-renderer.js build/live-overlay/game/engine2/adventure-3d-renderer.js
+          node --check build/live-overlay/game/engine2/adventure-3d-renderer.js
+          sha256sum /tmp/current-live-adventure-3d-renderer.js > build/live-overlay/current-adventure-renderer-source.sha256
           test -s build/live-overlay/game/engine2/art/hd-materials/hd-normal.webp
+          test -s build/live-overlay/game/engine2/art/hd-materials/hd-material-atlas-compatible.webp
       - name: Write deployment guard and ZIP
         run: |
           python - <<'PY'
@@ -104,10 +120,12 @@ jobs:
                  'patched_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
                  'changes':['adventure-landscape.js tree/rock/fungus geometry only',
                             'new hd-environment-models.mjs',
+                            'current-Site-matched cistern-renderer.js with quality-adaptive shading and optional HD material atlas',
+                            'current-Site-matched adventure-3d-renderer.js with actual scene-owned material detail enhancement',
                             'original 2048px PBR texture maps (not bound in game shader)'],
                  'missing':['authenticated Sites deployment',
                             'production vehicle/aircraft mesh bindings',
-                            'production texture shader binding',
+                            'normal/roughness maps shader binding on hardware GPUs',
                             'real GPU profiling and visual browser validation'],
                  'never_overwrite_other_site_files':True}
           (p/'overlay-manifest.json').write_text(json.dumps(guard,indent=2))
@@ -141,6 +159,7 @@ jobs:
           unzip -q build/Ash-Aether-Current-Site-HD-Overlay.zip -d build/current-hd-overlay
           test -s build/current-hd-overlay/game/engine2/adventure-landscape.js
           test -s build/current-hd-overlay/game/engine2/hd-environment-models.mjs
+          test -s build/current-hd-overlay/game/engine2/adventure-3d-renderer.js
       - name: Install the existing QA browser driver
         run: |
           cd scripts/qa
