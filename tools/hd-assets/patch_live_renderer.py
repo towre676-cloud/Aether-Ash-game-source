@@ -47,6 +47,7 @@ sub("loadMaterialImage(){\n    if(typeof Image==='undefined')return;",
     const rendererName=g?String(g.getParameter(debug?.UNMASKED_RENDERER_WEBGL||g.RENDERER)||''):'';
     this.lowCostRenderer=/swiftshader|llvmpipe|software|softpipe/i.test(rendererName);
     this.hdMaterialAllowed=!!g&&!this.lowCostRenderer&&this.effectiveQuality()==='high'&&g.getParameter(g.MAX_TEXTURE_SIZE)>=2048;
+    if(this.canvas?.dataset)this.canvas.dataset.hdRendererMode=this.lowCostRenderer?'software-lowcost':this.hdMaterialAllowed?'hardware-2048':'compat-legacy';
     if(typeof Image==='undefined')return;""")
 sub("theme==='kiln'||theme==='prism'?'./art/cistern/'+theme+'-materials-v109.webp':'./art/cistern/material-atlas-v2.webp'",
     "theme==='kiln'||theme==='prism'?'./art/cistern/'+theme+'-materials-v109.webp':this.hdMaterialAllowed?'./art/hd-materials/hd-material-atlas-compatible.webp':'./art/cistern/material-atlas-v2.webp'")
