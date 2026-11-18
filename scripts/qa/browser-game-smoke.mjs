@@ -117,6 +117,7 @@ try{
     moved=!!after&&after!==before;
     if(!moved)throw Error('Mobile joystick pointer-hold did not move the avatar from the arrival tile');
    }else{
+    await page.evaluate(()=>{window.__qaKeys=[];window.addEventListener('keydown',e=>{window.__qaKeys.push({code:e.code,key:e.key,target:e.target?.id,defaultPrevented:e.defaultPrevented});},{capture:true});});
     for(const direction of ['ArrowRight','ArrowDown','ArrowLeft','ArrowUp']){
      // Await actual position change, rather than a fixed delay that can
      // expire before a software-rendered frame completes.
@@ -136,7 +137,10 @@ try{
       drawMs:document.getElementById('screen')?.dataset.drawMs,
       dialogVisible:!document.getElementById('dialog')?.hidden,
       pauseVisible:!document.getElementById('pause')?.hidden,
-      mapVisible:!document.getElementById('spatial-region-map')?.hidden
+      mapVisible:!document.getElementById('spatial-region-map')?.hidden,
+      keyboardEvents:window.__qaKeys||[],
+      visible:document.visibilityState,
+      hasFocus:document.hasFocus()
      }));
      throw Error('No manual movement in any arrow-key direction at arrival '+JSON.stringify(detail));
     }
