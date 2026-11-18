@@ -68,11 +68,11 @@ const ground=new Mesh(),decor=new Mesh(),water=new Mesh(),landmarks=new Mesh();
 function sampleColor(x,z,y){const h=hash(Math.floor(x/19),Math.floor(z/19)),grass=clamp((y+12)/25,0,1),farm=Math.hypot(x+320,z+365)<170? .11:0;return [.23+.12*grass+.07*h+farm,.39+.14*grass+.06*h-farm*.2,.20+.05*h+grass*.02];}
 // One connected, prebuilt landscape; no scene transitions or blank proxy tiles.
 const quality=(navigator.hardwareConcurrency<=4||matchMedia('(pointer:coarse)').matches)?'mobile':'desktop';
-const min=-720,max=760,res=quality==='mobile'?24:15;for(let z=min;z<max;z+=res)for(let x=min;x<max;x+=res){const y0=height(x,z),y1=height(x+res,z),y2=height(x+res,z+res),y3=height(x,z+res),cc=sampleColor(x,z,y0);ground.quad([x,y0,z],[x,y3,z+res],[x+res,y2,z+res],[x+res,y1,z],cc);}
+const min=-720,max=760,res=quality==='mobile'?24:15;for(let z=min;z<max;z+=res)for(let x=min;x<max;x+=res){const local=closestRoad(x+res*.5,z+res*.5)<26?3:1,side=res/local;for(let j=0;j<local;j++)for(let i=0;i<local;i++){const xx=x+i*side,zz=z+j*side,y0=height(xx,zz),y1=height(xx+side,zz),y2=height(xx+side,zz+side),y3=height(xx,zz+side),cc=sampleColor(xx,zz,y0);ground.quad([xx,y0,zz],[xx,y3,zz+side],[xx+side,y2,zz+side],[xx+side,y1,zz],cc);}}
 function roadStrip(points,halfWidth,col,raise=.10,out=decor){for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],dx=b.x-a.x,dz=b.z-a.z,l=Math.hypot(dx,dz),nx=dz/l,nz=-dx/l;out.quad([a.x-nx*halfWidth,height(a.x-nx*halfWidth,a.z-nz*halfWidth)+raise,a.z-nz*halfWidth],[b.x-nx*halfWidth,height(b.x-nx*halfWidth,b.z-nz*halfWidth)+raise,b.z-nz*halfWidth],[b.x+nx*halfWidth,height(b.x+nx*halfWidth,b.z+nz*halfWidth)+raise,b.z+nz*halfWidth],[a.x+nx*halfWidth,height(a.x+nx*halfWidth,a.z+nz*halfWidth)+raise,a.z+nz*halfWidth],col);}}
-roadStrip(roadPoints,7.7,ROAD_EDGE,.25);roadStrip(roadPoints,5.75,ROAD,.31);
+roadStrip(roadPoints,7.1,ROAD_EDGE,.38);roadStrip(roadPoints,5.85,ROAD,.44);
 // Thin wagon ruts read as a used road; not a dotted guidance line.
-roadStrip(roadPoints,1.9,[.47,.39,.28],.35);
+roadStrip(roadPoints,1.45,[.49,.42,.30],.48);
 for(let x=min;x<max;x+=10){const z=riverZ(x);const ww=17+4*Math.sin(x/68),a=x,b=x+10,za=riverZ(a),zb=riverZ(b);const c=height(x,za)-.9,d=height(b,zb)-.9;water.quad([a,c,za-ww],[b,d,zb-ww],[b,d,zb+ww],[a,c,za+ww],RIVER);}
 // Riverbank rock and freshwater reeds.
 for(let k=0;k<140;k++){const x=min+hash(k,11)*(max-min),z=riverZ(x)+(hash(k,12)>.5?1:-1)*(20+hash(k,13)*17),y=height(x,z);decor.box(x,y,z,1+hash(k,14)*2,2+hash(k,15)*4,1.4,[.40,.44,.38]);}
