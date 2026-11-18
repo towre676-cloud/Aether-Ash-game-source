@@ -157,3 +157,25 @@ jobs:
           path: qa-artifacts-hd-browser/
           if-no-files-found: warn
           retention-days: 15
+
+  production-renderer-source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture exact public production renderer source for material integration review
+        run: |
+          set -euo pipefail
+          mkdir -p build/production-renderer-snapshot
+          for module in cistern-renderer.js adventure-3d-renderer.js vehicle-art.js vehicle-model.js art-packs.js adventure-landscape.js; do
+            curl --fail --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 45 \
+              "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$module" \
+              -o "build/production-renderer-snapshot/$module"
+            node --check "build/production-renderer-snapshot/$module"
+          done
+          (cd build/production-renderer-snapshot && sha256sum *.js > SOURCE-SHA256.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-production-renderer-source-review
+          path: build/production-renderer-snapshot/
+          retention-days: 3
