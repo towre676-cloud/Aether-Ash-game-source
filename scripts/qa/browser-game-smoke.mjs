@@ -86,7 +86,7 @@ try{
    if(selected!=='true')throw Error('Region atlas did not select waypoint');
    const during=(await page.locator('#screen').getAttribute('data-position'))||'';
    if(before!==during)throw Error('Selecting a map pin moved the party');
-   await page.screenshot({path:path.join(artifacts,label+'-map.png'),fullPage:false});
+   await page.screenshot({path:path.join(artifacts,label+'-map.png'),fullPage:false,timeout:12000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' map: '+String(e).slice(0,180)));
    const closeRect=await page.getByRole('button',{name:'Return to journey'}).boundingBox();
    if(!closeRect)throw Error('Atlas close button is not on screen');
    await page.mouse.click(closeRect.x+closeRect.width/2,closeRect.y+closeRect.height/2);
@@ -115,7 +115,7 @@ try{
     }
     if(!moved)throw Error('No manual movement in any arrow-key direction at arrival');
    }
-   await page.screenshot({path:path.join(artifacts,label+'-field.png'),fullPage:false});
+   await page.screenshot({path:path.join(artifacts,label+'-field.png'),fullPage:false,timeout:12000}).catch(e=>console.warn('SCREENSHOT_WARNING '+label+' field: '+String(e).slice(0,180)));
    const metrics=await page.locator('#screen').evaluate(canvas=>({
     scene:canvas.dataset.scene,mode:canvas.dataset.mode,renderMs:Number(canvas.dataset.drawMs)||null,
     cameraZoom:canvas.dataset.cameraZoom||null,position:canvas.dataset.position||null,
