@@ -4,6 +4,14 @@
 
 `index.html` is a self-contained WebGL2 prototype demonstrating an uninterrupted two-settlement journey. The invented *Ridgehaven* and *Southreach* positions are **slice-only test geography**, not verified coordinates from the authoritative live atlas. Lowbank is a known game location, but its coordinates here are also provisional.
 
+## Measured renderer optimization (18 November 2026)
+
+This branch now contains an instrumented, optimized *standalone* WebGL2 renderer. Static terrain, water, streets, buildings and woodland are uploaded once into reusable 192m spatial chunks; conservative visibility reduces triangles on each frame, near/far vegetation has a cost-aware LOD, and coarse terrain is used away from roads, riverbanks and settlements. Source simulation, vehicle handling, fixed-step physics, landing and the no-teleport delivery route are retained.
+
+The [performance report](PERFORMANCE_REPORT.md) provides paired **p50/p95/p99** frame intervals, stalls, scene complexity, streaming visibility, memory samples and WebGL2 stage-timer evidence for the same route, viewport, renderer and settings. The preoptimization HTML is pinned to an exact Git commit. On SwiftShader at 1280×720, flight p95 rAF intervals decreased from **72.0 to 42.2 ms**, with per-frame triangles ~47,151 → ~22,511, but all measured p95 intervals **remain above the 16.67 ms target** and some 1024×576 outliers regress. More hardware profiling and graphics work are needed before live integration. This prototype has **not** been deployed to the current ChatGPT Site.
+
+Original route acceptance, real-WebGL2 test, and paired benchmarking are run in the separate [flight performance workflow](../../../.github/workflows/flight-perf.yml). CI attaches actual source-run screenshots, which are proof of rendering, **not** production-quality visuals.
+
 ## Play
 
 Open `index.html` in a recent WebGL2-enabled Chrome, Edge or Firefox browser with hardware acceleration enabled. No install, network access, external CDN, or server is required.
