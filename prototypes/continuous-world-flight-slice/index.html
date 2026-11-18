@@ -185,15 +185,21 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  // All static chunks share one model matrix; uniform updates belong to actors.
  gl.uniformMatrix4fv(uModel,false,identity);
  vis.terrainChunks=0;vis.vegetationChunks=0;vis.culledChunks=0;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('terrain');
  drawChunkGroup(terrainChunks,p,distance,'terrain',eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('water');
  drawChunkGroup(waterChunks,p,distance+55,'water',eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('decor');
  drawChunkGroup(decChunks,p,distance*.86,'decor',eye,target,keys);
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('town');
  drawChunkGroup(townChunks,p,distance*.9,'town',eye,target,keys);
  const near=mode==='flight'?340:mode==='ground'?260:190;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('foliage-near');
  drawChunkGroup(foliageChunks,p,near,'foliage',eye,target,keys);
  // Coarse canopies beyond the near band avoid the full leaf/trunk polygon load.
  const far=mode==='flight'?750:mode==='ground'?530:410;
  const margin=192*.78+36;
+ if(window.__flightPerf)window.__flightPerf.markGpuStage('foliage-far');
  for(const chunk of farFoliageChunks){
   const dx=chunk.cx-p.x,dz=chunk.cz-p.z,d2=dx*dx+dz*dz;
   if(d2<=(near+35)*(near+35)||d2>(far+margin)*(far+margin)){vis.culledChunks++;continue;}
@@ -204,7 +210,9 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
   vis.keys=sorted;
   const signature=sorted.join('|');
   if(signature!==lastStreamSignature){vis.streamingCount++;lastStreamSignature=signature;}
- }draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
+ }if(window.__flightPerf)window.__flightPerf.markGpuStage('actors');
+ draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
+ if(window.__flightPerf)window.__flightPerf.endGpuStage();
  frameCount++;frames++;if(now-lastFpsAt>850){id('fps').textContent=Math.round(frames*1000/(now-lastFpsAt||1000))+' FPS';frames=0;lastFpsAt=now;updateHud();drawMap();}if(toastUntil&&now>toastUntil){id('toast').style.opacity='0';toastUntil=0;}requestAnimationFrame(render);}
 if(window.__ENABLE_SLICE_TEST__===true)window.__sliceTest={state:()=>({mode,stage,player:{...player},car:{...car},plane:{...plane},visited:[...visited],inventory:{...inventory},delivered}),stopCar:()=>{car.speed=0;},roadAssist:()=>{roadAssist=true;},footAssist:()=>{footAssist=true;},teleport:(x,z)=>{if(mode==='foot'){player.x=x;player.z=z;player.y=height(x,z);}else if(mode==='ground'){car.x=x;car.z=z;car.y=height(x,z);}else{plane.x=x;plane.z=z;plane.y=Math.max(plane.y,height(x,z)+1);}},interact,step:simulate,autoland:()=>{autoland=true;}};
 const debugRenderer=gl.getExtension('WEBGL_debug_renderer_info'),rendererName=debugRenderer?String(gl.getParameter(debugRenderer.UNMASKED_RENDERER_WEBGL)):'',softwareRenderer=/swiftshader|llvmpipe|software/i.test(rendererName);
