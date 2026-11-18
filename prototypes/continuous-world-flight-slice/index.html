@@ -40,7 +40,7 @@ function height(x,z){const base=7*Math.sin(x/135)*Math.cos(z/168)+3.1*Math.sin((
 // Vertex-colored geometric world. Triangles use flat diffuse lighting; no external libraries or textures.
 const VS=`#version 300 es\nprecision highp float;layout(location=0) in vec3 aP;layout(location=1) in vec3 aN;layout(location=2) in vec3 aC;uniform mat4 uVP;uniform mat4 uModel;uniform vec3 uEye;out vec3 vColor;out vec3 vPos;out float vDist;out float vHt;void main(){vec4 p=uModel*vec4(aP,1.);vec3 normal=normalize(mat3(uModel)*aN);float lum=.35+max(dot(normal,normalize(vec3(-.52,.88,.38))),0.)*.59;vColor=aC*lum+max(dot(normal,normalize(vec3(.6,.58,-.4))),0.)*aC*.12;vDist=distance(p.xyz,uEye);vHt=p.y;vPos=p.xyz;gl_Position=uVP*p;}`;
 const FS=`#version 300 es\nprecision highp float;in vec3 vColor;in vec3 vPos;in float vDist;in float vHt;uniform sampler2D uNoise;out vec4 fragColor;
-void main(){vec3 texel=texture(uNoise,vPos.xz*.018).rgb;float grain=texture(uNoise,vPos.xz*.11).g;
+void main(){vec3 texel=texture(uNoise,vPos.xz*.018).rgb;float grain=texel.g;
  vec3 color=vColor*(.88+texel.r*.20+grain*.095);
  color=mix(color,color*vec3(1.04,1.025,.96),clamp((vHt+2.)/75.,0.,.7));
  float q=clamp(vDist/590.,0.,3.5);float x2=q*q;float fogCurve=x2*(1.46+.24*q);float fog=fogCurve/(1.+fogCurve);vec3 fogColor=mix(vec3(.76,.71,.58),vec3(.48,.64,.72),clamp(vHt/95.,0.,1.));
