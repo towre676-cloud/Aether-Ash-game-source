@@ -30,3 +30,35 @@ jobs:
           node --check /tmp/patched-live-landscape.js
           grep -q 'appendHDTree(m,p,c' /tmp/patched-live-landscape.js
           grep -q 'appendHDRock(m,p,c' /tmp/patched-live-landscape.js
+  material-atlas-generation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install atlas generator dependencies
+        run: pip install --disable-pip-version-check numpy pillow
+      - name: Generate first-party HD materials
+        run: python tools/hd-assets/generate_hd_atlas.py build/hd-materials
+      - name: Validate textures and manifest
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          import json
+          from pathlib import Path
+          p=Path('build/hd-materials')
+          for f in ('hd-albedo.webp','hd-normal.webp','hd-roughness.webp'):
+              with Image.open(p/f) as im:
+                  assert im.size==(2048,2048), (f,im.size)
+                  assert im.mode=='RGB', (f,im.mode)
+          m=json.loads((p/'materials.json').read_text())
+          assert len(m['materials'])==16
+          assert len({x['id'] for x in m['materials']})==16
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-hd-materials
+          path: build/hd-materials/
+          retention-days: 30
