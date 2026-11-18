@@ -1,0 +1,181 @@
+name: Live-compatible HD asset geometry
+on:
+  pull_request:
+    paths:
+      - 'live-site/dist/game/engine2/hd-environment-models.mjs'
+      - 'live-site/dist/game/engine2/adventure-landscape.js'
+      - 'live-site/dist/game/engine2/tests/hd-environment-models.test.mjs'
+      - 'tools/hd-assets/**'
+      - '.github/workflows/live-hd-assets.yml'
+  workflow_dispatch:
+jobs:
+  geometry-and-live-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test authored HD asset geometry and LOD
+        run: |
+          node --check live-site/dist/game/engine2/hd-environment-models.mjs
+          node --test live-site/dist/game/engine2/tests/hd-environment-models.test.mjs
+      - name: Validate against current public Site source (read-only)
+        run: |
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-landscape.js' \
+            -o /tmp/current-live-landscape.js
+          node tools/hd-assets/apply-live-landscape.mjs /tmp/current-live-landscape.js /tmp/patched-live-landscape.js
+          node --check /tmp/patched-live-landscape.js
+          grep -q 'appendHDTree(m,p,c' /tmp/patched-live-landscape.js
+          grep -q 'appendHDRock(m,p,c' /tmp/patched-live-landscape.js
+  material-atlas-generation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install atlas generator dependencies
+        run: pip install --disable-pip-version-check numpy pillow
+      - name: Generate first-party HD materials
+        run: python tools/hd-assets/generate_hd_atlas.py build/hd-materials
+      - name: Validate textures and manifest
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          import json
+          from pathlib import Path
+          p=Path('build/hd-materials')
+          for f in ('hd-albedo.webp','hd-normal.webp','hd-roughness.webp'):
+              with Image.open(p/f) as im:
+                  assert im.size==(2048,2048), (f,im.size)
+                  assert im.mode=='RGB', (f,im.mode)
+          m=json.loads((p/'materials.json').read_text())
+          assert len(m['materials'])==16
+          assert len({x['id'] for x in m['materials']})==16
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-hd-materials
+          path: build/hd-materials/
+          retention-days: 30
+
+  current-site-overlay-package:
+    needs: [geometry-and-live-compatibility, material-atlas-generation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ash-aether-hd-materials
+          path: build/hd-materials/
+      - name: Patch exact current public Site source to staged overlay
+        run: |
+          mkdir -p build/live-overlay/game/engine2/art/hd-materials
+          curl -fLsS --retry 2 --connect-timeout 8 --max-time 25 \
+            'https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/adventure-landscape.js' \
+            -o /tmp/current-live-landscape.js
+          node tools/hd-assets/apply-live-landscape.mjs \
+            /tmp/current-live-landscape.js build/live-overlay/game/engine2/adventure-landscape.js
+          cp live-site/dist/game/engine2/hd-environment-models.mjs build/live-overlay/game/engine2/
+          cp build/hd-materials/* build/live-overlay/game/engine2/art/hd-materials/
+          sha256sum /tmp/current-live-landscape.js > build/live-overlay/current-site-source.sha256
+          node --check build/live-overlay/game/engine2/adventure-landscape.js
+          node --check build/live-overlay/game/engine2/hd-environment-models.mjs
+          test -s build/live-overlay/game/engine2/art/hd-materials/hd-normal.webp
+      - name: Write deployment guard and ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, zipfile
+          p=Path('build/live-overlay')
+          source=p/'game/engine2/adventure-landscape.js'
+          guard={'release_type':'staged-overlay-not-deployed',
+                 'target':'https://ash-aether-clay-water.towre676.chatgpt.site',
+                 'project_id':'appgprj_6adf63724e5c8191bd55637b8ecd8d9a',
+                 'source_revision_required':'remaining-scenes-34b52c72d826',
+                 'patched_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+                 'changes':['adventure-landscape.js tree/rock/fungus geometry only',
+                            'new hd-environment-models.mjs',
+                            'original 2048px PBR texture maps (not bound in game shader)'],
+                 'missing':['authenticated Sites deployment',
+                            'production vehicle/aircraft mesh bindings',
+                            'production texture shader binding',
+                            'real GPU profiling and visual browser validation'],
+                 'never_overwrite_other_site_files':True}
+          (p/'overlay-manifest.json').write_text(json.dumps(guard,indent=2))
+          with zipfile.ZipFile('build/Ash-Aether-Current-Site-HD-Overlay.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for f in sorted(p.rglob('*')):
+                  if f.is_file():z.write(f,f.relative_to(p))
+          print('Assembled staged current-source overlay, bytes',Path('build/Ash-Aether-Current-Site-HD-Overlay.zip').stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-current-site-hd-overlay
+          path: build/Ash-Aether-Current-Site-HD-Overlay.zip
+          retention-days: 30
+
+  hd-real-browser-preview:
+    needs: [current-site-overlay-package]
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ash-aether-current-site-hd-overlay
+          path: build/
+      - name: Unpack current-Site-patched modules and image art
+        run: |
+          mkdir -p build/current-hd-overlay
+          unzip -q build/Ash-Aether-Current-Site-HD-Overlay.zip -d build/current-hd-overlay
+          test -s build/current-hd-overlay/game/engine2/adventure-landscape.js
+          test -s build/current-hd-overlay/game/engine2/hd-environment-models.mjs
+      - name: Install the existing QA browser driver
+        run: |
+          cd scripts/qa
+          npm install --no-package-lock --no-save --ignore-scripts playwright-core@1.56.1
+          test -x /usr/bin/google-chrome
+      - name: Exercise currently published game in baseline and HD-overridden Chrome
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: node scripts/qa/browser-hd-current-site.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ash-aether-current-site-hd-chrome-visual-proof
+          path: qa-artifacts-hd-browser/
+          if-no-files-found: warn
+          retention-days: 15
+
+  production-renderer-source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture exact public production renderer source for material integration review
+        run: |
+          set -euo pipefail
+          mkdir -p build/production-renderer-snapshot
+          for module in cistern-renderer.js adventure-3d-renderer.js vehicle-art.js vehicle-model.js art-packs.js adventure-landscape.js; do
+            curl --fail --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 45 \
+              "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$module" \
+              -o "build/production-renderer-snapshot/$module"
+            node --check "build/production-renderer-snapshot/$module"
+          done
+          (cd build/production-renderer-snapshot && sha256sum *.js > SOURCE-SHA256.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ash-aether-production-renderer-source-review
+          path: build/production-renderer-snapshot/
+          retention-days: 3
