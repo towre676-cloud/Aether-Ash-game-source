@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {appendHDTree,appendHDRock,appendHDAircraft,appendHDRover,appendHDHouse,hdDetail,HD_ASSET_SCHEMA} from '../hd-environment-models.mjs';
+import {appendHDTree,appendHDRock,appendHDFungus,appendHDCairn,appendHDReeds,appendHDStoneBridge,appendHDAircraft,appendHDRover,appendHDHouse,hdDetail,HD_ASSET_SCHEMA} from '../hd-environment-models.mjs';
 class Recorder{
  constructor(){this.triangles=0;this.draws=[];}
  check(p){assert.ok(Array.isArray(p)&&p.length===3&&p.every(Number.isFinite),'invalid 3D vertex');}
@@ -57,4 +57,18 @@ test('historical landscape actually calls higher-definition models rather than g
  assert.match(src,/appendHDTree\(m,p,c/);
  assert.match(src,/appendHDRock\(m,p,c/);
  assert.match(src,/hd-environment-models\.mjs/);
+});
+
+test('additional biologic and structural assets have finite bounded geometry',()=>{
+ const cases=[
+  render(appendHDFungus,[fixture,{...colors,family:'spore'}],{quality:'high'}),
+  render(appendHDCairn,[{x:1,y:0,z:2,quality:'high'}]),
+  render(appendHDReeds,[{x:1,y:0,z:2,quality:'high',count:25}]),
+  render(appendHDStoneBridge,[{x:1,y:0,z:2,quality:'high',span:16}])
+ ];
+ for(const m of cases)assert.ok(m.triangles>40&&m.triangles<8000,'triangle budget / missing mesh: '+m.triangles);
+});
+test('all three original landscape primitive categories route through replacement modules',()=>{
+ const src=fs.readFileSync(new URL('../adventure-landscape.js',import.meta.url),'utf8');
+ for(const fn of ['appendHDTree','appendHDRock','appendHDFungus'])assert.ok(src.includes(fn+'(m,p,c'),fn);
 });
