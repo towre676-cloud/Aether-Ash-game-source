@@ -17,11 +17,13 @@ with sync_playwright() as p:
  page.keyboard.press('r');page.evaluate('for(let i=0;i<3300;i++)window.__sliceTest.step(1/60)');assert s()['stage']>=2
  page.keyboard.press('e');page.keyboard.press('e');assert s()['mode']=='flight'
  page.keyboard.press('l');page.evaluate('for(let i=0;i<330;i++)window.__sliceTest.step(1/60)')
+ page.wait_for_function("document.querySelector('#modeTag')?.textContent.includes('Skylark')",timeout=15000)
  page.wait_for_timeout(800);page.screenshot(path=str(ROOT/'flight-preview.png'))
  print('Flight while rendering:',s()['plane'], 'FPS',page.locator('#fps').inner_text(),flush=True)
  page.evaluate('for(let i=0;i<3600;i++)window.__sliceTest.step(1/60)');assert s()['plane']['landed']
  page.keyboard.press('e');page.keyboard.press('r');page.evaluate('for(let i=0;i<2100;i++)window.__sliceTest.step(1/60)')
  assert s()['stage']==5
- page.wait_for_timeout(400);page.screenshot(path=str(ROOT/'destination-preview.png'))
+ page.wait_for_function("document.querySelector('#modeTag')?.textContent.includes('A country without chapter gates') && document.querySelector('#direction')?.textContent.includes('The road carries on')",timeout=15000)
+ page.wait_for_timeout(250);page.screenshot(path=str(ROOT/'destination-preview.png'))
  print('PASS realGL whole trip:',s()['stage'],'FPS',page.locator('#fps').inner_text(),'errors:',errors,flush=True)
  b.close()
