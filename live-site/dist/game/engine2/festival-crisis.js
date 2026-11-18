@@ -41,8 +41,12 @@ export function beginFestivalCrisis(world){
  return true;
 }
 export function festivalCrisisObjects(world){
- if(!active(world)||world.scene?.location!==TOWN)return [];
+ if(world.scene?.location!==TOWN)return [];
  const c=festivalCrisisState(world);
+ // The physically repaired connection persists on later visits, not just in
+ // the rescue journal. Historical saves do not acquire an invented repair.
+ if(c?.phase==='complete'&&!c.legacyBypass)return [{...RELAY,type:'furnishing',festivalCrisis:'relay-restored',label:'Reopened return vane'}];
+ if(!active(world))return [];
  return [...PEOPLE.filter(p=>!c.safe.includes(p.id)).map(p=>({...p,festivalCrisis:p.id})),{...RELAY,festivalCrisis:'relay'}];
 }
 export function festivalCrisisObjective(world){
@@ -73,6 +77,10 @@ function evacuate(world,id){
 }
 export function festivalCrisisInteraction(world,o){
  if(!o?.festivalCrisis)return false;
+ if(o.festivalCrisis==='relay-restored'){
+  if(world.scene?.location===TOWN)world.text('The bell collector is isolated. The return vane stays open, and the square can answer its own calls.');
+  return true;
+ }
  if(!active(world)||world.scene?.location!==TOWN)return true;
  const c=festivalCrisisState(world);
  if(o.festivalCrisis==='nell'){
