@@ -121,3 +121,39 @@ jobs:
           name: ash-aether-current-site-hd-overlay
           path: build/Ash-Aether-Current-Site-HD-Overlay.zip
           retention-days: 30
+
+  hd-real-browser-preview:
+    needs: [current-site-overlay-package]
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ash-aether-current-site-hd-overlay
+          path: build/
+      - name: Unpack current-Site-patched modules and image art
+        run: |
+          mkdir -p build/current-hd-overlay
+          unzip -q build/Ash-Aether-Current-Site-HD-Overlay.zip -d build/current-hd-overlay
+          test -s build/current-hd-overlay/game/engine2/adventure-landscape.js
+          test -s build/current-hd-overlay/game/engine2/hd-environment-models.mjs
+      - name: Install the existing QA browser driver
+        run: |
+          cd scripts/qa
+          npm install --no-package-lock --no-save --ignore-scripts playwright-core@1.56.1
+          test -x /usr/bin/google-chrome
+      - name: Exercise currently published game in baseline and HD-overridden Chrome
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: node scripts/qa/browser-hd-current-site.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ash-aether-current-site-hd-chrome-visual-proof
+          path: qa-artifacts-hd-browser/
+          if-no-files-found: warn
+          retention-days: 15
