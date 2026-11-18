@@ -59,5 +59,19 @@ for i,(name,color,roughness) in enumerate(MATERIALS):
  manifest.append({'id':name,'tile':[k,j],'uv':[(k+.008)/4,(j+.008)/4,(k+.992)/4,(j+.992)/4],'roughness':roughness})
 for filename,data in [('hd-albedo.webp',base),('hd-normal.webp',normal),('hd-roughness.webp',roughmap)]:
  Image.fromarray(data,'RGB').save(OUT/filename,'WEBP',quality=88,method=5)
+# Four quadrants retain the native CisternRenderer uMaterialAtlas UV layout.
+# Each quadrant repeats a seamless 512-pixel native material swatch at 2x2
+# density; shader selection remains unchanged, requiring no extra samplers.
+# Order in image-space: soil floor, basalt masonry, iron metal, slate bank rock.
+source=Image.fromarray(base,'RGB')
+compatible=Image.new('RGB',(2048,2048))
+for q,material_id in enumerate(('soil','basalt','iron','slate')):
+    ix=next(i for i,item in enumerate(MATERIALS) if item[0]==material_id)
+    sy,sx=divmod(ix,4)
+    swatch=source.crop((sx*N,sy*N,(sx+1)*N,(sy+1)*N))
+    ox=(q%2)*1024;oy=(q//2)*1024
+    for dy in (0,N):
+        for dx in (0,N):compatible.paste(swatch,(ox+dx,oy+dy))
+compatible.save(OUT/'hd-material-atlas-compatible.webp','WEBP',quality=88,method=5)
 (OUT/'materials.json').write_text(json.dumps({'version':1,'atlas':2048,'tile':512,'layout':[4,4],'materials':manifest},indent=2))
 print('Generated 3 x 2048 WebP maps in',OUT)
