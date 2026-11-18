@@ -43,4 +43,8 @@ test('rescued actors disappear from subsequent frames without a scene reload',()
  assert.equal(appendAdventureWorldProps(mesh,glow,{...full,range:20}).props,3);
  const saved=stage(['baker','relay']);
  assert.equal(appendAdventureWorldProps(fakeMesh(),fakeMesh(),{...saved,range:20}).props,2);
+ const restored=stage(['relay']);
+ restored.objects[0].festivalCrisis='relay-restored';
+ restored.objects[0].type='furnishing';
+ assert.equal(appendAdventureWorldProps(fakeMesh(),fakeMesh(),{...restored,range:20}).props,1);
 });
