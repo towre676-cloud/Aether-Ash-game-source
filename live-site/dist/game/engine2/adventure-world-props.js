@@ -39,7 +39,7 @@ export function adventurePropFamily(world,o){
  // Late-appearing rescue objects must be rendered dynamically, not scene-baked.
  if(o.festivalCrisis==='baker')return 'festival-cart';
  if(o.festivalCrisis==='nell')return 'festival-shelter';
- if(o.festivalCrisis==='relay')return 'relay';
+ if(o.festivalCrisis==='relay'||o.festivalCrisis==='relay-restored')return 'relay';
  if(!TYPES.has(o.type))return null;
  if(o.actuatorFamily)return o.actuatorFamily;
  if(['puzzle','switch','note','project','lore-device'].includes(o.type))return campaignActuatorSpec(world,o).actuatorFamily;
@@ -230,7 +230,7 @@ function staticBody(g,c,family,o,p){
  }
 }
 function semanticState(world,o,time,feedback){
- const done=completed(world,o),stage=flag(world,o.stage_flag),seq=o.type==='note'?Number(world.state.flags?.['sequence:'+o.sequence_address])||0:0;
+ const done=o.festivalCrisis==='relay-restored'||completed(world,o),stage=flag(world,o.stage_flag),seq=o.type==='note'?Number(world.state.flags?.['sequence:'+o.sequence_address])||0:0;
  const pending=feedback?.pending,match=pending?.object&&(identity(pending.object)===identity(o)||pending.object.type===o.type&&pending.object.xy?.[0]===o.xy[0]&&pending.object.xy?.[1]===o.xy[1]);
  let value=done?1:stage?.5:0;if(match)value=Math.max(value,clamp(pending.progress));
  const key=world.scene.location+':'+identity(o);let map=VISUALS.get(world);if(!map){map=new Map();VISUALS.set(world,map);}let v=map.get(key);
