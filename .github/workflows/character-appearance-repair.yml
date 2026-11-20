@@ -1,0 +1,54 @@
+name: Current-Site character appearance and locomotion repair
+on:
+  pull_request:
+    paths:
+      - 'tools/character-repair/**'
+      - 'scripts/qa/browser-character-repair.mjs'
+      - '.github/workflows/character-appearance-repair.yml'
+  workflow_dispatch:
+jobs:
+  exact-current-source-overlay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download actual public production modules read-only
+        run: |
+          set -euo pipefail
+          mkdir -p build/current-character-source build/character-repair-overlay
+          for module in equipped-appearance.js character-screen.js character-showcase.js articulated-surface-model.js articulated-equipment.js character-motion.js; do
+            curl --fail --location --silent --show-error --retry 2 --connect-timeout 8 --max-time 40 \
+              "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$module" \
+              --output "build/current-character-source/$module"
+            test -s "build/current-character-source/$module"
+            node --check "build/current-character-source/$module"
+          done
+      - name: Stage source-matched character repair, preserving other production modules
+        run: |
+          node tools/character-repair/apply-current-site.mjs build/current-character-source build/character-repair-overlay
+          test -s build/character-repair-overlay/character-repair-manifest.json
+          for module in equipped-appearance.js character-screen.js character-showcase.js articulated-surface-model.js articulated-equipment.js character-motion.js; do
+            node --check "build/character-repair-overlay/$module"
+          done
+      - name: Execute seven-character gear and locomotion regression tests
+        env:
+          ASH_CURRENT_SOURCE_DIR: build/current-character-source
+        run: node --test tools/character-repair/repair.test.mjs
+      - name: Record source hashes and package opt-in overlay (NOT published)
+        run: |
+          set -euo pipefail
+          (cd build/current-character-source && sha256sum *.js > ../character-repair-overlay/CURRENT-SITE-SOURCE-SHA256.txt)
+          (cd build/character-repair-overlay && zip -q -r ../Ash-Aether-Character-Repair-Staged-Overlay.zip .)
+          unzip -tq build/Ash-Aether-Character-Repair-Staged-Overlay.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ash-aether-current-character-repair-overlay
+          path: |
+            build/Ash-Aether-Character-Repair-Staged-Overlay.zip
+            build/character-repair-overlay/character-repair-manifest.json
+          if-no-files-found: warn
+          retention-days: 30
