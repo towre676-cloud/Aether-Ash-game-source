@@ -37,6 +37,22 @@ jobs:
         env:
           ASH_CURRENT_SOURCE_DIR: build/current-character-source
         run: node --test tools/character-repair/repair.test.mjs
+      - name: Install browser driver for real current-Site preview
+        run: |
+          cd scripts/qa
+          npm install --no-package-lock --no-save --ignore-scripts playwright-core@1.56.1
+          test -x /usr/bin/google-chrome
+      - name: Exercise all seven repaired heroes in actual current-Site Chrome (in-memory overrides only)
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: node scripts/qa/browser-character-repair.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ash-aether-character-repair-browser-proof
+          path: qa-artifacts-character-repair/
+          if-no-files-found: warn
+          retention-days: 15
       - name: Record source hashes and package opt-in overlay (NOT published)
         run: |
           set -euo pipefail
