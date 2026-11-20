@@ -1,0 +1,22 @@
+name: Continuous flight host integration contract
+on:
+  pull_request:
+    paths:
+      - 'live-site/dist/game/engine2/continuous-world-live-bridge.mjs'
+      - 'live-site/dist/game/engine2/continuous-world-core.mjs'
+      - 'live-site/dist/game/engine2/tests/continuous-world-live-bridge.test.mjs'
+      - '.github/workflows/flight-host-integration.yml'
+  workflow_dispatch:
+jobs:
+  integration-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and fail-closed host integration
+        run: |
+          node --check live-site/dist/game/engine2/continuous-world-live-bridge.mjs
+          node --check live-site/dist/game/engine2/continuous-world-core.mjs
+          node --test live-site/dist/game/engine2/tests/continuous-world-live-bridge.test.mjs
