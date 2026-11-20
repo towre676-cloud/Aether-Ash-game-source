@@ -1,6 +1,10 @@
 # Live game ↔ GitHub source integration
 
-## Current status — November 5, 2026
+## Current assessment — November 14, 2026
+
+The full #12–14 region stack is already in main through PR #15 (`86081e8`). An authenticated checkout of deployed Site v116 (`a9a79147da891cba10864a5535b66799246dbea1`) has now been reconciled in a separate review-only candidate. Corrective code and remaining acceptance gates are documented in [the current integration assessment](CURRENT_SITE_REGION_AUDIT_2026-11-14.md). No Site deployment was performed by this audit.
+
+## Historical access record — November 5, 2026
 
 - Live [Ash & Aether: Clay and Water](https://ash-aether-clay-water.towre676.chatgpt.site/) is an active separately hosted ChatGPT Site.
 - Recorded Site project identifier: `appgprj_6adf63724e5c8191bd55637b8ecd8d9a`.

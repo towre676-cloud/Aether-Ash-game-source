@@ -11,13 +11,13 @@
  * create-only, SHA-256 receipted and refuses unknown source signatures.
  */
 import {readFileSync,writeFileSync,mkdirSync,copyFileSync,existsSync} from 'node:fs';
-import {resolve,join,dirname,relative,isAbsolute,sep} from 'node:path';
+import {resolve,join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {patchLiveAffordances} from './stage-live-affordances.mjs';
+import {reviewDestination} from './review-destination.mjs';
 import {stageSpatialSources} from './stage-live-spatial-integration.mjs';
 
-const inputs=['world.js','main.js','adventure-3d-geometry.js','field-journey-ui.js',
- 'field-encounters.js','adventure-3d-renderer.js','renderer.js','room-map.js'];
 const modules=['vast-spatial-expansion.mjs','mainline-courts.mjs','spatial-landmark-art.mjs','spatial-ecology.mjs','spatial-wildlife.mjs'];
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 function replaceOnce(text,from,to,name){
@@ -51,16 +51,23 @@ function patchWorld(world){
  preserve(world,out,expected,'world');return out;
 }
 function patchFieldEncounters(source){
- let s=insertImport(source,"import {spatialEcologyEncounterPace} from './spatial-ecology.mjs?v=1';",'scene-identity.js');
+ let s=insertImport(source,"import {spatialEcologyEncounterPace,spatialEcologySites} from './spatial-ecology.mjs?v=1';",'scene-identity.js');
  const guard="return (scene.objects||[]).some(o=>o.type==='portal'?near(o,1.1):['npc','guide','shop','camp','transport','frontier-board'].includes(o.type)&&near(o,1.15));";
- const beforeGuard=`if(scene.spatialExpansion?.version===1&&[1,3,5,6,7].some(i=>{
-  const xy=scene.spatialExpansion.landmarks?.[i]?.xy;
+ const beforeGuard=`if(scene.spatialExpansion?.version===1&&spatialEcologySites(scene).some(site=>{
+  const xy=site.xy;
   return Array.isArray(xy)&&Math.hypot(s.x-xy[0]-.5,s.y-xy[1]-.5)<2.4;
  }))return true;`;
  s=replaceOnce(s,guard,beforeGuard+'\n '+guard,'local noncombat station safety');
  const consumed="const consumed=distance*(Number.isFinite(ecologyPace)?clamp(ecologyPace,.65,1.3):1);";
  s=replaceOnce(s,consumed,"const consumed=distance*(Number.isFinite(ecologyPace)?clamp(ecologyPace,.65,1.3):1)*spatialEcologyEncounterPace(world);",'local ecological encounter pacing');
  preserve(source,s,['advanceEncounters','encounterProtected','resetEncounterGrace'],'encounters');return s;
+}
+function patchManualMap(main){
+ let out=replaceOnce(main,'getObjective:()=>objective,onOpen:release,',
+  'getObjective:()=>objective,onOpen(){release();questGuide?.cancel();path=[];arrivalAction=null;},','native map cancels existing routes');
+ out=replaceOnce(out,"c.o.type==='field-situation'?c.o.label:",
+  "['field-situation','spatial-fieldwork'].includes(c.o.type)?c.o.label:",'fieldwork interaction prompt');
+ return out;
 }
 function patch3D(source){
  let s=insertImport(source,"import {appendSpatialWildlifeMotion} from './spatial-wildlife.mjs?v=1';",'adventure-landscape.js');
@@ -101,34 +108,34 @@ follow.onclick=()=>{if(selected&&onWalk(...selected))panel.close();else status.t
  for(const station of spatialEcologySites(s)){
   if(!cells.has(station.xy.join(',')))continue;
   const known=!!((eco?.mask||0)&(1<<station.spatialIndex));
-  const label=known?'Fieldwork · '+station.label:'Uncharted habitat station';
+  const label=known?'Fieldwork · '+station.label:'Uncharted habitat · '+station.spatialRole;
   marks.push({x:station.xy[0],z:station.xy[1],kind:'service',label});
  }`;
  s=replaceOnce(s,marker,addition,'native map living region markers');
  preserve(source,s,['onWalk','roomWayfinding','panel.showModal()'],'room map');return s;
 }
 export function stageLivingSources({
- world,main,geometry,journey,encounters,adventure,renderer,roomMap
+ world,main,geometry,journey,encounters,adventure,renderer,roomMap,affordances
 }){
- const input={world,main,geometry,journey,encounters,adventure,renderer,roomMap};
+ const input={world,main,geometry,journey,encounters,adventure,renderer,roomMap,affordances};
  for(const[k,v]of Object.entries(input))if(typeof v!=='string'||v.length<50)throw Error('Missing current Site source '+k);
  const base=stageSpatialSources({world,main,geometry,journey});
  // Keep the *current native* room map, including its M shortcut, and add
  // explicit manual selection and ecological labels. No second map HUD button.
  const out={
-  world:patchWorld(base.world),main:base.main,geometry:base.geometry,
+  world:patchWorld(base.world),main:patchManualMap(base.main),geometry:base.geometry,
   journey:base.journey,encounters:patchFieldEncounters(encounters),
-  adventure:patch3D(adventure),renderer:patch2D(renderer),roomMap:patchRoomMap(roomMap)
+  adventure:patch3D(adventure),renderer:patch2D(renderer),roomMap:patchRoomMap(roomMap),affordances:patchLiveAffordances(affordances)
  };
  if(out.main.includes('mountSpatialRegionMap'))throw Error('Duplicate map installation in modern Site');
  return out;
 }
 const key={world:'world.js',main:'main.js',geometry:'adventure-3d-geometry.js',journey:'field-journey-ui.js',
- encounters:'field-encounters.js',adventure:'adventure-3d-renderer.js',renderer:'renderer.js',roomMap:'room-map.js'};
+ encounters:'field-encounters.js',adventure:'adventure-3d-renderer.js',renderer:'renderer.js',roomMap:'room-map.js',affordances:'world-affordances.js'};
 export function stageLivingSnapshot(sourceRoot,outputRoot){
- const source=resolve(sourceRoot),out=resolve(outputRoot),rel=relative(source,out);
- if(!rel||rel!=='..'&&!rel.startsWith('..'+sep)&&!isAbsolute(rel))throw Error('Review destination must not overwrite current source');
- if(existsSync(out))throw Error('Review destination exists; never overwrite it');
+ const {source,out}=reviewDestination(sourceRoot,outputRoot);
+ for(const p of modules)if(existsSync(join(source,'game/engine2',p)))
+  throw Error('Fail closed: additive module already exists in current source: '+p);
  const origin=resolve(dirname(fileURLToPath(import.meta.url)),'../live-site/dist/game/engine2');
  const input=Object.fromEntries(Object.entries(key).map(([k,p])=>[k,readFileSync(join(source,'game/engine2',p),'utf8')]));
  const patch=stageLivingSources(input),receipt=[];
@@ -139,7 +146,9 @@ export function stageLivingSnapshot(sourceRoot,outputRoot){
  for(const p of modules){const from=join(origin,p),to=join(out,'game/engine2',p);copyFileSync(from,to);
   const bytes=readFileSync(to);receipt.push({file:p,oldSha256:null,newSha256:sha(bytes),bytes:bytes.length});}
  const manifest={schema:'ash-aether.live-region-overlay/1',kind:'review-only',deployed:false,
-  sourceRoot:source,files:receipt,checks:['current live source version verified','full region integration tests','phone/desktop browser test','save and battle regression','explicit approval']};
+  sourceRoot:source,files:receipt,
+  verification:{sourceSignatures:'matched',sourceAuthentication:'caller responsibility',gameplay:'not verified by staging'},
+  requiredChecks:['current live source version verification','full region integration tests','phone/desktop browser test','save and battle regression','explicit approval']};
  writeFileSync(join(out,'LIVING-REGIONS-STAGING.json'),JSON.stringify(manifest,null,2)+'\n');return manifest;
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){

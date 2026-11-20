@@ -55,7 +55,7 @@ function presentationFor(scene,p){
 function floor(scene,x,y){return scene.floor?.[y]?.[x]==='.';}
 function flood(scene,start,blocked=null){
  const q=[start],seen=new Set([key(start)]);
- for(let i=0;i<q.length&&q.length<5000;i++)for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]]){
+ for(let i=0;i<q.length;i++)for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]]){
   const p=[q[i][0]+dx,q[i][1]+dy],k=key(p);
   if(seen.has(k)||blocked&&k===key(blocked)||!floor(scene,...p))continue;
   seen.add(k);q.push(p);
