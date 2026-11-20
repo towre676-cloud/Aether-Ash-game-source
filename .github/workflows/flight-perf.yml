@@ -33,6 +33,8 @@ jobs:
             -o prototypes/continuous-world-flight-slice/baseline-pinned.html
           node -e "const fs=require('fs');const p='prototypes/continuous-world-flight-slice/baseline-pinned.html';if(!fs.readFileSync(p,'utf8').includes('requestAnimationFrame(render)'))process.exit(1)"
           node --check live-site/dist/game/engine2/continuous-world-core.mjs
+      - name: Test adaptive flight render resolution
+        run: node --test prototypes/continuous-world-flight-slice/test_adaptive_resolution.mjs
       - name: Verify unchanged route logic via browser
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome

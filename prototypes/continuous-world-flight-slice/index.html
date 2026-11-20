@@ -242,10 +242,29 @@ function render(now){const raw=Math.max(0,Math.min(.15,(now-lastT)/1000));lastT=
  }if(window.__flightPerf)window.__flightPerf.markGpuStage('actors');
  draw(carMesh,model(car.x,car.y,car.z,car.yaw));draw(carMesh,model(rover2.x,rover2.y,rover2.z,rover2.yaw));draw(craftMesh,model(plane.x,plane.y,plane.z,plane.yaw,plane.pitch,plane.roll));if(mode==='foot')draw(avatarMesh,model(player.x,player.y,player.z,player.yaw));for(let i=0;i<5;i++){const ax=-40+i*75,az=160+i*42,dx=Math.sin(now*.00035+i)*12,dz=Math.cos(now*.00027+i)*8;const x=ax+dx,z=az+dz;draw(deerMesh,model(x,height(x,z),z,Math.sin(now*.0003+i)*.6));}for(const n of npcPaths){const idx=Math.floor((now*.0002*n.speed+n.offset)%roadPoints.length),v=roadPoints[idx],w=roadPoints[Math.min(idx+1,roadPoints.length-1)],yaw=Math.atan2(w.x-v.x,w.z-v.z);draw(cartMesh,model(v.x,height(v.x,v.z)+.2,v.z,yaw));}
  if(window.__flightPerf)window.__flightPerf.endGpuStage();
- frameCount++;frames++;if(now-lastFpsAt>850){id('fps').textContent=Math.round(frames*1000/(now-lastFpsAt||1000))+' FPS';frames=0;lastFpsAt=now;updateHud();drawMap();}if(toastUntil&&now>toastUntil){id('toast').style.opacity='0';toastUntil=0;}requestAnimationFrame(render);}
+ frameCount++;frames++;if(now-lastFpsAt>850){const elapsed=now-lastFpsAt,fps=frames*1000/(elapsed||1000);id('fps').textContent=Math.round(fps)+' FPS';adaptResolution(elapsed/Math.max(1,frames),now);frames=0;lastFpsAt=now;updateHud();drawMap();}if(toastUntil&&now>toastUntil){id('toast').style.opacity='0';toastUntil=0;}requestAnimationFrame(render);}
 if(window.__ENABLE_SLICE_TEST__===true)window.__sliceTest={state:()=>({mode,stage,player:{...player},car:{...car},plane:{...plane},visited:[...visited],inventory:{...inventory},delivered}),stopCar:()=>{car.speed=0;},roadAssist:()=>{roadAssist=true;},footAssist:()=>{footAssist=true;},teleport:(x,z)=>{if(mode==='foot'){player.x=x;player.z=z;player.y=height(x,z);}else if(mode==='ground'){car.x=x;car.z=z;car.y=height(x,z);}else{plane.x=x;plane.z=z;plane.y=Math.max(plane.y,height(x,z)+1);}},interact,step:simulate,autoland:()=>{autoland=true;}};
 const debugRenderer=gl.getExtension('WEBGL_debug_renderer_info'),rendererName=debugRenderer?String(gl.getParameter(debugRenderer.UNMASKED_RENDERER_WEBGL)):'',softwareRenderer=/swiftshader|llvmpipe|software/i.test(rendererName);
-function resize(){const dpr=Math.min(window.devicePixelRatio||1,1.5)*(softwareRenderer?.7:1);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);}addEventListener('resize',resize);resize();announce('The world is one place. Follow the road, then take to the air.',5);requestAnimationFrame(render);
+// Bounded adaptive raster resolution. Keep scene geometry, textures and draw distance unchanged.
+// A hysteresis window avoids constant canvas reallocation during fast camera motion.
+const resolutionState={scale:1,min:softwareRenderer?.78:.82,max:1,averageMs:16.67,adjustments:0,lastAdjustment:-Infinity,width:0,height:0};
+window.__flightResolution=resolutionState;
+function resize(){
+ const dpr=Math.min(window.devicePixelRatio||1,1.5)*(softwareRenderer?.7:1)*resolutionState.scale;
+ const width=Math.max(1,Math.round(innerWidth*dpr)),height=Math.max(1,Math.round(innerHeight*dpr));
+ if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
+ resolutionState.width=width;resolutionState.height=height;
+}
+function adaptResolution(frameMs,now){
+ if(document.hidden||!Number.isFinite(frameMs)||frameMs<=0||!Number.isFinite(now))return;
+ resolutionState.averageMs=resolutionState.averageMs*.75+Math.min(250,frameMs)*.25;
+ if(now-resolutionState.lastAdjustment<2500)return;
+ const previous=resolutionState.scale;
+ if(resolutionState.averageMs>24)resolutionState.scale=Math.max(resolutionState.min,Math.round((previous-.06)*100)/100);
+ else if(resolutionState.averageMs<14.5)resolutionState.scale=Math.min(resolutionState.max,Math.round((previous+.04)*100)/100);
+ if(resolutionState.scale!==previous){resolutionState.adjustments++;resolutionState.lastAdjustment=now;resize();}
+}
+addEventListener('resize',resize);resize();announce('The world is one place. Follow the road, then take to the air.',5);requestAnimationFrame(render);
 })();
 </script>
 </body></html>
