@@ -58,6 +58,7 @@ const source={
   "function drawLivingAtlas(){}function render(){drawBellrun(this,world);}",
   "const known=this.compatibility;"
  ].join('\n'),
+ affordances:"export function worldAffordanceObjects(){}\nexport function worldAffordanceSummary(){}\nexport function isWalkableOverride(){}\nexport function applyAffordanceScene(){}\nfunction flood(){const q=[];for(let i=0;i<q.length&&q.length<5000;i++){}}\nfunction layout(world){\n const needScout=!!encounterHabitat(scene),connected=new Map();\n const optional=p=>{\n  const k=key(p);if(connected.has(k))return connected.get(k);\n  const degree=[[1,0],[-1,0],[0,1],[0,-1]].filter(([dx,dy])=>floor(scene,p[0]+dx,p[1]+dy)).length;\n  // Closing this one optional tile must leave every other original floor cell\n  // in the arrival component reachable. No story route is a repair dependency.\n  const safe=degree>=3&&flood(scene,start,p).seen.size===patch.seen.size-1;connected.set(k,safe);return safe;\n };\n}\n",
  roomMap:[
   "import {roomWayfinding} from './room-wayfinding.js?v=scene-finish-1';",
   "export function mountRoomMap({game,getWorld,getObjective,onOpen,onWalk}){",
@@ -76,7 +77,7 @@ const source={
 };
 test('modern live overlay preserves newer systems and extends the current native room map, not duplicate controls',()=>{
  const result=stageLivingSources(source);
- assert.equal(Object.keys(result).length,8);
+ assert.equal(Object.keys(result).length,9);
  assert.ok(result.world.includes('composeCinderfallLayout(this.preparedHouseholds)'));
  assert.ok(result.world.includes('fractureObjects')&&result.world.includes('validateCampaignHandoff'));
  assert.ok(result.world.includes('spatialEcologyObjects(this)'));
@@ -87,6 +88,8 @@ test('modern live overlay preserves newer systems and extends the current native
  assert.ok(result.encounters.includes('spatialEcologyEncounterPace(world)'));
  assert.ok(result.adventure.includes('appendSpatialWildlifeMotion(m,glow,options);'));
  assert.ok(result.renderer.includes('drawSpatialWildlife2D(c,world,this.time);'));
+ assert.ok(result.affordances.includes('critical=articulationCells'));
+ assert.ok(!result.affordances.includes('q.length<5000'));
  assert.ok(result.roomMap.includes('Follow selected waypoint'));
  assert.ok(result.roomMap.includes('spatialEcologySites(s)'));
  assert.ok(result.roomMap.includes("const label=known?'Fieldwork"));
@@ -101,19 +104,19 @@ test('staging refuses changed, duplicate, missing and incompatible current Site 
  const staged=stageLivingSources(source);
  assert.throws(()=>stageLivingSources({...source,world:staged.world}),/already present|Fail closed/);
 });
-test('the create-only 13-file staging manifest has real SHA-256 receipts and does not mutate the source export',()=>{
+test('the create-only 14-file staging manifest has real SHA-256 receipts and does not mutate the source export',()=>{
  const root=mkdtempSync(join(tmpdir(),'ash-live-region-'));
  try{
   const sourceRoot=join(root,'modern-site-dist'),out=join(root,'review');
   mkdirSync(join(sourceRoot,'game/engine2'),{recursive:true});
   const fileMap={world:'world.js',main:'main.js',geometry:'adventure-3d-geometry.js',
    journey:'field-journey-ui.js',encounters:'field-encounters.js',adventure:'adventure-3d-renderer.js',
-   renderer:'renderer.js',roomMap:'room-map.js'};
+   renderer:'renderer.js',roomMap:'room-map.js',affordances:'world-affordances.js'};
   for(const[k,v]of Object.entries(fileMap))writeFileSync(join(sourceRoot,'game/engine2',v),source[k]);
   const manifest=stageLivingSnapshot(sourceRoot,out);
   assert.equal(manifest.deployed,false);assert.equal(manifest.kind,'review-only');
-  assert.equal(manifest.files.length,13);
-  assert.equal(new Set(manifest.files.map(f=>f.file)).size,13);
+  assert.equal(manifest.files.length,14);
+  assert.equal(new Set(manifest.files.map(f=>f.file)).size,14);
   for(const entry of manifest.files){
    assert.match(entry.newSha256,/^[0-9a-f]{64}$/);
    assert.ok(existsSync(join(out,'game/engine2',entry.file)));

@@ -7,36 +7,48 @@ permissions:
 jobs:
   public-source:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify fail-closed staging and exact connectivity
+        run: node --test scripts/tests/*.test.mjs
       - name: Fetch exact public current game scripts without modifying the Site
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p qa-live-current/game/engine2
-          for file in world.js main.js adventure-3d-geometry.js field-journey-ui.js field-encounters.js adventure-3d-renderer.js renderer.js room-map.js; do
+          for file in world.js main.js adventure-3d-geometry.js field-journey-ui.js field-encounters.js adventure-3d-renderer.js renderer.js room-map.js world-affordances.js; do
             curl --fail --silent --show-error --location --retry 2 --connect-timeout 15 --max-time 60 \
               "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$file" \
               --output "qa-live-current/game/engine2/$file"
             node --check "qa-live-current/game/engine2/$file"
           done
-      - name: Create fail-closed overlay of modern live source
+          if node -e "const fs=require('fs');process.exit(/expandVastScenes\(/.test(fs.readFileSync('qa-live-current/game/engine2/world.js','utf8'))?0:1)"; then
+            for file in vast-spatial-expansion.mjs mainline-courts.mjs spatial-landmark-art.mjs spatial-ecology.mjs spatial-wildlife.mjs floor-connectivity.mjs; do
+              curl --fail --silent --show-error --location --connect-timeout 15 --max-time 60 \
+                "https://ash-aether-clay-water.towre676.chatgpt.site/game/engine2/$file" \
+                --output "qa-live-current/game/engine2/$file"
+              node --check "qa-live-current/game/engine2/$file"
+            done
+          fi
+      - name: Prepare current integration verification without duplicating installed work
         run: |
-          node scripts/stage-live-living-regions.mjs qa-live-current qa-live-review
+          node scripts/stage-current-verification.mjs qa-live-current qa-live-review
           for file in qa-live-review/game/engine2/*; do
             case "$file" in *.js|*.mjs) node --check "$file";; esac
           done
-          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('qa-live-review/LIVING-REGIONS-STAGING.json'));if(m.deployed||m.files.length!==13||m.files.some(x=>!x.newSha256))process.exit(1);console.log('Actual current Site 13-file staging verified; no deployment')"
+          node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('qa-live-review/LIVING-REGIONS-STAGING.json'));const installed=m.mode==='existing-installation';if(m.deployed||m.files.length!==(installed?15:14)||m.files.some(x=>!x.newSha256||(installed&&x.oldSha256!==x.newSha256)))process.exit(1);console.log(installed?'Current installed integration: exact 15-file snapshot, zero source changes':'Current pre-integration Site: 14-file review overlay');"
       - name: Retain patched current Site sources with provenance for review
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: living-regions-current-site-review-only
-          path: qa-live-review/
+          path: |
+            qa-live-review/
+            qa-live-current/
           if-no-files-found: error
           retention-days: 7
 
@@ -56,5 +68,5 @@ jobs:
         with:
           name: living-regions-modern-inbrowser-qa
           path: qa-artifacts-live-overlay/
-          if-no-files-found: ignore
+          if-no-files-found: error
           retention-days: 7
