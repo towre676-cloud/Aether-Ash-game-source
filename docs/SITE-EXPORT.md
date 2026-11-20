@@ -16,7 +16,9 @@ To serve the exported static game locally:
 python -m http.server 8000 --directory live-site/dist
 ```
 
-Open http://localhost:8000/. Local hosting has a separate browser origin and does not inherit the live game's player saves. Runtime behavior has not been browser-tested as part of this export.
+Open http://localhost:8000/. Local hosting has a separate browser origin and does not inherit the live game's player saves. The original export verified source integrity. See [the browser validation](SITE-V45-BROWSER-QA.md) for subsequent local runtime checks and their limits. The in-game label is `5.42 · Surface and shadow`. The separately hosted deployment version has not been reverified.
+
+To move a compatible save between browser origins, use **Pause → Save files & previous edition → Export save** on the old origin and **Import save** in the same group on the new origin. The entrance soundtrack is bundled. The adaptive orchestral manifest references externally hosted stems.
 
 This export does not read or change player saves, production databases, runtime secrets, Site access, or the current deployment. It does not include untracked files or external services/assets absent from the original repository. Do not run deployment tools against the preserved hosting manifest unless you intend to update the original Site.
 

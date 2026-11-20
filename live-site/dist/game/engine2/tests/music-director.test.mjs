@@ -177,3 +177,17 @@ test('native remaining time owns a single early field handoff, while pause, mute
   assert.equal(prepared,reason==='continuous'?1:0,reason+' preload');assert.equal(h.calls.play.length,before+(reason==='continuous'?1:0),reason+' handoff');if(reason==='continuous'){assert.equal(h.calls.play.at(-1).handoff,true);assert.equal(h.calls.play.at(-1).id,'b');}
  }
 });
+
+test('uses the bundled pool only after the orchestral pool fails',async()=>{
+ const programFor=()=>({key:'interior',kind:'field',ids:['a','b'],fallbackIds:['c','d']});
+ const offline=harness({programFor,playResults:[false,false,true]});
+ await offline.begin();
+ assert.deepEqual(offline.calls.play.map(track=>track.id),['a','b','c']);
+ assert.equal(offline.director.state.phase,'playing');
+ assert.deepEqual(offline.director.state.history,['c']);
+ const connected=harness({programFor});
+ await connected.begin();
+ connected.director.ended();await flush();
+ connected.director.ended();await flush();
+ assert.deepEqual(connected.calls.play.map(track=>track.id),['a','b','a']);
+});

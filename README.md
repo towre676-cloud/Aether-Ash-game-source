@@ -76,9 +76,9 @@ These archived experiments are now browsable directly from the repository (and f
 ## Trust and release status
 
 - **Publicly accessible repository:** yes, including this source and the site documents.
-- **Original game:** deployed to an access-controlled ChatGPT Site. The editable source has not been exported to GitHub. See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md).
+- **Original game:** hosted separately on ChatGPT Sites. The current deployment may differ from the GitHub snapshot. See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md).
 - **Living World lab:** a recovered, independent experiment; archive provenance recorded in [docs/PROVENANCE.md](docs/PROVENANCE.md). It does not establish production integration.
-- **Full game source:** **not yet mirrored** here. Additional archives exist but require deliberate source/version reconciliation before becoming a canonical game build.
+- **Full game source:** the authenticated Site saved version 45 is preserved under [`live-site/`](live-site/) with its built game in [`live-site/dist/`](live-site/dist/). See the [export record and local instructions](docs/SITE-EXPORT.md).
 - **GitHub Pages:** deployment is configured through Actions; the repository owner may need to choose **Settings → Pages → Source: GitHub Actions** before the public project site is live.
 
-See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md) and [development status](docs/DEVELOPMENT.md) for the next honest integration milestones. This repository does not grant any license for third-party redistribution unless a license is subsequently added by the owner.
+See [live-source integration](docs/LIVE_SOURCE_INTEGRATION.md) and [development status](docs/DEVELOPMENT.md) for the next integration milestones. This repository does not grant any license for third-party redistribution unless a license is subsequently added by the owner.
